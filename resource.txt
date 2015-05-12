@@ -15,8 +15,6 @@ Possibly?
 
 1data/allRespones/CSV
 
-opendata2/onePage.csv
-
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/vis/rdfbrowser2/js/main.js
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/index.html
@@ -27,6 +25,6 @@ continuation from above?
 data/ntriples.n3
 data/onePage.nt
 
-/opendata2/onePage.csv
+~/opendata2/onePage.csv
 
 
