@@ -12,6 +12,13 @@ Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
+	Searched for all www directories from root and only found this few:
+	./usr/share/cups/www
+	./usr/lib64/R/library/shiny/examples/08_html/www
+	./usr/lib64/R/library/shiny/www
+	./home/cloud-user/anaconda/lib/python2.7/site-packages/www
+	./var/shiny-server/www
+	./var/shiny-server/www/examples/08_html/www
 
 1data/allRespones/CSV
 
@@ -26,5 +33,4 @@ data/ntriples.n3
 data/onePage.nt
 
 ~/opendata2/onePage.csv
-
 
