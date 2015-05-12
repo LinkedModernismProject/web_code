@@ -28,9 +28,8 @@ Possibly?
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/vis/oat/datasource.js
 
-continuation from above?
-data/ntriples.n3
-data/onePage.nt
+~/data/ntriples.n3
+~/data/onePage.nt
 
 ~/opendata2/onePage.csv
 
