@@ -1,0 +1,32 @@
+#My help file
+
+ssh info:
+	Info on the cloud email: Mon May 11 4:40pm
+
+localhost:
+	localhost:8890
+
+/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
+
+Possibly?
+/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
+
+~/www/rdfconvert/rdfconvert-0.4/bin/
+
+1data/allRespones/CSV
+
+opendata2/onePage.csv
+
+/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/vis/rdfbrowser2/js/main.js
+
+/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/index.html
+
+/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/vis/oat/datasource.js
+
+continuation from above?
+data/ntriples.n3
+data/onePage.nt
+
+/opendata2/onePage.csv
+
+
