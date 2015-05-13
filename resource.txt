@@ -33,3 +33,17 @@ Possibly?
 
 ~/opendata2/onePage.csv
 
+
+RDFConvert:
+	First convert to JSON:
+		/home/cloud-user/opendata2/convertCSVtoRDF.py
+	Convert from JSON to N3:
+		/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/rdfconvert/rdfconvert-0.4/bin/rdfconvert.sh
+
+
+It is recommended that Turtle files have the extension ".ttl" (all lowercase) on all platforms.
+
+
+~/data/onePage.nt
+~/data/ntriples.n3
+
