@@ -29,7 +29,11 @@ color Routines:
 '''
 Working on converting page to turtle or N-Triples or N3. Then using RDFConvert to get into proper format.
   Had to change a > symbol in the mytest.nt created as it interferred with the format for .nt files
-
+'''
+'''
+Possible improvements:
+  Get rid of #Response and other forms(Open-ended Response) etc.?
+  Maybe fix in the 20150309Workbookv3_ontology2 column AK ro 2
 '''
 
 
@@ -138,6 +142,13 @@ for i in myRows:
         triple = [ myName, responseNames[j], row[j]]
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
         print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
+        #Tests
+        #if i<10:
+        #  if str(triple[1]) == str(triple[2]):
+        #    print 'True'
+        #  else:
+        #    print 'False'
+
       except:
         pass
       myNames[myName]=1;
