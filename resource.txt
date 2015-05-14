@@ -39,6 +39,8 @@ RDFConvert:
 		/home/cloud-user/opendata2/convertCSVtoRDF.py
 	Convert from JSON to N3:
 		/usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/rdfconvert/rdfconvert-0.4/bin/rdfconvert.sh
+	How to run:
+		rdfconvert.sh -i N-Triples -o N3 mytest.nt output.n3
 
 
 It is recommended that Turtle files have the extension ".ttl" (all lowercase) on all platforms.
@@ -46,4 +48,5 @@ It is recommended that Turtle files have the extension ".ttl" (all lowercase) on
 
 ~/data/onePage.nt
 ~/data/ntriples.n3
+
 
