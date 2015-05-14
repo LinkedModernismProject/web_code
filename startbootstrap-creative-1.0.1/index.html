@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <!-- For some visualizations  -->
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/highlight.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+  <!-- Script that does visualization in visualization screen -->
+  <script src="js/visua.js"></script>
+
+  <!-- OAT -->
+  <script src="js/loader.js"></script>
+
+  <script type="text/javascript">
+  /*<![CDATA[*/
+  var last_format = 0;
+  function format_select(query_obg)
+  {
+    var query = query_obg.value;
+    var format = query_obg.form.format;
+
+    if ((query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 2) {
+      for(var i = format.options.length; i > 0; i--)
+      format.options[i] = null;
+      format.options[1] = new Option('Turtle','text/turtle');
+      format.options[2] = new Option('Pretty-printed Turtle (slow!)','application/x-nice-turtle');
+      format.options[3] = new Option('RDF/JSON','application/rdf+json');
+      format.options[4] = new Option('RDF/XML','application/rdf+xml');
+      format.options[5] = new Option('N-Triples','text/plain');
+      format.options[6] = new Option('XHTML+RDFa','application/xhtml+xml');
+      format.options[7] = new Option('ATOM+XML','application/atom+xml');
+      format.options[8] = new Option('ODATA/JSON','application/odata+json');
+      format.options[9] = new Option('JSON-LD','application/x-json+ld');
+      format.options[10] = new Option('HTML (list)','text/x-html+ul');
+      format.options[11] = new Option('HTML (table)','text/x-html+tr');
+      format.options[12] = new Option('HTML+Microdata (inconvenient)','text/html');
+      format.options[13] = new Option('HTML+Microdata (pretty-printed table)','application/x-nice-microdata');
+      format.options[14] = new Option('Turtle-style HTML (for browsing, not for export)','text/x-html-nice-turtle');
+      format.options[15] = new Option('Microdata/JSON','application/microdata+json');
+      format.options[16] = new Option('CSV','text/csv');
+      format.options[17] = new Option('TSV','text/tab-separated-values');
+      format.options[18] = new Option('TriG','application/x-trig');
+      format.selectedIndex = 1;
+      last_format = 2;
+    }
+
+    if (!(query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 1) {
+      for(var i = format.options.length; i > 0; i--)
+      format.options[i] = null;
+      format.options[1] = new Option('HTML','text/html');
+      format.options[2] = new Option('Spreadsheet','application/vnd.ms-excel');
+      format.options[3] = new Option('XML','application/sparql-results+xml');
+      format.options[4] = new Option('JSON','application/sparql-results+json');
+      format.options[5] = new Option('Javascript','application/javascript');
+      format.options[6] = new Option('Turtle','text/turtle');
+      format.options[7] = new Option('RDF/XML','application/rdf+xml');
+      format.options[8] = new Option('N-Triples','text/plain');
+      format.options[9] = new Option('CSV','text/csv');
+      format.options[10] = new Option('TSV','text/tab-separated-values');
+      format.selectedIndex = 1;
+      last_format = 1;
+    }
+  }
+
+  function format_change(e)
+  {
+    var format = e.value;
+    var cxml = document.getElementById("cxml");
+    if (!cxml) return;
+    if ((format.match (/\bCXML\b/i)))
+    {
+      cxml.style.display="block";
+    } else {
+      cxml.style.display="none";
+    }
+  }
+  function savedav_change(e)
+  {
+    var savefs = document.getElementById("savefs");
+    if (!savefs) return;
+    if (e.checked)
+    {
+      savefs.style.display = "block";
+    }
+    else
+    {
+      savefs.style.display = "none";
+    }
+  }
+  function sparql_endpoint_init()
+  {
+    var cxml = document.getElementById("cxml");
+    if (cxml) cxml.style.display="none";
+    var savefs = document.getElementById("savefs");
+    if (savefs) savefs.style.display="none";
+  }
+}
+function sparql_endpoint_init()
+{
+  var cxml = document.getElementById("cxml");
+  if (cxml) cxml.style.display="none";
+  var savefs = document.getElementById("savefs");
+  if (savefs) savefs.style.display="none";
+}
+function checkEnter(event){
+  if(event.keyCode == 13){
+    return false;
+  }
+}
+function template_insert(){
+  template = $v('template');
+  insert_text($('query'),template);
+  $('template').selectedIndex = 0;
+}
+/*]]>*/
+</script> <!-- Ash index script -->
+
+</head>
+
+<body id="page-top">
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">Linked Modernisms</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="page-scroll" href="#about">About</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#ontology">Ontology</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1>Linked Modernisms</h1>
+        <hr>
+        <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+
+
+        <input type="text" name="default-graph-uri" id="default-graph-uri"
+        value="http://localhost:8890/test" size="80"/>
+
+        <form action="http://localhost:8890/results.html" method="POST">
+          <div id="searcher">
+            <select name="template" id="template" onchange="template_insert()">
+              <option value="">-- Template --</option>
+              <option value="
+              SELECT DISTINCT ?s ?p ?o
+              WHERE
+              {
+                ?s ?p ?o .
+              }">Select</option>
+
+              <option value="
+              CONSTRUCT
+              {
+                ?s ?p ?o .
+              }
+              WHERE
+              {
+                ?s ?p ?o .
+              }">Construct</option>
+              <option value="
+              ASK WHERE
+              {
+                ?s ?p ?o .
+              }">Ask</option>
+              <option value="CONSTRUCT { ?thing rdfs:type ?type;
+                foaf:name ?name;
+                geo:geometry ?geo .}
+                WHERE     {	?thing a ?type;
+                  foaf:name ?name;
+                  geo:geometry ?geo .
+                  FILTER (bif:st_intersects (?geo, bif:st_point (__P_LAT__,__P_LON__), 200))
+                }
+                ">Proximity query</option>
+              </select>
+
+              <!--  onkeypress="return checkEnter(event);" stuff to use later-->
+            <input id="query" type="textarea" name="query" placeholder="Ex:Argentinian Painters inspired by Da Vinci" value="select * where {?s ?p ?o} limit 10">
+            <a href="results.html" class="btn btn-primary btn-xl page-scroll" value="Run Query">Search</a>
+              <br>
+              <label for="format" class="n">Display Results As:</label>
+              <select name="format">
+                <option value="auto">Auto</option>
+                <option value="text/html" selected="selected">HTML</option>
+                <option value="application/vnd.ms-excel">Spreadsheet</option>
+                <option value="application/sparql-results+xml">XML</option>
+                <option value="application/sparql-results+json">JSON</option>
+                <option value="application/javascript">Javascript</option>
+                <option value="text/plain">NTriples</option>
+                <option value="application/rdf+xml">RDF/XML</option>
+              </select>
+          </div> <!-- search functions-->
+
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+
+  </section>
+
+  <section id="ontology">
+    <iframe src="ontology.html" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+  </section>
+
+
+
+</body>
+</html>
