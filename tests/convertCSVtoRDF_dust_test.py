@@ -141,7 +141,12 @@ for i in myRows:
       try:
         triple = [ myName, responseNames[j], row[j]]
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
-        print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
+        if str(triple[1]) == str(triple[2]):
+          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "True" .'
+        else:
+          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + str(triple[2])+'" .'
+        #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
+
         #Tests
         #if i<10:
         #  if str(triple[1]) == str(triple[2]):
