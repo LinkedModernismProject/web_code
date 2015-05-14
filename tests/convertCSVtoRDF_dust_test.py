@@ -27,7 +27,9 @@ color Routines:
 '''
 
 '''
-Working on converting page to turtle or N-Triples or N3. Then using RDFConvert to get into proper format
+Working on converting page to turtle or N-Triples or N3. Then using RDFConvert to get into proper format.
+  Had to change a > symbol in the mytest.nt created as it interferred with the format for .nt files
+
 '''
 
 
@@ -125,6 +127,7 @@ for row in reader:
 #print(BLUE()+str(fieldNames))
 #print(GREEN()+str(responseNames));
 
+mod_uvic = '<http://modernism.uvic.ca/metadata#'  #Just cleaning up for make print line easier to read
 myNames = { } 
 for i in myRows:
   row = myRows[i];
@@ -134,7 +137,7 @@ for i in myRows:
       try:
         triple = [ myName, responseNames[j], row[j]]
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
-        print(  '<http://modernism.uvic.ca/metadata#'+ str(triple[0])+'> <http://modernism.uvic.ca/metadata#' + str(triple[1]) +'> <http://modernism.uvic.ca/metadata#' + str(triple[2])+'> .' )
+        print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
       except:
         pass
       myNames[myName]=1;
