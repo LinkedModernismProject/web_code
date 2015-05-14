@@ -133,7 +133,8 @@ for i in myRows:
     if( (str(row[j]).strip())!=''):
       try:
         triple = [ myName, responseNames[j], row[j]]
-        print(  '"'+ str(triple[0])+'" "' + str(triple[1]) +'" "' + str(triple[2])+'".' ) #Needs a space before ".", but still looking at better format for turtle
+        #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
+        print(  '<http://modernism.uvic.ca/metadata#'+ str(triple[0])+'> <http://modernism.uvic.ca/metadata#' + str(triple[1]) +'> <http://modernism.uvic.ca/metadata#' + str(triple[2])+'> .' )
       except:
         pass
       myNames[myName]=1;
