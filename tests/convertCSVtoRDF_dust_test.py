@@ -141,10 +141,14 @@ for i in myRows:
       try:
         triple = [ myName, responseNames[j], row[j]]
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
+        #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
+        #HERE Dealing with replacing " with ' and testing .replace function
+        doub_quot_replace = str(triple[2]).replace('"', "'")  #Only matters if the str has " else it will just be normal string
+
         if str(triple[1]) == str(triple[2]):
           print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "True" .'
         else:
-          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + str(triple[2])+'" .'
+          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
         #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
 
         #Tests
