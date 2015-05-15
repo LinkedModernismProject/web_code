@@ -8,6 +8,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-color: #333;
 }
 
 body {
@@ -47,7 +48,6 @@ input[type="text"] {
   border-radius: none;
 }
 
-
 hr.light {
     border-color: #fff;
 }
@@ -71,6 +71,7 @@ h4,
 h5,
 h6 {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    text-align: center;
 }
 
 p {
@@ -84,21 +85,25 @@ p {
 }
 
 .bg-dark {
-    color: #fff;
-    background-color: #222;
+    color: #F06F40;
+    background-color: #F06F40;
 }
 
 .text-faded {
     color: rgba(255,255,255,.7);
+    text shadow
 }
 
 section {
-    padding: 500px 0;
+    padding: 600px 0;
+    width: auto;
+    height: auto;
     background-image: url(../img/texture_grey.jpg);
 }
 
 aside {
-    padding: 50px 0;
+  box-shadow:inset 0.5px 0.5px 1px 1px #333;
+    padding: 10px 0;
 }
 
 .no-padding {
@@ -241,6 +246,7 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
+
 @media(min-width:768px) {
     header {
         min-height: 100%;
@@ -267,10 +273,6 @@ header .header-content .header-content-inner p {
         max-width: 80%;
         font-size: 18px;
     }
-}
-
-.section-heading {
-    margin-top: 0;
 }
 
 .service-box {
@@ -480,9 +482,30 @@ fieldset[disabled] .btn-primary.active {
 }
 
 iframe{
-  position: relative;
-  height: 75%;
-  width: 75%
+  display: block;
+  position: relative hidden;
+  height: auto;
+  width: 90%;
+  margin: 0px auto;
+  border: 1;
+
+}
+
+.the-man{
+  display: inline-block;
+  padding: 5;
+  border: 5px;
+  height: 100px;
+  width: 100px;
+  margin-width: 2px;
+  margin-height: 2px;
+}
+
+.section-heading {
+      color: rgba(255,255,255,.9);
+      text-shadow: 0.5px 0.5px #000000;
+      position: absolute;
+      text-align: center;
 }
 
 ::-moz-selection {
@@ -492,7 +515,6 @@ iframe{
 }
 
 ::selection {
-    text-shadow: none;
     color: #fff;
     background: #222;
 }
