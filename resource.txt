@@ -52,3 +52,7 @@ It is recommended that Turtle files have the extension ".ttl" (all lowercase) on
 
 Working On:
 	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store. 
+
+
+Special character regex:
+	[^\x00-\x7F]
