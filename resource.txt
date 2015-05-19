@@ -56,3 +56,22 @@ Working On:
 
 Special character regex:
 	[^\x00-\x7F]
+
+To query the data base go into tabs: 'Linked Data'->SPARQL
+	Type the graph IRI
+	select * where {?s ?p ?o}
+
+
+Sample Turtle
+	@prefix ns0: <http://modernism.uvic.ca/metadata#> .
+	<http://modernism.uvic.ca/metadata#Jean_Rhys>
+		ns0:prose "hhkjh Å½liÂ<8f>s" ;
+		ns0:Response "Yes" ;
+		ns0:novelist "True" ;
+		ns0:story_writer "True" ;
+		ns0:performer "True" .
+
+
+
+
+

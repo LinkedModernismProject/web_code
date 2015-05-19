@@ -27,6 +27,10 @@ for line in f:
 #line 1792 between r and s in Therse and n and o in Franois
 #line 2437 between n and g in ngres
 #line 3271 between F and t in Fte
+#line 4651 between t and r in Mystres
+#first 12 are cursor lines
+#line 6506 between h and q in Bibliothque
+
 
 for a in attr:
 	ab = ("".join(a))
