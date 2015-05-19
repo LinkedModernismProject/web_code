@@ -62,14 +62,29 @@ To query the data base go into tabs: 'Linked Data'->SPARQL
 	select * where {?s ?p ?o}
 
 
-Sample Turtle
-	@prefix ns0: <http://modernism.uvic.ca/metadata#> .
-	<http://modernism.uvic.ca/metadata#Jean_Rhys>
-		ns0:prose "hhkjh Å½liÂ<8f>s" ;
-		ns0:Response "Yes" ;
-		ns0:novelist "True" ;
-		ns0:story_writer "True" ;
-		ns0:performer "True" .
+Turtle
+	Subject
+		No spaces allowed
+		Some special char's allowed
+			Not Allowed: < >
+	Predicate
+		No spaces allowed
+		Some special char's allowed
+			Not Allowed: < >
+	Object
+		Spaces allowed
+		Special characters allowed, even < >
+
+
+	Sample Turtle
+		@prefix ns0: <http://modernism.uvic.ca/metadata#> .
+		<http://modernism.uvic.ca/metadata#Jean_Rhys>
+			ns0:prose "hhkjh Å½liÂ<8f>s" ;
+			ns0:Response "Yes" ;
+			ns0:novelist "True" ;
+			ns0:story_writer "True" ;
+			ns0:performer "True" .
+
 
 
 
