@@ -78,7 +78,7 @@ def force_decode(string, codecs=['ISO-8859-1','utf8', 'cp1252','ascii']):
     for i in codecs:#142.104.52.1
         try:
             a = string.decode(i)
-            print("Was able to decode with codec "+str(i));
+            #print("Was able to decode with codec "+str(i)); Commented so it would not be in output file
             return(a.encode('utf8'));
         except:
             pass
@@ -100,7 +100,9 @@ def fixNulls(csvFileName): #based on http://stackoverflow.com/questions/4166070/
 
 
 csvFile = "20150309Workbookv3_ontology2.csv";
+csvFile   = fixNulls(csvFile); #ADDED to try and fix special char's so that it would be readable
 csvfile = open(csvFile,'rU');#'file.csv', 'r')
+
 reader = csv.reader( csvfile, dialect=csv.excel_tab);# fieldnames)
 myRows = { };
 fieldNames = [ ]; #origFieldNames[i] = { } ; origResponseNames[i] = { } ;
@@ -144,11 +146,16 @@ for i in myRows:
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
         #HERE Dealing with replacing " with ' and testing .replace function
         doub_quot_replace = str(triple[2]).replace('"', "'")  #Only matters if the str has " else it will just be normal string
+        #getting rid of spaces in subj and pred
+        str_trip0 = (str(triple[0])).replace(' ', '_')
+        str_trip1 = (str(triple[1])).replace(' ', '_')
 
         if str(triple[1]) == str(triple[2]):
-          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "True" .'
+          #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
+          print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
         else:
-          print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
+          #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
+          print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
         #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
 
         #Tests
