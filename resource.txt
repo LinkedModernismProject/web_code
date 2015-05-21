@@ -9,11 +9,16 @@ launch chromium:
 localhost:
 	localhost:8890
 
-
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
 Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
+
+Search recursively through files for a string:
+	grep -rli 'string' .
+
+Grep history:
+	history | grep cmd_name
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
 	Searched for all www directories from root and only found this few:
