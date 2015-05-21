@@ -77,6 +77,8 @@ Turtle
 			Not Allowed: < >
 		Not allowed / char in string
 		Now allowed () in string
+		Now allowed [] in string
+		Now allowed + in string
 	Object
 		Spaces allowed
 		Special characters allowed, even < >
