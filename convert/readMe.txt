@@ -12,3 +12,4 @@ test_parser.py
 	This now takes the out.nt from the conversion above and will parse through it to convert to Turtle, removes any unallowed char's from predicates
 
 
+Completed
