@@ -146,7 +146,7 @@ for i in myRows:
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
         #HERE Dealing with replacing " with ' and testing .replace function
         doub_quot_replace = str(triple[2]).replace('"', "'")  #Only matters if the str has " else it will just be normal string
-        #getting rid of spaces in subj and pred
+        #getting rid of spaces in subj and pred and replacing with _
         str_trip0 = (str(triple[0])).replace(' ', '_')
         str_trip1 = (str(triple[1])).replace(' ', '_')
 

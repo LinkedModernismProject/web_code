@@ -3,8 +3,12 @@
 ssh info:
 	Info on the cloud email: Mon May 11 4:40pm
 
+launch chromium:
+	/opt/chromium/chrome-wrapper %U
+
 localhost:
 	localhost:8890
+
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
@@ -71,6 +75,8 @@ Turtle
 		No spaces allowed
 		Some special char's allowed
 			Not Allowed: < >
+		Not allowed / char in string
+		Now allowed () in string
 	Object
 		Spaces allowed
 		Special characters allowed, even < >
