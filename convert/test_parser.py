@@ -19,6 +19,12 @@ def processing_for_prefix(pred):
 	p_str = pred.split('<http://modernism.uvic.ca/metadata#')
 	p_str = ''.join(p_str)
 	p_str = p_str.replace('>', '')
+	p_str = p_str.replace('(', '')
+	p_str = p_str.replace(')', '')
+	p_str = p_str.replace('[', '')
+	p_str = p_str.replace(']', '')
+	p_str = p_str.replace('+', '')
+	p_str = p_str.replace("'", '-')
 	if '/' in p_str:
 		p_str = p_str.rsplit('/', 1)
 		return p_str
@@ -48,10 +54,10 @@ pre_prefix = '@prefix pref'+`p_inc`+': '
 prefixes = [pre_prefix+'<http://modernism.uvic.ca/metadata#> .'] #list for prefixes
 turtle = ''
 
-#WORKING ON FIXING () IN PREDICATES NOW #Line 1765
+#WORKING ON FIXING () IN PREDICATES NOW #Line 1765 #Good to 2186
 for line in f:
-	if i>1765:
-		break
+	#if i>5:
+	#	break
 	ls = line.split(' ')
 	pred = processing_for_prefix(ls[1])
 	if pred[0]:	#Testing if their is a string for a prefix to add

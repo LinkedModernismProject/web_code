@@ -80,6 +80,7 @@ Turtle
 	Object
 		Spaces allowed
 		Special characters allowed, even < >
+		Allowed () char's
 
 
 	Sample Turtle
