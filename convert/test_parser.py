@@ -54,7 +54,7 @@ pre_prefix = '@prefix pref'+`p_inc`+': '
 prefixes = [pre_prefix+'<http://modernism.uvic.ca/metadata#> .'] #list for prefixes
 turtle = ''
 
-#WORKING ON FIXING () IN PREDICATES NOW #Line 1765 #Good to 2186
+#WORKING ON FIXING () IN PREDICATES NOW #Line 1765 #Good to 2186 # Works now
 for line in f:
 	#if i>5:
 	#	break
