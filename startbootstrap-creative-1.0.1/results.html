@@ -48,7 +48,8 @@
 
   <!-- For some visualizations  -->
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="/highlight.min.js"></script>
+  <script src="js/highlight.min.js"></script>
+
 </head>
 
 
@@ -71,10 +72,16 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a class="page-scroll" href="index.html#about">About</a>
+            <a href="index.html#ontology">Ontology</a>
           </li>
           <li>
-            <a class="page-scroll" href="#visualizations">Visualizations</a>
+            <a href="index.html#about">About</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#page-top">Results</a>
+          <li>
+          <li>
+            <a href="visualizations.html">Visualizations</a>
           </li>
         </ul>
       </div>
@@ -82,6 +89,40 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
+
+<hr class="light"></hr>
+<br>
+<div>
+  <table class="table-hover">
+    <thead>
+      <tr>
+        <th>Classification</th>
+        <th>Object Title</th>
+        <th>URI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>City</td>
+        <td>Bruge</td>
+        <td>http://linkedmodernisms/place/city</td>
+      </tr>
+      <tr>
+        <td>Manifesto</td>
+        <td>Communist Manifesto</td>
+        <td>http://linkedmodernisms/production/artifact/manifesto</td>
+      </tr>
+      <tr>
+        <td>Group</td>
+        <td>Group of Seven</td>
+        <td>http://linkedmodernisms/agent/groupormovement/group</td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+<a href="visualizations.html" class="btn btn-primary btn-xl page-scroll">Visualize</a>
+
+</div>
 <!--
   <header>
     <div class="header-content">

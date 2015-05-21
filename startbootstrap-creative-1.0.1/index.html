@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
   <!-- Custom Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
   <!-- Plugin CSS -->
@@ -32,10 +30,9 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-
   <!-- For some visualizations  -->
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="/highlight.min.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/highlight.min.js"></script>
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
@@ -52,10 +49,11 @@
   <script src="js/creative.js"></script>
 
   <!-- Script that does visualization in visualization screen -->
-  <script src="js/visua.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- OAT -->
   <script src="js/loader.js"></script>
+  <script src="js/ajax.js"></script>
 
   <script type="text/javascript">
   /*<![CDATA[*/
@@ -140,30 +138,42 @@
     var savefs = document.getElementById("savefs");
     if (savefs) savefs.style.display="none";
   }
-}
-function sparql_endpoint_init()
-{
-  var cxml = document.getElementById("cxml");
-  if (cxml) cxml.style.display="none";
-  var savefs = document.getElementById("savefs");
-  if (savefs) savefs.style.display="none";
-}
-function checkEnter(event){
-  if(event.keyCode == 13){
-    return false;
+  function checkEnter(event){
+    if(event.keyCode == 13){
+      return false;
+    }
   }
-}
-function template_insert(){
-  template = $v('template');
-  insert_text($('query'),template);
-  $('template').selectedIndex = 0;
-}
-/*]]>*/
-</script> <!-- Ash index script -->
+  function template_insert(){
+    template = $v('template');
+    insert_text($('query'),template);
+    $('template').selectedIndex = 0;
+  }
+  /*]]>*/
+  </script> <!-- Ash index script -->
 
 </head>
+<!-- I may yet find a use for this stuff
+<li>
+<a class="page-scroll" data-toggle="tab" href="#sectionC">Results</a>
+</li>
+<li>
+<a class="page-scroll" data-toggle="tab" href="#sectionD">Visualizations</a>
+</li>    -from navbar
 
-<body id="page-top">
+
+
+<body onload="init();">
+
+<div id="center-container">
+<div id="infovis"></div>
+</div>
+
+<div id="log"></div>
+
+
+
+-->
+<body id="page-top" onload="sparql_endpoint_init()">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -175,7 +185,7 @@ function template_insert(){
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top">Linked Modernisms</a>
+        <a class="navbar-brand page-scroll" href="#page-top" onclick="">Linked Modernisms</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -194,142 +204,267 @@ function template_insert(){
     <!-- /.container-fluid -->
   </nav>
 
-  <header>
-    <div class="header-content">
-      <div class="header-content-inner">
-        <h1>Linked Modernisms</h1>
-        <hr>
-        <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+  <hr class="light"></hr><br/>
+
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a data-toggle="tab" href="#sectionA" class="btn" role="button">Search</a></li>
+    <li><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
+    <li><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
+    <li><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
+  </ul>
 
 
-        <input type="text" name="default-graph-uri" id="default-graph-uri"
-        value="http://localhost:8890/test" size="80"/>
+  <section>
+    <div class="tab-content">
 
-        <form action="http://localhost:8890/results.html" method="POST">
-          <div id="searcher">
-            <select name="template" id="template" onchange="template_insert()">
-              <option value="">-- Template --</option>
-              <option value="
-              SELECT DISTINCT ?s ?p ?o
-              WHERE
-              {
-                ?s ?p ?o .
-              }">Select</option>
 
-              <option value="
-              CONSTRUCT
-              {
-                ?s ?p ?o .
-              }
-              WHERE
-              {
-                ?s ?p ?o .
-              }">Construct</option>
-              <option value="
-              ASK WHERE
-              {
-                ?s ?p ?o .
-              }">Ask</option>
-              <option value="CONSTRUCT { ?thing rdfs:type ?type;
-                foaf:name ?name;
-                geo:geometry ?geo .}
-                WHERE     {	?thing a ?type;
-                  foaf:name ?name;
-                  geo:geometry ?geo .
-                  FILTER (bif:st_intersects (?geo, bif:st_point (__P_LAT__,__P_LON__), 200))
-                }
-                ">Proximity query</option>
-              </select>
 
-              <!--  onkeypress="return checkEnter(event);" stuff to use later-->
-            <input id="query" type="textarea" name="query" placeholder="Ex:Argentinian Painters inspired by Da Vinci" value="select * where {?s ?p ?o} limit 10">
-            <a href="results.html" class="btn btn-primary btn-xl page-scroll" value="Run Query">Search</a>
-              <br>
-              <label for="format" class="n">Display Results As:</label>
-              <select name="format">
-                <option value="auto">Auto</option>
-                <option value="text/html" selected="selected">HTML</option>
-                <option value="application/vnd.ms-excel">Spreadsheet</option>
-                <option value="application/sparql-results+xml">XML</option>
-                <option value="application/sparql-results+json">JSON</option>
-                <option value="application/javascript">Javascript</option>
-                <option value="text/plain">NTriples</option>
-                <option value="application/rdf+xml">RDF/XML</option>
-              </select>
-          </div> <!-- search functions-->
+      <div class="tab-pane fade in active" id="sectionA">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="header-content">
+          <div class="header-content-inner">
+            <h1>Linked Modernisms</h1>
+            <hr class="top">
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
 
-        </form>
+
+
+
+            <form action="index.html#sectionC">
+              <div id="searcher">
+
+
+                <!--  onkeypress="return checkEnter(event);" stuff to use later-->
+                <input id="query" type="textarea" name="query" placeholder="Ex:Argentinian Painters inspired by Da Vinci" value="select * where {?s ?p ?o} limit 10"  onchange="format_select(this)" onkeyup="format_select(this)">
+                <a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
+                <br>
+              </div> <!-- search functions-->
+
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </header>
 
-  <aside class="bg-dark">
-  </aside>
+
+      <div class="tab-pane fade" id="sectionB">
+        <br/>
+        <button class="btn btn-xl btn-primary">show uri information</button>
+        <button class="btn btn-xl btn-primary">I'm button B</button>
+        <button class="btn btn-xl btn-primary">I'm button C</button>
+        <button class="btn btn-xl btn-primary">I'm button D</button>
+        <br/>&nbsp;
+        <input type="textarea" placeholder="Enter your query in SPARQL"></input>
+        <br/>&nbsp;
+        <select name="template" id="template" onchange="template_insert()">
+          <option value="">-- Template --</option>
+          <option value="
+          SELECT DISTINCT ?s ?p ?o
+          WHERE
+          {
+            ?s ?p ?o .
+          }">Select</option>
+
+          <option value="
+          CONSTRUCT
+          {
+            ?s ?p ?o .
+          }
+          WHERE
+          {
+            ?s ?p ?o .
+          }">Construct</option>
+          <option value="
+          ASK WHERE
+          {
+            ?s ?p ?o .
+          }">Ask</option>
+          <option value="CONSTRUCT { ?thing rdfs:type ?type;
+            foaf:name ?name;
+            geo:geometry ?geo .}
+            WHERE     {	?thing a ?type;
+              foaf:name ?name;
+              geo:geometry ?geo .
+              FILTER (bif:st_intersects (?geo, bif:st_point (__P_LAT__,__P_LON__), 200))
+            }
+            ">Proximity query</option>
+          </select>
+          <br/>&nbsp;
+          <label for="format" class="n">Display Results As:</label>
+          <select name="format">
+            <option value="auto">Auto</option>
+            <option value="text/html" selected="selected">HTML</option>
+            <option value="application/vnd.ms-excel">Spreadsheet</option>
+            <option value="application/sparql-results+xml">XML</option>
+            <option value="application/sparql-results+json">JSON</option>
+            <option value="application/javascript">Javascript</option>
+            <option value="text/plain">NTriples</option>
+            <option value="application/rdf+xml">RDF/XML</option>
+          </select>
+          <br/>&nbsp;
+          <label for="format" class="n">Change default URI</label>
+          <input type="text" name="default-graph-uri" id="default-graph-uri"
+          value="http://localhost:8890/test" size="80"/>
+        </div>
+
+
+
+
+
+        <div class="tab-pane fade" id="sectionC">
+          <br/><br/><br/><br/>
+          <table class="table-hover">
+            <thead>
+              <tr>
+                <th>Classification</th>
+                <th>Object Title</th>
+                <th>URI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>City</td>
+                <td>Bruges</td>
+                <td>http://linkedmodernisms/place/city</td>
+              </tr>
+              <tr>
+                <td>Manifesto</td>
+                <td>Communist Manifesto</td>
+                <td>http://linkedmodernisms/production/artifact/manifesto</td>
+              </tr>
+              <tr>
+                <td>Group</td>
+                <td>Group of Seven</td>
+                <td>http://linkedmodernisms/agent/groupormovement/group</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!-- Other ones I want
+        http://bl.ocks.org/dwtkns/4973620 -artifacts only
+
+      -->
+      <div class="tab-pane fade" id="sectionD">
+        <br/>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="forcedirected.html"><button id="fd-button"></button></a>
+            <div class="caption">
+              <p>Force Directed graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <br/>
 
   <section id="ontology">
-      <h1 class="section-heading">
-        The Ontology we use to classify modernism
-      </h1>
-      <br>
-    <iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
-    <p class="text-faded">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    <br/>
+    <hr class="light"></hr>
+    <br/>
+    <h1>
+      The Modernism Ontology
+    </h1>
+    <br>
+    &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    <p class="text-faded">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
   </section>
 
-  <aside class="bg-dark">
-  </aside>
+
+
 
   <section id="about">
+    <br/>
+    <hr class="light"></hr>
+    <br/><br/>
+    <h1>About The Project</h1><br/><br/><br/><br/><br/>
+    <div>
+      <p>&nbsp;&nbsp;&nbsp;
+        Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
+      </p>
+    </div>
     <div class="row">
-      <div class="col-sm-6 col-md-3">
+      <div class="col-md-6 col-md-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
-            <h3>Dr. Stephen Ross</h3>
+            <h4>Dr. Stephen Ross</h4>
+            <p>Project Lead</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
             <p>He is the batman.</p>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-3">
+      <div class="col-sm-6 col-md-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
-            <h3>Dr. Stephen Ross</h3>
+            <h4>Dr. Stephen Ross</h4>
             <p>He is the batman.</p>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-3">
+      <div class="col-sm-6 col-md-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
-            <h3>Dr. Stephen Ross</h3>
+            <h4>Dr. Stephen Ross</h4>
             <p>He is the batman.</p>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-3">
+      <div class="col-sm-6 col-md-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
-            <h3>Dr. Stephen Ross</h3>
-            <p>He is the batman.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h3>Dr. Stephen Ross</h3>
+            <h4>Dr. Stephen Ross</h4>
             <p>He is the batman.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
+
 
 
 </body>

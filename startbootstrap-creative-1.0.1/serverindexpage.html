@@ -1,0 +1,594 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <title>Linked Modernisms (LiMo)</title>
+  <meta name="description" content="Linked Modernisms is a Web Based Visualization and Analysis Portal For The Routledge Encyclopedia of Modernism.">
+  <meta name="keywords" content="sparql,rdf, linked data, modernism">
+  <link rel="stylesheet" type="text/css" href="default.css">
+
+  <script type="text/javascript">
+  /*<![CDATA[*/
+  var last_format = 0;
+  function format_select(query_obg)
+  {
+    var query = query_obg.value;
+    var format = query_obg.form.format;
+
+    if ((query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 2) {
+      for(var i = format.options.length; i > 0; i--)
+      format.options[i] = null;
+      format.options[1] = new Option('Turtle','text/turtle');
+      format.options[2] = new Option('Pretty-printed Turtle (slow!)','application/x-nice-turtle');
+      format.options[3] = new Option('RDF/JSON','application/rdf+json');
+      format.options[4] = new Option('RDF/XML','application/rdf+xml');
+      format.options[5] = new Option('N-Triples','text/plain');
+      format.options[6] = new Option('XHTML+RDFa','application/xhtml+xml');
+      format.options[7] = new Option('ATOM+XML','application/atom+xml');
+      format.options[8] = new Option('ODATA/JSON','application/odata+json');
+      format.options[9] = new Option('JSON-LD','application/x-json+ld');
+      format.options[10] = new Option('HTML (list)','text/x-html+ul');
+      format.options[11] = new Option('HTML (table)','text/x-html+tr');
+      format.options[12] = new Option('HTML+Microdata (inconvenient)','text/html');
+      format.options[13] = new Option('HTML+Microdata (pretty-printed table)','application/x-nice-microdata');
+      format.options[14] = new Option('Turtle-style HTML (for browsing, not for export)','text/x-html-nice-turtle');
+      format.options[15] = new Option('Microdata/JSON','application/microdata+json');
+      format.options[16] = new Option('CSV','text/csv');
+      format.options[17] = new Option('TSV','text/tab-separated-values');
+      format.options[18] = new Option('TriG','application/x-trig');
+      format.selectedIndex = 1;
+      last_format = 2;
+    }
+
+    if (!(query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 1) {
+      for(var i = format.options.length; i > 0; i--)
+      format.options[i] = null;
+      format.options[1] = new Option('HTML','text/html');
+      format.options[2] = new Option('Spreadsheet','application/vnd.ms-excel');
+      format.options[3] = new Option('XML','application/sparql-results+xml');
+      format.options[4] = new Option('JSON','application/sparql-results+json');
+      format.options[5] = new Option('Javascript','application/javascript');
+      format.options[6] = new Option('Turtle','text/turtle');
+      format.options[7] = new Option('RDF/XML','application/rdf+xml');
+      format.options[8] = new Option('N-Triples','text/plain');
+      format.options[9] = new Option('CSV','text/csv');
+      format.options[10] = new Option('TSV','text/tab-separated-values');
+      format.selectedIndex = 1;
+      last_format = 1;
+    }
+  }
+
+  function format_change(e)
+  {
+    var format = e.value;
+    var cxml = document.getElementById("cxml");
+    if (!cxml) return;
+    if ((format.match (/\bCXML\b/i)))
+    {
+      cxml.style.display="block";
+    } else {
+      cxml.style.display="none";
+    }
+  }
+  function savedav_change(e)
+  {
+    var savefs = document.getElementById("savefs");
+    if (!savefs) return;
+    if (e.checked)
+    {
+      savefs.style.display = "block";
+    }
+    else
+    {
+      savefs.style.display = "none";
+    }
+  }
+  function sparql_endpoint_init()
+  {
+    var cxml = document.getElementById("cxml");
+    if (cxml) cxml.style.display="none";
+    var savefs = document.getElementById("savefs");
+    if (savefs) savefs.style.display="none";
+  }
+}
+function sparql_endpoint_init()
+{
+  var cxml = document.getElementById("cxml");
+  if (cxml) cxml.style.display="none";
+  var savefs = document.getElementById("savefs");
+  if (savefs) savefs.style.display="none";
+}
+/*]]>*/
+</script>
+
+
+
+<table id="MTB" cellspacing="0" cellpadding="0" width="100%">
+  <tr id="MB">
+    <td colspan="2">
+      <img src="images/LinkedModernism3-2600dpi.png" width=221 height=78>
+    </td>
+  </tr>
+  <tr id="MT">
+    <td id="LC">
+      <table width="100%" background="images/globe_xl.jpg" class="splash_back">
+        <tr><td nowrap="nowrap"><img src="conductor.gif" width="20" height="20" /> <a href="http://localhost:8890/conductor/">The Virtuoso Conductor</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="images/vdocs2_32.png"  width="20" height="20" /> <a href="http://docs.openlinksw.com/virtuoso">Virtuoso Documentation</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="virtuoso.gif"  width="20" height="20" /> <a href="http://www.openlinksw.com/">OpenLink Software</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="images/opsys_32.png"   width="20" height="20" /> <a href="http://download.openlinksw.com/download/">Virtuoso Download</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="images/help_32.png"    width="20" height="20" /> <a href="http://demo.openlinksw.com/tutorial/">Virtuoso Tutorials</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="images/support_32.png" width="20" height="20" /> <a href="http://support.openlinksw.com/">Virtuoso Support</a>
+        </td></tr>
+        <tr><td nowrap="nowrap"><img src="images/vblog2_32.png"  width="20" height="20" /> <a href="http://www.openlinksw.com/weblogs/virtuoso/">Virtuoso Blog</a>
+        </td></tr>
+      </table>
+      <td id="RC">
+        <table id="RTB">
+          <tr>
+            <td id="RB">
+              <div class="subpage_header_area">
+                <!--
+                <h1 class="page_title">Welcome To </h1>
+              -->
+              <table colspan="2">
+                <tr>
+                  <td>
+                    <img src="images/LinkedModernism3-2600dpi.png" width=85 height=30 align="top">
+                  </td>
+                  <td>
+                    <font color="black" face="arial" size="2"> (LiMo) marries the Routledge Encyclopedia of Modernism (REM) with Big Data technology.
+                      <br> The result-- an interactive, multidisciplinary, and truly global scholastic phenomenon.</font>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Linked Modernisms (LiMo) </h1>
+              -->
+            </div><div class="main_page_area">
+
+
+              <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+                <tr>
+
+                  <td>
+
+                    <br>  <!-- there used to be some text here, too -->
+                    <!--
+
+                    <table cellpadding="10" cellspacing="0" border="0" width="100%">
+                    <tr>
+                    <td>
+
+                    <table class="tab_page">
+                    <tr>
+                    <td valign="top">
+
+
+                    <br><br>
+                    LiMo combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching.
+                    <br><br>
+                    With LiMo, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.LiMo will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which LiMo is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, LiMo will become a crucial scholarly resource for the study global modernism.
+
+
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+        </table>
+      -->
+
+
+
+    </div>
+  </td>
+</tr>
+</table>
+</td>
+</tr>
+<!--
+
+<tr><td id="copyright_ctr" colspan="2">
+<br><br>
+Linked Modernisms Copyright &copy; 2015 University of Victoria.
+<br>
+Virtuoso Copyright &copy; 1998-2014 OpenLink Software. </td>
+</tr>
+-->
+
+
+
+</table>
+</head>
+
+
+<body>
+  <div id="header">
+    <!--    <h2>SPARQL Query Editor</h2>
+
+    <form action="http://localhost:8890/sparql" method="GET" >
+
+  -->
+
+</div>
+<div id="main">
+  <form action="http://localhost:8890/sparql" method="POST" >
+    <fieldset>
+      <legend>SPARQL Query</legend>
+      <label for="default-graph-uri">Default Graph URI</label>
+      <br />
+      <input type="text" name="default-graph-uri" id="default-graph-uri"
+      value="http://localhost:8890/test" size="80"/>
+      <br /><br />
+      <select name="should-sponge" id="should-sponge">  <option selected="selected" value="">Use only local data (including data retrieved before), but do not retrieve more</option>
+        <option value="soft">Retrieve remote RDF data for all missing source graphs</option>
+        <option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
+        <option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
+        <option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
+      </select>
+      <br />
+      <label for="query">Query text</label>
+      <br />
+      <textarea rows="10" cols="75" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">select * where {?s ?p ?o} limit 10</textarea>
+      <br /><br />
+      <label for="format" class="n">Display Results As:</label>
+      <select name="format">
+        <option value="auto">Auto</option>
+        <option value="text/html" selected="selected">HTML</option>
+        <option value="application/vnd.ms-excel">Spreadsheet</option>
+        <option value="application/sparql-results+xml">XML</option>
+        <option value="application/sparql-results+json">JSON</option>
+        <option value="application/javascript">Javascript</option>
+        <option value="text/plain">NTriples</option>
+        <option value="application/rdf+xml">RDF/XML</option>
+      </select>
+      <br>
+      <input type="submit" value="Run Query"/>&nbsp;<input type="reset" value="Reset"/>
+      <nobr>Execution timeout (ms) </nobr><input name="timeout" type="text"0/>&nbsp;<label for="timeout" class="n"></label>
+      <input name="debug" type="checkbox" checked/>&nbsp;<label for="debug" class="n"><nobr>Check query rigorously</nobr></label>
+
+    </fieldset>
+  </form>
+</div>
+</body>
+
+
+</html>
+
+
+
+
+
+
+<!-- __________________________________SPARQL PAGE__________________________________ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html version="-//W3C//DTD XHTML 1.1//EN"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xml:lang="en"
+>
+<head>
+    <title>Virtuoso SPARQL Query Editor</title>
+    <meta name="Copyright" content="Copyright &copy; 2015 OpenLink Software" />
+    <meta name="Keywords" content="OpenLink Virtuoso Sparql" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+
+<style type="text/css">
+/*<![CDATA[*/
+html { padding: 0; }
+body {
+padding: 0;
+margin: 0;
+font-family:Gill Sans, Arial, Helvetica, sans-serif;
+font-size: 9pt;
+color: #333;
+background-color: #FDFDFD;
+}
+#header {
+padding: 0;
+margin: 0;
+background-color: #86B9D9;
+color: #FFFFFF;
+border-bottom: 1px solid #AAA;
+}
+#header h1 {
+font-size: 16pt;
+font-weight: normal;
+text-align: left;
+vertical-align: middle;
+padding: 4px 8px 4px 8px;
+margin: 0px 0px 0px 0px;
+}
+#menu {
+margin-left: 8px;
+margin-right: 8px;
+margin-top: 0px;
+clear: right;
+float: right;
+}
+#intro,#main {
+margin-left: 8px;
+margin-right: 8px;
+}
+#help {
+margin-left: 8px;
+margin-right: 8px;
+width: 80%
+}
+#footer {
+width: 100%;
+float: left;
+clear: left;
+margin: 2em 0 0;
+padding-top: 0.7ex;
+border-top: 1px solid #AAA;
+font-size: 8pt;
+text-align: center;
+}
+fieldset {
+border: 0;
+padding: 0;
+margin: 0;
+}
+fieldset label {
+font-weight: normal;
+white-space: nowrap;
+font-size: 11pt;
+color: #000;
+}
+fieldset label.n {
+display: block;
+vertical-align: bottom;
+margin-top:5px;
+width: 160px;
+float:left;
+white-space: nowrap;
+}
+fieldset label.n:after { content: ":"; }
+fieldset label.n1 {
+display: block;
+vertical-align: bottom;
+margin-top:5px;
+width: 160px;
+float:left;
+white-space: nowrap;
+}
+fieldset label.ckb {
+width: 160px;
+font-weight: normal;
+font-size: 10pt;
+}
+fieldset label.ckb:after { content: ""; }
+fieldset textarea {
+width: 99%;
+font-family: monospace;
+font-size: 10pt;
+}
+#cxml {
+clear: both;
+display: block;
+}
+#savefs {
+clear: both;
+display: block;
+}
+span.info {
+font-size: 9pt;
+white-space: nowrap;
+height: 2em;
+}
+br { clear: both; }
+/*]]>*/
+</style>
+
+    <script type="text/javascript">
+    /*<![CDATA[*/
+	var last_format = 0;
+	function format_select(query_obg)
+	{
+		var query = query_obg.value;
+		var format = query_obg.form.format;
+
+		if ((query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 2) {
+			for(var i = format.options.length; i > 0; i--)
+				format.options[i] = null;
+			format.options[1] = new Option('Turtle','text/turtle');
+			format.options[2] = new Option('Pretty-printed Turtle (slow!)','application/x-nice-turtle');
+			format.options[3] = new Option('RDF/JSON','application/rdf+json');
+			format.options[4] = new Option('RDF/XML','application/rdf+xml');
+			format.options[5] = new Option('N-Triples','text/plain');
+			format.options[6] = new Option('XHTML+RDFa','application/xhtml+xml');
+			format.options[7] = new Option('ATOM+XML','application/atom+xml');
+			format.options[8] = new Option('ODATA/JSON','application/odata+json');
+			format.options[9] = new Option('JSON-LD','application/x-json+ld');
+			format.options[10] = new Option('HTML (list)','text/x-html+ul');
+			format.options[11] = new Option('HTML (table)','text/x-html+tr');
+			format.options[12] = new Option('HTML+Microdata (inconvenient)','text/html');
+			format.options[13] = new Option('HTML+Microdata (pretty-printed table)','application/x-nice-microdata');
+			format.options[14] = new Option('Turtle-style HTML (for browsing, not for export)','text/x-html-nice-turtle');
+			format.options[15] = new Option('Microdata/JSON','application/microdata+json');
+			format.options[16] = new Option('CSV','text/csv');
+			format.options[17] = new Option('TSV','text/tab-separated-values');
+			format.options[18] = new Option('TriG','application/x-trig');
+			format.selectedIndex = 1;
+			last_format = 2;
+		}
+
+		if (!(query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 1) {
+			for(var i = format.options.length; i > 0; i--)
+				format.options[i] = null;
+			format.options[1] = new Option('HTML','text/html');
+			format.options[2] = new Option('Spreadsheet','application/vnd.ms-excel');
+			format.options[3] = new Option('XML','application/sparql-results+xml');
+			format.options[4] = new Option('JSON','application/sparql-results+json');
+			format.options[5] = new Option('Javascript','application/javascript');
+			format.options[6] = new Option('Turtle','text/turtle');
+			format.options[7] = new Option('RDF/XML','application/rdf+xml');
+			format.options[8] = new Option('N-Triples','text/plain');
+			format.options[9] = new Option('CSV','text/csv');
+			format.options[10] = new Option('TSV','text/tab-separated-values');
+			format.selectedIndex = 1;
+			last_format = 1;
+		}
+	}
+
+function format_change(e)
+{
+var format = e.value;
+var cxml = document.getElementById("cxml");
+if (!cxml) return;
+if ((format.match (/\bCXML\b/i)))
+{
+cxml.style.display="block";
+} else {
+cxml.style.display="none";
+}
+}
+function savedav_change(e)
+{
+var savefs = document.getElementById("savefs");
+if (!savefs) return;
+if (e.checked)
+{
+savefs.style.display = "block";
+}
+else
+{
+savefs.style.display = "none";
+}
+}
+function sparql_endpoint_init()
+{
+var cxml = document.getElementById("cxml");
+if (cxml) cxml.style.display="none";
+var savefs = document.getElementById("savefs");
+if (savefs) savefs.style.display="none";
+}
+    /*]]>*/
+    </script>
+</head>
+<body onload="sparql_endpoint_init()">
+    <div id="header">
+	<h1>Virtuoso SPARQL Query Editor</h1>
+    </div>
+
+    <div id="menu">
+	  <a href="/sparql?help=intro">About</a>
+	| <a href="/sparql?nsdecl">Namespace Prefixes</a>
+	| <a href="/sparql?rdfinf">Inference rules</a>
+    </div>
+
+    <div id="main">
+    <br />
+	<form action="" method="get">
+	<fieldset>
+		<label for="default-graph-uri">Default Data Set Name (Graph IRI)</label><br />
+		<input type="text" name="default-graph-uri" id="default-graph-uri" value="" size="80"/>
+		<br /><br />
+		<label for="query">Query Text</label><br />
+		<textarea rows="18" cols="80" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">select * where {?s ?p ?o} limit 10</textarea>
+		<br /><br />
+		<label for="should-sponge" class="n">Sponging</label>
+		<select name="should-sponge" id="should-sponge">
+			<option value="" selected="selected">Use only local data (including data retrieved before), but do not retrieve more</option>
+			<option value="soft" >Retrieve remote RDF data for all missing source graphs</option>
+			<option value="grab-all" >Retrieve all missing remote RDF data that might be useful</option>
+			<option value="grab-all-seealso" >Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
+			<option value="grab-everything" >Try to download all referenced resources (this may be very slow and inefficient)</option>
+		</select>
+		<br />
+		<label for="format" class="n">Results Format</label>
+		<select name="format" id="format" onchange="format_change(this)">
+			<option value="auto" >Auto</option>
+			<option value="text/html" selected="selected">HTML</option>
+			<option value="application/vnd.ms-excel" >Spreadsheet</option>
+			<option value="application/sparql-results+xml" >XML</option>
+			<option value="application/sparql-results+json" >JSON</option>
+			<option value="application/javascript" >Javascript</option>
+			<option value="text/turtle" >Turtle</option>
+			<option value="application/rdf+xml" >RDF/XML</option>
+			<option value="text/plain" >N-Triples</option>
+			<option value="text/csv" >CSV</option>
+			<option value="text/tab-separated-values" >TSV</option>
+		</select>
+		<br />
+		<label for="timeout" class="n">Execution timeout</label>
+		<input name="timeout" id="timeout" type="text" value="0" /> milliseconds
+		<span class="info"><i>(values less than 1000 are ignored)</i></span>		<br />
+		<label class="n" for="options">Options</label>
+		<fieldset id="options">
+		<input name="debug" id="debug" type="checkbox" checked="checked"/>
+		<label for="debug" class="ckb">Strict checking of void variables</label>
+		</fieldset>
+		<br />
+		<span class="info"><i>(The result can only be sent back to browser, not saved on the server, see <a href="/sparql?help=enable_det">details</a>)</i></span>
+		<br />
+		<br />
+		<input type="submit" value="Run Query"/>
+		<input type="reset" value="Reset"/>
+	</fieldset>
+	</form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="footer">
+	Copyright &copy; 2015 <a href="http://www.openlinksw.com/virtuoso">OpenLink Software</a><br />Virtuoso version 07.10.3211 on Linux (x86_64-unknown-linux-gnu), Single Server Edition
+    </div>
+    <div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:sd="http://www.w3.org/ns/sparql-service-description#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         style="display:none">
+       <div class="description" about="" typeof="sd:Service">
+          <div rel="sd:endpoint" resource="http://localhost:8890/sparql"/>
+          <div rel="sd:feature"
+               resource="http://www.w3.org/ns/sparql-service-description#UnionDefaultGraph"/>
+          <div rel="sd:feature"
+               resource="http://www.w3.org/ns/sparql-service-description#DereferencesURIs"/>
+          <div rel="sd:resultFormat" resource="http://www.w3.org/ns/formats/RDF_XML"/>
+          <div rel="sd:resultFormat" resource="http://www.w3.org/ns/formats/Turtle"/>
+          <div rel="sd:resultFormat"
+               resource="http://www.w3.org/ns/formats/SPARQL_Results_CSV"/>
+          <div rel="sd:resultFormat" resource="http://www.w3.org/ns/formats/N-Triples"/>
+          <div rel="sd:resultFormat" resource="http://www.w3.org/ns/formats/N3"/>
+          <div rel="sd:resultFormat"
+               resource="http://www.w3.org/ns/formats/SPARQL_Results_JSON"/>
+          <div rel="sd:resultFormat" resource="http://www.w3.org/ns/formats/RDFa"/>
+          <div rel="sd:resultFormat"
+               resource="http://www.w3.org/ns/formats/SPARQL_Results_XML"/>
+          <div rel="sd:supportedLanguage"
+               resource="http://www.w3.org/ns/sparql-service-description#SPARQL10Query"/>
+          <div rel="sd:url" resource="http://localhost:8890/sparql"/>
+       </div>
+    </div>
+</body>
+</html>
