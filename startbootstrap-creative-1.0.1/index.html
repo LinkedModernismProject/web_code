@@ -48,8 +48,8 @@
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
 
-  <!-- Script that does visualization in visualization screen -->
-  <script src="js/main.js"></script>
+  <!-- Script that does visualization in visualization screen    <script src="js/main.js"></script> -->
+
 
   <!-- OAT -->
   <script src="js/loader.js"></script>
@@ -138,11 +138,6 @@
     var savefs = document.getElementById("savefs");
     if (savefs) savefs.style.display="none";
   }
-  function checkEnter(event){
-    if(event.keyCode == 13){
-      return false;
-    }
-  }
   function template_insert(){
     template = $v('template');
     insert_text($('query'),template);
@@ -153,17 +148,6 @@
 
 </head>
 <!-- I may yet find a use for this stuff
-<li>
-<a class="page-scroll" data-toggle="tab" href="#sectionC">Results</a>
-</li>
-<li>
-<a class="page-scroll" data-toggle="tab" href="#sectionD">Visualizations</a>
-</li>    -from navbar
-
-
-
-<body onload="init();">
-
 <div id="center-container">
 <div id="infovis"></div>
 </div>
@@ -171,6 +155,47 @@
 <div id="log"></div>
 
 
+
+
+<input type="text" name="default-graph-uri" id="default-graph-uri" value="http://dbpedia.org/sparql" size="80"/>
+<br/>
+<select name="should-sponge" id="should-sponge">  <option selected="selected" value="">Use only local data (including data retrieved before), but do not retrieve more</option>
+  <option value="soft">Retrieve remote RDF data for all missing source graphs</option>
+  <option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
+  <option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
+  <option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
+</select>
+  <br/>
+  <input name="query" id="query" type="textarea" value="select distinct ?Concept where {[] a ?Concept} LIMIT 100"  onchange="format_select(this)" onkeyup="format_select(this)">
+  <a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
+  <br>
+  <label for="format" class="n">Display Results As:</label>
+  <select name="format">
+    <option value="auto">Auto</option>
+    <option value="text/html" selected="selected">HTML</option>
+    <option value="application/vnd.ms-excel">Spreadsheet</option>
+    <option value="application/sparql-results+xml">XML</option>
+    <option value="application/sparql-results+json">JSON</option>
+    <option value="application/javascript">Javascript</option>
+    <option value="text/plain">NTriples</option>
+    <option value="application/rdf+xml">RDF/XML</option>
+  </select>
+
+
+  <select name="format" id="format" onchange="format_change(this)">
+    <option value="auto" >Auto</option>
+    <option value="text/html" selected="selected">HTML</option>
+    <option value="application/vnd.ms-excel" >Spreadsheet</option>
+    <option value="application/sparql-results+xml" >XML</option>
+    <option value="application/sparql-results+json" >JSON</option>
+    <option value="application/javascript" >Javascript</option>
+    <option value="text/plain" >NTriples</option>
+    <option value="application/rdf+xml" >RDF/XML</option>
+    <option value="text/csv">CSV</option>
+  </select>
+  <br /><br />
+  <br />
+  <label for="format" class="n">Results Format</label>
 
 -->
 <body id="page-top" onload="sparql_endpoint_init()">
@@ -229,21 +254,23 @@
             <h1>Linked Modernisms</h1>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+            <noscript>
+              Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
+            </noscript>
 
 
 
-
-            <form action="index.html#sectionC">
-              <div id="searcher">
-
-
-                <!--  onkeypress="return checkEnter(event);" stuff to use later-->
-                <input id="query" type="textarea" name="query" placeholder="Ex:Argentinian Painters inspired by Da Vinci" value="select * where {?s ?p ?o} limit 10"  onchange="format_select(this)" onkeyup="format_select(this)">
-                <a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
-                <br>
-              </div> <!-- search functions-->
-
+            <form action="http://dbpedia.org/sparql" method="post">
+              <fieldset>
+                <input type="textarea" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" value="select * where { ?s ?p ?o } limit 10"></textarea>
+                <input type="submit" value="Search" class="btn btn-primary btn-xl"/>
+              </fieldset>
             </form>
+            <label class="radio-inline"><input type="radio" name="optradio">Force Directed</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
           </div>
         </div>
       </div>
@@ -292,21 +319,8 @@
             ">Proximity query</option>
           </select>
           <br/>&nbsp;
-          <label for="format" class="n">Display Results As:</label>
-          <select name="format">
-            <option value="auto">Auto</option>
-            <option value="text/html" selected="selected">HTML</option>
-            <option value="application/vnd.ms-excel">Spreadsheet</option>
-            <option value="application/sparql-results+xml">XML</option>
-            <option value="application/sparql-results+json">JSON</option>
-            <option value="application/javascript">Javascript</option>
-            <option value="text/plain">NTriples</option>
-            <option value="application/rdf+xml">RDF/XML</option>
-          </select>
           <br/>&nbsp;
           <label for="format" class="n">Change default URI</label>
-          <input type="text" name="default-graph-uri" id="default-graph-uri"
-          value="http://localhost:8890/test" size="80"/>
         </div>
 
 
@@ -315,29 +329,29 @@
 
         <div class="tab-pane fade" id="sectionC">
           <br/><br/><br/><br/>
-          <table class="table-hover">
+          <table class="table-hover" id="results">
             <thead>
               <tr>
-                <th>Classification</th>
-                <th>Object Title</th>
-                <th>URI</th>
+                <th>Subject</th>
+                <th>Predicate</th>
+                <th>Object</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>City</td>
                 <td>Bruges</td>
-                <td>http://linkedmodernisms/place/city</td>
+                <td>Is a City</td>
+                <td>true</td>
               </tr>
               <tr>
-                <td>Manifesto</td>
                 <td>Communist Manifesto</td>
-                <td>http://linkedmodernisms/production/artifact/manifesto</td>
+                <td>Is a Manifesto</td>
+                <td>true</td>
               </tr>
               <tr>
-                <td>Group</td>
-                <td>Group of Seven</td>
-                <td>http://linkedmodernisms/agent/groupormovement/group</td>
+                <td>Gilbert Gottfried</td>
+                <td>Has Sexuality</td>
+                <td>Heterosexual</td>
               </tr>
             </tbody>
           </table>
@@ -346,7 +360,7 @@
 
         <!-- Other ones I want
         http://bl.ocks.org/dwtkns/4973620 -artifacts only
-
+        http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
       -->
       <div class="tab-pane fade" id="sectionD">
         <br/>
@@ -462,7 +476,6 @@
       </div>
     </div>
   </section>
-
 
 
 
