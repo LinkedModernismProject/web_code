@@ -17,6 +17,9 @@ Possibly?
 Search recursively through files for a string:
 	grep -rli 'string' .
 
+Search recursively through dir's for file names:
+	find . -name 'filename*'
+
 Grep history:
 	history | grep cmd_name
 
