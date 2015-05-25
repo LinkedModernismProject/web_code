@@ -52,7 +52,7 @@
 
 
   <!-- OAT   <script src="js/loader.js"></script>
-    <script src="js/ajax.js"></script>  -->
+  <script src="js/ajax.js"></script>  -->
 
 
   <script type="text/javascript">
@@ -160,61 +160,66 @@
 <input type="text" name="default-graph-uri" id="default-graph-uri" value="http://dbpedia.org/sparql" size="80"/>
 <br/>
 <select name="should-sponge" id="should-sponge">  <option selected="selected" value="">Use only local data (including data retrieved before), but do not retrieve more</option>
-  <option value="soft">Retrieve remote RDF data for all missing source graphs</option>
-  <option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
-  <option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
-  <option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
+<option value="soft">Retrieve remote RDF data for all missing source graphs</option>
+<option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
+<option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
+<option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
 </select>
-  <br/>
-  <input name="query" id="query" type="textarea" value="select distinct ?Concept where {[] a ?Concept} LIMIT 100"  onchange="format_select(this)" onkeyup="format_select(this)">
-  <a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
-  <br>
-  <label for="format" class="n">Display Results As:</label>
-  <select name="format">
-    <option value="auto">Auto</option>
-    <option value="text/html" selected="selected">HTML</option>
-    <option value="application/vnd.ms-excel">Spreadsheet</option>
-    <option value="application/sparql-results+xml">XML</option>
-    <option value="application/sparql-results+json">JSON</option>
-    <option value="application/javascript">Javascript</option>
-    <option value="text/plain">NTriples</option>
-    <option value="application/rdf+xml">RDF/XML</option>
-  </select>
+<br/>
+<input name="query" id="query" type="textarea" value="select distinct ?Concept where {[] a ?Concept} LIMIT 100"  onchange="format_select(this)" onkeyup="format_select(this)">
+<a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
+<br>
+<label for="format" class="n">Display Results As:</label>
+<select name="format">
+<option value="auto">Auto</option>
+<option value="text/html" selected="selected">HTML</option>
+<option value="application/vnd.ms-excel">Spreadsheet</option>
+<option value="application/sparql-results+xml">XML</option>
+<option value="application/sparql-results+json">JSON</option>
+<option value="application/javascript">Javascript</option>
+<option value="text/plain">NTriples</option>
+<option value="application/rdf+xml">RDF/XML</option>
+</select>
 
 
-  <select name="format" id="format" onchange="format_change(this)">
-    <option value="auto" >Auto</option>
-    <option value="text/html" selected="selected">HTML</option>
-    <option value="application/vnd.ms-excel" >Spreadsheet</option>
-    <option value="application/sparql-results+xml" >XML</option>
-    <option value="application/sparql-results+json" >JSON</option>
-    <option value="application/javascript" >Javascript</option>
-    <option value="text/plain" >NTriples</option>
-    <option value="application/rdf+xml" >RDF/XML</option>
-    <option value="text/csv">CSV</option>
-  </select>
-  <br /><br />
-  <br />
-  <label for="format" class="n">Results Format</label>
+<select name="format" id="format" onchange="format_change(this)">
+<option value="auto" >Auto</option>
+<option value="text/html" selected="selected">HTML</option>
+<option value="application/vnd.ms-excel" >Spreadsheet</option>
+<option value="application/sparql-results+xml" >XML</option>
+<option value="application/sparql-results+json" >JSON</option>
+<option value="application/javascript" >Javascript</option>
+<option value="text/plain" >NTriples</option>
+<option value="application/rdf+xml" >RDF/XML</option>
+<option value="text/csv">CSV</option>
+</select>
+<br /><br />
+<br />
+<label for="format" class="n">Results Format</label>
 
 
-  action="http://dbpedia.org/sparql" method="post"
+action="http://dbpedia.org/sparql" method="post"
 
 
-  $("searcher").click(function{
-    $get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
-    cache: false,
-    success: function(html){
-      $("#useless").append(html);
-    }
-  });
+$("searcher").click(function{
+$get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
+cache: false,
+success: function(html){
+$("#useless").append(html);
+}
+});
 
-  $("#searcher").click(function(){
-    $.get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#", function(data, status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-  });
-  $("#useless").text(searchData)
+$("#searcher").click(function(){
+$.get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#", function(data, status){
+alert("Data: " + data + "\nStatus: " + status);
+});
+});
+$("#useless").text(searchData)
+
+$(document).ready(function() {
+  console.log( "document loaded" );
+});
+
 -->
 <body id="page-top" onload="sparql_endpoint_init()">
 
@@ -269,6 +274,7 @@
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
+            <button id="the-do-nothing-button">I don't do much</button>
             <h1>Linked Modernisms</h1>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
@@ -276,23 +282,18 @@
               Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
 
-            <script>
-            $(document).ready(function() {
-              console.log( "document loaded" );
-            });
-            </script>
             <script type="text/javascript">
-            $(function() {
-              console.log("sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#");
 
-              $("#searcher").click(function(){
+            $(function() {
+              $("#the-do-nothing-button").click(function(){
                 $.ajax({
                   type: "GET",
-                  url: "http://dbpedia.org/",
+                  url: "http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
+                  context: document.body,
+                  dataType: "html",
                   cache: false,
-                  success: function(){
-                    alert("worked!");
-                    console.log("sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#");
+                  success: function(response){
+                    $("#results").html(response);
                   }
                 });
               });
@@ -306,7 +307,7 @@
                 <input id="searcher" type="submit" value="Search" class="btn btn-primary btn-xl"/>
               </fieldset>
             </form>
-            <p id="useless"></p>
+            <p id="useless" name="useless"></p>
             <label class="radio-inline"><input type="radio" name="optradio">Force Directed</label>
             <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
             <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
