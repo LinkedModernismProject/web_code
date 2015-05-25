@@ -48,103 +48,6 @@
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
 
-  <!-- Script that does visualization in visualization screen    <script src="js/main.js"></script> -->
-
-
-  <!-- OAT   <script src="js/loader.js"></script>
-  <script src="js/ajax.js"></script>  -->
-
-
-  <script type="text/javascript">
-  /*<![CDATA[*/
-  var last_format = 0;
-  function format_select(query_obg)
-  {
-    var query = query_obg.value;
-    var format = query_obg.form.format;
-
-    if ((query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 2) {
-      for(var i = format.options.length; i > 0; i--)
-      format.options[i] = null;
-      format.options[1] = new Option('Turtle','text/turtle');
-      format.options[2] = new Option('Pretty-printed Turtle (slow!)','application/x-nice-turtle');
-      format.options[3] = new Option('RDF/JSON','application/rdf+json');
-      format.options[4] = new Option('RDF/XML','application/rdf+xml');
-      format.options[5] = new Option('N-Triples','text/plain');
-      format.options[6] = new Option('XHTML+RDFa','application/xhtml+xml');
-      format.options[7] = new Option('ATOM+XML','application/atom+xml');
-      format.options[8] = new Option('ODATA/JSON','application/odata+json');
-      format.options[9] = new Option('JSON-LD','application/x-json+ld');
-      format.options[10] = new Option('HTML (list)','text/x-html+ul');
-      format.options[11] = new Option('HTML (table)','text/x-html+tr');
-      format.options[12] = new Option('HTML+Microdata (inconvenient)','text/html');
-      format.options[13] = new Option('HTML+Microdata (pretty-printed table)','application/x-nice-microdata');
-      format.options[14] = new Option('Turtle-style HTML (for browsing, not for export)','text/x-html-nice-turtle');
-      format.options[15] = new Option('Microdata/JSON','application/microdata+json');
-      format.options[16] = new Option('CSV','text/csv');
-      format.options[17] = new Option('TSV','text/tab-separated-values');
-      format.options[18] = new Option('TriG','application/x-trig');
-      format.selectedIndex = 1;
-      last_format = 2;
-    }
-
-    if (!(query.match(/\bconstruct\b/i) || query.match(/\bdescribe\b/i)) && last_format != 1) {
-      for(var i = format.options.length; i > 0; i--)
-      format.options[i] = null;
-      format.options[1] = new Option('HTML','text/html');
-      format.options[2] = new Option('Spreadsheet','application/vnd.ms-excel');
-      format.options[3] = new Option('XML','application/sparql-results+xml');
-      format.options[4] = new Option('JSON','application/sparql-results+json');
-      format.options[5] = new Option('Javascript','application/javascript');
-      format.options[6] = new Option('Turtle','text/turtle');
-      format.options[7] = new Option('RDF/XML','application/rdf+xml');
-      format.options[8] = new Option('N-Triples','text/plain');
-      format.options[9] = new Option('CSV','text/csv');
-      format.options[10] = new Option('TSV','text/tab-separated-values');
-      format.selectedIndex = 1;
-      last_format = 1;
-    }
-  }
-
-  function format_change(e)
-  {
-    var format = e.value;
-    var cxml = document.getElementById("cxml");
-    if (!cxml) return;
-    if ((format.match (/\bCXML\b/i)))
-    {
-      cxml.style.display="block";
-    } else {
-      cxml.style.display="none";
-    }
-  }
-  function savedav_change(e)
-  {
-    var savefs = document.getElementById("savefs");
-    if (!savefs) return;
-    if (e.checked)
-    {
-      savefs.style.display = "block";
-    }
-    else
-    {
-      savefs.style.display = "none";
-    }
-  }
-  function sparql_endpoint_init()
-  {
-    var cxml = document.getElementById("cxml");
-    if (cxml) cxml.style.display="none";
-    var savefs = document.getElementById("savefs");
-    if (savefs) savefs.style.display="none";
-  }
-  function template_insert(){
-    template = $v('template');
-    insert_text($('query'),template);
-    $('template').selectedIndex = 0;
-  }
-  /*]]>*/
-  </script> <!-- Ash index script -->
 
 </head>
 <!-- I may yet find a use for this stuff
@@ -217,11 +120,47 @@ alert("Data: " + data + "\nStatus: " + status);
 $("#useless").text(searchData)
 
 $(document).ready(function() {
-  console.log( "document loaded" );
+console.log( "document loaded" );
 });
 
+
+<form>
+<fieldset>
+<input type="textarea" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" value="select * where { ?s ?p ?o } limit 10"></textarea>
+<input id="searcher" type="submit" value="Search" class="btn btn-primary btn-xl"/>
+</fieldset>
+</form>
+
+
+<table class="table-hover" id="results">
+<thead>
+<tr>
+<th>Subject</th>
+<th>Predicate</th>
+<th>Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bruges</td>
+<td>Is a City</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Communist Manifesto</td>
+<td>Is a Manifesto</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Gilbert Gottfried</td>
+<td>Has Sexuality</td>
+<td>Heterosexual</td>
+</tr>
+</tbody>
+</table>
+
 -->
-<body id="page-top" onload="sparql_endpoint_init()">
+<body id="page-top">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -274,7 +213,6 @@ $(document).ready(function() {
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
-            <button id="the-do-nothing-button">I don't do much</button>
             <h1>Linked Modernisms</h1>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
@@ -282,13 +220,14 @@ $(document).ready(function() {
               Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
 
+
             <script type="text/javascript">
 
             $(function() {
-              $("#the-do-nothing-button").click(function(){
+              $(".btn-search").click(function(){
                 $.ajax({
-                  type: "GET",
-                  url: "http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
+                  type: "POST",
+                  url: constructURL(),
                   context: document.body,
                   dataType: "html",
                   cache: false,
@@ -297,17 +236,26 @@ $(document).ready(function() {
                   }
                 });
               });
+
+              function constructURL(){
+                var url = "http://lod.openlinksw.com/sparql";
+                var query = $("#query").val();
+                var queryURL = encodeURI(url + "?query=" + query);
+                console.log(queryURL);
+                return queryURL;
+              };
             });
+
+
 
             </script>
 
-            <form>
-              <fieldset>
-                <input type="textarea" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" value="select * where { ?s ?p ?o } limit 10"></textarea>
-                <input id="searcher" type="submit" value="Search" class="btn btn-primary btn-xl"/>
-              </fieldset>
-            </form>
-            <p id="useless" name="useless"></p>
+
+            <fieldset>
+              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10"></textarea>
+              <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+            </fieldset>
+            <br/> 
             <label class="radio-inline"><input type="radio" name="optradio">Force Directed</label>
             <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
             <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
@@ -363,6 +311,8 @@ $(document).ready(function() {
           <br/>&nbsp;
           <br/>&nbsp;
           <label for="format" class="n">Change default URI</label>
+          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+
         </div>
 
 
@@ -370,33 +320,8 @@ $(document).ready(function() {
 
 
         <div class="tab-pane fade" id="sectionC">
-          <br/><br/><br/><br/>
-          <table class="table-hover" id="results">
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Predicate</th>
-                <th>Object</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Bruges</td>
-                <td>Is a City</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td>Communist Manifesto</td>
-                <td>Is a Manifesto</td>
-                <td>true</td>
-              </tr>
-              <tr>
-                <td>Gilbert Gottfried</td>
-                <td>Has Sexuality</td>
-                <td>Heterosexual</td>
-              </tr>
-            </tbody>
-          </table>
+          <br/><br/><br/><br/><span id="results"/>
+
         </div>
 
 

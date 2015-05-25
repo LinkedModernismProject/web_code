@@ -27,6 +27,7 @@ input[type="textarea"]{
   appearance: none;
   box-shadow: none;
 }
+
 input[type="textarea"]:focus {
   outline: none;
 }
