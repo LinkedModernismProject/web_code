@@ -238,7 +238,7 @@ console.log( "document loaded" );
               });
 
               function constructURL(){
-                var url = "http://lod.openlinksw.com/sparql";
+                var url = "http://localhost:8890/sparql/may21test";
                 var query = $("#query").val();
                 var queryURL = encodeURI(url + "?query=" + query);
                 console.log(queryURL);
