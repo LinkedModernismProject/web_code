@@ -49,6 +49,40 @@
   <script src="js/creative.js"></script>
 
 
+  <!-- Script for interacting with database and visualizations -->
+  <script type="text/javascript">
+
+  $(function() {
+    $(".btn-search").click(function(){
+      $.ajax({
+        type: "POST",
+        url: constructURL(),
+        context: document.body,
+        dataType: "html",
+        cache: false,
+        success: function(response){
+          $("#results").html(response);
+          $("table").addClass("table-hover");
+        }
+      });
+    });
+
+    function constructURL(){
+      var url = "http://lod.openlinksw.com/sparql";
+      var query = $("#query").val();
+      var queryURL = encodeURI(url + "?default-graph-uri=http://localhost:8890/may26&query=" + query);
+      console.log(queryURL);
+      return queryURL;
+    };
+  });
+
+
+
+
+  </script>
+
+
+
 </head>
 <!-- I may yet find a use for this stuff
 <div id="center-container">
@@ -57,7 +91,10 @@
 
 <div id="log"></div>
 
+&format=sparql-results+json //////////For getting query json - vis
+&format=application/sparql-results+json
 
+encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
 
 
 <input type="text" name="default-graph-uri" id="default-graph-uri" value="http://dbpedia.org/sparql" size="80"/>
@@ -194,7 +231,7 @@ console.log( "document loaded" );
   <hr class="light"></hr><br/>
 
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a data-toggle="tab" href="#sectionA" class="btn" role="button">Search</a></li>
+    <li class="active"><a data-toggle="tab" href="#sectionA" class="btn" role="button">Home</a></li>
     <li><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
     <li><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
     <li><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
@@ -216,104 +253,52 @@ console.log( "document loaded" );
             <h1>Linked Modernisms</h1>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+
+
             <noscript>
               Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
 
 
-            <script type="text/javascript">
 
-            $(function() {
-              $(".btn-search").click(function(){
-                $.ajax({
-                  type: "POST",
-                  url: constructURL(),
-                  context: document.body,
-                  dataType: "html",
-                  cache: false,
-                  success: function(response){
-                    $("#results").html(response);
-                  }
-                });
-              });
-
-              function constructURL(){
-                var url = "http://localhost:8890/sparql/may21test";
-                var query = $("#query").val();
-                var queryURL = encodeURI(url + "?query=" + query);
-                console.log(queryURL);
-                return queryURL;
-              };
-            });
-
-
-
-            </script>
 
 
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10"></textarea>
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
-            <br/> 
-            <label class="radio-inline"><input type="radio" name="optradio">Force Directed</label>
+            <br/>
+            <label class="radio-inline"><input type="radio" img="/img/forcedirected.png" name="optradio">Force Directed</label>
             <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
             <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
             <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
             <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
           </div>
         </div>
+
       </div>
 
 
       <div class="tab-pane fade" id="sectionB">
         <br/>
+        <h1>All Filters</h1>
         <button class="btn btn-xl btn-primary">show uri information</button>
         <button class="btn btn-xl btn-primary">I'm button B</button>
         <button class="btn btn-xl btn-primary">I'm button C</button>
         <button class="btn btn-xl btn-primary">I'm button D</button>
+        <span id="memory-box"></span>
+        <h4>Previous Searches</h4>
         <br/>&nbsp;
+        <h3>Agent</h3>
+        <h3>Place</h3>
+        <h3>Production</h3>
         <input type="textarea" placeholder="Enter your query in SPARQL"></input>
-        <br/>&nbsp;
-        <select name="template" id="template" onchange="template_insert()">
-          <option value="">-- Template --</option>
-          <option value="
-          SELECT DISTINCT ?s ?p ?o
-          WHERE
-          {
-            ?s ?p ?o .
-          }">Select</option>
 
-          <option value="
-          CONSTRUCT
-          {
-            ?s ?p ?o .
-          }
-          WHERE
-          {
-            ?s ?p ?o .
-          }">Construct</option>
-          <option value="
-          ASK WHERE
-          {
-            ?s ?p ?o .
-          }">Ask</option>
-          <option value="CONSTRUCT { ?thing rdfs:type ?type;
-            foaf:name ?name;
-            geo:geometry ?geo .}
-            WHERE     {	?thing a ?type;
-              foaf:name ?name;
-              geo:geometry ?geo .
-              FILTER (bif:st_intersects (?geo, bif:st_point (__P_LAT__,__P_LON__), 200))
-            }
-            ">Proximity query</option>
-          </select>
-          <br/>&nbsp;
-          <br/>&nbsp;
-          <label for="format" class="n">Change default URI</label>
-          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
 
-        </div>
+
+        <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+
+      </div>
 
 
 
@@ -331,6 +316,7 @@ console.log( "document loaded" );
       -->
       <div class="tab-pane fade" id="sectionD">
         <br/>
+        <span id="visualizations"></span>
         <div class="row">
           <div class="col-md-4">
             <a href="forcedirected.html"><button id="fd-button"></button></a>
@@ -384,7 +370,6 @@ console.log( "document loaded" );
 
 
 
-
   <section id="about">
     <br/>
     <hr class="light"></hr>
@@ -392,8 +377,12 @@ console.log( "document loaded" );
     <h1>About The Project</h1><br/><br/><br/><br/><br/>
     <div>
       <p>&nbsp;&nbsp;&nbsp;
+        Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms (LiMo) will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. LiMo will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, LiMo combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With LiMo, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
+
+      <p>&nbsp;&nbsp;&nbsp;
         Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
       </p>
+
     </div>
     <div class="row">
       <div class="col-md-6 col-md-2">

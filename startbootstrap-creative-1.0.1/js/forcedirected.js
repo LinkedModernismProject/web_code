@@ -26,10 +26,10 @@ var Log = {
 };
 
 
-function init(){
+//    var json = jQuery.getJSON("data/ontology.json");
 
-  
-    var json = jQuery.getJSON("data/ontology.json");
+function init(json){
+
 
     // init ForceDirected
       var fd = new $jit.ForceDirected({
