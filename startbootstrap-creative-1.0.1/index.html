@@ -33,6 +33,8 @@
   <!-- For some visualizations  -->
   <script src="js/d3.min.js"></script>
   <script src="js/highlight.min.js"></script>
+  <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
@@ -48,36 +50,70 @@
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
 
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+
+  <script src="js/d3sparql.js"></script>
+
 
   <!-- Script for interacting with database and visualizations -->
   <script type="text/javascript">
 
+
+
   $(function() {
     $(".btn-search").click(function(){
-      $.ajax({
-        type: "POST",
-        url: constructURL(),
-        context: document.body,
-        dataType: "html",
-        cache: false,
-        success: function(response){
-          $("#results").html(response);
-          $("table").addClass("table-hover");
-        }
-      });
+      sClick();
+      exec1();
     });
+  }); //call table url process and visualization process for selected visualization
 
-    function constructURL(){
-      var url = "http://lod.openlinksw.com/sparql";
-      var query = $("#query").val();
-      var queryURL = encodeURI(url + "?default-graph-uri=http://localhost:8890/may26&query=" + query);
-      console.log(queryURL);
-      return queryURL;
-    };
-  });
+  function sClick(){
+    $.ajax({
+      type: "POST",
+      url: constructURL(),
+      context: document.body,
+      dataType: "html",
+      cache: false,
+      success: function(response){
+        $("#results").html(response);
+        $("table").addClass("table-hover");
+      }
+    });
+  }
 
+  // default-graph-uri=http://localhost:8890/may26&
+  function constructURL(){
+    var url = "http://togostanza.org/sparql";
+    var query = $("#query").val();
+    var queryURL = url + "?query=" + encodeURIComponent(query);
+    console.log(queryURL);
+    return queryURL;
+  }
 
+  //d3.select("#endpoint").property("value")
+  function exec1() {
+    var endpoint = "http://togostanza.org/sparql";
+    var sparql = d3.select("#query").property("value");
+    d3sparql.query(endpoint, sparql, render);
+  }
 
+  function render(json) {
+    // set options and call the d3xxxxx function in this library ...
+    // set all configs & name them
+    var config = {
+      "root": "root_name",
+      "parent": "parent_name",
+      "child": "child_name",
+      "width": 1000,
+      "height": 900,
+      "margin": 150,
+      "selector": "#visualizations"
+    }
+    //put if clause for radio buttons here
+    var val = d3.select("input[name='optradio']").node().value;
+    d3sparql.sunburst(json, config);
+  }
 
   </script>
 
@@ -89,6 +125,39 @@
 <div id="infovis"></div>
 </div>
 
+color = d3.scale.category20();
+
+
+d3.json("data/world.json", function(error, world) {
+  if (error) return console.error(error);
+
+  var width = window.innerWidth,
+  height = 700;
+
+  var svg = d3.select("#visualizations").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+  var path = d3.geo.path().projection(d3.geo.wagner4());
+
+
+  svg.selectAll(".subunit")
+    .data(topojson.feature(world, world.objects.subunits).features)
+    .enter().append("path")
+    .attr("class", function(d) { return "subunit " + d.id; })
+    .attr("d", path);
+});
+
+
+.attr("fill", function(d,i){ return color(i); })
+var color = d3.scale.category20();
+
+d3.selectAll(".subunits")
+  .attr("fill",function(d,i) {console.log(i);return color(i); });
+
+
+
 <div id="log"></div>
 
 &format=sparql-results+json //////////For getting query json - vis
@@ -96,108 +165,8 @@
 
 encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
 
-
-<input type="text" name="default-graph-uri" id="default-graph-uri" value="http://dbpedia.org/sparql" size="80"/>
-<br/>
-<select name="should-sponge" id="should-sponge">  <option selected="selected" value="">Use only local data (including data retrieved before), but do not retrieve more</option>
-<option value="soft">Retrieve remote RDF data for all missing source graphs</option>
-<option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
-<option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
-<option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
-</select>
-<br/>
-<input name="query" id="query" type="textarea" value="select distinct ?Concept where {[] a ?Concept} LIMIT 100"  onchange="format_select(this)" onkeyup="format_select(this)">
-<a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
-<br>
-<label for="format" class="n">Display Results As:</label>
-<select name="format">
-<option value="auto">Auto</option>
-<option value="text/html" selected="selected">HTML</option>
-<option value="application/vnd.ms-excel">Spreadsheet</option>
-<option value="application/sparql-results+xml">XML</option>
-<option value="application/sparql-results+json">JSON</option>
-<option value="application/javascript">Javascript</option>
-<option value="text/plain">NTriples</option>
-<option value="application/rdf+xml">RDF/XML</option>
-</select>
-
-
-<select name="format" id="format" onchange="format_change(this)">
-<option value="auto" >Auto</option>
-<option value="text/html" selected="selected">HTML</option>
-<option value="application/vnd.ms-excel" >Spreadsheet</option>
-<option value="application/sparql-results+xml" >XML</option>
-<option value="application/sparql-results+json" >JSON</option>
-<option value="application/javascript" >Javascript</option>
-<option value="text/plain" >NTriples</option>
-<option value="application/rdf+xml" >RDF/XML</option>
-<option value="text/csv">CSV</option>
-</select>
-<br /><br />
-<br />
-<label for="format" class="n">Results Format</label>
-
-
-action="http://dbpedia.org/sparql" method="post"
-
-
-$("searcher").click(function{
-$get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
-cache: false,
-success: function(html){
-$("#useless").append(html);
-}
-});
-
-$("#searcher").click(function(){
-$.get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#", function(data, status){
-alert("Data: " + data + "\nStatus: " + status);
-});
-});
-$("#useless").text(searchData)
-
-$(document).ready(function() {
-console.log( "document loaded" );
-});
-
-
-<form>
-<fieldset>
-<input type="textarea" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" value="select * where { ?s ?p ?o } limit 10"></textarea>
-<input id="searcher" type="submit" value="Search" class="btn btn-primary btn-xl"/>
-</fieldset>
-</form>
-
-
-<table class="table-hover" id="results">
-<thead>
-<tr>
-<th>Subject</th>
-<th>Predicate</th>
-<th>Object</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bruges</td>
-<td>Is a City</td>
-<td>true</td>
-</tr>
-<tr>
-<td>Communist Manifesto</td>
-<td>Is a Manifesto</td>
-<td>true</td>
-</tr>
-<tr>
-<td>Gilbert Gottfried</td>
-<td>Has Sexuality</td>
-<td>Heterosexual</td>
-</tr>
-</tbody>
-</table>
-
 -->
-<body id="page-top">
+<body id="page-top" onload="exec1()">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -259,20 +228,16 @@ console.log( "document loaded" );
               Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
 
-
-
-
-
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10"></textarea>
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
             <br/>
-            <label class="radio-inline"><input type="radio" img="/img/forcedirected.png" name="optradio">Force Directed</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="fd">Force Directed</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="sw">Stepwise</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="vd">Venn Diagram</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
+            <label class="radio-inline"><input type="radio" name="optradio" walue="ch">Graphs</label>
           </div>
         </div>
 
@@ -305,7 +270,7 @@ console.log( "document loaded" );
 
 
         <div class="tab-pane fade" id="sectionC">
-          <br/><br/><br/><br/><span id="results"/>
+          <br/><br/><br/><br/><span id="results"></span>
 
         </div>
 
@@ -383,8 +348,12 @@ console.log( "document loaded" );
         Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
       </p>
 
+      <p>&nbsp;&nbsp;&nbsp;
+        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Natural.js and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
+      </p>
+
     </div>
-    <div class="row">
+
       <div class="col-md-6 col-md-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
@@ -430,10 +399,11 @@ console.log( "document loaded" );
           </div>
         </div>
       </div>
-    </div>
+
   </section>
 
-
+  &nbsp;<img src="img/sshrc-logo-trans.png" style="display: inline; width: 98%;"></img>
+  <br/><br/>
 
 
 </body>

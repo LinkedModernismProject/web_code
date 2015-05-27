@@ -80,16 +80,15 @@ td {
   font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
   text-align: center;
   /*text-shadow: 1px 1px #000; */
   color: #50b038;
+}
+
+.subunit {
+    fill: #50b038;
 }
 
 p {
@@ -499,13 +498,6 @@ body {
 
 input, select {
   font-size:0.9em;
-}
-
-h4 {
-  font-size:1.1em;
-  text-decoration:none;
-  font-weight:normal;
-  color:#23A4FF;
 }
 
 #inner-details {
