@@ -101,18 +101,71 @@
   function render(json) {
     // set options and call the d3xxxxx function in this library ...
     // set all configs & name them
-    var config = {
-      "root": "root_name",
-      "parent": "parent_name",
-      "child": "child_name",
-      "width": 1000,
-      "height": 900,
-      "margin": 150,
-      "selector": "#visualizations"
-    }
+
+
     //put if clause for radio buttons here
-    var val = d3.select("input[name='optradio']").node().value;
-    d3sparql.sunburst(json, config);
+    var val = $("input[name='optradio']:checked").val();
+    console.log(val);
+    if(val === "fd"){
+      var config = {
+       "charge": -500,
+       "distance": 50,
+       "width": 1000,
+       "height": 750,
+       "selector": "#visualizations"
+     }
+      d3sparql.forcegraph(json, config);
+    }
+    else if(val === "sb"){
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 1000,
+        "height": 900,
+        "margin": 150,
+        "selector": "#visualizations"
+      }
+      d3sparql.sunburst(json, config);
+    }
+    else if(val === "cp"){
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 800,
+        "diameter": 700,
+        "selector": "#visualizations"
+      }
+      console.log(config);
+      d3sparql.circlepack(json, config);
+    }
+    else if(val === "wm"){
+      var config = {
+        "var_lat": "lat",
+        "var_lng": "lng",
+        "width": 960,
+        "height": 480,
+        "radius": 5,
+        "color": "#55C25E",
+        "topojson": "data/world.json",
+        "selector": "#visualizations"
+      }
+      d3sparql.coordmap(json, config);
+    }
+    else if(val === "ch"){
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 1000,
+        "height": 900,
+        "margin": 150,
+        "selector": "#visualizations"
+      }
+      d3sparql.sunburst(json, config);
+    }
   }
 
   </script>
@@ -125,7 +178,6 @@
 <div id="infovis"></div>
 </div>
 
-color = d3.scale.category20();
 
 
 d3.json("data/world.json", function(error, world) {
@@ -166,7 +218,7 @@ d3.selectAll(".subunits")
 encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
 
 -->
-<body id="page-top" onload="exec1()">
+<body id="page-top">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -233,9 +285,9 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
             <br/>
-            <label class="radio-inline"><input type="radio" name="optradio" value="fd">Force Directed</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="sw">Stepwise</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="vd">Venn Diagram</label>
+            <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
             <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
             <label class="radio-inline"><input type="radio" name="optradio" walue="ch">Graphs</label>
           </div>
@@ -282,32 +334,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
       <div class="tab-pane fade" id="sectionD">
         <br/>
         <span id="visualizations"></span>
-        <div class="row">
-          <div class="col-md-4">
-            <a href="forcedirected.html"><button id="fd-button"></button></a>
-            <div class="caption">
-              <p>Force Directed graph</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <a href="zoomcircle.html"><button id="zc-button"></button></a>
-            <div class="caption">
-              <p>Zoom Circle graph</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <a href="zoomcircle.html"><button id="zc-button"></button></a>
-            <div class="caption">
-              <p>Zoom Circle graph</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <a href="zoomcircle.html"><button id="zc-button"></button></a>
-            <div class="caption">
-              <p>Zoom Circle graph</p>
-            </div>
-          </div>
-        </div>
+
         <br/>
       </div>
 
