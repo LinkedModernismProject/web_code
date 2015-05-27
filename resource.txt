@@ -115,6 +115,6 @@ startVirtuoso.sh
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}
-
+	select ?p ?o where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> ?p ?o .}
 
 
