@@ -167,39 +167,7 @@
 
 </head>
 <!-- I may yet find a use for this stuff
-<div id="center-container">
-<div id="infovis"></div>
-</div>
 
-
-
-d3.json("data/world.json", function(error, world) {
-  if (error) return console.error(error);
-
-  var width = window.innerWidth,
-  height = 700;
-
-  var svg = d3.select("#visualizations").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-  var path = d3.geo.path().projection(d3.geo.wagner4());
-
-
-  svg.selectAll(".subunit")
-    .data(topojson.feature(world, world.objects.subunits).features)
-    .enter().append("path")
-    .attr("class", function(d) { return "subunit " + d.id; })
-    .attr("d", path);
-});
-
-
-.attr("fill", function(d,i){ return color(i); })
-var color = d3.scale.category20();
-
-d3.selectAll(".subunits")
-  .attr("fill",function(d,i) {console.log(i);return color(i); });
 
   <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
   <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
@@ -207,14 +175,6 @@ d3.selectAll(".subunits")
   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
   <label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
-
-
-<div id="log"></div>
-
-&format=sparql-results+json //////////For getting query json - vis
-&format=application/sparql-results+json
-
-encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
 
 -->
 <body id="page-top">
@@ -272,7 +232,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
           <div class="header-content-inner">
             <h1>Linked Modernisms</h1>
             <hr class="top">
-            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
 
             <noscript>
@@ -390,9 +350,14 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
     </h1>
     <br>
     &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
-    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>&nbsp;&nbsp;&nbsp;
+In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
+“Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
+However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
     </p>
-    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>&nbsp;&nbsp;&nbsp;
+In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
+“Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
     </p>
   </section>
 
@@ -465,7 +430,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
 
   </section>
 
-  &nbsp;<img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img>
+  &nbsp;<a href="http://www.sshrc-crsh.gc.ca/"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
   <br/><br/>
 
 
