@@ -170,10 +170,10 @@ d3sparql.tree = function(json, config) {
   var data = json.results.bindings
 
   var opts = {
-    "root":   config.root   || head[0],
-    "parent": config.parent || head[1],
-    "child":  config.child  || head[2],
-    "value":  config.value  || head[3] || "value",
+    "root":   head[0],
+    "parent": head[1],
+    "child":  head[2],
+    "value":  head[3] || "value",
   }
 
   var pair = d3.map()
@@ -765,14 +765,14 @@ d3sparql.forcegraph = function(json, config) {
 
   var scale = d3.scale.linear()
     .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
-    .range([1, 20])
+    .range([1, 200])
 
   var opts = {
     "radius":    config.radius    || function(d) {return d.value ? scale(d.value) : 1 + d.label.length },
-    "charge":    config.charge    || -100,
-    "distance":  config.distance  || 30,
-    "width":     config.width     || 1000,
-    "height":    config.height    || 750,
+    "charge":    config.charge    || -150,
+    "distance":  config.distance  || 50,
+    "width":     config.width     || window.width,
+    "height":    config.height    || 1000,
     "label":     config.label     || false,
     "selector":  config.selector  || "#visualizations"
   }
@@ -789,6 +789,7 @@ d3sparql.forcegraph = function(json, config) {
     .data(graph.nodes)
     .enter()
     .append("g")
+
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -798,25 +799,25 @@ d3sparql.forcegraph = function(json, config) {
   var force = d3.layout.force()
     .charge(opts.charge)
     .linkDistance(opts.distance)
+    .gravity(0.01)
     .size([opts.width, opts.height])
     .nodes(graph.nodes)
     .links(graph.links)
-    .start()
-  force.on("tick", function() {
+    .on("tick", function() {
     link.attr("x1", function(d) {return d.source.x})
         .attr("y1", function(d) {return d.source.y})
         .attr("x2", function(d) {return d.target.x})
         .attr("y2", function(d) {return d.target.y})
     text.attr("x", function(d) {return d.x})
         .attr("y", function(d) {return d.y})
-    circle.attr("cx", function(d) {return d.x})
-          .attr("cy", function(d) {return d.y})
-  })
-  node.call(force.drag)
-
+    circle.attr("cx", function(d) { return d.x = Math.max(opts.radius, Math.min(opts.width - opts.radius, d.x)); })
+          .attr("cy", function(d) { return d.y = Math.max(opts.radius, Math.min(opts.height - opts.radius, d.y)); });
+    })
+    .start()
+    node.call(force.drag)
   // default CSS/SVG
   link.attr({
-    "stroke": "#999999",
+    "stroke": "#000",
   })
   circle.attr({
     "stroke": "black",
@@ -825,7 +826,7 @@ d3sparql.forcegraph = function(json, config) {
     "opacity": 1,
   })
   text.attr({
-    "font-size": "8px",
+    "font-size": "10px",
     "font-family": "sans-serif",
   })
 }
@@ -1372,8 +1373,9 @@ d3sparql.circlepack = function(json, config) {
   var w = opts.width,
       h = opts.height,
       r = opts.diameter,
-      x = d3.scale.linear().range([0, r]),
-      y = d3.scale.linear().range([0, r])
+      x = d3.scale.linear().range([0, 700]),
+      y = d3.scale.linear().range([0, 700])
+
 
   var pack = d3.layout.pack()
     .size([r, r])
@@ -1772,7 +1774,6 @@ d3sparql.treemapzoom = function(json, config) {
     function render(json) {
       d3sparql.coordmap(json, config = {})
     }
-
   Dependencies:
     * topojson.js
       * Download from http://d3js.org/topojson.v1.min.js
@@ -1791,7 +1792,7 @@ d3sparql.coordmap = function(json,config) {
     "height":    config.height   || 480,
     "radius":    config.radius   || 5,
     "color":     config.color    || "#FF3333",
-    "topojson":  config.topojson || "data/world.json",
+    "topojson":  config.topojson || "/data/world-50m.json",
     "selector":  config.selector || "#visualizations"
   }
 
