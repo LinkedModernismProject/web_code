@@ -71,7 +71,7 @@
 
   function sClick(){
     $.ajax({
-      type: "POST",
+      type: "get",
       url: constructURL(),
       context: document.body,
       dataType: "html",
@@ -88,7 +88,6 @@
     var url = "http://togostanza.org/sparql";
     var query = $("#query").val();
     var queryURL = url + "?query=" + encodeURIComponent(query);
-    console.log(queryURL);
     return queryURL;
   }
 
@@ -99,53 +98,45 @@
     d3sparql.query(endpoint, sparql, render);
   }
 
+
   function render(json) {
     // set options and call the d3xxxxx function in this library ...
     // set all configs & name them
+
     //put if clause for radio buttons here
     console.log(json)
     var val = $("input[name='optradio']:checked").val();
-    console.log(val);
     if(val === "fd"){
       var config = {
-       "charge": -500,
-       "distance": 50,
-       "width": 1000,
-       "height": 750,
+       "radius": 20,
+       "charge": -30,
+       "distance": 100,
+       "width": window.innerWidth,
+       "height": 1000,
        "selector": "#visualizations"
      }
       d3sparql.forcegraph(json, config);
-    }
-    else if(val === "sb"){
+    } else if(val === "sb"){
       var config = {
-        "root": "root_name",
-        "parent": "parent_name",
-        "child": "child_name",
-        "width": 1000,
+        "width": window.innerWidth,
         "height": 900,
         "margin": 150,
         "selector": "#visualizations"
       }
       d3sparql.sunburst(json, config);
-    }
-    else if(val === "cp"){
+    } else if(val === "cp"){
       var config = {
-        "root": "root_name",
-        "parent": "parent_name",
-        "child": "child_name",
-        "width": 800,
+        "width": window.innerWidth,
         "height": 800,
         "diameter": 700,
         "selector": "#visualizations"
       }
-      console.log(config);
       d3sparql.circlepack(json, config);
-    }
-    else if(val === "wm"){
+    } else if(val === "wm"){
       var config = {
         "var_lat": "lat",
         "var_lng": "lng",
-        "width": 960,
+        "width": window.innerWidth,
         "height": 480,
         "radius": 5,
         "color": "#55C25E",
@@ -153,18 +144,22 @@
         "selector": "#visualizations"
       }
       d3sparql.coordmap(json, config);
-    }
-    else if(val === "ch"){
+    } else if(val === "ch"){
       var config = {
-        "root": "root_name",
-        "parent": "parent_name",
-        "child": "child_name",
-        "width": 1000,
+        "width": window.innerWidth,
         "height": 900,
         "margin": 150,
         "selector": "#visualizations"
       }
-      d3sparql.sunburst(json, config);
+      d3sparql.piechart(json, config);
+    } else if(val === "sk"){
+      var config = {
+        "width": window.innerWidth,
+        "height": 900,
+        "margin": 10,
+        "selector": "#visualizations"
+      }
+      d3sparql.piechart(json, config);
     }
     else if(val === "den"){
       var config = {
@@ -187,48 +182,14 @@
 
 </head>
 <!-- I may yet find a use for this stuff
-<div id="center-container">
-<div id="infovis"></div>
-</div>
 
 
-
-d3.json("data/world.json", function(error, world) {
-  if (error) return console.error(error);
-
-  var width = window.innerWidth,
-  height = 700;
-
-  var svg = d3.select("#visualizations").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-  var path = d3.geo.path().projection(d3.geo.wagner4());
-
-
-  svg.selectAll(".subunit")
-    .data(topojson.feature(world, world.objects.subunits).features)
-    .enter().append("path")
-    .attr("class", function(d) { return "subunit " + d.id; })
-    .attr("d", path);
-});
-
-
-.attr("fill", function(d,i){ return color(i); })
-var color = d3.scale.category20();
-
-d3.selectAll(".subunits")
-  .attr("fill",function(d,i) {console.log(i);return color(i); });
-
-
-
-<div id="log"></div>
-
-&format=sparql-results+json //////////For getting query json - vis
-&format=application/sparql-results+json
-
-encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
+  <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
 
 -->
 <body id="page-top">
@@ -286,7 +247,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
           <div class="header-content-inner">
             <h1>Linked Modernisms</h1>
             <hr class="top">
-            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
 
             <noscript>
@@ -294,16 +255,33 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
             </noscript>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10"></textarea>
+              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
             <br/>
-            <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
-            <label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>
+
+            <!--   <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>  -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>                          -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label                        -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label                          -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>                            -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label                        -->
+
+            <h6>Select a visualization</h6>
+            <div class="vis-select">
+              <input id="fd" type="radio" checked="checked" name="optradio" value="fd" />
+              <label class="vis-s fd" for="fd"></label>
+              <input id="sb" type="radio" name="optradio" value="sb" />
+              <label class="vis-s sb"for="sb"></label>
+              <input id="cp" type="radio" name="optradio" value="cp" />
+              <label class="vis-s cp" for="cp"></label>
+              <input id="wm" type="radio" name="optradio" value="wm" />
+              <label class="vis-s wm"for="wm"></label>
+              <input id="ch" type="radio" name="optradio" value="ch" />
+              <label class="vis-s ch" for="ch"></label>
+              <input id="sk" type="radio" name="optradio" value="sk" />
+              <label class="vis-s sk"for="sk"></label>
+            </div>
           </div>
         </div>
 
@@ -312,24 +290,50 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
 
       <div class="tab-pane fade" id="sectionB">
         <br/>
-        <h1>All Filters</h1>
-        <button class="btn btn-xl btn-primary">show uri information</button>
-        <button class="btn btn-xl btn-primary">I'm button B</button>
-        <button class="btn btn-xl btn-primary">I'm button C</button>
-        <button class="btn btn-xl btn-primary">I'm button D</button>
-        <span id="memory-box"></span>
-        <h4>Previous Searches</h4>
-        <br/>&nbsp;
-        <h3>Agent</h3>
-        <h3>Place</h3>
-        <h3>Production</h3>
-        <input type="textarea" placeholder="Enter your query in SPARQL"></input>
+
+        <div class="col-md-8 col-small-8">
+
+          <div class="col-md-12 col-sm 1">
+            <h1>All Filters</h1>
+          </div>
 
 
+          <br/>
 
-        <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+              <h3>Agent</h3>
+            </div>
+            <div class="col-md-3">
+              <h3>Place</h3>
+            </div>
+            <div class="col-md-3">
+              <h3>Production</h3>
+            </div>
+          </div>
 
-      </div>
+
+          <br/><br/><br/>
+          <textarea cols="40" rows="10" placeholder="Enter your query in SPARQL"></textarea>
+          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+        </div>
+
+          <div class="col-md-3 col-md-offset-1">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h5 class="panel-title" >
+                  Previous Searches
+                </h5>
+                </div>
+                <div class="panel-body">
+                  <span id="memory-box"></span>
+
+                </div>
+              </div>
+            </div>
+
+
+        </div>
 
 
 
@@ -368,9 +372,14 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
     </h1>
     <br>
     &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
-    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>&nbsp;&nbsp;&nbsp;
+In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
+“Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
+However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
     </p>
-    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>&nbsp;&nbsp;&nbsp;
+In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
+“Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
     </p>
   </section>
 
@@ -383,7 +392,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
     <h1>About The Project</h1><br/><br/><br/><br/><br/>
     <div>
       <p>&nbsp;&nbsp;&nbsp;
-        Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms (LiMo) will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. LiMo will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, LiMo combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With LiMo, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
+        Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
 
       <p>&nbsp;&nbsp;&nbsp;
         Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
@@ -443,7 +452,7 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
 
   </section>
 
-  &nbsp;<img src="img/sshrc-logo-trans.png" style="display: inline; width: 98%;"></img>
+  &nbsp;<a href="http://www.sshrc-crsh.gc.ca/"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
   <br/><br/>
 
 
