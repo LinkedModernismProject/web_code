@@ -4,6 +4,16 @@ function inArr(str, strArray) {
 	}
 	return false;
 }
+function grabValues (line) {
+	//var values = line.match(/value": (.*)\s([^\}]+)\}/g);
+	var values = line.match(/(value":.*?)\s\}/g);  // /\s([^\}]+)\}/g);
+	console.log(values);
+	console.log(values[0]);
+	console.log(values[1]);
+	console.log(values[2]);
+	values = values.replace(/ /, '');
+	exit()
+}
 function convert(json) {
 	console.log('HELLLLOOOOOOO')
 	console.log(typeof(json))
@@ -39,13 +49,16 @@ function convert(json) {
 			//var extract = re.exec(arrayOfLines[a]);
 			try {
 				var extrac = arrayOfLines[a].match(/\[([^\]]+)\]/);		//"s", "p", "o"     type:obj
+				console.log(extrac);
 				var s_p_o = extrac[1].replace(/\"/g,'');	//s, p, o
+				var s_p_o = s_p_o.replace(/\s+/g, '');
 				var s_p_o_Arr =  s_p_o.split(',');			//3
 			}
 			catch(err) {
 				alert("Error with parsing JSON file:"+ err.message);
 			}
 			console.log(s_p_o_Arr);
+			console.log(s_p_o);
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
 				o = s_p_o_Arr[0];
@@ -57,26 +70,18 @@ function convert(json) {
 				p = s_p_o_Arr[1];
 				o = s_p_o_Arr[2];
 			}
-			//for (var i = 0; i < s_p_o_Arr.length; i++) {
-			//	May use for selecting the proper spo from query
-			//};
+			console.log(s);
+			console.log(p);
+			console.log(o);
 
-		}//End of if a==0
-		console.log(arrayOfLines[a]);
+		} else if(a==1) {//End of if a==0
+			continue;	//For the distinct and ordered settings; no data
+		} else {
+			grabValues(arrayOfLines[a]);
+
+		}
+		//console.log(arrayOfLines[a]);
 	}//End of for loop through arrayOfLines
-
-
-	//for(var b=0;b<s_p_o_Arr.length;b++) {
-	//	console.log('InHERE');
-	//	for (var c=0;c<data_arr.length;c++) {
-	//		console.log('InHERE2');
-	//		if (inArr ("hello", data[0].subj) ) { console.log("yes")}
-	//		else { console.log("no")}
-	//	};
-	//	if(inArr(s_p_o_Arr[b], data_arr)) {
-	//		//add to subj				
-	//	}
-	//}
 
 //"s", "p", "o"
 
