@@ -4,21 +4,28 @@ function inArr(str, strArray) {
 	}
 	return false;
 }
-function grabValues (line) {
+function grabValues (line, total) {
 	//var values = line.match(/value": (.*)\s([^\}]+)\}/g);
 	var values = line.match(/(value":.*?)\s\}/g);  // /\s([^\}]+)\}/g);
 	console.log(values);
 	console.log(values[0]);
 	console.log(values[1]);
 	console.log(values[2]);
-	values = values.replace(/\s/g, '');
+	console.log(total);
+	for (var i = 0; i < total; i++) {
+		values[i] = values[i].replace(/[^\"]*?/ig, '');	//WORKING HERE THE REGEX IS NOT WORKING
+	};
+	//values = values.replace(/[.*?]\s/g, '');
 	console.log(values);
 	console.log(values[0]);
 	console.log(values[1]);
 	console.log(values[2]);
-	console.log('HELLLLOOOOOOO');
 
-	
+
+
+
+
+	console.log('HELLLLOOOOOOO');
 
 }
 function convert(json) {
@@ -84,7 +91,7 @@ function convert(json) {
 		} else if(a==1) {//End of if a==0
 			continue;	//For the distinct and ordered settings; no data
 		} else {
-			grabValues(arrayOfLines[a]);
+			grabValues(arrayOfLines[a], totVars);
 
 		}
 		//console.log(arrayOfLines[a]);
