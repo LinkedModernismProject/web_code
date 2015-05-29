@@ -54,7 +54,6 @@
 
 
   <script src="js/d3sparql.js"></script>
-  <script src="js/convertJSONtoFlare.js"></script>
 
 
   <!-- Script for interacting with database and visualizations -->
@@ -64,6 +63,8 @@
 
   $(function() {
     $(".btn-search").click(function(){
+      $("#tabA").removeClass("active");
+      $("#tabC").addClass("active");
       sClick();
       exec1();
     });
@@ -104,7 +105,6 @@
     // set all configs & name them
 
     //put if clause for radio buttons here
-    console.log(json)
     var val = $("input[name='optradio']:checked").val();
     if(val === "fd"){
       var config = {
@@ -161,19 +161,6 @@
       }
       d3sparql.piechart(json, config);
     }
-    else if(val === "den"){
-      var config = {
-        "root": "s",
-        "parent": "p",
-        "child": "o",
-        "width": 1000,
-        "height": 1000,
-        "margin": 500,
-        "radius": 5,
-        "selector": "#visualizations"
-      }
-      d3sparql.dendrogram(json, config);
-    }
   }
 
   </script>
@@ -226,10 +213,10 @@
   <hr class="light"></hr><br/>
 
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a data-toggle="tab" href="#sectionA" class="btn" role="button">Home</a></li>
-    <li><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
-    <li><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
-    <li><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
+    <li class="active" id="tabA" ><a data-toggle="tab" href="#sectionA" class="btn" role="button">Home</a></li>
+    <li id="tabB" ><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
+    <li id="tabC" ><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
+    <li id="tabD" ><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
   </ul>
 
 
@@ -251,22 +238,17 @@
 
 
             <noscript>
-              Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
+              Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser or is disabled on this page, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
+
 
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
+
+
             <br/>
-
-            <!--   <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>  -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>                          -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label                        -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label                          -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>                            -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label                        -->
-
             <h6>Select a visualization</h6>
             <div class="vis-select">
               <input id="fd" type="radio" checked="checked" name="optradio" value="fd" />
@@ -282,6 +264,7 @@
               <input id="sk" type="radio" name="optradio" value="sk" />
               <label class="vis-s sk"for="sk"></label>
             </div>
+
           </div>
         </div>
 
@@ -327,7 +310,22 @@
                 </div>
                 <div class="panel-body">
                   <span id="memory-box"></span>
-
+                  <p>
+                    Argentinian Painters Inspired by Da Vinci <br/>
+                    Gender - Female<br/>
+                    Sex - Male<br/>
+                    DoB - 1700-1820
+                  </p>
+                  <button class="btn btn-primary">Search this again</button>
+                  <br/><hr class="light"/>
+                  <p>
+                    Argentinian Painters Inspired by Da Vinci <br/>
+                    Gender - Male<br/>
+                    Sex - Female<br/>
+                    DoB - 1700-1820
+                  </p>
+                  <button class="btn btn-primary">Search this again</button>
+                  <br/><hr class="light"/>
                 </div>
               </div>
             </div>
@@ -404,16 +402,16 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
 
     </div>
 
-      <div class="col-md-6 col-md-2">
-        <div class="thumbnail">
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <a href="http://ghostprof.org"><div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
             <h4>Dr. Stephen Ross</h4>
             <p>Project Lead</p>
           </div>
-        </div>
+        </div></a>
       </div>
-      <div class="col-md-6 col-md-2">
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
@@ -422,7 +420,7 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-2">
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
@@ -431,7 +429,7 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-2">
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
@@ -440,7 +438,7 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-2">
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <div class="thumbnail">
           <img src="img/ghostprof.jpeg" alt="...">
           <div class="caption">
@@ -449,10 +447,9 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
           </div>
         </div>
       </div>
-
   </section>
-
-  &nbsp;<a href="http://www.sshrc-crsh.gc.ca/"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
+  <br/>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
   <br/><br/>
 
 
