@@ -11,13 +11,20 @@ function grabValues (line) {
 	console.log(values[0]);
 	console.log(values[1]);
 	console.log(values[2]);
-	values = values.replace(/ /, '');
-	exit()
+	values = values.replace(/\s/g, '');
+	console.log(values);
+	console.log(values[0]);
+	console.log(values[1]);
+	console.log(values[2]);
+	console.log('HELLLLOOOOOOO');
+
+	
+
 }
 function convert(json) {
-	console.log('HELLLLOOOOOOO')
-	console.log(typeof(json))
-	newJson = '{\n\t'
+	console.log('HELLLLOOOOOOO');
+	console.log(typeof(json));
+	newJson = '{\n\t';
 	arrayOfLines = json.match(/[^\r\n]+/g);	//Puts json into lines of strings
 	var s = '';
 	var p = '';
