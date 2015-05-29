@@ -8,7 +8,7 @@
 
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
-  debug: false  // set to true for showing debug information
+  debug: true  // set to true for showing debug information
 }
 
 /*
@@ -57,6 +57,8 @@ d3sparql.query = function(endpoint, sparql, callback) {
   d3.xhr(url, mime, function(request) {
     var json = request.responseText
     if (d3sparql.debug) { console.log(json) }
+    json = convert(json); //Converting json to flare.json in convertJSONtoFlare.js
+    console.log(json);
     callback(JSON.parse(json))
   })
 /*
@@ -166,6 +168,8 @@ d3sparql.graph = function(json, config) {
     }
 */
 d3sparql.tree = function(json, config) {
+  console.log(json);
+  console.log(config);
   var head = json.head.vars
   var data = json.results.bindings
 
@@ -175,14 +179,25 @@ d3sparql.tree = function(json, config) {
     "child":  head[2],
     "value":  head[3] || "value",
   }
+  console.log(opts.root)
+  console.log(typeof(data))
+  console.log(typeof(opts.root))
+  console.log(data[0][opts.root].value)
+  console.log(data[0][opts.parent].value)
+  console.log(data[0][opts.child].value)
 
   var pair = d3.map()
   var size = d3.map()
   var root = data[0][opts.root].value
+  console.log(root);
   var parent = child = children = true
+  console.log(parent);
+  console.log(opts.value);
+  //console((data.length).toString())
   for (var i = 0; i < data.length; i++) {
     parent = data[i][opts.parent].value
     child = data[i][opts.child].value
+    console.log(parent+' ||| '+child)
     if (parent != child) {
       if (pair.has(parent)) {
         children = pair.get(parent)
@@ -1108,6 +1123,8 @@ d3sparql.roundtree = function(json, config) {
     </style>
 */
 d3sparql.dendrogram = function(json, config) {
+  console.log(json);
+  console.log(config);
   var tree = d3sparql.tree(json, config)
 
   var opts = {
