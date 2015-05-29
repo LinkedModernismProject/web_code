@@ -54,6 +54,7 @@
 
 
   <script src="js/d3sparql.js"></script>
+  <script src="js/convertJSONtoFlare.js"></script>
 
 
   <!-- Script for interacting with database and visualizations -->
@@ -101,9 +102,8 @@
   function render(json) {
     // set options and call the d3xxxxx function in this library ...
     // set all configs & name them
-
-
     //put if clause for radio buttons here
+    console.log(json)
     var val = $("input[name='optradio']:checked").val();
     console.log(val);
     if(val === "fd"){
@@ -165,6 +165,19 @@
         "selector": "#visualizations"
       }
       d3sparql.sunburst(json, config);
+    }
+    else if(val === "den"){
+      var config = {
+        "root": "s",
+        "parent": "p",
+        "child": "o",
+        "width": 1000,
+        "height": 1000,
+        "margin": 500,
+        "radius": 5,
+        "selector": "#visualizations"
+      }
+      d3sparql.dendrogram(json, config);
     }
   }
 
@@ -289,7 +302,8 @@ encodeURI( url + "?default-graph-uri=")+encodeURIComponent("http://localhost:889
             <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
             <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
             <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
-            <label class="radio-inline"><input type="radio" name="optradio" walue="ch">Graphs</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>
           </div>
         </div>
 
