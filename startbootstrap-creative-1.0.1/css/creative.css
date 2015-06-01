@@ -468,7 +468,7 @@ body {
 .vis-select input{
     margin:0;padding:0;
     -webkit-appearance:none;
-       -moz-appearance:none;
+       -moz-appearance:window;
             appearance:none;
 }
 .fd {
