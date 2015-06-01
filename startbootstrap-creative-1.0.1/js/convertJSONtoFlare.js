@@ -25,7 +25,7 @@ function compare_subjects (val_arr, data_arr, val_i, s_p) {
 	return [false, 'No existing subj index:'+i.toString()];
 }
 
-function compare_subjects2 (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
+function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
 	for (var i = 0; i < data_arr.length; i++) {
 		console.log(data_arr[i].pred_obj[i][0]);
 		console.log(val_arr[val_i]);
@@ -36,43 +36,71 @@ function compare_subjects2 (val_arr, data_arr, val_i) {	//May be able to just co
 	return [false, 'No existing subj index:'+i.toString()];
 }
 
+
 function isA_spo (val_arr, total, data_arr) {
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	} else {
 		comp_subj_bool = compare_subjects(val_arr, data_arr, 0, "subj")[0];
 		comp_subj_index = compare_subjects(val_arr, data_arr, 0, "subj")[1];
-		comp_pred_bool = compare_subjects2(val_arr, data_arr, 1)[0];//, "pred_obj[i][0]")[0];
-		comp_pred_index = compare_subjects2(val_arr, data_arr, 1)[1];//, "pred_obj[i][0]")[1]
-		console.log("the length is:"+data_arr.length.toString());
-		if(comp_subj_bool) {
+		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];//, "pred_obj[i][0]")[0];
+		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];//, "pred_obj[i][0]")[1]
+		if(comp_subj_bool) {	//Subjects are the same, check for same pred
 			console.log("IN SPO:");
-			console.log(comp_subj_index);
-			exit();
-		} else {	//Subjects are different
+			//append to the index of array
+			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
+				//data_arr[comp_pred_index].pred_obj[comp_pred_index].length
+				data_arr[comp_pred_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
+			} else {	//Diff preds
+				data_arr[comp_pred_index].pred_obj[comp_pred_index]
+
+			}
+
+
+		} else {	//Subjects are different, thus no need to check for same pred
 			console.log("IN SPO2:"+comp_subj_bool.toString());
 			console.log(comp_subj_index);
 			console.log(comp_pred_bool);
 			console.log(comp_pred_index);
 			data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
+			//done here i believe, now to do part if same pred
+			var a1 = ["testinalfl", "testing111"];
+			//data_arr[0].pred_obj.push(a1);
+			data_arr[0].pred_obj[2] = a1;		//HERE TESTING, FINISHING DIFF PREDS ABOVE LINE 56
+			console.log(data_arr[0].pred_obj[2]);
+			//console.log(data_arr[0].pred_obj[0].length);
+			data_arr[0].pred_obj[0][data_arr[0].pred_obj[0].length] = "tester!";
+			
+			for (var i = 0; i < data_arr.length; i++) {
+				console.log(data_arr[i].pred_obj[0]);
+			}
+
+
+			exit();
+
+			
+
 
 			for (var i = 0; i < data_arr.length; i++) {
-				console.log('IN_FOR');
+				console.log('IN_FOR'+data_arr[i].subj);
 				console.log(data_arr[i]);
 				console.log(data_arr[i].pred_obj);
 				console.log(data_arr[i].pred_obj[0]);
 				console.log(data_arr[i].pred_obj[1]);
 				console.log(typeof(data_arr[i].pred_obj[0]));
 				console.log(typeof(data_arr[i].pred_obj));
-				console.log((data_arr[i].pred_obj)[i][0]);	//WON'T ACCEPT AS ARRAY
-				console.log(data_arr[i].pred_obj[i][1]);
-				console.log(data_arr[i].pred_obj[i][2]);
-				console.log(data_arr[i].pred_obj[i][3]);
-			};
+				data_arr[i].pred_obj[0][2] = 'testing!'+i.toString();
+				console.log(data_arr[i].pred_obj[0][2]);
+				//var xyz = data_arr.filter(function (probj) {return probj.pred_obj[0]});
+				//console.log(xyz);
+				console.log((data_arr[i].pred_obj)[0][0]);	//Index was wrong
+				console.log(data_arr[i].pred_obj[0][1]);
+				console.log(data_arr[i].pred_obj[0][2]);
+				console.log(data_arr[i].pred_obj[0][3]);
+			}
 
 
-
-			//exit();
+			exit();
 			//if(compare_subjects(val_arr, data_arr, 1, "pred[i][0]")[0]) {
 				//For the pred value comparision HERE
 
@@ -167,8 +195,8 @@ function convert(json) {
 			catch(err) {
 				alert("Error with parsing JSON file:"+ err.message);
 			}
-			console.log(s_p_o_Arr);
-			console.log(s_p_o);
+			//console.log(s_p_o_Arr);
+			//console.log(s_p_o);
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
 				o = s_p_o_Arr[0];
@@ -180,9 +208,9 @@ function convert(json) {
 				p = s_p_o_Arr[1];
 				o = s_p_o_Arr[2];
 			}
-			console.log(s);
-			console.log(p);
-			console.log(o);
+			//console.log(s);
+			//console.log(p);
+			//console.log(o);
 		//Second line: uneeded data
 		} else if(a==1) {//End of if a==0
 			continue;	//For the distinct and ordered settings; no data
