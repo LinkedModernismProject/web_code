@@ -65,6 +65,7 @@
   $(function() {
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
+      $("#tabB").removeClass("active");
       $("#tabC").addClass("active");
       sClick();
       exec1();
@@ -290,7 +291,10 @@
           <div class="col-md-12 col-sm 1">
             <h1>All Filters</h1>
           </div>
-
+          <form>
+            <input type="text" id="sub-name" placeholder="Your search in SQUALL"></input>
+          </form>
+          <br/>
         <div class="row">
           <div class="form-group form-inline">
             <div class="col-md-3 col-sm-4">
