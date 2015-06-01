@@ -4,6 +4,7 @@ function inArr(str, strArray) {
 	}
 	return false;
 }
+//Grab values and place them into corresponding array or object unless duplicate then try add to another obj.
 function grabValues (line, total) {
 	//var values = line.match(/value": (.*)\s([^\}]+)\}/g);
 	var values = line.match(/(value":.*?)\s\}/g);  // /\s([^\}]+)\}/g);
@@ -11,15 +12,16 @@ function grabValues (line, total) {
 	console.log(values[0]);
 	console.log(values[1]);
 	console.log(values[2]);
-	console.log(total);
+	console.log("total= "+total.toString());
 	for (var i = 0; i < total; i++) {
-		values[i] = values[i].replace(/[^\"]*?/ig, '');	//WORKING HERE THE REGEX IS NOT WORKING
+		values[i] = values[i].replace(/value\"\:[\s+]/, '');	//Works now //(/[^\"]*?/ig, '');
+		values[i] = values[i].replace(/[\s+]\}/, '');
 	};
-	//values = values.replace(/[.*?]\s/g, '');
+
 	console.log(values);
-	console.log(values[0]);
+	console.log(values[0]);	//"http://www.openlinksw.com/virtrdf-data-formats#default-iid"
 	console.log(values[1]);
-	console.log(values[2]);
+	console.log(values[2]);	//"http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat"
 
 
 
