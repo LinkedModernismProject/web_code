@@ -62,11 +62,26 @@
 
 
 
+
   $(function() {
+
+    $.ajax({
+      type: "get",
+      url: constructURLStart(getCookie("query")),
+      context: document.body,
+      dataType: "html",
+      cache: false,
+      success: function(response){
+        $("#results").html(response);
+        $("table").addClass("table-hover");
+      }
+    });
+
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
       $("#tabB").removeClass("active");
       $("#tabC").addClass("active");
+      createCookie();
       sClick();
       exec1();
     });
@@ -86,10 +101,37 @@
     });
   }
 
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) == 0){
+            return c.substring(name.length,c.length);
+          }
+      }
+      return ("");
+  }
+
+  function createCookie(){
+    var query = $("#query").val();
+    var currentTime = new Date();
+    var expires = new Date(currentTime.getTime() + 28*24*60*60*1000);
+    console.log(expires);
+    document.cookie = "query=" + query + ";expires=" + expires
+  }
+
   // default-graph-uri=http://localhost:8890/may26&
   function constructURL(){
     var url = "http://togostanza.org/sparql";
     var query = $("#query").val();
+    var queryURL = url + "?query=" + encodeURIComponent(query);
+    return queryURL;
+  }
+
+  function constructURLStart(query){
+    var url = "http://togostanza.org/sparql";
     var queryURL = url + "?query=" + encodeURIComponent(query);
     return queryURL;
   }
@@ -567,7 +609,7 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
       </p>
 
       <p>&nbsp;&nbsp;&nbsp;
-        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Natural.js and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
+        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. SQUALL (Semantic Query and Update High-Level Language) and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
       </p>
 
     </div>
