@@ -1,13 +1,13 @@
 {
     "name": "flare",
-    "children": [{
+    "children": [{#
         "name": "analytics",
-        "children": [{#
+        "children": [{$
             "name": "cluster",
             "children": [{
                 "name": "AgglomerativeCluster",
-                "size": 3938#
-            }#, {
+                "size": 3938
+            }, {
                 "name": "CommunityStructure",
                 "size": 3812
             }, {

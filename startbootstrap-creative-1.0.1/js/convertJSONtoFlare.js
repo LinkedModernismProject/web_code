@@ -75,7 +75,7 @@ function grabValues (line, total, data_arr) {
 }
 
 //Converting the JSON data to FlareJSON
-function toFlare(data_arr) {
+function toFlare(data_arr, s, p, o, total) {
 	var name = '"name": ';
 	var child = '"children": ';
 	var size = '"size": ';
@@ -83,14 +83,24 @@ function toFlare(data_arr) {
 	//var su = 'subj';
 	//var pr = 'pred_obj';
 	var newJson = '{\n\t';
+	//To determine the root node(i.e. The query)
+	if(total==1) {
+		var query = o;
+	} else if(total==2) {
+		var query = p+', '+o;
+	} else {
+		var query = s+', '+p+', '+o;
+	}
+	newJson += name+query+',\n\t'+child+'[{';
+
 	for (var i = 0; i < data_arr.length; i++) {
-		//obj.hasOwnProperty
-		//Deal with next subj case
-		if(i>0) {	//Going onto another objects; reset cursor
-			newJson += ']\n'
-		}
 		if(data_arr[i].hasOwnProperty('subj')) {
-			newJson += name+data_arr.subj+',\n\t'+child+'[{';
+			//Deal with next subj case
+			if(i>0) {	//Going onto another subjects; reset cursor
+				newJson += ']\n'
+			}
+			newJson += name+data_arr.subj+',\n\t\t'+child+'[{';
+			//CURRENTLY
 			if(data_arr[i].hasOwnProperty('pred_obj')) {
 				for (var j = 0; j < data_arr[i].pred_obj.length; j++) {
 					if(0 < data_arr[i].pred_obj[j].length) {
@@ -211,9 +221,9 @@ function convert(json) {
 	console.log(data_arr[9].pred_obj[0]);
 	
 
-	//toFlare(data_arr);
-	
 	exit();
+	
+	toFlare(data_arr, s, p, o, totVars);
 
 	//*********return the JSON values
 
