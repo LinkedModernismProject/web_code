@@ -46,28 +46,25 @@ function isA_spo (val_arr, total, data_arr) {
 		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];//, "pred_obj[i][0]")[0];
 		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];//, "pred_obj[i][0]")[1]
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
-			console.log("IN SPO:");
+			console.log("IN same subj");
 			//append to the index of array
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
-				//data_arr[comp_pred_index].pred_obj[comp_pred_index].length
-				data_arr[comp_pred_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
+				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
 			} else {	//Diff preds
-				data_arr[comp_pred_index].pred_obj[comp_pred_index]
-
+				data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
 			}
-
-
 		} else {	//Subjects are different, thus no need to check for same pred
 			console.log("IN SPO2:"+comp_subj_bool.toString());
 			console.log(comp_subj_index);
 			console.log(comp_pred_bool);
 			console.log(comp_pred_index);
 			data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
-			//done here i believe, now to do part if same pred
+			//done if subjs are diff i believe, now to do part if same pred
 			var a1 = ["testinalfl", "testing111"];
-			//data_arr[0].pred_obj.push(a1);
 			data_arr[0].pred_obj[2] = a1;		//HERE TESTING, FINISHING DIFF PREDS ABOVE LINE 56
 			console.log(data_arr[0].pred_obj[2]);
+			//data_arr[0].pred_obj.push(a1);	//This works as well
+			console.log(typeof(data_arr[0].pred_obj));
 			//console.log(data_arr[0].pred_obj[0].length);
 			data_arr[0].pred_obj[0][data_arr[0].pred_obj[0].length] = "tester!";
 			
@@ -102,7 +99,7 @@ function isA_spo (val_arr, total, data_arr) {
 
 			exit();
 			//if(compare_subjects(val_arr, data_arr, 1, "pred[i][0]")[0]) {
-				//For the pred value comparision HERE
+				//For the pred value comparision
 
 			//}
 
