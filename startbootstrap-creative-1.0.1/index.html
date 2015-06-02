@@ -118,7 +118,6 @@
     var query = $("#query").val();
     var currentTime = new Date();
     var expires = new Date(currentTime.getTime() + 28*24*60*60*1000);
-    console.log(expires);
     document.cookie = "query=" + query + ";expires=" + expires
   }
 
@@ -276,7 +275,7 @@
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
-            <h1>Linked Modernisms</h1>
+            <a><img src="img/LinkedModernism5.svg" style="display: inline; width: 50%;"></img></a>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
@@ -334,7 +333,7 @@
             <h1>All Filters</h1>
           </div>
           <form>
-            <input type="text" id="sub-name" placeholder="Your search in SQUALL"></input>
+            <input type="text" id="sub-name" placeholder="Your search in SPARQL"></input>
           </form>
           <br/>
         <div class="row">
