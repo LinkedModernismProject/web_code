@@ -102,16 +102,16 @@
   }
 
   function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0; i<ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1);
-          if (c.indexOf(name) == 0){
-            return c.substring(name.length,c.length);
-          }
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1);
+      if (c.indexOf(name) == 0){
+        return c.substring(name.length,c.length);
       }
-      return ("");
+    }
+    return ("");
   }
 
   function createCookie(){
@@ -123,21 +123,21 @@
 
   // default-graph-uri=http://localhost:8890/may26&
   function constructURL(){
-    var url = "http://togostanza.org/sparql";
+    var url = "http://dbpedia.org/sparql";
     var query = $("#query").val();
     var queryURL = url + "?query=" + encodeURIComponent(query);
     return queryURL;
   }
 
   function constructURLStart(query){
-    var url = "http://togostanza.org/sparql";
+    var url = "http://dbpedia.org/sparql";
     var queryURL = url + "?query=" + encodeURIComponent(query);
     return queryURL;
   }
 
   //d3.select("#endpoint").property("value")
   function exec1() {
-    var endpoint = "http://togostanza.org/sparql";
+    var endpoint = "http://dbpedia.org/sparql";
     var sparql = d3.select("#query").property("value");
     d3sparql.query(endpoint, sparql, render);
   }
@@ -151,13 +151,13 @@
     var val = $("input[name='optradio']:checked").val();
     if(val === "fd"){
       var config = {
-       "radius": 20,
-       "charge": -30,
-       "distance": 100,
-       "width": window.innerWidth,
-       "height": 1000,
-       "selector": "#visualizations"
-     }
+        "radius": 20,
+        "charge": -30,
+        "distance": 100,
+        "width": window.innerWidth,
+        "height": 1000,
+        "selector": "#visualizations"
+      }
       d3sparql.forcegraph(json, config);
     } else if(val === "sb"){
       var config = {
@@ -214,12 +214,12 @@
 <!-- I may yet find a use for this stuff
 
 
-  <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
-  <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
-  <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
-  <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
-  <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
-  <label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
+<label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
 
 -->
 <body id="page-top">
@@ -336,47 +336,47 @@
             <input type="text" id="sub-name" placeholder="Your search in SPARQL"></input>
           </form>
           <br/>
-        <div class="row">
-          <div class="form-group form-inline">
-            <div class="col-md-3 col-sm-4">
-              <select class="form-control" id="sel1">
-                <option selected disabled>Choose one</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <select class="form-control" id="sel2">
-                <option selected disabled>Choose one</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <select class="form-control" id="sel3">
-                <option selected disabled>Choose one</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="col-md-3 col-sm-4">
-              <select class="form-control" id="sel3">
-                <option selected disabled>Choose one</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
+          <div class="row">
+            <div class="form-group form-inline">
+              <div class="col-md-3 col-sm-4">
+                <select class="form-control" id="sel1">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <select class="form-control" id="sel2">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <select class="form-control" id="sel3">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <select class="form-control" id="sel3">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
 
+            </div>
           </div>
-        </div>
 
           <br/>
 
@@ -512,96 +512,97 @@
         </div>
 
 
-          <div class="col-md-3 col-md-offset-1">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h5 class="panel-title" >
-                  Previous Searches
-                </h5>
-                </div>
-                <div class="panel-body">
-                  <span id="memory-box"></span>
-                  <p>
-                    Argentinian Painters Inspired by Da Vinci <br/>
-                    Gender - Female<br/>
-                    Sex - Male<br/>
-                    DoB - 1700-1820
-                  </p>
-                  <button class="btn btn-primary">Search this again</button>
-                  <br/><hr class="light"/>
-                  <p>
-                    Argentinian Painters Inspired by Da Vinci <br/>
-                    Gender - Male<br/>
-                    Sex - Female<br/>
-                    DoB - 1700-1820
-                  </p>
-                  <button class="btn btn-primary">Search this again</button>
-                  <br/><hr class="light"/>
-                </div>
-              </div>
+        <div class="col-md-3 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h5 class="panel-title" >
+                Previous Searches
+              </h5>
             </div>
-
-
+            <div class="panel-body">
+              <span id="memory-box"></span>
+              <p>
+                Argentinian Painters Inspired by Da Vinci <br/>
+                Gender - Female<br/>
+                Sex - Male<br/>
+                DoB - 1700-1820
+              </p>
+              <button class="btn btn-primary">Search this again</button>
+              <br/><hr class="light"/>
+              <p>
+                Argentinian Painters Inspired by Da Vinci <br/>
+                Gender - Male<br/>
+                Sex - Female<br/>
+                DoB - 1700-1820
+              </p>
+              <button class="btn btn-primary">Search this again</button>
+              <br/><hr class="light"/>
+            </div>
+          </div>
         </div>
 
 
-
-
-
-        <div class="tab-pane fade" id="sectionC">
-          <br/><br/><br/><br/><span id="results"></span>
-
-        </div>
-
-
-        <!-- Other ones I want
-        http://bl.ocks.org/dwtkns/4973620 -artifacts only
-        http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
-      -->
-      <div class="tab-pane fade" id="sectionD">
-        <br/>
-        <span id="visualizations"></span>
-
-        <br/>
       </div>
 
 
 
+
+
+      <div class="tab-pane fade" id="sectionC">
+        <br/><br/><br/><br/><span id="results"></span>
+
+      </div>
+
+
+      <!-- Other ones I want
+      http://bl.ocks.org/dwtkns/4973620 -artifacts only
+      http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
+    -->
+    <div class="tab-pane fade" id="sectionD">
+      <br/>
+      <span id="visualizations"></span>
+
+      <br/>
     </div>
-  </section>
 
+
+
+  </div>
+</section>
+
+<br/>
+
+<section id="ontology">
   <br/>
+  <hr class="light"></hr>
+  <br/>
+  <h1>
+    The Modernism Ontology
+  </h1>
+  <br>
+  &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+  <p>&nbsp;&nbsp;&nbsp;
+    In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
+    “Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
+    However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;
+    In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
+    “Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
+  </p>
+</section>
 
-  <section id="ontology">
-    <br/>
-    <hr class="light"></hr>
-    <br/>
-    <h1>
-      The Modernism Ontology
-    </h1>
-    <br>
-    &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+
+
+<section id="about">
+  <br/>
+  <hr class="light"></hr>
+  <br/><br/>
+  <h1>About The Project</h1><br/><br/><br/><br/><br/>
+
+  <div>
     <p>&nbsp;&nbsp;&nbsp;
-In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
-“Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
-However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
-    </p>
-    <p>&nbsp;&nbsp;&nbsp;
-In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
-“Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
-    </p>
-  </section>
-
-
-
-  <section id="about">
-    <br/>
-    <hr class="light"></hr>
-    <br/><br/>
-    <h1>About The Project</h1><br/><br/><br/><br/><br/>
-    <div>
-      <p>&nbsp;&nbsp;&nbsp;
-        Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
+      Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
 
       <p>&nbsp;&nbsp;&nbsp;
         Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
@@ -613,51 +614,58 @@ In the works of Fellini, a predominant concept is the concept of subsemiotic lan
 
     </div>
 
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <a href="http://ghostprof.org"><div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h4>Dr. Stephen Ross</h4>
-            <p>Project Lead</p>
-          </div>
-        </div></a>
-      </div>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h4>Dr. Stephen Ross</h4>
-            <p>He is the batman.</p>
-          </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <a href="http://ghostprof.org">
+        <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
+        <div class="caption">
+          <h4>Dr. Stephen Ross</h4>
+          <p>Project Lead, UVic.</p>
         </div>
+      </a>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
+      <div class="caption">
+        <h4>Jentery Sayers</h4>
+        <p>Director of the Maker Lab in the Humanities, UVic</p>
       </div>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h4>Dr. Stephen Ross</h4>
-            <p>He is the batman.</p>
-          </div>
-        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
+      <div class="caption">
+        <h4>Susan Irene Brown</h4>
+        <p>Research Chair in Digital Humanities, University of Guelph.</p>
       </div>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h4>Dr. Stephen Ross</h4>
-            <p>He is the batman.</p>
-          </div>
-        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
+      <div class="caption">
+        <h4>Colin Allen</h4>
+        <p>Department of History and Philosophy of Science, Indiana University</p>
       </div>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="thumbnail">
-          <img src="img/ghostprof.jpeg" alt="...">
-          <div class="caption">
-            <h4>Dr. Stephen Ross</h4>
-            <p>He is the batman.</p>
-          </div>
-        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
+      <div class="caption">
+        <h4>Ray Siemens</h4>
+        <p>Canada Research Chair in Humanities Computing, UVic.</p>
       </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
+      <div class="caption">
+        <h4>Jon Saklofske</h4>
+        <p>Department of English, Acadia University.</p>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
+      <div class="caption">
+        <h4>Christine Walde</h4>
+        <p>Grants and Awards Librarian, UVic.</p>
+      </div>
+    </div>
+
   </section>
   <br/>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
