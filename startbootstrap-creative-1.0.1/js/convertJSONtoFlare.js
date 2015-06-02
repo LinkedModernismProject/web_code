@@ -5,20 +5,12 @@ function inArr(str, strArray) {
 	return false;
 }
 function isEmpty (val_arr, total, data_arr) {
-	//data_arr[0] = {subj: val_arr[0], pred_obj: []}
 	data_arr[0] = {subj: val_arr[0] ,pred_obj: [[val_arr[1], val_arr[2]]]};	//pred_obj = 2D arr
-	console.log('INisEmpty');
-	console.log(data_arr[0]);
-	console.log(data_arr[0].pred_obj);
-	console.log(data_arr[0].pred_obj[0][0]);
-	console.log(data_arr[0].pred_obj[0][1]);
 }
 
-function compare_subjects (val_arr, data_arr, val_i, s_p) {
+function compare_subjects (val_arr, data_arr, val_i) {
 	for (var i = 0; i < data_arr.length; i++) {
-		console.log(data_arr[i].s_p);
-		console.log(val_arr[val_i]);
-		if(val_arr[val_i]==data_arr[i].s_p) {
+		if(val_arr[val_i]==data_arr[i].subj) {
 			return [true, i];
 		}
 	}
@@ -27,8 +19,6 @@ function compare_subjects (val_arr, data_arr, val_i, s_p) {
 
 function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
 	for (var i = 0; i < data_arr.length; i++) {
-		console.log(data_arr[i].pred_obj[i][0]);
-		console.log(val_arr[val_i]);
 		if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {
 			return [true, i];
 		}
@@ -36,80 +26,24 @@ function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compar
 	return [false, 'No existing subj index:'+i.toString()];
 }
 
-
 function isA_spo (val_arr, total, data_arr) {
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	} else {
-		comp_subj_bool = compare_subjects(val_arr, data_arr, 0, "subj")[0];
-		comp_subj_index = compare_subjects(val_arr, data_arr, 0, "subj")[1];
-		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];//, "pred_obj[i][0]")[0];
-		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];//, "pred_obj[i][0]")[1]
+		//Could fix this vars into arrays so would only compute once instead of twice
+		comp_subj_bool = compare_subjects(val_arr, data_arr, 0)[0];
+		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];
+		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];
+		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
-			console.log("IN SPO:");
-			//append to the index of array
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
-				//data_arr[comp_pred_index].pred_obj[comp_pred_index].length
-				data_arr[comp_pred_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
+				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
 			} else {	//Diff preds
-				data_arr[comp_pred_index].pred_obj[comp_pred_index]
-
+				data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
 			}
-
-
 		} else {	//Subjects are different, thus no need to check for same pred
-			console.log("IN SPO2:"+comp_subj_bool.toString());
-			console.log(comp_subj_index);
-			console.log(comp_pred_bool);
-			console.log(comp_pred_index);
 			data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
-			//done here i believe, now to do part if same pred
-			var a1 = ["testinalfl", "testing111"];
-			//data_arr[0].pred_obj.push(a1);
-			data_arr[0].pred_obj[2] = a1;		//HERE TESTING, FINISHING DIFF PREDS ABOVE LINE 56
-			console.log(data_arr[0].pred_obj[2]);
-			//console.log(data_arr[0].pred_obj[0].length);
-			data_arr[0].pred_obj[0][data_arr[0].pred_obj[0].length] = "tester!";
-			
-			for (var i = 0; i < data_arr.length; i++) {
-				console.log(data_arr[i].pred_obj[0]);
-			}
-
-
-			exit();
-
-			
-
-
-			for (var i = 0; i < data_arr.length; i++) {
-				console.log('IN_FOR'+data_arr[i].subj);
-				console.log(data_arr[i]);
-				console.log(data_arr[i].pred_obj);
-				console.log(data_arr[i].pred_obj[0]);
-				console.log(data_arr[i].pred_obj[1]);
-				console.log(typeof(data_arr[i].pred_obj[0]));
-				console.log(typeof(data_arr[i].pred_obj));
-				data_arr[i].pred_obj[0][2] = 'testing!'+i.toString();
-				console.log(data_arr[i].pred_obj[0][2]);
-				//var xyz = data_arr.filter(function (probj) {return probj.pred_obj[0]});
-				//console.log(xyz);
-				console.log((data_arr[i].pred_obj)[0][0]);	//Index was wrong
-				console.log(data_arr[i].pred_obj[0][1]);
-				console.log(data_arr[i].pred_obj[0][2]);
-				console.log(data_arr[i].pred_obj[0][3]);
-			}
-
-
-			exit();
-			//if(compare_subjects(val_arr, data_arr, 1, "pred[i][0]")[0]) {
-				//For the pred value comparision HERE
-
-			//}
-
 		}
-		
-		//data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
-		
 	}
 }
 function isA_po (val_arr, total, data_arr) {
@@ -127,15 +61,10 @@ function isA_o (val_arr, total, data_arr) {
 function grabValues (line, total, data_arr) {
 	//var values = line.match(/value": (.*)\s([^\}]+)\}/g);
 	var values = line.match(/(value":.*?)\s\}/g);  // /\s([^\}]+)\}/g);
-	console.log("total= "+total.toString());
 	for (var i = 0; i < total; i++) {
 		values[i] = values[i].replace(/value\"\:[\s+]/, '');	//Works now //(/[^\"]*?/ig, '');
 		values[i] = values[i].replace(/[\s+]\}/, '');
 	};
-	console.log(values);
-	console.log(values[0]);	//"http://www.openlinksw.com/virtrdf-data-formats#default-iid"
-	console.log(values[1]);
-	console.log(values[2]);	//"http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat"
 	if(total==1) {
 		isA_o(values, total, data_arr);
 	} else if(total==2) {
@@ -143,16 +72,67 @@ function grabValues (line, total, data_arr) {
 	} else {
 		isA_spo(values, total, data_arr);
 	}
-
-
-
-	console.log('HELLLLOOOOOOO');
-
 }
+
+//Converting the JSON data to FlareJSON
+function toFlare(data_arr, s, p, o, total) {
+	var name = '"name": ';
+	var child = '"children": ';
+	var size = '"size": ';
+	var defaultsize = 900
+	//var su = 'subj';
+	//var pr = 'pred_obj';
+	var newJson = '{\n\t';
+	//To determine the root node(i.e. The query)
+	if(total==1) {
+		var query = o;
+	} else if(total==2) {
+		var query = p+', '+o;
+	} else {
+		var query = s+', '+p+', '+o;
+	}
+	newJson += name+query+',\n\t'+child+'[{';
+
+	for (var i = 0; i < data_arr.length; i++) {
+		if(data_arr[i].hasOwnProperty('subj')) {
+			//Deal with next subj case
+			if(i>0) {	//Going onto another subjects; reset cursor
+				newJson += ']\n'
+			}
+			newJson += name+data_arr.subj+',\n\t\t'+child+'[{';
+			//CURRENTLY
+			if(data_arr[i].hasOwnProperty('pred_obj')) {
+				for (var j = 0; j < data_arr[i].pred_obj.length; j++) {
+					if(0 < data_arr[i].pred_obj[j].length) {
+						if(j>0) {	//If there is another pred
+							newJson += ']\n\t}, {'
+						}
+						for (var k = 0; k < data_arr[i].pred_obj[j].length; k++) {
+							//Check for if there is obj's and not just pred's
+							if(1< data_arr[i].pred_obj[j].length) {	//If there is more than just pred
+								if(k>1) {
+									newJson += ', {'
+								}
+								if(k==0) {	//Puts the pred in
+									newJson += '\n\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t'+child+'[{'
+									//working on proper format for pred tabbing
+								} else {//For the obj's (if it is after the pred)
+									//Using defaultsize* the array length for average size
+									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length)+'\n\t\t}';
+								}
+							} else {
+								//Case where there is only a pred
+							}
+						}//End of obj FOR
+					}
+				}
+			}//End of if pred
+		}
+	}
+
+}//End of toFlare
+
 function convert(json) {
-	console.log('HELLLLOOOOOOO');
-	console.log(typeof(json));
-	newJson = '{\n\t';
 	arrayOfLines = json.match(/[^\r\n]+/g);	//Puts json into lines of strings
 	var s = '';
 	var p = '';
@@ -167,27 +147,28 @@ function convert(json) {
 		object: obj
 	}
 	var data_arr = [];	//data_arr[0] = new Object();
-	//data_arr[0] = {subj: sub, predy: pred, ob: obj}
-	//Use pred_obj because will be able to keep track of connecting data between the same pred and objects
-
-	
-	//Get array index value		console.log(spo.subject[1]);
-	//Add to array				spo.subject.push('kiwi');
-	//Print whole array			console.log(spo.subject);
-
-	console.log(arrayOfLines);
-	console.log(typeof(arrayOfLines));
-	console.log(typeof(arrayOfLines[0]))
+	//TESTS BELOW
+	/////data_arr[0] = {subj: sub, pred_obj: [[]]}
+	///////Use pred_obj because will be able to keep track of connecting data between the same /////pred and objects
+	/////console.log(data_arr[0].hasOwnProperty('pred_obj'));
+	/////var a = "nothng";
+	/////var b = "nothngb";
+	/////if(data_arr[0].pred_obj.length>0){a = 'something'}	//There is an array in the  pred_obj /////array
+	/////if(data_arr[0].pred_obj[0].length>0){b = 'somethingb'} //This is an item in the array /////inside
+	/////console.log(a);
+	/////console.log(b);
+	/////exit();
+	//END OF TESTS
 
 
 	for(var a=0; a<arrayOfLines.length;a++){
 		//First line: need spo's
 		if (a==0) {
-			//var re = /\[([^\]]+)\]/;	Other way to get object into lines is shorter and more efficient
+			//var re = /\[([^\]]+)\]/;
 			//var extract = re.exec(arrayOfLines[a]);
+			//Other way to get object into lines is shorter and more efficient
 			try {	//Incase invalid input
 				var extrac = arrayOfLines[a].match(/\[([^\]]+)\]/);		//"s", "p", "o"     type:obj
-				console.log(extrac);
 				var s_p_o = extrac[1].replace(/\"/g,'');	//s, p, o
 				var s_p_o = s_p_o.replace(/\s+/g, '');
 				var s_p_o_Arr =  s_p_o.split(',');			//3
@@ -195,8 +176,6 @@ function convert(json) {
 			catch(err) {
 				alert("Error with parsing JSON file:"+ err.message);
 			}
-			//console.log(s_p_o_Arr);
-			//console.log(s_p_o);
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
 				o = s_p_o_Arr[0];
@@ -208,24 +187,44 @@ function convert(json) {
 				p = s_p_o_Arr[1];
 				o = s_p_o_Arr[2];
 			}
-			//console.log(s);
-			//console.log(p);
-			//console.log(o);
 		//Second line: uneeded data
 		} else if(a==1) {//End of if a==0
 			continue;	//For the distinct and ordered settings; no data
 		//Lines after: All the data
 		} else {
 			grabValues(arrayOfLines[a], totVars, data_arr);
-
 		}
-		//console.log(arrayOfLines[a]);
 	}//End of for loop through arrayOfLines
+	console.log(data_arr);
+	console.log(data_arr[0].pred_obj);
+	console.log(data_arr[0].pred_obj.length);	//1
+	console.log(data_arr[0].pred_obj[0].length);	//2
+	console.log(data_arr[0]);
+	console.log(data_arr[0].pred_obj[0]);
+	console.log(data_arr[1]);
+	console.log(data_arr[1].pred_obj[0]);
+	console.log(data_arr[2]);
+	console.log(data_arr[2].pred_obj[0]);
+	console.log(data_arr[3]);
+	console.log(data_arr[3].pred_obj[0]);
+	console.log(data_arr[4]);
+	console.log(data_arr[4].pred_obj[0]);
+	console.log(data_arr[5]);
+	console.log(data_arr[5].pred_obj[0]);
+	console.log(data_arr[6]);
+	console.log(data_arr[6].pred_obj[0]);
+	console.log(data_arr[7]);
+	console.log(data_arr[7].pred_obj[0]);
+	console.log(data_arr[8]);
+	console.log(data_arr[8].pred_obj[0]);
+	console.log(data_arr[9]);
+	console.log(data_arr[9].pred_obj[0]);
+	
 
-//"s", "p", "o"
+	exit();
+	
+	toFlare(data_arr, s, p, o, totVars);
 
-//var textArea = document.getElementById("my-text-area");
-//var arrayOfLines = textArea.value.split("\n"); // 
-	//console.log(json)
-	return 'HELLLLOOOOOOO'
+	//*********return the JSON values
+
 }//End of convert()
