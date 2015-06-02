@@ -78,6 +78,8 @@ function grabValues (line, total, data_arr) {
 function toFlare(data_arr) {
 	var name = '"name": ';
 	var child = '"children": ';
+	var size = '"size": ';
+	var defaultsize = 900
 	//var su = 'subj';
 	//var pr = 'pred_obj';
 	var newJson = '{\n\t';
@@ -95,12 +97,15 @@ function toFlare(data_arr) {
 									newJson += '\n\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t'+child+'[{'
 									//working on proper format for pred tabbing
 								} else {//For the obj's (if it is after the pred)
-
+									//Using defaultsize* the array length for average size
+									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length);
+									//HERE
+									
 								}
 							} else {
 								//Case where there is only a pred
 							}
-						}
+						}//End of obj FOR
 					}
 				}
 			}//End of if pred
