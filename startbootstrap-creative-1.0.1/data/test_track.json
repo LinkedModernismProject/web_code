@@ -7,7 +7,7 @@
             "children": [{
                 "name": "AgglomerativeCluster",
                 "size": 3938#
-            }, {
+            }#, {
                 "name": "CommunityStructure",
                 "size": 3812
             }, {

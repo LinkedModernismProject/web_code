@@ -85,22 +85,30 @@ function toFlare(data_arr) {
 	var newJson = '{\n\t';
 	for (var i = 0; i < data_arr.length; i++) {
 		//obj.hasOwnProperty
+		//Deal with next subj case
+		if(i>0) {	//Going onto another objects; reset cursor
+			newJson += ']\n'
+		}
 		if(data_arr[i].hasOwnProperty('subj')) {
 			newJson += name+data_arr.subj+',\n\t'+child+'[{';
 			if(data_arr[i].hasOwnProperty('pred_obj')) {
 				for (var j = 0; j < data_arr[i].pred_obj.length; j++) {
 					if(0 < data_arr[i].pred_obj[j].length) {
+						if(j>0) {	//If there is another pred
+							newJson += ']\n\t}, {'
+						}
 						for (var k = 0; k < data_arr[i].pred_obj[j].length; k++) {
 							//Check for if there is obj's and not just pred's
-							if(1< data_arr[i].pred_obj[j].length) {
-								if(k==0) {
+							if(1< data_arr[i].pred_obj[j].length) {	//If there is more than just pred
+								if(k>1) {
+									newJson += ', {'
+								}
+								if(k==0) {	//Puts the pred in
 									newJson += '\n\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t'+child+'[{'
 									//working on proper format for pred tabbing
 								} else {//For the obj's (if it is after the pred)
 									//Using defaultsize* the array length for average size
-									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length);
-									//HERE
-									
+									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length)+'\n\t\t}';
 								}
 							} else {
 								//Case where there is only a pred
