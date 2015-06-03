@@ -17,7 +17,7 @@
                 "name": "MergeEdge",
                 "size": 743
             }]
-        }, {*
+        }, {
             "name": "graph",
             "children": [{
                 "name": "BetweennessCentrality",
@@ -40,22 +40,22 @@
             "children": [{
                 "name": "AspectRatioBanker",
                 "size": 7074
-            }^]
-        }]@@
-    }, {@
+            }]
+        }]
+    }, {
         "name": "animate",
-        "children": [{$
+        "children": [{
             "name": "Easing",
             "size": 17010
-        }!, {`
+        }, {
             "name": "FunctionSequence",
             "size": 5842
-        }!, {`
+        }, {
             "name": "interpolate",
-            "children": [{%
+            "children": [{
                 "name": "ArrayInterpolator",
                 "size": 1983
-            }^, {&
+            }, {
                 "name": "ColorInterpolator",
                 "size": 2047
             }, {
@@ -79,9 +79,7 @@
             }, {
                 "name": "RectangleInterpolator",
                 "size": 2042
-            }^]
+            }]
         }]
     }]
 }
-
-

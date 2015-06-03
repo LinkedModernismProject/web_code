@@ -79,56 +79,77 @@ function toFlare(data_arr, s, p, o, total) {
 	var name = '"name": ';
 	var child = '"children": ';
 	var size = '"size": ';
-	var defaultsize = 900
+	var defaultsize = 500;
+	var emptySubj = false;
+	var emptyPred = false;
 	//var su = 'subj';
 	//var pr = 'pred_obj';
 	var newJson = '{\n\t';
 	//To determine the root node(i.e. The query)
 	if(total==1) {
-		var query = o;
+		var query = '"'+o+'"';
 	} else if(total==2) {
-		var query = p+', '+o;
+		var query = '"'+p+', '+o+'"';
 	} else {
-		var query = s+', '+p+', '+o;
+		var query = '"'+s+', '+p+', '+o+'"';
 	}
-	newJson += name+query+',\n\t'+child+'[{';
+	newJson += name+query+',\n\t'+child+'[{';	//#
 
 	for (var i = 0; i < data_arr.length; i++) {
 		if(data_arr[i].hasOwnProperty('subj')) {
 			//Deal with next subj case
-			if(i>0) {	//Going onto another subjects; reset cursor
-				newJson += ']\n'
+			if(emptySubj) {
+				newJson += '\n\t\t}]\n\t}, {'
+				emptySubj = false;
+			} else if(i>0) {	//Going onto another subjects; reset cursor
+				newJson += ']\n\t\t}]\n\t}, {'	//@
 			}
-			newJson += name+data_arr.subj+',\n\t\t'+child+'[{';
-			//CURRENTLY
+			newJson += '\n\t\t'+name+data_arr[i].subj+',\n\t\t'+child+'[{';	//$
 			if(data_arr[i].hasOwnProperty('pred_obj')) {
 				for (var j = 0; j < data_arr[i].pred_obj.length; j++) {
-					if(0 < data_arr[i].pred_obj[j].length) {
-						if(j>0) {	//If there is another pred
-							newJson += ']\n\t}, {'
+					if(0 < data_arr[i].pred_obj[j].length) {	//Tests to see if there are any preds/objects in the 2D arrays (if they are empty)
+						if(emptyPred==true) {
+							newJson += ', {';	//`
+							emptyPred = false;	//CURR
+						} else if(j>0) {	//If there is another pred
+							newJson += ']\n\t\t}, {';	//*
 						}
 						for (var k = 0; k < data_arr[i].pred_obj[j].length; k++) {
 							//Check for if there is obj's and not just pred's
-							if(1< data_arr[i].pred_obj[j].length) {	//If there is more than just pred
-								if(k>1) {
-									newJson += ', {'
+							if(1 < data_arr[i].pred_obj[j].length) {	//If there is more than just pred
+								if(k>1) {	//If there is more than one pred
+									newJson += ', {';	//&
 								}
 								if(k==0) {	//Puts the pred in
-									newJson += '\n\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t'+child+'[{'
-									//working on proper format for pred tabbing
+									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+child+'[{';	//%
 								} else {//For the obj's (if it is after the pred)
 									//Using defaultsize* the array length for average size
-									newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length)+'\n\t\t}';
+									newJson += '\n\t\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length)+'\n\t\t\t}';	//^
 								}
 							} else {
-								//Case where there is only a pred
+								//Case where there is only a pred and no obj's
+								newJson += '\n\t\t\t'+name+data_arr[i].pred_obj[j][k]+',\n\t\t\t'+size+(defaultsize*data_arr[i].pred_obj[j].length)+'\n\t\t}'	//!
+								emptyPred = true;
 							}
 						}//End of obj FOR
+					} else {//else case for if 0 !< data.length; only subjects
+						emptySubj = true;
 					}
 				}
 			}//End of if pred
 		}
+	}//End of FOR for all converting
+	//Determine if the ending was of obj's or pred's
+	if(emptySubj) {
+		newJson += '\n\t\t}]\n\t}]\n}';
+	} else if(emptyPred) {
+		newJson += ']\n\t}]\n}';
+	} else {
+		newJson += ']\n\t\t}]\n\t}]\n}';
 	}
+
+	return newJson;
+
 
 }//End of toFlare
 
@@ -148,16 +169,17 @@ function convert(json) {
 	}
 	var data_arr = [];	//data_arr[0] = new Object();
 	//TESTS BELOW
-	/////data_arr[0] = {subj: sub, pred_obj: [[]]}
-	///////Use pred_obj because will be able to keep track of connecting data between the same /////pred and objects
-	/////console.log(data_arr[0].hasOwnProperty('pred_obj'));
-	/////var a = "nothng";
-	/////var b = "nothngb";
-	/////if(data_arr[0].pred_obj.length>0){a = 'something'}	//There is an array in the  pred_obj /////array
-	/////if(data_arr[0].pred_obj[0].length>0){b = 'somethingb'} //This is an item in the array /////inside
-	/////console.log(a);
-	/////console.log(b);
-	/////exit();
+	//////////data_arr[0] = {subj: sub, pred_obj: [[]]}
+	////////////Use pred_obj because will be able to keep track of connecting data between the same /////pred and objects
+	//////////console.log(data_arr[0].subj);	//To access a data_arr subject
+	//////////console.log(data_arr[0].hasOwnProperty('pred_obj'));
+	//////////var a = "nothng";
+	//////////var b = "nothngb";
+	//////////if(data_arr[0].pred_obj.length>0){a = 'something'}	//There is an array in the  pred_obj /////array
+	//////////if(data_arr[0].pred_obj[0].length>0){b = 'somethingb'} //This is an item in the array /////inside
+	//////////console.log(a);
+	//////////console.log(b);
+	//////////exit();
 	//END OF TESTS
 
 
@@ -220,10 +242,11 @@ function convert(json) {
 	console.log(data_arr[9]);
 	console.log(data_arr[9].pred_obj[0]);
 	
-
-	exit();
 	
-	toFlare(data_arr, s, p, o, totVars);
+	var flare = toFlare(data_arr, s, p, o, totVars);
+	console.log(flare);
+	console.log("AFTERRRRRRRRR");
+	exit();
 
 	//*********return the JSON values
 
