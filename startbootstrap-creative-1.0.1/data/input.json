@@ -1,0 +1,26 @@
+{ "head": { "link": [], "vars": ["p", "o"] },
+  "results": { "distinct": false, "ordered": true, "bindings": [
+    { "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }	, "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfName" }	, "o": { "type": "literal", "value": "default" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfShortTmpl" }	, "o": { "type": "literal", "value": " ^{alias-dot}^^{column}^" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfLongTmpl" }	, "o": { "type": "literal", "value": " __ro2lo (^{alias-dot}^^{column}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfSqlvalTmpl" }	, "o": { "type": "literal", "value": " __ro2sq (^{alias-dot}^^{column}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfBoolTmpl" }	, "o": { "type": "literal", "value": " DB.DBA.RQ_BOOL_OF_O (^{alias-dot}^^{column}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfIsrefOfShortTmpl" }	, "o": { "type": "literal", "value": " isiri_id (^{tree}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfIsuriOfShortTmpl" }	, "o": { "type": "literal", "value": " is_named_iri_id (^{tree}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfIsblankOfShortTmpl" }	, "o": { "type": "literal", "value": " is_bnode_iri_id (^{tree}^)" }},
+    { "p": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#qmfIslitOfShortTmpl" }	, "o": { "type": "literal", "value": " (1 - isiri_id (^{tree}^))" }} ] } }
+
+
+ "head": { "link": [], "vars": ["s", "p", "o"] },
+   "results": { "distinct": false, "ordered": true, "bindings": [
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default-iid" }    , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nullable" }   , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nonblank" }   , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nonblank-nullable" }  , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default" }    , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#default-nullable" }   , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar" }    , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-nullable" }   , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-dt" } , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }},
+     { "s": { "type": "uri", "value": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-dt-nullable" }    , "p": { "type": "uri", "value": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }    , "o": { "type": "uri", "value": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat" }} ] } }
