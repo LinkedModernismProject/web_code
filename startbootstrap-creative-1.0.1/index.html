@@ -38,6 +38,8 @@
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
 
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
@@ -50,11 +52,12 @@
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
 
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
 
-
+  <!-- Visualization Javascript -->
   <script src="js/d3sparql.js"></script>
   <script src="js/convertJSONtoFlare.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
 
 
   <!-- Script for interacting with database and visualizations -->
@@ -64,10 +67,12 @@
 
 
   $(function() {
+    //$.removeCookie("query1")
 
+    //Function calls to populate for last search on page load
     $.ajax({
       type: "get",
-      url: constructURLStart(getCookie("query")),
+      url: constructURLStart(getCookieFirst("query")),
       context: document.body,
       dataType: "html",
       cache: false,
@@ -77,6 +82,10 @@
       }
     });
 
+    //fills the last searches box
+    prevSearch();
+
+    //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
       $("#tabB").removeClass("active");
@@ -87,6 +96,12 @@
     });
   }); //call table url process and visualization process for selected visualization
 
+  //currently useless
+  function filters(){
+    var query = $("#query").val();
+  }
+
+  //executed on search button click, this populates the results page
   function sClick(){
     $.ajax({
       type: "get",
@@ -101,25 +116,56 @@
     });
   }
 
-  function getCookie(cname) {
+  //For repopulating by the last search
+  function getCookieFirst(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1);
-      if (c.indexOf(name) == 0){
-        return c.substring(name.length,c.length);
-      }
+    var c = ca[0];
+    console.log(ca);
+    while (c.charAt(0)==' ') c = c.substring(1);
+    if (c.indexOf(name) == 0){
+      return c.substring(name.length,c.length);
     }
+
     return ("");
   }
 
+  //populates the previous searches table
+  function prevSearch(){
+    var name = "query=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1);
+      if (c.indexOf(name) == 0){
+        var prev = "<p>" + c.substring(name.length,c.length) + '</p>' + '<button class="btn btn-primary">Search this again</button><br/><hr class="light"/>';
+        console.log(prev);
+        $("#memory-box").html(prev);
+      }
+    }
+  }
+
+  //creates a cookie if none exist, appends search to the cookie if one does exist up to 5
   function createCookie(){
-    var query = $("#query").val();
     var currentTime = new Date();
     var expires = new Date(currentTime.getTime() + 28*24*60*60*1000);
-    document.cookie = "query=" + query + ";expires=" + expires
+    if(typeof $.cookie("query") === null || $.cookie("query") === "") {
+      var query = $("#query").val();
+      document.cookie = "query=" + query + ";expires=" + expires
+      return;
+    } else {
+      var query = document.cookie.split(';');
+      var newQuery = $("#query").val();
+      for(var i = 0; i < query.length; i++) {
+        var c = query[i];
+        while (c.charAt(0)=='') c = c.substring(1);
+        console.log(c);
+        console.log(newQuery)
+      }
+    }
+    document.cookie = "query=" + newQuery + ";" + query + ";expires=" + expires;
   }
+
 
   // default-graph-uri=http://localhost:8890/may26&
   function constructURL(){
@@ -129,6 +175,7 @@
     return queryURL;
   }
 
+  //for filling by last search
   function constructURLStart(query){
     var url = "http://dbpedia.org/sparql";
     var queryURL = url + "?query=" + encodeURIComponent(query);
@@ -275,7 +322,7 @@
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
-            <a><img src="img/LinkedModernism5.svg" style="display: inline; width: 50%;"></img></a>
+            <a><img src="img/LinkedModernism5.svg"></img></a>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
@@ -614,7 +661,7 @@
 
     </div>
 
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
       <a href="http://ghostprof.org">
         <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
         <div class="caption">

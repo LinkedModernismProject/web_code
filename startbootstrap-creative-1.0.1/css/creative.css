@@ -259,6 +259,26 @@ header {
   font-weight: 700;
 }
 
+.header-content .header-content-inner img {
+  display: inline;
+  width: 75%;
+}
+
+@media(min-width:900px){
+  .header-content .header-content-inner img {
+    display: inline;
+    width: 50%;
+  }
+}
+
+@media(min-width:1300px){
+  .header-content .header-content-inner img {
+    display: inline;
+    width: 30%;
+  }
+}
+
+
 .header-content .header-content-inner hr {
   margin: 30px auto;
 }
