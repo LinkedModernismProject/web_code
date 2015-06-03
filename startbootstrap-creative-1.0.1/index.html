@@ -65,14 +65,17 @@
 
 
 
-
+  //call table url process and visualization process for selected visualization
   $(function() {
     //$.removeCookie("query1")
+    //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
+    var cdata = $.cookie("query");
+    console.log(cdata);
 
     //Function calls to populate for last search on page load
     $.ajax({
       type: "get",
-      url: constructURLStart(getCookieFirst("query")),
+      url: constructURLStart(populateResults(cdata)),
       context: document.body,
       dataType: "html",
       cache: false,
@@ -83,7 +86,7 @@
     });
 
     //fills the last searches box
-    prevSearch();
+    populatePrevious(cdata);
 
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
@@ -94,7 +97,7 @@
       sClick();
       exec1();
     });
-  }); //call table url process and visualization process for selected visualization
+  });
 
   //currently useless
   function filters(){
@@ -116,24 +119,20 @@
     });
   }
 
-  //For repopulating by the last search
-  function getCookieFirst(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
+  //helps populate results table and execute default visualization (Force Directed)
+  function populateResults(cdata){
+    var ca = cdata.split(';');
     var c = ca[0];
-    console.log(ca);
-    while (c.charAt(0)==' ') c = c.substring(1);
     if (c.indexOf(name) == 0){
       return c.substring(name.length,c.length);
     }
-
     return ("");
   }
 
   //populates the previous searches table
-  function prevSearch(){
+  function populatePrevious(cdata){
     var name = "query=";
-    var ca = document.cookie.split(';');
+    var ca = cdata.split(';');
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
       while (c.charAt(0)==' ') c = c.substring(1);
@@ -149,13 +148,16 @@
   function createCookie(){
     var currentTime = new Date();
     var expires = new Date(currentTime.getTime() + 28*24*60*60*1000);
-    if(typeof $.cookie("query") === null || $.cookie("query") === "") {
+    var cdata = $.cookie("query");
+
+    if(typeof cdata === null || cdata === "") {
       var query = $("#query").val();
-      document.cookie = "query=" + query + ";expires=" + expires
+      document.cookie = "query=" + query + ";expires=" + expires;
       return;
     } else {
-      var query = document.cookie.split(';');
+      var query = cdata.split(';');
       var newQuery = $("#query").val();
+
       for(var i = 0; i < query.length; i++) {
         var c = query[i];
         while (c.charAt(0)=='') c = c.substring(1);
