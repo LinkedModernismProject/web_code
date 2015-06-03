@@ -261,7 +261,14 @@ header {
 
 .header-content .header-content-inner img {
   display: inline;
-  width: 70%;
+  width: 80%;
+}
+
+@media(min-width:600px){
+  .header-content .header-content-inner img {
+    display: inline;
+    width: 70%;
+  }
 }
 
 @media(min-width:900px){
@@ -558,10 +565,7 @@ body {
     height: 100%;
 }
 
-.thumbnail {
-  width:  100%;
-  height: 100%;
-}
+
 
 
 

@@ -23,6 +23,9 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
 
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -74,22 +77,23 @@
     console.log(cdata);
 
     if(cdata != null || cdata != undefined){
-    //Function calls to populate for last search on page load
-    $.ajax({
-      type: "get",
-      url: constructURLStart(populateResults(cdata)),
-      context: document.body,
-      dataType: "html",
-      cache: false,
-      success: function(response){
-        $("#results").html(response);
-        $("table").addClass("table-hover");
-      }
-    });
+      //Function calls to populate for last search on page load
+      $.ajax({
+        type: "get",
+        url: constructURLStart(populateResults(cdata)),
+        context: document.body,
+        dataType: "html",
+        cache: false,
+        success: function(response){
+          $("#results").html(response);
+          $("table").addClass("table-hover");
+        }
+      });
 
-    //fills the last searches box
-    populatePrevious(cdata);
-  }
+      //fills the last searches box
+      populatePrevious(cdata);
+    }
+
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
@@ -160,104 +164,104 @@
         var c = query[maxC];
         newQuery = newQuery + ";" + c;
         if(maxC > 2){ //For some reason 2 means 5, don't question it
-          $.cookie("query",newQuery, { expires: expiry});
-          return;
-        }
-
+        $.cookie("query",newQuery, { expires: expiry});
+        return;
       }
-      $.cookie("query",newQuery, { expires: expiry});
+
     }
-    return;
+    $.cookie("query",newQuery, { expires: expiry});
   }
+  return;
+}
 
 
-  // default-graph-uri=http://localhost:8890/may26&
-  function constructURL(){
-    var url = "http://dbpedia.org/sparql";
-    var query = $("#query").val();
-    var queryURL = url + "?query=" + encodeURIComponent(query);
-    return queryURL;
-  }
+// default-graph-uri=http://localhost:8890/may26&
+function constructURL(){
+  var url = "http://dbpedia.org/sparql";
+  var query = $("#query").val();
+  var queryURL = url + "?query=" + encodeURIComponent(query);
+  return queryURL;
+}
 
-  //for filling by last search
-  function constructURLStart(query){
-    var url = "http://dbpedia.org/sparql";
-    var queryURL = url + "?query=" + encodeURIComponent(query);
-    return queryURL;
-  }
+//for filling by last search
+function constructURLStart(query){
+  var url = "http://dbpedia.org/sparql";
+  var queryURL = url + "?query=" + encodeURIComponent(query);
+  return queryURL;
+}
 
-  //d3.select("#endpoint").property("value")
-  function exec1() {
-    var endpoint = "http://dbpedia.org/sparql";
-    var sparql = d3.select("#query").property("value");
-    d3sparql.query(endpoint, sparql, render);
-  }
+//d3.select("#endpoint").property("value")
+function exec1() {
+  var endpoint = "http://dbpedia.org/sparql";
+  var sparql = d3.select("#query").property("value");
+  d3sparql.query(endpoint, sparql, render);
+}
 
 
-  function render(json) {
-    // set options and call the d3xxxxx function in this library ...
-    // set all configs & name them
+function render(json) {
+  // set options and call the d3xxxxx function in this library ...
+  // set all configs & name them
 
-    //put if clause for radio buttons here
-    var val = $("input[name='optradio']:checked").val();
-    if(val === "fd"){
-      var config = {
-        "radius": 20,
-        "charge": -30,
-        "distance": 100,
-        "width": window.innerWidth,
-        "height": 1000,
-        "selector": "#visualizations"
-      }
-      d3sparql.forcegraph(json, config);
-    } else if(val === "sb"){
-      var config = {
-        "width": window.innerWidth,
-        "height": 900,
-        "margin": 150,
-        "selector": "#visualizations"
-      }
-      d3sparql.sunburst(json, config);
-    } else if(val === "cp"){
-      var config = {
-        "width": window.innerWidth,
-        "height": 800,
-        "diameter": 700,
-        "selector": "#visualizations"
-      }
-      d3sparql.circlepack(json, config);
-    } else if(val === "wm"){
-      var config = {
-        "var_lat": "lat",
-        "var_lng": "lng",
-        "width": window.innerWidth,
-        "height": 480,
-        "radius": 5,
-        "color": "#55C25E",
-        "topojson": "data/world.json",
-        "selector": "#visualizations"
-      }
-      d3sparql.coordmap(json, config);
-    } else if(val === "ch"){
-      var config = {
-        "width": window.innerWidth,
-        "height": 900,
-        "margin": 150,
-        "selector": "#visualizations"
-      }
-      d3sparql.piechart(json, config);
-    } else if(val === "sk"){
-      var config = {
-        "width": window.innerWidth,
-        "height": 900,
-        "margin": 10,
-        "selector": "#visualizations"
-      }
-      d3sparql.piechart(json, config);
+  //put if clause for radio buttons here
+  var val = $("input[name='optradio']:checked").val();
+  if(val === "fd"){
+    var config = {
+      "radius": 20,
+      "charge": -30,
+      "distance": 100,
+      "width": window.innerWidth,
+      "height": 1000,
+      "selector": "#visualizations"
     }
+    d3sparql.forcegraph(json, config);
+  } else if(val === "sb"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 150,
+      "selector": "#visualizations"
+    }
+    d3sparql.sunburst(json, config);
+  } else if(val === "cp"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 800,
+      "diameter": 700,
+      "selector": "#visualizations"
+    }
+    d3sparql.circlepack(json, config);
+  } else if(val === "wm"){
+    var config = {
+      "var_lat": "lat",
+      "var_lng": "lng",
+      "width": window.innerWidth,
+      "height": 480,
+      "radius": 5,
+      "color": "#55C25E",
+      "topojson": "data/world.json",
+      "selector": "#visualizations"
+    }
+    d3sparql.coordmap(json, config);
+  } else if(val === "ch"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 150,
+      "selector": "#visualizations"
+    }
+    d3sparql.piechart(json, config);
+  } else if(val === "sk"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 10,
+      "selector": "#visualizations"
+    }
+    d3sparql.piechart(json, config);
   }
+}
 
-  </script>
+</script>
 
 
 
@@ -648,6 +652,7 @@
       </p>
 
     </div>
+
 
     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
       <a href="http://ghostprof.org">
