@@ -8,7 +8,8 @@
 
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
-  debug: true  // set to true for showing debug information
+  debug: true,  // set to true for showing debug information
+  debug2: false //false for JSON; true for FlareJSON
 }
 
 /*
@@ -57,7 +58,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
   d3.xhr(url, mime, function(request) {
     var json = request.responseText
     if (d3sparql.debug) { console.log(json) }
-    json = convert(json); //Converting json to flare.json in convertJSONtoFlare.js
+    if (d3sparql.debug2) {json = convert(json)} //Converting json to flare.json in convertJSONtoFlare.js
     console.log(json);
     callback(JSON.parse(json))
   })
@@ -97,8 +98,31 @@ d3sparql.query = function(endpoint, sparql, callback) {
     Should follow the convention in the miserables.json https://gist.github.com/mbostock/4062045 to contain group for nodes and value for edges.
 */
 d3sparql.graph = function(json, config) {
-  var head = json.head.vars
-  var data = json.results.bindings
+  if (!d3sparql.debug2) { console.log(config) }
+  if (!d3sparql.debug2) { console.log(json) }
+  if (!d3sparql.debug2) { console.log(json.head) }
+  if (d3sparql.debug2) { console.log(json.name) }
+  if (d3sparql.debug2) { console.log(json.name.vars) }
+  if (!d3sparql.debug2) { var head = json.head.vars }
+  if (d3sparql.debug2) { var head = json.name.vars }
+  if (!d3sparql.debug2) { console.log(head) }
+  if (!d3sparql.debug2) { console.log(head[0]) }
+  if (!d3sparql.debug2) { console.log(head[1]) }
+
+  if (!d3sparql.debug2) { var data = json.results.bindings }
+  if (d3sparql.debug2) { var data = json.children }
+  console.log(data)
+
+  //var datac = json.children.bindings
+  if (d3sparql.debug2) { var datac = json.children } //Gets the data in an array of objects
+  ////console.log(datac);
+  ////for(var item in json.name) {
+  ////  if(json.name.hasOwnProperty(item)) {
+  ////    console.log("yes: "+item+' '+json.name[item]);
+  ////  } else {console.log('out')}
+  ////}
+  //CURRR
+
 
   var opts = {
     "key1":   config.key1   || head[0] || "key1",
@@ -108,6 +132,12 @@ d3sparql.graph = function(json, config) {
     "value1": config.value1 || head[4] || false,
     "value2": config.value2 || head[5] || false,
   }
+  if (!d3sparql.debug2) { console.log(data[0]) }
+  if (!d3sparql.debug2) { console.log(typeof(data[0])) }
+  if (!d3sparql.debug2) { console.log(typeof(data[0][0])) }
+  console.log('Arrays?')
+
+
   var graph = {
     "nodes": [],
     "links": []
@@ -121,6 +151,16 @@ d3sparql.graph = function(json, config) {
     var label2 = opts.label2 ? data[i][opts.label2].value : key2
     var value1 = opts.value1 ? data[i][opts.value1].value : false
     var value2 = opts.value2 ? data[i][opts.value2].value : false
+    console.log(key1);
+    console.log(key2);
+    console.log(label1);
+    console.log(label2);
+    console.log(value1);
+    console.log(value2);
+    console.log("AFTER");
+
+
+    //Do all converting before here and I believe will correctly place into graph
     if (!check.has(key1)) {
       graph.nodes.push({"key": key1, "label": label1, "value": value1})
       check.set(key1, index)
@@ -169,6 +209,7 @@ d3sparql.graph = function(json, config) {
 */
 d3sparql.tree = function(json, config) {
   console.log(json);
+  console.log(json.name);
   console.log(config);
   var head = json.head.vars
   var data = json.results.bindings
