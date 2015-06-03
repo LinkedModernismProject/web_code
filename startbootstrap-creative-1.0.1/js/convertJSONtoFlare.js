@@ -82,8 +82,6 @@ function toFlare(data_arr, s, p, o, total) {
 	var defaultsize = 500;
 	var emptySubj = false;
 	var emptyPred = false;
-	//var su = 'subj';
-	//var pr = 'pred_obj';
 	var newJson = '{\n\t';
 	//To determine the root node(i.e. The query)
 	if(total==1) {
@@ -149,8 +147,6 @@ function toFlare(data_arr, s, p, o, total) {
 	}
 
 	return newJson;
-
-
 }//End of toFlare
 
 function convert(json) {
@@ -160,13 +156,6 @@ function convert(json) {
 	var o = '';
 	var totVars = 0;	//Used to keep track of total vars in query
 	var sub = 'testing';
-	var pre = [''];
-	var obj = [];
-	var spo_object = {	//Might not need
-		subject: sub,
-		predicate: pre,
-		object: obj
-	}
 	var data_arr = [];	//data_arr[0] = new Object();
 	//TESTS BELOW
 	//////////data_arr[0] = {subj: sub, pred_obj: [[]]}
@@ -217,37 +206,8 @@ function convert(json) {
 			grabValues(arrayOfLines[a], totVars, data_arr);
 		}
 	}//End of for loop through arrayOfLines
-	console.log(data_arr);
-	console.log(data_arr[0].pred_obj);
-	console.log(data_arr[0].pred_obj.length);	//1
-	console.log(data_arr[0].pred_obj[0].length);	//2
-	console.log(data_arr[0]);
-	console.log(data_arr[0].pred_obj[0]);
-	console.log(data_arr[1]);
-	console.log(data_arr[1].pred_obj[0]);
-	console.log(data_arr[2]);
-	console.log(data_arr[2].pred_obj[0]);
-	console.log(data_arr[3]);
-	console.log(data_arr[3].pred_obj[0]);
-	console.log(data_arr[4]);
-	console.log(data_arr[4].pred_obj[0]);
-	console.log(data_arr[5]);
-	console.log(data_arr[5].pred_obj[0]);
-	console.log(data_arr[6]);
-	console.log(data_arr[6].pred_obj[0]);
-	console.log(data_arr[7]);
-	console.log(data_arr[7].pred_obj[0]);
-	console.log(data_arr[8]);
-	console.log(data_arr[8].pred_obj[0]);
-	console.log(data_arr[9]);
-	console.log(data_arr[9].pred_obj[0]);
-	
 	
 	var flare = toFlare(data_arr, s, p, o, totVars);
-	console.log(flare);
-	console.log("AFTERRRRRRRRR");
-	exit();
-
-	//*********return the JSON values
-
+	//console.log(flare);
+	return flare;
 }//End of convert()
