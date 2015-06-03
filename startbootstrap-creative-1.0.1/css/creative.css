@@ -261,23 +261,36 @@ header {
 
 .header-content .header-content-inner img {
   display: inline;
-  width: 75%;
+  width: 70%;
 }
 
 @media(min-width:900px){
   .header-content .header-content-inner img {
     display: inline;
-    width: 50%;
+    width: 60%;
   }
 }
 
 @media(min-width:1300px){
   .header-content .header-content-inner img {
     display: inline;
-    width: 30%;
+    width: 50%;
   }
 }
 
+@media(min-width:1700px){
+  .header-content .header-content-inner img {
+    display: inline;
+    width: 40%;
+  }
+}
+
+@media(min-width:2000px){
+  .header-content .header-content-inner img {
+    display: inline;
+    width: 30%;
+  }
+}
 
 .header-content .header-content-inner hr {
   margin: 30px auto;

@@ -67,11 +67,13 @@
 
   //call table url process and visualization process for selected visualization
   $(function() {
-    //$.removeCookie("query1")
+    //$.removeCookie("query")
+
     //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
     var cdata = $.cookie("query");
     console.log(cdata);
 
+    if(cdata != null || cdata != undefined){
     //Function calls to populate for last search on page load
     $.ajax({
       type: "get",
@@ -87,7 +89,7 @@
 
     //fills the last searches box
     populatePrevious(cdata);
-
+  }
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
@@ -135,37 +137,37 @@
     var ca = cdata.split(';');
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1);
-      if (c.indexOf(name) == 0){
-        var prev = "<p>" + c.substring(name.length,c.length) + '</p>' + '<button class="btn btn-primary">Search this again</button><br/><hr class="light"/>';
-        console.log(prev);
-        $("#memory-box").html(prev);
-      }
+      var prev = "<p class= 'queryNum" + i + "'>" + c + '</p>' + '<button class="btn btn-primary">Search this again</button><br/><hr class="light"/>';
+      $(prev).appendTo("#memory-box");
     }
   }
 
   //creates a cookie if none exist, appends search to the cookie if one does exist up to 5
   function createCookie(){
     var currentTime = new Date();
-    var expires = new Date(currentTime.getTime() + 28*24*60*60*1000);
+    var expiry = new Date(currentTime.getTime() + 28*24*60*60*1000);
     var cdata = $.cookie("query");
-
-    if(typeof cdata === null || cdata === "") {
+    if(typeof cdata === null || cdata === undefined || cdata === "") {
       var query = $("#query").val();
-      document.cookie = "query=" + query + ";expires=" + expires;
+      console.log("fail");
+      $.cookie("query",query, { expires: expiry});
       return;
     } else {
       var query = cdata.split(';');
       var newQuery = $("#query").val();
+      var maxC = 0;
+      for(var i = query.length; i > 0 ; i-- && maxC++) {
+        var c = query[maxC];
+        newQuery = newQuery + ";" + c;
+        if(maxC > 2){ //For some reason 2 means 5, don't question it
+          $.cookie("query",newQuery, { expires: expiry});
+          return;
+        }
 
-      for(var i = 0; i < query.length; i++) {
-        var c = query[i];
-        while (c.charAt(0)=='') c = c.substring(1);
-        console.log(c);
-        console.log(newQuery)
       }
+      $.cookie("query",newQuery, { expires: expiry});
     }
-    document.cookie = "query=" + newQuery + ";" + query + ";expires=" + expires;
+    return;
   }
 
 
@@ -324,7 +326,7 @@
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
-            <a><img src="img/LinkedModernism5.svg"></img></a>
+            <a><img src="img/LinkedModernismTNR.svg"></img></a>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
@@ -387,7 +389,7 @@
           <br/>
           <div class="row">
             <div class="form-group form-inline">
-              <div class="col-md-3 col-sm-4">
+              <div class="col-sm-3 col-md-3">
                 <select class="form-control" id="sel1">
                   <option selected disabled>Choose one</option>
                   <option>1</option>
@@ -396,7 +398,7 @@
                   <option>4</option>
                 </select>
               </div>
-              <div class="col-md-3 col-sm-4">
+              <div class="col-sm-3 col-md-3">
                 <select class="form-control" id="sel2">
                   <option selected disabled>Choose one</option>
                   <option>1</option>
@@ -405,7 +407,7 @@
                   <option>4</option>
                 </select>
               </div>
-              <div class="col-md-3 col-sm-4">
+              <div class="col-sm-3 col-md-3">
                 <select class="form-control" id="sel3">
                   <option selected disabled>Choose one</option>
                   <option>1</option>
@@ -414,7 +416,7 @@
                   <option>4</option>
                 </select>
               </div>
-              <div class="col-md-3 col-sm-4">
+              <div class="col-sm-3 col-md-3">
                 <select class="form-control" id="sel3">
                   <option selected disabled>Choose one</option>
                   <option>1</option>
@@ -430,7 +432,7 @@
           <br/>
 
           <div class="row">
-            <div class="col-md-3 col-md-offset-1">
+            <div class="col-sm-3 col-md-3 col-md-offset-1">
               <h3>Agent</h3>
               <div class="form-group">
                 <div>
@@ -471,7 +473,7 @@
 
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3 col-md-3">
               <h3>Place</h3>
               <div class="form-group">
                 <div>
@@ -512,7 +514,7 @@
 
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-3 col-md-3">
               <h3>Production</h3>
               <div class="form-group">
                 <div>
@@ -570,22 +572,6 @@
             </div>
             <div class="panel-body">
               <span id="memory-box"></span>
-              <p>
-                Argentinian Painters Inspired by Da Vinci <br/>
-                Gender - Female<br/>
-                Sex - Male<br/>
-                DoB - 1700-1820
-              </p>
-              <button class="btn btn-primary">Search this again</button>
-              <br/><hr class="light"/>
-              <p>
-                Argentinian Painters Inspired by Da Vinci <br/>
-                Gender - Male<br/>
-                Sex - Female<br/>
-                DoB - 1700-1820
-              </p>
-              <button class="btn btn-primary">Search this again</button>
-              <br/><hr class="light"/>
             </div>
           </div>
         </div>
