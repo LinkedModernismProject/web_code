@@ -2,7 +2,7 @@
   "children": [
   { "name": "Agent",
     "children": [
-      { "name": "GroupOrMovement",
+      { "name": "Group Or Movement",
         "children": [
             {"name": "Group", "size": 500},
             {"name": "Movement", "size": 500}
