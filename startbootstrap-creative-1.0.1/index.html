@@ -103,7 +103,7 @@
       exec1(query);
     });
 
-    $(".btn-prev").click(function(){
+    $(".panel").on("click",".btn-prev",function(){
       $("#tabB").removeClass("active");
       $("#tabC").addClass("active");
       var i = this.id;
@@ -140,6 +140,7 @@
     var ca = cdata.split(';');
     var c = ca[0];
     if (c.indexOf(name) == 0){
+      exec1(c.substring(name.length,c.length))
       return c.substring(name.length,c.length);
     }
     return ("");
@@ -150,14 +151,14 @@
     var name = "query=";
     var ca = cdata.split(';');
     if($("#memory-box") != ""){
-      $("#memory-box").replaceWith('<span id="memory-box"></span>');
+      $("#memory-box").replaceWith('<span id="memory-box" class="memory-box"></span>');
     }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary' + " btn-prev" + '"/><br/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary' + " btn-prev" + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
       }
       $(prev).appendTo("#memory-box");
     }
@@ -584,7 +585,7 @@ function render(json) {
               </h5>
             </div>
             <div class="panel-body">
-              <span id="memory-box"></span>
+              <span class="memory-box" id="memory-box"></span>
             </div>
           </div>
         </div>
