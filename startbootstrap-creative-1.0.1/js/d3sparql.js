@@ -8,8 +8,8 @@
 
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
-  debug: true,  // set to true for showing debug information
-  debug2: true //false for JSON; true for FlareJSON
+  debug: false,  // set to true for showing debug information
+  debug2: false //false for JSON; true for FlareJSON
 }
 
 /*
@@ -58,8 +58,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
   d3.xhr(url, mime, function(request) {
     var json = request.responseText
     if (d3sparql.debug) { console.log(json) }
-    if (d3sparql.debug2) {json = convert(json)} //Converting json to flare.json in convertJSONtoFlare.js
-    console.log(json);
+    json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
     callback(JSON.parse(json))
   })
 /*
@@ -98,37 +97,14 @@ d3sparql.query = function(endpoint, sparql, callback) {
     Should follow the convention in the miserables.json https://gist.github.com/mbostock/4062045 to contain group for nodes and value for edges.
 */
 d3sparql.graph = function(json, config) {
-  if (!d3sparql.debug2) { console.log(config) }
-  if (!d3sparql.debug2) { console.log(json) }
-  if (!d3sparql.debug2) { console.log(json.head) }
-  if (d3sparql.debug2) { console.log(json.name) }
-  if (d3sparql.debug2) { console.log(json.name.vars) }
-  if (!d3sparql.debug2) { var head = json.head.vars }
-  if (d3sparql.debug2) { var head = json.name }   //.vars }
-  if (!d3sparql.debug2) { console.log(head) }
-  if (!d3sparql.debug2) { console.log(head[0]) }
-  if (!d3sparql.debug2) { console.log(head[1]) }
+  var head = json.name;
+  var data = json.children;
 
-  if (!d3sparql.debug2) { var data = json.results.bindings }
-  if (d3sparql.debug2) { var data = json.children }
-  console.log(data);
-
-  if (d3sparql.debug2) { console.log(typeof(json.name)) }
-  if (d3sparql.debug2) { head = head.replace(/\s+/g, '') } //Remove spaces from name property
-  if (d3sparql.debug2) { head = head.split(',') } //Separates between commas into an array
-  if (d3sparql.debug2) { console.log(head) }
-  if (d3sparql.debug2) {
+  head = head.replace(/\s+/g, '') //Remove spaces from name property
+  head = head.split(',') //Separates between commas into an array
+  if (d3sparql.debug2) {  //Test case
     for(var val in head) {
       console.log(val+head[val]);
-    }
-  }
-
-
-  if (d3sparql.debug2) {
-    for(var item in json.name) {
-      if(json.name.hasOwnProperty(item)) {
-        console.log("yes: "+item+' '+json.name[item]);
-      } else {console.log('out')}
     }
   }
 
@@ -140,27 +116,18 @@ d3sparql.graph = function(json, config) {
     "value1": config.value1 || head[4] || false,
     "value2": config.value2 || head[5] || false,
   }
-  console.log(opts);
-  console.log(data[0]);
-  if (!d3sparql.debug2) { console.log(typeof(data[0])) }
-  if (!d3sparql.debug2) { console.log(typeof(data[0][0])) }
-  console.log('Arrays?');
+  //Test cases
+  if (d3sparql.debug2) { console.log(opts) }
   if (d3sparql.debug2) { console.log(data[0]) }                               //First obj name and child
-  if (d3sparql.debug2) { console.log(data[0].name) }                          //Name of first obj
-  if (d3sparql.debug2) { console.log(data[0].children) }                      //2nd obj
-  if (d3sparql.debug2) { console.log(data[0].children.length) }               //length of 2nd objs
-  if (d3sparql.debug2) { console.log(data[0].children[0]) }                   //
-  if (d3sparql.debug2) { console.log(data[0].children[0].name) }
-  if (d3sparql.debug2) { console.log(data[0].children[0].children) }
-  if (d3sparql.debug2) { console.log(data[0].children[0].children.length) }
-  if (d3sparql.debug2) { console.log(data[0].children[0].children[0]) }
-  
-  if (d3sparql.debug2) { console.log(data[0].children[0].children[0].name) }
-
-  console.log('THE DATA');
-
-
-
+  if (d3sparql.debug2) { console.log(data[0].name) }                          //Name of first obj (Subject value)
+  if (d3sparql.debug2) { console.log(data[0].children) }                      //Placement of the child
+  if (d3sparql.debug2) { console.log(data[0].children.length) }               //length of 2nd obj
+  if (d3sparql.debug2) { console.log(data[0].children[0]) }                   //2nd obj
+  if (d3sparql.debug2) { console.log(data[0].children[0].name) }              //Name of 2nd obj (Pred value)
+  if (d3sparql.debug2) { console.log(data[0].children[0].children) }          //Placement of the child
+  if (d3sparql.debug2) { console.log(data[0].children[0].children.length) }   //len of 3rd obj
+  if (d3sparql.debug2) { console.log(data[0].children[0].children[0]) }       //3rd obj
+  if (d3sparql.debug2) { console.log(data[0].children[0].children[0].name) }  //Name of 3rd obj (Object value)
 
   var graph = {
     "nodes": [],
@@ -168,7 +135,7 @@ d3sparql.graph = function(json, config) {
   }
   var check = d3.map()
   var index = 0
-if (!d3sparql.debug2) {
+/*
   for (var i = 0; i < data.length; i++) {
     var key1 = data[i][opts.key1].value
     var key2 = data[i][opts.key2].value
@@ -176,13 +143,6 @@ if (!d3sparql.debug2) {
     var label2 = opts.label2 ? data[i][opts.label2].value : key2
     var value1 = opts.value1 ? data[i][opts.value1].value : false
     var value2 = opts.value2 ? data[i][opts.value2].value : false
-    console.log(key1);
-    console.log(key2);
-    console.log(label1);
-    console.log(label2);
-    console.log(value1);
-    console.log(value2);
-    console.log("AFTER");
 
     //Do all converting before here and I believe will correctly place into graph
     if (!check.has(key1)) {
@@ -197,21 +157,17 @@ if (!d3sparql.debug2) {
     }
     graph.links.push({"source": check.get(key1), "target": check.get(key2)})
   }//End of for loop
-}
+*/
 
-
-if (d3sparql.debug2) {
   for (var i = 0; i < data.length; i++) {
       var key1 = data[i].name;
     for (var j = 0; j < data[i].children.length; j++) {
       var key2 = data[i].children[j].name;
       for (var k = 0; k < data[i].children[j].children.length; k++) {
         var label1 = data[i].children[j].children[k].name;
-        //DO LABEL2 VALUE1 VALUE2
         var label2 = opts.label2 ? data[i][opts.label2].name : key2;
         var value1 = opts.value1 ? data[i][opts.value1].name : false;
         var value2 = opts.value2 ? data[i][opts.value2].name : false;
-
 
         if (!check.has(key1)) {
           graph.nodes.push({"key": key1, "label": label1, "value": value1})
@@ -224,32 +180,14 @@ if (d3sparql.debug2) {
           index++
         }
         graph.links.push({"source": check.get(key1), "target": check.get(key2)})
-
       };
     };
-    ////////var key1 = data[i][opts.key1].value
-    ////////var key2 = data[i][opts.key2].value
-    ////////var label1 = opts.label1 ? data[i][opts.label1].value : key1
-    ////////var label2 = opts.label2 ? data[i][opts.label2].value : key2
-    ////////var value1 = opts.value1 ? data[i][opts.value1].value : false
-    ////////var value2 = opts.value2 ? data[i][opts.value2].value : false
-    ////////console.log(key1);
-    ////////console.log(key2);
-    ////////console.log(label1);
-    ////////console.log(label2);
-    ////////console.log(value1);
-    ////////console.log(value2);
-    ////////console.log("AFTER");
-
-    //Do all converting before here and I believe will correctly place into graph
-    
   }//End of for loop
-}
 
   if (d3sparql.debug2) { console.log(JSON.stringify(graph)) }
   if (d3sparql.debug) { console.log(JSON.stringify(graph)) }
   return graph
-}
+}//End of graph
 
 /*
   Convert sparql-results+json object into a JSON tree of {"name": name, "value": size, "children": []} format like in the flare.json file.
