@@ -446,7 +446,7 @@ treeJSON = d3.json("data/ontology.json", function(error, treeData) {
         node.select("circle.nodeCircle")
             .attr("r", 4.5)
             .style("fill", function(d) {
-                return d._children ? "#50b038" : "#fff";
+                return d._children ? "#721563" : "#fff";
             });
 
         // Transition nodes to their new position.
