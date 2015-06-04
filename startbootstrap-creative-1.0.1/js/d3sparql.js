@@ -113,9 +113,6 @@ d3sparql.graph = function(json, config) {
   if (d3sparql.debug2) { var data = json.children }
   console.log(data);
 
-  //var datac = json.children.bindings
-  if (d3sparql.debug2) { var datac = json.children } //Gets the data in an array of objects
-  ////console.log(datac);
   if (d3sparql.debug2) { console.log(typeof(json.name)) }
   if (d3sparql.debug2) { head = head.replace(/\s+/g, '') } //Remove spaces from name property
   if (d3sparql.debug2) { head = head.split(',') } //Separates between commas into an array
@@ -148,6 +145,21 @@ d3sparql.graph = function(json, config) {
   if (!d3sparql.debug2) { console.log(typeof(data[0])) }
   if (!d3sparql.debug2) { console.log(typeof(data[0][0])) }
   console.log('Arrays?');
+  if (d3sparql.debug2) { console.log(data[0]) }                               //First obj name and child
+  if (d3sparql.debug2) { console.log(data[0].name) }                          //Name of first obj
+  if (d3sparql.debug2) { console.log(data[0].children) }                      //2nd obj
+  if (d3sparql.debug2) { console.log(data[0].children.length) }               //length of 2nd objs
+  if (d3sparql.debug2) { console.log(data[0].children[0]) }                   //
+  if (d3sparql.debug2) { console.log(data[0].children[0].name) }
+  if (d3sparql.debug2) { console.log(data[0].children[0].children) }
+  if (d3sparql.debug2) { console.log(data[0].children[0].children.length) }
+  if (d3sparql.debug2) { console.log(data[0].children[0].children[0]) }
+  
+  if (d3sparql.debug2) { console.log(data[0].children[0].children[0].name) }
+
+  console.log('THE DATA');
+
+
 
 
   var graph = {
@@ -156,6 +168,7 @@ d3sparql.graph = function(json, config) {
   }
   var check = d3.map()
   var index = 0
+if (!d3sparql.debug2) {
   for (var i = 0; i < data.length; i++) {
     var key1 = data[i][opts.key1].value
     var key2 = data[i][opts.key2].value
@@ -171,7 +184,6 @@ d3sparql.graph = function(json, config) {
     console.log(value2);
     console.log("AFTER");
 
-
     //Do all converting before here and I believe will correctly place into graph
     if (!check.has(key1)) {
       graph.nodes.push({"key": key1, "label": label1, "value": value1})
@@ -185,6 +197,56 @@ d3sparql.graph = function(json, config) {
     }
     graph.links.push({"source": check.get(key1), "target": check.get(key2)})
   }//End of for loop
+}
+
+
+if (d3sparql.debug2) {
+  for (var i = 0; i < data.length; i++) {
+      var key1 = data[i].name;
+    for (var j = 0; j < data[i].children.length; j++) {
+      var key2 = data[i].children[j].name;
+      for (var k = 0; k < data[i].children[j].children.length; k++) {
+        var label1 = data[i].children[j].children[k].name;
+        //DO LABEL2 VALUE1 VALUE2
+        var label2 = opts.label2 ? data[i][opts.label2].name : key2;
+        var value1 = opts.value1 ? data[i][opts.value1].name : false;
+        var value2 = opts.value2 ? data[i][opts.value2].name : false;
+
+
+        if (!check.has(key1)) {
+          graph.nodes.push({"key": key1, "label": label1, "value": value1})
+          check.set(key1, index)
+          index++
+        }
+        if (!check.has(key2)) {
+          graph.nodes.push({"key": key2, "label": label2, "value": value2})
+          check.set(key2, index)
+          index++
+        }
+        graph.links.push({"source": check.get(key1), "target": check.get(key2)})
+
+      };
+    };
+    ////////var key1 = data[i][opts.key1].value
+    ////////var key2 = data[i][opts.key2].value
+    ////////var label1 = opts.label1 ? data[i][opts.label1].value : key1
+    ////////var label2 = opts.label2 ? data[i][opts.label2].value : key2
+    ////////var value1 = opts.value1 ? data[i][opts.value1].value : false
+    ////////var value2 = opts.value2 ? data[i][opts.value2].value : false
+    ////////console.log(key1);
+    ////////console.log(key2);
+    ////////console.log(label1);
+    ////////console.log(label2);
+    ////////console.log(value1);
+    ////////console.log(value2);
+    ////////console.log("AFTER");
+
+    //Do all converting before here and I believe will correctly place into graph
+    
+  }//End of for loop
+}
+
+  if (d3sparql.debug2) { console.log(JSON.stringify(graph)) }
   if (d3sparql.debug) { console.log(JSON.stringify(graph)) }
   return graph
 }
