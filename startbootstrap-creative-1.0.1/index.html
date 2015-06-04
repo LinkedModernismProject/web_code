@@ -74,8 +74,6 @@
 
     //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
     var cdata = $.cookie("query");
-    console.log(cdata);
-
     if(cdata != null || cdata != undefined){
       //Function calls to populate for last search on page load
       $.ajax({
@@ -99,10 +97,22 @@
       $("#tabA").removeClass("active");
       $("#tabB").removeClass("active");
       $("#tabC").addClass("active");
-      createCookie();
-      sClick();
-      exec1();
+      var query = $("#query").val();
+      createCookie(query);
+      sClick(query);
+      exec1(query);
     });
+
+    $(".btn-prev").click(function(){
+      $("#tabB").removeClass("active");
+      $("#tabC").addClass("active");
+      var i = this.id;
+      var query = $("#queryNum" + i).text();
+      createCookie(query);
+      sClick(query);
+      exec1(query);
+    });
+
   });
 
   //currently useless
@@ -111,10 +121,10 @@
   }
 
   //executed on search button click, this populates the results page
-  function sClick(){
+  function sClick(query){
     $.ajax({
       type: "get",
-      url: constructURL(),
+      url: constructURL(query),
       context: document.body,
       dataType: "html",
       cache: false,
@@ -139,46 +149,54 @@
   function populatePrevious(cdata){
     var name = "query=";
     var ca = cdata.split(';');
+    if($("#memory-box") != ""){
+      $("#memory-box").replaceWith('<span id="memory-box"></span>');
+    }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      var prev = "<p class= 'queryNum" + i + "'>" + c + '</p>' + '<button class="btn btn-primary">Search this again</button><br/><hr class="light"/>';
+      if(i > 3){
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary' + " btn-prev" + '"/><br/>';
+      } else{
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary' + " btn-prev" + '"/><br/><hr class="light"/>';
+      }
       $(prev).appendTo("#memory-box");
     }
   }
 
   //creates a cookie if none exist, appends search to the cookie if one does exist up to 5
-  function createCookie(){
+  function createCookie(query){
     var currentTime = new Date();
     var expiry = new Date(currentTime.getTime() + 28*24*60*60*1000);
     var cdata = $.cookie("query");
     if(typeof cdata === null || cdata === undefined || cdata === "") {
-      var query = $("#query").val();
-      console.log("fail");
       $.cookie("query",query, { expires: expiry});
+      var cdata = $.cookie("query");
+      populatePrevious(cdata);
       return;
     } else {
-      var query = cdata.split(';');
-      var newQuery = $("#query").val();
+      var preQuery = cdata.split(';');
       var maxC = 0;
-      for(var i = query.length; i > 0 ; i-- && maxC++) {
-        var c = query[maxC];
-        newQuery = newQuery + ";" + c;
+      for(var i = preQuery.length; i > 0 ; i-- && maxC++) {
+        var c = preQuery[maxC];
+        query = query + ";" + c;
         if(maxC > 2){ //For some reason 2 means 5, don't question it
-        $.cookie("query",newQuery, { expires: expiry});
+        $.cookie("query",query, { expires: expiry});
+        var cdata = $.cookie("query");
+        populatePrevious(cdata);
         return;
       }
-
     }
-    $.cookie("query",newQuery, { expires: expiry});
+    $.cookie("query",query, { expires: expiry});
+    var cdata = $.cookie("query");
+    populatePrevious(cdata);
   }
   return;
 }
 
 
 // default-graph-uri=http://localhost:8890/may26&
-function constructURL(){
+function constructURL(query){
   var url = "http://dbpedia.org/sparql";
-  var query = $("#query").val();
   var queryURL = url + "?query=" + encodeURIComponent(query);
   return queryURL;
 }
@@ -191,9 +209,8 @@ function constructURLStart(query){
 }
 
 //d3.select("#endpoint").property("value")
-function exec1() {
+function exec1(sparql) {
   var endpoint = "http://dbpedia.org/sparql";
-  var sparql = d3.select("#query").property("value");
   d3sparql.query(endpoint, sparql, render);
 }
 
@@ -268,7 +285,6 @@ function render(json) {
 </head>
 <!-- I may yet find a use for this stuff
 
-
 <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
 <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
 <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
@@ -295,12 +311,8 @@ function render(json) {
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a class="page-scroll" href="#ontology">Ontology</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#about">About</a>
-          </li>
+          <li><a class="page-scroll" href="#ontology">Ontology</a></li>
+          <li><a class="page-scroll" href="#about">About</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -320,9 +332,6 @@ function render(json) {
 
   <section>
     <div class="tab-content">
-
-
-
       <div class="tab-pane fade in active" id="sectionA">
         <br/>
         <br/>
@@ -648,62 +657,60 @@ function render(json) {
       </p>
 
       <p>&nbsp;&nbsp;&nbsp;
-        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. SQUALL (Semantic Query and Update High-Level Language) and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
+        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Quepy and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
       </p>
 
     </div>
 
 
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
       <a href="http://ghostprof.org">
         <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
-        <div class="caption">
-          <h4>Dr. Stephen Ross</h4>
-          <p>Project Lead, UVic.</p>
-        </div>
+        <h4>Dr. Stephen Ross</h4>
+        <p>Project Lead, UVic.</p>
       </a>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
-      <div class="caption">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href"http://www.jenterysayers.com/">
+        <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
         <h4>Jentery Sayers</h4>
         <p>Director of the Maker Lab in the Humanities, UVic</p>
-      </div>
+      </a>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
       <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
-      <div class="caption">
-        <h4>Susan Irene Brown</h4>
-        <p>Research Chair in Digital Humanities, University of Guelph.</p>
-      </div>
+      <h4>Susan Irene Brown</h4>
+      <p>Research Chair in Digital Humanities, University of Guelph.</p>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
-      <div class="caption">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
+        <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
         <h4>Colin Allen</h4>
         <p>Department of History and Philosophy of Science, Indiana University</p>
-      </div>
+      </a>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
-      <div class="caption">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://web.uvic.ca/~siemens/">
+        <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
         <h4>Ray Siemens</h4>
         <p>Canada Research Chair in Humanities Computing, UVic.</p>
-      </div>
+      </a>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
-      <div class="caption">
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
+        <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
         <h4>Jon Saklofske</h4>
         <p>Department of English, Acadia University.</p>
-      </div>
+      </a>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
-      <div class="caption">
+    <div class="clearfix visible-lg-block"></div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
+        <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
         <h4>Christine Walde</h4>
         <p>Grants and Awards Librarian, UVic.</p>
-      </div>
+      </a>
     </div>
 
   </section>
