@@ -223,6 +223,7 @@ d3sparql.tree = function(json, config) {
   console.log(json);
   console.log(json.name);
   console.log(config);
+  console.log(json);
   var head = json.head.vars
   var data = json.results.bindings
 
@@ -950,7 +951,9 @@ d3sparql.forcegraph = function(json, config) {
       * Put <script src="sankey.js"></script> in the HTML <head> section
 */
 d3sparql.sankey = function(json, config) {
-  var graph = d3sparql.graph(json, config)
+  var graph = d3sparql.graph(json, config);
+  console.log(json);
+  console.log(config);
 
   var opts = {
     "width":    config.width    || 750,
@@ -958,6 +961,7 @@ d3sparql.sankey = function(json, config) {
     "margin":   config.margin   || 10,
     "selector": config.selector || "#visualizations"
   }
+  console.log(opts);
 
   var nodes = graph.nodes
   var links = graph.links

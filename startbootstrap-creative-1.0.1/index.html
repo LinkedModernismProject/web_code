@@ -275,7 +275,7 @@ function render(json) {
       "margin": 10,
       "selector": "#visualizations"
     }
-    d3sparql.piechart(json, config);
+    d3sparql.sankey(json, config);
   }
 }
 
@@ -361,10 +361,7 @@ function render(json) {
             <!--   <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label                        -->
             <!--   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label                          -->
             <!--   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>                            -->
-            <label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>
-            <br>
-            <br>
-
+            <!--<label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>                          -->
 
             <br/>
             <h6>Select a visualization</h6>
