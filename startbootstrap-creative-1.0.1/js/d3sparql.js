@@ -9,7 +9,7 @@
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: true,  // set to true for showing debug information
-  debug2: false //false for JSON; true for FlareJSON
+  debug2: true //false for JSON; true for FlareJSON
 }
 
 /*
@@ -104,25 +104,36 @@ d3sparql.graph = function(json, config) {
   if (d3sparql.debug2) { console.log(json.name) }
   if (d3sparql.debug2) { console.log(json.name.vars) }
   if (!d3sparql.debug2) { var head = json.head.vars }
-  if (d3sparql.debug2) { var head = json.name.vars }
+  if (d3sparql.debug2) { var head = json.name }   //.vars }
   if (!d3sparql.debug2) { console.log(head) }
   if (!d3sparql.debug2) { console.log(head[0]) }
   if (!d3sparql.debug2) { console.log(head[1]) }
 
   if (!d3sparql.debug2) { var data = json.results.bindings }
   if (d3sparql.debug2) { var data = json.children }
-  console.log(data)
+  console.log(data);
 
   //var datac = json.children.bindings
   if (d3sparql.debug2) { var datac = json.children } //Gets the data in an array of objects
   ////console.log(datac);
-  ////for(var item in json.name) {
-  ////  if(json.name.hasOwnProperty(item)) {
-  ////    console.log("yes: "+item+' '+json.name[item]);
-  ////  } else {console.log('out')}
-  ////}
-  //CURRR
+  if (d3sparql.debug2) { console.log(typeof(json.name)) }
+  if (d3sparql.debug2) { head = head.replace(/\s+/g, '') } //Remove spaces from name property
+  if (d3sparql.debug2) { head = head.split(',') } //Separates between commas into an array
+  if (d3sparql.debug2) { console.log(head) }
+  if (d3sparql.debug2) {
+    for(var val in head) {
+      console.log(val+head[val]);
+    }
+  }
 
+
+  if (d3sparql.debug2) {
+    for(var item in json.name) {
+      if(json.name.hasOwnProperty(item)) {
+        console.log("yes: "+item+' '+json.name[item]);
+      } else {console.log('out')}
+    }
+  }
 
   var opts = {
     "key1":   config.key1   || head[0] || "key1",
@@ -132,10 +143,11 @@ d3sparql.graph = function(json, config) {
     "value1": config.value1 || head[4] || false,
     "value2": config.value2 || head[5] || false,
   }
-  if (!d3sparql.debug2) { console.log(data[0]) }
+  console.log(opts);
+  console.log(data[0]);
   if (!d3sparql.debug2) { console.log(typeof(data[0])) }
   if (!d3sparql.debug2) { console.log(typeof(data[0][0])) }
-  console.log('Arrays?')
+  console.log('Arrays?');
 
 
   var graph = {
@@ -172,7 +184,7 @@ d3sparql.graph = function(json, config) {
       index++
     }
     graph.links.push({"source": check.get(key1), "target": check.get(key2)})
-  }
+  }//End of for loop
   if (d3sparql.debug) { console.log(JSON.stringify(graph)) }
   return graph
 }
