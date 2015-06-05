@@ -1,6 +1,4 @@
-# web_code
-
-#My help file
+#web_code resources
 
 ssh info:
 	Info on the cloud email: Mon May 11 4:40pm
@@ -26,6 +24,11 @@ Search recursively through dir's for file names:
 
 Grep history:
 	history | grep cmd_name
+
+Uploading tasks:
+	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
+	
+___________________________________________________________________________________________________
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
 	Searched for all www directories from root and only found this few:
@@ -117,3 +120,4 @@ startVirtuoso.sh
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}
+	select ?p ?o where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> ?p ?o .}
