@@ -259,7 +259,7 @@ function render(json) {
     d3sparql.piechart(json, config);
   } else if(val === "sk"){
     var config = {
-      "width": window.innerWidth,
+      "width": window.innerWidth*.95,
       "height": 900,
       "margin": 10,
       "selector": "#visualizations"
