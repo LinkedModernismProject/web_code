@@ -78,7 +78,7 @@
       //Function calls to populate for last search on page load
       $.ajax({
         type: "get",
-        url: constructURLStart(populateResults(cdata)),
+        url: constructURL(populateResults(cdata)),
         context: document.body,
         dataType: "html",
         cache: false,
@@ -197,13 +197,6 @@
 
 // default-graph-uri=http://localhost:8890/may26&
 function constructURL(query){
-  var url = "http://dbpedia.org/sparql";
-  var queryURL = url + "?query=" + encodeURIComponent(query);
-  return queryURL;
-}
-
-//for filling by last search
-function constructURLStart(query){
   var url = "http://dbpedia.org/sparql";
   var queryURL = url + "?query=" + encodeURIComponent(query);
   return queryURL;
@@ -340,7 +333,7 @@ function render(json) {
         <br/>
         <div class="header-content">
           <div class="header-content-inner">
-            <a><img src="img/LinkedModernismTNR.svg"></img></a>
+            <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
             <hr class="top">
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
@@ -352,6 +345,7 @@ function render(json) {
 
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <div class="clearfix visible-xs-block"><br/></div>
               <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
 

@@ -50,7 +50,8 @@ function init(json){
         // with dollar prefixed data-properties in the
         // JSON structure.
         Node: {
-          overridable: true
+          overridable: true,
+          color: #721563
         },
         Edge: {
           overridable: true,
