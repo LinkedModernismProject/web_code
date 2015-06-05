@@ -25,6 +25,11 @@ Search recursively through dir's for file names:
 Grep history:
 	history | grep cmd_name
 
+Uploading tasks:
+	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
+	
+___________________________________________________________________________________________________
+
 ~/www/rdfconvert/rdfconvert-0.4/bin/
 	Searched for all www directories from root and only found this few:
 	./usr/share/cups/www
