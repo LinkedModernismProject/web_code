@@ -19,6 +19,8 @@ class Thing(Particle):
     def interpret(self, match):
         return HasKeyword(match.words.tokens)
 
+
+
 class RelatedTo(QuestionTemplate):
     """
     Ex. Person related to thing

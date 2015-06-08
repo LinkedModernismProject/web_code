@@ -88,6 +88,19 @@
       populatePrevious(cdata);
     }
 
+    //for main search buttons to do tab stuff
+    $(".btn-fn").click(function(){
+      if(this.id === "reg-search"){
+        $("#tabHome").removeClass("active");
+        $("#tabA").addClass("active");
+      } else if(this.id === "diff-search"){
+        $("#tabHome").removeClass("active");
+        $("#tabB").addClass("active");
+      }
+
+
+    });
+
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabA").removeClass("active");
@@ -313,7 +326,8 @@ function render(json) {
   <hr class="light"></hr><br/>
 
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active" id="tabA" ><a data-toggle="tab" href="#sectionA" class="btn" role="button">Home</a></li>
+    <li class="active" id="tabHome"><a data-toggle="tab" href="#sectionHome" class="btn" role="button">Home</a></li>
+    <li id="tabA" ><a data-toggle="tab" href="#sectionA" class="btn" role="button">Search</a></li>
     <li id="tabB" ><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
     <li id="tabC" ><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
     <li id="tabD" ><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
@@ -322,21 +336,35 @@ function render(json) {
 
   <section>
     <div class="tab-content">
-      <div class="tab-pane fade in active" id="sectionA">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+      <div class="tab-pane fade in active" id="sectionHome">
         <div class="header-content">
           <div class="header-content-inner">
             <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
+
             <hr class="top">
-            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
-
-
             <noscript>
               Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser or is disabled on this page, please switch to a browser that allows JavaScript or allow JavaScript on this page
             </noscript>
+
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
+
+            <a data-toggle="tab" href="#sectionA" class="btn btn-fn btn-primary" id="reg-search">Search Function</a>
+            <a data-toggle="tab" href="#sectionA" class="btn btn-fn btn-primary" id="reg-search">Other Function</a>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="sectionA">
+        <div class="header-content">
+          <div class="header-content-inner">
+            <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
+
+            <hr class="top">
+
+
 
 
             <fieldset>
