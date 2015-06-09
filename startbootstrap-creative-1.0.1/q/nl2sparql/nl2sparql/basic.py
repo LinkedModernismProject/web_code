@@ -22,8 +22,8 @@ class Thing(Particle):
 class WhatIs(QuestionTemplate):
     """
     Regex for questions like "What is a blowtorch
-    Ex: "What is a car"
-        "What is Seinfield?"
+    Ex. What is a galleon
+        What is Italy
     """
 
     regex = Lemma("what") + Lemma("be") + Question(Pos("DT")) + \
@@ -34,13 +34,17 @@ class WhatIs(QuestionTemplate):
 
         return label, "define"
 
+
+
 class RelatedTo(QuestionTemplate):
     """
     Ex. Person related to thing
-        Thing related to Place
+        Thing related to Place ******************xx******
     """
 
     regex = Lemma("show")
+
+
 
 class allOF(QuestionTemplate):
     """
@@ -51,16 +55,6 @@ class allOF(QuestionTemplate):
 
     def interpret(self, match):
         return self
-
-class LivedIn(QuestionTemplate):
-    """
-    Ex. What ____ ____ lived in ____
-        Are there any ____ from ____
-        Are there any ____ that lived in ____
-    """
-
-
-    def interpret(self, match):
 
 
 
@@ -85,7 +79,7 @@ class WhoMade(QuestionTemplate):
 
 class WhoIs(QuestionTemplate):
     """
-    Ex: "Who is Tom Cruise?"
+    Ex. Who is Tom Cruise
     """
 
     regex = Lemma("who") + Lemma("be") + Person() + \
@@ -99,7 +93,7 @@ class WhoIs(QuestionTemplate):
 
 class HowOldIsQuestion(QuestionTemplate):
     """
-    Ex: "How old is Bob Dylan".
+    Ex. How old is Da Vinci
     """
 
     regex = Pos("WRB") + Lemma("old") + Lemma("be") + Person() + \
@@ -112,7 +106,7 @@ class HowOldIsQuestion(QuestionTemplate):
 
 class WhereIsFromQuestion(QuestionTemplate):
     """
-    Ex: "Where is Bill Gates from?"
+    Ex. Where is Pierce Brosnan from
     """
 
     regex = Lemmas("where be") + Person() + Lemma("from") + \

@@ -28,5 +28,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX quepy: <http://www.machinalis.com/quepy#>
-PREFIX linkedmods: <http://linkedmods.uvic.ca/sparql
+PREFIX linkedmods: <http://linkedmods.uvic.ca/sparql>
+PREFIX linkedmodsprops: <http://linkedmods.uvic.ca/property>
+PREFIX linkedmodsowl: <http://linkedmods.uvic.ca/ontology>
 """

@@ -12,19 +12,19 @@ HasKeyword.language = "en"
 
 
 class Agent(FixedType):
-    fixedtype = "linkedmods:Agent"
+    fixedtype = "foaf:Agent"
 
 class GroupOrMovement(FixedType):
     fixedtype = "linkedmods:GroupOrMovement"
 
 class Group(FixedType):
-    fixedtype = "linkedmods:Group"
+    fixedtype = "foaf:Group"
 
 class Movement(FixedType):
     fixedtype = "linkedmods:Movement"
 
 class Person(FixedType):
-    fixedtype = "linkedmods:Person"
+    fixedtype = "foaf:Person"
 
 class Actor(FixedType):
     fixedtype = "linkedmods:Actor"
