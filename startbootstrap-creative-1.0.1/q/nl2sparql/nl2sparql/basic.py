@@ -27,5 +27,4 @@ class RelatedTo(QuestionTemplate):
         Thing related to Place
     """
 
-
     regex = Lemma("show")

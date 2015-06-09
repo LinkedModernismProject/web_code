@@ -92,10 +92,10 @@
     $(".btn-fn").click(function(){
       if(this.id === "reg-search"){
         $("#tabHome").removeClass("active");
-        $("#tabA").addClass("active");
+        $("#tabSearch").addClass("active");
       } else if(this.id === "diff-search"){
         $("#tabHome").removeClass("active");
-        $("#tabB").addClass("active");
+        $("#tabDist").addClass("active");
       }
 
 
@@ -103,9 +103,9 @@
 
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
-      $("#tabA").removeClass("active");
-      $("#tabB").removeClass("active");
-      $("#tabC").addClass("active");
+      $("#tabSearch").removeClass("active");
+      $("#tabFilter").removeClass("active");
+      $("#tabRes").addClass("active");
       var query = $("#query").val();
       createCookie(query);
       sClick(query);
@@ -113,8 +113,8 @@
     });
 
     $(".panel").on("click",".btn-prev",function(){
-      $("#tabB").removeClass("active");
-      $("#tabC").addClass("active");
+      $("#tabFilter").removeClass("active");
+      $("#tabRes").addClass("active");
       var i = this.id;
       var query = $("#queryNum" + i).text();
       createCookie(query);
@@ -165,9 +165,9 @@
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionRes"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionRes"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
       }
       $(prev).appendTo("#memory-box");
     }
@@ -327,10 +327,11 @@ function render(json) {
 
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active" id="tabHome"><a data-toggle="tab" href="#sectionHome" class="btn" role="button">Home</a></li>
-    <li id="tabA" ><a data-toggle="tab" href="#sectionA" class="btn" role="button">Search</a></li>
-    <li id="tabB" ><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
-    <li id="tabC" ><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
-    <li id="tabD" ><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
+    <li id="tabSearch" ><a data-toggle="tab" href="#sectionSearch" class="btn" role="button">Search</a></li>
+    <li id="tabDist" ><a data-toggle="tab" href="#sectionDist" class="btn" role="button">Degrees of Separation</a></li>
+    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
+    <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
+    <li id="tabVis" ><a data-toggle="tab" href="#sectionVis" class="btn" role="button">Visualizations</a></li>
   </ul>
 
 
@@ -348,16 +349,20 @@ function render(json) {
 
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
-            <a data-toggle="tab" href="#sectionA" class="btn btn-fn btn-primary" id="reg-search">Search Function</a>
-            <a data-toggle="tab" href="#sectionA" class="btn btn-fn btn-primary" id="reg-search">Other Function</a>
+            <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
+            <a data-toggle="tab" href="#sectionDist" class="btn btn-fn btn-primary btn-xl" id="diff-search">Degrees of Separation</a>
 
           </div>
         </div>
 
       </div>
 
+      <div class="tab-pane fade" id="sectionDist">
+        <br/><br/><br/>
+        <h4>Show me the Relationship between <input type="textarea" value="Snoop"></input> and <input type="textarea" value="Dog"> </input>
+      </div>
 
-      <div class="tab-pane fade" id="sectionA">
+      <div class="tab-pane fade" id="sectionSearch">
         <div class="header-content">
           <div class="header-content-inner">
             <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
@@ -370,7 +375,7 @@ function render(json) {
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <div class="clearfix visible-xs-block"><br/></div>
-              <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+              <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
 
 
@@ -404,7 +409,7 @@ function render(json) {
       </div>
 
 
-      <div class="tab-pane fade" id="sectionB">
+      <div class="tab-pane fade" id="sectionFilter">
         <br/>
 
         <div class="col-md-8 col-small-8">
@@ -588,7 +593,7 @@ function render(json) {
 
 
           <br/><br/><br/>
-          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+          <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
         </div>
 
 
@@ -612,7 +617,7 @@ function render(json) {
 
 
 
-      <div class="tab-pane fade" id="sectionC">
+      <div class="tab-pane fade" id="sectionRes">
         <br/><br/><br/><br/><span id="results"></span>
 
       </div>
@@ -622,7 +627,7 @@ function render(json) {
       http://bl.ocks.org/dwtkns/4973620 -artifacts only
       http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
     -->
-    <div class="tab-pane fade" id="sectionD">
+    <div class="tab-pane fade" id="sectionVis">
       <br/>
       <span id="visualizations"></span>
 
