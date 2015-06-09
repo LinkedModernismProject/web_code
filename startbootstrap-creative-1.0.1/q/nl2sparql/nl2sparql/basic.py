@@ -19,7 +19,20 @@ class Thing(Particle):
     def interpret(self, match):
         return HasKeyword(match.words.tokens)
 
+class WhatIs(QuestionTemplate):
+    """
+    Regex for questions like "What is a blowtorch
+    Ex: "What is a car"
+        "What is Seinfield?"
+    """
 
+    regex = Lemma("what") + Lemma("be") + Question(Pos("DT")) + \
+        Thing() + Question(Pos("."))
+
+    def interpret(self, match):
+        label = DefinitionOf(match.thing)
+
+        return label, "define"
 
 class RelatedTo(QuestionTemplate):
     """
@@ -49,4 +62,64 @@ class LivedIn(QuestionTemplate):
 
     def interpret(self, match):
 
-class 
+
+
+
+
+
+class Person(Particle):
+    regex = Plus(Pos("NN") | Pos("NNS") | Pos("NNP") | Pos("NNPS"))
+
+    def interpret(self, match):
+        name = match.words.tokens
+        return IsPerson() + HasKeyword(name)
+
+
+
+class WhoMade(QuestionTemplate):
+    """
+    Ex. Who made Starry Night
+        Who painted The Girl With The Pearl Earring
+    """
+
+
+class WhoIs(QuestionTemplate):
+    """
+    Ex: "Who is Tom Cruise?"
+    """
+
+    regex = Lemma("who") + Lemma("be") + Person() + \
+        Question(Pos("."))
+
+    def interpret(self, match):
+        definition = DefinitionOf(match.person)
+        return definition, "define"
+
+
+
+class HowOldIsQuestion(QuestionTemplate):
+    """
+    Ex: "How old is Bob Dylan".
+    """
+
+    regex = Pos("WRB") + Lemma("old") + Lemma("be") + Person() + \
+        Question(Pos("."))
+
+    def interpret(self, match):
+        birth_date = BirthDateOf(match.person)
+        return birth_date, "age"
+
+
+class WhereIsFromQuestion(QuestionTemplate):
+    """
+    Ex: "Where is Bill Gates from?"
+    """
+
+    regex = Lemmas("where be") + Person() + Lemma("from") + \
+        Question(Pos("."))
+
+    def interpret(self, match):
+        birth_place = BirthPlaceOf(match.person)
+        label = LabelOf(birth_place)
+
+        return label, "enum"

@@ -139,7 +139,7 @@
       cache: false,
       success: function(response){
         $("#results").html(response);
-        $("table").addClass("table-hover");
+        $("tr").addClass("table-hover");
       }
     });
   }
@@ -371,7 +371,11 @@ function render(json) {
             <hr class="top">
 
 
-
+            <p>
+              Searching Hints
+              1. Capitalize nouns
+              2.
+            </p>
 
             <fieldset>
               <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
@@ -619,7 +623,8 @@ function render(json) {
 
 
       <div class="tab-pane fade" id="sectionRes">
-        <br/><br/><br/><br/><span id="results"></span>
+        <br/><br/><br/><br/>
+        <span class="pull-left" id="results"></span>
 
       </div>
 
