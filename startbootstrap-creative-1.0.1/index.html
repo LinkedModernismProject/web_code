@@ -489,66 +489,66 @@ function render(json) {
                 <div>
                   <select class="form-control" id="selGender">
                     <option selected disabled>Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <br/>
                 <div>
                   <select class="form-control" id="selSex">
                     <option selected disabled>Sex</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <br/>
                 <div>
-                  <select class="form-control" id="sel3">
+                  <select class="form-control" id="selSexuality">
                     <option selected disabled>Sexuality</option>
-                    <option>Bisexual</option>
-                    <option>Heterosexual</option>
-                    <option>Homosexual</option>
-                    <option>Asexual</option>
+                    <option value="Bisexual">Bisexual</option>
+                    <option value="Heterosexual">Heterosexual</option>
+                    <option value="Homosexual">Homosexual</option>
+                    <option value="Asexual">Asexual</option>
                   </select>
                 </div>
                 <br/>
                 <div>
-                  <select class="form-control" id="sel3">
+                  <select class="form-control" id="selOccupation">
                     <option selected disabled>Occupation</option>
-                    <option>Actor</option>
-                    <option>Architect</option>
-                    <option>Biographer</option>
-                    <option>Choreographer</option>
-                    <option>Collector</option>
-                    <option>Critic</option>
-                    <option>Dancer</option>
-                    <option>Designer</option>
-                    <option>Director</option>
-                    <option>Historian</option>
-                    <option>Impresario</option>
-                    <option>Musician</option>
-                    <option>Painter</option>
-                    <option>Patron</option>
-                    <option>Performer</option>
-                    <option>Playwright</option>
-                    <option>PoliticalFigure</option>
-                    <option>RadioPerformer</option>
-                    <option>RadioWriter</option>
-                    <option>Screenwriter</option>
-                    <option>Sculptor</option>
-                    <option>Singer</option>
-                    <option>TelevionPerformer</option>
-                    <option>TelevionWriter</option>
-                    <option>Thinker</option>
-                    <option>Typographer</option>
-                    <option>Writer</option>
+                    <option value="Actor">Actor</option>
+                    <option value="Architect">Architect</option>
+                    <option value="Biographer">Biographer</option>
+                    <option value="Choreographer">Choreographer</option>
+                    <option value="Collector">Collector</option>
+                    <option value="Critic">Critic</option>
+                    <option value="Dancer">Dancer</option>
+                    <option value="Designer">Designer</option>
+                    <option value="Director">Director</option>
+                    <option value="Historian">Historian</option>
+                    <option value="Impresario">Impresario</option>
+                    <option value="Musician">Musician</option>
+                    <option value="Painter">Painter</option>
+                    <option value="Patron">Patron</option>
+                    <option value="Performer">Performer</option>
+                    <option value="Playwright">Playwright</option>
+                    <option value="PoliticalFigure">PoliticalFigure</option>
+                    <option value="RadioPerformer">RadioPerformer</option>
+                    <option value="RadioWriter">RadioWriter</option>
+                    <option value="Screenwriter">Screenwriter</option>
+                    <option value="Sculptor">Sculptor</option>
+                    <option value="Singer">Singer</option>
+                    <option value="TelevionPerformer">TelevionPerformer</option>
+                    <option value="TelevionWriter">TelevionWriter</option>
+                    <option value="Thinker">Thinker</option>
+                    <option value="Typographer">Typographer</option>
+                    <option value="Writer">Writer</option>
                   </select>
                 </div>
                 <br/>
                 <div>
-                  <select class="form-control" id="sel3">
+                  <select class="form-control" id="selBirthPlace">
                     <option selected disabled>birthPlace</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -801,11 +801,11 @@ function render(json) {
                 </div>
                 <br/>
                 <div>
-                    <input class="non-search-text" type="textarea" placeholder="Birthyear Ex. 1920-1940"></textarea>
+                    <input class="non-search-text" type="textarea" id="selBirthYear" placeholder="Birthyear Ex. 1920-1940"></textarea>
                 </div>
                 <br/>
                 <div>
-                  <select class="form-control" id="sel3">
+                  <select class="form-control" id="selLivedIn">
                     <option selected disabled>Lived In</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -1058,7 +1058,7 @@ function render(json) {
                 </div>
                 <br/>
                 <div>
-                    <input class="non-search-text" type="textarea" placeholder="Thing you want your Items to be associated with."></textarea>
+                    <input class="non-search-text" type="textarea" id="selAssociation" placeholder="Thing you want your Results to be associated with."></textarea>
                 </div>
               </div>
             </div>
@@ -1168,14 +1168,9 @@ function render(json) {
   </h1>
   <br>
   &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+  <br/><br/>
   <p>&nbsp;&nbsp;&nbsp;
-    In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
-    “Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
-    However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
-  </p>
-  <p>&nbsp;&nbsp;&nbsp;
-    In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
-    “Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
+    Our Ontology is defined above, it is definitely the be all end all ontology to classify all of modernism /s
   </p>
 </section>
 
