@@ -9,7 +9,7 @@
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: false,  // set to true for showing debug information
-  debug2: false //false for JSON; true for FlareJSON
+  debug2: true //false for JSON; true for FlareJSON
 }
 
 /*
@@ -168,22 +168,39 @@ d3sparql.graph = function(json, config) {
         var label2 = opts.label2 ? data[i][opts.label2].name : key2;
         var value1 = opts.value1 ? data[i][opts.value1].name : false;
         var value2 = opts.value2 ? data[i][opts.value2].name : false;
+        console.log(key1);
+        console.log(key2);
+        console.log(label1);
+        console.log(label2);
+        console.log(value1);
+        console.log(value2);
 
         if (!check.has(key1)) {
-          graph.nodes.push({"key": key1, "label": label1, "value": value1})
+          console.log("inKey1");
+          //Add key 2 possibly to the push
+          graph.nodes.push({"key": key1, "label": key1, "value": value1})
           check.set(key1, index)
           index++
         }
         if (!check.has(key2)) {
+          console.log("inKey2");
           graph.nodes.push({"key": key2, "label": label2, "value": value2})
           check.set(key2, index)
           index++
         }
+        if(!check.has(label1)) {
+          console.log('inLabel1');
+          graph.nodes.push({"key": label1, "label": label1, "value": value1});
+          check.set(label1, index);
+          index++;
+        }
         graph.links.push({"source": check.get(key1), "target": check.get(key2)})
+        graph.links.push({"source": check.get(key1), "target": check.get(label1)});
+        //graph.links.push({"source": check.get(key2), "target": check.get(label1)})
       };
     };
   }//End of for loop
-
+  console.log(check);
   if (d3sparql.debug2) { console.log(JSON.stringify(graph)) }
   if (d3sparql.debug) { console.log(JSON.stringify(graph)) }
   return graph
@@ -831,6 +848,7 @@ d3sparql.scatterplot = function(json, config) {
 */
 d3sparql.forcegraph = function(json, config) {
   var graph = d3sparql.graph(json, config)
+  console.log(graph);
 
   var scale = d3.scale.linear()
     .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
@@ -858,6 +876,7 @@ d3sparql.forcegraph = function(json, config) {
     .data(graph.nodes)
     .enter()
     .append("g")
+  console.log(node);
 
   var circle = node.append("circle")
     .attr("class", "node")
