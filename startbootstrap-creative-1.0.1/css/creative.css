@@ -18,6 +18,7 @@ hr {
 
 
 input[type="textarea"]{
+
   margin: 0;
   width: 50%;
   height: 100%;
@@ -28,6 +29,11 @@ input[type="textarea"]{
   color: black;
   appearance: none;
   box-shadow: none;
+}
+
+.non-search-text{
+  width: 92% !important;
+
 }
 
 input[type="textarea"]:focus {
