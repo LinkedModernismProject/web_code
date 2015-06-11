@@ -3,8 +3,8 @@
 #Using files truncate.py and fout.txt false_out.txt tout.txt and true_out.txt to figure out all the special characters
 
 #f = open('mytest_additions_ridOfSpecCharsTry.nt', 'r')
-f = open('out.nt', 'r')
-fp = open('parsed.ttl', 'r+w')
+f = open('outUnTrue.nt', 'r')
+fp = open('parsedUnTrue.ttl', 'r+w')
 #Next 4 files for tests
 ft = open('true_out.txt', 'r+w')
 ff = open('false_out.txt', 'r+w')

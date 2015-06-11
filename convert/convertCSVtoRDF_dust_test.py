@@ -149,14 +149,15 @@ for i in myRows:
         #getting rid of spaces in subj and pred and replacing with _
         str_trip0 = (str(triple[0])).replace(' ', '_')
         str_trip1 = (str(triple[1])).replace(' ', '_')
-
-        if str(triple[1]) == str(triple[2]):
-          #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
-          print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
-        else:
-          #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
-          print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
-        #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
+        #######If the Pred and Obj are the same place True as the value of the Object
+        ######if str(triple[1]) == str(triple[2]):
+        ######  #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
+        ######  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
+        ######else:
+        ######  #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
+        ######  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
+        #Before adding the True value if Pred and Obj are the same
+        print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )  #Possibly put doub_quot_replace instead of str(trip[2]) CURR
 
         #Tests
         #if i<10:
