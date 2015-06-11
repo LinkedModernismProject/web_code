@@ -239,7 +239,7 @@
 // default-graph-uri=http://localhost:8890/may26&
 function constructURL(query){
   var url = "http://dbpedia.org/sparql";
-  var queryURL = url + "?query=" + encodeURIComponent(query);
+  var queryURL = url + "?query=" + encodeURIComponent(query) + '&format=text%2Fhtml&timeout=30000&debug=on';
   return queryURL;
 }
 
@@ -375,7 +375,13 @@ function render(json) {
 
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
+            <p>
+              With the search function you can perform searches on our triple store using a combination of natural language querying and an intuitive filter system
+            <br/>
+              The Degrees of Seperation tool lets you look at two different object and see what other Items link the two
+            </p>
             <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a data-toggle="tab" href="#sectionDist" class="btn btn-fn btn-primary btn-xl" id="diff-search">Degrees of Separation</a>
 
           </div>
@@ -403,7 +409,7 @@ function render(json) {
             </p>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY RAND() LIMIT 5" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <div class="clearfix visible-xs-block"><br/></div>
               <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
@@ -1148,8 +1154,13 @@ function render(json) {
     Example Searches
   </h1>
   <p>
-    select * where { ?s ?p ?o } limit 10
-  </p>
+    select * where { ?s ?p ?o } limit 10         our normal search
+    <br/>
+    SELECT distinct ?s ?p ?o WHERE {?s ?p ?o } ORDER BY DESC(?s) LIMIT 20      Good ex.
+    <br/>
+    SELECT distinct * WHERE { ?s ?p ?o } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?p
+
+    </p>
 </section>
 
 <section id="ontology">
