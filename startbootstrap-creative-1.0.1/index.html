@@ -67,6 +67,7 @@
   //call table url process and visualization process for selected visualization
   $(function() {
     //$.removeCookie("query")
+    $("#thingName").hide();
 
     //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
     var cdata = $.cookie("query");
@@ -101,6 +102,11 @@
 
     });
 
+    $(".btn-filters").click(function(){
+
+
+    });
+
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabSearch").removeClass("active");
@@ -124,11 +130,11 @@
 
     $("#sel2").change(function(){
       if(this.value === "General"){
-        $("#thingName").addClass("hidden");
-        $("#generalName").removeClass("hidden");
+        $("#thingName").hide();
+        $("#generalName").show();
       } else if(this.value === "Specific"){
-        $("#thingName").removeClass("hidden");
-        $("#generalName").addClass("hidden");
+        $("#thingName").show();
+        $("#generalName").hide();
       }
     });
 
@@ -312,16 +318,9 @@ function render(json) {
 
 
 </head>
-<!-- I may yet find a use for this stuff
 
-<label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
 
--->
+
 <body id="page-top">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -410,13 +409,6 @@ function render(json) {
             </fieldset>
 
 
-            <!--   <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>  -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>                          -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label                        -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label                          -->
-            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>                            -->
-            <!--<label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>                          -->
-
             <br/>
             <h6>Select a visualization</h6>
             <div class="vis-select">
@@ -446,7 +438,7 @@ function render(json) {
         <div class="col-md-8 col-small-8">
 
           <div class="col-md-12 col-sm 1">
-            <h1>I'm Looking For:</h1>
+            <h1>Filter By</h1>
             <br/><br/>
           </div>
 
@@ -473,8 +465,8 @@ function render(json) {
                 </select>
               </div>
 
-              <br/>
-              <input class="hidden" type="textarea" name="query" id="thingName" placeholder="Enter the Things name Ex. Pocahantas"></textarea>
+              <br/><br/>
+              <input type="textarea" name="query" id="thingName" placeholder="Enter the Things name Ex. Pocahantas"></textarea>
 
             </div>
           </div>
@@ -1099,6 +1091,7 @@ function render(json) {
           </div>
 
 
+          <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
           <br/><br/><br/>
         </div>
 
@@ -1148,7 +1141,7 @@ function render(json) {
 
 <br/>
 <section id="examples">
-  <br/>
+  <br/><br/><br/><br/><br/>
   <hr class="light"></hr>
   <br/>
   <h1>
