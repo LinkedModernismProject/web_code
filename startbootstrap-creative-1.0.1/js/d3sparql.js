@@ -1020,6 +1020,7 @@ d3sparql.sankey = function(json, config) {
     .append("g")
     .attr("class", "node")
     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"})
+    .on("click", highlight_node_links)
     .call(d3.behavior.drag()
        .origin(function(d) {return d})
        .on("dragstart", function() {this.parentNode.appendChild(this)})
@@ -1053,6 +1054,59 @@ d3sparql.sankey = function(json, config) {
     sankey.relayout()
     link.attr("d", path)
   }
+}//End of Sankey
+
+function highlight_node_links(node,i){
+
+    var remainingNodes=[],
+        nextNodes=[];
+
+    var stroke_opacity = 0;
+    console.log(d3.select(this));
+    console.log(d3.select(this)[0]);
+    console.log(d3.select(this)[0][0]);
+    //console.log(d3.select(this)[0].attr("data-clicked"));
+    console.log(d3.select(this).attr("data-clicked"));
+    if( d3.select(this).attr("data-clicked") == "1" ){
+    	console.log("inClicked1");
+      d3.select(this).attr("data-clicked","0");
+      stroke_opacity = 0.2;
+    }else{
+    	console.log("inClicked1else");
+      d3.select(this).attr("data-clicked","1");
+      stroke_opacity = 0.5;
+    }
+
+    var traverse = [{
+                      linkType : "sourceLinks",
+                      nodeType : "target"
+                    },{
+                      linkType : "targetLinks",
+                      nodeType : "source"
+                    }];
+    console.log("here");
+    traverse.forEach(function(step){
+      node[step.linkType].forEach(function(link) {
+        remainingNodes.push(link[step.nodeType]);
+        highlight_link(link.id, stroke_opacity);
+      });
+      console.log("afterTraverse");
+      while (remainingNodes.length) {
+      	console.log("inWhile");
+        nextNodes = [];
+        remainingNodes.forEach(function(node) {
+          node[step.linkType].forEach(function(link) {
+            nextNodes.push(link[step.nodeType]);
+            highlight_link(link.id, stroke_opacity);
+          });
+        });
+        remainingNodes = nextNodes;
+      }
+    });
+}//End of highlight_node_links
+
+function highlight_link(id,opacity){
+	d3.select("#link-"+id).style("stroke-opacity", opacity);
 }
 
 
