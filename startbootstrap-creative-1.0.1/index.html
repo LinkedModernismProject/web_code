@@ -239,7 +239,7 @@
 // default-graph-uri=http://localhost:8890/may26&
 function constructURL(query){
   var url = "http://dbpedia.org/sparql";
-  var queryURL = url + "?query=" + encodeURIComponent(query) + '&format=text%2Fhtml&timeout=30000&debug=on';
+  var queryURL = url + "?query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
@@ -405,7 +405,7 @@ function render(json) {
             <p>
               Searching Hints<br/>
               1. Capitalize nouns<br/>
-              2.
+              2. It takes about 15 seconds for a server to return a query, please be patient
             </p>
 
             <fieldset>
