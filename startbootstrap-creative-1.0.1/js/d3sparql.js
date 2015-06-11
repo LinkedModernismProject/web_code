@@ -176,7 +176,7 @@ d3sparql.graph = function(json, config) {
           console.log(value1);
           console.log(value2);
         }
-
+        //If the dataset has the Subject(key1), add to graph nodes.
         if (!check.has(key1)) {
           if(d3sparql.debug2) { console.log("inKey1"); }
           //Add key 2 possibly to the push
@@ -184,24 +184,30 @@ d3sparql.graph = function(json, config) {
           check.set(key1, index)
           index++
         }
+        //If the dataset has the Predicate(key2), add to graph nodes.
         if (!check.has(key2)) {
           if(d3sparql.debug2) { console.log("inKey2"); }
-          graph.nodes.push({"key": key2, "label": label2, "value": value2})
+          graph.nodes.push({"key": key2, "label": label2, "value": value1})
           check.set(key2, index)
           index++
         }
+        //If the dataset has the Object(label1), add to graph nodes.
         if(!check.has(label1)) {
           if(d3sparql.debug2) { console.log('inLabel1'); }
           graph.nodes.push({"key": label1, "label": label1, "value": value1});
           check.set(label1, index);
           index++;
         }
+        //A Bold line is due to the multiple connections to one single node
+        //Subject --> Predicate
         graph.links.push({"source": check.get(key1), "target": check.get(key2)})
-        graph.links.push({"source": check.get(key1), "target": check.get(label1)});
-        //graph.links.push({"source": check.get(key2), "target": check.get(label1)})
+        //Subject --> Object
+        //graph.links.push({"source": check.get(key1), "target": check.get(label1)});
+        //Predicate --> Object
+        graph.links.push({"source": check.get(key2), "target": check.get(label1)});
       };
     };
-  }//End of for loop
+  }//End of outer for loop
   if(d3sparql.debug2) { console.log(check); }
   if (d3sparql.debug2) { console.log(JSON.stringify(graph)) }
   if (d3sparql.debug) { console.log(JSON.stringify(graph)) }
