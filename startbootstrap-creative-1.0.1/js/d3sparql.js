@@ -51,7 +51,7 @@ var d3sparql = {
     </html>
 */
 d3sparql.query = function(endpoint, sparql, callback) {
-  var url = endpoint + "?query=" + encodeURIComponent(sparql)
+  var url = endpoint + "?query=" + encodeURIComponent(sparql) + '&format=text%2Fhtml&timeout=30000&debug=on'
   if (d3sparql.debug) { console.log(endpoint) }
   if (d3sparql.debug) { console.log(url) }
   var mime = "application/sparql-results+json"
