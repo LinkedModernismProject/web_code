@@ -133,6 +133,7 @@ for row in reader:
 #print(BLUE()+str(fieldNames))
 #print(GREEN()+str(responseNames));
 
+#Modified by Dustin here
 mod_uvic = '<http://modernism.uvic.ca/metadata#'  #Just cleaning up for make print line easier to read
 myNames = { } 
 for i in myRows:
@@ -149,15 +150,16 @@ for i in myRows:
         #getting rid of spaces in subj and pred and replacing with _
         str_trip0 = (str(triple[0])).replace(' ', '_')
         str_trip1 = (str(triple[1])).replace(' ', '_')
-        #######If the Pred and Obj are the same place True as the value of the Object
-        ######if str(triple[1]) == str(triple[2]):
-        ######  #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
-        ######  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
-        ######else:
-        ######  #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
-        ######  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
-        #Before adding the True value if Pred and Obj are the same
-        print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )  #Possibly put doub_quot_replace instead of str(trip[2]) CURR
+        #If the Pred and Obj are the same place True as the value of the Object
+        #####if str(triple[1]) == str(triple[2]):
+        #####  #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
+        #####  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
+        #####else:
+        #####  #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
+        #####  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
+        #Before adding the True value if Pred and Obj are the same; changed back to this
+        #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
+        print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + doub_quot_replace + '" .' ) #For Better Data
 
         #Tests
         #if i<10:
