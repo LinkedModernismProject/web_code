@@ -2,7 +2,7 @@
 
 ssh info:
 	Info on the cloud email: Mon May 11 4:40pm
-	ssh to WestCloud:
+	scp to WestCloud:
 		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
 
 launch chromium:
