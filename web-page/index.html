@@ -103,8 +103,17 @@
     });
 
     $(".btn-filters").click(function(){
-
-
+      if($("#selType").val() === "Specific"){
+        var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o FILTER regex(?s, '" + $("#specificName").val() + "')} ORDER BY DESC(?s) LIMIT 20";
+        createCookie(query);
+        sClick(query);
+        exec1(query);
+      } else if($("#selType").value === "General"){
+        if($("#selThing").value === "Agent"){
+        } else if($("#selThing").value === "Place"){
+        } else if($("#selThing").value === "Production"){
+        }
+      }
     });
 
     //calls ajax function when the search button is pressed
@@ -128,7 +137,7 @@
       exec1(query);
     });
 
-    $("#sel2").change(function(){
+    $("#selType").change(function(){
       if(this.value === "General"){
         $("#thingName").hide();
         $("#generalName").show();
@@ -138,7 +147,7 @@
       }
     });
 
-    $("#sel1").change(function(){
+    $("#selThing").change(function(){
       if(this.value === "Agent"){
         $("#agentName").removeClass("hidden");
         $("#placeName").addClass("hidden");
@@ -454,26 +463,29 @@ function render(json) {
 
               <div class="col-sm-4 col-md-4">
                 <label for="sel1">What Thing are you looking for?</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="selThing">
                   <option selected disabled>Thing</option>
-                  <option>Production</option>
-                  <option>Agent</option>
-                  <option>Place</option>
+                  <option value="Agent">Agent</option>
+                  <option value="Place">Place</option>
+                  <option value="Production">Production</option>
                 </select>
               </div>
 
               <div class="col-sm-8 col-md-8">
                 <label for="sel2">With a specific search you enter the Item's name, with General you use filters</label>
-                <select class="form-control" id="sel2">
+                <select class="form-control" id="selType">
                   <option selected disabled>Type of Search</option>
-                  <option>General</option>
-                  <option>Specific</option>
+                  <option value="General">General</option>
+                  <option value="Specific">Specific</option>
                 </select>
               </div>
+            </div>
 
-              <br/><br/>
-              <input type="textarea" name="query" id="thingName" placeholder="Enter the Things name Ex. Pocahantas"></textarea>
+            <div id="thingName">
+              <br/><br/><br/>
 
+              <input type="textarea" name="query" id="specificName" placeholder="Enter the Things name Ex. Pocahantas"/>
+              <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
             </div>
           </div>
 
@@ -1080,7 +1092,7 @@ function render(json) {
               <h2>Production</h2>
               <div class="form-group">
                 <div>
-                    <input class="non-search-text" type="textarea" placeholder="Only list items created by the agent named here."></textarea>
+                    <input class="non-search-text" type="textarea" id="selCreatedBy" placeholder="Only list items created by the agent named here."></textarea>
                 </div>
                 <br/>
                 <div>
@@ -1145,11 +1157,12 @@ function render(json) {
 
 
   </div>
+
 </section>
 
-<br/>
+<br/><br/><br/><br/><br/><br/>
+
 <section id="examples">
-  <br/><br/><br/><br/><br/>
   <hr class="light"></hr>
   <br/>
   <h1>
@@ -1161,7 +1174,8 @@ function render(json) {
     SELECT distinct ?s ?p ?o WHERE {?s ?p ?o } ORDER BY DESC(?s) LIMIT 20      Good ex.
     <br/>
     SELECT distinct * WHERE { ?s ?p ?o } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?p
-
+    <br/>
+    SELECT distinct * WHERE {   ?s ?p ?o FILTER regex(?s, "Jean")} ORDER BY ASC(?o) LIMIT 5    Filters
     </p>
 </section>
 
@@ -1176,7 +1190,7 @@ function render(json) {
   &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
   <br/><br/>
   <p>&nbsp;&nbsp;&nbsp;
-    Our Ontology is defined above, it is definitely the be all end all ontology to classify all of modernism /s
+    Our Ontology is defined above, it is definitely the be all end all ontology to classify all cultural productions ever
   </p>
 </section>
 
