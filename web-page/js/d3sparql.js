@@ -9,8 +9,8 @@
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: false,  // set to true for showing debug information
-  debug2: true, //false for JSON; true for FlareJSON
-  query1234: true
+  debug2: false, //false for JSON; true for FlareJSON
+  queryed: false
 }
 
 /*
@@ -58,8 +58,9 @@ d3sparql.query = function(endpoint, sparql, callback) {
   var mime = "application/sparql-results+json"
   d3.xhr(url, mime, function(request) {
     var json = request.responseText
-    if (d3sparql.query1234) { console.log(json) }
+    if (d3sparql.queryed) { console.log(json) }
     json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
+  	if (d3sparql.queryed) { console.log(json) }
     callback(JSON.parse(json))
   })
 /*
