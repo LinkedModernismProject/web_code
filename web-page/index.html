@@ -259,9 +259,12 @@ function exec1(sparql) {
 function render(json) {
   // set options and call the d3xxxxx function in this library ...
   // set all configs & name them
-
-  //put if clause for radio buttons here
-  var val = $("input[name='optradio']:checked").val();
+  if(!$("#sectionFilter").hasClass("hidden")){
+    var val = $("input[name='optradio1']:checked").val();
+  } else if(!$("#sectionSearch").hasClass("hidden")){
+    var val = $("input[name='optradio']:checked").val();
+  }
+  console.log(val);
   if(val === "fd"){
     var config = {
       "radius": 20,
@@ -454,11 +457,8 @@ function render(json) {
               <br/><br/>
             </div>
 
-            <br/>
-            <div class="row">
-              <div class="form-group form-inline">
-
-                <div class="col-sm-4 col-md-4">
+              <div class="row">
+                <div class="col-sm-offset-1 col-md-offset-1 col-sm-4  col-md-4">
                   <label for="sel1">What Thing are you looking for?</label>
                   <select class="form-control" id="selThing">
                     <option selected disabled>Thing</option>
@@ -468,7 +468,7 @@ function render(json) {
                   </select>
                 </div>
 
-                <div class="col-sm-8 col-md-8">
+                <div class="col-sm-offset-1 col-md-offset-1 col-sm-6 col-md-6">
                   <label for="sel2">With a specific search you enter the Item's name, with General you use filters</label>
                   <select class="form-control" id="selType">
                     <option selected disabled>Type of Search</option>
@@ -477,7 +477,25 @@ function render(json) {
                   </select>
                 </div>
               </div>
-              <br/><br/><br/><br/>
+
+              <br/><br/>
+              <h6>Select a visualization</h6>
+              <div class="vis-select1">
+                <input id="fd1" type="radio" checked="checked" name="optradio1" value="fd" />
+                <label class="vis-s1 fd" for="fd1"></label>
+                <input id="sb1" type="radio" name="optradio1" value="sb" />
+                <label class="vis-s1 sb"for="sb1"></label>
+                <input id="cp1" type="radio" name="optradio1" value="cp" />
+                <label class="vis-s1 cp" for="cp1"></label>
+                <input id="wm1" type="radio" name="optradio1" value="wm" />
+                <label class="vis-s1 wm"for="wm1"></label>
+                <input id="ch1" type="radio" name="optradio1" value="ch" />
+                <label class="vis-s1 ch" for="ch1"></label>
+                <input id="sk1" type="radio" name="optradio1" value="sk" />
+                <label class="vis-s1 sk"for="sk1"></label>
+              </div>
+
+              <br/><br/>
               <div id="thingName" class="form-inline">
                 <select class="form-control" id="spFilter">
                   <option value="?s">Subject</option>
@@ -487,7 +505,6 @@ function render(json) {
                 <input type="textarea" name="query" id="specificName" placeholder="Enter the Things name Ex. Pocahantas"/>
                 <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
               </div>
-            </div>
 
 
             <br/>
@@ -1112,6 +1129,7 @@ function render(json) {
 
 
             <br/><br/><br/>
+
           </div>
         </div>
 

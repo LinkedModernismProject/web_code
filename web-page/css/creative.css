@@ -273,7 +273,6 @@ header {
 }
 
 .header-content1 {
-  position: relative;
   text-align: center;
   width: 100%;
   text-align: center;
@@ -520,6 +519,12 @@ body {
        -moz-appearance:window;
             appearance:none;
 }
+.vis-select1 input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:window;
+            appearance:none;
+}
 .fd {
   background-image: url(../img/radio/fd.png);
 }
@@ -545,7 +550,23 @@ body {
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
+.vis-select1 input:active +.vis-s1{opacity: .9;}
+.vis-select1 input:checked +.vis-s1{
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
 .vis-s{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:100px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+}
+.vis-s1{
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
@@ -560,7 +581,11 @@ body {
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
-
+.vis-s1:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
 
 .portrait {
     width:  100%;
