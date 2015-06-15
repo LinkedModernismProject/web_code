@@ -1,4 +1,8 @@
 #web_code resources
+Miscellaneous:
+* flourishesIn should be continuous in dataset (Priority: Low)
+* hasBirthdate/Deathdate, possibly have the dates in another pred?
+* Combine all the isPerson, isEvent, isArtifact... to hasType
 
 ssh info:
 	Info on the cloud email: Mon May 11 4:40pm
