@@ -104,7 +104,7 @@
 
     $(".btn-filters").click(function(){
       if($("#selType").val() === "Specific"){
-        var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o FILTER regex(?s, '" + $("#specificName").val() + "')} ORDER BY DESC(?s) LIMIT 20";
+        var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o FILTER regex(?s, '" + $("#specificName").val() + "')} ORDER BY DESC(" + $(spFilter).val() +  ") LIMIT 20";
         createCookie(query);
         sClick(query);
         exec1(query);
@@ -418,7 +418,7 @@ function render(json) {
             </p>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY RAND() LIMIT 5" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY RAND() LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <div class="clearfix visible-xs-block"><br/></div>
               <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
@@ -483,8 +483,15 @@ function render(json) {
 
             <div id="thingName">
               <br/><br/><br/>
-
-              <input type="textarea" name="query" id="specificName" placeholder="Enter the Things name Ex. Pocahantas"/>
+              
+              <div class="form-inline">
+                <select class="form-control" id="spFilter">
+                  <option value="?s">Subject</option>
+                  <option value="?p">Predicate</option>
+                  <option value="?o">Object</option>
+                </select>
+                <input type="textarea" name="query" id="specificName" placeholder="Enter the Things name Ex. Pocahantas"/>
+              </div>
               <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
             </div>
           </div>
