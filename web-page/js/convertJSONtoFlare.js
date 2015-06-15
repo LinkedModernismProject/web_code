@@ -185,7 +185,7 @@ function convert(json) {
 				var s_p_o_Arr =  s_p_o.split(',');			//3
 			}
 			catch(err) {
-				alert("Error with parsing JSON file:"+ err.message);
+				console.log/*alert*/("Error with parsing JSON file:"+ err.message);
 			}
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
