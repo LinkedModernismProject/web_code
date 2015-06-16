@@ -83,6 +83,7 @@
         dataType: "html",
         cache: false,
         success: function(response){
+          response = convertResponse(response); //Remove Link appearances in table
           $("#results").html(response);
           $("table").addClass("table-hover");
         }
@@ -182,12 +183,7 @@
       dataType: "html",
       cache: false,
       success: function(response){
-        console.log(response);
-        //Get data here   TESTING
-        response = convertResponse(response);
-        console.log("Back in Function");
-        console.log(response);
-        //Getting data
+        response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
       }

@@ -7,7 +7,7 @@ function convertResponse(response) {
 			var line = line_arr[1].split("/");
 			line = line[line.length-3];
 			line = line.slice(0,-1);
-			if(line.indexOf("#") != -1) {	//If there is a hash with 
+			if(line.indexOf("#") != -1) {	//If there is a hash in string get the value part. Also, used indexOf instead of includes as indexOf may be helpful for people using older browsers.
 				var hash = line.split("#");
 				line = hash[1];
 			}
