@@ -4,7 +4,7 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
-ssh info:
+scp info:
 	Info on the cloud email: Mon May 11 4:40pm
 	scp to WestCloud:
 		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
