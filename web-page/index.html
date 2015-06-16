@@ -53,6 +53,9 @@
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="js/sankey.js"></script>
 
+  <!-- To use real Values -->
+  <script src="js/convertResponse.js"></script>
+
   <!-- Script for interacting with database and visualizations -->
   <script type="text/javascript">
 
@@ -80,6 +83,7 @@
         dataType: "html",
         cache: false,
         success: function(response){
+          response = convertResponse(response); //Remove Link appearances in table
           $("#results").html(response);
           $("table").addClass("table-hover");
         }
@@ -177,10 +181,12 @@
       dataType: "html",
       cache: false,
       success: function(response){
+        response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
       }
     });
+
   }
 
   //helps populate results table and execute default visualization (Force Directed)

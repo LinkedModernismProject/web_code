@@ -1,6 +1,6 @@
 #My help file
 
-ssh info:
+scp info:
 	Info on the cloud email: Mon May 11 4:40pm
 	scp to WestCloud:
 		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
