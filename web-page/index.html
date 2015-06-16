@@ -56,7 +56,14 @@
   <!-- Script for interacting with database and visualizations -->
   <script type="text/javascript">
 
-
+  /*
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX
+*/
   //call table url process and visualization process for selected visualization
   $(function() {
     //$.removeCookie("query")
@@ -95,9 +102,10 @@
 
     });
 
+    //This is called from the filters search button, it adds filters
     $(".btn-filters").click(function(){
       if($("#selType").val() === "Specific"){
-        var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o FILTER regex(?s, '" + $("#specificName").val() + "', 'i')} ORDER BY DESC(" + $(spFilter).val() +  ") LIMIT 20";
+        var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o FILTER regex(?s, '" + $("#specificName").val().replace(/ /g,"_") + "', 'i')} ORDER BY DESC(" + $(spFilter).val() +  ") LIMIT 20";
         $("#tabFilter").removeClass("active");
         $("#tabRes").addClass("active");
         createCookie(query);
@@ -122,6 +130,7 @@
       exec1(query);
     });
 
+    //Searches by previous query from cookie
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
       $("#tabRes").addClass("active");
@@ -132,6 +141,7 @@
       exec1(query);
     });
 
+    //This shows or hides tabs in the filters page
     $("#selType").change(function(){
       if(this.value === "General"){
         $("#thingName").hide();
@@ -142,6 +152,7 @@
       }
     });
 
+    //This shows or hides tabs in the filters page
     $("#selThing").change(function(){
       if(this.value === "Agent"){
         $("#agentName").removeClass("hidden");
@@ -157,7 +168,6 @@
         $("#productionName").removeClass("hidden");
       }
     });
-
   });
 
   //executed on search button click, this populates the results page
@@ -248,14 +258,12 @@ function exec1(sparql) {
   d3sparql.query(endpoint, sparql, render);
 }
 
-
+// set options and call the d3xxxxx function in this library ... set all configs & name them
 function render(json) {
-  // set options and call the d3xxxxx function in this library ...
-  // set all configs & name them
   if(!$("#sectionFilter").hasClass("hidden")){
-    var val = $("input[name='optradio1']:checked").val();
-  } else if(!$("#sectionSearch").hasClass("hidden")){
     var val = $("input[name='optradio']:checked").val();
+  } else if(!$("#sectionSearch").hasClass("hidden")){
+    var val = $("input[name='optradio1']:checked").val();
   }
   console.log(val);
   if(val === "fd"){
@@ -368,7 +376,7 @@ function render(json) {
       <div class="tab-pane fade in active" id="sectionHome">
         <div class="header-content">
           <div class="header-content-inner">
-            <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
+            <img src="img/LinkedModernismHEL.svg" alt="Linked Modernisms"></img>
 
             <hr class="top">
             <noscript>
@@ -393,13 +401,17 @@ function render(json) {
 
       <div class="tab-pane fade" id="sectionDist">
         <br/><br/><br/>
-        <h1>Show me the Relationship between <br/><input class="non-search-text" type="textarea" value="Snoop"></input> <br/>and<br/> <input class="non-search-text" type="textarea" value="Dog"> </input></h1>
+        <object width="100%" height="1000">
+          <param name="movie" value="RelFinder.swf">
+          <embed src="RelFinder.swf" width="100%" height="1000">
+          </embed>
+        </object>
       </div>
 
       <div class="tab-pane fade" id="sectionSearch">
         <div class="header-content">
           <div class="header-content-inner">
-            <img src="img/LinkedModernismTNR.svg" alt="Linked Modernisms"></img>
+            <img src="img/LinkedModernismHEL.svg" alt="Linked Modernisms"></img>
 
             <hr class="top">
 
@@ -1139,8 +1151,7 @@ function render(json) {
             </div>
           </div>
         </div>
-
-        <br/>
+        <br/><br/><br/><br/>
       </div>
 
 
@@ -1171,7 +1182,7 @@ function render(json) {
 
 </section>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 <section id="examples">
   <hr class="light"></hr>
@@ -1187,6 +1198,14 @@ function render(json) {
     SELECT distinct * WHERE { ?s ?p ?o } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?p
     <br/>
     SELECT distinct * WHERE {   ?s ?p ?o FILTER regex(?s, "Jean")} ORDER BY ASC(?o) LIMIT 5    Filters
+    <br/>
+    prefix foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; SELECT distinct * WHERE { ?s foaf:name ?name. ?s ?p ?o } limit 24
+    <br/>
+    PREFIX ty: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  SELECT * WHERE {{ ?p a ty:Property} }  limit 10
+    <br/>
+    PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt; SELECT distinct *  WHERE{ ?node foaf:givenName ?givenName. ?node foaf:name ?name .    ?node &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt;  }  LIMIT 10
+    <br/>
+    Filter bif contains lbl "string"   FILTER regex(str(?s), "war")
   </p>
 </section>
 
