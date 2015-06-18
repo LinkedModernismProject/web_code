@@ -59,12 +59,20 @@ function isA_o (val_arr, total, data_arr) {
 
 //Grab values and place them into corresponding array or object unless duplicate then try add to another obj.
 function grabValues (line, total, data_arr) {
-	//var values = line.match(/value": (.*)\s([^\}]+)\}/g);
-	var values = line.match(/(value":.*?)\s\}/g);  // /\s([^\}]+)\}/g);
+	var values = line.match(/(value":.*?)\s\}/g);
 	for (var i = 0; i < total; i++) {
-		values[i] = values[i].replace(/value\"\:[\s+]/, '');	//Works now //(/[^\"]*?/ig, '');
+		values[i] = values[i].replace(/value\"\:[\s+]/, '');
 		values[i] = values[i].replace(/[\s+]\}/, '');
-	};
+		var val_split = values[i].split('/');
+		val_split = val_split[val_split.length-1];
+		if(val_split.indexOf('#') != -1) {	//If there is a hash get the value part
+			var hash = val_split.split('#');
+			val_split = hash[1];
+		}
+		val_split = '"'+val_split;
+		values[i] = val_split;
+	};	
+
 	if(total==1) {
 		isA_o(values, total, data_arr);
 	} else if(total==2) {
@@ -156,7 +164,7 @@ function convert(json) {
 	var o = '';
 	var totVars = 0;	//Used to keep track of total vars in query
 	var sub = 'testing';
-	var data_arr = [];	//data_arr[0] = new Object();
+	var data_arr = [];	//Array for full data
 	//TESTS BELOW
 	//////////data_arr[0] = {subj: sub, pred_obj: [[]]}
 	////////////Use pred_obj because will be able to keep track of connecting data between the same /////pred and objects

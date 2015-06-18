@@ -200,6 +200,8 @@ d3sparql.graph = function(json, config) {
           check.set(label1, index);
           index++;
         }
+        //TODO-Implement a way for multiple levels of nodes
+
         //A Bold line is due to the multiple connections to one single node
         //Subject --> Predicate
         graph.links.push({"source": check.get(key1), "target": check.get(key2)})
