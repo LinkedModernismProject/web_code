@@ -454,7 +454,8 @@ fieldset[disabled] .btn-primary.active {
   border: 0;
   border-radius: 300px;
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-  font-weight: 200;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 .btn:hover,

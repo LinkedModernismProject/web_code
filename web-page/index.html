@@ -110,9 +110,11 @@
       var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o . ";
       $("#tabFilter").removeClass("active");
       $("#tabRes").addClass("active");
+      $("#sectionFilter").addClass("s");
+      $("#sectionSearch").removeClass("s");
       if($("#selType").val() === "Specific"){
 
- //TODO Once ontology is dont & uploaded move this outside
+ //TODO Once ontology is done & uploaded move this outside specific
         query = query +  "FILTER regex(?s, '" + $("#specificName").val().replace(/ /g,"_") + "'@en, 'i')} ORDER BY DESC(" + $(spFilter).val() +  ") LIMIT 20";
         createCookie(query);
         sClick(query);
@@ -144,6 +146,10 @@
           if(birthYear != "" ){
             query = query + "?s limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "'.";
           }
+          var livedIn = $("#selLivedIn").val();
+          if(livedIn != null ){
+            query = query + "?s limo:LivedIn" + " '" + livedIn + "'.";
+          }
           var associatedWith = $("#selAssociationA").val().trim().replace(/ /g,"_");
           if(associatedWith != "" ){
             query = query + "?s limo:associatedWith" + " '" + associatedWith + "'@en.";
@@ -168,8 +174,9 @@
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabSearch").removeClass("active");
-      $("#tabFilter").removeClass("active");
       $("#tabRes").addClass("active");
+      $("#sectionSearch").addClass("s");
+      $("#sectionFilter").removeClass("s");
       var query = $("#query").val();
       createCookie(query);
       sClick(query);
@@ -180,6 +187,8 @@
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
       $("#tabRes").addClass("active");
+      $("#sectionFilter").addClass("s");
+      $("#sectionSearch").removeClass("s");
       var i = this.id;
       var query = $("#queryNum" + i).text();
       createCookie(query);
@@ -307,9 +316,9 @@ function exec1(sparql) {
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
 function render(json) {
-  if(!$("#sectionFilter").hasClass("hidden")){
+  if($("#sectionSearch").hasClass("s")){
     var val = $("input[name='optradio']:checked").val();
-  } else if(!$("#sectionSearch").hasClass("hidden")){
+  } else if($("#sectionFilter").hasClass("s")){
     var val = $("input[name='optradio1']:checked").val();
   }
   console.log(val);
@@ -455,7 +464,7 @@ function render(json) {
         </object>
       </div>
 
-      <div class="tab-pane fade" id="sectionSearch">
+      <div class="tab-pane fade s" id="sectionSearch">
         <div class="header-content">
           <div class="header-content-inner">
             <img src="img/LinkedModernismHEL.svg" alt="Linked Modernisms"></img>
