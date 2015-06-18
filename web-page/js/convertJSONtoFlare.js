@@ -35,13 +35,6 @@ function isA_spo (val_arr, total, data_arr) {
 		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];
 		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];
 		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];
-		//console.log("Before");
-		//console.log(comp_subj_bool);
-		//console.log(comp_subj_index);
-		//console.log(comp_pred_index);
-		//console.log(comp_pred_bool);
-		//console.log("After");
-		//exit();
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
 				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
@@ -70,28 +63,15 @@ function grabValues (line, total, data_arr) {
 	for (var i = 0; i < total; i++) {
 		values[i] = values[i].replace(/value\"\:[\s+]/, '');
 		values[i] = values[i].replace(/[\s+]\}/, '');
-		console.log	(values[i]);
-		//Possibly remove links here first
 		var val_split = values[i].split('/');
-		console.log(val_split);
 		val_split = val_split[val_split.length-1];
-		console.log(val_split);
 		if(val_split.indexOf('#') != -1) {	//If there is a hash get the value part
 			var hash = val_split.split('#');
 			val_split = hash[1];
-			console.log(val_split);
 		}
-		console.log(val_split);
-		console.log(values[i]);
 		val_split = '"'+val_split;
-		console.log(val_split);
 		values[i] = val_split;
-		console.log(values[i]);
-
-	};
-	//Possibly remove links here
-	console.log(values);
-	
+	};	
 
 	if(total==1) {
 		isA_o(values, total, data_arr);
