@@ -1096,6 +1096,7 @@ function highlight_node_links(node,i){
                       linkType : "targetLinks",
                       nodeType : "source"
                     }];
+    console.log(traverse);
     console.log("here");
     traverse.forEach(function(step){
       node[step.linkType].forEach(function(link) {
@@ -1114,11 +1115,14 @@ function highlight_node_links(node,i){
         });
         remainingNodes = nextNodes;
       }
+      console.log(remainingNodes);
     });
 }//End of highlight_node_links
 
 function highlight_link(id,opacity){
+  console.log('In highlight_link');
 	d3.select("#link-"+id).style("stroke-opacity", opacity);
+  console.log('Exiting highlight_link');
 }
 
 
