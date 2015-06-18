@@ -1003,13 +1003,17 @@ d3sparql.sankey = function(json, config) {
     .nodes(nodes)
     .links(links)
     .layout(32)
+  console.log(sankey);
   var path = sankey.link()
+  console.log(path);
   var color = d3.scale.category20()
+  console.log(color);
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width + opts.margin * 2)
     .attr("height", opts.height + opts.margin * 2)
     .append("g")
     .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
+  console.log(svg);
   var link = svg.selectAll(".link")
     .data(links)
     .enter()
@@ -1018,18 +1022,20 @@ d3sparql.sankey = function(json, config) {
     .attr("d", path)
     .attr("stroke-width", function(d) {return Math.max(1, d.dy)})
     .sort(function(a, b) {return b.dy - a.dy})
+  console.log(link);
   var node = svg.selectAll(".node")
     .data(nodes)
     .enter()
     .append("g")
     .attr("class", "node")
     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"})
-    .on("click", highlight_node_links)
+    .on("click", highlight_node_links)  //Added for highlighting sankey
     .call(d3.behavior.drag()
        .origin(function(d) {return d})
        .on("dragstart", function() {this.parentNode.appendChild(this)})
        .on("drag", dragmove)
      )
+  console.log(node);
   node.append("rect")
     .attr("width", function(d) {return d.dx})
     .attr("height", function(d) {return d.dy})
@@ -1045,6 +1051,7 @@ d3sparql.sankey = function(json, config) {
     .filter(function(d) {return d.x < opts.width / 2})
     .attr("x", 6 + sankey.nodeWidth())
     .attr("text-anchor", "start")
+  console.log(node);
 
   // default CSS/SVG
   link.attr({
@@ -1052,6 +1059,7 @@ d3sparql.sankey = function(json, config) {
     "stroke": "grey",
     "opacity": 0.5,
   })
+  console.log(link);
 
   function dragmove(d) {
     d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(opts.height - d.dy, d3.event.y))) + ")")
