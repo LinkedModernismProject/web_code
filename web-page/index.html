@@ -479,7 +479,7 @@ function render(json) {
             </p>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY RAND() LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } LIMIT 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <div class="clearfix visible-xs-block"><br/></div>
               <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
