@@ -980,10 +980,6 @@ d3sparql.forcegraph = function(json, config) {
 */
 d3sparql.sankey = function(json, config) {
   var graph = d3sparql.graph(json, config);
-  console.log('json');
-  console.log(json);
-  console.log('config');
-  console.log(config);
 
   var opts = {
     "width":    config.width    || 750,
@@ -991,15 +987,9 @@ d3sparql.sankey = function(json, config) {
     "margin":   config.margin   || 10,
     "selector": config.selector || "#visualizations"
   }
-  console.log('opts');
-  console.log(opts);
 
   var nodes = graph.nodes
   var links = graph.links
-  console.log('nodes');
-  console.log(nodes);
-  console.log('links; links len:'+links.length.toString());
-  console.log(links);
   for (var i = 0; i < links.length; i++) {
     links[i].value = 2  // TODO: fix to use values on links
   }
@@ -1010,21 +1000,13 @@ d3sparql.sankey = function(json, config) {
     .nodes(nodes)
     .links(links)
     .layout(32)
-  console.log('sankey');
-  console.log(sankey);
   var path = sankey.link()
-  console.log('path');
-  console.log(path);
   var color = d3.scale.category20()
-  console.log('color');
-  console.log(color);
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width + opts.margin * 2)
     .attr("height", opts.height + opts.margin * 2)
     .append("g")
     .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
-  console.log('svg');
-  console.log(svg);
   var link = svg.selectAll(".link")
     .data(links)
     .enter()
@@ -1032,13 +1014,11 @@ d3sparql.sankey = function(json, config) {
     .attr("class", "link")
     .attr("d", path)
     .attr("stroke-width", function(d) {return Math.max(1, d.dy)})
-    .attr("id", function(d,i) {
+    .attr("id", function(d,i) { //Added for highlighting sankey links
       d.id = i;
       return "link-"+i;
     })
     .sort(function(a, b) {return b.dy - a.dy})
-  console.log('link');
-  console.log(link);
   var node = svg.selectAll(".node")
     .data(nodes)
     .enter()
@@ -1051,14 +1031,11 @@ d3sparql.sankey = function(json, config) {
        .on("dragstart", function() {this.parentNode.appendChild(this)})
        .on("drag", dragmove)
      )
-  console.log('node');
-  console.log(node);
   node.append("rect")
     .attr("width", function(d) {return d.dx})
     .attr("height", function(d) {return d.dy})
     .attr("fill", function(d) {return color(d.label)})
     .attr("opacity", 0.5)
-    //.attr("onClick", highlight_node_links)
   node.append("text")
     .attr("x", -6)
     .attr("y", function(d) {return d.dy/2})
@@ -1069,8 +1046,6 @@ d3sparql.sankey = function(json, config) {
     .filter(function(d) {return d.x < opts.width / 2})
     .attr("x", 6 + sankey.nodeWidth())
     .attr("text-anchor", "start")
-  console.log('node');
-  console.log(node);
 
   // default CSS/SVG
   link.attr({
@@ -1078,8 +1053,6 @@ d3sparql.sankey = function(json, config) {
     "stroke": "grey",
     "opacity": 0.5,
   })
-  console.log('link');
-  console.log(link);
 
   function dragmove(d) {
     d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(opts.height - d.dy, d3.event.y))) + ")")
@@ -1089,21 +1062,13 @@ d3sparql.sankey = function(json, config) {
 }//End of Sankey
 
 function highlight_node_links(node,i){
-  console.log('In highlight_node_links func');
     var remainingNodes=[],
         nextNodes=[];
     var stroke_opacity = 0;
-    console.log(d3.select(this));
-    console.log(d3.select(this)[0]);
-    console.log(d3.select(this)[0][0]);
-    //console.log(d3.select(this)[0].attr("data-clicked"));
-    console.log(d3.select(this).attr("data-clicked"));
     if( d3.select(this).attr("data-clicked") == "1" ){
-    	console.log("inClicked1");
       d3.select(this).attr("data-clicked","0");
       stroke_opacity = 0.2;
     }else{
-    	console.log("inClicked1else");
       d3.select(this).attr("data-clicked","1");
       stroke_opacity = 0.5;
     }
@@ -1115,19 +1080,12 @@ function highlight_node_links(node,i){
                       linkType : "targetLinks",
                       nodeType : "source"
                     }];
-    console.log('traverse');
-    console.log(traverse);
-    console.log("here");
     traverse.forEach(function(step){
-      console.log(step.linkType);
-      console.log(node[step.linkType]);
       node[step.linkType].forEach(function(link) {
         remainingNodes.push(link[step.nodeType]);
         highlight_link(link.id, stroke_opacity);
       });
-      console.log("afterTraverse");
       while (remainingNodes.length) {
-      	console.log("inWhile");
         nextNodes = [];
         remainingNodes.forEach(function(node) {
           node[step.linkType].forEach(function(link) {
@@ -1137,16 +1095,11 @@ function highlight_node_links(node,i){
         });
         remainingNodes = nextNodes;
       }
-      console.log(remainingNodes);
     });
 }//End of highlight_node_links
 
 function highlight_link(id,opacity){
-  console.log('In highlight_link');
 	d3.select("#link-"+id).style("stroke-opacity", opacity);
-  console.log("opacity");
-  console.log(opacity);
-  console.log('Exiting highlight_link');
 }
 
 
