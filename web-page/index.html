@@ -109,7 +109,7 @@
     $(".btn-filters").click(function(){
       var query = "SELECT distinct ?s ?p ?o WHERE {?s ?p ?o . ";
       $("#tabFilter").removeClass("active");
-      $("#tabRes").addClass("active");
+      $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
       if($("#selType").val() === "Specific"){
@@ -174,7 +174,7 @@
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $("#tabSearch").removeClass("active");
-      $("#tabRes").addClass("active");
+      $("#tabVis").addClass("active");
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
       var query = $("#query").val();
@@ -186,7 +186,7 @@
     //Searches by previous query from cookie
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
-      $("#tabRes").addClass("active");
+      $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
       var i = this.id;
@@ -263,9 +263,9 @@
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionRes"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionRes"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
       }
       $(prev).appendTo("#memory-box");
     }
@@ -312,6 +312,12 @@ function constructURL(query){
 function exec1(sparql) {
   var endpoint = "http://dbpedia.org/sparql";
   d3sparql.query(endpoint, sparql, render);
+}
+
+function filterClick() {
+  var query = $("#query").val();
+  sClick(query);
+  exec1(query);
 }
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
@@ -421,7 +427,7 @@ function render(json) {
     <li class="active" id="tabHome"><a data-toggle="tab" href="#sectionHome" class="btn" role="button">Home</a></li>
     <li id="tabSearch" ><a data-toggle="tab" href="#sectionSearch" class="btn" role="button">Search</a></li>
     <li id="tabDist" ><a data-toggle="tab" href="#sectionDist" class="btn" role="button">Degrees of Separation</a></li>
-    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
+    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" onclick="filterClick()" role="button">Filters</a></li>
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" ><a data-toggle="tab" href="#sectionVis" class="btn" role="button">Visualizations</a></li>
   </ul>
@@ -479,9 +485,9 @@ function render(json) {
             </p>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY RAND() LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?s ?p ?o } ORDER BY ASC(?s) LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
               <div class="clearfix visible-xs-block"><br/></div>
-              <input data-toggle="tab" href="#sectionRes" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
 
 
@@ -562,7 +568,7 @@ function render(json) {
                 <option value="?o">Object</option>
               </select>
               <input type="textarea" name="query" id="specificName" placeholder="Enter the Things name Ex. Pocahantas"/>
-              <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
             </div>
 
 
@@ -1172,7 +1178,7 @@ function render(json) {
 
                 </div>
               </div>
-              <input data-toggle="tab" href="#sectionRes" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
 
             </div>
 
