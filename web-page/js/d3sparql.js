@@ -991,7 +991,7 @@ d3sparql.sankey = function(json, config) {
   var nodes = graph.nodes
   var links = graph.links
   for (var i = 0; i < links.length; i++) {
-    links[i].value = 2  // TODO: fix to use values on links
+    links[i].value = 2
   }
   var sankey = d3.sankey()
     .size([opts.width, opts.height])
