@@ -620,16 +620,12 @@ body {
   stroke-opacity: .5;
 }
 text.parent {
-  fill: #1f77b4;
 }
 circle {
-  fill: rgba(114,21,99,.3);
   stroke: #999;
   pointer-events: all;
 }
 circle.parent {
-  fill: #1f77b4;
-  fill-opacity: .1;
   stroke: steelblue;
 }
 circle.parent:hover {

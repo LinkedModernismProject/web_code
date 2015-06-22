@@ -860,10 +860,12 @@ d3sparql.scatterplot = function(json, config) {
 */
 d3sparql.forcegraph = function(json, config) {
   var graph = d3sparql.graph(json, config)
+  console.log(graph);
 
   var scale = d3.scale.linear()
     .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
     .range([1, 200])
+  console.log(scale);
 
   var opts = {
     "radius":    config.radius    || function(d) {return d.value ? scale(d.value) : 1 + d.label.length },
@@ -874,6 +876,8 @@ d3sparql.forcegraph = function(json, config) {
     "label":     config.label     || false,
     "selector":  config.selector  || "#visualizations"
   }
+
+  var color = d3.scale.category20();
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -887,6 +891,14 @@ d3sparql.forcegraph = function(json, config) {
     .data(graph.nodes)
     .enter()
     .append("g")
+    .style("fill", function(d) {
+      console.log(d);
+      console.log(d.group); //No group, this is the issue
+      console.log(color(d.group));
+      console.log(color(0));
+      console.log(color(1));
+      console.log(color(2));
+      return color(d.group); })
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -919,8 +931,8 @@ d3sparql.forcegraph = function(json, config) {
   circle.attr({
     "stroke": "black",
     "stroke-width": "1px",
-    "fill": "lightblue",
-    "opacity": 1,
+    "fill": "green",//"lightblue",  //Here is affecting the circle
+    //"opacity": 1,
   })
   text.attr({
     "font-size": "10px",
