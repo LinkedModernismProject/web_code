@@ -998,13 +998,11 @@ d3sparql.sankey = function(json, config) {
   var links = graph.links
   console.log('nodes');
   console.log(nodes);
-  console.log('links');
+  console.log('links; links len:'+links.length.toString());
   console.log(links);
   for (var i = 0; i < links.length; i++) {
     links[i].value = 2  // TODO: fix to use values on links
   }
-  console.log('nodes');
-  console.log(nodes);
   var sankey = d3.sankey()
     .size([opts.width, opts.height])
     .nodeWidth(15)
@@ -1034,6 +1032,10 @@ d3sparql.sankey = function(json, config) {
     .attr("class", "link")
     .attr("d", path)
     .attr("stroke-width", function(d) {return Math.max(1, d.dy)})
+    .attr("id", function(d,i) {
+      d.id = i;
+      return "link-"+i;
+    })
     .sort(function(a, b) {return b.dy - a.dy})
   console.log('link');
   console.log(link);
@@ -1056,6 +1058,7 @@ d3sparql.sankey = function(json, config) {
     .attr("height", function(d) {return d.dy})
     .attr("fill", function(d) {return color(d.label)})
     .attr("opacity", 0.5)
+    //.attr("onClick", highlight_node_links)
   node.append("text")
     .attr("x", -6)
     .attr("y", function(d) {return d.dy/2})
@@ -1086,6 +1089,7 @@ d3sparql.sankey = function(json, config) {
 }//End of Sankey
 
 function highlight_node_links(node,i){
+  console.log('In highlight_node_links func');
     var remainingNodes=[],
         nextNodes=[];
     var stroke_opacity = 0;
@@ -1140,6 +1144,8 @@ function highlight_node_links(node,i){
 function highlight_link(id,opacity){
   console.log('In highlight_link');
 	d3.select("#link-"+id).style("stroke-opacity", opacity);
+  console.log("opacity");
+  console.log(opacity);
   console.log('Exiting highlight_link');
 }
 
