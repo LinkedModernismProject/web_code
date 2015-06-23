@@ -71,7 +71,8 @@
                 { "name": "Sculptor", "size": 500},
                 { "name": "Typographer", "size": 500}
               ]}
-        ]},
+        ]}
+      ]},
     { "name": "Place",
       "children": [
         { "name": "City", "size": 500},
@@ -105,7 +106,7 @@
                         { "name": "Lyric", "size": 500},
                         { "name": "Narrative", "size": 500}
                       ]},
-                    { "name": "Poetry Collection", "size": 500},
+                    { "name": "Poetry Collection", "size": 500}
                   ]},
                 { "name": "Prose",
                   "children": [
