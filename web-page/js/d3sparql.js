@@ -188,21 +188,21 @@ d3sparql.graph = function(json, config) {
           if(d3sparql.debug2) { console.log("inKey1"); }
           //Add key 2 possibly to the push
           //APPEND A GROUP COLORING TO S P O
-          graph.nodes.push({"key": key1, "label": key1, "value": value1, "group": 1})
+          graph.nodes.push({"key": key1, "label": key1, "value": value1, "group": "rgba(37, 144, 115, 0.6)"})
           check.set(key1, index)
           index++
         }
         //If the dataset has the Predicate(key2), add to graph nodes.
         if (!check.has(key2)) {
           if(d3sparql.debug2) { console.log("inKey2"); }
-          graph.nodes.push({"key": key2, "label": label2, "value": value1, "group": 2})
+          graph.nodes.push({"key": key2, "label": label2, "value": value1, "group": "rgba(240, 88, 104, 0.6)"})
           check.set(key2, index)
           index++
         }
         //If the dataset has the Object(label1), add to graph nodes.
         if(!check.has(label1)) {
           if(d3sparql.debug2) { console.log('inLabel1'); }
-          graph.nodes.push({"key": label1, "label": label1, "value": value1, "group": 3});
+          graph.nodes.push({"key": label1, "label": label1, "value": value1, "group": "rgba(188, 230, 230, 0.6)"});
           check.set(label1, index);
           index++;
         }
@@ -900,6 +900,8 @@ d3sparql.forcegraph = function(json, config) {
     .append("g")
     .style("fill", function(d) {
       console.log(d);
+      console.log(d.group);
+      console.log(typeof(d.group));
       //console.log(color(d.group));
       /////console.log(color(d.group));
       //console.log(color(0));  //#aec7e8
@@ -917,7 +919,7 @@ d3sparql.forcegraph = function(json, config) {
       //  console.log(color(co));
       //  co++;
       //}
-      return "cyan";})//color(d.group); }) //Seems to affect both text and circle; added a text fill to override text.
+      return d.group;})//color(d.group); }) //Seems to affect both text and circle; added a text fill to override text.
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -956,7 +958,9 @@ d3sparql.forcegraph = function(json, config) {
   text.attr({
     "font-size": "10px",
     "font-family": "sans-serif",
-    "fill": "grey"  //Set for different text color than the above rtn'd group color
+    //"fill": "rgba(88, 88, 88, 1)"  //Set for different text color than the above rtn'd group color
+    "font-weight": "bold",
+    "fill": "rgba(84, 84, 84, 1)"//"rgba(77, 77, 77, 1)"//"#4a4a4a"
   })
 }
 
