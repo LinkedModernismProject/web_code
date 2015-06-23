@@ -4,6 +4,11 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
+postgres info
+	 postgres -D /Users/brayden/limo/iepy/limo/db/ 
+	 starts it
+
+
 scp info:
 	Info on the cloud email: Mon May 11 4:40pm
 	scp to WestCloud:
