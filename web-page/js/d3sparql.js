@@ -866,12 +866,10 @@ d3sparql.scatterplot = function(json, config) {
 */
 d3sparql.forcegraph = function(json, config) {
   var graph = d3sparql.graph(json, config)
-  console.log(graph);
 
   var scale = d3.scale.linear()
     .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
     .range([1, 200])
-  console.log(scale);
 
   var opts = {
     "radius":    config.radius    || function(d) {return d.value ? scale(d.value) : 1 + d.label.length },
@@ -882,9 +880,6 @@ d3sparql.forcegraph = function(json, config) {
     "label":     config.label     || false,
     "selector":  config.selector  || "#visualizations"
   }
-
-  var color = d3.scale.category20();
-  console.log(color);
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -898,28 +893,7 @@ d3sparql.forcegraph = function(json, config) {
     .data(graph.nodes)
     .enter()
     .append("g")
-    .style("fill", function(d) {
-      console.log(d);
-      console.log(d.group);
-      console.log(typeof(d.group));
-      //console.log(color(d.group));
-      /////console.log(color(d.group));
-      //console.log(color(0));  //#aec7e8
-      //console.log(color(1));
-      //console.log(color(3));
-      ////////console.log(color(1));  //#ff7f0e
-      ////////console.log(typeof(color(1)));
-      ///console.log(color(2));  //#aec7e8
-      ///console.log(color(3));
-      /////for(c=0;c<100;c++) {
-      /////  console.log(color(c));
-      /////}
-      //var co = 0
-      //while(color(co)) {
-      //  console.log(color(co));
-      //  co++;
-      //}
-      return d.group;})//color(d.group); }) //Seems to affect both text and circle; added a text fill to override text.
+    .style("fill", function(d) { return d.group; })
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -952,17 +926,14 @@ d3sparql.forcegraph = function(json, config) {
   circle.attr({
     "stroke": "black",
     "stroke-width": "1px",
-    // "fill": "lightblue",  //Here is affecting the circle
-    //"opacity": 1,
   })
   text.attr({
     "font-size": "10px",
     "font-family": "sans-serif",
-    //"fill": "rgba(88, 88, 88, 1)"  //Set for different text color than the above rtn'd group color
     "font-weight": "bold",
-    "fill": "rgba(84, 84, 84, 1)"//"rgba(77, 77, 77, 1)"//"#4a4a4a"
+    "fill": "rgba(84, 84, 84, 1)"
   })
-}
+}//End of ForceGraph
 
 /*
   Rendering sparql-results+json object into a sanky graph
