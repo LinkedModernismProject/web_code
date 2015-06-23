@@ -1,4 +1,4 @@
-//
+
 // d3sparql.js - utilities for visualizing SPARQL results with the D3 library
 //
 //   Web site: http://github.com/ktym/d3sparql/
@@ -182,21 +182,22 @@ d3sparql.graph = function(json, config) {
         if (!check.has(key1)) {
           if(d3sparql.debug2) { console.log("inKey1"); }
           //Add key 2 possibly to the push
-          graph.nodes.push({"key": key1, "label": key1, "value": value1})
+          //APPEND A GROUP COLORING TO S P O
+          graph.nodes.push({"key": key1, "label": key1, "value": value1, "group": "rgba(37, 144, 115, 0.6)"})
           check.set(key1, index)
           index++
         }
         //If the dataset has the Predicate(key2), add to graph nodes.
         if (!check.has(key2)) {
           if(d3sparql.debug2) { console.log("inKey2"); }
-          graph.nodes.push({"key": key2, "label": label2, "value": value1})
+          graph.nodes.push({"key": key2, "label": label2, "value": value1, "group": "rgba(240, 88, 104, 0.6)"})
           check.set(key2, index)
           index++
         }
         //If the dataset has the Object(label1), add to graph nodes.
         if(!check.has(label1)) {
           if(d3sparql.debug2) { console.log('inLabel1'); }
-          graph.nodes.push({"key": label1, "label": label1, "value": value1});
+          graph.nodes.push({"key": label1, "label": label1, "value": value1, "group": "rgba(188, 230, 230, 0.6)"});
           check.set(label1, index);
           index++;
         }
@@ -887,6 +888,7 @@ d3sparql.forcegraph = function(json, config) {
     .data(graph.nodes)
     .enter()
     .append("g")
+    .style("fill", function(d) { return d.group; })
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -919,14 +921,14 @@ d3sparql.forcegraph = function(json, config) {
   circle.attr({
     "stroke": "black",
     "stroke-width": "1px",
-    "fill": "lightblue",
-    "opacity": 1,
   })
   text.attr({
     "font-size": "10px",
     "font-family": "sans-serif",
+    "font-weight": "bold",
+    "fill": "rgba(84, 84, 84, 1)"
   })
-}
+}//End of ForceGraph
 
 /*
   Rendering sparql-results+json object into a sanky graph
