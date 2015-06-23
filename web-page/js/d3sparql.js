@@ -1,4 +1,4 @@
-//
+
 // d3sparql.js - utilities for visualizing SPARQL results with the D3 library
 //
 //   Web site: http://github.com/ktym/d3sparql/
@@ -9,7 +9,7 @@
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: false,  // set to true for showing debug information
-  debug2: false, //false for JSON; true for FlareJSON
+  debug2: true, //false for JSON; true for FlareJSON
   queryed: false
 }
 
@@ -101,6 +101,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
 d3sparql.graph = function(json, config) {
   var head = json.name;
   var data = json.children;
+  console.log(data);
 
   head = head.replace(/\s+/g, '') //Remove spaces from name property
   head = head.split(',') //Separates between commas into an array
@@ -130,6 +131,10 @@ d3sparql.graph = function(json, config) {
   if (d3sparql.debug2) { console.log(data[0].children[0].children.length) }   //len of 3rd obj
   if (d3sparql.debug2) { console.log(data[0].children[0].children[0]) }       //3rd obj
   if (d3sparql.debug2) { console.log(data[0].children[0].children[0].name) }  //Name of 3rd obj (Object value)
+
+  for(r in data) {
+    console.log(data[r]);
+  }
 
   var graph = {
     "nodes": [],
@@ -182,21 +187,22 @@ d3sparql.graph = function(json, config) {
         if (!check.has(key1)) {
           if(d3sparql.debug2) { console.log("inKey1"); }
           //Add key 2 possibly to the push
-          graph.nodes.push({"key": key1, "label": key1, "value": value1})
+          //APPEND A GROUP COLORING TO S P O
+          graph.nodes.push({"key": key1, "label": key1, "value": value1, "group": 1})
           check.set(key1, index)
           index++
         }
         //If the dataset has the Predicate(key2), add to graph nodes.
         if (!check.has(key2)) {
           if(d3sparql.debug2) { console.log("inKey2"); }
-          graph.nodes.push({"key": key2, "label": label2, "value": value1})
+          graph.nodes.push({"key": key2, "label": label2, "value": value1, "group": 2})
           check.set(key2, index)
           index++
         }
         //If the dataset has the Object(label1), add to graph nodes.
         if(!check.has(label1)) {
           if(d3sparql.debug2) { console.log('inLabel1'); }
-          graph.nodes.push({"key": label1, "label": label1, "value": value1});
+          graph.nodes.push({"key": label1, "label": label1, "value": value1, "group": 3});
           check.set(label1, index);
           index++;
         }
@@ -878,6 +884,7 @@ d3sparql.forcegraph = function(json, config) {
   }
 
   var color = d3.scale.category20();
+  console.log(color);
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -893,12 +900,24 @@ d3sparql.forcegraph = function(json, config) {
     .append("g")
     .style("fill", function(d) {
       console.log(d);
-      console.log(d.group); //No group, this is the issue
-      console.log(color(d.group));
-      console.log(color(0));
-      console.log(color(1));
-      console.log(color(2));
-      return color(d.group); })
+      //console.log(color(d.group));
+      /////console.log(color(d.group));
+      //console.log(color(0));  //#aec7e8
+      //console.log(color(1));
+      //console.log(color(3));
+      ////////console.log(color(1));  //#ff7f0e
+      ////////console.log(typeof(color(1)));
+      ///console.log(color(2));  //#aec7e8
+      ///console.log(color(3));
+      /////for(c=0;c<100;c++) {
+      /////  console.log(color(c));
+      /////}
+      //var co = 0
+      //while(color(co)) {
+      //  console.log(color(co));
+      //  co++;
+      //}
+      return "cyan";})//color(d.group); }) //Seems to affect both text and circle; added a text fill to override text.
   var circle = node.append("circle")
     .attr("class", "node")
     .attr("r", opts.radius)
@@ -931,12 +950,13 @@ d3sparql.forcegraph = function(json, config) {
   circle.attr({
     "stroke": "black",
     "stroke-width": "1px",
-    "fill": "green",//"lightblue",  //Here is affecting the circle
+    // "fill": "lightblue",  //Here is affecting the circle
     //"opacity": 1,
   })
   text.attr({
     "font-size": "10px",
     "font-family": "sans-serif",
+    "fill": "grey"  //Set for different text color than the above rtn'd group color
   })
 }
 
