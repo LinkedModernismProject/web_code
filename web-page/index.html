@@ -316,8 +316,15 @@ function exec1(sparql) {
 
 function filterClick() {
   var query = $("#query").val();
-  sClick(query);
-  exec1(query);
+  var cdata = $.cookie("query").split(";");
+  if(cdata != null || cdata != undefined){
+    sClick(cdata[0]);
+    exec1(cdata[0]);
+  }
+  else {
+    sClick(query);
+    exec1(query);
+  }
 }
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
