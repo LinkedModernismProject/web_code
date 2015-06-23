@@ -9,7 +9,7 @@
 var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: false,  // set to true for showing debug information
-  debug2: true, //false for JSON; true for FlareJSON
+  debug2: false, //false for JSON; true for FlareJSON
   queryed: false
 }
 
@@ -101,7 +101,6 @@ d3sparql.query = function(endpoint, sparql, callback) {
 d3sparql.graph = function(json, config) {
   var head = json.name;
   var data = json.children;
-  console.log(data);
 
   head = head.replace(/\s+/g, '') //Remove spaces from name property
   head = head.split(',') //Separates between commas into an array
@@ -131,10 +130,6 @@ d3sparql.graph = function(json, config) {
   if (d3sparql.debug2) { console.log(data[0].children[0].children.length) }   //len of 3rd obj
   if (d3sparql.debug2) { console.log(data[0].children[0].children[0]) }       //3rd obj
   if (d3sparql.debug2) { console.log(data[0].children[0].children[0].name) }  //Name of 3rd obj (Object value)
-
-  for(r in data) {
-    console.log(data[r]);
-  }
 
   var graph = {
     "nodes": [],
