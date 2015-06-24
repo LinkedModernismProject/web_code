@@ -1,4 +1,3 @@
-
 // d3sparql.js - utilities for visualizing SPARQL results with the D3 library
 //
 //   Web site: http://github.com/ktym/d3sparql/
@@ -10,7 +9,9 @@ var d3sparql = {
   version: "d3sparql.js version 2015-05-25",
   debug: false,  // set to true for showing debug information
   debug2: false, //false for JSON; true for FlareJSON
-  queryed: false
+  queryed: false,
+  barchart: false,
+  piechart: true
 }
 
 /*
@@ -500,8 +501,22 @@ d3sparql.htmlhash = function(json, config) {
     </style>
 */
 d3sparql.barchart = function(json, config) {
-  var head = json.head.vars
-  var data = json.results.bindings
+  if(d3sparql.barchart){ console.log(json); }
+  if(d3sparql.barchart){ console.log(config); }
+  if(d3sparql.barchart){ console.log(json.children[0].name); }
+  if(d3sparql.barchart){ console.log(json.children[0].children[0].name); }
+  var head = json.name; //json.head.vars
+  var data = json.children //json.results.bindings
+  if(d3sparql.barchart){ console.log(head); }
+  if(d3sparql.barchart){ console.log(data); }
+
+  head = head.replace(/\s+/g, '') //Remove spaces from name property
+  head = head.split(',') //Separates between commas into an array
+  if (d3sparql.barchart) {  //Test case
+    for(var val in head) {
+      console.log(val+head[val]);
+    }
+  }
 
   var opts = {
     "label_x":  config.label_x  || head[0],
@@ -513,12 +528,21 @@ d3sparql.barchart = function(json, config) {
     "margin":   config.margin   || 80,  // TODO: to make use of {top: 10, right: 10, bottom: 80, left: 80}
     "selector": config.selector || "#visualizations"
   }
+  console.log(opts);
 
   var scale_x = d3.scale.ordinal().rangeRoundBands([0, opts.width - opts.margin], 0.1)
+  console.log(scale_x);
   var scale_y = d3.scale.linear().range([opts.height - opts.margin, 0])
+  console.log(scale_y);
   var axis_x = d3.svg.axis().scale(scale_x).orient("bottom")
+  console.log(axis_x);
   var axis_y = d3.svg.axis().scale(scale_y).orient("left")  // .ticks(10, "%")
-  scale_x.domain(data.map(function(d) {return d[opts.var_x].value}))
+  console.log(axis_y);
+  scale_x.domain(data.map(function(d) {
+    console.log(d);
+    console.log(d[opts.var_x]);
+    console.log(d[opts.var_x.value]);
+    return d[opts.var_x].value}))
   scale_y.domain(d3.extent(data, function(d) {return parseInt(d[opts.var_y].value)}))
 
   var svg = d3.select(opts.selector).html("").append("svg")
@@ -625,8 +649,55 @@ d3sparql.barchart = function(json, config) {
     </style>
 */
 d3sparql.piechart = function(json, config) {
-  var head = json.head.vars
-  var data = json.results.bindings
+  if(d3sparql.piechart){ console.log(json); }
+  if(d3sparql.piechart){ console.log(config); }
+  if(d3sparql.piechart){ console.log(json.children[0].name); }
+  if(d3sparql.piechart){ console.log(json.children[0].children[0].name); }
+  if(d3sparql.piechart){ console.log(json.children[0].children[0].children[0].name); }
+  var head = json.name; //json.head.vars
+  var data = json.children //json.results.bindings
+  if(d3sparql.piechart){ console.log(head); }
+  if(d3sparql.piechart){ console.log(data); }
+  ///var head = json.head.vars
+  ///var data = json.results.bindings
+
+  head = head.replace(/\s+/g, '') //Remove spaces from name property
+  head = head.split(',') //Separates between commas into an array
+  if (d3sparql.piechart) {  //Test case
+    for(var val in head) {
+      console.log(val+head[val]);
+    }
+  }
+
+  var subj = []
+  var pred = []
+  var obj = []
+  console.log(data);
+  console.log(data[0].name);
+  console.log(data[0].children[0].name);
+  console.log(data[0].children[0].children[0].name);
+  for (var i = 0; i < data.length; i++) {
+    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value
+      subj.push(data[i].name);
+    }
+    if(pred.indexOf(data[i].children[0].name) == -1) {
+      pred.push(data[i].children[0].name);
+    }
+    if (obj.indexOf(data[i].children[0].children[0].name) == -1) {
+      obj.push(data[i].children[0].children[0].name);
+    }
+  }
+  var subj_size = subj.length;
+  var pred_size = pred.length;
+  var obj_size = obj.length;
+  console.log(subj);
+  console.log(subj_size);
+  console.log(pred);
+  console.log(pred_size);
+  console.log(obj);
+  console.log(obj_size);
+  data = [{"spo": "Subjects", "size": subj_size}, {"spo": "Predicates", "size": pred_size}, {"spo": "Objects", "size": obj_size}];
+  console.log(data);
 
   var opts = {
     "label":    config.label    || head[0],
@@ -637,18 +708,26 @@ d3sparql.piechart = function(json, config) {
     "hole":     config.hole     || 100,
     "selector": config.selector || "#visualizations"
   }
+  if(d3sparql.piechart){ console.log(opts); }
 
   var radius = Math.min(opts.width, opts.height) / 2 - opts.margin
+  if(d3sparql.piechart){ console.log(radius); }
   var hole = Math.max(Math.min(radius - 50, opts.hole), 0)
+  if(d3sparql.piechart){ console.log(hole); }
   var color = d3.scale.category20()
+  if(d3sparql.piechart){ console.log(color); }
 
   var arc = d3.svg.arc()
     .outerRadius(radius)
     .innerRadius(hole)
+  if(d3sparql.piechart){ console.log(arc); }
 
   var pie = d3.layout.pie()
     //.sort(null)
-    .value(function(d) {return d[opts.size].value})
+    .value(function(d) {
+      console.log(d);
+      console.log(d.size);
+      return d.size}) //d[opts.size].value})
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -661,15 +740,18 @@ d3sparql.piechart = function(json, config) {
     .enter()
     .append("g")
     .attr("class", "arc")
+  console.log(g);
   var slice = g.append("path")
     .attr("d", arc)
     .attr("fill", function(d, i) { return color(i) })
+  console.log(slice);
   var text = g.append("text")
     .attr("class", "label")
     .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")" })
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
-    .text(function(d) { return d.data[opts.label].value })
+    .text(function(d) { return d.data.spo}) //d.data[opts.label].value })
+  console.log(text);
 
   // default CSS/SVG
   slice.attr({
@@ -682,7 +764,7 @@ d3sparql.piechart = function(json, config) {
     "font-size": "20px",
     "font-family": "sans-serif",
   })
-}
+}//End of piechart
 
 /*
   Rendering sparql-results+json object into a scatter plot
