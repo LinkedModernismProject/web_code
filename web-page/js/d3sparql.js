@@ -11,7 +11,7 @@ var d3sparql = {
   debug2: false, //false for JSON; true for FlareJSON
   queryed: false,
   barchart: false,
-  piechart: true
+  piechart: false
 }
 
 /*
