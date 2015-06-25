@@ -724,7 +724,7 @@ d3sparql.piechart = function(json, config) {
   // TODO: not working?
   svg.selectAll("text").attr({
     "stroke": "none",
-    "fill": "black",
+    "fill": "rgba(84, 84, 84, 1)",
     "font-size": "20px",
     "font-family": "sans-serif",
   })
