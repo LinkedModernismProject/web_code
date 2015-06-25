@@ -371,7 +371,8 @@ function render(json) {
       "topojson": "data/world.json",
       "selector": "#visualizations"
     }
-    d3sparql.coordmap(json, config);
+    //d3sparql.coordmap(json, config);
+    d3sparql.barchart(json, config);
   } else if(val === "ch"){
     var config = {
       "width": window.innerWidth,
@@ -490,7 +491,8 @@ function render(json) {
             </p>
 
             <fieldset>
-              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } ORDER BY ASC(?Subject) LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <!--<input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } ORDER BY ASC(?Subject) LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>-->
               <div class="clearfix visible-xs-block"><br/></div>
               <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>

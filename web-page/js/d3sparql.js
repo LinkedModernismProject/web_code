@@ -10,7 +10,7 @@ var d3sparql = {
   debug: false,  // set to true for showing debug information
   debug2: false, //false for JSON; true for FlareJSON
   queryed: false,
-  barchart: false,
+  barchart: true,
   piechart: false
 }
 
@@ -506,29 +506,51 @@ d3sparql.barchart = function(json, config) {
   if(d3sparql.barchart){ console.log(json.children[0].name); }
   if(d3sparql.barchart){ console.log(json.children[0].children[0].name); }
   var head = json.name; //json.head.vars
-  var data = json.children //json.results.bindings
+  var data = json.children; //json.results.bindings
   if(d3sparql.barchart){ console.log(head); }
   if(d3sparql.barchart){ console.log(data); }
 
-  head = head.replace(/\s+/g, '') //Remove spaces from name property
-  head = head.split(',') //Separates between commas into an array
-  if (d3sparql.barchart) {  //Test case
-    for(var val in head) {
-      console.log(val+head[val]);
+  head = head.replace(/\s+/g, ''); //Remove spaces from name property
+  head = head.split(','); //Separates between commas into an array
+
+  //Reorganize data to fit for barchart
+  var subj = [];
+  var pred = [];
+  var obj = [];
+  for (var i = 0; i < data.length; i++) {
+    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value
+      subj.push(data[i].name);
+    }
+    if(pred.indexOf(data[i].children[0].name) == -1) {
+      pred.push(data[i].children[0].name);
+    }
+    if (obj.indexOf(data[i].children[0].children[0].name) == -1) {
+      obj.push(data[i].children[0].children[0].name);
     }
   }
+  var subj_size = subj.length;
+  var pred_size = pred.length;
+  var obj_size = obj.length;
+  console.log(subj);
+  console.log(subj_size);
+  console.log(pred);
+  console.log(pred_size);
+  console.log(obj);
+  console.log(obj_size);
+  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 
   var opts = {
-    "label_x":  config.label_x  || head[0],
-    "label_y":  config.label_y  || head[1],
-    "var_x":    config.var_x    || head[0],
-    "var_y":    config.var_y    || head[1],
+    "label_x":  config.label_x  || "Data" || head[0],
+    "label_y":  config.label_y  || "Percentage" || head[1],
+    "var_x":    config.var_x    || "Data" || head[0],
+    "var_y":    config.var_y    || "Percentage" || head[1],
     "width":    config.width    || 750,
     "height":   config.height   || 300,
     "margin":   config.margin   || 80,  // TODO: to make use of {top: 10, right: 10, bottom: 80, left: 80}
     "selector": config.selector || "#visualizations"
   }
   console.log(opts);
+  console.log(data);
 
   var scale_x = d3.scale.ordinal().rangeRoundBands([0, opts.width - opts.margin], 0.1)
   console.log(scale_x);
@@ -540,17 +562,17 @@ d3sparql.barchart = function(json, config) {
   console.log(axis_y);
   scale_x.domain(data.map(function(d) {
     console.log(d);
-    console.log(d[opts.var_x]);
-    console.log(d[opts.var_x.value]);
-    return d[opts.var_x].value}))
-  scale_y.domain(d3.extent(data, function(d) {return parseInt(d[opts.var_y].value)}))
+    return d.spo}))	//d[opts.var_x].value}))
+  scale_y.domain(d3.extent(data, function(d) {
+  	console.log((d.size));
+  	return parseInt(d.size)}))//d[opts.var_y].value)}))
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
     .attr("height", opts.height)
 //    .append("g")
 //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
-
+	//CURR, think somethings wrong with the width
   var ax = svg.append("g")
     .attr("class", "axis x")
     .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
@@ -559,16 +581,20 @@ d3sparql.barchart = function(json, config) {
     .attr("class", "axis y")
     .attr("transform", "translate(" + opts.margin + ",0)")
     .call(axis_y)
+  console.log(scale_x.rangeBand());
   var bar = svg.selectAll(".bar")
     .data(data)
     .enter()
     .append("rect")
+    .attr("fill", function(d) { 
+    	console.log(d);
+    	return d.color })
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
     .attr("class", "bar")
-    .attr("x", function(d) {return scale_x(d[opts.var_x].value)})
-    .attr("width", scale_x.rangeBand())
-    .attr("y", function(d) {return scale_y(d[opts.var_y].value)})
-    .attr("height", function(d) {return opts.height - scale_y(parseInt(d[opts.var_y].value)) - opts.margin})
+    .attr("x", function(d) {return scale_x(d.spo)})//d[opts.var_x].value)})
+    .attr("width", 10)//scale_x.rangeBand())
+    .attr("y", function(d) {return scale_y(d.size)})//d[opts.var_y].value)})
+    .attr("height", function(d) {return opts.height - scale_y(parseInt(/*d[opts.var_y].value*/d.size)) - opts.margin})
 /*
     .call(function(e) {
       e.each(function(d) {
@@ -597,7 +623,7 @@ d3sparql.barchart = function(json, config) {
 
   // default CSS/SVG
   bar.attr({
-    "fill": "steelblue",
+    //"fill": function(d) { console.log(d); return d.data.color }	//"steelblue",
   })
   svg.selectAll(".axis").attr({
     "stroke": "black",
@@ -650,15 +676,15 @@ d3sparql.barchart = function(json, config) {
 */
 d3sparql.piechart = function(json, config) {
   var head = json.name; //json.head.vars
-  var data = json.children //json.results.bindings
+  var data = json.children; //json.results.bindings
 
-  head = head.replace(/\s+/g, '') //Remove spaces from name property
-  head = head.split(',') //Separates between commas into an array
+  head = head.replace(/\s+/g, ''); //Remove spaces from name property
+  head = head.split(','); //Separates between commas into an array
 
   //Reorganize data to fit for piechart
-  var subj = []
-  var pred = []
-  var obj = []
+  var subj = [];
+  var pred = [];
+  var obj = [];
   for (var i = 0; i < data.length; i++) {
     if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value
       subj.push(data[i].name);
@@ -673,7 +699,7 @@ d3sparql.piechart = function(json, config) {
   var subj_size = subj.length;
   var pred_size = pred.length;
   var obj_size = obj.length;
-  data = [{"spo": "Subjects", "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": "Predicates", "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": "Objects", "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
+  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 
   var opts = {
     "label":    config.label    || head[0],
