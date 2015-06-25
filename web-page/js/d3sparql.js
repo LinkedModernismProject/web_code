@@ -562,17 +562,17 @@ d3sparql.barchart = function(json, config) {
   console.log(axis_y);
   scale_x.domain(data.map(function(d) {
     console.log(d);
-    console.log(d[opts.var_x]);
-    console.log(d[opts.var_x.value]);
     return d.spo}))	//d[opts.var_x].value}))
-  scale_y.domain(d3.extent(data, function(d) {return d.size;}))	//parseInt(d[opts.var_y].value)}))
+  scale_y.domain(d3.extent(data, function(d) {
+  	console.log((d.size));
+  	return parseInt(d.size)}))//d[opts.var_y].value)}))
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
     .attr("height", opts.height)
 //    .append("g")
 //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
-
+	//CURR, think somethings wrong with the width
   var ax = svg.append("g")
     .attr("class", "axis x")
     .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
@@ -586,10 +586,13 @@ d3sparql.barchart = function(json, config) {
     .data(data)
     .enter()
     .append("rect")
+    .attr("fill", function(d) { 
+    	console.log(d);
+    	return d.color })
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
     .attr("class", "bar")
     .attr("x", function(d) {return scale_x(d.spo)})//d[opts.var_x].value)})
-    .attr("width", 200)//scale_x.rangeBand())
+    .attr("width", 10)//scale_x.rangeBand())
     .attr("y", function(d) {return scale_y(d.size)})//d[opts.var_y].value)})
     .attr("height", function(d) {return opts.height - scale_y(parseInt(/*d[opts.var_y].value*/d.size)) - opts.margin})
 /*
@@ -620,7 +623,7 @@ d3sparql.barchart = function(json, config) {
 
   // default CSS/SVG
   bar.attr({
-    "fill": "steelblue",
+    //"fill": function(d) { console.log(d); return d.data.color }	//"steelblue",
   })
   svg.selectAll(".axis").attr({
     "stroke": "black",
