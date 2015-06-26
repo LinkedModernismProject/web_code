@@ -531,7 +531,7 @@ d3sparql.barchart = function(json, config) {
   var subj_size = subj.length;
   var pred_size = pred.length;
   var obj_size = obj.length;
-  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 5/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}];
+  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 6/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}, {"size": 0}];
 
   var opts = {
     "label_x":  config.label_x  || "Data" || head[0],
@@ -556,10 +556,12 @@ d3sparql.barchart = function(json, config) {
   //console.log(axis_y);
   scale_x.domain(data.map(function(d) {
     console.log(d);
-    return d.spo}))	//d[opts.var_x].value}))
+    if(d.spo) { return d.spo }
+    else { return }
+    //return d.spo}))	//d[opts.var_x].value}))
   scale_y.domain(d3.extent(data, function(d) {
   	console.log((d.size));
-  	return d.size}))//parseInt(d.size)}))//d[opts.var_y].value)}))
+  	return /*d.size}))*/parseInt(d.size)}))//d[opts.var_y].value)}))
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
