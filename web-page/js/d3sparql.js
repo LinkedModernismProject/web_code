@@ -531,7 +531,8 @@ d3sparql.barchart = function(json, config) {
   var subj_size = subj.length;
   var pred_size = pred.length;
   var obj_size = obj.length;
-  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 6/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}, {"size": 0}];
+  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 6/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}];
+  data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 6/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}, {"size": 0}];
 
   var opts = {
     "label_x":  config.label_x  || "Data" || head[0],
@@ -556,12 +557,18 @@ d3sparql.barchart = function(json, config) {
   //console.log(axis_y);
   scale_x.domain(data.map(function(d) {
     console.log(d);
-    if(d.spo) { return d.spo }
-    else { return }}))
-    //return d.spo}))	//d[opts.var_x].value}))
-  scale_y.domain(d3.extent(data, function(d) {
+    //if(d.spo) { console.log("anSPO"); return d.spo }
+    //else { console.log("noSPO");}}))
+    return d.spo}))	//d[opts.var_x].value}))
+  scale_y.domain(d3.extent(data1, function(d) {
   	console.log((d.size));
+  	//if(d.spo) { console.log("anSPO"); return parseInt(d.size) }
+    //else { console.log("noSPO"); return}}))
   	return /*d.size}))*/parseInt(d.size)}))//d[opts.var_y].value)}))
+	/*scale_y.domain(d3.extent(data1, function(d) {
+		console.log(d);
+		return parseInt(d.size);
+	}))*/
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -578,7 +585,6 @@ d3sparql.barchart = function(json, config) {
     .attr("class", "axis y")
     .attr("transform", "translate(" + opts.margin + ",0)")
     .call(axis_y)
-  console.log(scale_x.rangeBand());
   var bar = svg.selectAll(".bar")
     .data(data)
     .enter()
@@ -588,10 +594,15 @@ d3sparql.barchart = function(json, config) {
     	return d.color })
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
     .attr("class", "bar")
-    .attr("x", function(d) {return scale_x(d.spo)})//d[opts.var_x].value)})
-    .attr("width", scale_x.rangeBand())
+    .attr("x", function(d) {
+    	if(d.spo) { console.log("AnSPO"); return scale_x(d.spo)}
+    	else { console.log("NoSPO");}})
+    	//return scale_x(d.spo)})//d[opts.var_x].value)})
+    .attr("width", function (d) { return scale_x.rangeBand()})
     .attr("y", function(d) {return scale_y(d.size)})//d[opts.var_y].value)})
     .attr("height", function(d) {return opts.height - scale_y(parseInt(/*d[opts.var_y].value*/d.size)) - opts.margin})
+
+    console.log(bar);
 /*
     .call(function(e) {
       e.each(function(d) {
