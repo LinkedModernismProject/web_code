@@ -541,7 +541,7 @@ d3sparql.barchart = function(json, config) {
     "width":    config.width    || 750,
     "height":   config.height   || 300,
     "margin":   config.margin   || 80,  // TODO: to make use of {top: 10, right: 10, bottom: 80, left: 80}
-    "selector": config.selector || "#visualizations"
+    "selector": config.selector || "#g2"
   }
   console.log(opts);
   console.log(data);
@@ -557,7 +557,7 @@ d3sparql.barchart = function(json, config) {
   scale_x.domain(data.map(function(d) {
     console.log(d);
     if(d.spo) { return d.spo }
-    else { return }
+    else { return }}))
     //return d.spo}))	//d[opts.var_x].value}))
   scale_y.domain(d3.extent(data, function(d) {
   	console.log((d.size));
@@ -583,7 +583,7 @@ d3sparql.barchart = function(json, config) {
     .data(data)
     .enter()
     .append("rect")
-    .attr("fill", function(d) { 
+    .attr("fill", function(d) {
     	console.log(d);
     	return d.color })
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")

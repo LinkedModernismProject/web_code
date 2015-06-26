@@ -378,8 +378,8 @@ function render(json) {
       "width": window.innerWidth,
       "height": 900,
       "margin": 150,
-      "selector": "#visualizations"
     }
+    d3sparql.barchart(json, config);
     d3sparql.piechart(json, config);
   } else if(val === "sk"){
     var config = {
@@ -1229,7 +1229,8 @@ function render(json) {
     <div class="tab-pane fade" id="sectionVis">
       <br/>
       <span id="visualizations"></span>
-
+      <span id="g2"></span>
+      <span id="g3"></span>
       <br/>
     </div>
 
