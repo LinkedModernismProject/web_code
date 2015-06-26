@@ -503,11 +503,11 @@ d3sparql.htmlhash = function(json, config) {
 d3sparql.barchart = function(json, config) {
   if(d3sparql.barchart){ console.log(json); }
   if(d3sparql.barchart){ console.log(config); }
-  if(d3sparql.barchart){ console.log(json.children[0].name); }
-  if(d3sparql.barchart){ console.log(json.children[0].children[0].name); }
+  //if(d3sparql.barchart){ console.log(json.children[0].name); }
+  //if(d3sparql.barchart){ console.log(json.children[0].children[0].name); }
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
-  if(d3sparql.barchart){ console.log(head); }
+  //if(d3sparql.barchart){ console.log(head); }
   if(d3sparql.barchart){ console.log(data); }
 
   head = head.replace(/\s+/g, ''); //Remove spaces from name property
@@ -531,13 +531,7 @@ d3sparql.barchart = function(json, config) {
   var subj_size = subj.length;
   var pred_size = pred.length;
   var obj_size = obj.length;
-  console.log(subj);
-  console.log(subj_size);
-  console.log(pred);
-  console.log(pred_size);
-  console.log(obj);
-  console.log(obj_size);
-  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
+  data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": 5/*pred_size*/, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": 6/*obj_size*/, "color": "rgba(188, 230, 230, 0.6)"}, {"size": 0}];
 
   var opts = {
     "label_x":  config.label_x  || "Data" || head[0],
@@ -553,19 +547,21 @@ d3sparql.barchart = function(json, config) {
   console.log(data);
 
   var scale_x = d3.scale.ordinal().rangeRoundBands([0, opts.width - opts.margin], 0.1)
-  console.log(scale_x);
+  //console.log(scale_x);
   var scale_y = d3.scale.linear().range([opts.height - opts.margin, 0])
-  console.log(scale_y);
+  //console.log(scale_y);
   var axis_x = d3.svg.axis().scale(scale_x).orient("bottom")
-  console.log(axis_x);
+  //console.log(axis_x);
   var axis_y = d3.svg.axis().scale(scale_y).orient("left")  // .ticks(10, "%")
-  console.log(axis_y);
+  //console.log(axis_y);
   scale_x.domain(data.map(function(d) {
     console.log(d);
-    return d.spo}))	//d[opts.var_x].value}))
+    if(d.spo) { return d.spo }
+    else { return }
+    //return d.spo}))	//d[opts.var_x].value}))
   scale_y.domain(d3.extent(data, function(d) {
   	console.log((d.size));
-  	return parseInt(d.size)}))//d[opts.var_y].value)}))
+  	return /*d.size}))*/parseInt(d.size)}))//d[opts.var_y].value)}))
 
   var svg = d3.select(opts.selector).html("").append("svg")
     .attr("width", opts.width)
@@ -573,6 +569,7 @@ d3sparql.barchart = function(json, config) {
 //    .append("g")
 //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
 	//CURR, think somethings wrong with the width
+	//Doesn't show the smallest size, or any that are tied for smallest
   var ax = svg.append("g")
     .attr("class", "axis x")
     .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
@@ -592,7 +589,7 @@ d3sparql.barchart = function(json, config) {
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
     .attr("class", "bar")
     .attr("x", function(d) {return scale_x(d.spo)})//d[opts.var_x].value)})
-    .attr("width", 10)//scale_x.rangeBand())
+    .attr("width", scale_x.rangeBand())
     .attr("y", function(d) {return scale_y(d.size)})//d[opts.var_y].value)})
     .attr("height", function(d) {return opts.height - scale_y(parseInt(/*d[opts.var_y].value*/d.size)) - opts.margin})
 /*

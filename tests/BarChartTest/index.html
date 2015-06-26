@@ -58,7 +58,9 @@ var svg = d3.select("body").append("svg")
 d3.tsv("data.tsv", type, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.letter; }));
+  x.domain(data.map(function(d) { 
+    console.log(d);
+    return d.letter; }));
   y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
   svg.append("g")
