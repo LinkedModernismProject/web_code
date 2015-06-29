@@ -69,9 +69,12 @@ function grabValues (line, total, data_arr) {
 			var hash = val_split.split('#');
 			val_split = hash[1];
 		}
-		val_split = '"'+val_split;
+		console.log(val_split)
+		val_split = val_split.replace("\"","")
+		console.log(val_split)
+		val_split = '"' + val_split + '"';
 		values[i] = val_split;
-	};	
+	};
 
 	if(total==1) {
 		isA_o(values, total, data_arr);
@@ -214,7 +217,7 @@ function convert(json) {
 			grabValues(arrayOfLines[a], totVars, data_arr);
 		}
 	}//End of for loop through arrayOfLines
-	
+
 	var flare = toFlare(data_arr, s, p, o, totVars);
 	//console.log(flare);
 	return flare;
