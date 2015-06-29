@@ -9,6 +9,7 @@ function isEmpty (val_arr, total, data_arr) {
 }
 
 function compare_subjects (val_arr, data_arr, val_i) {
+	console.log("inCompSubj");
 	for (var i = 0; i < data_arr.length; i++) {
 		if(val_arr[val_i]==data_arr[i].subj) {
 			return [true, i];
@@ -18,7 +19,13 @@ function compare_subjects (val_arr, data_arr, val_i) {
 }
 
 function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
+	console.log("InCompPred");
+	console.log(val_arr);
+	console.log(data_arr);
+	console.log(val_i);
 	for (var i = 0; i < data_arr.length; i++) {
+		console.log((data_arr[i].pred_obj));
+		console.log(i);
 		if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {	//Think the issue is with having too many arg's and thus the array goes through more than what is defined; the second [i] right after pred_obj is the issue
 			return [true, i];
 		}
@@ -70,7 +77,7 @@ function grabValues (line, total, data_arr) {
 			val_split = hash[1];
 		}
 		val_split = '"'+val_split;
-		console.log(val_split);
+		//console.log(val_split);
 		values[i] = val_split;
 	};
 	console.log(values);
