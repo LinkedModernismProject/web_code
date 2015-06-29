@@ -797,8 +797,8 @@ d3sparql.piechart = function(json, config) {
     </style>
 */
 d3sparql.scatterplot = function(json, config) {
-  var head = json.head.vars
-  var data = json.results.bindings
+  var head = json.name; //json.head.vars
+  var data = json.children; //json.results.bindings
 
   var opts = {
     "label_x":  config.label_x  || head[0],
@@ -812,7 +812,7 @@ d3sparql.scatterplot = function(json, config) {
     "height":   config.height   || 300,
     "margin_x": config.margin_x || 80,
     "margin_y": config.margin_y || 40,
-    "selector": config.selector || "#visualizations"
+    "selector": config.selector || "#g3"
   }
 
   var extent_x = d3.extent(data, function(d) {return parseInt(d[opts.var_x].value)})
