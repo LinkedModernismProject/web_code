@@ -19,7 +19,7 @@ function compare_subjects (val_arr, data_arr, val_i) {
 
 function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
 	for (var i = 0; i < data_arr.length; i++) {
-		if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {
+		if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {	//Think the issue is with having too many arg's and thus the array goes through more than what is defined; the second [i] right after pred_obj is the issue
 			return [true, i];
 		}
 	}
@@ -70,8 +70,10 @@ function grabValues (line, total, data_arr) {
 			val_split = hash[1];
 		}
 		val_split = '"'+val_split;
+		console.log(val_split);
 		values[i] = val_split;
-	};	
+	};
+	console.log(values);
 
 	if(total==1) {
 		isA_o(values, total, data_arr);
