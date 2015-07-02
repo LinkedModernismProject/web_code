@@ -115,7 +115,7 @@
       if($("#selType").val() === "Specific"){
 
         //TODO Once ontology is done & uploaded move this outside specific
-        query = query +  "FILTER regex(?Subject, '" + $("#specificName").val().replace(/ /g,"_") + "'@en, 'i')} ORDER BY DESC(" + $(spFilter).val() +  ") LIMIT 20";
+        query = query +  "FILTER regex(" + $(spFilter).val() + ", '" + $("#specificName").val().replace(/ /g,"_") + "', 'i')} ORDER BY ASC(" + $(spFilter).val() +  ") LIMIT 20";
         createCookie(query);
         sClick(query);
         exec1(query);
