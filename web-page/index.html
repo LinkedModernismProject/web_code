@@ -302,6 +302,7 @@
 }
 
 // default-graph-uri=http://localhost:8890/may26&
+// Use http://localhost:8890/unTrue, is the updated version
 function constructURL(query){
   var url = "http://dbpedia.org/sparql";
   var queryURL = url + "?query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
@@ -309,6 +310,7 @@ function constructURL(query){
 }
 
 //d3.select("#endpoint").property("value")
+// Use http://localhost:8890/unTrue, is the updated version
 function exec1(sparql) {
   var endpoint = "http://dbpedia.org/sparql";
   d3sparql.query(endpoint, sparql, render);
