@@ -43,7 +43,7 @@
               ]},
             { "name": "Performing Artist",
               "children": [
-                { "name": "", "size": 500},
+                { "name": "Actor", "size": 500},
                 { "name": "Choreographer", "size": 500},
                 { "name": "Composer", "size": 500},
                 { "name": "Dancer", "size": 500},
