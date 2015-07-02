@@ -9,6 +9,7 @@ function isEmpty (val_arr, total, data_arr) {
 }
 
 function compare_subjects (val_arr, data_arr, val_i) {
+	console.log("inCompSubj");
 	for (var i = 0; i < data_arr.length; i++) {
 		if(val_arr[val_i]==data_arr[i].subj) {
 			return [true, i];
@@ -17,14 +18,19 @@ function compare_subjects (val_arr, data_arr, val_i) {
 	return [false, 'No existing subj index:'+i.toString()];
 }
 
-function compare_preds (val_arr, data_arr, val_i, comp_subj_index) {	//May be able to just compare against the index that matches the subj (i.e. parent)
-	//Compares against the index of the matching Subject
-	for (var j = 0; j < data_arr[comp_subj_index].pred_obj.length; j++) {
-			if(val_arr[val_i]==data_arr[comp_subj_index].pred_obj[j][0]) {
-				return [true, j];
-			}
- 		}
-	return [false, 'No existing pred index:'+j.toString()];
+function compare_preds (val_arr, data_arr, val_i) {	//May be able to just compare against the index that matches the subj (i.e. parent)
+	console.log("InCompPred");
+	console.log(val_arr);
+	console.log(data_arr);
+	console.log(val_i);
+	for (var i = 0; i < data_arr.length; i++) {
+		console.log((data_arr[i].pred_obj));
+		console.log(i);
+		if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {	//Think the issue is with having too many arg's and thus the array goes through more than what is defined; the second [i] right after pred_obj is the issue
+			return [true, i];
+		}
+	}
+	return [false, 'No existing subj index:'+i.toString()];
 }
 
 function isA_spo (val_arr, total, data_arr) {
@@ -34,10 +40,8 @@ function isA_spo (val_arr, total, data_arr) {
 		//Could fix this vars into arrays so would only compute once instead of twice
 		comp_subj_bool = compare_subjects(val_arr, data_arr, 0)[0];
 		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];
-		if(comp_subj_bool) {
-			comp_pred_bool = compare_preds(val_arr, data_arr, 1, comp_subj_index)[0];
-			comp_pred_index = compare_preds(val_arr, data_arr, 1, comp_subj_index)[1];
-		}
+		comp_pred_bool = compare_preds(val_arr, data_arr, 1)[0];
+		comp_pred_index = compare_preds(val_arr, data_arr, 1)[1];
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
 				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
@@ -50,13 +54,11 @@ function isA_spo (val_arr, total, data_arr) {
 	}
 }
 function isA_po (val_arr, total, data_arr) {
-	console.log("in inA_po");
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	}
 }
 function isA_o (val_arr, total, data_arr) {
-	console.log("in isA_o");
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	}
@@ -74,11 +76,11 @@ function grabValues (line, total, data_arr) {
 			var hash = val_split.split('#');
 			val_split = hash[1];
 		}
-		val_split = val_split.replace(/\"*(.*?)\"*/g, '$1');
-		val_split = val_split.replace(/\\*(.*?)\\*/g, '$1');
-		val_split = '"'+val_split+'"';
+		val_split = '"'+val_split;
+		//console.log(val_split);
 		values[i] = val_split;
-	}
+	};
+	console.log(values);
 
 	if(total==1) {
 		isA_o(values, total, data_arr);
@@ -200,7 +202,7 @@ function convert(json) {
 				var s_p_o_Arr =  s_p_o.split(',');			//3
 			}
 			catch(err) {
-				/*console.log*/alert("Error with parsing JSON file:"+ err.message);
+				console.log/*alert*/("Error with parsing JSON file:"+ err.message);
 			}
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
@@ -221,7 +223,7 @@ function convert(json) {
 			grabValues(arrayOfLines[a], totVars, data_arr);
 		}
 	}//End of for loop through arrayOfLines
-
+	
 	var flare = toFlare(data_arr, s, p, o, totVars);
 	//console.log(flare);
 	return flare;

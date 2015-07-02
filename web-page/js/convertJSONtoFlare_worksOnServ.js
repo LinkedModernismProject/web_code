@@ -6,10 +6,16 @@ function inArr(str, strArray) {
 }
 function isEmpty (val_arr, total, data_arr) {
 	data_arr[0] = {subj: val_arr[0] ,pred_obj: [[val_arr[1], val_arr[2]]]};	//pred_obj = 2D arr
+	console.log(data_arr);
+	//console.log((val_arr[0]));
+	//console.log((val_arr[2]));
 }
 
 function compare_subjects (val_arr, data_arr, val_i) {
+	console.log(data_arr.length);
 	for (var i = 0; i < data_arr.length; i++) {
+		console.log(val_arr[val_i]);
+		console.log(data_arr[i].subj);
 		if(val_arr[val_i]==data_arr[i].subj) {
 			return [true, i];
 		}
@@ -18,34 +24,78 @@ function compare_subjects (val_arr, data_arr, val_i) {
 }
 
 function compare_preds (val_arr, data_arr, val_i, comp_subj_index) {	//May be able to just compare against the index that matches the subj (i.e. parent)
-	//Compares against the index of the matching Subject
-	for (var j = 0; j < data_arr[comp_subj_index].pred_obj.length; j++) {
+	//console.log(data_arr);
+	console.log(val_arr);
+	console.log((data_arr.length));
+	//for (var i = 0; i < data_arr.length; i++) {
+	//	console.log((data_arr[i]));
+	//	console.log((i));
+		////console.log(data_arr[i].pred_obj[i][0]);
+		//Adding inner for for the pred_obj length so it doesn't mess with the other loops
+		//console.log(data_arr[i].pred_obj.length);
+		console.log(data_arr[comp_subj_index].pred_obj.length);
+		for (var j = 0; j < data_arr[comp_subj_index].pred_obj.length; j++) {
+			console.log(j);
+			console.log(data_arr[comp_subj_index].pred_obj[j][0]);
 			if(val_arr[val_i]==data_arr[comp_subj_index].pred_obj[j][0]) {
-				return [true, j];
+				return [true, comp_subj_index];
 			}
- 		}
-	return [false, 'No existing pred index:'+j.toString()];
+ 		};
+
+		//if(val_arr[val_i]==data_arr[i].pred_obj[i][0]) {
+		//	return [true, i];
+		//}
+	//}
+	return [false, 'No existing subj index:'+comp_subj_index.toString()];
 }
 
 function isA_spo (val_arr, total, data_arr) {
 	if(data_arr.length==0){
+		console.log("in empty");
 		isEmpty(val_arr, total, data_arr);
 	} else {
+		console.log("inElse is spo");
+		/*if(data_arr.length==2) {
+			console.log(data_arr);
+			exit();
+		}*/
 		//Could fix this vars into arrays so would only compute once instead of twice
 		comp_subj_bool = compare_subjects(val_arr, data_arr, 0)[0];
+		console.log(comp_subj_bool);
 		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];
+		console.log(comp_subj_index);
+		//if(data_arr.length==2) {
+		//	console.log(data_arr);
+		//	exit();
+		//}
 		if(comp_subj_bool) {
 			comp_pred_bool = compare_preds(val_arr, data_arr, 1, comp_subj_index)[0];
+			console.log(comp_pred_bool);
 			comp_pred_index = compare_preds(val_arr, data_arr, 1, comp_subj_index)[1];
+			console.log(comp_pred_index);
 		}
+		//if(data_arr.length==2) {
+		//	console.log(data_arr);
+		//	exit();
+		//}
+		//Isssue: 1) Where subj and pred are true. 2) However what if they are from different elements. Come up with a way to condition if(pred's are the same) then check and if not in then continue. Maybe send the index into the compare_preds, or the bool possibly.
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
+			console.log("subj_bool:true");
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
+				console.log("pred_bool:true");
 				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
 			} else {	//Diff preds
-				data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
+				//if(data_arr[1].pred_obj.length==2) {
+					console.log(("diff preds"+comp_subj_index));
+					data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
+					console.log(data_arr);
+					//exit();
 			}
 		} else {	//Subjects are different, thus no need to check for same pred
+			console.log('diff subj');
+			console.log(val_arr[0]+'???'+val_arr[1]+'???'+val_arr[2]);
 			data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
+			console.log(data_arr);
 		}
 	}
 }
@@ -64,27 +114,62 @@ function isA_o (val_arr, total, data_arr) {
 
 //Grab values and place them into corresponding array or object unless duplicate then try add to another obj.
 function grabValues (line, total, data_arr) {
+	//console.log(data_arr);
 	var values = line.match(/(value":.*?)\s\}/g);
+	//console.log(values);
 	for (var i = 0; i < total; i++) {
 		values[i] = values[i].replace(/value\"\:[\s+]/, '');
+		//console.log(values);
 		values[i] = values[i].replace(/[\s+]\}/, '');
+		//console.log(values);
 		var val_split = values[i].split('/');
+		//console.log(val_split);
 		val_split = val_split[val_split.length-1];
+		console.log(val_split);
 		if(val_split.indexOf('#') != -1) {	//If there is a hash get the value part
 			var hash = val_split.split('#');
 			val_split = hash[1];
 		}
+		
+		////if(val_split[0]=='"' && val_split[val_split.length-1]=='"') {
+		////	console.log('had quote in front');
+		////	val_split.slice(1, val_split.length) = '';
+		////} else {
+		////	console.log('doesnt yet');
+		//val_split.replace('"','');
+		//val_split = '"'+val_split;
+		console.log(val_split);
 		val_split = val_split.replace(/\"*(.*?)\"*/g, '$1');
 		val_split = val_split.replace(/\\*(.*?)\\*/g, '$1');
+		console.log(val_split);
 		val_split = '"'+val_split+'"';
+		console.log(val_split);
+
+		//var v = val_split.replace('"',"'");
+		//console.log(v);
+		//TEST//if(val_split=="\"1831-1840\"") {
+		//TEST//	exit();
+		//TEST//}
+
+		/////val_split = '"' + val_split;
+		//}
+		
+		console.log(val_split);
+		//console.log(total);
+		//console.log(data_arr);
 		values[i] = val_split;
-	}
+	};
+	console.log(values);
 
 	if(total==1) {
 		isA_o(values, total, data_arr);
 	} else if(total==2) {
 		isA_po(values, total, data_arr);
 	} else {
+		console.log("going into isAspo");
+			//console.log(values' || '+total);
+			//console.log(data_arr);
+			//exit();
 		isA_spo(values, total, data_arr);
 	}
 }
@@ -200,7 +285,7 @@ function convert(json) {
 				var s_p_o_Arr =  s_p_o.split(',');			//3
 			}
 			catch(err) {
-				/*console.log*/alert("Error with parsing JSON file:"+ err.message);
+				console.log/*alert*/("Error with parsing JSON file:"+ err.message);
 			}
 			totVars = s_p_o_Arr.length;
 			if(s_p_o_Arr.length==1){
@@ -218,11 +303,22 @@ function convert(json) {
 			continue;	//For the distinct and ordered settings; no data
 		//Lines after: All the data
 		} else {
+			//console.log(arrayOfLines[a]+' | '+totVars+ ' | '+data_arr);
+			if(a==10) {	//a is one ahead of what is being tested
+				console.log(data_arr);
+				//exit();
+			} else if(a==9) {
+					console.log('A==9');
+					console.log(data_arr);
+					//exit();
+			} else {
+				console.log(data_arr);
+			}
 			grabValues(arrayOfLines[a], totVars, data_arr);
 		}
 	}//End of for loop through arrayOfLines
-
+	
 	var flare = toFlare(data_arr, s, p, o, totVars);
-	//console.log(flare);
+	console.log(flare);
 	return flare;
 }//End of convert()
