@@ -420,8 +420,8 @@ function render(json) {
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="page-scroll" href="#examples">Examples</a></li>
-          <li><a class="page-scroll" href="#ontology">Ontology</a></li>
+          <li><a class="page-scroll" href="examples.html">Examples</a></li>
+          <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
           <li><a class="page-scroll" href="#about">About</a></li>
         </ul>
       </div>
@@ -467,7 +467,79 @@ function render(json) {
 
           </div>
         </div>
+<br/><br/><br/><br/><br/><br/>
+        <section id="about">
+          <br/>
+          <hr class="light"></hr>
+          <br/><br/>
+          <h1>About The Project</h1><br/><br/><br/><br/><br/>
 
+          <div>
+            <p>&nbsp;&nbsp;&nbsp;
+              Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
+
+              <p>&nbsp;&nbsp;&nbsp;
+                Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
+              </p>
+
+              <p>&nbsp;&nbsp;&nbsp;
+                The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Quepy and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
+              </p>
+
+            </div>
+
+
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href="http://ghostprof.org">
+                <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
+                <h4>Dr. Stephen Ross</h4>
+                <p>Project Lead, UVic.</p>
+              </a>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href"http://www.jefnterysayers.com/">
+                <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
+                <h4>Jentery Sayers</h4>
+                <p>Director of the Maker Lab in the Humanities, UVic</p>
+              </a>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
+              <h4>Susan Irene Brown</h4>
+              <p>Research Chair in Digital Humanities, University of Guelph.</p>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
+                <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
+                <h4>Colin Allen</h4>
+                <p>Department of History and Philosophy of Science, Indiana University</p>
+              </a>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href="http://web.uvic.ca/~siemens/">
+                <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
+                <h4>Ray Siemens</h4>
+                <p>Canada Research Chair in Humanities Computing, UVic.</p>
+              </a>
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
+                <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
+                <h4>Jon Saklofske</h4>
+                <p>Department of English, Acadia University.</p>
+              </a>
+            </div>
+            <div class="clearfix visible-lg-block"></div>
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+              <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
+                <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
+                <h4>Christine Walde</h4>
+                <p>Grants and Awards Librarian, UVic.</p>
+              </a>
+            </div>
+
+          </section>
       </div>
 
       <div class="tab-pane fade" id="sectionDist">
@@ -1241,128 +1313,11 @@ function render(json) {
 
 </section>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<section id="examples">
-  <hr class="light"></hr>
-  <br/>
-  <h1>
-    Example Searches
-  </h1>
-  <p>
-    select * where { ?Subject ?Predicate ?Object } limit 10         our normal search
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object } ORDER BY DESC(?Subject) LIMIT 20      Good ex.
-    <br/>
-    SELECT distinct * WHERE { ?Subject ?Predicate ?Object } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?Predicate
-    <br/>
-    SELECT distinct * WHERE {   ?Subject ?Predicate ?Object FILTER regex(?Subject, "Jean")} ORDER BY ASC(?Object) LIMIT 5    Filters
-    <br/>
-    SELECT distinct * WHERE { ?Subject foaf:name ?name. ?Subject ?Predicate ?Object } limit 24
-    <br/>
-    PREFIX ty: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  SELECT * WHERE {{ ?Predicate a ty:Property} }  limit 10
-    <br/>
-    SELECT distinct *  WHERE{ ?node foaf:givenName ?givenName. ?node foaf:name ?name .    ?node &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt;  }  LIMIT 10
-    <br/>
-    Filter bif contains lbl "string"   FILTER regex(str(?Subject), "war")
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {   ?Subject ?Predicate ?Object . ?Subject foaf:surname "Lines"@en} ORDER BY ASC(?Subject)
-  </p>
-</section>
-
-<section id="ontology">
-  <br/>
-  <hr class="light"></hr>
-  <br/>
-  <h1>
-    The Modernism Ontology
-  </h1>
-  <br>
-  &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
-  <br/><br/>
-  <p>&nbsp;&nbsp;&nbsp;
-    Our Ontology is defined above, it is definitely the be all end all ontology to classify all cultural productions ever
-  </p>
-</section>
-
-
-
-<section id="about">
-  <br/>
-  <hr class="light"></hr>
-  <br/><br/>
-  <h1>About The Project</h1><br/><br/><br/><br/><br/>
-
-  <div>
-    <p>&nbsp;&nbsp;&nbsp;
-      Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
-
-      <p>&nbsp;&nbsp;&nbsp;
-        Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
-      </p>
-
-      <p>&nbsp;&nbsp;&nbsp;
-        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Quepy and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
-      </p>
-
-    </div>
-
-
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href="http://ghostprof.org">
-        <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
-        <h4>Dr. Stephen Ross</h4>
-        <p>Project Lead, UVic.</p>
-      </a>
-    </div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href"http://www.jefnterysayers.com/">
-        <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
-        <h4>Jentery Sayers</h4>
-        <p>Director of the Maker Lab in the Humanities, UVic</p>
-      </a>
-    </div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
-      <h4>Susan Irene Brown</h4>
-      <p>Research Chair in Digital Humanities, University of Guelph.</p>
-    </div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
-        <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
-        <h4>Colin Allen</h4>
-        <p>Department of History and Philosophy of Science, Indiana University</p>
-      </a>
-    </div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href="http://web.uvic.ca/~siemens/">
-        <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
-        <h4>Ray Siemens</h4>
-        <p>Canada Research Chair in Humanities Computing, UVic.</p>
-      </a>
-    </div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
-        <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
-        <h4>Jon Saklofske</h4>
-        <p>Department of English, Acadia University.</p>
-      </a>
-    </div>
-    <div class="clearfix visible-lg-block"></div>
-    <div class="clearfix visible-xs-block"></div>
-    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-      <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
-        <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
-        <h4>Christine Walde</h4>
-        <p>Grants and Awards Librarian, UVic.</p>
-      </a>
-    </div>
-
-  </section>
-  <br/>
-  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
-  <br/><br/>
 
 
 </body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
+</footer>
 </html>

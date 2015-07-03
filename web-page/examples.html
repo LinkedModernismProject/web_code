@@ -9,25 +9,20 @@
 	<meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
 	<meta name="author" content="barthur">
 
-	<title>Linked Modernisms</title>
+  <title>Linked Modernisms</title>
 
-	<!-- Bootstrap Core CSS -->
+  <!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/ontology.css" type="text/css">
+	<link rel="stylesheet" href="css/creative.css" type="text/css">
 
-	<!-- Plugin CSS -->
+  <!-- Plugin CSS -->
   <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
 	<!-- Favicon -->
   <link rel="icon" type="image/png" href="img/LiMofavi.png">
   <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
-
-	<!-- script for animating tree -->
-	<script src="js/jquery.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/dndTree.js"></script>
 
 </head>
 
@@ -57,14 +52,30 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
-	<br/>
   <hr class="light"></hr>
   <br/>
   <h1>
-    The Modernism Ontology
+    Example Searches
   </h1>
-
-    <div id="tree-container" height="300"></div>
+  <p>
+    select * where { ?Subject ?Predicate ?Object } limit 10         our normal search
+    <br/>
+    SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object } ORDER BY DESC(?Subject) LIMIT 20      Good ex.
+    <br/>
+    SELECT distinct * WHERE { ?Subject ?Predicate ?Object } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?Predicate
+    <br/>
+    SELECT distinct * WHERE {   ?Subject ?Predicate ?Object FILTER regex(?Subject, "Jean")} ORDER BY ASC(?Object) LIMIT 5    Filters
+    <br/>
+    SELECT distinct * WHERE { ?Subject foaf:name ?name. ?Subject ?Predicate ?Object } limit 24
+    <br/>
+    PREFIX ty: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  SELECT * WHERE {{ ?Predicate a ty:Property} }  limit 10
+    <br/>
+    SELECT distinct *  WHERE{ ?node foaf:givenName ?givenName. ?node foaf:name ?name .    ?node &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt;  }  LIMIT 10
+    <br/>
+    Filter bif contains lbl "string"   FILTER regex(str(?Subject), "war")
+    <br/>
+    SELECT distinct ?Subject ?Predicate ?Object WHERE {   ?Subject ?Predicate ?Object . ?Subject foaf:surname "Lines"@en} ORDER BY ASC(?Subject)
+  </p>
 </body>
 <footer>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
