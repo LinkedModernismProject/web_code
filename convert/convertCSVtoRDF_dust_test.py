@@ -90,7 +90,7 @@ def fixNulls(csvFileName): #based on http://stackoverflow.com/questions/4166070/
   return(newCSVFileName);
 
 
-csvFile = "20150309Workbookv3_ontology2.csv";
+csvFile = "20150309Workbookv3_ontology3.csv";#"20150309Workbookv3_ontology2.csv";
 csvFile   = fixNulls(csvFile); #ADDED to try and fix special char's so that it would be readable
 csvfile = open(csvFile,'rU');#'file.csv', 'r')
 
@@ -133,7 +133,7 @@ for i in myRows:
   for j in range(1,len(row)):
     if( (str(row[j]).strip())!=''):
       try:
-        triple = [ myName, responseNames[j], row[j]]
+        triple = [ myName, fieldNames[j], row[j]]
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
         #HERE Dealing with replacing " with ' and testing .replace function
