@@ -77,6 +77,56 @@ def force_decode(string, codecs=['ISO-8859-1','utf8', 'cp1252','ascii']):
     import sys
     sys.exit(1);
 
+def item_in_file(str, f, t):
+    '''Checks if the str is in the file given'''
+    #t.write(str(type(f)))
+    if not f:
+        #t.write('item\n')
+        return False
+    for el in f:
+        #t.write(el+'|||'+str)
+        if(el==str):
+          #t.write('isTrue')
+          return True
+    return False    #Return false here if no match was made, thus need to add string.
+
+def spo_files(sf, pf, of, subj, pred, obj, t):
+    '''Places all subjs into sf, all preds into pf, all objs into of'''
+    sub = subj.replace('_', ' ')
+    pre = pred.replace('_', ' ')
+    #t.write('"'+sub+'"\n')
+    #if not sf:
+    #    sf.append('xx')
+    #    t.write(type(sf))
+    s_in = item_in_file(('"'+sub+'",\n'), sf, t)
+    p_in = item_in_file(pre, pf, t)
+    o_in = item_in_file(obj, of, t)
+    if not s_in:
+        #t.write('in not')
+        sf.append('"'+sub+'",\n')
+        #exit()
+    else:
+        #t.append('in else')
+        pass
+    if not p_in:
+        pf.append('"'+pre+'",\n')
+    if not o_in:
+        of.append('"'+obj+'",\n')
+
+def add_to_files(sl, pl, ol):
+  subj_f = open('subj_f.txt', 'w+')
+  pred_f = open('pred_f.txt', 'w+')
+  obj_f = open('obj_f.txt', 'w+')
+  for l in sl:
+    subj_f.write(l)
+  for m in pl:
+    pred_f.write(m)
+  for n in ol:
+    obj_f.write(n)
+  subj_f.close()
+  pred_f.close()
+  obj_f.close()
+
 def fixNulls(csvFileName): #based on http://stackoverflow.com/questions/4166070/python-csv-error-line-contains-null-byte
   fi = open(csvFileName, 'rb')
   data = fi.read()
@@ -125,6 +175,12 @@ for row in reader:
 #print(GREEN()+str(responseNames));
 
 #Modified by Dustin here
+#Files for taking the subj, pred, and obj and placing them in their individual files.
+t = open('test_f.txt', 'w+')
+subj_l = []
+pred_l = []
+obj_l = []
+
 mod_uvic = '<http://modernism.uvic.ca/metadata#'  #Just cleaning up for make print line easier to read
 myNames = { }
 for i in myRows:
@@ -134,6 +190,11 @@ for i in myRows:
     if( (str(row[j]).strip())!=''):
       try:
         triple = [ myName, fieldNames[j], row[j]]
+        ###Maybe try to work on if the triple[1] has the name:
+          #Other (please specify)
+          #Open-Ended Response
+
+
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
         #HERE Dealing with replacing " with ' and testing .replace function
@@ -151,6 +212,7 @@ for i in myRows:
         #Before adding the True value if Pred and Obj are the same; changed back to this
         #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
         print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + doub_quot_replace + '" .' ) #For Better Data
+        spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, doub_quot_replace, t)
 
         #Tests
         #if i<10:
@@ -162,7 +224,8 @@ for i in myRows:
       except:
         pass
       myNames[myName]=1;
-
+add_to_files(subj_l, pred_l, obj_l)
+t.close()
 #========================================================================
 nameList = [ ]
 for name in myNames:
