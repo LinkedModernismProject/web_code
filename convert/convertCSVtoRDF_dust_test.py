@@ -26,7 +26,7 @@ Possible improvements:
   Get rid of #Response and other forms(Open-ended Response) etc.?
   Maybe fix in the 20150309Workbookv3_ontology2 column AK ro 2
 '''
-
+import sys
 
 import os
 def MAGENTA():
@@ -94,24 +94,29 @@ def spo_files(sf, pf, of, subj, pred, obj, t):
     '''Places all subjs into sf, all preds into pf, all objs into of'''
     sub = subj.replace('_', ' ')
     pre = pred.replace('_', ' ')
+    sub = '"'+sub+'",\n'
+    pre = '"'+pre+'",\n'
+    obj = '"'+obj+'",\n'
     #t.write('"'+sub+'"\n')
     #if not sf:
     #    sf.append('xx')
     #    t.write(type(sf))
-    s_in = item_in_file(('"'+sub+'",\n'), sf, t)
+    #t.write(sub+'|||'+pre+'|||'+obj+'|||')
+    #sys.exit()
+    s_in = item_in_file(sub, sf, t)
     p_in = item_in_file(pre, pf, t)
     o_in = item_in_file(obj, of, t)
     if not s_in:
         #t.write('in not')
-        sf.append('"'+sub+'",\n')
+        sf.append(sub)#'"'+sub+'",\n')
         #exit()
     else:
         #t.append('in else')
         pass
     if not p_in:
-        pf.append('"'+pre+'",\n')
+        pf.append(pre)#'"'+pre+'",\n')
     if not o_in:
-        of.append('"'+obj+'",\n')
+        of.append(obj)#'"'+obj+'",\n')
 
 def add_to_files(sl, pl, ol):
   subj_f = open('subj_f.txt', 'w+')
