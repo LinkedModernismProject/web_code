@@ -141,7 +141,6 @@
 "print-making",
 "sculpture",
 "design",
-"Other (please specify)",
 "Indian alternate modernism",
 "Nandalal Bose  Rabindranath Tagore",
 "Nandalal Bose   Rabindranath Tagore   Benodebehari Mukherjee  Ramkinkar Baij  K. G. Subramanyan  Satyajit Ray  Krishna Reddy",
