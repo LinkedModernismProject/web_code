@@ -79,14 +79,10 @@ def force_decode(string, codecs=['ISO-8859-1','utf8', 'cp1252','ascii']):
 
 def item_in_file(str, f, t):
     '''Checks if the str is in the file given'''
-    #t.write(str(type(f)))
     if not f:
-        #t.write('item\n')
         return False
     for el in f:
-        #t.write(el+'|||'+str)
         if(el==str):
-          #t.write('isTrue')
           return True
     return False    #Return false here if no match was made, thus need to add string.
 
@@ -97,22 +93,12 @@ def spo_files(sf, pf, of, subj, pred, obj, t):
     sub = '"'+sub+'",\n'
     pre = '"'+pre+'",\n'
     obj = '"'+obj+'",\n'
-    #t.write('"'+sub+'"\n')
-    #if not sf:
-    #    sf.append('xx')
-    #    t.write(type(sf))
-    #t.write(sub+'|||'+pre+'|||'+obj+'|||')
-    #sys.exit()
     s_in = item_in_file(sub, sf, t)
     p_in = item_in_file(pre, pf, t)
     o_in = item_in_file(obj, of, t)
     if not s_in:
         #t.write('in not')
         sf.append(sub)#'"'+sub+'",\n')
-        #exit()
-    else:
-        #t.append('in else')
-        pass
     if not p_in:
         pf.append(pre)#'"'+pre+'",\n')
     if not o_in:
@@ -181,7 +167,7 @@ for row in reader:
 
 #Modified by Dustin here
 #Files for taking the subj, pred, and obj and placing them in their individual files.
-t = open('test_f.txt', 'w+')
+t = open('test_f.txt', 'w+')  #For testing
 subj_l = []
 pred_l = []
 obj_l = []
@@ -195,10 +181,6 @@ for i in myRows:
     if( (str(row[j]).strip())!=''):
       try:
         triple = [ myName, fieldNames[j], row[j]]
-        ###Maybe try to work on if the triple[1] has the name:
-          #Other (please specify)
-          #Open-Ended Response
-
 
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
