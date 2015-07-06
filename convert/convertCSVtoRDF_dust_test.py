@@ -181,6 +181,14 @@ for i in myRows:
     if( (str(row[j]).strip())!=''):
       try:
         triple = [ myName, fieldNames[j], row[j]]
+        ###Maybe try to work on if the triple[1] has the name:
+        #Other (please specify)
+        #Open-Ended Response
+        #if(responseNames[j]=='Other (please specify)'):
+          #t.write('exitting'+responseNames[j]+str(j))
+        if(row[j]=='Other (please specify)'): #Skips the data that takes Other (please specify) as an Obj, thus cleaner data
+          continue
+
 
         #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
         #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
@@ -198,8 +206,9 @@ for i in myRows:
         #####  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
         #Before adding the True value if Pred and Obj are the same; changed back to this
         #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
-        print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + doub_quot_replace + '" .' ) #For Better Data
-        spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, doub_quot_replace, t)
+        if(row[j]!='Other (please specify)'):
+          print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + doub_quot_replace + '" .' ) #For Better Data
+          spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, doub_quot_replace, t)
 
         #Tests
         #if i<10:
