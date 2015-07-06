@@ -20,7 +20,6 @@ hr {
 input[type="textarea"]{
 
   margin: 0;
-  width: 50%;
   height: 100%;
   rows: 8;
   cols: 20;
@@ -29,6 +28,14 @@ input[type="textarea"]{
   color: black;
   appearance: none;
   box-shadow: none;
+}
+
+.primary-search{
+  width: 20%;
+}
+
+.filter-search{
+  width: 50%;
 }
 
 .non-search-text{
@@ -642,4 +649,88 @@ circle.child {
   font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-anchor: middle;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+
+.ui-widget {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+	font-size: 1em;
+}
+
+.ui-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	outline: none;
+}
+.ui-menu .ui-menu {
+	position: absolute;
+}
+.ui-menu .ui-menu-item {
+	position: relative;
+	margin: 0;
+	padding: 3px 1em 3px .4em;
+	cursor: pointer;
+	min-height: 0; /* support: IE7 */
+	/* support: IE10, see #8844 */
+	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+	margin: 5px 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+	margin: -1px;
+}
+
+/* icon support */
+.ui-menu-icons {
+	position: relative;
+}
+.ui-menu-icons .ui-menu-item {
+	padding-left: 2em;
+}
+
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff;
+	color: #222222;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border: 1px solid #999999;
+	background: #dadada;
+	font-weight: normal;
+	color: #212121;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+	border: 1px solid #aaaaaa;
+	background: #ffffff;
+	font-weight: normal;
+	color: #212121;
+}
+
+.ui-helper-hidden-accessible {
+  display:none;
 }
