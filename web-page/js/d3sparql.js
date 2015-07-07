@@ -11,7 +11,8 @@ var d3sparql = {
   debug2: false, //false for JSON; true for FlareJSON
   queryed: false,
   barchart: true,
-  piechart: false
+  piechart: false,
+  tree_bug: true
 }
 
 /*
@@ -254,9 +255,10 @@ d3sparql.tree = function(json, config) {
   console.log(json);
   console.log(json.name);
   console.log(config);
-  console.log(json);
-  var head = json.head.vars
-  var data = json.results.bindings
+  var head = json.name; //json.head.vars
+  var data = json.children; //json.results.bindings
+  head = head.replace(/\s+/g, '') //Remove spaces from name property
+  head = head.split(',') //Separates between commas into an array
 
   var opts = {
     "root":   head[0],
@@ -264,24 +266,23 @@ d3sparql.tree = function(json, config) {
     "child":  head[2],
     "value":  head[3] || "value",
   }
+  console.log(opts);
   console.log(opts.root)
   console.log(typeof(data))
+  console.log(data);
   console.log(typeof(opts.root))
-  console.log(data[0][opts.root].value)
-  console.log(data[0][opts.parent].value)
-  console.log(data[0][opts.child].value)
+  //console.log(data[0][opts.root].value) //error here
+  //console.log(data[0][opts.parent].value)
+  //console.log(data[0][opts.child].value)
 
   var pair = d3.map()
   var size = d3.map()
-  var root = data[0][opts.root].value
-  console.log(root);
+  var root = opts.root+', '+opts.parent+', '+opts.child;	//From here on trying to have query as root and all the rest as children	//data[0][opts.root].value
   var parent = child = children = true
-  console.log(parent);
-  console.log(opts.value);
   //console((data.length).toString())
   for (var i = 0; i < data.length; i++) {
-    parent = data[i][opts.parent].value
-    child = data[i][opts.child].value
+    parent = data[i].name; //data[i][opts.parent].value
+    child = data[i].children[0].name;  //data[i][opts.child].value
     console.log(parent+' ||| '+child)
     if (parent != child) {
       if (pair.has(parent)) {
@@ -289,13 +290,17 @@ d3sparql.tree = function(json, config) {
         children.push(child)
         pair.set(parent, children)
         if (data[i][opts.value]) {
-          size.set(child, data[i][opts.value].value)
+          console.log('in the value1');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
       } else {
         children = [child]
         pair.set(parent, children)
         if (data[i][opts.value]) {
-          size.set(child, data[i][opts.value].value)
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
       }
     }
@@ -315,7 +320,8 @@ d3sparql.tree = function(json, config) {
   }
   var tree = traverse(root)
 
-  if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
+  //if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
+  if(d3sparql.tree_bug) { console.log(tree); }
   return tree
 }
 
@@ -1397,6 +1403,7 @@ d3sparql.dendrogram = function(json, config) {
 */
 d3sparql.sunburst = function(json, config) {
   var tree = d3sparql.tree(json, config)
+  console.log(tree);
 
   var opts = {
     "width":    config.width    || 1000,
@@ -1422,8 +1429,11 @@ d3sparql.sunburst = function(json, config) {
   var partition = d3.layout.partition()
     .value(function(d) {return d.value})
   var nodes = partition.nodes(tree)
+  console.log(nodes);
+  console.log(nodes[0]);
+  console.log(nodes[0].children);
   var path = svg.selectAll("path")
-    .data(nodes)
+    .data(nodes[0].children[0].name._)//.data(nodes)
     .enter()
     .append("path")
     .attr("d", arc)
@@ -1478,6 +1488,7 @@ d3sparql.sunburst = function(json, config) {
     return d.children ? Math.max.apply(Math, d.children.map(maxDepth)) : d.y + d.dy
   }
   function arcTween(d) {
+    console.log(('In arcTween'));
     var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
         yd = d3.interpolate(y.domain(), [d.y, maxDepth(d)]),
         yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius])
@@ -1490,6 +1501,8 @@ d3sparql.sunburst = function(json, config) {
     }
   }
   function isParentOf(p, c) {
+    console.log(p);
+    console.log(c);
     if (p === c) return true
     if (p.children) {
       return p.children.some(function(d) {
@@ -1498,7 +1511,8 @@ d3sparql.sunburst = function(json, config) {
     }
     return false
   }
-}
+  console.log("Done Sunburst");
+}//End of Sunburst
 
 /*
   Rendering sparql-results+json object into a circle pack
@@ -1556,6 +1570,7 @@ d3sparql.sunburst = function(json, config) {
 */
 d3sparql.circlepack = function(json, config) {
   var tree = d3sparql.tree(json, config)
+  console.log('out of tree');
 
   var opts = {
     "width":     config.width    || 800,

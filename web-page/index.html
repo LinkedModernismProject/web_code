@@ -7082,7 +7082,7 @@ function render(json) {
     }
     d3sparql.barchart(json, config);
     d3sparql.piechart(json, config);
-    d3sparql.scatterplot(json, config);
+    //d3sparql.scatterplot(json, config); commented out until we decide if we are going to implement the Vis
   } else if(val === "sk"){
     var config = {
       "width": window.innerWidth*.95,
@@ -7096,9 +7096,7 @@ function render(json) {
 
 </script>
 
-
 </head>
-
 
 
 <body id="page-top">
