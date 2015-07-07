@@ -181,44 +181,25 @@ for i in myRows:
     if( (str(row[j]).strip())!=''):
       try:
         triple = [ myName, fieldNames[j], row[j]]
-        ###Maybe try to work on if the triple[1] has the name:
-        #Other (please specify)
-        #Open-Ended Response
-        #if(responseNames[j]=='Other (please specify)'):
-          #t.write('exitting'+responseNames[j]+str(j))
         if(row[j]=='Other (please specify)'): #Skips the data that takes Other (please specify) as an Obj, thus cleaner data
           continue
-
-        #Needs a space before ".", but still looking at better format for turtle, starting with N-Triples first
-        #If using "True" format for the last var, then need to deal with all the double quotes within answers, Changing to single quotes
-        #HERE Dealing with replacing " with ' and testing .replace function
         doub_quot_replace = str(triple[2]).replace('"', "'")  #Only matters if the str has " else it will just be normal string
-        #getting rid of spaces in subj and pred and replacing with _
         str_trip0 = (str(triple[0])).replace(' ', '_')
         str_trip1 = (str(triple[1])).replace(' ', '_')
-        #If the Pred and Obj are the same place True as the value of the Object
-        #####if str(triple[1]) == str(triple[2]):
-        #####  #print mod_uvic+ str(triple[0]) +'> '+ mod_uvic + str(triple[1]) +'> "True" .'
-        #####  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "True" .'
-        #####else:
-        #####  #print mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> "' + doub_quot_replace+'" .'
-        #####  print mod_uvic+ str_trip0 +'> '+ mod_uvic + str_trip1 +'> "' + doub_quot_replace+'" .'
-        #Before adding the True value if Pred and Obj are the same; changed back to this
-        #print(  mod_uvic+ str(triple[0])+'> '+ mod_uvic + str(triple[1]) +'> ' + mod_uvic + str(triple[2])+'> .' )
-
         #if an Open-Ended Response, then make separate objects from each piece of data that is separated by a double spaces or a comma and a space
         if(responseNames[j]=='Open-Ended Response'):
-          #t.write(fieldNames[j]+'|||')
-          #t.write(doub_quot_replace+'|||')
           if '  ' in doub_quot_replace and ', ' in doub_quot_replace:
             doub_arr = doub_quot_replace.split('  ')
             for ar in doub_arr:
-              ar = ar.split(', ')
-            for elem in doub_arr:
-              for item in elem:
-                if item != '':  #Safeguard for possible empty values
-                  print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + item + '" .' )
-                  spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, item, t)
+            #  ar = ar.split(', ')
+            #for elem in doub_arr:
+            #  for item in elem:
+            #    if item != '':  #Safeguard for possible empty values
+            #      print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + item + '" .' )
+            #      spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, item, t)
+              if ar != '':  #Safeguard for possible empty values
+                print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + ar + '" .' )
+                spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, ar, t)
           elif '  ' in doub_quot_replace:
             doub_arr = doub_quot_replace.split('  ')
             for ar in doub_arr:
@@ -238,13 +219,6 @@ for i in myRows:
         else:
           print(  mod_uvic+ str_trip0 + '> ' + mod_uvic + str_trip1 + '> "' + doub_quot_replace + '" .' ) #For Better Data
           spo_files(subj_l, pred_l, obj_l, str_trip0, str_trip1, doub_quot_replace, t)
-
-        #Tests
-        #if i<10:
-        #  if str(triple[1]) == str(triple[2]):
-        #    print 'True'
-        #  else:
-        #    print 'False'
 
       except:
         pass
