@@ -252,9 +252,6 @@ d3sparql.graph = function(json, config) {
     }
 */
 d3sparql.tree = function(json, config) {
-  console.log(json);
-  console.log(json.name);
-  console.log(config);
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
   head = head.replace(/\s+/g, '') //Remove spaces from name property
@@ -266,28 +263,19 @@ d3sparql.tree = function(json, config) {
     "child":  head[2],
     "value":  head[3] || "value",
   }
-  console.log(opts);
-  console.log(opts.root)
-  console.log(typeof(data))
-  console.log(data);
-  console.log(typeof(opts.root))
-  //console.log(data[0][opts.root].value) //error here
-  //console.log(data[0][opts.parent].value)
-  //console.log(data[0][opts.child].value)
 
   var pair = d3.map()
   var size = d3.map()
-  var root = opts.root+', '+opts.parent+', '+opts.child;	//From here on trying to have query as root and all the rest as children	//data[0][opts.root].value
+  var root = opts.root+', '+opts.parent+', '+opts.child;
   var root_temp = '';
   var parent = child = children = true
-  //console((data.length).toString())
   for (var i = 0; i < data.length; i++) {
     parent = data[i].name; //data[i][opts.parent].value
     child = data[i].children[0].name;  //data[i][opts.child].value
-    if(i==0) {
+    if(i==0) {  //If this is the first pass, set root var as the root of tree
       parent = [parent];
       pair.set(root, parent);
-    } else {
+    } else {  //Else make root the parent of any parent's going into tree
       root_temp = pair.get(root);
       root_temp.push(parent);
       size.set(parent, 5);
@@ -314,15 +302,8 @@ d3sparql.tree = function(json, config) {
           size.set(child, 5);
         }
       }
-      console.log(parent);
     }
   }
-  console.log(pair);
-  //pa = [pair]
-  //pair.set(root, pa);
-  //pair.set(parent, child);
-  console.log(root);
-  //console.log(pa);
 
   function traverse(node) {
     var list = pair.get(node)
@@ -338,11 +319,10 @@ d3sparql.tree = function(json, config) {
     }
   }
   var tree = traverse(root)
-
   //if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
   //if(d3sparql.tree_bug) { console.log(tree); }
   return tree
-}
+}//End of tree
 
 /*
   Rendering sparql-results+json object containing multiple rows into a HTML table
@@ -1445,25 +1425,17 @@ d3sparql.sunburst = function(json, config) {
     .endAngle(function(d)    { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
     .innerRadius(function(d) { return Math.max(0, y(d.y)) })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)) })
-  console.log(arc);
   var partition = d3.layout.partition()
     .value(function(d) {return d.value})
-  console.log(partition);
   var nodes = partition.nodes(tree)
-  console.log(nodes);
-  console.log(nodes[0]);
-  console.log(nodes[0].children);
   var path = svg.selectAll("path")
-    .data(nodes)//[0].children[0].name._)//.data(nodes)
+    .data(nodes)
     .enter()
     .append("path")
     .attr("d", arc)
     .attr("class", "arc")
-    .style("fill", function(d) {
-      console.log('inHERE');
-      return color((d.children ? d : d.parent).name) })
+    .style("fill", function(d) { return color((d.children ? d : d.parent).name) })
     .on("click", click)
-  console.log(path);
   var text = svg.selectAll("text")
     .data(nodes)
     .enter()
@@ -1476,7 +1448,6 @@ d3sparql.sunburst = function(json, config) {
     .attr("dy", ".35em")
     .text(function(d) {return d.name})
     .on("click", click)
-  console.log(text);
 
   // default CSS/SVG
   path.attr({
@@ -1513,7 +1484,6 @@ d3sparql.sunburst = function(json, config) {
     return d.children ? Math.max.apply(Math, d.children.map(maxDepth)) : d.y + d.dy
   }
   function arcTween(d) {
-    console.log(('In arcTween'));
     var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
         yd = d3.interpolate(y.domain(), [d.y, maxDepth(d)]),
         yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius])
@@ -1526,8 +1496,6 @@ d3sparql.sunburst = function(json, config) {
     }
   }
   function isParentOf(p, c) {
-    console.log(p);
-    console.log(c);
     if (p === c) return true
     if (p.children) {
       return p.children.some(function(d) {
