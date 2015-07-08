@@ -4,21 +4,15 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
-postgres info
-	 postgres -D /Users/brayden/limo/iepy/limo/db/ 
-	 starts it
+postgres info (starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
 
+**scp info:**
 
-scp info:
-	Info on the cloud email: Mon May 11 4:40pm
-	scp to WestCloud:
-		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scp to WestCloud: scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
 
-launch chromium:
-	/opt/chromium/chrome-wrapper %U
+launch chromium: /opt/chromium/chrome-wrapper %U
 
-localhost:
-	localhost:8890
+**localhost:** localhost:8890
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
@@ -26,17 +20,24 @@ Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
 
 Search recursively through files for a string:
-	grep -rli 'string' .
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep -rli 'string' .
 
 Search recursively through dir's for file names:
-	find . -name 'filename*'
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -name 'filename*'
+
+Search recursively through dir's for directory names:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -type d -name 'filename*'
 
 Grep history:
-	history | grep cmd_name
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history | grep cmd_name
 
 Uploading tasks:
-	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
-	
+* Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
+
 ___________________________________________________________________________________________________
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
@@ -84,7 +85,7 @@ It is recommended that Turtle files have the extension ".ttl" (all lowercase) on
 
 
 Working On:
-	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store. 
+	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store.
 
 
 Special character regex:
@@ -125,7 +126,7 @@ Turtle
 
 startVirtuoso.sh
 	cd /usr/local/virtuoso-opensource/bin/
-	sudo ./virtuoso-t -f & 
+	sudo ./virtuoso-t -f &
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}

@@ -11,7 +11,8 @@ var d3sparql = {
   debug2: false, //false for JSON; true for FlareJSON
   queryed: false,
   barchart: true,
-  piechart: false
+  piechart: false,
+  tree_bug: true
 }
 
 /*
@@ -251,12 +252,11 @@ d3sparql.graph = function(json, config) {
     }
 */
 d3sparql.tree = function(json, config) {
-  console.log(json);
-  console.log(json.name);
-  console.log(config);
-  console.log(json);
-  var head = json.head.vars
-  var data = json.results.bindings
+  var head = json.name; //json.head.vars
+  var data = json.children; //json.results.bindings
+  head = head.replace(/\s+/g, '') //Remove spaces from name property
+  head = head.split(',') //Separates between commas into an array
+  console.log(data);
 
   var opts = {
     "root":   head[0],
@@ -264,42 +264,94 @@ d3sparql.tree = function(json, config) {
     "child":  head[2],
     "value":  head[3] || "value",
   }
-  console.log(opts.root)
-  console.log(typeof(data))
-  console.log(typeof(opts.root))
-  console.log(data[0][opts.root].value)
-  console.log(data[0][opts.parent].value)
-  console.log(data[0][opts.child].value)
 
   var pair = d3.map()
   var size = d3.map()
-  var root = data[0][opts.root].value
-  console.log(root);
+  var root = opts.root+', '+opts.parent+', '+opts.child;
+  var root_temp = '';
   var parent = child = children = true
-  console.log(parent);
-  console.log(opts.value);
-  //console((data.length).toString())
+  console.log(data[0].children[0].children.length);
   for (var i = 0; i < data.length; i++) {
-    parent = data[i][opts.parent].value
-    child = data[i][opts.child].value
+    parent = data[i].name; //data[i][opts.parent].value
+    for (var j = 0; j < data[i].children.length; j++) {
+      child = data[i].children[j].name;  //data[i][opts.child].value
+      for (var k = 0; k < data[i].children[j].children.length; k++) {
+        console.log(data[i].children[j].children.length);
+        //toddler = data[i].children[j].children[k].name;
+
+    toddler = data[i].children[j].children[k].name;
+    if(i==0) {  //If this is the first pass, set root var as the root of tree
+      parent = [parent];
+      pair.set(root, parent);
+    } else {  //Else make root the parent of any parent's going into tree
+      root_temp = pair.get(root);
+      root_temp.push(parent);
+      size.set(parent, 5);
+    }
+
     console.log(parent+' ||| '+child)
+
     if (parent != child) {
+      console.log("!=");
       if (pair.has(parent)) {
+        console.log('hasPar');
         children = pair.get(parent)
         children.push(child)
         pair.set(parent, children)
+        size.set(child, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
-          size.set(child, data[i][opts.value].value)
+          console.log('in the value1');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
       } else {
+        console.log("p==c");
         children = [child]
         pair.set(parent, children)
+        console.log(parent+'---'+children);
+        size.set(child, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
-          size.set(child, data[i][opts.value].value)
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
       }
     }
+
+    //For toddler
+    console.log(child+'-----'+toddler);
+    if (child != toddler) {
+      console.log("!= tod");
+      if (pair.has(child)) {
+        console.log('hasPar tod');
+        children = pair.get(child)
+        children.push(toddler)
+        pair.set(child, children)
+        size.set(toddler, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value1');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
+        }
+      } else {
+        console.log("p==c");
+        children = [toddler]
+        pair.set(child, children)
+        console.log(child+'---'+children);
+        size.set(toddler, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
+        }
+      }
+    }
+
+
+      }//innermost for loop
+    }//2nd for loop
   }
+
   function traverse(node) {
     var list = pair.get(node)
     if (list) {
@@ -314,10 +366,10 @@ d3sparql.tree = function(json, config) {
     }
   }
   var tree = traverse(root)
-
-  if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
+  //if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
+  //if(d3sparql.tree_bug) { console.log(tree); }
   return tree
-}
+}//End of tree
 
 /*
   Rendering sparql-results+json object containing multiple rows into a HTML table
@@ -1397,6 +1449,7 @@ d3sparql.dendrogram = function(json, config) {
 */
 d3sparql.sunburst = function(json, config) {
   var tree = d3sparql.tree(json, config)
+  console.log(tree);
 
   var opts = {
     "width":    config.width    || 1000,
@@ -1498,7 +1551,8 @@ d3sparql.sunburst = function(json, config) {
     }
     return false
   }
-}
+  console.log("Done Sunburst");
+}//End of Sunburst
 
 /*
   Rendering sparql-results+json object into a circle pack
@@ -1556,6 +1610,7 @@ d3sparql.sunburst = function(json, config) {
 */
 d3sparql.circlepack = function(json, config) {
   var tree = d3sparql.tree(json, config)
+  console.log('out of tree');
 
   var opts = {
     "width":     config.width    || 800,
