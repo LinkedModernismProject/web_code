@@ -5,20 +5,18 @@ Miscellaneous:
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
 postgres info
-	 postgres -D /Users/brayden/limo/iepy/limo/db/
-	 starts it
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;postgres -D /Users/brayden/limo/iepy/limo/db/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starts it
 
 
-scp info:
-	Info on the cloud email: Mon May 11 4:40pm
-	scp to WestCloud:
-		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
+**scp info:**
 
-launch chromium:
-	/opt/chromium/chrome-wrapper %U
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scp to WestCloud: scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
 
-localhost:
-	localhost:8890
+launch chromium: /opt/chromium/chrome-wrapper %U
+
+localhost: localhost:8890
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
@@ -26,18 +24,23 @@ Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
 
 Search recursively through files for a string:
-	grep -rli 'string' .
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep -rli 'string' .
 
 Search recursively through dir's for file names:
-	find . -name 'filename*'
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -name 'filename*'
+
 Search recursively through dir's for directory names:
-	find . -type d -name 'filename*'
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -type d -name 'filename*'
 
 Grep history:
-	history | grep cmd_name
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history | grep cmd_name
 
 Uploading tasks:
-	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
+* Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
 
 ___________________________________________________________________________________________________
 
