@@ -5,7 +5,7 @@ Miscellaneous:
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
 postgres info
-	 postgres -D /Users/brayden/limo/iepy/limo/db/ 
+	 postgres -D /Users/brayden/limo/iepy/limo/db/
 	 starts it
 
 
@@ -30,13 +30,15 @@ Search recursively through files for a string:
 
 Search recursively through dir's for file names:
 	find . -name 'filename*'
+Search recursively through dir's for directory names:
+	find . -type d -name 'filename*'
 
 Grep history:
 	history | grep cmd_name
 
 Uploading tasks:
 	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
-	
+
 ___________________________________________________________________________________________________
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
@@ -84,7 +86,7 @@ It is recommended that Turtle files have the extension ".ttl" (all lowercase) on
 
 
 Working On:
-	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store. 
+	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store.
 
 
 Special character regex:
@@ -125,7 +127,7 @@ Turtle
 
 startVirtuoso.sh
 	cd /usr/local/virtuoso-opensource/bin/
-	sudo ./virtuoso-t -f & 
+	sudo ./virtuoso-t -f &
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}

@@ -1,0 +1,184 @@
+{
+	"name": "Subject, Predicate, Object",
+	"children": [{
+		"name": "AbstractionFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AbstractionFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AccountFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AddressFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AgentOfOrganismFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AgreementOrganizationFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AgricultureFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "AvailableForMilitaryServiceMaleFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "BackFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "BeginFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "BeginNodeFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "BeliefGroupMemberFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CabinetFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CardinalityFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CeilingFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CenterOfCircleFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "ComplementFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "ConstitutionFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CosineFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "CurrencyFn",
+		"children": [{
+			"name": "type",
+			"children": [{
+				"name": "FunctionalProperty",
+				"size": 1000
+			}]
+		}]
+	}]
+}

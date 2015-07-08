@@ -256,6 +256,7 @@ d3sparql.tree = function(json, config) {
   var data = json.children; //json.results.bindings
   head = head.replace(/\s+/g, '') //Remove spaces from name property
   head = head.split(',') //Separates between commas into an array
+  console.log(data);
 
   var opts = {
     "root":   head[0],
@@ -271,7 +272,12 @@ d3sparql.tree = function(json, config) {
   var parent = child = children = true
   for (var i = 0; i < data.length; i++) {
     parent = data[i].name; //data[i][opts.parent].value
-    child = data[i].children[0].name;  //data[i][opts.child].value
+    for (var j = 0; j < data[i].children.length; j++) {
+      child = data[i].children[j].name;  //data[i][opts.child].value
+      for (var k = 0; k < data[i].children[j].children.length; k++) {
+        //toddler = data[i].children[j].children[k].name;
+
+    toddler = data[i].children[j].children[k].name;
     if(i==0) {  //If this is the first pass, set root var as the root of tree
       parent = [parent];
       pair.set(root, parent);
@@ -280,22 +286,28 @@ d3sparql.tree = function(json, config) {
       root_temp.push(parent);
       size.set(parent, 5);
     }
+
     console.log(parent+' ||| '+child)
+
     if (parent != child) {
       console.log("!=");
       if (pair.has(parent)) {
+        console.log('hasPar');
         children = pair.get(parent)
         children.push(child)
         pair.set(parent, children)
+        size.set(child, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
           console.log('in the value1');
           //size.set(child, data[i][opts.value].value)
           size.set(child, 5);
         }
       } else {
+        console.log("p==c");
         children = [child]
         pair.set(parent, children)
         console.log(parent+'---'+children);
+        size.set(child, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
           console.log('in the value2');
           //size.set(child, data[i][opts.value].value)
@@ -303,6 +315,38 @@ d3sparql.tree = function(json, config) {
         }
       }
     }
+
+    //For toddler
+    if (child != toddler) {
+      console.log("!= tod");
+      if (pair.has(child)) {
+        console.log('hasPar tod');
+        children = pair.get(child)
+        children.push(toddler)
+        pair.set(child, children)
+        size.set(toddler, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value1');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
+        }
+      } else {
+        console.log("p==c");
+        children = [toddler]
+        pair.set(child, children)
+        console.log(child+'---'+children);
+        size.set(toddler, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
+        }
+      }
+    }
+
+
+      }//innermost for loop
+    }//2nd for loop
   }
 
   function traverse(node) {
