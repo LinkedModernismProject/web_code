@@ -270,11 +270,13 @@ d3sparql.tree = function(json, config) {
   var root = opts.root+', '+opts.parent+', '+opts.child;
   var root_temp = '';
   var parent = child = children = true
+  console.log(data[0].children[0].children.length);
   for (var i = 0; i < data.length; i++) {
     parent = data[i].name; //data[i][opts.parent].value
     for (var j = 0; j < data[i].children.length; j++) {
       child = data[i].children[j].name;  //data[i][opts.child].value
       for (var k = 0; k < data[i].children[j].children.length; k++) {
+        console.log(data[i].children[j].children.length);
         //toddler = data[i].children[j].children[k].name;
 
     toddler = data[i].children[j].children[k].name;
@@ -317,6 +319,7 @@ d3sparql.tree = function(json, config) {
     }
 
     //For toddler
+    console.log(child+'-----'+toddler);
     if (child != toddler) {
       console.log("!= tod");
       if (pair.has(child)) {
