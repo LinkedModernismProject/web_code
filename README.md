@@ -4,7 +4,7 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
-postgres info(starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
+postgres info (starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
 
 **scp info:**
 
