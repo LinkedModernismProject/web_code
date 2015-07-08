@@ -4,11 +4,7 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
-postgres info
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;postgres -D /Users/brayden/limo/iepy/limo/db/
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;starts it
-
+postgres info(starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
 
 **scp info:**
 
@@ -16,7 +12,7 @@ postgres info
 
 launch chromium: /opt/chromium/chrome-wrapper %U
 
-localhost: localhost:8890
+**localhost:** localhost:8890
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
