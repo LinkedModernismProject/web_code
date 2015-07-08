@@ -278,13 +278,23 @@ d3sparql.tree = function(json, config) {
   var pair = d3.map()
   var size = d3.map()
   var root = opts.root+', '+opts.parent+', '+opts.child;	//From here on trying to have query as root and all the rest as children	//data[0][opts.root].value
+  var root_temp = '';
   var parent = child = children = true
   //console((data.length).toString())
   for (var i = 0; i < data.length; i++) {
     parent = data[i].name; //data[i][opts.parent].value
     child = data[i].children[0].name;  //data[i][opts.child].value
+    if(i==0) {
+      parent = [parent];
+      pair.set(root, parent);
+    } else {
+      root_temp = pair.get(root);
+      root_temp.push(parent);
+      size.set(parent, 5);
+    }
     console.log(parent+' ||| '+child)
     if (parent != child) {
+      console.log("!=");
       if (pair.has(parent)) {
         children = pair.get(parent)
         children.push(child)
@@ -297,14 +307,23 @@ d3sparql.tree = function(json, config) {
       } else {
         children = [child]
         pair.set(parent, children)
+        console.log(parent+'---'+children);
         if (data[i][opts.value]) {
           console.log('in the value2');
           //size.set(child, data[i][opts.value].value)
           size.set(child, 5);
         }
       }
+      console.log(parent);
     }
   }
+  console.log(pair);
+  //pa = [pair]
+  //pair.set(root, pa);
+  //pair.set(parent, child);
+  console.log(root);
+  //console.log(pa);
+
   function traverse(node) {
     var list = pair.get(node)
     if (list) {
@@ -321,7 +340,7 @@ d3sparql.tree = function(json, config) {
   var tree = traverse(root)
 
   //if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
-  if(d3sparql.tree_bug) { console.log(tree); }
+  //if(d3sparql.tree_bug) { console.log(tree); }
   return tree
 }
 
@@ -1426,8 +1445,10 @@ d3sparql.sunburst = function(json, config) {
     .endAngle(function(d)    { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
     .innerRadius(function(d) { return Math.max(0, y(d.y)) })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)) })
+  console.log(arc);
   var partition = d3.layout.partition()
     .value(function(d) {return d.value})
+  console.log(partition);
   var nodes = partition.nodes(tree)
   console.log(nodes);
   console.log(nodes[0]);
@@ -1438,8 +1459,11 @@ d3sparql.sunburst = function(json, config) {
     .append("path")
     .attr("d", arc)
     .attr("class", "arc")
-    .style("fill", function(d) { return color((d.children ? d : d.parent).name) })
+    .style("fill", function(d) {
+      console.log('inHERE');
+      return color((d.children ? d : d.parent).name) })
     .on("click", click)
+  console.log(path);
   var text = svg.selectAll("text")
     .data(nodes)
     .enter()
@@ -1452,6 +1476,7 @@ d3sparql.sunburst = function(json, config) {
     .attr("dy", ".35em")
     .text(function(d) {return d.name})
     .on("click", click)
+  console.log(text);
 
   // default CSS/SVG
   path.attr({
