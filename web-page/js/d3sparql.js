@@ -1454,7 +1454,7 @@ d3sparql.sunburst = function(json, config) {
   console.log(nodes[0]);
   console.log(nodes[0].children);
   var path = svg.selectAll("path")
-    .data(nodes[0].children[0].name._)//.data(nodes)
+    .data(nodes)//[0].children[0].name._)//.data(nodes)
     .enter()
     .append("path")
     .attr("d", arc)
