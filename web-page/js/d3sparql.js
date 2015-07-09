@@ -319,6 +319,8 @@ d3sparql.tree = function(json, config) {
     }
 
     //For toddler
+    console.log("pair");
+    console.log(pair);
     console.log(child+'-----'+toddler);
     if (child != toddler) {
       console.log("!= tod");
