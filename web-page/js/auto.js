@@ -21146,12 +21146,20 @@ var availableTagsSubj = [
   "Mário de Sá-Carneiro"
 ];
 $( "#subj" ).autocomplete({
-  source: availableTagsSubj
+  source: availableTagsSubj,
+  minLength: 1
 });
 $( "#pred").autocomplete({
-  source: availableTagsPred
+  source: availableTagsPred,
+  minLength: 1
 });
 $( "#obj").autocomplete({
-  source: availableTagsObj
+  source: function( request, response ) {
+    var matcher = new RegExp("\\b" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+    response( $.grep( availableTagsObj, function( item ){
+      return matcher.test( item );
+    }) );
+  },
+  minLength: 1
 });
 }
