@@ -220,12 +220,13 @@
 
   //Function that takes the S P O and makes the query
   function constructQuery(){
-    var query = 'SELECT distinct * WHERE {   ?Subject ?Predicate ?Object . ';
+    var query = 'PREFIX limo: <http://localhost:8890/limo/>
+              SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($("#subj").val() != ""){
       query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '"@en, "i") ';
     }
     if($("#pred").val() != ""){
-      query += '?Subject ' +  + '?Object .'
+      query += '?Subject limo:' + $("#pred").val() + '?Object .';
     }
     if($("#obj").val() != ""){
       query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '"@en, "i")';
