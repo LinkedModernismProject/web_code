@@ -167,7 +167,14 @@
       $("#tabVis").addClass("active");
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
-      var query = $("#query").val();
+      console.log($("#subj").val())
+console.log($("#obj").val())
+console.log($("#pred").val())
+	if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
+        var query = $("#query").val();
+      else
+        var query = constructQuery();
+      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -220,16 +227,15 @@
 
   //Function that takes the S P O and makes the query
   function constructQuery(){
-    var query = 'PREFIX limo: <http://localhost:8890/limo/>
-              SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($("#subj").val() != ""){
-      query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '"@en, "i") ';
+      query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '", "i") .';
     }
     if($("#pred").val() != ""){
-      query += '?Subject limo:' + $("#pred").val() + '?Object .';
+      query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
     }
     if($("#obj").val() != ""){
-      query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '"@en, "i")';
+      query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '", "i")';
     }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 20';
     return query;
@@ -314,15 +320,15 @@
 // default-graph-uri=http://localhost:8890/may26&
 // Use http://localhost:8890/unTrue, is the updated version
 function constructURL(query){
-  var url = "http://dbpedia.org/sparql";
-  var queryURL = url + "?query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
+  var queryURL = url + "query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 // Use http://localhost:8890/unTrue, is the updated version
 function exec1(sparql) {
-  var endpoint = "http://dbpedia.org/sparql";
+  var endpoint = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
   d3sparql.query(endpoint, sparql, render);
 }
 
