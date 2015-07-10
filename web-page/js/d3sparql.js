@@ -265,21 +265,40 @@ d3sparql.tree = function(json, config) {
     "value":  head[3] || "value",
   }
 
+  var node1 = {
+    data: null,
+    next: node2
+  };
+  var node2 = {
+    data: null,
+    next: node3
+  };
+  var node3 = {
+    data: null,
+    next: null
+  };
+
   var pair = d3.map()
   var size = d3.map()
   var root = opts.root+', '+opts.parent+', '+opts.child;
   var root_temp = '';
   var parent = child = children = true
-  console.log(data[0].children[0].children.length);
   for (var i = 0; i < data.length; i++) {
-    parent = data[i].name; //data[i][opts.parent].value
+    if(data[i].name == 'CosineFn') { parent = 'CeilingFn'}
+    else {parent = data[i].name;} //data[i][opts.parent].value
+    node1.data = parent;
     for (var j = 0; j < data[i].children.length; j++) {
       child = data[i].children[j].name;  //data[i][opts.child].value
+      node2.data = child;
       for (var k = 0; k < data[i].children[j].children.length; k++) {
         console.log(data[i].children[j].children.length);
+        console.log(k);
         //toddler = data[i].children[j].children[k].name;
 
     toddler = data[i].children[j].children[k].name;
+    node3.data = toddler;
+
+    //Setting the root as the parent of everything
     if(i==0) {  //If this is the first pass, set root var as the root of tree
       parent = [parent];
       pair.set(root, parent);
@@ -320,11 +339,22 @@ d3sparql.tree = function(json, config) {
 
     //For toddler
     console.log("pair");
-    console.log(pair);
+    console.log(pair);  //WORKING HERE
+    console.log(pair._);
+    if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
+    else {
+      console.log('NO CEILINGS');
+    }
     console.log(child+'-----'+toddler);
+    //indented 1
+    //debugger;
     if (child != toddler) {
       console.log("!= tod");
       if (pair.has(child)) {
+        if(child.hasOwnProperty(toddler)) {
+          continue;
+        }
+        console.log(pair.hasOwnProperty(toddler));
         console.log('hasPar tod');
         children = pair.get(child)
         children.push(toddler)
@@ -348,6 +378,12 @@ d3sparql.tree = function(json, config) {
         }
       }
     }
+    //end of indented 1
+
+    console.log('pair2');
+    console.log(pair);
+    //debugger;
+    console.log('after debugger');
 
 
       }//innermost for loop
