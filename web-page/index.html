@@ -159,10 +159,11 @@
       $("#tabVis").addClass("active");
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
-	if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
+	    if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
         var query = $("#query").val();
       else
         var query = constructQuery();
+      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -305,24 +306,24 @@
   return;
 }
 
-// default-graph-uri=http://localhost:8890/may26&
-// Use http://localhost:8890/unTrue, is the updated version
+// http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
 function constructURL(query){
-  var url = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
-  var queryURL = url + "query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = "http://dbpedia.org/sparql";
+  var queryURL = url + "?query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
-// Use http://localhost:8890/unTrue, is the updated version
 function exec1(sparql) {
-  var endpoint = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
+  var endpoint = "http://dbpedia.org/sparql";
   d3sparql.query(endpoint, sparql, render);
 }
 
 function filterClick() {
   var query = $("#query").val();
   var cdata = $.cookie("query").split(";");
+  console.log(query);
+  console.log(cdata);
   if(cdata != null || cdata != undefined){
     sClick(cdata[0]);
     exec1(cdata[0]);
