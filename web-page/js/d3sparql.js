@@ -298,11 +298,19 @@ d3sparql.tree = function(json, config) {
     toddler = data[i].children[j].children[k].name;
     node3.data = toddler;
 
+    console.log(parent);
+    console.log(pair._);
     //Setting the root as the parent of everything
     if(i==0) {  //If this is the first pass, set root var as the root of tree
+      console.log('First Parents');
       parent = [parent];
       pair.set(root, parent);
+    } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
+      //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
+      console.log("Pair has parent!!!");
+      //debugger;
     } else {  //Else make root the parent of any parent's going into tree
+      console.log('elseCase');
       root_temp = pair.get(root);
       root_temp.push(parent);
       size.set(parent, 5);
@@ -341,7 +349,8 @@ d3sparql.tree = function(json, config) {
     console.log("pair");
     console.log(pair);  //WORKING HERE
     console.log(pair._);
-    if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
+    console.log($(pair));
+    if($(pair._).hasOwnProperty('CeilingFn')) {console.log('IT HAS A CEILING');} //HASSS
     else {
       console.log('NO CEILINGS');
     }
@@ -386,7 +395,7 @@ d3sparql.tree = function(json, config) {
     console.log('after debugger');
 
 
-      }//innermost for loop
+      }//innermost toddler for loop
     }//2nd for loop
   }
 
