@@ -20532,4 +20532,4 @@
 "funny animal",
 "serial",
 "caricature",
-"art nouveau"
+"art nouveau",

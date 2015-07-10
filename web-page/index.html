@@ -46,7 +46,7 @@
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.fittext.js"></script>
   <script src="js/wow.min.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jqueryui.js"></script>
 
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
@@ -62,15 +62,7 @@
 
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
-
-  /*
-  PREFIX owl: <http://www.w3.org/2002/07/owl#>
-  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-  PREFIX limo: <http://blahblah.uri/here>
-  */
+  var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo/>";
   //call table url process and visualization process for selected visualization
   $(function() {
     //$.removeCookie("query")
@@ -167,14 +159,10 @@
       $("#tabVis").addClass("active");
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
-      console.log($("#subj").val())
-console.log($("#obj").val())
-console.log($("#pred").val())
 	if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
         var query = $("#query").val();
       else
         var query = constructQuery();
-      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -227,7 +215,7 @@ console.log($("#pred").val())
 
   //Function that takes the S P O and makes the query
   function constructQuery(){
-    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($("#subj").val() != ""){
       query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '", "i") .';
     }

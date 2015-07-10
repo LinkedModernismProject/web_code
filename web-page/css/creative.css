@@ -656,6 +656,10 @@ circle.child {
 	top: 0;
 	left: 0;
 	cursor: default;
+  max-height: 40em;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
 }
 
 .ui-widget {
