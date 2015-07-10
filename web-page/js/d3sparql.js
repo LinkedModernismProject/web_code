@@ -295,42 +295,44 @@ d3sparql.tree = function(json, config) {
         console.log(k);
         //toddler = data[i].children[j].children[k].name;
 
-    toddler = data[i].children[j].children[k].name;
-    node3.data = toddler;
-
-    console.log(parent);
-    console.log(pair._);
-    //Setting the root as the parent of everything
-    if(i==0) {  //If this is the first pass, set root var as the root of tree
-      console.log('First Parents');
-      parent = [parent];
-      pair.set(root, parent);
-    } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
-      //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
-      console.log("Pair has parent!!!");
-      //debugger;
-    } else {  //Else make root the parent of any parent's going into tree
-      console.log('elseCase');
-      root_temp = pair.get(root);
-      root_temp.push(parent);
-      size.set(parent, 5);
-    }
+        toddler = data[i].children[j].children[k].name;
+        node3.data = toddler;
+        console.log(parent);
+        console.log(pair._);
+        //Setting the root as the parent of everything
+        if(i==0) {  //If this is the first pass, set root var as the root of tree
+          console.log('First Parents');
+          parent = [parent];
+          pair.set(root, parent);
+        } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
+          //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
+          console.log("Pair has parent!!!");
+          //debugger;
+        } else {  //Else make root the parent of any parent's going into tree
+          console.log('elseCase');
+          root_temp = pair.get(root);
+          root_temp.push(parent);
+          size.set(parent, 5);
+        }
 
     console.log(parent+' ||| '+child)
 
     if (parent != child) {
       console.log("!=");
       if (pair.has(parent)) {
-        console.log('hasPar');
+        console.log('hasPar:'+parent);
         children = pair.get(parent)
-        children.push(child)
-        pair.set(parent, children)
-        size.set(child, 5); //Doesn't reach this if statement, so set here
-        if (data[i][opts.value]) {
-          console.log('in the value1');
-          //size.set(child, data[i][opts.value].value)
-          size.set(child, 5);
-        }
+        console.log(children);
+        //if(child!=children) {
+          children.push(child)
+          pair.set(parent, children)
+          size.set(child, 5); //Doesn't reach this if statement, so set here
+          if (data[i][opts.value]) {
+            console.log('in the value1');
+            //size.set(child, data[i][opts.value].value)
+            size.set(child, 5);
+          }
+        //}//End of child!=children
       } else {
         console.log("p==c");
         children = [child]
