@@ -264,73 +264,145 @@ d3sparql.tree = function(json, config) {
     "value":  head[3] || "value",
   }
 
+  var node1 = {
+    data: null,
+    next: node2
+  };
+  var node2 = {
+    data: null,
+    next: node3
+  };
+  var node3 = {
+    data: null,
+    next: null
+  };
+
   var pair = d3.map()
   var size = d3.map()
   var root = opts.root+', '+opts.parent+', '+opts.child;
   var root_temp = '';
   var parent = child = children = true
   for (var i = 0; i < data.length; i++) {
-    parent = data[i].name; //data[i][opts.parent].value
+    //if(data[i].name == 'AEDouglass'/*'CosineFn'*/) { parent = 'AEWMason'/*'CeilingFn'*/}
+    //else {parent = data[i].name;} //data[i][opts.parent].value
+    parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
+    node1.data = parent;
     for (var j = 0; j < data[i].children.length; j++) {
       child = data[i].children[j].name;  //data[i][opts.child].value
+      node2.data = child;
       for (var k = 0; k < data[i].children[j].children.length; k++) {
+        console.log(data[i].children[j].children.length);
+        console.log(k);
         //toddler = data[i].children[j].children[k].name;
+
         toddler = data[i].children[j].children[k].name;
-        console.log(toddler)
+        node3.data = toddler;
+        console.log(parent);
+        console.log(pair._);
+        //Setting the root as the parent of everything
         if(i==0) {  //If this is the first pass, set root var as the root of tree
+          console.log('First Parents');
           parent = [parent];
           pair.set(root, parent);
-        }
-        else {  //Else make root the parent of any parent's going into tree
+        } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
+          //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
+          console.log("Pair has parent!!!");
+          //debugger;
+        } else {  //Else make root the parent of any parent's going into tree
+          console.log('elseCase');
           root_temp = pair.get(root);
           root_temp.push(parent);
           size.set(parent, 5);
         }
-        if (parent != child) {
-          if (pair.has(parent)) {
-            children = pair.get(parent)
-            children.push(child)
-            pair.set(parent, children)
-            size.set(child, 5); //Doesn't reach this if statement, so set here
-            if (data[i][opts.value]) {
-              //size.set(child, data[i][opts.value].value)
-              size.set(child, 5);
-            }
-          } else {
-            children = [child]
-            pair.set(parent, children)
-            size.set(child, 5); //Doesn't reach this if statement, so set here
-            if (data[i][opts.value]) {
-              //size.set(child, data[i][opts.value].value)
-              size.set(child, 5);
-            }
+
+    console.log(parent+' ||| '+child)
+
+    if (parent != child) {
+      console.log("!=");
+      if (pair.has(parent)) {
+        console.log('hasPar:'+parent);
+        children = pair.get(parent)
+        console.log(children);
+        if(child!=children) { //To stop duplicates of predicates
+          children.push(child)
+          pair.set(parent, children)
+          size.set(child, 5); //Doesn't reach this if statement, so set here
+          if (data[i][opts.value]) {
+            console.log('in the value1');
+            //size.set(child, data[i][opts.value].value)
+            size.set(child, 5);
           }
+        }//End of child!=children
+      } else {
+        console.log("p==c");
+        children = [child]
+        pair.set(parent, children)
+        console.log(parent+'---'+children);
+        size.set(child, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
-      //For toddler
-        if (child != toddler) {
-          if (pair.has(child)) {
-            children = pair.get(child)
+      }
+    }
+
+    //For toddler
+    console.log("pair");
+    console.log(pair);  //WORKING HERE
+    console.log(pair._);
+    console.log($(pair));
+    if($(pair._).hasOwnProperty('CeilingFn')) {console.log('IT HAS A CEILING');} //HASSS
+    else {
+      console.log('NO CEILINGS');
+    }
+    console.log(child+'-----'+toddler);
+    //indented 1
+    //debugger;
+    if (child != toddler) {
+      console.log("!= tod");
+      if (pair.has(child)) {
+        //if(child.hasOwnProperty(toddler)) {
+        //  console.log('gets in HEREEE');
+        //  continue;
+        //}
+        //console.log(pair.hasOwnProperty(toddler));
+        console.log('hasPar tod');
+        children = pair.get(child)
+        console.log(toddler);
+        console.log(children);
+        if(children.indexOf(toddler) == -1) {  //!(toddler in children)) { //To stop duplicates of objects
+            console.log(toddler in children);
             children.push(toddler)
             pair.set(child, children)
             size.set(toddler, 5); //Doesn't reach this if statement, so set here
             if (data[i][opts.value]) {
+              console.log('in the value1');
               //size.set(child, data[i][opts.value].value)
               size.set(child, 5);
             }
-          }
-          else {
-            children = [toddler]
-            pair.set(child, children)
-            size.set(toddler, 5); //Doesn't reach this if statement, so set here
-            if (data[i][opts.value]) {
-              //size.set(child, data[i][opts.value].value)
-              size.set(child, 5);
-            }
-          }
+        } //End of (children.indexOf(toddler) == -1) //toddler!=children
+      } else {
+        console.log("p==c");
+        children = [toddler]
+        pair.set(child, children)
+        console.log(child+'---'+children);
+        size.set(toddler, 5); //Doesn't reach this if statement, so set here
+        if (data[i][opts.value]) {
+          console.log('in the value2');
+          //size.set(child, data[i][opts.value].value)
+          size.set(child, 5);
         }
+      }
+    }
+    //end of indented 1
 
+    console.log('pair2');
+    console.log(pair);
+    //debugger;
+    console.log('after debugger');
 
-      }//innermost for loop
+      }//innermost toddler for loop
     }//2nd for loop
   }
 
