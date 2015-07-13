@@ -50,7 +50,7 @@ function isA_spo (val_arr, total, data_arr) {
 	}
 }
 function isA_po (val_arr, total, data_arr) {
-	console.log("in inA_po");
+	console.log("in isA_po");
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	}
