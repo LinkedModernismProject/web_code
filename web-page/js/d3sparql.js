@@ -284,8 +284,9 @@ d3sparql.tree = function(json, config) {
   var root_temp = '';
   var parent = child = children = true
   for (var i = 0; i < data.length; i++) {
-    if(data[i].name == 'CosineFn') { parent = 'CeilingFn'}
+    if(data[i].name == 'AEDouglass'/*'CosineFn'*/) { parent = 'AEWMason'/*'CeilingFn'*/}
     else {parent = data[i].name;} //data[i][opts.parent].value
+    //parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
     node1.data = parent;
     for (var j = 0; j < data[i].children.length; j++) {
       child = data[i].children[j].name;  //data[i][opts.child].value
@@ -323,7 +324,7 @@ d3sparql.tree = function(json, config) {
         console.log('hasPar:'+parent);
         children = pair.get(parent)
         console.log(children);
-        //if(child!=children) {
+        if(child!=children) { //To stop duplicates of predicates
           children.push(child)
           pair.set(parent, children)
           size.set(child, 5); //Doesn't reach this if statement, so set here
@@ -332,7 +333,7 @@ d3sparql.tree = function(json, config) {
             //size.set(child, data[i][opts.value].value)
             size.set(child, 5);
           }
-        //}//End of child!=children
+        }//End of child!=children
       } else {
         console.log("p==c");
         children = [child]
@@ -362,20 +363,26 @@ d3sparql.tree = function(json, config) {
     if (child != toddler) {
       console.log("!= tod");
       if (pair.has(child)) {
-        if(child.hasOwnProperty(toddler)) {
-          continue;
-        }
-        console.log(pair.hasOwnProperty(toddler));
+        //if(child.hasOwnProperty(toddler)) {
+        //  console.log('gets in HEREEE');
+        //  continue;
+        //}
+        //console.log(pair.hasOwnProperty(toddler));
         console.log('hasPar tod');
         children = pair.get(child)
-        children.push(toddler)
-        pair.set(child, children)
-        size.set(toddler, 5); //Doesn't reach this if statement, so set here
-        if (data[i][opts.value]) {
-          console.log('in the value1');
-          //size.set(child, data[i][opts.value].value)
-          size.set(child, 5);
-        }
+        console.log(toddler);
+        console.log(children);
+        if(children.indexOf(toddler) == -1) {  //!(toddler in children)) { //To stop duplicates of objects
+            console.log(toddler in children);
+            children.push(toddler)
+            pair.set(child, children)
+            size.set(toddler, 5); //Doesn't reach this if statement, so set here
+            if (data[i][opts.value]) {
+              console.log('in the value1');
+              //size.set(child, data[i][opts.value].value)
+              size.set(child, 5);
+            }
+        } //End of (children.indexOf(toddler) == -1) //toddler!=children
       } else {
         console.log("p==c");
         children = [toddler]
