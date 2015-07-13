@@ -10,6 +10,7 @@ function isEmpty (val_arr, total, data_arr) {
 
 function compare_subjects (val_arr, data_arr, val_i) {
 	for (var i = 0; i < data_arr.length; i++) {
+		console.log(val_arr[val_i]+'|||'+data_arr[i].subj);
 		if(val_arr[val_i]==data_arr[i].subj) {
 			return [true, i];
 		}
@@ -20,6 +21,7 @@ function compare_subjects (val_arr, data_arr, val_i) {
 function compare_preds (val_arr, data_arr, val_i, comp_subj_index) {	//May be able to just compare against the index that matches the subj (i.e. parent)
 	//Compares against the index of the matching Subject
 	for (var j = 0; j < data_arr[comp_subj_index].pred_obj.length; j++) {
+		console.log(val_arr[val_i]+'|||'+data_arr[comp_subj_index].pred_obj[j][0]);
 			if(val_arr[val_i]==data_arr[comp_subj_index].pred_obj[j][0]) {
 				return [true, j];
 			}
@@ -28,29 +30,48 @@ function compare_preds (val_arr, data_arr, val_i, comp_subj_index) {	//May be ab
 }
 
 function isA_spo (val_arr, total, data_arr) {
+	console.log(val_arr);
+	console.log(data_arr);
+	//if(val_arr[2]=='"Italy"') {exit()}	//TEST
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	} else {
+		//debugger
 		//Could fix this vars into arrays so would only compute once instead of twice
 		comp_subj_bool = compare_subjects(val_arr, data_arr, 0)[0];
-		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];
+		console.log(comp_subj_bool);
+		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];	//Index of subj in what array index in data_arr
+		console.log(comp_subj_index);
+
 		if(comp_subj_bool) {
 			comp_pred_bool = compare_preds(val_arr, data_arr, 1, comp_subj_index)[0];
+			console.log(comp_pred_bool);
 			comp_pred_index = compare_preds(val_arr, data_arr, 1, comp_subj_index)[1];
+			console.log(comp_pred_index);
+			//debugger
 		}
 		if(comp_subj_bool) {	//Subjects are the same, check for same pred
 			if(comp_pred_bool) {	//Same preds, adding obj that corresponds
-				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_pred_index].pred_obj[comp_pred_index].length] = val_arr[2];
+				console.log(data_arr);
+				console.log(data_arr[0]);
+				console.log(data_arr[comp_subj_index]);
+				console.log(data_arr[comp_subj_index].pred_obj[comp_pred_index].length);	//length is the issue
+				console.log(val_arr[2]);
+				//debugger
+				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_subj_index].pred_obj[comp_pred_index].length] = val_arr[2];
 			} else {	//Diff preds
+				console.log('if if else');
+				console.log(val_arr[1]+'|||'+val_arr[2]);
 				data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
 			}
 		} else {	//Subjects are different, thus no need to check for same pred
+			console.log('if else!');
 			data_arr.push({subj: val_arr[0], pred_obj: [[val_arr[1], val_arr[2]]]});
 		}
 	}
 }
 function isA_po (val_arr, total, data_arr) {
-	console.log("in isA_po");
+	console.log("in inA_po");
 	if(data_arr.length==0){
 		isEmpty(val_arr, total, data_arr);
 	}
@@ -217,12 +238,18 @@ function convert(json) {
 		} else if(a==1) {//End of if a==0
 			continue;	//For the distinct and ordered settings; no data
 		//Lines after: All the data
-		} else {
+		} /*else if(a==9) {	//1 ahead of what is actually being tested
+			console.log('a='+a);
+			exit();
+		}*/ else {
+			console.log('a='+a);
 			grabValues(arrayOfLines[a], totVars, data_arr);
+			console.log(data_arr);
 		}
 	}//End of for loop through arrayOfLines
 
 	var flare = toFlare(data_arr, s, p, o, totVars);
 	//console.log(flare);
+	console.log("Done Flare");
 	return flare;
 }//End of convert()
