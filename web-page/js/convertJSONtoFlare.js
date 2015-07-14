@@ -60,7 +60,7 @@ function isA_spo (val_arr, total, data_arr) {
 				//debugger
 				data_arr[comp_subj_index].pred_obj[comp_pred_index][data_arr[comp_subj_index].pred_obj[comp_pred_index].length] = val_arr[2];
 			} else {	//Diff preds
-				console.log('if if else');
+				console.log('if if else!');
 				console.log(val_arr[1]+'|||'+val_arr[2]);
 				data_arr[comp_subj_index].pred_obj.push([val_arr[1], val_arr[2]]);
 			}
