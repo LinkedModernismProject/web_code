@@ -323,7 +323,7 @@ d3sparql.tree = function(json, config) {
         console.log('hasPar:'+parent);
         children = pair.get(parent)
         console.log(children);
-        if(child!=children) { //To stop duplicates of predicates
+        if(children.indexOf(child) == -1) { //if(child!=children) //To stop duplicates of predicates
           children.push(child)
           pair.set(parent, children)
           size.set(child, 5); //Doesn't reach this if statement, so set here
@@ -332,7 +332,7 @@ d3sparql.tree = function(json, config) {
             //size.set(child, data[i][opts.value].value)
             size.set(child, 5);
           }
-        }//End of child!=children
+        }//End of children.indexOf(child) == -1 //End of child!=children
       } else {
         console.log("p==c");
         children = [child]
