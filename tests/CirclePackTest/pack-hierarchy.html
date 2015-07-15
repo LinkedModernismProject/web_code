@@ -65,9 +65,14 @@ var vis = d3.select("body").insert("svg:svg", "h2")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
 d3.json("flare.json", function(data) {
+  console.log(data);
+  exit()
   node = root = data;
+  console.log(node);
 
   var nodes = pack.nodes(root);
+  console.log(nodes);
+  //exit()
 
   vis.selectAll("circle")
       .data(nodes)

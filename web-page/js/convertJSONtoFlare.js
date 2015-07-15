@@ -34,7 +34,6 @@ function isA_spo (val_arr, total, data_arr) {
 		//Could fix this vars into arrays so would only compute once instead of twice
 		comp_subj_bool = compare_subjects(val_arr, data_arr, 0)[0];
 		comp_subj_index = compare_subjects(val_arr, data_arr, 0)[1];	//Index of subj in what array index in data_arr
-
 		if(comp_subj_bool) {
 			comp_pred_bool = compare_preds(val_arr, data_arr, 1, comp_subj_index)[0];
 			comp_pred_index = compare_preds(val_arr, data_arr, 1, comp_subj_index)[1];

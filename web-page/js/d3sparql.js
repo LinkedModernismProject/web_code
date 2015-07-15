@@ -263,20 +263,6 @@ d3sparql.tree = function(json, config) {
     "child":  head[2],
     "value":  head[3] || "value",
   }
-
-  var node1 = {
-    data: null,
-    next: node2
-  };
-  var node2 = {
-    data: null,
-    next: node3
-  };
-  var node3 = {
-    data: null,
-    next: null
-  };
-
   var pair = d3.map()
   var size = d3.map()
   var root = opts.root+', '+opts.parent+', '+opts.child;
@@ -286,61 +272,56 @@ d3sparql.tree = function(json, config) {
     //if(data[i].name == 'AEDouglass'/*'CosineFn'*/) { parent = 'AEWMason'/*'CeilingFn'*/}
     //else {parent = data[i].name;} //data[i][opts.parent].value
     parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
-    node1.data = parent;
     for (var j = 0; j < data[i].children.length; j++) {
       child = data[i].children[j].name;  //data[i][opts.child].value
-      node2.data = child;
       for (var k = 0; k < data[i].children[j].children.length; k++) {
-        console.log(data[i].children[j].children.length);
-        console.log(k);
-        //toddler = data[i].children[j].children[k].name;
-
+        //console.log(data[i].children[j].children.length);
+        //console.log(k);
         toddler = data[i].children[j].children[k].name;
-        node3.data = toddler;
-        console.log(parent);
-        console.log(pair._);
+        //console.log(parent);
+        //console.log(pair._);
         //Setting the root as the parent of everything
         if(i==0) {  //If this is the first pass, set root var as the root of tree
-          console.log('First Parents');
+          //console.log('First Parents');
           parent = [parent];
           pair.set(root, parent);
         } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
           //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
-          console.log("Pair has parent!!!");
+          //console.log("Pair has parent!!!");
           //debugger;
         } else {  //Else make root the parent of any parent's going into tree
-          console.log('elseCase');
+          //console.log('elseCase');
           root_temp = pair.get(root);
           root_temp.push(parent);
           size.set(parent, 5);
         }
 
-    console.log(parent+' ||| '+child)
+    //console.log(parent+' ||| '+child)
 
     if (parent != child) {
-      console.log("!=");
+      //console.log("!=");
       if (pair.has(parent)) {
-        console.log('hasPar:'+parent);
+        //console.log('hasPar:'+parent);
         children = pair.get(parent)
-        console.log(children);
+        //console.log(children);
         if(children.indexOf(child) == -1) { //if(child!=children) //To stop duplicates of predicates
           children.push(child)
           pair.set(parent, children)
           size.set(child, 5); //Doesn't reach this if statement, so set here
           if (data[i][opts.value]) {
-            console.log('in the value1');
+            //console.log('in the value1');
             //size.set(child, data[i][opts.value].value)
             size.set(child, 5);
           }
         }//End of children.indexOf(child) == -1 //End of child!=children
       } else {
-        console.log("p==c");
+        //console.log("p==c");
         children = [child]
         pair.set(parent, children)
-        console.log(parent+'---'+children);
+        //console.log(parent+'---'+children);
         size.set(child, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
-          console.log('in the value2');
+          //console.log('in the value2');
           //size.set(child, data[i][opts.value].value)
           size.set(child, 5);
         }
@@ -348,48 +329,44 @@ d3sparql.tree = function(json, config) {
     }
 
     //For toddler
-    console.log("pair");
-    console.log(pair);  //WORKING HERE
-    console.log(pair._);
-    console.log($(pair));
-    if($(pair._).hasOwnProperty('CeilingFn')) {console.log('IT HAS A CEILING');} //HASSS
-    else {
-      console.log('NO CEILINGS');
-    }
-    console.log(child+'-----'+toddler);
+    ///console.log("pair");
+    ///console.log(pair);  //WORKING HERE
+    ///console.log(pair._);
+    ///console.log($(pair));
+    ///console.log(child+'-----'+toddler);
     //indented 1
     //debugger;
     if (child != toddler) {
-      console.log("!= tod");
+      //console.log("!= tod");
       if (pair.has(child)) {
         //if(child.hasOwnProperty(toddler)) {
         //  console.log('gets in HEREEE');
         //  continue;
         //}
         //console.log(pair.hasOwnProperty(toddler));
-        console.log('hasPar tod');
+        //console.log('hasPar tod');
         children = pair.get(child)
-        console.log(toddler);
-        console.log(children);
+        //console.log(toddler);
+        //console.log(children);
         if(children.indexOf(toddler) == -1) {  //!(toddler in children)) { //To stop duplicates of objects
-            console.log(toddler in children);
+            //console.log(toddler in children);
             children.push(toddler)
             pair.set(child, children)
             size.set(toddler, 5); //Doesn't reach this if statement, so set here
             if (data[i][opts.value]) {
-              console.log('in the value1');
+              //console.log('in the value1');
               //size.set(child, data[i][opts.value].value)
               size.set(child, 5);
             }
         } //End of (children.indexOf(toddler) == -1) //toddler!=children
       } else {
-        console.log("p==c");
+        //console.log("p==c");
         children = [toddler]
         pair.set(child, children)
-        console.log(child+'---'+children);
+        //console.log(child+'---'+children);
         size.set(toddler, 5); //Doesn't reach this if statement, so set here
         if (data[i][opts.value]) {
-          console.log('in the value2');
+          ///console.log('in the value2');
           //size.set(child, data[i][opts.value].value)
           size.set(child, 5);
         }
@@ -397,10 +374,10 @@ d3sparql.tree = function(json, config) {
     }
     //end of indented 1
 
-    console.log('pair2');
-    console.log(pair);
-    //debugger;
-    console.log('after debugger');
+    ///console.log('pair2');
+    ///console.log(pair);
+    /////debugger;
+    ///console.log('after debugger');
 
       }//innermost toddler for loop
     }//2nd for loop
@@ -1665,6 +1642,32 @@ Fix rotation angle for each text to avoid string collision
 d3sparql.circlepack = function(json, config) {
   var tree = d3sparql.tree(json, config)
   console.log('out of tree');
+  console.log(tree);
+  console.log(tree.children);
+  debugger
+
+  //Give each child a size
+  for (var i = 0; i < tree.children.length; i++) {
+    console.log(tree.children.length);
+    for (var k = 0; k < tree.children[i].children.length; k++) {
+      console.log(tree.children[i].children.length);
+      for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
+        console.log(tree.children[i].children[k].children.length);
+        tree.children[i].children[k].children[j]['size'] = 20;
+      }
+    }
+  }
+  debugger
+
+  console.log(tree);
+
+  //exit()
+  //tree.x = 360;
+  //tree.y = 360;
+  //tree.r = 360;
+  //for leaf in tree.children {
+
+  //}
 
   var opts = {
     "width":     config.width    || 800,
@@ -1680,12 +1683,21 @@ d3sparql.circlepack = function(json, config) {
   y = d3.scale.linear().range([0, 700])
 
 
-  var pack = d3.layout.pack()
-  .size([r, r])
-  .value(function(d) { return d.size })
+  var pack = d3.layout.pack() //ISSUE
+    .size([r, r])
+    .value(function(d) {
+      console.log(d);
+      return d.size })
+  console.log(pack);
+
+  console.log(tree);
+  //exit()
 
   var node  = tree
   var nodes = pack.nodes(tree)
+  console.log(nodes);
+  //!!exit()  //CURR
+
 
   var vis = d3.select(opts.selector).html("")
   .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
@@ -1694,14 +1706,31 @@ d3sparql.circlepack = function(json, config) {
   .append("svg:g")
   .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
 
+  console.log('Gets here');
+
   vis.selectAll("circle")
   .data(nodes)
   .enter()
   .append("svg:circle")
-  .attr("class", function(d) { return d.children ? "parent" : "child" })
-  .attr("cx", function(d) { return d.x })
-  .attr("cy", function(d) { return d.y })
-  .attr("r", function(d) { return d.r })
+  .attr("class", function(d) {
+    console.log(d);
+    return d.children ? "parent" : "child" })
+  .attr("cx", function(d) {
+    console.log(d.x);
+    //if(d.name=="type") {return 100}
+    //if(d.name=="Thing") {return 50}
+    return /*400})*/d.x })
+  .attr("cy", function(d) {
+    console.log(d.y);
+    //if(d.name=="type") {return 100}
+    //if(d.name=="thing") {return 50}
+   return /*300})/*/d.y })
+
+  .attr("r", function(d) {
+    console.log(d.r);
+    //if(d.name=="type") {return 100}
+    //if(d.name=="thing") {return 50}
+    return /*200})/*/d.r })
   /*
   // CSS: circle { ... }
   .attr("fill", function(d) { return d.children ? "#1f77b4" : "#ccc" })
@@ -1711,15 +1740,25 @@ d3sparql.circlepack = function(json, config) {
   .on("mouseover", function() { d3.select(this).attr("stroke", "#ff7f0e").attr("stroke-width", ".5px") })
   .on("mouseout", function() { d3.select(this).attr("stroke", "steelblue").attr("stroke-width", ".5px") })
   */
-  .on("click", function(d) { return zoom(node === d ? tree : d) })
+  .on("click", function(d) {
+    console.log(d);
+    return zoom(node === d ? tree : d) })
+
+  console.log('Gets here2');
 
   vis.selectAll("text")
   .data(nodes)
   .enter()
   .append("svg:text")
-  .attr("class", function(d) { return d.children ? "parent" : "child" })
-  .attr("x", function(d) { return d.x })
-  .attr("y", function(d) { return d.y })
+  .attr("class", function(d) {
+    console.log(d);
+    return d.children ? "parent" : "child" })
+  .attr("x", function(d) {
+    console.log(d.x);
+    return /*500})/*/d.x })
+  .attr("y", function(d) {
+    console.log(d.y);
+    return /*200})/*/d.y })
   //    .attr("dy", ".35em")
   .style("opacity", function(d) { return d.r > 20 ? 1 : 0 })
   .text(function(d) { return d.name })
@@ -1728,18 +1767,28 @@ d3sparql.circlepack = function(json, config) {
   .attr("text-anchor", "start")
   .transition()
   .duration(1000)
-  .attr("transform", function(d) { return "rotate(-30, " + d.x + ", " + d.y + ")"})
+  .attr("transform", function(d) {
+    return "rotate(-30, " + /*-10*/d.x + ", " + /*-20*/d.y + ")"})
 
-  d3.select(window).on("click", function() {zoom(tree)})
+  console.log('Gets here3');
+
+  d3.select(window).on("click", function() {
+    console.log(this);
+    zoom(tree)})
+
+  console.log('Gets here4');
 
   function zoom(d, i) {
+    console.log('In the ZOOM');
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
     y.domain([d.y - d.r, d.y + d.r])
     var t = vis.transition()
     .duration(d3.event.altKey ? 2000 : 500)
     t.selectAll("circle")
-    .attr("cx", function(d) { return x(d.x) })
+    .attr("cx", function(d) {
+      console.log(d);
+      return x(d.x) })
     .attr("cy", function(d) { return y(d.y) })
     .attr("r", function(d) { return k * d.r })
     t.selectAll("text")
@@ -1748,7 +1797,8 @@ d3sparql.circlepack = function(json, config) {
     .style("opacity", function(d) { return k * d.r > 20 ? 1 : 0 })
     d3.event.stopPropagation()
   }
-}
+  console.log('Gets here5');
+}//End of circlepack
 
 /*
 Rendering sparql-results+json object into a treemap
