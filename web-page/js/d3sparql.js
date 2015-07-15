@@ -1644,7 +1644,7 @@ d3sparql.circlepack = function(json, config) {
   console.log('out of tree');
   console.log(tree);
   console.log(tree.children);
-  debugger
+  //debugger
 
   //Give each child a size
   for (var i = 0; i < tree.children.length; i++) {
@@ -1654,10 +1654,11 @@ d3sparql.circlepack = function(json, config) {
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
         console.log(tree.children[i].children[k].children.length);
         tree.children[i].children[k].children[j]['size'] = 20;
+        tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
       }
     }
   }
-  debugger
+  //debugger
 
   console.log(tree);
 
@@ -1712,26 +1713,12 @@ d3sparql.circlepack = function(json, config) {
   .data(nodes)
   .enter()
   .append("svg:circle")
-  .attr("class", function(d) {
-    console.log(d);
-    return d.children ? "parent" : "child" })
-  .attr("cx", function(d) {
-    console.log(d.x);
-    //if(d.name=="type") {return 100}
-    //if(d.name=="Thing") {return 50}
-    return /*400})*/d.x })
-  .attr("cy", function(d) {
-    console.log(d.y);
-    //if(d.name=="type") {return 100}
-    //if(d.name=="thing") {return 50}
-   return /*300})/*/d.y })
+  .attr("class", function(d) { return d.children ? "parent" : "child" })
+  .attr("cx", function(d) { return /*400})*/d.x })
+  .attr("cy", function(d) { return /*300})/*/d.y })
+  .attr("r", function(d) { return /*200})/*/d.r })
+  //.attr('fill', function(d) {return d.color})
 
-  .attr("r", function(d) {
-    console.log(d.r);
-    //if(d.name=="type") {return 100}
-    //if(d.name=="thing") {return 50}
-    return /*200})/*/d.r })
-  /*
   // CSS: circle { ... }
   .attr("fill", function(d) { return d.children ? "#1f77b4" : "#ccc" })
   .attr("fill-opacity", function(d) { return d.children ? ".1" : "1" })
@@ -1739,10 +1726,8 @@ d3sparql.circlepack = function(json, config) {
   .attr("pointer-events", function(d) { return d.children ? "all" : "none" })
   .on("mouseover", function() { d3.select(this).attr("stroke", "#ff7f0e").attr("stroke-width", ".5px") })
   .on("mouseout", function() { d3.select(this).attr("stroke", "steelblue").attr("stroke-width", ".5px") })
-  */
-  .on("click", function(d) {
-    console.log(d);
-    return zoom(node === d ? tree : d) })
+
+  .on("click", function(d) { return zoom(node === d ? tree : d) })
 
   console.log('Gets here2');
 
