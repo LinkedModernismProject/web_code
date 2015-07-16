@@ -1653,7 +1653,7 @@ d3sparql.circlepack = function(json, config) {
       console.log(tree.children[i].children.length);
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
         console.log(tree.children[i].children[k].children.length);
-        tree.children[i].children[k].children[j]['size'] = 20;
+        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;  //20
         tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
       }
     }
@@ -1684,7 +1684,7 @@ d3sparql.circlepack = function(json, config) {
   y = d3.scale.linear().range([0, 700])
 
 
-  var pack = d3.layout.pack() //ISSUE
+  var pack = d3.layout.pack() //ISSUE with same sized S as P as O's
     .size([r, r])
     .value(function(d) {
       console.log(d);
@@ -1697,6 +1697,17 @@ d3sparql.circlepack = function(json, config) {
   var node  = tree
   var nodes = pack.nodes(tree)
   console.log(nodes);
+  exit()  //TESTING
+
+  for (var i = 0; i < tree.children.length; i++) {
+    for (var k = 0; k < tree.children[i].children.length; k++) {
+      for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
+        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;  //20
+        tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
+      }
+    }
+  }
+
   //!!exit()  //CURR
 
 
@@ -1714,9 +1725,9 @@ d3sparql.circlepack = function(json, config) {
   .enter()
   .append("svg:circle")
   .attr("class", function(d) { return d.children ? "parent" : "child" })
-  .attr("cx", function(d) { return /*400})*/d.x })
-  .attr("cy", function(d) { return /*300})/*/d.y })
-  .attr("r", function(d) { return /*200})/*/d.r })
+  .attr("cx", function(d) { return d.x; })
+  .attr("cy", function(d) { return d.y; })
+  .attr("r", function(d) { return d.r; })
   //.attr('fill', function(d) {return d.color})
 
   // CSS: circle { ... }
@@ -1727,7 +1738,7 @@ d3sparql.circlepack = function(json, config) {
   .on("mouseover", function() { d3.select(this).attr("stroke", "#ff7f0e").attr("stroke-width", ".5px") })
   .on("mouseout", function() { d3.select(this).attr("stroke", "steelblue").attr("stroke-width", ".5px") })
 
-  .on("click", function(d) { return zoom(node === d ? tree : d) })
+  .on("click", function(d) { return zoom(node === d ? tree : d); })
 
   console.log('Gets here2');
 
@@ -1735,15 +1746,9 @@ d3sparql.circlepack = function(json, config) {
   .data(nodes)
   .enter()
   .append("svg:text")
-  .attr("class", function(d) {
-    console.log(d);
-    return d.children ? "parent" : "child" })
-  .attr("x", function(d) {
-    console.log(d.x);
-    return /*500})/*/d.x })
-  .attr("y", function(d) {
-    console.log(d.y);
-    return /*200})/*/d.y })
+  .attr("class", function(d) { return d.children ? "parent" : "child" })
+  .attr("x", function(d) { return d.x })
+  .attr("y", function(d) { return d.y })
   //    .attr("dy", ".35em")
   .style("opacity", function(d) { return d.r > 20 ? 1 : 0 })
   .text(function(d) { return d.name })
@@ -1753,13 +1758,12 @@ d3sparql.circlepack = function(json, config) {
   .transition()
   .duration(1000)
   .attr("transform", function(d) {
-    return "rotate(-30, " + /*-10*/d.x + ", " + /*-20*/d.y + ")"})
+    return "rotate(-30, " + d.x + ", " + d.y + ")"})
+  .attr('fill', function(d) {return d.color})
 
   console.log('Gets here3');
 
-  d3.select(window).on("click", function() {
-    console.log(this);
-    zoom(tree)})
+  d3.select(window).on("click", function() {zoom(tree);})
 
   console.log('Gets here4');
 
@@ -1768,18 +1772,17 @@ d3sparql.circlepack = function(json, config) {
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
     y.domain([d.y - d.r, d.y + d.r])
-    var t = vis.transition()
-    .duration(d3.event.altKey ? 2000 : 500)
+    var t = vis.transition().duration(d3.event.altKey ? 2000 : 500)
     t.selectAll("circle")
-    .attr("cx", function(d) {
+      .attr("cx", function(d) {
       console.log(d);
       return x(d.x) })
-    .attr("cy", function(d) { return y(d.y) })
-    .attr("r", function(d) { return k * d.r })
+      .attr("cy", function(d) { return y(d.y) })
+      .attr("r", function(d) { return k * d.r })
     t.selectAll("text")
-    .attr("x", function(d) { return x(d.x) })
-    .attr("y", function(d) { return y(d.y) })
-    .style("opacity", function(d) { return k * d.r > 20 ? 1 : 0 })
+      .attr("x", function(d) { return x(d.x) })
+      .attr("y", function(d) { return y(d.y) })
+      .style("opacity", function(d) { return k * d.r > 20 ? 1 : 0 })
     d3.event.stopPropagation()
   }
   console.log('Gets here5');
