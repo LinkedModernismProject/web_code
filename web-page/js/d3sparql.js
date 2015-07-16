@@ -1686,9 +1686,7 @@ d3sparql.circlepack = function(json, config) {
 
   var pack = d3.layout.pack() //ISSUE with same sized S as P as O's
     .size([r, r])
-    .value(function(d) {
-      console.log(d);
-      return d.size })
+    .value(function(d) { return d.size })
   console.log(pack);
 
   console.log(tree);
@@ -1700,18 +1698,20 @@ d3sparql.circlepack = function(json, config) {
   //exit()  //TESTING
 
   //For testing different radiuses
+  //MAYBE change X and Y's here too
   for (var i = 0; i < tree.children.length; i++) {
-    if(tree.children[i].depth==1) { //Useless here
+    if(tree.children[i].depth==1) { //Useless here, cause this will always have the original values for separation of the circles
       console.log('depth 1');
       tree.children[i].r = tree.children[i].r
     }
     for (var k = 0; k < tree.children[i].children.length; k++) {
       if(tree.children[i].depth==1) {
         if(tree.children[i].children[k].depth==2) {
-          //if(tree.children[i].children.length==1)
+          //If the length is 1 divide radius by 2
           (tree.children[i].children.length == 1 ? tree.children[i].children[k].r = tree.children[i].children[k].r/2 : tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length)
+          //
+          //(tree.children[i].children.length == 1 ? tree.children[i].children[k].x = tree.children[i].children[k].x : tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length)
 
-          //tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length
         }
       }
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
@@ -1739,6 +1739,8 @@ d3sparql.circlepack = function(json, config) {
       }
     }
   }
+
+
 
   //!!exit()  //CURR
 
@@ -1778,7 +1780,9 @@ d3sparql.circlepack = function(json, config) {
   .on("mouseover", function() { d3.select(this).attr("stroke", "#ff7f0e").attr("stroke-width", ".5px") })
   .on("mouseout", function() { d3.select(this).attr("stroke", "steelblue").attr("stroke-width", ".5px") })
 
-  .on("click", function(d) { return zoom(node === d ? tree : d); })
+  .on("click", function(d) {  //The ZOOM that gets activated WORK!!!!!
+    console.log("Before da ZOOM!");
+    return zoom(node === d ? tree : d); })
 
   console.log('Gets here2');
 
@@ -1790,25 +1794,42 @@ d3sparql.circlepack = function(json, config) {
   .attr("x", function(d) { return d.x })
   .attr("y", function(d) { return d.y })
   //    .attr("dy", ".35em")
-  .style("opacity", function(d) { return d.r > 20 ? 1 : 0 })
+  .style("opacity", function(d) { //Try and coordinate depth and click for opacity
+    return 0; //TRY and modify HERE & in the ZOOM !!!!!; 0 removes, 1 shows text
+    return d.r > 20 ? 1 : 0 })
   .text(function(d) { return d.name })
   // rotate to avoid string collision
   //.attr("text-anchor", "middle")
-  .attr("text-anchor", "start")
+  //.attr("text-anchor", "start")
+  .attr("text-anchor", function(d) {  //Used to set the roation of the text string
+    if(d.depth == 1) {return 'end'} //MAYBE!!!!!
+    else if(d.depth == 2) {return 'middle'}
+    else if(d.depth == 3) {return 'start'}
+    else {return "start"}
+  })
   .transition()
   .duration(1000)
-  .attr("transform", function(d) {
-    return "rotate(-30, " + d.x + ", " + d.y + ")"})
+  .attr("transform", function(d) {  //Used to set the rotation of the string
+    //if(d.depth == 1) {return "rotate(-10, " + d.x + ", " + d.y + ")"}
+    //else if(d.depth == 2) {return "rotate(-20, " + d.x + ", " + d.y + ")"}
+    //else if(d.depth == 3) {return "rotate(-30, " + d.x + ", " + d.y + ")"}
+    /*else {*/return "rotate(-30, " + d.x + ", " + d.y + ")"/*}*/
+  })
   .attr('fill', function(d) {return d.color}) //Remove eventually
 
   console.log('Gets here3');
 
-  d3.select(window).on("click", function() {zoom(tree);})
+  var counter = 0;
+
+  d3.select(window).on("click", function() {
+    console.log('Before the ZOOM');
+    zoom(tree);})
 
 
   console.log('Gets here4');
 
-  function zoom(d, i) {
+  function zoom(d, i) { //Probably something in here!!!!!
+    counter++;
     console.log('In the ZOOM');
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
@@ -1822,12 +1843,17 @@ d3sparql.circlepack = function(json, config) {
         //if('type'==d.name) {return d.r/2;}
         //if('FunctionalProperty'==d.name) {return d.r/3;}
         return k * d.r })
+
     t.selectAll("text")
       .attr("x", function(d) { return x(d.x) })
       .attr("y", function(d) { return y(d.y) })
-      .style("opacity", function(d) { return k * d.r > 20 ? 1 : 0 })
+      .style("opacity", function(d) {
+        console.log(d.depth+'|||'+counter);
+        return k * d.r > 20 ? 1 : 0 })
+
     d3.event.stopPropagation()
-  }
+  }//End of zoom
+
   console.log('Gets here5');
 }//End of circlepack
 
