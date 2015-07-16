@@ -1699,24 +1699,36 @@ d3sparql.circlepack = function(json, config) {
   console.log(nodes);
   //exit()  //TESTING
 
+  //For testing different radiuses
   for (var i = 0; i < tree.children.length; i++) {
-    //tree.children[i]['size'] = Math.floor(Math.random() * 20) + 1;
-    if(tree.children[i].name=='CosineFn') {
+    if(tree.children[i].depth==1) { //Useless here
+      console.log('depth 1');
       tree.children[i].r = tree.children[i].r
     }
-
     for (var k = 0; k < tree.children[i].children.length; k++) {
-      //tree.children[i].children[k]['size'] = Math.floor(Math.random() * 20) + 1;
-      if(tree.children[i].name=='CosineFn') {
-        if(tree.children[i].children[k].name=='type') {
-          tree.children[i].children[k].r = tree.children[i].children[k].r/2
+      if(tree.children[i].depth==1) {
+        if(tree.children[i].children[k].depth==2) {
+          //if(tree.children[i].children.length==1)
+          (tree.children[i].children.length == 1 ? tree.children[i].children[k].r = tree.children[i].children[k].r/2 : tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length)
+
+          //tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length
         }
       }
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
-        if(tree.children[i].name=='CosineFn') {
-          if(tree.children[i].children[k].name=='type') {
-            if(tree.children[i].children[k].children[j].name=='FunctionalProperty') {
-              tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3
+        if(tree.children[i].depth==1) {
+          if(tree.children[i].children[k].depth==2) {
+            if(tree.children[i].children[k].children[j].depth==3) {
+              (tree.children[i].children[k].children.length == 1 ? tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3 : tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].children[k].children.length)
+
+              //if(tree.children[i].children[k].children.length == 1) {
+              //  console.log('in HERE YA');
+              //  tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3
+              //} else {
+              //  console.log('in ELSE HERE YA');
+              //  tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].childrn[k].children.length
+              //}
+
+              //tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].children[k].children.length
             }
           }
         }
