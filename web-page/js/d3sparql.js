@@ -1697,13 +1697,33 @@ d3sparql.circlepack = function(json, config) {
   var node  = tree
   var nodes = pack.nodes(tree)
   console.log(nodes);
-  exit()  //TESTING
+  //exit()  //TESTING
 
   for (var i = 0; i < tree.children.length; i++) {
+    //tree.children[i]['size'] = Math.floor(Math.random() * 20) + 1;
+    if(tree.children[i].name=='CosineFn') {
+      tree.children[i].r = tree.children[i].r
+    }
+
     for (var k = 0; k < tree.children[i].children.length; k++) {
+      //tree.children[i].children[k]['size'] = Math.floor(Math.random() * 20) + 1;
+      if(tree.children[i].name=='CosineFn') {
+        if(tree.children[i].children[k].name=='type') {
+          tree.children[i].children[k].r = tree.children[i].children[k].r/2
+        }
+      }
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
-        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;  //20
-        tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
+        if(tree.children[i].name=='CosineFn') {
+          if(tree.children[i].children[k].name=='type') {
+            if(tree.children[i].children[k].children[j].name=='FunctionalProperty') {
+              tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3
+            }
+          }
+        }
+        //if(tree.children[i].children[k].children[j].name=='CosineFn') {return d.r;}
+        //if('type'==d.name) {return d.r/2;}
+        //if('FunctionalProperty'==d.name) {return d.r/3;}
+        //tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
       }
     }
   }
@@ -1725,9 +1745,17 @@ d3sparql.circlepack = function(json, config) {
   .enter()
   .append("svg:circle")
   .attr("class", function(d) { return d.children ? "parent" : "child" })
-  .attr("cx", function(d) { return d.x; })
-  .attr("cy", function(d) { return d.y; })
-  .attr("r", function(d) { return d.r; })
+  .attr("cx", function(d) {
+    //if('CosineFn'==d.name) { console.log(d.x);}//return 25;}
+    return d.x; })
+  .attr("cy", function(d) {
+    //if('CosineFn'==d.name) {return 25;}
+    return d.y; })
+  .attr("r", function(d) {
+    //if('CosineFn'==d.name) {return d.r;}
+    //if('type'==d.name) {return d.r/2;}
+    //if('FunctionalProperty'==d.name) {return d.r/3;}
+    return d.r; })
   //.attr('fill', function(d) {return d.color})
 
   // CSS: circle { ... }
@@ -1759,11 +1787,12 @@ d3sparql.circlepack = function(json, config) {
   .duration(1000)
   .attr("transform", function(d) {
     return "rotate(-30, " + d.x + ", " + d.y + ")"})
-  .attr('fill', function(d) {return d.color})
+  .attr('fill', function(d) {return d.color}) //Remove eventually
 
   console.log('Gets here3');
 
   d3.select(window).on("click", function() {zoom(tree);})
+
 
   console.log('Gets here4');
 
@@ -1774,11 +1803,13 @@ d3sparql.circlepack = function(json, config) {
     y.domain([d.y - d.r, d.y + d.r])
     var t = vis.transition().duration(d3.event.altKey ? 2000 : 500)
     t.selectAll("circle")
-      .attr("cx", function(d) {
-      console.log(d);
-      return x(d.x) })
+      .attr("cx", function(d) { return x(d.x) })
       .attr("cy", function(d) { return y(d.y) })
-      .attr("r", function(d) { return k * d.r })
+      .attr("r", function(d) {
+        //if('CosineFn'==d.name) {return d.r;}
+        //if('type'==d.name) {return d.r/2;}
+        //if('FunctionalProperty'==d.name) {return d.r/3;}
+        return k * d.r })
     t.selectAll("text")
       .attr("x", function(d) { return x(d.x) })
       .attr("y", function(d) { return y(d.y) })
