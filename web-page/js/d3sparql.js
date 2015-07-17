@@ -1782,6 +1782,7 @@ d3sparql.circlepack = function(json, config) {
 
   .on("click", function(d) {  //The ZOOM that gets activated WORK!!!!!
     console.log("Before da ZOOM!");
+    console.log(d);
     return zoom(node === d ? tree : d); })
 
   console.log('Gets here2');
@@ -1793,15 +1794,21 @@ d3sparql.circlepack = function(json, config) {
   .attr("class", function(d) { return d.children ? "parent" : "child" })
   .attr("x", function(d) { return d.x })
   .attr("y", function(d) { return d.y })
-  //    .attr("dy", ".35em")
+  //    .attr("dy", ".35em")  //TRY
   .style("opacity", function(d) { //Try and coordinate depth and click for opacity
-    return 0; //TRY and modify HERE & in the ZOOM !!!!!; 0 removes, 1 shows text
+    console.log(d);
+    if(d.depth < 2) {
+      console.log('THIS:'+d);
+      return d.r > 20 ? 1 : 0 }
+    else { return 0; }
+    //return 1; //TRY and modify HERE & in the ZOOM !!!!!; 0 removes, 1 shows text
     return d.r > 20 ? 1 : 0 })
   .text(function(d) { return d.name })
   // rotate to avoid string collision
   //.attr("text-anchor", "middle")
   //.attr("text-anchor", "start")
   .attr("text-anchor", function(d) {  //Used to set the roation of the text string
+    return "middle";
     if(d.depth == 1) {return 'end'} //MAYBE!!!!!
     else if(d.depth == 2) {return 'middle'}
     else if(d.depth == 3) {return 'start'}
@@ -1819,8 +1826,6 @@ d3sparql.circlepack = function(json, config) {
 
   console.log('Gets here3');
 
-  var counter = 0;
-
   d3.select(window).on("click", function() {
     console.log('Before the ZOOM');
     zoom(tree);})
@@ -1829,7 +1834,6 @@ d3sparql.circlepack = function(json, config) {
   console.log('Gets here4');
 
   function zoom(d, i) { //Probably something in here!!!!!
-    counter++;
     console.log('In the ZOOM');
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
@@ -1848,7 +1852,7 @@ d3sparql.circlepack = function(json, config) {
       .attr("x", function(d) { return x(d.x) })
       .attr("y", function(d) { return y(d.y) })
       .style("opacity", function(d) {
-        console.log(d.depth+'|||'+counter);
+        //console.log(d.depth+'|||'+counter); TESTING
         return k * d.r > 20 ? 1 : 0 })
 
     d3.event.stopPropagation()
