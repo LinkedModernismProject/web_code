@@ -1783,7 +1783,10 @@ d3sparql.circlepack = function(json, config) {
   .on("click", function(d) {  //The ZOOM that gets activated WORK!!!!!
     console.log("Before da ZOOM!");
     console.log(d);
-    return zoom(node === d ? tree : d); })
+    console.log(tree);
+    return zoom(node === d ?
+      tree, d.depth //Currently not getting it to pass properly
+       : d);}) //WORKING HERE to pass the depth to zoom so it can show the correct strings
 
   console.log('Gets here2');
 
@@ -1797,7 +1800,7 @@ d3sparql.circlepack = function(json, config) {
   //    .attr("dy", ".35em")  //TRY
   .style("opacity", function(d) { //Try and coordinate depth and click for opacity
     console.log(d);
-    if(d.depth < 2) {
+    if(d.depth < 2) { //To show only the root and Subj's when first starting
       console.log('THIS:'+d);
       return d.r > 20 ? 1 : 0 }
     else { return 0; }
@@ -1833,8 +1836,10 @@ d3sparql.circlepack = function(json, config) {
 
   console.log('Gets here4');
 
-  function zoom(d, i) { //Probably something in here!!!!!
-    console.log('In the ZOOM');
+  function zoom(d, i) { //Probably something in here!!!!!; i doens't even get used
+    console.log(d);
+    console.log(i);
+    console.log('IN ZOOM');
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
     y.domain([d.y - d.r, d.y + d.r])
@@ -1852,7 +1857,7 @@ d3sparql.circlepack = function(json, config) {
       .attr("x", function(d) { return x(d.x) })
       .attr("y", function(d) { return y(d.y) })
       .style("opacity", function(d) {
-        //console.log(d.depth+'|||'+counter); TESTING
+        console.log(d.depth+'|||'); //TESTING
         return k * d.r > 20 ? 1 : 0 })
 
     d3.event.stopPropagation()
