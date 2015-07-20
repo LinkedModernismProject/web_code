@@ -315,7 +315,10 @@ d3sparql.tree = function(json, config) {
           root_temp.push(parent);
           size.set(parent, 5);
         }
+<<<<<<< HEAD
         console.log(pair._);
+=======
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
 
     console.log(parent+' ||| '+child)
 
@@ -324,11 +327,16 @@ d3sparql.tree = function(json, config) {
       if (pair.has(parent)) {
         console.log('hasPar:'+parent);
         children = pair.get(parent)
+<<<<<<< HEAD
         console.log(child);
         console.log(children);
         if(children.indexOf(child) == -1) {
         //if(child!=children) { //To stop duplicates of predicates
           console.log('if child!=children');
+=======
+        console.log(children);
+        if(child!=children) { //To stop duplicates of predicates
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
           children.push(child)
           pair.set(parent, children)
           size.set(child, 5); //Doesn't reach this if statement, so set here
@@ -337,7 +345,11 @@ d3sparql.tree = function(json, config) {
             //size.set(child, data[i][opts.value].value)
             size.set(child, 5);
           }
+<<<<<<< HEAD
         }//End of children.indexOf(child) == -1 //End of child!=children
+=======
+        }//End of child!=children
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
       } else {
         console.log("p==c");
         children = [child]
@@ -372,6 +384,10 @@ d3sparql.tree = function(json, config) {
         //  continue;
         //}
         //console.log(pair.hasOwnProperty(toddler));
+<<<<<<< HEAD
+=======
+        console.log('hasPar tod');
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
         children = pair.get(child)
         console.log(toddler);
         console.log(children);
@@ -636,7 +652,11 @@ var subj_size = subj.length;
 var pred_size = pred.length;
 var obj_size = obj.length;
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
+<<<<<<< HEAD
 data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}, {"size": -5}];  //Size -5 used to help remove inconsitent bar heights and cut offs, as well as helping the lowest value appear in the barchart
+=======
+data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}, {"size": -5}];	//Size -5 used to help remove inconsitent bar heights and cut offs, as well as helping the lowest value appear in the barchart
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
 
 var opts = {
   "label_x":  config.label_x  || "Data" || head[0],
@@ -652,9 +672,15 @@ var opts = {
 var scale_x = d3.scale.ordinal().rangeRoundBands([0, opts.width - opts.margin], 0.1)
 var scale_y = d3.scale.linear().range([opts.height - opts.margin, 0])
 var axis_x = d3.svg.axis().scale(scale_x).orient("bottom")
+<<<<<<< HEAD
 var axis_y = d3.svg.axis().scale(scale_y).orient("left")  //.ticks(10, "%")
 scale_x.domain(data.map(function(d) {return d.spo}))
 scale_y.domain(d3.extent(data1, function(d) {return parseInt(d.size + 5)})) //Set to +5 to counteract the -5 above and have the barchart appear normally
+=======
+var axis_y = d3.svg.axis().scale(scale_y).orient("left")	//.ticks(10, "%")
+scale_x.domain(data.map(function(d) {return d.spo}))
+scale_y.domain(d3.extent(data1, function(d) {return parseInt(d.size + 5)}))	//Set to +5 to counteract the -5 above and have the barchart appear normally
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
 
 var svg = d3.select(opts.selector).html("").append("svg")
 .attr("width", opts.width)
@@ -677,7 +703,11 @@ var bar = svg.selectAll(".bar")
 .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
 .attr("class", "bar")
 .attr("x", function(d) {return scale_x(d.spo)})
+<<<<<<< HEAD
 .attr("width", scale_x.rangeBand())//function (d) {return scale_x.rangeBand()}) //POSSIBLY CHANGE
+=======
+.attr("width", scale_x.rangeBand())//function (d) {return scale_x.rangeBand()})	//POSSIBLY CHANGE
+>>>>>>> 496446e8009f9820652be2ebcf01b1d2b14b441a
 .attr("y", function(d) {return scale_y(d.size)})
 .attr("height", function(d) {return opts.height - scale_y(parseInt(d.size)) - opts.margin})
 /*
