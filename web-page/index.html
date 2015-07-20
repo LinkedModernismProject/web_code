@@ -46,7 +46,7 @@
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.fittext.js"></script>
   <script src="js/wow.min.js"></script>
-  <script src="js/jqueryui.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
@@ -62,7 +62,7 @@
 
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
-  var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo/>";
+  var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
   //call table url process and visualization process for selected visualization
   $(function() {
     //$.removeCookie("query")
@@ -159,10 +159,14 @@
       $("#tabVis").addClass("active");
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
+      console.log($("#subj").val())
+console.log($("#obj").val())
+console.log($("#pred").val())
 	if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
         var query = $("#query").val();
       else
         var query = constructQuery();
+      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -183,39 +187,12 @@
       exec1(query);
     });
 
-    //This shows or hides tabs in the filters page
-    $("#selType").change(function(){
-      if(this.value === "General"){
-        $("#thingName").hide();
-        $("#generalName").show();
-      } else if(this.value === "Specific"){
-        $("#thingName").show();
-        $("#generalName").hide();
-      }
-    });
-
-    //This shows or hides tabs in the filters page
-    $("#selThing").change(function(){
-      if(this.value === "Agent"){
-        $("#agentName").removeClass("hidden");
-        $("#placeName").addClass("hidden");
-        $("#productionName").addClass("hidden");
-      } else if(this.value === "Place"){
-        $("#agentName").addClass("hidden");
-        $("#placeName").removeClass("hidden");
-        $("#productionName").addClass("hidden");
-      } else if(this.value === "Production"){
-        $("#agentName").addClass("hidden");
-        $("#placeName").addClass("hidden");
-        $("#productionName").removeClass("hidden");
-      }
-    });
     auto.autocorrect();
   });
 
   //Function that takes the S P O and makes the query
   function constructQuery(){
-    var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($("#subj").val() != ""){
       query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '", "i") .';
     }
@@ -226,6 +203,7 @@
       query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '", "i")';
     }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 20';
+    console.log(query);
     return query;
   }
 
@@ -308,15 +286,15 @@
 // default-graph-uri=http://localhost:8890/may26&
 // Use http://localhost:8890/unTrue, is the updated version
 function constructURL(query){
-  var url = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
-  var queryURL = url + "query=" + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 // Use http://localhost:8890/unTrue, is the updated version
 function exec1(sparql) {
-  var endpoint = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&";
+  var endpoint = "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
 
@@ -608,59 +586,13 @@ function render(json) {
               <br/><br/>
             </div>
 
-            <div class="row">
-              <div class="col-sm-offset-1 col-md-offset-1 col-sm-4  col-md-4">
-                <label for="sel1">What Thing are you looking for?</label>
-                <select class="form-control" id="selThing">
-                  <option selected value="Agent">Agent</option>
-                  <option value="Place">Place</option>
-                  <option value="Production">Production</option>
-                </select>
-              </div>
+            <br/><br/>
 
-              <div class="col-sm-offset-1 col-md-offset-1 col-sm-6 col-md-6">
-                <label for="sel2">With a specific search you enter the Item's name, with General you use filters</label>
-                <select class="form-control" id="selType">
-                  <option selected value="General">General</option>
-                  <option value="Specific">Specific</option>
-                </select>
-              </div>
-            </div>
 
             <br/><br/>
-            <h6>Select a visualization</h6>
-            <div class="vis-select1">
-              <input id="fd1" type="radio" checked="checked" name="optradio1" value="fd" />
-              <label class="vis-s1 fd" for="fd1"></label>
-              <input id="sb1" type="radio" name="optradio1" value="sb" />
-              <label class="vis-s1 sb"for="sb1"></label>
-              <input id="cp1" type="radio" name="optradio1" value="cp" />
-              <label class="vis-s1 cp" for="cp1"></label>
-              <input id="wm1" type="radio" name="optradio1" value="wm" />
-              <label class="vis-s1 wm"for="wm1"></label>
-              <input id="bp1" type="radio" name="optradio1" value="bp" />
-              <label class="vis-s1 bp" for="bp1"></label>
-              <input id="sk1" type="radio" name="optradio1" value="sk" />
-              <label class="vis-s1 sk"for="sk1"></label>
-            </div>
-
-            <br/><br/>
-            <div id="thingName" class="form-inline">
-              <select class="form-control" id="spFilter">
-                <option value="?Subject">Subject</option>
-                <option value="?Predicate">Predicate</option>
-                <option value="?Object">Object</option>
-              </select>
-              <input type="textarea" name="query" id="specificName" class="filter-search" placeholder="Enter the Things name Ex. Pocahantas"/>
-              <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
-            </div>
-
-
-            <br/>
 
             <div class="row" id="generalName">
               <div class="col-sm-11 col-md-offset-1" id="agentName">
-                <h2>Agent</h2>
                 <div class="form-group">
                   <div>
                     <select class="form-control" id="selGender">
@@ -1234,34 +1166,29 @@ function render(json) {
                   </div>
                   <br/>
                   <div>
+
                     <input class="non-search-text" type="textarea" class="filter-search" id="selAssociationA" placeholder="Thing you want your Results to be associated with."></textarea>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-11 col-sm-offset-1 hidden" id="placeName">
-                <h2>Place</h2>
-                <div class="form-group">
-                  <div>
-                    <input class="non-search-text" type="textarea" class="filter-search" id="selAssociationB" placeholder="Thing you want your Results to be associated with."></textarea>
-                  </div>
-                  <br/>
-                </div>
-              </div>
+              <br/>
+            <h6>Select a visualization</h6>
+            <div class="vis-select1">
+              <input id="fd1" type="radio" checked="checked" name="optradio1" value="fd" />
+              <label class="vis-s1 fd" for="fd1"></label>
+              <input id="sb1" type="radio" name="optradio1" value="sb" />
+              <label class="vis-s1 sb"for="sb1"></label>
+              <input id="cp1" type="radio" name="optradio1" value="cp" />
+              <label class="vis-s1 cp" for="cp1"></label>
+              <input id="wm1" type="radio" name="optradio1" value="wm" />
+              <label class="vis-s1 wm"for="wm1"></label>
+              <input id="bp1" type="radio" name="optradio1" value="bp" />
+              <label class="vis-s1 bp" for="bp1"></label>
+              <input id="sk1" type="radio" name="optradio1" value="sk" />
+              <label class="vis-s1 sk"for="sk1"></label>
+            </div>
+            <br/>
 
-
-              <div class="col-sm-11 col-sm-offset-1 hidden" id="productionName">
-                <h2>Production</h2>
-                <div class="form-group">
-                  <div>
-                    <input class="non-search-text" type="textarea" class="filter-search" id="selCreatedBy" placeholder="Only list items created by the agent named here."></textarea>
-                  </div>
-                  <br/>
-                  <div>
-                    <input class="non-search-text" type="textarea" class="filter-search" id="selAssociationC" placeholder="Thing you want your Results to be associated with."></textarea>
-                  </div>
-
-                </div>
-              </div>
               <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
 
             </div>
