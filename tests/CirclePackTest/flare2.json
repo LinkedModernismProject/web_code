@@ -1,0 +1,380 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 10},
+      {"name": "CommunityStructure", "size": 10},
+      {"name": "HierarchicalCluster", "size": 10},
+      {"name": "MergeEdge", "size": 10}
+     ]
+    },
+    {
+     "name": "graph",
+     "children": [
+      {"name": "BetweennessCentrality", "size": 10},
+      {"name": "LinkDistance", "size": 10},
+      {"name": "MaxFlowMinCut", "size": 10},
+      {"name": "ShortestPaths", "size": 10},
+      {"name": "SpanningTree", "size": 10}
+     ]
+    },
+    {
+     "name": "optimization",
+     "children": [
+      {"name": "AspectRatioBanker", "size": 10}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "animate",
+   "children": [
+    {"name": "Easing", "size": 10},
+    {"name": "FunctionSequence", "size": 10},
+    {
+     "name": "interpolate",
+     "children": [
+      {"name": "ArrayInterpolator", "size": 10},
+      {"name": "ColorInterpolator", "size": 10},
+      {"name": "DateInterpolator", "size": 10},
+      {"name": "Interpolator", "size": 10},
+      {"name": "MatrixInterpolator", "size": 10},
+      {"name": "NumberInterpolator", "size": 10},
+      {"name": "ObjectInterpolator", "size": 10},
+      {"name": "PointInterpolator", "size": 10},
+      {"name": "RectangleInterpolator", "size": 10}
+     ]
+    },
+    {"name": "ISchedulable", "size": 10},
+    {"name": "Parallel", "size": 10},
+    {"name": "Pause", "size": 10},
+    {"name": "Scheduler", "size": 10},
+    {"name": "Sequence", "size": 10},
+    {"name": "Transition", "size": 10},
+    {"name": "Transitioner", "size": 10},
+    {"name": "TransitionEvent", "size": 10},
+    {"name": "Tween", "size": 10}
+   ]
+  },
+  {
+   "name": "data",
+   "children": [
+    {
+     "name": "converters",
+     "children": [
+      {"name": "Converters", "size": 10},
+      {"name": "DelimitedTextConverter", "size": 10},
+      {"name": "GraphMLConverter", "size": 10},
+      {"name": "IDataConverter", "size": 10},
+      {"name": "JSONConverter", "size": 10}
+     ]
+    },
+    {"name": "DataField", "size": 10},
+    {"name": "DataSchema", "size": 10},
+    {"name": "DataSet", "size": 10},
+    {"name": "DataSource", "size": 10},
+    {"name": "DataTable", "size": 10},
+    {"name": "DataUtil", "size": 10}
+   ]
+  },
+  {
+   "name": "display",
+   "children": [
+    {"name": "DirtySprite", "size": 10},
+    {"name": "LineSprite", "size": 10},
+    {"name": "RectSprite", "size": 10},
+    {"name": "TextSprite", "size": 10}
+   ]
+  },
+  {
+   "name": "flex",
+   "children": [
+    {"name": "FlareVis", "size": 10}
+   ]
+  },
+  {
+   "name": "physics",
+   "children": [
+    {"name": "DragForce", "size": 10},
+    {"name": "GravityForce", "size": 10},
+    {"name": "IForce", "size": 10},
+    {"name": "NBodyForce", "size": 10},
+    {"name": "Particle", "size": 10},
+    {"name": "Simulation", "size": 10},
+    {"name": "Spring", "size": 10},
+    {"name": "SpringForce", "size": 10}
+   ]
+  },
+  {
+   "name": "query",
+   "children": [
+    {"name": "AggregateExpression", "size": 10},
+    {"name": "And", "size": 10},
+    {"name": "Arithmetic", "size": 10},
+    {"name": "Average", "size": 10},
+    {"name": "BinaryExpression", "size": 10},
+    {"name": "Comparison", "size": 10},
+    {"name": "CompositeExpression", "size": 10},
+    {"name": "Count", "size": 10},
+    {"name": "DateUtil", "size": 10},
+    {"name": "Distinct", "size": 10},
+    {"name": "Expression", "size": 10},
+    {"name": "ExpressionIterator", "size": 10},
+    {"name": "Fn", "size": 10},
+    {"name": "If", "size": 10},
+    {"name": "IsA", "size": 10},
+    {"name": "Literal", "size": 10},
+    {"name": "Match", "size": 10},
+    {"name": "Maximum", "size": 10},
+    {
+     "name": "methods",
+     "children": [
+      {"name": "add", "size": 10},
+      {"name": "and", "size": 10},
+      {"name": "average", "size": 10},
+      {"name": "count", "size": 10},
+      {"name": "distinct", "size": 10},
+      {"name": "div", "size": 10},
+      {"name": "eq", "size": 10},
+      {"name": "fn", "size": 10},
+      {"name": "gt", "size": 10},
+      {"name": "gte", "size": 10},
+      {"name": "iff", "size": 10},
+      {"name": "isa", "size": 10},
+      {"name": "lt", "size": 10},
+      {"name": "lte", "size": 10},
+      {"name": "max", "size": 10},
+      {"name": "min", "size": 10},
+      {"name": "mod", "size": 10},
+      {"name": "mul", "size": 10},
+      {"name": "neq", "size": 10},
+      {"name": "not", "size": 10},
+      {"name": "or", "size": 10},
+      {"name": "orderby", "size": 10},
+      {"name": "range", "size": 10},
+      {"name": "select", "size": 10},
+      {"name": "stddev", "size": 10},
+      {"name": "sub", "size": 10},
+      {"name": "sum", "size": 10},
+      {"name": "update", "size": 10},
+      {"name": "variance", "size": 10},
+      {"name": "where", "size": 10},
+      {"name": "xor", "size": 10},
+      {"name": "_", "size": 10}
+     ]
+    },
+    {"name": "Minimum", "size": 10},
+    {"name": "Not", "size": 10},
+    {"name": "Or", "size": 10},
+    {"name": "Query", "size": 10},
+    {"name": "Range", "size": 10},
+    {"name": "StringUtil", "size": 10},
+    {"name": "Sum", "size": 10},
+    {"name": "Variable", "size": 10},
+    {"name": "Variance", "size": 10},
+    {"name": "Xor", "size": 10}
+   ]
+  },
+  {
+   "name": "scale",
+   "children": [
+    {"name": "IScaleMap", "size": 10},
+    {"name": "LinearScale", "size": 10},
+    {"name": "LogScale", "size": 10},
+    {"name": "OrdinalScale", "size": 10},
+    {"name": "QuantileScale", "size": 10},
+    {"name": "QuantitativeScale", "size": 10},
+    {"name": "RootScale", "size": 10},
+    {"name": "Scale", "size": 10},
+    {"name": "ScaleType", "size": 10},
+    {"name": "TimeScale", "size": 10}
+   ]
+  },
+  {
+   "name": "util",
+   "children": [
+    {"name": "Arrays", "size": 10},
+    {"name": "Colors", "size": 10},
+    {"name": "Dates", "size": 10},
+    {"name": "Displays", "size": 10},
+    {"name": "Filter", "size": 10},
+    {"name": "Geometry", "size": 10},
+    {
+     "name": "heap",
+     "children": [
+      {"name": "FibonacciHeap", "size": 10},
+      {"name": "HeapNode", "size": 10}
+     ]
+    },
+    {"name": "IEvaluable", "size": 10},
+    {"name": "IPredicate", "size": 10},
+    {"name": "IValueProxy", "size": 10},
+    {
+     "name": "math",
+     "children": [
+      {"name": "DenseMatrix", "size": 10},
+      {"name": "IMatrix", "size": 10},
+      {"name": "SparseMatrix", "size": 10}
+     ]
+    },
+    {"name": "Maths", "size": 10},
+    {"name": "Orientation", "size": 10},
+    {
+     "name": "palette",
+     "children": [
+      {"name": "ColorPalette", "size": 10},
+      {"name": "Palette", "size": 10},
+      {"name": "ShapePalette", "size": 10},
+      {"name": "SizePalette", "size": 10}
+     ]
+    },
+    {"name": "Property", "size": 10},
+    {"name": "Shapes", "size": 10},
+    {"name": "Sort", "size": 10},
+    {"name": "Stats", "size": 10},
+    {"name": "Strings", "size": 10}
+   ]
+  },
+  {
+   "name": "vis",
+   "children": [
+    {
+     "name": "axis",
+     "children": [
+      {"name": "Axes", "size": 10},
+      {"name": "Axis", "size": 10},
+      {"name": "AxisGridLine", "size": 10},
+      {"name": "AxisLabel", "size": 10},
+      {"name": "CartesianAxes", "size": 10}
+     ]
+    },
+    {
+     "name": "controls",
+     "children": [
+      {"name": "AnchorControl", "size": 10},
+      {"name": "ClickControl", "size": 10},
+      {"name": "Control", "size": 10},
+      {"name": "ControlList", "size": 10},
+      {"name": "DragControl", "size": 10},
+      {"name": "ExpandControl", "size": 10},
+      {"name": "HoverControl", "size": 10},
+      {"name": "IControl", "size": 10},
+      {"name": "PanZoomControl", "size": 10},
+      {"name": "SelectionControl", "size": 10},
+      {"name": "TooltipControl", "size": 10}
+     ]
+    },
+    {
+     "name": "data",
+     "children": [
+      {"name": "Data", "size": 10},
+      {"name": "DataList", "size": 10},
+      {"name": "DataSprite", "size": 10},
+      {"name": "EdgeSprite", "size": 10},
+      {"name": "NodeSprite", "size": 10},
+      {
+       "name": "render",
+       "children": [
+        {"name": "ArrowType", "size": 10},
+        {"name": "EdgeRenderer", "size": 10},
+        {"name": "IRenderer", "size": 10},
+        {"name": "ShapeRenderer", "size": 10}
+       ]
+      },
+      {"name": "ScaleBinding", "size": 10},
+      {"name": "Tree", "size": 10},
+      {"name": "TreeBuilder", "size": 10}
+     ]
+    },
+    {
+     "name": "events",
+     "children": [
+      {"name": "DataEvent", "size": 10},
+      {"name": "SelectionEvent", "size": 10},
+      {"name": "TooltipEvent", "size": 10},
+      {"name": "VisualizationEvent", "size": 10}
+     ]
+    },
+    {
+     "name": "legend",
+     "children": [
+      {"name": "Legend", "size": 10},
+      {"name": "LegendItem", "size": 10},
+      {"name": "LegendRange", "size": 10}
+     ]
+    },
+    {
+     "name": "operator",
+     "children": [
+      {
+       "name": "distortion",
+       "children": [
+        {"name": "BifocalDistortion", "size": 10},
+        {"name": "Distortion", "size": 10},
+        {"name": "FisheyeDistortion", "size": 10}
+       ]
+      },
+      {
+       "name": "encoder",
+       "children": [
+        {"name": "ColorEncoder", "size": 10},
+        {"name": "Encoder", "size": 10},
+        {"name": "PropertyEncoder", "size": 10},
+        {"name": "ShapeEncoder", "size": 10},
+        {"name": "SizeEncoder", "size": 10}
+       ]
+      },
+      {
+       "name": "filter",
+       "children": [
+        {"name": "FisheyeTreeFilter", "size": 10},
+        {"name": "GraphDistanceFilter", "size": 10},
+        {"name": "VisibilityFilter", "size": 10}
+       ]
+      },
+      {"name": "IOperator", "size": 10},
+      {
+       "name": "label",
+       "children": [
+        {"name": "Labeler", "size": 10},
+        {"name": "RadialLabeler", "size": 10},
+        {"name": "StackedAreaLabeler", "size": 10}
+       ]
+      },
+      {
+       "name": "layout",
+       "children": [
+        {"name": "AxisLayout", "size": 10},
+        {"name": "BundledEdgeRouter", "size": 10},
+        {"name": "CircleLayout", "size": 10},
+        {"name": "CirclePackingLayout", "size": 10},
+        {"name": "DendrogramLayout", "size": 10},
+        {"name": "ForceDirectedLayout", "size": 10},
+        {"name": "IcicleTreeLayout", "size": 10},
+        {"name": "IndentedTreeLayout", "size": 10},
+        {"name": "Layout", "size": 10},
+        {"name": "NodeLinkTreeLayout", "size": 10},
+        {"name": "PieLayout", "size": 10},
+        {"name": "RadialTreeLayout", "size": 10},
+        {"name": "RandomLayout", "size": 10},
+        {"name": "StackedAreaLayout", "size": 10},
+        {"name": "TreeMapLayout", "size": 10}
+       ]
+      },
+      {"name": "Operator", "size": 10},
+      {"name": "OperatorList", "size": 10},
+      {"name": "OperatorSequence", "size": 10},
+      {"name": "OperatorSwitch", "size": 10},
+      {"name": "SortOperator", "size": 10}
+     ]
+    },
+    {"name": "Visualization", "size": 10}
+   ]
+  }
+ ]
+}
