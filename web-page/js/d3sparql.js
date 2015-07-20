@@ -1742,7 +1742,7 @@ d3sparql.circlepack = function(json, config) {
 
 
 
-  //!!exit()  //CURR
+  //!!exit()
 
 
   var vis = d3.select(opts.selector).html("")
@@ -1784,9 +1784,18 @@ d3sparql.circlepack = function(json, config) {
     console.log("Before da ZOOM!");
     console.log(d);
     console.log(tree);
-    return zoom(node === d ?
-      tree, d.depth //Currently not getting it to pass properly
-       : d);}) //WORKING HERE to pass the depth to zoom so it can show the correct strings
+    if(node === d) {
+      console.log('node===d');
+      return zoom(tree, d.depth);
+    } else {
+      console.log('node!!=d');
+      return zoom(d, d.depth);
+    }
+  })
+    //(node === d ? return zoom(tree) : return zoom(d) )})
+    //return zoom(node === d ? tree, d.depth : d);}) //Currently not getting it to pass properly
+
+
 
   console.log('Gets here2');
 
@@ -1830,9 +1839,8 @@ d3sparql.circlepack = function(json, config) {
   console.log('Gets here3');
 
   d3.select(window).on("click", function() {
-    console.log('Before the ZOOM');
+    console.log('Outside the ZOOM');
     zoom(tree);})
-
 
   console.log('Gets here4');
 
@@ -1857,8 +1865,15 @@ d3sparql.circlepack = function(json, config) {
       .attr("x", function(d) { return x(d.x) })
       .attr("y", function(d) { return y(d.y) })
       .style("opacity", function(d) {
-        console.log(d.depth+'|||'); //TESTING
-        return k * d.r > 20 ? 1 : 0 })
+        //Show only the root&Subj's when click outtermost circle or outside circle
+        if (i==0 || typeof i === 'undefined') {
+          if(d.depth < 2) { return d.r > 20 ? 1 : 0 }
+          else { return 0; }
+        } else if(d.depth > i && d.depth < i+2) {  //Get desired text to appear
+          return k * d.r > 20 ? 1 : 0;
+        } else {  //safe guard
+          return 0;
+        }})
 
     d3.event.stopPropagation()
   }//End of zoom
