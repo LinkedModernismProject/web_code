@@ -10,7 +10,7 @@ var d3sparql = {
   debug: false,  // set to true for showing debug information
   debug2: false, //false for JSON; true for FlareJSON
   queryed: false,
-  barchart: true,
+  barchart: false,
   piechart: false,
   tree_bug: true
 }
@@ -55,17 +55,18 @@ WHERE { ... }
 */
 d3sparql.query = function(endpoint, sparql, callback) {
     var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
-  var url = endpoint + "query=" + encodeURIComponent(prefix) + encodeURIComponent(sparql) + '&timeout=30000&debug=on'
-  if (d3sparql.debug) { console.log(endpoint) }
-  if (d3sparql.debug) { console.log(url) }
-  var mime = "application/sparql-results+json"
-  d3.xhr(url, mime, function(request) {
-    var json = request.responseText
-    if (d3sparql.queryed) { console.log(json) }
-    json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
-    if (d3sparql.queryed) { console.log(json) }
-    callback(JSON.parse(json))
-  })
+    //Add a ? infront of query to run on local dbpedia and comment out the prefix part
+    var url = endpoint + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(sparql) + '&timeout=30000&debug=on'
+    if (d3sparql.debug) { console.log(endpoint) }
+    if (d3sparql.debug) { console.log(url) }
+    var mime = "application/sparql-results+json"
+    d3.xhr(url, mime, function(request) {
+      var json = request.responseText
+      if (d3sparql.queryed) { console.log(json) }
+      json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
+      if (d3sparql.queryed) { console.log(json) }
+      callback(JSON.parse(json))
+    })
   /*
   d3.json(url, function(error, json) {
   if (d3sparql.debug) { console.log(error) }
@@ -1640,34 +1641,15 @@ Fix rotation angle for each text to avoid string collision
 */
 d3sparql.circlepack = function(json, config) {
   var tree = d3sparql.tree(json, config)
-  console.log('out of tree');
-  console.log(tree);
-  console.log(tree.children);
-  //debugger
-
   //Give each child a size
   for (var i = 0; i < tree.children.length; i++) {
-    console.log(tree.children.length);
     for (var k = 0; k < tree.children[i].children.length; k++) {
-      console.log(tree.children[i].children.length);
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
-        console.log(tree.children[i].children[k].children.length);
-        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;  //20
-        tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
+        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;
+        //tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
       }
     }
   }
-  //debugger
-
-  console.log(tree);
-
-  //exit()
-  //tree.x = 360;
-  //tree.y = 360;
-  //tree.r = 360;
-  //for leaf in tree.children {
-
-  //}
 
   var opts = {
     "width":     config.width    || 800,
@@ -1683,34 +1665,19 @@ d3sparql.circlepack = function(json, config) {
   y = d3.scale.linear().range([0, 700])
 
 
-  var pack = d3.layout.pack() //ISSUE with same sized S as P as O's
+  var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size })
-  console.log(pack);
-
-  console.log(tree);
-  //exit()
 
   var node  = tree
   var nodes = pack.nodes(tree)
-  console.log(nodes);
-  //exit()  //TESTING
 
-  //For testing different radiuses
-  //MAYBE change X and Y's here too
   for (var i = 0; i < tree.children.length; i++) {
-    if(tree.children[i].depth==1) { //Useless here, cause this will always have the original values for separation of the circles
-      console.log('depth 1');
-      tree.children[i].r = tree.children[i].r
-    }
     for (var k = 0; k < tree.children[i].children.length; k++) {
       if(tree.children[i].depth==1) {
         if(tree.children[i].children[k].depth==2) {
           //If the length is 1 divide radius by 2
           (tree.children[i].children.length == 1 ? tree.children[i].children[k].r = tree.children[i].children[k].r/2 : tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length)
-          //
-          //(tree.children[i].children.length == 1 ? tree.children[i].children[k].x = tree.children[i].children[k].x : tree.children[i].children[k].r = tree.children[i].children[k].r/tree.children[i].children.length)
-
         }
       }
       for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
@@ -1718,31 +1685,12 @@ d3sparql.circlepack = function(json, config) {
           if(tree.children[i].children[k].depth==2) {
             if(tree.children[i].children[k].children[j].depth==3) {
               (tree.children[i].children[k].children.length == 1 ? tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3 : tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].children[k].children.length)
-
-              //if(tree.children[i].children[k].children.length == 1) {
-              //  console.log('in HERE YA');
-              //  tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/3
-              //} else {
-              //  console.log('in ELSE HERE YA');
-              //  tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].childrn[k].children.length
-              //}
-
-              //tree.children[i].children[k].children[j].r = tree.children[i].children[k].children[j].r/tree.children[i].children[k].children.length
             }
           }
         }
-        //if(tree.children[i].children[k].children[j].name=='CosineFn') {return d.r;}
-        //if('type'==d.name) {return d.r/2;}
-        //if('FunctionalProperty'==d.name) {return d.r/3;}
-        //tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
       }
     }
   }
-
-
-
-  //!!exit()
-
 
   var vis = d3.select(opts.selector).html("")
   .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
@@ -1751,25 +1699,14 @@ d3sparql.circlepack = function(json, config) {
   .append("svg:g")
   .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
 
-  console.log('Gets here');
-
   vis.selectAll("circle")
   .data(nodes)
   .enter()
   .append("svg:circle")
   .attr("class", function(d) { return d.children ? "parent" : "child" })
-  .attr("cx", function(d) {
-    //if('CosineFn'==d.name) { console.log(d.x);}//return 25;}
-    return d.x; })
-  .attr("cy", function(d) {
-    //if('CosineFn'==d.name) {return 25;}
-    return d.y; })
-  .attr("r", function(d) {
-    //if('CosineFn'==d.name) {return d.r;}
-    //if('type'==d.name) {return d.r/2;}
-    //if('FunctionalProperty'==d.name) {return d.r/3;}
-    return d.r; })
-  //.attr('fill', function(d) {return d.color})
+  .attr("cx", function(d) { return d.x; })
+  .attr("cy", function(d) { return d.y; })
+  .attr("r", function(d) { return d.r; })
 
   // CSS: circle { ... }
   .attr("fill", function(d) { return d.children ? "#1f77b4" : "#ccc" })
@@ -1779,24 +1716,14 @@ d3sparql.circlepack = function(json, config) {
   .on("mouseover", function() { d3.select(this).attr("stroke", "#ff7f0e").attr("stroke-width", ".5px") })
   .on("mouseout", function() { d3.select(this).attr("stroke", "steelblue").attr("stroke-width", ".5px") })
 
-  .on("click", function(d) {  //The ZOOM that gets activated WORK!!!!!
-    console.log("Before da ZOOM!");
-    console.log(d);
-    console.log(tree);
+  .on("click", function(d) {
+    //Return the depth as well so that it can show the right levels text
     if(node === d) {
-      console.log('node===d');
       return zoom(tree, d.depth);
     } else {
-      console.log('node!!=d');
       return zoom(d, d.depth);
     }
   })
-    //(node === d ? return zoom(tree) : return zoom(d) )})
-    //return zoom(node === d ? tree, d.depth : d);}) //Currently not getting it to pass properly
-
-
-
-  console.log('Gets here2');
 
   vis.selectAll("text")
   .data(nodes)
@@ -1805,48 +1732,30 @@ d3sparql.circlepack = function(json, config) {
   .attr("class", function(d) { return d.children ? "parent" : "child" })
   .attr("x", function(d) { return d.x })
   .attr("y", function(d) { return d.y })
-  //    .attr("dy", ".35em")  //TRY
-  .style("opacity", function(d) { //Try and coordinate depth and click for opacity
-    console.log(d);
+  //    .attr("dy", ".35em")
+  .style("opacity", function(d) {
     if(d.depth < 2) { //To show only the root and Subj's when first starting
-      console.log('THIS:'+d);
       return d.r > 20 ? 1 : 0 }
-    else { return 0; }
-    //return 1; //TRY and modify HERE & in the ZOOM !!!!!; 0 removes, 1 shows text
-    return d.r > 20 ? 1 : 0 })
+    else { return 0; }})
   .text(function(d) { return d.name })
   // rotate to avoid string collision
-  //.attr("text-anchor", "middle")
+  .attr("text-anchor", "middle")
   //.attr("text-anchor", "start")
-  .attr("text-anchor", function(d) {  //Used to set the roation of the text string
+  //Used to set the roation of the text string, Maybe use
+  /*.attr("text-anchor", function(d) {
     return "middle";
-    if(d.depth == 1) {return 'end'} //MAYBE!!!!!
+    if(d.depth == 1) {return 'end'}
     else if(d.depth == 2) {return 'middle'}
     else if(d.depth == 3) {return 'start'}
     else {return "start"}
-  })
+  })*/
   .transition()
   .duration(1000)
-  .attr("transform", function(d) {  //Used to set the rotation of the string
-    //if(d.depth == 1) {return "rotate(-10, " + d.x + ", " + d.y + ")"}
-    //else if(d.depth == 2) {return "rotate(-20, " + d.x + ", " + d.y + ")"}
-    //else if(d.depth == 3) {return "rotate(-30, " + d.x + ", " + d.y + ")"}
-    /*else {*/return "rotate(-30, " + d.x + ", " + d.y + ")"/*}*/
-  })
-  .attr('fill', function(d) {return d.color}) //Remove eventually
+  .attr("transform", function(d) { return "rotate(-30, " + d.x + ", " + d.y + ")"})
 
-  console.log('Gets here3');
+  d3.select(window).on("click", function() {zoom(tree);})
 
-  d3.select(window).on("click", function() {
-    console.log('Outside the ZOOM');
-    zoom(tree);})
-
-  console.log('Gets here4');
-
-  function zoom(d, i) { //Probably something in here!!!!!; i doens't even get used
-    console.log(d);
-    console.log(i);
-    console.log('IN ZOOM');
+  function zoom(d, i) {
     var k = r / d.r / 2
     x.domain([d.x - d.r, d.x + d.r])
     y.domain([d.y - d.r, d.y + d.r])
@@ -1854,11 +1763,7 @@ d3sparql.circlepack = function(json, config) {
     t.selectAll("circle")
       .attr("cx", function(d) { return x(d.x) })
       .attr("cy", function(d) { return y(d.y) })
-      .attr("r", function(d) {
-        //if('CosineFn'==d.name) {return d.r;}
-        //if('type'==d.name) {return d.r/2;}
-        //if('FunctionalProperty'==d.name) {return d.r/3;}
-        return k * d.r })
+      .attr("r", function(d) { return k * d.r })
 
     t.selectAll("text")
       .attr("x", function(d) { return x(d.x) })
@@ -1876,8 +1781,6 @@ d3sparql.circlepack = function(json, config) {
 
     d3.event.stopPropagation()
   }//End of zoom
-
-  console.log('Gets here5');
 }//End of circlepack
 
 /*
