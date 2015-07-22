@@ -31,7 +31,7 @@ input[type="textarea"]{
 }
 
 .primary-search{
-  width: 20%;
+  width: 25%;
 }
 
 .filter-search{
@@ -148,7 +148,7 @@ p {
 section {
   width: auto;
   height: auto;
-  padding: 0 0 600px 0;
+  padding: 0;
 }
 
 .navbar-default {
@@ -294,36 +294,36 @@ header {
 
 .header-content .header-content-inner img {
   display: inline;
-  width: 80%;
+  width: 70%;
 }
 
 @media(min-width:600px){
-  .header-content .header-content-inner img {
-    width: 70%;
-  }
-}
-
-@media(min-width:900px){
   .header-content .header-content-inner img {
     width: 60%;
   }
 }
 
-@media(min-width:1300px){
+@media(min-width:900px){
   .header-content .header-content-inner img {
     width: 50%;
   }
 }
 
-@media(min-width:1700px){
+@media(min-width:1300px){
   .header-content .header-content-inner img {
     width: 40%;
   }
 }
 
-@media(min-width:2000px){
+@media(min-width:1700px){
   .header-content .header-content-inner img {
     width: 30%;
+  }
+}
+
+@media(min-width:2000px){
+  .header-content .header-content-inner img {
+    width: 20%;
   }
 }
 
@@ -338,7 +338,9 @@ header {
   color: #721563;
 }
 
-
+footer {
+  bottom: 0;
+}
 
 
 .service-box {

@@ -521,7 +521,7 @@ function render(json) {
 
       <div class="tab-pane fade" id="sectionDist">
         <br/><br/><br/>
-        <object width="100%" height="1000">
+        <object width="98%" height="1000">
           <param name="movie" value="RelFinder.swf">
           <embed src="RelFinder.swf" width="100%" height="1000">
           </embed>
@@ -535,20 +535,13 @@ function render(json) {
 
             <hr class="top">
 
-
-            <p>
-              Searching Hints<br/>
-              1. Capitalize nouns<br/>
-              2. It takes about 15 seconds for a server to return a query, please be patient
-            </p>
-
             <fieldset>
-              <!--<input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>-->
+              <!--<input type="textarea" name="query" id="query" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input type="textarea" name="query" id="query" class="filter-search" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } ORDER BY ASC(?Subject) LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>-->
               <input type="textarea" name="subj" id="subj" class="primary-search" placeholder="Subject (leave blank for anything)"></textarea>
               <input type="textarea" name="pred" id="pred" class="primary-search" placeholder="Predicate (leave blank for anything)"></textarea>
               <input type="textarea" name="obj" id="obj" class="primary-search" placeholder="Object (leave blank for anything)"></textarea>
-              <input type="textarea" name="query" id="query" class="filter-search" value="SELECT distinct * WHERE {   ?Subject ?Predicate ?Object } ORDER BY ASC(?Subject) LIMIT 20" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
-              <div class="clearfix visible-xs-block"><br/></div>
+              <div class="clearfix visible-xs-block"><br/></div><br/><br/>
               <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
 
