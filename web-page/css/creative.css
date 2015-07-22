@@ -521,7 +521,40 @@ body {
   webkit-tap-highlight-color: #222;
 }
 
-
+/*For notification panel*/
+.topcorner{
+   position:absolute;
+   top:20%;
+   right:0;
+   border: 0;
+   width: 300px;
+}
+.hide { /*Might help, but not so far*/
+    display: none;
+}
+/*From material design bootstrap*/
+.panel {
+  border-radius: 2px;
+  border: 0;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.panel > .panel-heading,
+.panel-default > .panel-heading {
+  background-color: #eeeeee;
+}
+.panel-primary > .panel-heading {
+  background-color: #009688;
+}
+.panel-success > .panel-heading {
+  background-color: #4caf50;
+}
+.panel-warning > .panel-heading {
+  background-color: #ff5722;
+}
+[class*="panel-"] > .panel-heading {  /*To get rid of blue line separator between color and white content box*/
+  color: rgba(255, 255, 255, 0.84);
+  border: 0;
+}
 
 .vis-select input{
     margin:0;padding:0;

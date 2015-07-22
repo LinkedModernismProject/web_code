@@ -64,10 +64,32 @@
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
   //call table url process and visualization process for selected visualization
+
+  function close_notif() {
+    console.log('in notification');
+    jQuery('#notification').remove();
+  }
+
+  function nodata_notif() {
+    jQuery(document.body).append(' \
+      <div class="topcorner" id="notification" onClick="close_notif()"> \
+      <div class="panel panel-primary"> \
+        <div class="panel-heading"> \
+            <h3 class="panel-title">No data received</h3> \
+        </div> \
+        <div class="panel-body"> \
+          Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
+        </div> \
+      </div> </div>');
+    jQuery('#notification').show().fadeOut(5000, function() {
+      console.log('notif!!!');
+      jQuery('#notification').remove();
+    });
+  }
+
   $(function() {
     //$.removeCookie("query")
     $("#thingName").hide();
-
     //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
     var cdata = $.cookie("query");
     if(cdata != null || cdata != undefined){
@@ -82,9 +104,11 @@
           response = convertResponse(response); //Remove Link appearances in table
           $("#results").html(response);
           $("table").addClass("table-hover");
+        },
+        error: function(err) {
+          nodata_notif();
         }
       });
-
       //fills the last searches box
       populatePrevious(cdata);
     }
@@ -169,8 +193,6 @@
       exec1(query);
     });
 
-
-
     //Searches by previous query from cookie
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
@@ -216,9 +238,11 @@
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
+      },
+      error: function(err) {
+        nodata_notif();
       }
     });
-
   }
 
   //helps populate results table and execute default visualization (Force Directed)
@@ -282,8 +306,9 @@
 
 // http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
 function constructURL(query){
-  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + /*"?*/"query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
+  var url = "http://dbpedia.org/sparql"; // "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
@@ -291,21 +316,6 @@ function constructURL(query){
 function exec1(sparql) {
   var endpoint = /*"http://dbpedia.org/sparql";*/  "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
-}
-
-function filterClick() {
-  var query = $("#query").val();
-  var cdata = $.cookie("query").split(";");
-  console.log(query);
-  console.log(cdata);
-  if(cdata != null || cdata != undefined){
-    sClick(cdata[0]);
-    exec1(cdata[0]);
-  }
-  else {
-    sClick(query);
-    exec1(query);
-  }
 }
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
@@ -378,9 +388,7 @@ function render(json) {
 
 </head>
 
-
 <body id="page-top">
-
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -413,7 +421,7 @@ function render(json) {
     <li class="active" id="tabHome"><a data-toggle="tab" href="#sectionHome" class="btn" role="button">Home</a></li>
     <li id="tabSearch" ><a data-toggle="tab" href="#sectionSearch" class="btn" role="button">Search</a></li>
     <li id="tabDist" ><a data-toggle="tab" href="#sectionDist" class="btn" role="button">Degrees of Separation</a></li>
-    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" onclick="filterClick()" role="button">Filters</a></li>
+    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" ><a data-toggle="tab" href="#sectionVis" class="btn" role="button">Visualizations</a></li>
   </ul>
