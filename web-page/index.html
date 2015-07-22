@@ -64,6 +64,23 @@
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
   //call table url process and visualization process for selected visualization
+
+  function data_notification() {
+    jQuery("#notification").append(' \
+      <div class="panel panel-primary"> \
+        <div class="panel-heading"> \
+            <h3 class="panel-title">No data received</h3> \
+        </div> \
+        <div class="panel-body"> \
+          Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
+        </div> \
+      </div>');
+    jQuery('#notification').show().fadeOut(5000, function() {
+      console.log('in notification index$$$$$');
+      jQuery('#notification').remove();
+    });
+  }
+
   $(function() {
     //$.removeCookie("query")
     $("#thingName").hide();
@@ -72,21 +89,44 @@
     var cdata = $.cookie("query");
     if(cdata != null || cdata != undefined){
       //Function calls to populate for last search on page load
-      $.ajax({
-        type: "get",
-        url: constructURL(populateResults(cdata)),
-        context: document.body,
-        dataType: "html",
-        cache: false,
-        success: function(response){
-          response = convertResponse(response); //Remove Link appearances in table
-          $("#results").html(response);
-          $("table").addClass("table-hover");
-        }
-      });
+      console.log('start COOKIE!!1');
+      //Do a try
+      try {
+        console.log('in try');
+        $.ajax({
+          type: "get",
+          url: constructURL(populateResults(cdata)),
+          context: document.body,
+          dataType: "html",
+          cache: false,
+          success: function(response){
+            //######
+            console.log('cookie!!!!!!!!!!!');
 
-      //fills the last searches box
-      populatePrevious(cdata);
+            response = convertResponse(response); //Remove Link appearances in table
+            $("#results").html(response);
+            $("table").addClass("table-hover");
+          },
+          error: function(err) {
+
+            console.log('in the ferr');
+            console.log(err);
+            data_notification();
+            console.log('after!! the ferr');
+          }
+        });
+
+        //fills the last searches box
+        populatePrevious(cdata);
+        console.log('end of TRY');
+      } catch(e) {
+        console.log('CATCH!!!!!!!!!!!!!');
+        data_notification();
+        console.log('AFTER THE CATCH!!!!!!!!');
+      }
+      console.log('AFTER TRY & CATCH!!!');
+
+      
     }
 
     //for main search buttons to do tab stuff
@@ -204,8 +244,26 @@
     return query;
   }
 
+  function notification_panel() {
+    jQuery(document.body).append(' \
+        <div class="panel panel-primary"> \
+            <div class="panel-heading"> \
+                <h3 class="panel-title">No data received</h3> \
+            </div> \
+            <div class="panel-body"> \
+                Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
+            </div> \
+        </div>');
+    jQuery('#notification').show().fadeOut(5000, function() {
+      console.log('in notification index!!!');
+      jQuery('#notification').remove();
+    })
+  }//End of notification_panel
+
   //executed on search button click, this populates the results page
   function sClick(query){
+    console.log('start sClick!!!!!!!!');
+    //DO A TRY
     $.ajax({
       type: "get",
       url: constructURL(query),
@@ -283,7 +341,7 @@
 // http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
 function constructURL(query){
   var url = "http://dbpedia.org/sparql"; // "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var queryURL = url + "query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
@@ -291,21 +349,6 @@ function constructURL(query){
 function exec1(sparql) {
   var endpoint = "http://dbpedia.org/sparql"; // "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
-}
-
-function filterClick() {
-  var query = $("#query").val();
-  var cdata = $.cookie("query").split(";");
-  console.log(query);
-  console.log(cdata);
-  if(cdata != null || cdata != undefined){
-    sClick(cdata[0]);
-    exec1(cdata[0]);
-  }
-  else {
-    sClick(query);
-    exec1(query);
-  }
 }
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
@@ -374,6 +417,11 @@ function render(json) {
   }
 }
 
+function close_notif() {
+  console.log('in notification');
+  jQuery('#notification').remove();
+}
+
 </script>
 
 </head>
@@ -418,7 +466,7 @@ function render(json) {
     <li class="active" id="tabHome"><a data-toggle="tab" href="#sectionHome" class="btn" role="button">Home</a></li>
     <li id="tabSearch" ><a data-toggle="tab" href="#sectionSearch" class="btn" role="button">Search</a></li>
     <li id="tabDist" ><a data-toggle="tab" href="#sectionDist" class="btn" role="button">Degrees of Separation</a></li>
-    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" onclick="filterClick()" role="button">Filters</a></li>
+    <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" ><a data-toggle="tab" href="#sectionVis" class="btn" role="button">Visualizations</a></li>
   </ul>

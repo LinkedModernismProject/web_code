@@ -53,37 +53,16 @@ WHERE { ... }
 </body>
 </html>
 */
+
+/*
+function close_notif() {
+  console.log('in notification');
+  jQuery('#notification').remove();
+}
+
 function notification_panel() {
-  /*var notifpanel = ' \
-    <div class="topcorner"> \
-      <div class="panel panel-primary"> \
-          <div class="panel-heading"> \
-              <h3 class="panel-title">Panel primary</h3> \
-          </div> \
-          <div class="panel-body"> \
-              Panel content \
-          </div> \
-      </div> \
-      <div class="panel panel-success"> \
-          <div class="panel-heading"> \
-              <h3 class="panel-title">Panel success</h3> \
-          </div> \
-          <div class="panel-body"> \
-              Panel content \
-          </div> \
-      </div> \
-      <div class="panel panel-warning"> \
-          <div class="panel-heading"> \
-              <h3 class="panel-title">Panel warning</h3> \
-          </div> \
-          <div class="panel-body"> \
-              Panel content \
-          </div> \
-      </div> \
-    </div>';
-  document.write(notifpanel);*/
   jQuery(document.body).append(' \
-    <div class="topcorner" id="notification"> \
+    <div class="topcorner" id="notification" onClick="close_notif()"> \
       <div class="panel panel-primary"> \
           <div class="panel-heading"> \
               <h3 class="panel-title">No data received</h3> \
@@ -93,12 +72,13 @@ function notification_panel() {
           </div> \
       </div> \
     </div>');
-  jQuery('#notification').show().fadeOut(1200, function() {
-    console.log('in notification');
+  jQuery('#notification').show().fadeOut(5000, function() {
+    console.log('in notification2');
     jQuery('#notification').remove();
   })
   
-}
+}//End of notification_panel
+*/
 
 
 d3sparql.query = function(endpoint, sparql, callback) {
@@ -120,7 +100,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
       } catch(e) {
         json = null
         console.log('Before PANEL');
-        notification_panel();
+        //notification_panel();
         console.log('AFTER PANEL');
         console.log('BAD JSON');
       }
