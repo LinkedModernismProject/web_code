@@ -65,8 +65,9 @@
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
   //call table url process and visualization process for selected visualization
 
-  function data_notification() {
-    jQuery("#notification").append(' \
+  function nodata_notification() {
+    jQuery(document.body).append(' \
+      <div class="topcorner" id="notification" onClick="close_notif()"> \
       <div class="panel panel-primary"> \
         <div class="panel-heading"> \
             <h3 class="panel-title">No data received</h3> \
@@ -74,7 +75,7 @@
         <div class="panel-body"> \
           Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
         </div> \
-      </div>');
+      </div> </div>');
     jQuery('#notification').show().fadeOut(5000, function() {
       console.log('in notification index$$$$$');
       jQuery('#notification').remove();
@@ -108,10 +109,9 @@
             $("table").addClass("table-hover");
           },
           error: function(err) {
-
             console.log('in the ferr');
             console.log(err);
-            data_notification();
+            nodata_notification();
             console.log('after!! the ferr');
           }
         });
@@ -429,9 +429,9 @@ function close_notif() {
 
 <body id="page-top">
   <!--For notification on no data; might not need-->
-  <div class="topcorner">
+  <!--<div class="topcorner">
     <span id="notification"></span>
-  </div>
+  </div>-->
 
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
