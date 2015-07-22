@@ -266,7 +266,7 @@
       for(var i = preQuery.length; i > 0 ; i-- && maxC++) {
         var c = preQuery[maxC];
         query = query + ";" + c;
-        if(maxC > 2){ //For some reason 2 means 5, don't question it
+        if(maxC > 2){ //For some reason 2 means 5
         $.cookie("query",query, { expires: expiry});
         var cdata = $.cookie("query");
         populatePrevious(cdata);
@@ -466,51 +466,49 @@ function render(json) {
             </div>
 
 
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href="http://ghostprof.org">
-                <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
+                <img  class="portrait-img" src="img/Portraits/StephenRoss.jpeg" alt="...">
                 <h4>Dr. Stephen Ross</h4>
                 <p>Project Lead, UVic.</p>
               </a>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href"http://www.jefnterysayers.com/">
-                <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
+                <img  class="portrait-img" src="img/Portraits/JenterySayers.jpg" alt="...">
                 <h4>Jentery Sayers</h4>
                 <p>Director of the Maker Lab in the Humanities, UVic</p>
               </a>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
-              <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
+            <div class="portrait">
+              <img  class="portrait-img" src="img/Portraits/SusanBrown.jpg" alt="...">
               <h4>Susan Irene Brown</h4>
               <p>Research Chair in Digital Humanities, University of Guelph.</p>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
-                <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
+                <img  class="portrait-img" src="img/Portraits/ColinAllen.jpg" alt="...">
                 <h4>Colin Allen</h4>
                 <p>Department of History and Philosophy of Science, Indiana University</p>
               </a>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href="http://web.uvic.ca/~siemens/">
-                <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
+                <img  class="portrait-img" src="img/Portraits/RaySiemens.jpg" alt="...">
                 <h4>Ray Siemens</h4>
                 <p>Canada Research Chair in Humanities Computing, UVic.</p>
               </a>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
-                <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
+                <img  class="portrait-img" src="img/Portraits/JonSaklofske.jpg" alt="...">
                 <h4>Jon Saklofske</h4>
                 <p>Department of English, Acadia University.</p>
               </a>
             </div>
-            <div class="clearfix visible-lg-block"></div>
-            <div class="clearfix visible-xs-block"></div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="portrait">
               <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
-                <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
+                <img class="portrait-img" src="img/Portraits/ChristineWalde.jpg" alt="...">
                 <h4>Christine Walde</h4>
                 <p>Grants and Awards Librarian, UVic.</p>
               </a>
