@@ -53,19 +53,83 @@ WHERE { ... }
 </body>
 </html>
 */
+function notification_panel() {
+  /*var notifpanel = ' \
+    <div class="topcorner"> \
+      <div class="panel panel-primary"> \
+          <div class="panel-heading"> \
+              <h3 class="panel-title">Panel primary</h3> \
+          </div> \
+          <div class="panel-body"> \
+              Panel content \
+          </div> \
+      </div> \
+      <div class="panel panel-success"> \
+          <div class="panel-heading"> \
+              <h3 class="panel-title">Panel success</h3> \
+          </div> \
+          <div class="panel-body"> \
+              Panel content \
+          </div> \
+      </div> \
+      <div class="panel panel-warning"> \
+          <div class="panel-heading"> \
+              <h3 class="panel-title">Panel warning</h3> \
+          </div> \
+          <div class="panel-body"> \
+              Panel content \
+          </div> \
+      </div> \
+    </div>';
+  document.write(notifpanel);*/
+  jQuery(document.body).append(' \
+    <div class="topcorner" id="notification"> \
+      <div class="panel panel-primary"> \
+          <div class="panel-heading"> \
+              <h3 class="panel-title">No data received</h3> \
+          </div> \
+          <div class="panel-body"> \
+              Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
+          </div> \
+      </div> \
+    </div>');
+  jQuery('#notification').show().fadeOut(1200, function() {
+    console.log('in notification');
+    jQuery('#notification').remove();
+  })
+  
+}
+
+
 d3sparql.query = function(endpoint, sparql, callback) {
     var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
     //Add a ? infront of query to run on local dbpedia and comment out the prefix part
-    var url = endpoint + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(sparql) + '&timeout=30000&debug=on'
+    var url = endpoint + "query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(sparql) + '&timeout=30000&debug=on'
     if (d3sparql.debug) { console.log(endpoint) }
     if (d3sparql.debug) { console.log(url) }
     var mime = "application/sparql-results+json"
     d3.xhr(url, mime, function(request) {
-      var json = request.responseText
-      if (d3sparql.queryed) { console.log(json) }
-      json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
-      if (d3sparql.queryed) { console.log(json) }
-      callback(JSON.parse(json))
+      console.log('before responseText');
+      try {
+        var json = request.responseText
+        console.log('after responseText');
+        if (d3sparql.queryed) { console.log(json) }
+        json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
+        if (d3sparql.queryed) { console.log(json) }
+        callback(JSON.parse(json))
+      } catch(e) {
+        json = null
+        console.log('Before PANEL');
+        notification_panel();
+        console.log('AFTER PANEL');
+        console.log('BAD JSON');
+      }
+      console.log('after try&catch');
+      //console.log('after responseText');
+      //if (d3sparql.queryed) { console.log(json) }
+      //json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
+      //if (d3sparql.queryed) { console.log(json) }
+      //callback(JSON.parse(json))
     })
   /*
   d3.json(url, function(error, json) {
