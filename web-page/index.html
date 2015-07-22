@@ -65,7 +65,12 @@
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
   //call table url process and visualization process for selected visualization
 
-  function nodata_notification() {
+  function close_notif() {
+    console.log('in notification');
+    jQuery('#notification').remove();
+  }
+
+  function nodata_notif() {
     jQuery(document.body).append(' \
       <div class="topcorner" id="notification" onClick="close_notif()"> \
       <div class="panel panel-primary"> \
@@ -77,7 +82,7 @@
         </div> \
       </div> </div>');
     jQuery('#notification').show().fadeOut(5000, function() {
-      console.log('in notification index$$$$$');
+      console.log('notif!!!');
       jQuery('#notification').remove();
     });
   }
@@ -85,48 +90,27 @@
   $(function() {
     //$.removeCookie("query")
     $("#thingName").hide();
-
     //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
     var cdata = $.cookie("query");
     if(cdata != null || cdata != undefined){
       //Function calls to populate for last search on page load
-      console.log('start COOKIE!!1');
-      //Do a try
-      try {
-        console.log('in try');
-        $.ajax({
-          type: "get",
-          url: constructURL(populateResults(cdata)),
-          context: document.body,
-          dataType: "html",
-          cache: false,
-          success: function(response){
-            //######
-            console.log('cookie!!!!!!!!!!!');
-
-            response = convertResponse(response); //Remove Link appearances in table
-            $("#results").html(response);
-            $("table").addClass("table-hover");
-          },
-          error: function(err) {
-            console.log('in the ferr');
-            console.log(err);
-            nodata_notification();
-            console.log('after!! the ferr');
-          }
-        });
-
-        //fills the last searches box
-        populatePrevious(cdata);
-        console.log('end of TRY');
-      } catch(e) {
-        console.log('CATCH!!!!!!!!!!!!!');
-        data_notification();
-        console.log('AFTER THE CATCH!!!!!!!!');
-      }
-      console.log('AFTER TRY & CATCH!!!');
-
-      
+      $.ajax({
+        type: "get",
+        url: constructURL(populateResults(cdata)),
+        context: document.body,
+        dataType: "html",
+        cache: false,
+        success: function(response){
+          response = convertResponse(response); //Remove Link appearances in table
+          $("#results").html(response);
+          $("table").addClass("table-hover");
+        },
+        error: function(err) {
+          nodata_notif();
+        }
+      });
+      //fills the last searches box
+      populatePrevious(cdata);
     }
 
     //for main search buttons to do tab stuff
@@ -209,8 +193,6 @@
       exec1(query);
     });
 
-
-
     //Searches by previous query from cookie
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
@@ -244,26 +226,8 @@
     return query;
   }
 
-  function notification_panel() {
-    jQuery(document.body).append(' \
-        <div class="panel panel-primary"> \
-            <div class="panel-heading"> \
-                <h3 class="panel-title">No data received</h3> \
-            </div> \
-            <div class="panel-body"> \
-                Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
-            </div> \
-        </div>');
-    jQuery('#notification').show().fadeOut(5000, function() {
-      console.log('in notification index!!!');
-      jQuery('#notification').remove();
-    })
-  }//End of notification_panel
-
   //executed on search button click, this populates the results page
   function sClick(query){
-    console.log('start sClick!!!!!!!!');
-    //DO A TRY
     $.ajax({
       type: "get",
       url: constructURL(query),
@@ -274,9 +238,11 @@
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
+      },
+      error: function(err) {
+        nodata_notif();
       }
     });
-
   }
 
   //helps populate results table and execute default visualization (Force Directed)
@@ -417,23 +383,11 @@ function render(json) {
   }
 }
 
-function close_notif() {
-  console.log('in notification');
-  jQuery('#notification').remove();
-}
-
 </script>
 
 </head>
 
-
 <body id="page-top">
-  <!--For notification on no data; might not need-->
-  <!--<div class="topcorner">
-    <span id="notification"></span>
-  </div>-->
-
-
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
