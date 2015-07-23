@@ -66,20 +66,20 @@
   //call table url process and visualization process for selected visualization
 
   function close_notif() {
-    console.log('in notification');
+    console.log('in close_notif');
     jQuery('#notification').remove();
   }
 
-  function nodata_notif() {
+  function notif_panel(title, msg) {
+    console.log('in notif_panel!!!');
     jQuery(document.body).append(' \
       <div class="topcorner" id="notification" onClick="close_notif()"> \
       <div class="panel panel-primary"> \
         <div class="panel-heading"> \
-            <h3 class="panel-title">No data received</h3> \
+            <h3 class="panel-title">'+title+'</h3> \
         </div> \
-        <div class="panel-body"> \
-          Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later. \
-        </div> \
+        <div class="panel-body">'+msg+
+        '</div> \
       </div> </div>');
     jQuery('#notification').show().fadeOut(5000, function() {
       console.log('notif!!!');
@@ -106,7 +106,8 @@
           $("table").addClass("table-hover");
         },
         error: function(err) {
-          nodata_notif();
+          console.log('in the error');
+          notif_panel('No data received','Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later.');
         }
       });
       //fills the last searches box
@@ -240,7 +241,7 @@
         $("tr").addClass("table-hover");
       },
       error: function(err) {
-        nodata_notif();
+        notif_panel('No data received','Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later.');
       }
     });
   }
@@ -305,16 +306,17 @@
 }
 
 // http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
+//Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = "http://dbpedia.org/sparql"; // "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = /*"http://dbpedia.org/sparql";*/  "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
 
