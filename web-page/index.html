@@ -127,62 +127,50 @@
 
     //This is called from the filters search button, it adds filters
     $(".btn-filters").click(function(){
-      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object ";  //. ";
+      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
-      query = query +  "FILTER regex(?Subject,'Jean')} ORDER BY ASC(?Subject) LIMIT 20 ";
-      if(hasGender != null ){
-        var hasGender = $("#selGender").val();
-        query = query + "?Subject limo:hasGender" + " '" + hasGender + "'.";
+      var hasGender = $("#selGender").val();
+      if(hasGender != "" ){
+        query = query + "?Subject limo:hasGender" + " '" + hasGender + "' . ";
       }
-      if(hasSex != null ){
-        var hasSex = $("#selSex").val();
-        query = query + "?Subject limo:hasSex" + " '" + hasSex + "'.";
+      var hasSex = $("#selSex").val();
+      if(hasSex != "" ){
+        query = query + "?Subject limo:hasSex" + " '" + hasSex + "' . ";
       }
-      if(hasSexuality != null ){
-        var hasSexuality = $("#selSexuality").val();
-        query = query + "?Subject limo:hasSexuality" + " '" + hasSexuality + "'.";
+      var hasSexuality = $("#selSexuality").val();
+      if(hasSexuality != "" ){
+        query = query + "?Subject limo:hasSexuality" + " '" + hasSexuality + "' . ";
       }
-      if(hasOccupation != null ){
-        var hasOccupation = $("#selOccupation").val();
-        query = query + "?Subject limo:hasOccupation" + " '" + hasOccupation + "'.";
+      var hasOccupation = $("#selOccupation").val();
+      if(hasOccupation != "" ){
+        query = query + "?Subject limo:hasOccupation" + " '" + hasOccupation + "' . ";
       }
-      if(hasPlaceOfOrigin != null ){
-        var hasPlaceOfOrigin = $("#selPlaceOfOrigin").val();
-        query = query + "?Subject limo:hasPlaceOfOrigin" + " '" + hasPlaceOfOrigin + "'.";
+      var hasPlaceOfOrigin = $("#selPlaceOfOrigin").val();
+      if(hasPlaceOfOrigin != "" ){
+        query = query + "?Subject limo:hasPlaceOfOrigin" + " '" + hasPlaceOfOrigin + "' . ";
       }
+      var birthYear = $("#selBirthYear").val();
       if(birthYear != "" ){
         console.log(typeof($("#selBirthYear").val()));
         console.log('|||'+$("#selBirthYear").val()+'|||');
-        var birthYear = $("#selBirthYear").val();
         console.log('|||'+birthYear+'|||');
         console.log('|||'+query+'|||');
-        //query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "'.";
+        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
-      if(livedIn != null ){
-        var livedIn = $("#selLivedIn").val();
-        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "'.";
+      var livedIn = $("#selLivedIn").val();
+      if(livedIn != "" ){
+        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
       }
+      var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
         console.log(typeof($("#selAssociationA").val()));
         console.log($("#selAssociationA").val());
-        var associatedWith = $("#selAssociationA").val().trim().replace(/ /g,"_");
-        //query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
+        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
-      if(associatedWith != "" ){
-        console.log(typeof($("#selAssociationB").val()));
-        console.log($("#selAssociationB").val());
-        var associatedWith = $("#selAssociationB").val().trim().replace(/ /g,"_");
-        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
-      }
-      if(associatedWith != "" ){
-        console.log(typeof($("#selAssociationC").val()));
-        console.log($("#selAssociationC").val());
-        var associatedWith = $("#selAssociationC").val().trim().replace(/ /g,"_");
-        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
-      }
+      query = query +  "} ORDER BY ASC(?Subject) LIMIT 20 ";
       console.log(query);
       createCookie(query);
       sClick(query);
@@ -601,7 +589,7 @@ function render(json) {
                 <div class="form-group">
                   <div>
                     <select class="form-control" id="selGender">
-                      <option selected disabled>Gender</option>
+                      <option selected value="">Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
@@ -610,7 +598,7 @@ function render(json) {
                   <br/>
                   <div>
                     <select class="form-control" id="selSex">
-                      <option selected disabled>Sex</option>
+                      <option selected value="">Sex</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
@@ -619,7 +607,7 @@ function render(json) {
                   <br/>
                   <div>
                     <select class="form-control" id="selSexuality">
-                      <option selected disabled>Sexuality</option>
+                      <option selected value="">Sexuality</option>
                       <option value="Bisexual">Bisexual</option>
                       <option value="Heterosexual">Heterosexual</option>
                       <option value="Homosexual">Homosexual</option>
@@ -629,7 +617,7 @@ function render(json) {
                   <br/>
                   <div>
                     <select class="form-control" id="selOccupation">
-                      <option selected disabled>Occupation</option>
+                      <option selected value="">Occupation</option>
                       <option value="Actor">Actor</option>
                       <option value="Architect">Architect</option>
                       <option value="Biographer">Biographer</option>
@@ -662,7 +650,7 @@ function render(json) {
                   <br/>
                   <div>
                     <select class="form-control" id="selPlaceOfOrigin">
-                      <option selected disabled>PlaceOfOrigin</option>
+                      <option selected value="">PlaceOfOrigin</option>
                       <option value="Afganistan">Afghanistan</option>
                       <option value="Albania">Albania</option>
                       <option value="Algeria">Algeria</option>
@@ -919,7 +907,7 @@ function render(json) {
                   <br/>
                   <div>
                     <select class="form-control" id="selLivedIn">
-                      <option selected disabled>Lived In</option>
+                      <option selected value="">Lived In</option>
                       <option value="Afganistan">Afghanistan</option>
                       <option value="Albania">Albania</option>
                       <option value="Algeria">Algeria</option>
