@@ -308,14 +308,14 @@
 //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
 
