@@ -132,7 +132,7 @@
       $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
-      query = query +  "FILTER regex(" + $(spFilter).val() + ", '" + $("#specificName").val().replace(/ /g,"_") + "', 'i')} ORDER BY ASC(" + $(spFilter).val() +  ") LIMIT 20";
+      query = query +  "FILTER regex(?Subject,'i')} ORDER BY ASC(?Subject) LIMIT 20 ";
       if(hasGender != null ){
         var hasGender = $("#selGender").val();
         query = query + "?Subject limo:hasGender" + " '" + hasGender + "'.";
@@ -154,6 +154,8 @@
         query = query + "?Subject limo:hasPlaceOfOrigin" + " '" + hasPlaceOfOrigin + "'.";
       }
       if(birthYear != "" ){
+        console.log(typeof($("#selBirthYear").val()));
+        console.log($("#selBirthYear").val());
         var birthYear = $("#selBirthYear").val();
         query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "'.";
       }
@@ -162,17 +164,24 @@
         query = query + "?Subject limo:LivedIn" + " '" + livedIn + "'.";
       }
       if(associatedWith != "" ){
+        console.log(typeof($("#selAssociationA").val()));
+        console.log($("#selAssociationA").val());
         var associatedWith = $("#selAssociationA").val().trim().replace(/ /g,"_");
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
       }
       if(associatedWith != "" ){
+        console.log(typeof($("#selAssociationB").val()));
+        console.log($("#selAssociationB").val());
         var associatedWith = $("#selAssociationB").val().trim().replace(/ /g,"_");
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
       }
       if(associatedWith != "" ){
+        console.log(typeof($("#selAssociationC").val()));
+        console.log($("#selAssociationC").val());
         var associatedWith = $("#selAssociationC").val().trim().replace(/ /g,"_");
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
       }
+      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -309,14 +318,14 @@
 //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var endpoint = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
 
@@ -475,7 +484,6 @@ function render(json) {
 
             </div>
 
-
             <div class="portrait">
               <a href="http://ghostprof.org">
                 <img  class="portrait-img" src="img/Portraits/StephenRoss.jpeg" alt="...">
@@ -553,7 +561,6 @@ function render(json) {
               <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
             </fieldset>
 
-
             <br/>
             <h6>Select a visualization</h6>
             <div class="vis-select">
@@ -574,7 +581,6 @@ function render(json) {
         </div>
       </div>
 
-
       <div class="tab-pane fade" id="sectionFilter">
         <br/>
         <div class="col-md-8 col-small-8 ">
@@ -585,7 +591,6 @@ function render(json) {
             </div>
 
             <br/><br/>
-
 
             <br/><br/>
 
@@ -1164,7 +1169,6 @@ function render(json) {
                   </div>
                   <br/>
                   <div>
-
                     <input class="non-search-text" type="textarea" class="filter-search" id="selAssociationA" placeholder="Thing you want your Results to be associated with."></textarea>
                   </div>
                 </div>
@@ -1191,12 +1195,10 @@ function render(json) {
 
             </div>
 
-
             <br/><br/><br/>
 
           </div>
         </div>
-
 
         <div class="col-md-3 col-md-offset-1">
           <div class="panel panel-default">
@@ -1213,16 +1215,11 @@ function render(json) {
         <br/><br/><br/><br/>
       </div>
 
-
-
-
-
       <div class="tab-pane fade" id="sectionRes">
         <br/><br/><br/><br/>
         <span id="results"></span>
 
       </div>
-
 
       <!-- Other ones I want
       http://bl.ocks.org/dwtkns/4973620 -artifacts only
@@ -1237,13 +1234,9 @@ function render(json) {
       <br/>
     </div>
 
-
-
   </div>
 
 </section>
-
-
 
 
 </body>
