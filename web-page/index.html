@@ -127,12 +127,12 @@
 
     //This is called from the filters search button, it adds filters
     $(".btn-filters").click(function(){
-      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
+      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object ";  //. ";
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
-      query = query +  "FILTER regex(?Subject,'i')} ORDER BY ASC(?Subject) LIMIT 20 ";
+      query = query +  "FILTER regex(?Subject,'Jean')} ORDER BY ASC(?Subject) LIMIT 20 ";
       if(hasGender != null ){
         var hasGender = $("#selGender").val();
         query = query + "?Subject limo:hasGender" + " '" + hasGender + "'.";
@@ -155,9 +155,11 @@
       }
       if(birthYear != "" ){
         console.log(typeof($("#selBirthYear").val()));
-        console.log($("#selBirthYear").val());
+        console.log('|||'+$("#selBirthYear").val()+'|||');
         var birthYear = $("#selBirthYear").val();
-        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "'.";
+        console.log('|||'+birthYear+'|||');
+        console.log('|||'+query+'|||');
+        //query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "'.";
       }
       if(livedIn != null ){
         var livedIn = $("#selLivedIn").val();
@@ -167,7 +169,7 @@
         console.log(typeof($("#selAssociationA").val()));
         console.log($("#selAssociationA").val());
         var associatedWith = $("#selAssociationA").val().trim().replace(/ /g,"_");
-        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
+        //query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en.";
       }
       if(associatedWith != "" ){
         console.log(typeof($("#selAssociationB").val()));
