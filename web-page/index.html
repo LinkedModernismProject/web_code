@@ -71,6 +71,7 @@
   }
 
   function nodata_notif() {
+    console.log('in nodata_notif!!!');
     jQuery(document.body).append(' \
       <div class="topcorner" id="notification" onClick="close_notif()"> \
       <div class="panel panel-primary"> \
@@ -106,6 +107,7 @@
           $("table").addClass("table-hover");
         },
         error: function(err) {
+          console.log('in the error');
           nodata_notif();
         }
       });
@@ -307,7 +309,7 @@
 // http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
 function constructURL(query){
   var url = "http://dbpedia.org/sparql"; // "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
