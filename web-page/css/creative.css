@@ -522,7 +522,7 @@ body {
 /*For notification panel*/
 .topcorner{
    position:absolute;
-   top:20%;
+   top:25%;
    right:0;
    border: 0;
    width: 300px;
