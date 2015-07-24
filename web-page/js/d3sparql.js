@@ -69,8 +69,9 @@ d3sparql.query = function(endpoint, sparql, callback) {
         if (d3sparql.queryed) { console.log(json) }
         callback(JSON.parse(json))
       } catch(e) {
+        console.log('in the CATCH');
         json = null
-        callback(JSON.parse(json))  //Get rid of here maybe
+        //callback(JSON.parse(json))  //Get rid of here maybe
       }
     })
 }
@@ -1479,7 +1480,6 @@ fill-rule: evenodd;
 */
 d3sparql.sunburst = function(json, config) {
   var tree = d3sparql.tree(json, config)
-  console.log(tree);
 
   var opts = {
     "width":    config.width    || 1000,

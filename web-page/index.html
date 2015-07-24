@@ -136,17 +136,17 @@
       if(hasGender != "" ){
         query = query + "?Subject limo:hasGender" + " '" + hasGender + "' . ";
       }
-      var hasSex = $("#selSex").val();
-      if(hasSex != "" ){
-        query = query + "?Subject limo:hasSex" + " '" + hasSex + "' . ";
+      var gender = $("#selSex").val();
+      if(gender != "" ){
+        query = query + "?Subject limo:gender" + " '" + gender + "' . ";
       }
-      var hasSexuality = $("#selSexuality").val();
-      if(hasSexuality != "" ){
-        query = query + "?Subject limo:hasSexuality" + " '" + hasSexuality + "' . ";
+      var sexuality = $("#selSexuality").val();
+      if(sexuality != "" ){
+        query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
       }
-      var hasOccupation = $("#selOccupation").val();
-      if(hasOccupation != "" ){
-        query = query + "?Subject limo:hasOccupation" + " '" + hasOccupation + "' . ";
+      var typeOfPerson = $("#selTypeOfPerson").val();
+      if(typeOfPerson != "" ){
+        query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
       var hasPlaceOfOrigin = $("#selPlaceOfOrigin").val();
       if(hasPlaceOfOrigin != "" ){
@@ -154,10 +154,6 @@
       }
       var birthYear = $("#selBirthYear").val();
       if(birthYear != "" ){
-        console.log(typeof($("#selBirthYear").val()));
-        console.log('|||'+$("#selBirthYear").val()+'|||');
-        console.log('|||'+birthYear+'|||');
-        console.log('|||'+query+'|||');
         query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
       var livedIn = $("#selLivedIn").val();
@@ -166,11 +162,9 @@
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
-        console.log(typeof($("#selAssociationA").val()));
-        console.log($("#selAssociationA").val());
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
-      query = query +  "} ORDER BY ASC(?Subject) LIMIT 20 ";
+      query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       console.log(query);
       createCookie(query);
       sClick(query);
@@ -221,7 +215,7 @@
     if($("#obj").val() != ""){
       query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '", "i")';
     }
-    query +=  '} ORDER BY ASC(?Subject) LIMIT 20';
+    query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
     return query;
   }
@@ -235,11 +229,13 @@
       dataType: "html",
       cache: false,
       success: function(response){
+        console.log('in success');
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
       },
       error: function(err) {
+        console.log('in err');
         notif_panel('No data received','Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later.');
       }
     });
@@ -315,6 +311,7 @@ function constructURL(query){
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
+  console.log('in exec1');
   var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
@@ -589,18 +586,19 @@ function render(json) {
                 <div class="form-group">
                   <div>
                     <select class="form-control" id="selGender">
-                      <option selected value="">Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
+                      <option selected value="">Gender</option><!--hasGender-->
+                      <option value="man">Man</option>
+                      <option value="woman">Woman</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
                   <br/>
                   <div>
                     <select class="form-control" id="selSex">
-                      <option selected value="">Sex</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
+                      <option selected value="">Sex</option><!--gender-->
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="Chemically Castrated">Chemically Castrated</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
@@ -608,43 +606,44 @@ function render(json) {
                   <div>
                     <select class="form-control" id="selSexuality">
                       <option selected value="">Sexuality</option>
-                      <option value="Bisexual">Bisexual</option>
-                      <option value="Heterosexual">Heterosexual</option>
-                      <option value="Homosexual">Homosexual</option>
-                      <option value="Asexual">Asexual</option>
+                      <option value="bisexual">Bisexual</option>
+                      <option value="heterosexual">Heterosexual</option>
+                      <option value="homosexual (invert)">Homosexual</option>
+                      <option value="unknown">Unknown</option>
+                      <option value="asexual">Asexual</option><!--Not currently in our data-->
                     </select>
                   </div>
                   <br/>
                   <div>
-                    <select class="form-control" id="selOccupation">
+                    <select class="form-control" id="selTypeOfPerson">
                       <option selected value="">Occupation</option>
-                      <option value="Actor">Actor</option>
-                      <option value="Architect">Architect</option>
-                      <option value="Biographer">Biographer</option>
-                      <option value="Choreographer">Choreographer</option>
-                      <option value="Collector">Collector</option>
-                      <option value="Critic">Critic</option>
-                      <option value="Dancer">Dancer</option>
-                      <option value="Designer">Designer</option>
-                      <option value="Director">Director</option>
-                      <option value="Historian">Historian</option>
-                      <option value="Impresario">Impresario</option>
-                      <option value="Musician">Musician</option>
-                      <option value="Painter">Painter</option>
-                      <option value="Patron">Patron</option>
-                      <option value="Performer">Performer</option>
-                      <option value="Playwright">Playwright</option>
-                      <option value="PoliticalFigure">PoliticalFigure</option>
-                      <option value="RadioPerformer">RadioPerformer</option>
-                      <option value="RadioWriter">RadioWriter</option>
-                      <option value="Screenwriter">Screenwriter</option>
-                      <option value="Sculptor">Sculptor</option>
-                      <option value="Singer">Singer</option>
-                      <option value="TelevionPerformer">TelevionPerformer</option>
-                      <option value="TelevionWriter">TelevionWriter</option>
-                      <option value="Thinker">Thinker</option>
-                      <option value="Typographer">Typographer</option>
-                      <option value="Writer">Writer</option>
+                      <option value="actor">Actor</option>
+                      <option value="architect">Architect</option>
+                      <option value="biographer">Biographer</option>
+                      <option value="choreographer">Choreographer</option>
+                      <option value="collector">Collector</option>
+                      <option value="critic">Critic</option>
+                      <option value="dancer">Dancer</option>
+                      <option value="designer">Designer</option>
+                      <option value="director">Director</option>
+                      <option value="historian">Historian</option>
+                      <option value="impresario">Impresario</option>
+                      <option value="musician">Musician</option>
+                      <option value="painter">Painter</option>
+                      <option value="patron">Patron</option>
+                      <option value="performer">Performer</option>
+                      <option value="playwright">Playwright</option>
+                      <option value="politicalFigure">PoliticalFigure</option>
+                      <option value="radioPerformer">RadioPerformer</option>
+                      <option value="radioWriter">RadioWriter</option>
+                      <option value="screenwriter">Screenwriter</option>
+                      <option value="sculptor">Sculptor</option>
+                      <option value="singer">Singer</option>
+                      <option value="televionPerformer">TelevionPerformer</option>
+                      <option value="televionWriter">TelevionWriter</option>
+                      <option value="thinker">Thinker</option>
+                      <option value="typographer">Typographer</option>
+                      <option value="writer">Writer</option>
                     </select>
                   </div>
                   <br/>
