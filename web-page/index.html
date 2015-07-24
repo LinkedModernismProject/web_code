@@ -229,11 +229,13 @@
       dataType: "html",
       cache: false,
       success: function(response){
+        console.log('in success');
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
       },
       error: function(err) {
+        console.log('in err');
         notif_panel('No data received','Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later.');
       }
     });
@@ -309,6 +311,7 @@ function constructURL(query){
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
+  console.log('in exec1');
   var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
