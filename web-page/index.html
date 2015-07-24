@@ -154,10 +154,6 @@
       }
       var birthYear = $("#selBirthYear").val();
       if(birthYear != "" ){
-        console.log(typeof($("#selBirthYear").val()));
-        console.log('|||'+$("#selBirthYear").val()+'|||');
-        console.log('|||'+birthYear+'|||');
-        console.log('|||'+query+'|||');
         query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
       var livedIn = $("#selLivedIn").val();
@@ -166,8 +162,6 @@
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
-        console.log(typeof($("#selAssociationA").val()));
-        console.log($("#selAssociationA").val());
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
       query = query +  "} ORDER BY ASC(?Subject) LIMIT 20 ";
@@ -308,14 +302,14 @@
 //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
-  var queryURL = url + "?query=" + /*encodeURIComponent(prefix) +*/ encodeURIComponent(query) + '&timeout=30000&debug=on';
+  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   return queryURL;
 }
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = "http://dbpedia.org/sparql"; //"http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
+  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataA&";
   d3sparql.query(endpoint, sparql, render);
 }
 
@@ -590,8 +584,8 @@ function render(json) {
                   <div>
                     <select class="form-control" id="selGender">
                       <option selected value="">Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
+                      <option value="man">Male</option>
+                      <option value="woman">Female</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
