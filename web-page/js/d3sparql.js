@@ -1480,7 +1480,6 @@ fill-rule: evenodd;
 */
 d3sparql.sunburst = function(json, config) {
   var tree = d3sparql.tree(json, config)
-  console.log(tree);
 
   var opts = {
     "width":    config.width    || 1000,
