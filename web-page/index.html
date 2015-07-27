@@ -281,7 +281,7 @@
       query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
     }
     if($("#obj").val() != ""){
-      query += 'FILTER regex(str(?Object), "' + $("#obj").val() + '", "i")';
+      query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
     }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
