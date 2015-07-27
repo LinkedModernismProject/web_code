@@ -152,7 +152,7 @@
       if(originatingCountry != "" ){
         query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
       }
-      var birthYear = $("#selBirthYear").val();
+      var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
         query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
