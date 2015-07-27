@@ -178,7 +178,7 @@
       $("#sectionSearch").addClass("s");
       $("#sectionFilter").removeClass("s");
       if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
-        var query = $("#query").val();
+        var query = randQuery();
       else
         var query = constructQuery();
       console.log(query);
@@ -202,6 +202,11 @@
 
     auto.autocorrect();
   });
+
+  //if the S P O fields are all blank then construct a random query to search
+  function randQuery(){
+
+  }
 
   //Function that takes the S P O and makes the query
   function constructQuery(){
@@ -441,9 +446,9 @@ function render(json) {
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
             <p>
-              With the search function you can perform searches on our triple store using a combination of natural language querying and an intuitive filter system
+              With the search function you can perform searches on our triple store using a combination of natural language querying and an intuitive filter system.
               <br/>
-              The Degrees of Seperation tool lets you look at two different object and see what other Items link the two
+              The Degrees of Seperation tool lets you look at two different object and see what other items link the two.
             </p>
             <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -618,33 +623,54 @@ function render(json) {
                   <div>
                     <select class="form-control" id="selTypeOfPerson">
                       <option selected value="">Occupation</option>
-                      <option value="actor">Actor</option>
-                      <option value="architect">Architect</option>
-                      <option value="biographer">Biographer</option>
-                      <option value="choreographer">Choreographer</option>
-                      <option value="collector">Collector</option>
-                      <option value="critic">Critic</option>
-                      <option value="dancer">Dancer</option>
-                      <option value="designer">Designer</option>
-                      <option value="director">Director</option>
-                      <option value="historian">Historian</option>
-                      <option value="impresario">Impresario</option>
-                      <option value="musician">Musician</option>
-                      <option value="painter">Painter</option>
-                      <option value="patron">Patron</option>
-                      <option value="performer">Performer</option>
-                      <option value="playwright">Playwright</option>
-                      <option value="politicalFigure">PoliticalFigure</option>
-                      <option value="radioPerformer">RadioPerformer</option>
-                      <option value="radioWriter">RadioWriter</option>
-                      <option value="screenwriter">Screenwriter</option>
-                      <option value="sculptor">Sculptor</option>
-                      <option value="singer">Singer</option>
-                      <option value="televionPerformer">TelevionPerformer</option>
-                      <option value="televionWriter">TelevionWriter</option>
-                      <option value="thinker">Thinker</option>
-                      <option value="typographer">Typographer</option>
-                      <option value="writer">Writer</option>
+                      <option value="Architect">Architect</option>
+                      <option value="Industrial Designer">Industrial Designer</option>
+                      <option value="Literary Artist">Literary Artist</option>
+                      <option value="Editor">Editor</option>
+                      <option value="Publisher">Publisher</option>
+                      <option value="Writer">Writer</option>
+                      <option value="Biographer">Biographer</option>
+                      <option value="Diarist">Diarist</option>
+                      <option value="Letter Writer">Letter Writer</option>
+                      <option value="Novelist">Novelist</option>
+                      <option value="Playwright">Playwright</option>
+                      <option value="Poet">Poet</option>
+                      <option value="Story Writer">Story Writer</option>
+                      <option value="Media Artist">Media Artist</option>
+                      <option value="Film Maker">Film Maker</option>
+                      <option value="Journalist">Journalist</option>
+                      <option value="Radio Performer">Radio Performer</option>
+                      <option value="Radio Writer">Radio Writer</option>
+                      <option value="Screenwriter">Screenwriter</option>
+                      <option value="Television Performer">Television Performer</option>
+                      <option value="Television Writer">Television Writer</option>
+                      <option value="Patron">Patron</option>
+                      <option value="Collector">Collector</option>
+                      <option value="Impresario">Impresario</option>
+                      <option value="Performing Artist">Performing Artist</option>
+                      <option value="Actor">Actor</option>
+                      <option value="Choreographer">Choreographer</option>
+                      <option value="Composer">Composer</option>
+                      <option value="Dancer">Dancer</option>
+                      <option value="Director">Director</option>
+                      <option value="Musician">Musician</option>
+                      <option value="Performer">Performer</option>
+                      <option value="Singer">Singer</option>
+                      <option value="Political Figure">Political Figure</option>
+                      <option value="Thinker">Thinker</option>
+                      <option value="Critic">Critic</option>
+                      <option value="Historian">Historian</option>
+                      <option value="Philosopher">Philosopher</option>
+                      <option value="Theorist">Theorist</option>
+                      <option value="Urban Designer">Urban Designer</option>
+                      <option value="Visual Artist">Visual Artist</option>
+                      <option value="Cartoonist">Cartoonist</option>
+                      <option value="Designer">Designer</option>
+                      <option value="Illustrator">Illustrator</option>
+                      <option value="Painter">Painter</option>
+                      <option value="Printmaker">Printmaker</option>
+                      <option value="Sculptor">Sculptor</option>
+                      <option value="Typographer">Typographer</option>
                     </select>
                   </div>
                   <br/>
