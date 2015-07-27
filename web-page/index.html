@@ -127,11 +127,73 @@
 
     //This is called from the filters search button, it adds filters
     $(".btn-filters").click(function(){
-      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
+      if($("queryNum0")===undefined) {  //Safeguard
+        var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
+      } else {
+        var query = $("#queryNum0").text(); //Gets query from previous search
+      }
+      var filt = query.split("\.")
+      query = filt[0];
+      for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
+        query += '.'+filt[i];
+      };
+
+      console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       $("#sectionFilter").addClass("s");
       $("#sectionSearch").removeClass("s");
+      var hasGender = $("#selGender").val();
+      if(hasGender != "" ){
+        query = query + ". ?Subject limo:hasGender" + " '" + hasGender + "' . ";
+      }
+      var gender = $("#selSex").val();
+      if(gender != "" ){
+        query = query + ". ?Subject limo:gender" + " '" + gender + "' . ";
+      }
+      var sexuality = $("#selSexuality").val();
+      if(sexuality != "" ){
+        query = query + ". ?Subject limo:sexuality" + " '" + sexuality + "' . ";
+      }
+      var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
+      if(typeOfPerson != "" ){
+        query = query + ". ?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+      }
+      var originatingCountry = $("#selOriginatingCountry").val();
+      if(originatingCountry != "" ){
+        query = query + ". ?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+      }
+      var birthYear = $("#selBirthYear").val(); //Will need work for using real data
+      if(birthYear != "" ){
+        query = query + ". ?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+      }
+      var livedIn = $("#selLivedIn").val();
+      if(livedIn != "" ){
+        query = query + ". ?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+      }
+      var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
+      if(associatedWith != "" ){
+        query = query + ". ?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+      }
+      //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
+      query += filt[filt.length-1]
+      console.log(query);
+      createCookie(query);
+      sClick(query);
+      exec1(query);
+    });
+
+    //Begins a new search with the selected filter elements when the "New Search" button is pressed
+    jQuery('#newSearch').click(function(){
+      var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
+
+      /*These 4 lines are used to take active state off of tab after search button
+      is clicked. Same with the section s it was glitchy and needed this to fix*/
+      $("#tabFilter").removeClass("active");
+      $("#tabVis").addClass("active");
+      $("#sectionFilter").addClass("s");
+      $("#sectionSearch").removeClass("s");
+
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
         query = query + "?Subject limo:hasGender" + " '" + hasGender + "' . ";
@@ -195,6 +257,7 @@
       $("#sectionSearch").removeClass("s");
       var i = this.id;
       var query = $("#queryNum" + i).text();
+      console.log(query);
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -623,9 +686,9 @@ function render(json) {
                   <div>
                     <select class="form-control" id="selTypeOfPerson">
                       <option selected value="">Occupation</option>
-                      <option value="Architect">Architect</option>
-                      <option value="Industrial Designer">Industrial Designer</option>
-                      <option value="Literary Artist">Literary Artist</option>
+                      <option value="architect">Architect</option>
+                      <option value="industrial designer">Industrial Designer</option>
+                      <option value="literary artist">Literary Artist</option>
                       <option value="Editor">Editor</option>
                       <option value="Publisher">Publisher</option>
                       <option value="Writer">Writer</option>
@@ -1208,6 +1271,9 @@ function render(json) {
             <br/>
 
               <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Search" class="btn btn-primary btn-filters btn-xl"/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--Space between buttons-->
+              <!--For the newSearch button in filters-->
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="newSearch" value="New Search" class="btn btn-primary btn-xl"/>
 
             </div>
 
