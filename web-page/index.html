@@ -144,13 +144,13 @@
       if(sexuality != "" ){
         query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
       }
-      var typeOfPerson = $("#selTypeOfPerson").val();
+      var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
         query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
-      var hasPlaceOfOrigin = $("#selPlaceOfOrigin").val();
-      if(hasPlaceOfOrigin != "" ){
-        query = query + "?Subject limo:hasPlaceOfOrigin" + " '" + hasPlaceOfOrigin + "' . ";
+      var originatingCountry = $("#selOriginatingCountry").val();
+      if(originatingCountry != "" ){
+        query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
       }
       var birthYear = $("#selBirthYear").val();
       if(birthYear != "" ){
@@ -649,7 +649,7 @@ function render(json) {
                   </div>
                   <br/>
                   <div>
-                    <select class="form-control" id="selPlaceOfOrigin">
+                    <select class="form-control" id="selOriginatingCountry">
                       <option selected value="">PlaceOfOrigin</option>
                       <option value="Afganistan">Afghanistan</option>
                       <option value="Albania">Albania</option>
