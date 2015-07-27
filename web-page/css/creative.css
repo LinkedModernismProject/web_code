@@ -15,7 +15,11 @@ hr {
   border-width: 3px;
 }
 
-
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}
 
 input[type="textarea"]{
 
@@ -540,7 +544,10 @@ body {
 }
 .panel > .panel-heading,
 .panel-default > .panel-heading {
-  background-color: #eeeeee;
+  background: -webkit-linear-gradient(#721563, #802C73, #9C5B92);
+  background: -o-linear-gradient(#721563, #802C73, #9C5B92);
+  background: -moz-linear-gradient(#721563, #802C73, #9C5B92);
+  background: linear-gradient(#721563, #802C73, #9C5B92);
 }
 .panel-primary > .panel-heading {
   background-color: #009688;
@@ -552,8 +559,12 @@ body {
   background-color: #ff5722;
 }
 [class*="panel-"] > .panel-heading {  /*To get rid of blue line separator between color and white content box*/
-  color: rgba(255, 255, 255, 0.84);
+  color: #eeeeee;
   border: 0;
+}
+
+.panel-title {
+  color: #eeeeee;
 }
 
 .vis-select input{

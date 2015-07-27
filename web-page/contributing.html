@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- For some visualizations  -->
+  <script src="js/d3.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+
+  </head>
+
+  <body id="page-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="index.html">Linked Modernisms</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="page-scroll" href="examples.html">Examples</a></li>
+            <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
+            <li><a class="page-scroll" href="contributing.html">Contribute</a></li>
+            <li><a class="page-scroll" href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <hr class="light"></hr><br/>
+
+    <h1>
+      Contribute to the database
+    </h1><br/><br/>
+
+
+
+    <p>
+      To contribute to the Linked Modernisms database you need a login approved by one of our category moderators. If you would like to register please click the register button below. If you already have an account please click the login button.
+    </p>
+
+    <button class="btn btn-xl btn-primary">Login</button>
+    <button class="btn btn-xl btn-primary">Register</button>
+
+<br/><br/>
+    <form>
+      <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to?</label><br/>
+      <input type="textarea" class="non-search-text" name="item-name" placeholder="Please use the format first name middle name(s) last name(s)"></input>
+      <br/><br/>
+      <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><br/>
+      <input type="textarea" class="non-search-text" name="alt-names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>
+      <br/><br/>
+      <label for="birth-date">What was the year your item was born or created in?</label><br/>
+      <input type="textarea" class="non-search-text" name="birth-date" placeholder="Please add the year in the format YYYY"></input>
+      <br/><br/>
+      <label for="birth-date">What was the year your item was born or created in?</label><br/>
+      <input type="textarea" class="non-search-text" name="birth-date" placeholder="Please add the year in the format YYYY"></input>
+      <br/><br/>
+      <label for="death-date">What was the year your item died if it did so?</label><br/>
+      <input type="textarea" class="non-search-text" name="death-date" placeholder="Please add the year in the format YYYY"></input>
+      <br/><br/>
+      <p>Agent stuff</p>
+      <label for="occupation">What of the following best describe your Agent?</label><br/>
+      <ul class="checkbox-grid">
+        <li><input type="checkbox" selected value="">Occupation</input></li>
+        <li><input type="checkbox" value="Architect">Architect</input></li>
+        <li><input type="checkbox" value="Industrial Designer">Industrial Designer</input></li>
+        <li><input type="checkbox" value="Literary Artist">Literary Artist</input></li>
+        <li><input type="checkbox" value="Editor">Editor</input></li>
+        <li><input type="checkbox" value="Publisher">Publisher</input></li>
+        <li><input type="checkbox" value="Writer">Writer</input></li>
+        <li><input type="checkbox" value="Biographer">Biographer</input></li>
+        <li><input type="checkbox" value="Diarist">Diarist</input></li>
+        <li><input type="checkbox" value="Letter Writer">Letter Writer</input></li>
+        <li><input type="checkbox" value="Novelist">Novelist</input></li>
+        <li><input type="checkbox" value="Playwright">Playwright</input></li>
+        <li><input type="checkbox" value="Poet">Poet</input></li>
+        <li><input type="checkbox" value="Story Writer">Story Writer</input></li>
+        <li><input type="checkbox" value="Media Artist">Media Artist</input></li>
+        <li><input type="checkbox" value="Film Maker">Film Maker</input></li>
+        <li><input type="checkbox" value="Journalist">Journalist</input></li>
+        <li><input type="checkbox" value="Radio Performer">Radio Performer</input></li>
+        <li><input type="checkbox" value="Radio Writer">Radio Writer</input></li>
+        <li><input type="checkbox" value="Screenwriter">Screenwriter</input></li>
+        <li><input type="checkbox" value="Television Performer">Television Performer</input></li>
+        <li><input type="checkbox" value="Television Writer">Television Writer</input></li>
+        <li><input type="checkbox" value="Patron">Patron</input></li>
+        <li><input type="checkbox" value="Collector">Collector</input></li>
+        <li><input type="checkbox" value="Impresario">Impresario</input></li>
+        <li><input type="checkbox" value="Performing Artist">Performing Artist</input></li>
+        <li><input type="checkbox" value="Actor">Actor</input></li>
+        <li><input type="checkbox" value="Choreographer">Choreographer</input></li>
+        <li><input type="checkbox" value="Composer">Composer</input></li>
+        <li><input type="checkbox" value="Dancer">Dancer</input></li>
+        <li><input type="checkbox" value="Director">Director</input></li>
+        <li><input type="checkbox" value="Musician">Musician</input></li>
+        <li><input type="checkbox" value="Performer">Performer</input></li>
+        <li><input type="checkbox" value="Singer">Singer</input></li>
+        <li><input type="checkbox" value="Political Figure">Political Figure</input></li>
+        <li><input type="checkbox" value="Thinker">Thinker</input></li>
+        <li><input type="checkbox" value="Critic">Critic</input></li>
+        <li><input type="checkbox" value="Historian">Historian</input></li>
+        <li><input type="checkbox" value="Philosopher">Philosopher</input></li>
+        <li><input type="checkbox" value="Theorist">Theorist</input></li>
+        <li><input type="checkbox" value="Urban Designer">Urban Designer</input></li>
+        <li><input type="checkbox" value="Visual Artist">Visual Artist</input></li>
+        <li><input type="checkbox" value="Cartoonist">Cartoonist</input></li>
+        <li><input type="checkbox" value="Designer">Designer</input></li>
+        <li><input type="checkbox" value="Illustrator">Illustrator</input></li>
+        <li><input type="checkbox" value="Painter">Painter</input></li>
+        <li><input type="checkbox" value="Printmaker">Printmaker</input></li>
+        <li><input type="checkbox" value="Sculptor">Sculptor</input></li>
+        <li><input type="checkbox" value="Typographer">Typographer</input></li>
+      </ul>
+      <label for="related-agent">What other of the following does your agent relate to</label><br/>
+      <p>Will have list of alternate things to relate to here</p>
+      <select class="form-control" id="selSexuality">
+        <option selected value="">Sexuality</option>
+        <option value="Bisexual">Bisexual</option>
+        <option value="Heterosexual">Heterosexual</option>
+        <option value="Homosexual">Homosexual</option>
+        <option value="Asexual">Asexual</option>
+      </select>
+      <select class="form-control" id="selGender">
+        <option selected value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <select class="form-control" id="selSex">
+        <option selected value="">Sex</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      associated productions
+      influencedby
+      influenced
+
+
+      <p>Place Stuff</p>
+      <label for="place-type">What of the following best describe your Place?</label><br/>
+      <p>Will have list of clickable items here</p>
+      <label for="related-place">What other of the following does your place relate to</label><br/>
+      <p>Will have list of alternate things to relate to here</p>
+      <br/>
+      <ul class="checkbox-grid">
+      <li><input type="checkbox" value="Afganistan">Afghanistan</input>
+      <li><input type="checkbox" value="Albania">Albania</input>
+      <li><input type="checkbox" value="Algeria">Algeria</input>
+      <li><input type="checkbox" value="American Samoa">American Samoa</input>
+      <li><input type="checkbox" value="Andorra">Andorra</input>
+      <li><input type="checkbox" value="Angola">Angola</input>
+      <li><input type="checkbox" value="Anguilla">Anguilla</input>
+      <li><input type="checkbox" value="Antigua &amp; Barbuda">Antigua &amp; Barbuda</input>
+      <li><input type="checkbox" value="Argentina">Argentina</input>
+      <li><input type="checkbox" value="Armenia">Armenia</input>
+      <li><input type="checkbox" value="Aruba">Aruba</input>
+      <li><input type="checkbox" value="Australia">Australia</input>
+      <li><input type="checkbox" value="Austria">Austria</input>
+      <li><input type="checkbox" value="Azerbaijan">Azerbaijan</input>
+      <li><input type="checkbox" value="Bahamas">Bahamas</input>
+      <li><input type="checkbox" value="Bahrain">Bahrain</input>
+      <li><input type="checkbox" value="Bangladesh">Bangladesh</input>
+      <li><input type="checkbox" value="Barbados">Barbados</input>
+      <li><input type="checkbox" value="Belarus">Belarus</input>
+      <li><input type="checkbox" value="Belgium">Belgium</input>
+      <li><input type="checkbox" value="Belize">Belize</input>
+      <li><input type="checkbox" value="Benin">Benin</input>
+      <li><input type="checkbox" value="Bermuda">Bermuda</input>
+      <li><input type="checkbox" value="Bhutan">Bhutan</input>
+      <li><input type="checkbox" value="Bolivia">Bolivia</input>
+      <li><input type="checkbox" value="Bonaire">Bonaire</input>
+      <li><input type="checkbox" value="Bosnia &amp; Herzegovina">Bosnia &amp; Herzegovina</input>
+      <li><input type="checkbox" value="Botswana">Botswana</input>
+      <li><input type="checkbox" value="Brazil">Brazil</input>
+      <li><input type="checkbox" value="British Indian Ocean Ter">British Indian Ocean Ter</input>
+      <li><input type="checkbox" value="Brunei">Brunei</input>
+      <li><input type="checkbox" value="Bulgaria">Bulgaria</input>
+      <li><input type="checkbox" value="Burkina Faso">Burkina Faso</input>
+      <li><input type="checkbox" value="Burundi">Burundi</input>
+      <li><input type="checkbox" value="Cambodia">Cambodia</input>
+      <li><input type="checkbox" value="Cameroon">Cameroon</input>
+      <li><input type="checkbox" value="Canada">Canada 🇨🇦</input>
+      <li><input type="checkbox" value="Canary Islands">Canary Islands</input>
+      <li><input type="checkbox" value="Cape Verde">Cape Verde</input>
+      <li><input type="checkbox" value="Cayman Islands">Cayman Islands</input>
+      <li><input type="checkbox" value="Central African Republic">Central African Republic</input>
+      <li><input type="checkbox" value="Chad">Chad</input>
+      <li><input type="checkbox" value="Channel Islands">Channel Islands</input>
+      <li><input type="checkbox" value="Chile">Chile</input>
+      <li><input type="checkbox" value="China">China</input>
+      <li><input type="checkbox" value="Christmas Island">Christmas Island</input>
+      <li><input type="checkbox" value="Cocos Island">Cocos Island</input>
+      <li><input type="checkbox" value="Colombia">Colombia</input>
+      <li><input type="checkbox" value="Comoros">Comoros</input>
+      <li><input type="checkbox" value="Congo">Congo</input>
+      <li><input type="checkbox" value="Cook Islands">Cook Islands</input>
+      <li><input type="checkbox" value="Costa Rica">Costa Rica</input>
+      <li><input type="checkbox" value="Cote DIvoire">Cote D'Ivoire</input>
+      <li><input type="checkbox" value="Croatia">Croatia</input>
+      <li><input type="checkbox" value="Cuba">Cuba</input>
+      <li><input type="checkbox" value="Curaco">Curacao</input>
+      <li><input type="checkbox" value="Cyprus">Cyprus</input>
+      <li><input type="checkbox" value="Czech Republic">Czech Republic</input>
+      <li><input type="checkbox" value="Denmark">Denmark</input>
+      <li><input type="checkbox" value="Djibouti">Djibouti</input>
+      <li><input type="checkbox" value="Dominica">Dominica</input>
+      <li><input type="checkbox" value="Dominican Republic">Dominican Republic</input>
+      <li><input type="checkbox" value="East Timor">East Timor</input>
+      <li><input type="checkbox" value="Ecuador">Ecuador</input>
+      <li><input type="checkbox" value="Egypt">Egypt</input>
+      <li><input type="checkbox" value="El Salvador">El Salvador</input>
+      <li><input type="checkbox" value="Equatorial Guinea">Equatorial Guinea</input>
+      <li><input type="checkbox" value="Eritrea">Eritrea</input>
+      <li><input type="checkbox" value="Estonia">Estonia</input>
+      <li><input type="checkbox" value="Ethiopia">Ethiopia</input>
+      <li><input type="checkbox" value="Falkland Islands">Falkland Islands</input>
+      <li><input type="checkbox" value="Faroe Islands">Faroe Islands</input>
+      <li><input type="checkbox" value="Fiji">Fiji</input>
+      <li><input type="checkbox" value="Finland">Finland</input>
+      <li><input type="checkbox" value="France">France</input>
+      <li><input type="checkbox" value="French Guiana">French Guiana</input>
+      <li><input type="checkbox" value="French Polynesia">French Polynesia</input>
+      <li><input type="checkbox" value="French Southern Ter">French Southern Ter</input>
+      <li><input type="checkbox" value="Gabon">Gabon</input>
+      <li><input type="checkbox" value="Gambia">Gambia</input>
+      <li><input type="checkbox" value="Georgia">Georgia</input>
+      <li><input type="checkbox" value="Germany">Germany</input>
+      <li><input type="checkbox" value="Ghana">Ghana</input>
+      <li><input type="checkbox" value="Gibraltar">Gibraltar</input>
+      <li><input type="checkbox" value="Great Britain">Great Britain</input>
+      <li><input type="checkbox" value="Greece">Greece</input>
+      <li><input type="checkbox" value="Greenland">Greenland</input>
+      <li><input type="checkbox" value="Grenada">Grenada</input>
+      <li><input type="checkbox" value="Guadeloupe">Guadeloupe</input>
+      <li><input type="checkbox" value="Guam">Guam</input>
+      <li><input type="checkbox" value="Guatemala">Guatemala</input>
+      <li><input type="checkbox" value="Guinea">Guinea</input>
+      <li><input type="checkbox" value="Guyana">Guyana</input>
+      <li><input type="checkbox" value="Haiti">Haiti</input>
+      <li><input type="checkbox" value="Hawaii">Hawaii</input>
+      <li><input type="checkbox" value="Honduras">Honduras</input>
+      <li><input type="checkbox" value="Hong Kong">Hong Kong</input>
+      <li><input type="checkbox" value="Hungary">Hungary</input>
+      <li><input type="checkbox" value="Iceland">Iceland</input>
+      <li><input type="checkbox" value="India">India</input>
+      <li><input type="checkbox" value="Indonesia">Indonesia</input>
+      <li><input type="checkbox" value="Iran">Iran</input>
+      <li><input type="checkbox" value="Iraq">Iraq</input>
+      <li><input type="checkbox" value="Ireland">Ireland</input>
+      <li><input type="checkbox" value="Isle of Man">Isle of Man</input>
+      <li><input type="checkbox" value="Israel">Israel</input>
+      <li><input type="checkbox" value="Italy">Italy</input>
+      <li><input type="checkbox" value="Jamaica">Jamaica</input>
+      <li><input type="checkbox" value="Japan">Japan</input>
+      <li><input type="checkbox" value="Jordan">Jordan</input>
+      <li><input type="checkbox" value="Kazakhstan">Kazakhstan</input>
+      <li><input type="checkbox" value="Kenya">Kenya</input>
+      <li><input type="checkbox" value="Kiribati">Kiribati</input>
+      <li><input type="checkbox" value="Korea North">Korea North</input>
+      <li><input type="checkbox" value="Korea Sout">Korea South</input>
+      <li><input type="checkbox" value="Kuwait">Kuwait</input>
+      <li><input type="checkbox" value="Kyrgyzstan">Kyrgyzstan</input>
+      <li><input type="checkbox" value="Laos">Laos</input>
+      <li><input type="checkbox" value="Latvia">Latvia</input>
+      <li><input type="checkbox" value="Lebanon">Lebanon</input>
+      <li><input type="checkbox" value="Lesotho">Lesotho</input>
+      <li><input type="checkbox" value="Liberia">Liberia</input>
+      <li><input type="checkbox" value="Libya">Libya</input>
+      <li><input type="checkbox" value="Liechtenstein">Liechtenstein</input>
+      <li><input type="checkbox" value="Lithuania">Lithuania</input>
+      <li><input type="checkbox" value="Luxembourg">Luxembourg</input>
+      <li><input type="checkbox" value="Macau">Macau</input>
+      <li><input type="checkbox" value="Macedonia">Macedonia</input>
+      <li><input type="checkbox" value="Madagascar">Madagascar</input>
+      <li><input type="checkbox" value="Malaysia">Malaysia</input>
+      <li><input type="checkbox" value="Malawi">Malawi</input>
+      <li><input type="checkbox" value="Maldives">Maldives</input>
+      <li><input type="checkbox" value="Mali">Mali</input>
+      <li><input type="checkbox" value="Malta">Malta</input>
+      <li><input type="checkbox" value="Marshall Islands">Marshall Islands</input>
+      <li><input type="checkbox" value="Martinique">Martinique</input>
+      <li><input type="checkbox" value="Mauritania">Mauritania</input>
+      <li><input type="checkbox" value="Mauritius">Mauritius</input>
+      <li><input type="checkbox" value="Mayotte">Mayotte</input>
+      <li><input type="checkbox" value="Mexico">Mexico</input>
+      <li><input type="checkbox" value="Midway Islands">Midway Islands</input>
+      <li><input type="checkbox" value="Moldova">Moldova</input>
+      <li><input type="checkbox" value="Monaco">Monaco</input>
+      <li><input type="checkbox" value="Mongolia">Mongolia</input>
+      <li><input type="checkbox" value="Montserrat">Montserrat</input>
+      <li><input type="checkbox" value="Morocco">Morocco</input>
+      <li><input type="checkbox" value="Mozambique">Mozambique</input>
+      <li><input type="checkbox" value="Myanmar">Myanmar</input>
+      <li><input type="checkbox" value="Nambia">Nambia</input>
+      <li><input type="checkbox" value="Nauru">Nauru</input>
+      <li><input type="checkbox" value="Nepal">Nepal</input>
+      <li><input type="checkbox" value="Netherland Antilles">Netherland Antilles</input>
+      <li><input type="checkbox" value="Netherlands">Netherlands (Holland, Europe)</input>
+      <li><input type="checkbox" value="Nevis">Nevis</input>
+      <li><input type="checkbox" value="New Caledonia">New Caledonia</input>
+      <li><input type="checkbox" value="New Zealand">New Zealand</input>
+      <li><input type="checkbox" value="Nicaragua">Nicaragua</input>
+      <li><input type="checkbox" value="Niger">Niger</input>
+      <li><input type="checkbox" value="Nigeria">Nigeria</input>
+      <li><input type="checkbox" value="Niue">Niue</input>
+      <li><input type="checkbox" value="Norfolk Island">Norfolk Island</input>
+      <li><input type="checkbox" value="Norway">Norway</input>
+      <li><input type="checkbox" value="Oman">Oman</input>
+      <li><input type="checkbox" value="Pakistan">Pakistan</input>
+      <li><input type="checkbox" value="Palau Island">Palau Island</input>
+      <li><input type="checkbox" value="Palestine">Palestine</input>
+      <li><input type="checkbox" value="Panama">Panama</input>
+      <li><input type="checkbox" value="Papua New Guinea">Papua New Guinea</input>
+      <li><input type="checkbox" value="Paraguay">Paraguay</input>
+      <li><input type="checkbox" value="Peru">Peru</input>
+      <li><input type="checkbox" value="Phillipines">Philippines</input>
+      <li><input type="checkbox" value="Pitcairn Island">Pitcairn Island</input>
+      <li><input type="checkbox" value="Poland">Poland</input>
+      <li><input type="checkbox" value="Portugal">Portugal</input>
+      <li><input type="checkbox" value="Puerto Rico">Puerto Rico</input>
+      <li><input type="checkbox" value="Qatar">Qatar</input>
+      <li><input type="checkbox" value="Republic of Montenegro">Republic of Montenegro</input>
+      <li><input type="checkbox" value="Republic of Serbia">Republic of Serbia</input>
+      <li><input type="checkbox" value="Reunion">Reunion</input>
+      <li><input type="checkbox" value="Romania">Romania</input>
+      <li><input type="checkbox" value="Russia">Russia</input>
+      <li><input type="checkbox" value="Rwanda">Rwanda</input>
+      <li><input type="checkbox" value="St Barthelemy">St Barthelemy</input>
+      <li><input type="checkbox" value="St Eustatius">St Eustatius</input>
+      <li><input type="checkbox" value="St Helena">St Helena</input>
+      <li><input type="checkbox" value="St Kitts-Nevis">St Kitts-Nevis</input>
+      <li><input type="checkbox" value="St Lucia">St Lucia</input>
+      <li><input type="checkbox" value="St Maarten">St Maarten</input>
+      <li><input type="checkbox" value="St Pierre &amp; Miquelon">St Pierre &amp; Miquelon</input>
+      <li><input type="checkbox" value="St Vincent &amp; Grenadines">St Vincent &amp; Grenadines</input>
+      <li><input type="checkbox" value="Saipan">Saipan</input>
+      <li><input type="checkbox" value="Samoa">Samoa</input>
+      <li><input type="checkbox" value="Samoa American">Samoa American</input>
+      <li><input type="checkbox" value="San Marino">San Marino</input>
+      <li><input type="checkbox" value="Sao Tome &amp; Principe">Sao Tome &amp; Principe</input>
+      <li><input type="checkbox" value="Saudi Arabia">Saudi Arabia</input>
+      <li><input type="checkbox" value="Senegal">Senegal</input>
+      <li><input type="checkbox" value="Serbia">Serbia</input>
+      <li><input type="checkbox" value="Seychelles">Seychelles</input>
+      <li><input type="checkbox" value="Sierra Leone">Sierra Leone</input>
+      <li><input type="checkbox" value="Singapore">Singapore</input>
+      <li><input type="checkbox" value="Slovakia">Slovakia</input>
+      <li><input type="checkbox" value="Slovenia">Slovenia</input>
+      <li><input type="checkbox" value="Solomon Islands">Solomon Islands</input>
+      <li><input type="checkbox" value="Somalia">Somalia</input>
+      <li><input type="checkbox" value="South Africa">South Africa</input>
+      <li><input type="checkbox" value="Spain">Spain</input>
+      <li><input type="checkbox" value="Sri Lanka">Sri Lanka</input>
+      <li><input type="checkbox" value="Sudan">Sudan</input>
+      <li><input type="checkbox" value="Suriname">Suriname</input>
+      <li><input type="checkbox" value="Swaziland">Swaziland</input>
+      <li><input type="checkbox" value="Sweden">Sweden</input>
+      <li><input type="checkbox" value="Switzerland">Switzerland</input>
+      <li><input type="checkbox" value="Syria">Syria</input>
+      <li><input type="checkbox" value="Tahiti">Tahiti</input>
+      <li><input type="checkbox" value="Taiwan">Taiwan</input>
+      <li><input type="checkbox" value="Tajikistan">Tajikistan</input>
+      <li><input type="checkbox" value="Tanzania">Tanzania</input>
+      <li><input type="checkbox" value="Thailand">Thailand</input>
+      <li><input type="checkbox" value="Togo">Togo</input>
+      <li><input type="checkbox" value="Tokelau">Tokelau</input>
+      <li><input type="checkbox" value="Tonga">Tonga</input>
+      <li><input type="checkbox" value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</input>
+      <li><input type="checkbox" value="Tunisia">Tunisia</input>
+      <li><input type="checkbox" value="Turkey">Turkey</input>
+      <li><input type="checkbox" value="Turkmenistan">Turkmenistan</input>
+      <li><input type="checkbox" value="Turks &amp; Caicos Is">Turks &amp; Caicos Is</input>
+      <li><input type="checkbox" value="Tuvalu">Tuvalu</input>
+      <li><input type="checkbox" value="Uganda">Uganda</input>
+      <li><input type="checkbox" value="Ukraine">Ukraine</input>
+      <li><input type="checkbox" value="United Arab Erimates">United Arab Emirates</input>
+      <li><input type="checkbox" value="United Kingdom">United Kingdom</input>
+      <li><input type="checkbox" value="United States of America">United States of America</input>
+      <li><input type="checkbox" value="Uraguay">Uruguay</input>
+      <li><input type="checkbox" value="Uzbekistan">Uzbekistan</input>
+      <li><input type="checkbox" value="Vanuatu">Vanuatu</input>
+      <li><input type="checkbox" value="Vatican City State">Vatican City State</input>
+      <li><input type="checkbox" value="Venezuela">Venezuela</input>
+      <li><input type="checkbox" value="Vietnam">Vietnam</input>
+      <li><input type="checkbox" value="Virgin Islands (Brit)">Virgin Islands (Brit)</input>
+      <li><input type="checkbox" value="Virgin Islands (USA)">Virgin Islands (USA)</input>
+      <li><input type="checkbox" value="Wake Island">Wake Island</input>
+      <li><input type="checkbox" value="Wallis &amp; Futana Is">Wallis &amp; Futana Is</input>
+      <li><input type="checkbox" value="Yemen">Yemen</input>
+      <li><input type="checkbox" value="Zaire">Zaire</input>
+      <li><input type="checkbox" value="Zambia">Zambia</input>
+      <li><input type="checkbox" value="Zimbabwe">Zimbabwe</input>
+      </ul>
+      <p>Production Stuff</p>
+      <label for="production-type">What of the following best describe your Production?</label><br/>
+      <p>Will have list of clickable items here</p>
+      <label for="related-production">What other of the following does your production relate to</label><br/>
+      <p>Will have list of alternate things to relate to here</p>
+
+
+    </form>
+
+
+    </body>
+    <footer>
+      <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
+    </footer>
+    </html>
