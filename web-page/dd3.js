@@ -284,13 +284,17 @@ d3sparql.tree = function(json, config) {
     parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
     for (var j = 0; j < data[i].children.length; j++) {
       console.log('|||'+child+'|||');
-      if(pair.has(child)) {//data[i].children[j].name)) {
-        console.log('in the par!!!!!!!!');
-        data[i].children[j].name += ' ';
+      //if(i==1) { exit()}
+      if(pair.has(data[i].children[j].name)) {//data[i].children[j].name)) {
+        while(pair.has(child)) {
+          console.log('in the par!!!!!!!!');
+          child += ' ';
+        }
+      } else {
+        child = data[i].children[j].name;  //data[i][opts.child].value
       }
-      child = data[i].children[j].name;  //data[i][opts.child].value
       console.log('|||'+child+'|||');
-
+      test = 'no'
 
       console.log(data[i].children[j].children.length);
       console.log(data[i].children.length);
@@ -303,6 +307,7 @@ d3sparql.tree = function(json, config) {
         toddler = data[i].children[j].children[k].name;
         console.log(toddler);
         console.log(parent);
+
         //Setting the root as the parent of everything
         if(i==0 && !pair.has(parent)) {  //If this is the first pass, set root var as the root of tree
           console.log('First Parents');
