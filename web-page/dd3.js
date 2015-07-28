@@ -283,15 +283,25 @@ d3sparql.tree = function(json, config) {
     console.log(data[i].children);
     parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
     for (var j = 0; j < data[i].children.length; j++) {
-      console.log('|||'+child+'|||');
+      console.log(data[i].children.length);
+      console.log('|||'+child+'|||'+data[i].children[j].name);
       //if(i==1) { exit()}
-      if(pair.has(data[i].children[j].name)) {//data[i].children[j].name)) {
-        while(pair.has(child)) {
-          console.log('in the par!!!!!!!!');
-          child += ' ';
+      if(data[i].name == 'Jean' && i==0) {
+        console.log(pair);
+        exit()
+      }
+      //###PROBLEM WITH ARTHUR_CRAVAN
+      for (var l = 0; l < data[i].children.length; l++) {
+        if(pair.has(data[i].children[l].name)) {//data[i].children[j].name)) {
+          while(pair.has(child)) {
+            //PROBLEM: child still = seeAlso, but pair.has(associatedWithLit)
+
+            console.log('in the par!!!!!!!!');
+            child += ' ';
+          }
+        } else {
+          child = data[i].children[j].name;  //data[i][opts.child].value
         }
-      } else {
-        child = data[i].children[j].name;  //data[i][opts.child].value
       }
       console.log('|||'+child+'|||');
       test = 'no'
