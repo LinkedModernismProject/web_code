@@ -259,8 +259,6 @@ d3sparql.tree = function(json, config) {
   var data = json.children; //json.results.bindings
   head = head.replace(/\s+/g, '') //Remove spaces from name property
   head = head.split(',') //Separates between commas into an array
-  console.log(data);
-  console.log(data.length);
 
   var opts = {
     "root":   head[0],
@@ -274,170 +272,75 @@ d3sparql.tree = function(json, config) {
   var root_temp = '';
   var parent = child = children = true
   for (var i = 0; i < data.length; i++) {
-    //if(data[i].name == 'AEDouglass'/*'CosineFn'*/) { parent = 'AEWMason'/*'CeilingFn'*/}
-    //else {parent = data[i].name;} //data[i][opts.parent].value
-    //if(data[i].name == 'Ahad_Ha-am') { data[i].children[0].name = 'hasGender '}
-
-    console.log(data);
-    console.log(data[i]);
-    console.log(data[i].children);
-    parent = data[i].name; //JUST COMMENTED OUT FOR TESTING
+    parent = data[i].name;
     for (var j = 0; j < data[i].children.length; j++) {
-      console.log(data[i].children.length);
-      console.log('|||'+child+'|||'+data[i].children[j].name);
-      //if(i==1) { exit() }
-      console.log(data[i].name)
-      console.log(typeof(data[i].name))
-      if(data[i].name == 'Arthur_Cravan'/*'Jean'*/ && j==1) {
-        console.log('in the Jean'+j);
-        console.log(pair);
-        //debugger
-        //exit()
-      }
-      //###PROBLEM WITH ARTHUR_CRAVAN
-      console.log('|||'+data[i].children[j].name+'|||');
-      console.log('|||'+child+'|||');
-      console.log(pair);
-      //for (var l = 0; l < data[i].children.length; l++) {   //Might be for loops fault for always setting to the last value
-        console.log('in for'+j);
-        if(pair.has(data[i].children[j].name)) {//data[i].children[j].name)) {
-          child = data[i].children[j].name;
-          while(pair.has(child)) {
-            //PROBLEM: child still = seeAlso, but pair.has(associatedWithLit)
-
-            console.log('in the par!!!!!!!!');
-            child += ' ';
-            console.log('|'+child+'|||');
-          }
-        } else {
-          child = data[i].children[j].name;  //data[i][opts.child].value
+      //To determine if there has already been a pred with the same name and then concatenate a space to cope with the way tree implements variable names and adds a space to act as another variable for that tree path
+      if(pair.has(data[i].children[j].name)) {//data[i].children[j].name)) {
+        child = data[i].children[j].name;
+        while(pair.has(child)) {
+          child += ' ';
         }
-      //}
-      console.log('|||'+data[i].children[j].name+'|||');
-      console.log('|||'+child+'|||');
-      test = 'no'
-
-      console.log(data[i].children[j].children.length);
-      console.log(data[i].children.length);
-      console.log(data.length);
-      console.log(data[i].children[j].children);
-
+      } else {
+        child = data[i].children[j].name;  //keep the new child
+      }
       for (var k = 0; k < data[i].children[j].children.length; k++) {
-        //console.log(data[i].children[j].children.length);
-        //console.log(k);
         toddler = data[i].children[j].children[k].name;
-        console.log(toddler);
-        console.log(parent);
 
         //Setting the root as the parent of everything
         if(i==0 && !pair.has(parent)) {  //If this is the first pass, set root var as the root of tree
-          console.log('First Parents');
           parent = [parent];
           pair.set(root, parent);
-          console.log(pair);
-          if(k==1) {exit()}
         } else if(parent in pair._) {//($(pair._).has('AbstractionFn')) {
-          //  if($(pair._).has('CeilingFn')) {console.log('IT HAS A CEILING');}
-          console.log("Pair has parent!!!");
+          //Just continue rest of for loop
         } else {  //Else make root the parent of any parent's going into tree
-          console.log('elseCase');
           root_temp = pair.get(root);
           root_temp.push(parent);
           size.set(parent, 5);
         }
 
-        console.log(parent+' ||| '+child+'|||')
-
         //Setting the parent to the child's Subj->Preds
         if (parent != child) {
-          //console.log("!=");
-          console.log(pair.has(parent));
           if (pair.has(parent)) {
-            console.log('hasPar:'+parent);
             children = pair.get(parent)
-            console.log(children);
             if(children.indexOf(child) == -1) { //if(child!=children) //To stop duplicates of predicates
-              console.log('obj not in pred index');
               children.push(child)
               pair.set(parent, children)
-              size.set(child, 5); //Doesn't reach this if statement, so set here
+              size.set(child, 5); //Doesn't reach this if statement below, so set here
               if (data[i][opts.value]) {
-                //console.log('in the value1');
-                //size.set(child, data[i][opts.value].value)
                 size.set(child, 5);
               }
             }//End of children.indexOf(child) == -1 //End of child!=children
           } else {
-            //console.log("p==c");
-            console.log(parent+'---'+children);
             children = [child]
             pair.set(parent, children)
-            //console.log(parent+'---'+children);
-            size.set(child, 5); //Doesn't reach this if statement, so set here
+            size.set(child, 5); //Doesn't reach this if statement below, so set here
             if (data[i][opts.value]) {
-              //console.log('in the value2');
-              //size.set(child, data[i][opts.value].value)
               size.set(child, 5);
             }
           }
         }
 
-        //For toddler
-        ///console.log("pair");
-        ///console.log(pair);  //WORKING HERE
-        ///console.log(pair._);
-        ///console.log($(pair));
-        console.log(child+'-----'+toddler);
-        //indented 1
-        //debugger;
-        //To set the child as the parent of toddler
+        //To set the child as the parent of toddler Pred->Objs
         if (child != toddler) {
-          //console.log("!= tod");
-          console.log(pair);
-          console.log(pair.has(child));
-          //debugger
           if (pair.has(child)) {
-            //if(child.hasOwnProperty(toddler)) {
-            console.log('gets in HEREEE');
-            //  continue;
-            //}
-            //console.log(pair.hasOwnProperty(toddler));
             children = pair.get(child)
-            //console.log(toddler);
-            console.log(children);
             if(children.indexOf(toddler) == -1) {  //!(toddler in children)) { //To stop duplicates of objects
-              console.log('toddler isn"t children');
               children.push(toddler)
               pair.set(child, children)
-              size.set(toddler, 5); //Doesn't reach this if statement, so set here
+              size.set(toddler, 5); //Doesn't reach this if statement below, so set here
               if (data[i][opts.value]) {
-                //console.log('in the value1');
-                //size.set(child, data[i][opts.value].value)
                 size.set(child, 5);
               }
             } //End of (children.indexOf(toddler) == -1) //toddler!=children
           } else {
-            //console.log("p==c");
-            console.log(child+'---'+children);
             children = [toddler]
             pair.set(child, children)
-            size.set(toddler, 5); //Doesn't reach this if statement, so set here
+            size.set(toddler, 5); //Doesn't reach this if statement below, so set here
             if (data[i][opts.value]) {
-              ///console.log('in the value2');
-              //size.set(child, data[i][opts.value].value)
               size.set(child, 5);
             }
           }
         }//End of if (child != toddler)
-        //end of indented 1
-        ///////console.log(pair);
-        //if(i==2) { exit() }
-
-        ///console.log('pair2');
-        ///console.log(pair);
-        /////debugger;
-        ///console.log('after debugger');
-
       }//innermost toddler for loop
     }//2nd for loop
   }//End of first for loop
@@ -455,10 +358,8 @@ function traverse(node) {
     return {"name": node, "value": size.get(node) || 1}
   }
 }
-console.log(pair);
-console.log(root);
 var tree = traverse(root)
-//if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
+if (d3sparql.debug) { console.log(JSON.stringify(tree)) }
 if(d3sparql.tree_bug) { console.log(tree); }
 return tree
 }//End of tree
@@ -1541,7 +1442,6 @@ fill-rule: evenodd;
 */
 d3sparql.sunburst = function(json, config) {
   var tree = d3sparql.tree(json, config)
-  console.log(tree);
 
   var opts = {
     "width":    config.width    || 1000,
