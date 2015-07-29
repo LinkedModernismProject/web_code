@@ -12,7 +12,7 @@ var d3sparql = {
   queryed: false,
   barchart: false,
   piechart: false,
-  tree_bug: true
+  tree_bug: false
 }
 
 /*
@@ -71,7 +71,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
       } catch(e) {
         console.log('in the CATCH');
         json = null
-        notif_panel('No Data Found', 'Please try another search as your query has no results')
+        notif_panel('No Data Found', 'Please try another search as your query has no results');
         //callback(JSON.parse(json))  //Get rid of here maybe
       }
     })
@@ -347,7 +347,6 @@ d3sparql.tree = function(json, config) {
         }
 
         console.log(parent+' ||| '+child+'|||')
-        //WORKING HERE
 
         //Setting the parent to the child's Subj->Preds
         if (parent != child) {
@@ -407,15 +406,15 @@ d3sparql.tree = function(json, config) {
             //console.log(toddler);
             console.log(children);
             if(children.indexOf(toddler) == -1) {  //!(toddler in children)) { //To stop duplicates of objects
-                console.log('toddler isn"t children');
-                children.push(toddler)
-                pair.set(child, children)
-                size.set(toddler, 5); //Doesn't reach this if statement, so set here
-                if (data[i][opts.value]) {
-                  //console.log('in the value1');
-                  //size.set(child, data[i][opts.value].value)
-                  size.set(child, 5);
-                }
+              console.log('toddler isn"t children');
+              children.push(toddler)
+              pair.set(child, children)
+              size.set(toddler, 5); //Doesn't reach this if statement, so set here
+              if (data[i][opts.value]) {
+                //console.log('in the value1');
+                //size.set(child, data[i][opts.value].value)
+                size.set(child, 5);
+              }
             } //End of (children.indexOf(toddler) == -1) //toddler!=children
           } else {
             //console.log("p==c");
