@@ -285,24 +285,35 @@ d3sparql.tree = function(json, config) {
     for (var j = 0; j < data[i].children.length; j++) {
       console.log(data[i].children.length);
       console.log('|||'+child+'|||'+data[i].children[j].name);
-      //if(i==1) { exit()}
-      if(data[i].name == 'Jean' && i==0) {
+      //if(i==1) { exit() }
+      console.log(data[i].name)
+      console.log(typeof(data[i].name))
+      if(data[i].name == 'Arthur_Cravan'/*'Jean'*/ && j==1) {
+        console.log('in the Jean'+j);
         console.log(pair);
-        exit()
+        //debugger
+        //exit()
       }
       //###PROBLEM WITH ARTHUR_CRAVAN
-      for (var l = 0; l < data[i].children.length; l++) {
-        if(pair.has(data[i].children[l].name)) {//data[i].children[j].name)) {
+      console.log('|||'+data[i].children[j].name+'|||');
+      console.log('|||'+child+'|||');
+      console.log(pair);
+      //for (var l = 0; l < data[i].children.length; l++) {   //Might be for loops fault for always setting to the last value
+        console.log('in for'+j);
+        if(pair.has(data[i].children[j].name)) {//data[i].children[j].name)) {
+          child = data[i].children[j].name;
           while(pair.has(child)) {
             //PROBLEM: child still = seeAlso, but pair.has(associatedWithLit)
 
             console.log('in the par!!!!!!!!');
             child += ' ';
+            console.log('|'+child+'|||');
           }
         } else {
           child = data[i].children[j].name;  //data[i][opts.child].value
         }
-      }
+      //}
+      console.log('|||'+data[i].children[j].name+'|||');
       console.log('|||'+child+'|||');
       test = 'no'
 
