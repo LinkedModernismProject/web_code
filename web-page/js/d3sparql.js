@@ -548,7 +548,6 @@ display: none;
 d3sparql.barchart = function(json, config) {
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
-  console.log(json);
 
   head = head.replace(/\s+/g, ''); //Remove spaces from name property
   head = head.split(','); //Separates between commas into an array
@@ -574,11 +573,8 @@ d3sparql.barchart = function(json, config) {
     }//End of for loop j
   }//End of for loop i
   var subj_size = subj.length;
-  console.log(subj_size);
   var pred_size = pred.length;
-  console.log(pred_size);
   var obj_size = obj.length;
-  console.log(obj_size);
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}, {"size": -5}];  //Size -5 used to help remove inconsitent bar heights and cut offs, as well as helping the lowest value appear in the barchart
 
@@ -706,7 +702,6 @@ stroke: #fff;
 d3sparql.piechart = function(json, config) {
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
-  console.log(json);
 
   head = head.replace(/\s+/g, ''); //Remove spaces from name property
   head = head.split(','); //Separates between commas into an array
@@ -732,11 +727,8 @@ d3sparql.piechart = function(json, config) {
     }//End of for loop j
   }//End of for loop i
   var subj_size = subj.length;
-  console.log(subj_size);
   var pred_size = pred.length;
-  console.log(pred_size);
   var obj_size = obj.length;
-  console.log(obj_size);
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 
 var opts = {
