@@ -533,8 +533,8 @@ body {
    border: 0;
    width: 300px;
 }
-.hide { /*Might help, but not so far*/
-    display: none;
+.hide_panel { /*Might help, but not so far*/
+    display: none;  /*Used to make so there's never two notifications at a time*/
 }
 /*From material design bootstrap*/
 .panel {
