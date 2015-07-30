@@ -83,9 +83,6 @@
         <div class="panel-body">'+msg+
         '</div> \
       </div> </div>');
-    console.log($('#notification').css('display'));
-    console.log(typeof($('#notification').css('display')));
-
     jQuery('#notification').show().fadeOut(10000, function() {
       console.log('notif!!!');
       jQuery('#notification').remove();

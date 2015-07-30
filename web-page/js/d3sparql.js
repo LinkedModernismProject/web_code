@@ -72,13 +72,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
         console.log('in the CATCH');
         json = null
         notif_panel('No Data Found', 'Please try another search as your query has no results');
-      //if($('#notification').is(':hidden')) {
-      //  console.log('in the hidden');
-      //  notif_panel('No Data Found', 'Please try another search as your query has no //results');
-      //} else {
-      //  console.log('not in the hidden');
-      //  }
-      //callback(JSON.parse(json))  //Get rid of here maybe
+        //callback(JSON.parse(json))  //Get rid of here maybe
       }
     })
 }
