@@ -70,7 +70,7 @@ d3sparql.query = function(endpoint, sparql, callback) {
         callback(JSON.parse(json))
       } catch(e) {
         console.log('in the CATCH');
-        json = null
+        json = null;
         notif_panel('No Data Found', 'Please try another search as your query has no results');
         //callback(JSON.parse(json))  //Get rid of here maybe
       }
@@ -548,28 +548,37 @@ display: none;
 d3sparql.barchart = function(json, config) {
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
+  console.log(json);
 
   head = head.replace(/\s+/g, ''); //Remove spaces from name property
   head = head.split(','); //Separates between commas into an array
 
   //Reorganize data to fit for barchart
+  //Used to determine the size of the the s, p, o's
   var subj = [];
   var pred = [];
   var obj = [];
   for (var i = 0; i < data.length; i++) {
-    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value
+    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value in array==-1
     subj.push(data[i].name);
   }
-  if(pred.indexOf(data[i].children[0].name) == -1) {
-    pred.push(data[i].children[0].name);
-  }
-  if (obj.indexOf(data[i].children[0].children[0].name) == -1) {
-    obj.push(data[i].children[0].children[0].name);
-  }
-}
-var subj_size = subj.length;
-var pred_size = pred.length;
-var obj_size = obj.length;
+  for (var j = 0; j < data[i].children.length; j++) {
+      if(pred.indexOf(data[i].children[j].name) == -1) {
+        pred.push(data[i].children[j].name);
+      }
+      for (var k = 0; k < data[i].children[j].children.length; k++) {
+        if (obj.indexOf(data[i].children[j].children[k].name) == -1) {
+          obj.push(data[i].children[j].children[k].name);
+        }
+      }//End of for loop k
+    }//End of for loop j
+  }//End of for loop i
+  var subj_size = subj.length;
+  console.log(subj_size);
+  var pred_size = pred.length;
+  console.log(pred_size);
+  var obj_size = obj.length;
+  console.log(obj_size);
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}, {"size": -5}];  //Size -5 used to help remove inconsitent bar heights and cut offs, as well as helping the lowest value appear in the barchart
 
@@ -697,28 +706,37 @@ stroke: #fff;
 d3sparql.piechart = function(json, config) {
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
+  console.log(json);
 
   head = head.replace(/\s+/g, ''); //Remove spaces from name property
   head = head.split(','); //Separates between commas into an array
 
   //Reorganize data to fit for piechart
+  //Used to determine the size of the the s, p, o's
   var subj = [];
   var pred = [];
   var obj = [];
   for (var i = 0; i < data.length; i++) {
-    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value
-    subj.push(data[i].name);
-  }
-  if(pred.indexOf(data[i].children[0].name) == -1) {
-    pred.push(data[i].children[0].name);
-  }
-  if (obj.indexOf(data[i].children[0].children[0].name) == -1) {
-    obj.push(data[i].children[0].children[0].name);
-  }
-}
-var subj_size = subj.length;
-var pred_size = pred.length;
-var obj_size = obj.length;
+    if(subj.indexOf(data[i].name) == -1) {  //Doesn't have the value in array==-1
+      subj.push(data[i].name);
+    }
+    for (var j = 0; j < data[i].children.length; j++) {
+      if(pred.indexOf(data[i].children[j].name) == -1) {
+        pred.push(data[i].children[j].name);
+      }
+      for (var k = 0; k < data[i].children[j].children.length; k++) {
+        if (obj.indexOf(data[i].children[j].children[k].name) == -1) {
+          obj.push(data[i].children[j].children[k].name);
+        }
+      }//End of for loop k
+    }//End of for loop j
+  }//End of for loop i
+  var subj_size = subj.length;
+  console.log(subj_size);
+  var pred_size = pred.length;
+  console.log(pred_size);
+  var obj_size = obj.length;
+  console.log(obj_size);
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 
 var opts = {
