@@ -72,10 +72,15 @@ d3sparql.query = function(endpoint, sparql, callback) {
         console.log('in the CATCH');
         json = null;
         notif_panel('No Data Found', 'Please try another search as your query has no results');
-        //callback(JSON.parse(json))  //Get rid of here maybe
+        callback(JSON.parse(json))
       }
     })
 }
+
+/*
+Render an empty page maybe
+*/
+
 
 /*
 Convert sparql-results+json object into a JSON graph in the {"nodes": [], "links": []} form.
@@ -104,6 +109,10 @@ TODO:
 Should follow the convention in the miserables.json https://gist.github.com/mbostock/4062045 to contain group for nodes and value for edges.
 */
 d3sparql.graph = function(json, config) {
+  if(json != null) {
+  } else {
+    return;
+  }
   var head = json.name;
   var data = json.children;
 
@@ -255,6 +264,10 @@ d3sparql.treemapzoom(json, config)
 }
 */
 d3sparql.tree = function(json, config) {
+  if(json != null) {
+  } else {
+    return;
+  }
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
   head = head.replace(/\s+/g, '') //Remove spaces from name property
@@ -546,6 +559,34 @@ display: none;
 </style>
 */
 d3sparql.barchart = function(json, config) {
+  var opts = {
+    "label_x":  config.label_x  || "Data" || head[0],
+    "label_y":  config.label_y  || "Number of:" || head[1],
+    "var_x":    config.var_x    || "Data" || head[0],
+    "var_y":    config.var_y    || "Number of:" || head[1],
+    "width":    config.width    || 750,
+    "height":   config.height   || 300,
+    "margin":   config.margin   || 80,  // TODO: to make use of {top: 10, right: 10, bottom: 80, left: 80}
+    "selector": config.selector || "#g2"
+  }
+  console.log(opts.label_x+'|'+opts.var_y);
+  if(json != null) {
+    console.log('in da ifff');
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height+5)
+      //    .append("g")
+      //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
+  } else {
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height+5)
+      //    .append("g")
+      //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
+    console.log('in da ELSE');
+    return;
+  }
+
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
 
@@ -578,29 +619,12 @@ d3sparql.barchart = function(json, config) {
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 data1 = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}, {"size": -5}];  //Size -5 used to help remove inconsitent bar heights and cut offs, as well as helping the lowest value appear in the barchart
 
-var opts = {
-  "label_x":  config.label_x  || "Data" || head[0],
-  "label_y":  config.label_y  || "Number of:" || head[1],
-  "var_x":    config.var_x    || "Data" || head[0],
-  "var_y":    config.var_y    || "Number of:" || head[1],
-  "width":    config.width    || 750,
-  "height":   config.height   || 300,
-  "margin":   config.margin   || 80,  // TODO: to make use of {top: 10, right: 10, bottom: 80, left: 80}
-  "selector": config.selector || "#g2"
-}
-
 var scale_x = d3.scale.ordinal().rangeRoundBands([0, opts.width - opts.margin], 0.1)
 var scale_y = d3.scale.linear().range([opts.height - opts.margin, 0])
 var axis_x = d3.svg.axis().scale(scale_x).orient("bottom")
 var axis_y = d3.svg.axis().scale(scale_y).orient("left")  //.ticks(10, "%")
 scale_x.domain(data.map(function(d) {return d.spo}))
 scale_y.domain(d3.extent(data1, function(d) {return parseInt(d.size + 5)})) //Set to +5 to counteract the -5 above and have the barchart appear normally
-
-var svg = d3.select(opts.selector).html("").append("svg")
-.attr("width", opts.width)
-.attr("height", opts.height+5)
-//    .append("g")
-//    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
 var ax = svg.append("g")
 .attr("class", "axis x")
 .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
@@ -700,6 +724,33 @@ stroke: #fff;
 </style>
 */
 d3sparql.piechart = function(json, config) {
+  var opts = {
+    "label":    config.label    || "label" || head[0],
+    "size":     config.size     || "size" || head[1],
+    "width":    config.width    || 700,
+    "height":   config.height   || 700,
+    "margin":   config.margin   || 10,
+    "hole":     config.hole     || 100,
+    "selector": config.selector || "#visualizations"
+  }
+
+  if(json != null) {
+    console.log('in da ifff');
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+      .append("g")
+      .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
+  } else {
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+      .append("g")
+      .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
+    console.log('in da ELSE');
+    return;
+  }
+
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
 
@@ -731,16 +782,6 @@ d3sparql.piechart = function(json, config) {
   var obj_size = obj.length;
 data = [{"spo": head[0], "size": subj_size, "color": "rgba(37, 144, 115, 0.6)"}, {"spo": head[1], "size": pred_size, "color": "rgba(240, 88, 104, 0.6)"}, {"spo": head[2], "size": obj_size, "color": "rgba(188, 230, 230, 0.6)"}];
 
-var opts = {
-  "label":    config.label    || head[0],
-  "size":     config.size     || head[1],
-  "width":    config.width    || 700,
-  "height":   config.height   || 700,
-  "margin":   config.margin   || 10,
-  "hole":     config.hole     || 100,
-  "selector": config.selector || "#visualizations"
-}
-
 var radius = Math.min(opts.width, opts.height) / 2 - opts.margin
 var hole = Math.max(Math.min(radius - 50, opts.hole), 0)
 var color = d3.scale.category20()
@@ -752,12 +793,6 @@ var arc = d3.svg.arc()
 var pie = d3.layout.pie()
 //.sort(null)
 .value(function(d) { return d.size })
-
-var svg = d3.select(opts.selector).html("").append("svg")
-.attr("width", opts.width)
-.attr("height", opts.height)
-.append("g")
-.attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
 
 var g = svg.selectAll(".arc")
 .data(pie(data))
@@ -962,12 +997,6 @@ TODO:
 Try other d3.layout.force options.
 */
 d3sparql.forcegraph = function(json, config) {
-  var graph = d3sparql.graph(json, config)
-
-  var scale = d3.scale.linear()
-  .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
-  .range([1, 200])
-
   var opts = {
     "radius":    config.radius    || function(d) {return d.value ? scale(d.value) : 1 + d.label.length },
     "charge":    config.charge    || -150,
@@ -978,9 +1007,24 @@ d3sparql.forcegraph = function(json, config) {
     "selector":  config.selector  || "#visualizations"
   }
 
-  var svg = d3.select(opts.selector).html("").append("svg")
-  .attr("width", opts.width)
-  .attr("height", opts.height)
+  if(json != null) {
+    console.log('in da ifff');
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+  } else {
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+    console.log('in da ELSE');
+    return;
+  }
+  var graph = d3sparql.graph(json, config)
+
+  var scale = d3.scale.linear()
+  .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
+  .range([1, 200])
+
   var link = svg.selectAll(".link")
   .data(graph.links)
   .enter()
@@ -1091,6 +1135,19 @@ d3sparql.sankey = function(json, config) {
     "margin":   config.margin   || 10,
     "selector": config.selector || "#visualizations"
   }
+  var svg = d3.select(opts.selector).html("").append("svg")
+    .attr("width", opts.width + opts.margin * 2)
+    .attr("height", opts.height + opts.margin * 2)
+    .append("g")
+    .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
+  //If json is null, return with no visualization
+  //CHANGE to show a message in the middle of the page as noted by Boss Man
+  if(json != null) {
+    console.log('in da ifff');
+  } else {
+    console.log('in da ELSE');
+    return;
+  }
 
   var nodes = graph.nodes
   var links = graph.links
@@ -1106,11 +1163,6 @@ d3sparql.sankey = function(json, config) {
   .layout(32)
   var path = sankey.link()
   var color = d3.scale.category20()
-  var svg = d3.select(opts.selector).html("").append("svg")
-  .attr("width", opts.width + opts.margin * 2)
-  .attr("height", opts.height + opts.margin * 2)
-  .append("g")
-  .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
   var link = svg.selectAll(".link")
   .data(links)
   .enter()
@@ -1464,11 +1516,22 @@ d3sparql.sunburst = function(json, config) {
   var x = d3.scale.linear().range([0, 2 * Math.PI])
   var y = d3.scale.sqrt().range([0, radius])
   var color = d3.scale.category20()
-  var svg = d3.select(opts.selector).html("").append("svg")
-  .attr("width", opts.width)
-  .attr("height", opts.height)
-  .append("g")
-  .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
+  if(json != null) {
+    console.log('in da ifff');
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+      .append("g")
+      .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
+  } else {
+    var svg = d3.select(opts.selector).html("").append("svg")
+      .attr("width", opts.width)
+      .attr("height", opts.height)
+      .append("g")
+      .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
+    console.log('in da ELSE');
+    return;
+  }
   var arc = d3.svg.arc()
   .startAngle(function(d)  { return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
   .endAngle(function(d)    { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
@@ -1553,6 +1616,7 @@ d3sparql.sunburst = function(json, config) {
     }
     return false
   }
+  console.log(svg);
   console.log("Done Sunburst");
 }//End of Sunburst
 
@@ -1612,15 +1676,6 @@ Fix rotation angle for each text to avoid string collision
 */
 d3sparql.circlepack = function(json, config) {
   var tree = d3sparql.tree(json, config)
-  //Give each child a size
-  for (var i = 0; i < tree.children.length; i++) {
-    for (var k = 0; k < tree.children[i].children.length; k++) {
-      for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
-        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;
-        //tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
-      }
-    }
-  }
 
   var opts = {
     "width":     config.width    || 800,
@@ -1635,6 +1690,34 @@ d3sparql.circlepack = function(json, config) {
   x = d3.scale.linear().range([0, 700]),
   y = d3.scale.linear().range([0, 700])
 
+  if(json != null) {
+    console.log('in da ifff');
+    var vis = d3.select(opts.selector).html("")
+      .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
+      .attr("width", w)
+      .attr("height", h)
+      .append("svg:g")
+      .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
+  } else {
+    var vis = d3.select(opts.selector).html("")
+      .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
+      .attr("width", w)
+      .attr("height", h)
+      .append("svg:g")
+      .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
+    console.log('in da ELSE');
+    return;
+  }
+
+  //Give each child a size
+  for (var i = 0; i < tree.children.length; i++) {
+    for (var k = 0; k < tree.children[i].children.length; k++) {
+      for (var j = 0; j < tree.children[i].children[k].children.length; j++) {
+        tree.children[i].children[k].children[j]['size'] = Math.floor(Math.random() * 20) + 1;
+        //tree.children[i].children[k].children[j]['color'] = "rgba(240, 88, 104, 0.6)";
+      }
+    }
+  }
 
   var pack = d3.layout.pack()
     .size([r, r])
@@ -1662,13 +1745,6 @@ d3sparql.circlepack = function(json, config) {
       }
     }
   }
-
-  var vis = d3.select(opts.selector).html("")
-  .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
-  .attr("width", w)
-  .attr("height", h)
-  .append("svg:g")
-  .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
 
   vis.selectAll("circle")
   .data(nodes)
