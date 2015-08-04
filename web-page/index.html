@@ -273,6 +273,11 @@
 
   }
 
+  /*
+  Searches by:
+  FILTER regex is used to specifiy exactly people who are say Chemically Castrated and that's it.
+  limo:gender 'Chemically Castrated', say would get people that are CC'd and also all the info about those people
+  */
   //Function that takes the S P O and makes the query
   function constructQuery(){
     var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
