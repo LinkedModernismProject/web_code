@@ -1013,7 +1013,8 @@ d3sparql.forcegraph = function(json, config) {
       .attr("width", opts.width)
       .attr("height", opts.height)
   } else {
-    var svg = d3.select(opts.selector).html("").append("svg")
+    //var svg = d3.select(opts.selector).html('<div class="nodata_outer"><div class="nodata_mid"><div class="nodata_inner"><h1>No Data Recieved With Current Query Search</h1></div></div></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
     console.log('in da ELSE');
