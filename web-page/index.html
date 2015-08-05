@@ -282,7 +282,9 @@
   function constructQuery(){
     var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($("#subj").val() != ""){
-      query += 'FILTER regex(str(?Subject), "' + $("#subj").val() + '", "i") .';
+      var subj_ = $("#subj").val();
+      subj_ = subj_.replace(/\s/g, '_');
+      query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
     }
     if($("#pred").val() != ""){
       query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
