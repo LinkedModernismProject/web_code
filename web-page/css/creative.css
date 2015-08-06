@@ -47,6 +47,13 @@ input[type="textarea"]{
 
 }
 
+.hover-box {
+  z-index: 99;
+  font-weight: 100;
+  position: absolute;
+  border: solid 2;
+}
+
 input[type="textarea"]:focus {
   outline: none;
 }
