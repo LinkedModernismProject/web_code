@@ -281,16 +281,22 @@
   //Function that takes the S P O and makes the query
   function constructQuery(){
     var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
-    if($("#subj").val() != ""){
-      var subj_ = $("#subj").val();
-      subj_ = subj_.replace(/\s/g, '_');
-      query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
+    if($('#tabSearch').hasClass('active')){
+      if($("#subj").val() != ""){
+        var subj_ = $("#subj").val();
+        subj_ = subj_.replace(/\s/g, '_');
+        query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
+      }
+      if($("#pred").val() != ""){
+        query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
+      }
+      if($("#obj").val() != ""){
+        query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+      }
     }
-    if($("#pred").val() != ""){
-      query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
-    }
-    if($("#obj").val() != ""){
-      query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+    else if ($('#tabVis').hasClass('active')) {
+      var subj = this.id.replace(/\s/g, '_');
+      query += 'FILTER regex(str(?Subject), "' + subj/*$("#subj").val()*/ + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
@@ -383,6 +389,7 @@ function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
   var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
   var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
+  $.cookie("currentSearch", query);
   return queryURL;
 }
 
@@ -391,6 +398,26 @@ function exec1(sparql) {
   console.log('in exec1');
   var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
   d3sparql.query(endpoint, sparql, render);
+}
+
+function visTabClick(){
+  sClick($.cookie("currentSearch"));
+  exec1($.cookie("currentSearch"));
+}
+
+function queryREM(){
+  var win = window.open('https://www.google.ca/#q=' + this.id, '_blank');
+  if(win){
+      //Browser has allowed it to be opened
+      win.focus();
+  }else{
+      //Broswer has blocked it
+      alert('Please allow popups for this site');
+  }
+}
+
+function reSearchByClick(){
+
 }
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
@@ -499,7 +526,16 @@ function render(json) {
     <li id="tabDist" ><a data-toggle="tab" href="#sectionDist" class="btn" role="button">Degrees of Separation</a></li>
     <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
-    <li id="tabVis" ><a data-toggle="tab" href="#sectionVis" class="btn" role="button">Visualizations</a></li>
+    <li id="tabVis" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" class="btn" role="button">Visualizations<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a id="Force_Directed" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
+        <li><a id="Sunburst" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
+        <li><a id="CirclePack" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
+        <li><a id="World_Map" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
+        <li><a id="Graphs" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
+        <li><a id="Sankey" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
+      </ul>
+    </li>
   </ul>
 
 
@@ -1319,6 +1355,13 @@ function render(json) {
     -->
     <div class="tab-pane fade" id="sectionVis">
       <br/>
+      <div class="col-sm-offset-1">
+        <span class="hover-box hidden">
+          <p id="item-name"></p>
+          <button class="btn btn-primary">Search this on the REM</button>
+          <button class="btn btn-primary">New search with this term</button>
+        </span>
+      </div>
       <span id="visualizations"></span>
       <br/>
       <span id="g2"></span>
