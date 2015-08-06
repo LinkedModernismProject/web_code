@@ -559,7 +559,7 @@ body {
   background-color: #ff5722;
 }
 [class*="panel-"] > .panel-heading {  /*To get rid of blue line separator between color and white content box*/
-  color: #eeeeee;
+  color: rgba(255, 255, 255, 0.84);/*color: #eeeeee;*/
   border: 0;
 }
 
