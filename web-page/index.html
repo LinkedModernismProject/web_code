@@ -143,8 +143,6 @@
       console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
-      $("#sectionFilter").addClass("s");
-      $("#sectionSearch").removeClass("s");
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
         query = query + ". ?Subject limo:hasGender" + " '" + hasGender + "' . ";
@@ -239,8 +237,6 @@
     $(".btn-search").click(function(){
       $("#tabSearch").removeClass("active");
       $("#tabVis").addClass("active");
-      $("#sectionSearch").addClass("s");
-      $("#sectionFilter").removeClass("s");
       if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
         var query = randQuery();
       else
@@ -255,8 +251,6 @@
     $(".panel").on("click",".btn-prev",function(){
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
-      $("#sectionFilter").addClass("s");
-      $("#sectionSearch").removeClass("s");
       var i = this.id;
       var query = $("#queryNum" + i).text();
       console.log(query);
@@ -422,10 +416,14 @@ function reSearchByClick(){
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
 function render(json) {
-  if($("#sectionSearch").hasClass("s")){
+  if($("#sectionSearch").hasClass("active")){
     var val = $("input[name='optradio']:checked").val();
-  } else if($("#sectionFilter").hasClass("s")){
+  } else if($("#sectionFilter").hasClass("active")){
     var val = $("input[name='optradio1']:checked").val();
+  }
+  else{
+    var val = $("#listOfVis").class('active').id();
+    console.log(val);
   }
   if(val === "fd"){
     var config = {
@@ -527,13 +525,13 @@ function render(json) {
     <li id="tabFilter" ><a data-toggle="tab" href="#sectionFilter" class="btn" role="button">Filters</a></li>
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" class="btn" role="button">Visualizations<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a id="Force_Directed" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
-        <li><a id="Sunburst" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
-        <li><a id="CirclePack" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
-        <li><a id="World_Map" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
-        <li><a id="Graphs" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
-        <li><a id="Sankey" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
+      <ul class="dropdown-menu" id="listOfVis">
+        <li><a id="fd" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
+        <li><a id="sb" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
+        <li><a id="cp" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
+        <li><a id="wm" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
+        <li><a id="gr" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
+        <li><a id="sk" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
       </ul>
     </li>
   </ul>
