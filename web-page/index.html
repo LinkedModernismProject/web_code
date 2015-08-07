@@ -421,9 +421,11 @@ function render(json) {
   } else if($("#sectionFilter").hasClass("active")){
     var val = $("input[name='optradio1']:checked").val();
   }
+  else if($("sectionVis").hasClass("active")){
+    var val = $("#listOfVis").find(".active").attr('id');
+  }
   else{
-    var val = $("#listOfVis").class('active').id();
-    console.log(val);
+    var val = "fd"
   }
   if(val === "fd"){
     var config = {
@@ -526,12 +528,12 @@ function render(json) {
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" class="btn" role="button">Visualizations<span class="caret"></span></a>
       <ul class="dropdown-menu" id="listOfVis">
-        <li><a id="fd" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
-        <li><a id="sb" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
-        <li><a id="cp" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
-        <li><a id="wm" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
-        <li><a id="gr" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
-        <li><a id="sk" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
+        <li id='fd'><a id="fd" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
+        <li id='sb'><a id="sb" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
+        <li id='cp'><a id="cp" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
+        <li id='wm'><a id="wm" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
+        <li id='gr'><a id="gr" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
+        <li id='sk'><a id="sk" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
       </ul>
     </li>
   </ul>
