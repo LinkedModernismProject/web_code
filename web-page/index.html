@@ -92,7 +92,7 @@
   $(function() {
     //$.removeCookie("query")
     $("#thingName").hide();
-    //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
+    //retrieve cookie and send it off to fill results, visualizations, and previous searches tab
     var cdata = $.cookie("query");
     if(cdata != null || cdata != undefined){
       //Function calls to populate for last search on page load
@@ -116,7 +116,7 @@
       populatePrevious(cdata);
     }
 
-    //for main search buttons to do tab stuff
+    //for main search buttons to change active tabs
     $(".btn-fn").click(function(){
       if(this.id === "reg-search"){
         $("#tabHome").removeClass("active");
@@ -178,6 +178,9 @@
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       query += filt[filt.length-1]
       console.log(query);
+
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
+
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -228,6 +231,9 @@
       }
       query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       console.log(query);
+
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
+
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -242,6 +248,7 @@
       else
         var query = constructQuery();
       console.log(query);
+      $.cookie("currentVis", $("input[name='optradio']:checked").val());
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -253,6 +260,7 @@
       $("#tabVis").addClass("active");
       var i = this.id;
       var query = $("#queryNum" + i).text();
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       console.log(query);
       createCookie(query);
       sClick(query);
@@ -395,6 +403,7 @@ function exec1(sparql) {
 }
 
 function visTabClick(){
+  $.cookie("currentVis", $("#listOfVis").find(".active").attr('id'););
   sClick($.cookie("currentSearch"));
   exec1($.cookie("currentSearch"));
 }
@@ -416,16 +425,11 @@ function reSearchByClick(){
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
 function render(json) {
-  if($("#sectionSearch").hasClass("active")){
-    var val = $("input[name='optradio']:checked").val();
-  } else if($("#sectionFilter").hasClass("active")){
-    var val = $("input[name='optradio1']:checked").val();
-  }
-  else if($("sectionVis").hasClass("active")){
-    var val = $("#listOfVis").find(".active").attr('id');
+  if($.cookie("currentVis") != null){
+    var val = $.cookie("currentVis");
   }
   else{
-    var val = "fd"
+    var val = 'fd'
   }
   if(val === "fd"){
     var config = {
