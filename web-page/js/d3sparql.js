@@ -1021,6 +1021,9 @@ d3sparql.forcegraph = function(json, config) {
   .domain(d3.extent(graph.nodes, function(d) {return parseFloat(d.value)}))
   .range([1, 200])
 
+  console.log(graph);
+  console.log(graph.nodes.length);
+
   var link = svg.selectAll(".link")
   .data(graph.links)
   .enter()
@@ -1041,10 +1044,11 @@ d3sparql.forcegraph = function(json, config) {
   .charge(opts.charge)
   .linkDistance(opts.distance)
   .gravity(0.01)
+  .linkStrength(0.001)
   .size([opts.width, opts.height])
   .nodes(graph.nodes)
   .links(graph.links)
-  .on("tick", function() {
+  /*.on("tick", function() {
     link.attr("x1", function(d) {return d.source.x})
     .attr("y1", function(d) {return d.source.y})
     .attr("x2", function(d) {return d.target.x})
@@ -1053,9 +1057,45 @@ d3sparql.forcegraph = function(json, config) {
     .attr("y", function(d) {return d.y})
     circle.attr("cx", function(d) { return d.x = Math.max(opts.radius, Math.min(opts.width - opts.radius, d.x)); })
     .attr("cy", function(d) { return d.y = Math.max(opts.radius, Math.min(opts.height - opts.radius, d.y)); });
-  })
+  })*/
   .start()
+  /*setTimeout(function() {
+    console.log('in the tim');
+    force.gravity(0);
+    force.linkStrength(0);
+  }, 5000);*/
+  //for (var i = 0; i < 100; i++) {
+    //force.tick();
+    force.on("tick", function() {
+      console.log('in the tick!!!!!!!!!!!!!!!!!!');
+      link.attr("x1", function(d) {return d.source.x})
+      .attr("y1", function(d) {return d.source.y})
+      .attr("x2", function(d) {return d.target.x})
+      .attr("y2", function(d) {return d.target.y})
+      text.attr("x", function(d) {return d.x})
+      .attr("y", function(d) {return d.y})
+      circle.attr("cx", function(d) { return d.x = Math.max(opts.radius, Math.min(opts.width - opts.radius, d.x)); })
+      .attr("cy", function(d) { return d.y = Math.max(opts.radius, Math.min(opts.height - opts.radius, d.y)); });
+    })
+    //force.linkStrength(0)
+    console.log('after tick');
+  //}//End of for loop
+  console.log('after FOR tick');
+  setTimeout(function() {
+    force.stop();
+  }, 5000);
+
+
+  /*setTimeout(function() {
+    console.log('in the tim');
+    console.log(force);
+    force.stop();
+    force.gravity(0);
+    force.linkStrength(1);
+    console.log(force);
+  }, 3000);*/
   node.call(force.drag)
+  //force.stop();
   // default CSS/SVG
   link.attr({
     "stroke": "#000",
