@@ -92,7 +92,7 @@
   $(function() {
     //$.removeCookie("query")
     $("#thingName").hide();
-    //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
+    //retrieve cookie and send it off to fill results, visualizations, and previous searches tab
     var cdata = $.cookie("query");
     if(cdata != null || cdata != undefined){
       //Function calls to populate for last search on page load
@@ -116,7 +116,7 @@
       populatePrevious(cdata);
     }
 
-    //for main search buttons to do tab stuff
+    //for main search buttons to change active tabs
     $(".btn-fn").click(function(){
       if(this.id === "reg-search"){
         $("#tabHome").removeClass("active");
@@ -134,6 +134,7 @@
       } else {
         var query = $("#queryNum0").text(); //Gets query from previous search
       }
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
       query = filt[0];
       for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
@@ -178,6 +179,7 @@
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       query += filt[filt.length-1]
       console.log(query);
+
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -186,7 +188,7 @@
     //Begins a new search with the selected filter elements when the "New Search" button is pressed
     jQuery('#newSearch').click(function(){
       var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
-
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       /*These 4 lines are used to take active state off of tab after search button
       is clicked. Same with the section s it was glitchy and needed this to fix*/
       $("#tabFilter").removeClass("active");
@@ -235,6 +237,7 @@
 
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
+      $.cookie("currentVis", $("input[name='optradio']:checked").val());
       $("#tabSearch").removeClass("active");
       $("#tabVis").addClass("active");
       if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
@@ -249,6 +252,7 @@
 
     //Searches by previous query from cookie
     $(".panel").on("click",".btn-prev",function(){
+      $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       var i = this.id;
@@ -395,6 +399,7 @@ function exec1(sparql) {
 }
 
 function visTabClick(){
+  $.cookie("currentVis", $("#listOfVis").find(".active").attr('id'));
   sClick($.cookie("currentSearch"));
   exec1($.cookie("currentSearch"));
 }
@@ -416,16 +421,11 @@ function reSearchByClick(){
 
 // set options and call the d3xxxxx function in this library ... set all configs & name them
 function render(json) {
-  if($("#sectionSearch").hasClass("active")){
-    var val = $("input[name='optradio']:checked").val();
-  } else if($("#sectionFilter").hasClass("active")){
-    var val = $("input[name='optradio1']:checked").val();
-  }
-  else if($("sectionVis").hasClass("active")){
-    var val = $("#listOfVis").find(".active").attr('id');
+  if($.cookie("currentVis") != null){
+    var val = $.cookie("currentVis");
   }
   else{
-    var val = "fd"
+    var val = 'fd'
   }
   if(val === "fd"){
     var config = {
