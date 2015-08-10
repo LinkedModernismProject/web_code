@@ -1417,7 +1417,7 @@
 	pref1:associatedWithVenues "Paula Modersohn-Becker-Stiftung" ;
 	pref1:associatedWithEthnicity "German" . 
 
-<http://modernism.uvic.ca/metadata#Brass´>
+<http://modernism.uvic.ca/metadata#Brass>
 	pref1:VisualArts "photography" ;
 	pref1:groupOrMovement "No" ;
 	pref1:isPerson "Yes" ;
@@ -14506,7 +14506,7 @@
 	pref1:associatedWithCities "Paris" ;
 	pref1:associatedWithVenues "Alfred Knopf" . 
 
-<http://modernism.uvic.ca/metadata#"Campobello,_Nellie;_Campobello,_Gloria">
+<http://modernism.uvic.ca/metadata#Campobello,_Nellie;_Campobello,_Gloria>
 	pref1:NonFictionOrConceptOrIdeaTypeOfWriting "theory" ;
 	pref1:PerformingArts "dance" ;
 	pref1:groupOrMovement "No" ;
@@ -17111,7 +17111,7 @@
 	pref1:creatorOf "Figures am_ricaines: 18 _tudes sur des _crivains de ce temps (American Figures:" ;
 	pref1:creatorOf "18 Studies of Writers of Today)" ;
 	pref1:creatorOf "Marie Taglioni (1804-1884)" ;
-	pref1:creatorOf "La vie path_tique de Dosto´evsky (The Moving Life of Dostoevsky)" ;
+	pref1:creatorOf "The Moving Life of Dostoevsky" ;
 	pref1:creatorOf "Les Visages de la danse (Faces of the Dance)" ;
 	pref1:creatorOf "Serge Lifar. Destin d'un Danseur (Serge Lifar:" ;
 	pref1:creatorOf "Destiny of a Dancer)" ;
@@ -17472,7 +17472,6 @@
 	pref1:hasDeathdate "1994" ;
 	pref1:flourishesIn "1931-1935" ;
 	pref1:creatorOf "Smashana Kurukshetra" ;
-	pref1:influencedBy "5=directly motivated" ;
 	pref1:originatingCountry "India" ;
 	pref1:associatedWithCountry "India" ;
 	pref1:associatedWithRegion "Asia" ;
@@ -17768,8 +17767,6 @@
 	pref1:associatedWithRegion "Europe" ;
 	pref1:associatedWithEmpire "Russian" ;
 	pref1:associatedWithCities "St. Petersburg/Leningrad" ;
-	pref1:associatedWithVenues "'''_______'' (1909-1918)'" ;
-	pref1:initiallyAppearedInVenue "'''_______'' (1909-1918)'" ;
 	pref1:associatedWithEthnicity "Jewish" ;
 	pref1:associatedWithEthnicity "Russian" . 
 
@@ -19046,14 +19043,10 @@
 	pref1:flourishesIn "1986-1990" ;
 	pref1:flourishesIn "1991-1995" ;
 	pref1:flourishesIn "1996-2001" ;
-	pref1:creatorOf "___ ____" ;
 	pref1:creatorOf "(Death of the Old Man)" ;
-	pref1:creatorOf "___ ______" ;
 	pref1:creatorOf "(Facing the Forests)" ;
-	pref1:creatorOf "_____" ;
 	pref1:creatorOf "(The Lover)" ;
 	pref1:creatorOf "_____ _________ (Between Right and Right)" ;
-	pref1:creatorOf "_____" ;
 	pref1:creatorOf "(Five Seasons)" ;
 	pref1:creatorOf "__ ____ (Mr Mani)" ;
 	pref1:creatorOf "__ ________ (Friendly Fire)" ;
@@ -19091,7 +19084,6 @@
 	pref1:associatedWithRegion "Middle East" ;
 	pref1:associatedWithCities "Jerusalem" ;
 	pref1:associatedWithCities "Haifa" ;
-	pref1:associatedWithVenues "______ ______" ;
 	pref1:associatedWithVenues "(HaKibbutz KaMeuchad)" ;
 	pref1:associatedWithVenues "Haifa University" ;
 	pref1:associatedWithVenues "Hebrew University of Jerusalem" ;
@@ -19572,26 +19564,6 @@
 	pref1:flourishesIn "1921-1925" ;
 	pref1:flourishesIn "1926-1930" ;
 	pref1:flourishesIn "1931-1935" ;
-	pref1:creatorOf "_____________:" ;
-	pref1:creatorOf "â______ _ ______" ;
-	pref1:creatorOf "â_____" ;
-	pref1:creatorOf "â____" ;
-	pref1:creatorOf " â_________ _ ______" ;
-	pref1:creatorOf "_____ _______" ;
-	pref1:creatorOf " _______ _______" ;
-	pref1:creatorOf " ______ ________" ;
-	pref1:creatorOf " _____:" ;
-	pref1:creatorOf "â__________ ______" ;
-	pref1:creatorOf "â_________" ;
-	pref1:creatorOf "â__________ _____" ;
-	pref1:creatorOf " â______ ___ ______" ;
-	pref1:creatorOf " â________ ______" ;
-	pref1:creatorOf "â_____ ______" ;
-	pref1:creatorOf " ________:" ;
-	pref1:creatorOf "________ ________" ;
-	pref1:creatorOf " ________" ;
-	pref1:creatorOf " _______" ;
-	pref1:creatorOf "_____ _______" ;
 	pref1:influencedBy "Vladimir Solovyov 5" ;
 	pref1:influencedBy "Rudolph Steiner 5" ;
 	pref1:influencedBy "Aleksandr Blok 4" ;
@@ -19642,17 +19614,6 @@
 	pref1:flourishesIn "1906-1910" ;
 	pref1:flourishesIn "1911-1915" ;
 	pref1:flourishesIn "1916-1920" ;
-	pref1:creatorOf "'â_____ _ __________ ____." ;
-	pref1:creatorOf "â_________ _______." ;
-	pref1:creatorOf "â_____ _ _____." ;
-	pref1:creatorOf "â_______ _____." ;
-	pref1:creatorOf "â__________ _____." ;
-	pref1:creatorOf " â______ ____." ;
-	pref1:creatorOf " â_____ _ ______" ;
-	pref1:creatorOf "''____''" ;
-	pref1:creatorOf "â__ ______ _______ ____" ;
-	pref1:creatorOf "â_____ ____" ;
-	pref1:creatorOf "''__________'''" ;
 	pref1:influencedBy "Vladimir Solovyov 5" ;
 	pref1:influencedBy "Aleksandr Pushkin 3" ;
 	pref1:influencedBy "Andrei Belyi 4" ;
@@ -21523,8 +21484,7 @@
 	pref1:flourishesIn "1946-1950" ;
 	pref1:flourishesIn "1951-1955" ;
 	pref1:flourishesIn "1956-1960" ;
-	pref1:flourishesIn "1961-1965" ;
-	pref1:creatorOf "'«" . 
+	pref1:flourishesIn "1961-1965" .
 
 <http://modernism.uvic.ca/metadata#Reidy,_Affonso_Eduardo>
 	pref1:VisualArts "architecture" ;
@@ -22025,7 +21985,6 @@
 	pref1:flourishesIn "1911-1915" ;
 	pref1:flourishesIn "1916-1920" ;
 	pref1:flourishesIn "1921-1925" ;
-	pref1:creatorOf "________ _____________ _____" ;
 	pref1:creatorOf "Cossack Mamai" ;
 	pref1:creatorOf "Cubism (Surface - Plane)" ;
 	pref1:creatorOf "Texture [Faktura]" ;
@@ -26547,7 +26506,7 @@
 	pref1:influencedByDifferentKind "The Bible (4)" ;
 	pref1:influencedByDifferentKind "Sigmund Freud (3)" ;
 	pref1:influenced "Sylvia Plath (3)" ;
-	pref1:influenced "Ana´s Nin (4)" ;
+	pref1:influenced "Anas Nin (4)" ;
 	pref1:influenced "Henry Miller (4)" ;
 	pref1:influenced "E. M. Forster (4)" ;
 	pref1:influenced "Norman Mailer (1)" ;
@@ -28130,7 +28089,7 @@
 	pref1:creatorOf "Autrement qu'tre ou au-del de l'essence" ;
 	pref1:creatorOf "En d_couvrant l'existence avec Husserl et Heidegger" ;
 	pref1:creatorOf "Totalit_ et infini. Essai sur l'ext_riorit_" ;
-	pref1:creatorOf "Difficile Libert_. Essais sur le Juda´sme" ;
+	pref1:creatorOf "Difficile Libert_. Essais sur le Judasme" ;
 	pref1:creatorOf "Quatre Lectures Talmudiques" ;
 	pref1:createdByIndirect "cole normale isra_lite orientale" ;
 	pref1:influencedBy "Henri Bergson 2" ;
@@ -30175,8 +30134,8 @@
 	pref1:creatorOf " Deux preludes et fugues pour orgue" ;
 	pref1:creatorOf " Le Tombeau de Dukas" ;
 	pref1:creatorOf " Pogromes" ;
-	pref1:creatorOf "Vo´na" ;
-	pref1:creatorOf "Song Ko´ ou le fleuve rouge" ;
+	pref1:creatorOf "Vona" ;
+	pref1:creatorOf "Song Ko ou le fleuve rouge" ;
 	pref1:influencedBy "Paul Dukas 5" ;
 	pref1:influencedByDifferentKind "Humanism 5" ;
 	pref1:influencedByDifferentKind "Judaism 4" ;
@@ -30911,9 +30870,6 @@
 	pref1:associatedWithRegion "Asia" ;
 	pref1:associatedWithRegion "East Asia" ;
 	pref1:associatedWithCities "Hong Kong" ;
-	pref1:associatedWithVenues "______" ;
-	pref1:associatedWithVenues "_____" ;
-	pref1:associatedWithVenues "____" ;
 	pref1:associatedWithEthnicity "Chinese" . 
 
 <http://modernism.uvic.ca/metadata#Arthur_Segal>
@@ -36767,8 +36723,8 @@
 	pref1:knows "Jeanne H_buterne" ;
 	pref1:knows "Guglielmo Micheli" ;
 	pref1:knows " Pablo Picasso" ;
-	pref1:knows " Cha´m Soutine" ;
-	pref1:knows "Mo´se Kisling" ;
+	pref1:knows " Cham Soutine" ;
+	pref1:knows "Mose Kisling" ;
 	pref1:knows "Jacques Lipschitz" ;
 	pref1:knows "Constantin Brancusi" ;
 	pref1:knows " Paul Alexandre" ;
@@ -37154,7 +37110,7 @@
 	pref1:hasDeathdate "1918" ;
 	pref1:flourishesIn "1911-1915" ;
 	pref1:flourishesIn "1916-1920" ;
-	pref1:creatorOf "÷zkost" ;
+	pref1:creatorOf "zkost" ;
 	pref1:creatorOf "D_m u _ern_ Matky Bo_Í" ;
 	pref1:createdBy "Otto Gutfreund" ;
 	pref1:createdBy "Josef Go_r" ;
@@ -40603,16 +40559,10 @@
 	pref1:flourishesIn "1916-1920" ;
 	pref1:flourishesIn "1921-1925" ;
 	pref1:flourishesIn "1926-1930" ;
-	pref1:creatorOf "______" ;
-	pref1:creatorOf "________" ;
-	pref1:creatorOf "________" ;
 	pref1:creatorOf "The Geisha and the Knight" ;
 	pref1:creatorOf " Zingoro" ;
 	pref1:creatorOf "Kesa Gozen" ;
 	pref1:creatorOf "Sairaku" ;
-	pref1:creatorOf "_____" ;
-	pref1:creatorOf "___" ;
-	pref1:creatorOf " ___" ;
 	pref1:influencedBy "Sarah Bernhardt 2" ;
 	pref1:influencedBy "Ellen Terry 3" ;
 	pref1:influencedBy "Henry Irving 3" ;
@@ -42358,16 +42308,6 @@
 	pref1:flourishesIn "1921-1925" ;
 	pref1:flourishesIn "1926-1930" ;
 	pref1:flourishesIn "1931-1935" ;
-	pref1:creatorOf "_____ ___" ;
-	pref1:creatorOf "_______ _____________" ;
-	pref1:creatorOf "_______ ______" ;
-	pref1:creatorOf "______ _______" ;
-	pref1:creatorOf "_______ ____________ ____" ;
-	pref1:creatorOf "______ _ _____" ;
-	pref1:creatorOf "_____ _______ _ ___________ ____" ;
-	pref1:creatorOf "_____ _________ ______" ;
-	pref1:creatorOf "_ê___" ;
-	pref1:creatorOf "________" ;
 	pref1:influencedBy "Andrei Belyi, 4" ;
 	pref1:influencedBy "Aleksei Remizov, 4" ;
 	pref1:influencedBy "Leonid Andreev 3" ;
@@ -42397,11 +42337,9 @@
 	pref1:associatedWithEmpire "Russian" ;
 	pref1:associatedWithCities "St. Petersburg (Petrograd, Leningrad)" ;
 	pref1:associatedWithCities "Moscow" ;
-	pref1:associatedWithVenues "___ ________" ;
 	pref1:associatedWithVenues "Petropolis" ;
 	pref1:associatedWithVenues "Russian Language Specialities" ;
 	pref1:associatedWithVenues "Ardis Press" ;
-	pref1:initiallyAppearedInVenue "_______ _____" ;
 	pref1:associatedWithEthnicity "German" ;
 	pref1:associatedWithEthnicity "Russian" . 
 
@@ -43983,7 +43921,6 @@
 	pref1:hasAlias "George William Russell" ;
 	pref1:hasAlias "AE" ;
 	pref1:hasAlias "A.E." ;
-	pref1:hasAlias "¬" ;
 	pref1:seeAlso "Irish Modernism" ;
 	pref1:seeAlso "Irish writers" ;
 	pref1:seeAlso "Theosophists" ;
@@ -44926,16 +44863,6 @@
 	pref1:flourishesIn "1926-1930" ;
 	pref1:flourishesIn "1931-1935" ;
 	pref1:flourishesIn "1936-1940" ;
-	pref1:creatorOf "______ _ _________" ;
-	pref1:creatorOf "___ ________" ;
-	pref1:creatorOf "______ ______" ;
-	pref1:creatorOf "_____ _______" ;
-	pref1:creatorOf "______" ;
-	pref1:creatorOf "___" ;
-	pref1:creatorOf "_______ ________" ;
-	pref1:creatorOf "____ __________" ;
-	pref1:creatorOf "______" ;
-	pref1:creatorOf "__________" ;
 	pref1:influencedBy "Fedor Dostoevsky 3" ;
 	pref1:influencedBy "Nikolai Gogol 4" ;
 	pref1:influencedBy "Aleksander Pushkin 4" ;
@@ -45094,7 +45021,7 @@
 	pref1:flourishesIn "1926-1930" ;
 	pref1:flourishesIn "1931-1935" ;
 	pref1:flourishesIn "1936-1940" ;
-	pref1:creatorOf "Les H_ro´nes" ;
+	pref1:creatorOf "Les H_rones" ;
 	pref1:creatorOf " R_cits de rve" ;
 	pref1:creatorOf "Aveux non avenus" ;
 	pref1:creatorOf "Frontire humaine" ;
@@ -46910,28 +46837,16 @@
 	pref1:flourishesIn "1971-1975" ;
 	pref1:flourishesIn "1976-1980" ;
 	pref1:flourishesIn "1981-1985" ;
-	pref1:creatorOf "_______ __ ___" ;
-	pref1:creatorOf "___ _____" ;
-	pref1:creatorOf "_______ _____" ;
-	pref1:creatorOf "_____ ____" ;
-	pref1:creatorOf "____ ___" ;
-	pref1:creatorOf "_____ ______" ;
-	pref1:creatorOf "_______ ______ _____" ;
-	pref1:creatorOf "__ ______" ;
-	pref1:createdBy "____ ______" ;
 	pref1:influencedBy "Yona Wallach 4" ;
 	pref1:influencedBy "Meir Wieseltier 4" ;
 	pref1:influencedByDifferentKind "Zionism 5" ;
 	pref1:influencedByDifferentKind "Tel Aviv 5" ;
 	pref1:influencedByDifferentKind "Philosophy 5" ;
-	pref1:influenced "___ ______ 5" ;
-	pref1:influenced "3 ____ ____" ;
 	pref1:originatingCountry "Israel" ;
 	pref1:associatedWithCountry "Belgium" ;
 	pref1:associatedWithCountry "Israel" ;
 	pref1:associatedWithRegion "Middle East" ;
 	pref1:associatedWithCities "Tel Aviv" ;
-	pref1:associatedWithVenues "____" ;
 	pref1:associatedWithEthnicity "Israeli" ;
 	pref1:associatedWithEthnicity "Jewish" . 
 
@@ -47437,7 +47352,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Brazil>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Dorothy_Gish>
 	pref1:isPerson "yes" .
@@ -47446,7 +47361,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#New_York>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Max_Fleischer>
 	pref1:isPerson "yes" .
@@ -47488,7 +47403,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Saint_Paul>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#B._R._Amedkar>
 	pref1:isPerson "yes" .
@@ -47512,16 +47427,16 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Topeka>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Leslie_Martin>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Udipi>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Nairobi>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Albert_Gallatin>
 	pref1:isPerson "yes" .
@@ -47539,16 +47454,16 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#West_Germany>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Monika_Faltejskova>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Israel>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Beirut>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Kenneth_Noland>
 	pref1:isPerson "yes" .
@@ -47581,7 +47496,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Nigeria>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Jorge_Urrutia_Blondel>
 	pref1:isPerson "yes" .
@@ -47590,7 +47505,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Antwerp>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Ken_Kelman>
 	pref1:isPerson "yes" .
@@ -47602,13 +47517,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Seville>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Chen_Youren>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kahnweiler>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Antipodeans_Group>
 	pref1:isGroupOrMovement "yes" .
@@ -47626,7 +47541,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Osogbo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#François_Truffaut>
 	pref1:isPerson "yes" .
@@ -47656,7 +47571,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Rouen>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Anthony_Braxton>
 	pref1:isPerson "yes" .
@@ -47668,7 +47583,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#New_Zealand>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Edgar_Morin>
 	pref1:isPerson "yes" .
@@ -47698,7 +47613,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Jamaica>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Rafael_Alberti>
 	pref1:isPerson "yes" .
@@ -47710,7 +47625,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Burslem>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Ivan_IV>
 	pref1:isPerson "yes" .
@@ -47719,13 +47634,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Hollywood>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Richard_Huelsenbeck>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Munich>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jan_Tschichold>
 	pref1:isPerson "yes" .
@@ -47791,7 +47706,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Venice>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Archie_Shepp>
 	pref1:isPerson "yes" .
@@ -47800,10 +47715,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Hemmenhofen>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Cowra>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Pieter_Breughel>
 	pref1:isPerson "yes" .
@@ -47815,7 +47730,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Miami>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean_Weidt>
 	pref1:isPerson "yes" .
@@ -47854,7 +47769,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#St._Petersburg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Victor_Brecheret>
 	pref1:isPerson "yes" .
@@ -47890,7 +47805,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Hanover>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Malraux>
 	pref1:isPerson "yes" .
@@ -47905,7 +47820,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Oslo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Sheldon_Renan>
 	pref1:isPerson "yes" .
@@ -47938,28 +47853,28 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Siberia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Secession_Group>
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Dakar>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Garrett_Kaoru_Hongo>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Sydney>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Caussade>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Earle_Birney>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mannheim>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Lilia_Herriton>
 	pref1:isPerson "yes" .
@@ -47974,13 +47889,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Toronto>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Richard_Strauss>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Rabat>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#David_Earle>
 	pref1:isPerson "yes" .
@@ -47989,7 +47904,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Anyuan>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Djuna_Barnes>
 	pref1:isPerson "yes" .
@@ -48031,7 +47946,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Oakland>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Bernhard_Pankok>
 	pref1:isPerson "yes" .
@@ -48085,7 +48000,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Cairo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Adachi_Masao>
 	pref1:isPerson "yes" .
@@ -48100,7 +48015,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Indonesia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Rabindranath_Tagore>
 	pref1:isPerson "yes" .
@@ -48115,7 +48030,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Hungary>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Norodom_Sihanouk>
 	pref1:isPerson "yes" .
@@ -48148,7 +48063,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Sagar>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#MIT>
 	pref1:isGroupOrMovement "yes" .
@@ -48163,7 +48078,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Trenton>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Auguste_Rodin>
 	pref1:isPerson "yes" .
@@ -48172,7 +48087,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mendoza>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#FUBA>
 	pref1:isGroupOrMovement "yes" .
@@ -48196,7 +48111,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bermuda>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Luigi_Russolo>
 	pref1:isPerson "yes" .
@@ -48214,7 +48129,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Vienna>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Al-Quds_University>
 	pref1:isGroupOrMovement "yes" .
@@ -48223,10 +48138,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Sweden>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Buenos_Aires>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Freud>
 	pref1:isPerson "yes" .
@@ -48274,7 +48189,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Camden>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#English_Department>
 	pref1:isGroupOrMovement "yes" .
@@ -48283,7 +48198,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Zurich>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jesús_Pardo>
 	pref1:isPerson "yes" .
@@ -48301,7 +48216,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Manhattan>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Clement_Greenberg>
 	pref1:isPerson "yes" .
@@ -48349,7 +48264,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Zagreb>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#National_Arts_Institute>
 	pref1:isGroupOrMovement "yes" .
@@ -48358,7 +48273,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Chicago>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Charlie_Parker>
 	pref1:isPerson "yes" .
@@ -48373,7 +48288,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Australia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Mary_Anthony>
 	pref1:isPerson "yes" .
@@ -48391,10 +48306,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Tunisia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Riga>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Alberto_Mabungulane_Chissano>
 	pref1:isPerson "yes" .
@@ -48427,7 +48342,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Athens>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Imperial_Art_Academy>
 	pref1:isGroupOrMovement "yes" .
@@ -48436,7 +48351,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Amman>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Yuri_Norstein>
 	pref1:isPerson "yes" .
@@ -48451,10 +48366,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Benin>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Santander>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Roland_Wakelin>
 	pref1:isPerson "yes" .
@@ -48472,7 +48387,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Aukland>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Joan_Brown>
 	pref1:isPerson "yes" .
@@ -48541,13 +48456,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Buntingford>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Anthony_Balch>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Essen>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Norbert_Jacques>
 	pref1:isPerson "yes" .
@@ -48583,10 +48498,10 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Morocco>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Warsaw>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Harold_Rosenberg>
 	pref1:isPerson "yes" .
@@ -48604,7 +48519,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Fearn>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Mao_Tsetung>
 	pref1:isPerson "yes" .
@@ -48637,7 +48552,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Giza>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Martha_Graham_School>
 	pref1:isGroupOrMovement "yes" .
@@ -48652,13 +48567,13 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Gotha>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Truffaut>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Seattle>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Faust>
 	pref1:isPerson "yes" .
@@ -48676,7 +48591,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kvikne>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Lederman>
 	pref1:isPerson "yes" .
@@ -48694,13 +48609,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Alton>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Cègeste>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#United_States>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#New_Dance_Group>
 	pref1:isGroupOrMovement "yes" .
@@ -48736,13 +48651,13 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Malaya>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Gerhart_Hauptmann>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Cincinnati>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Zero_Jigen>
 	pref1:isPerson "yes" .
@@ -48754,7 +48669,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Baghdad>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Frankfurt_School_and_Institute_of_Social_Research>
 	pref1:isGroupOrMovement "yes" .
@@ -48799,13 +48714,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Casablanca>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Georges_Valmier>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Berkshire>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Saint_Martin’s_School_of_Art>
 	pref1:isGroupOrMovement "yes" .
@@ -48814,7 +48729,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Senegal>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#John_Brown>
 	pref1:isPerson "yes" .
@@ -48826,7 +48741,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Romania>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean_Arp>
 	pref1:isPerson "yes" .
@@ -48835,16 +48750,16 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Qatar>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Emile_Zola>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Weimar>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Cambodia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Maronite_College_of_Rome>
 	pref1:isGroupOrMovement "yes" .
@@ -48856,10 +48771,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Santa_Cruz>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Konstantinovo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean-Pierre_Léaud>
 	pref1:isPerson "yes" .
@@ -48874,7 +48789,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Lisbon>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Robert_Qualters>
 	pref1:isPerson "yes" .
@@ -48886,7 +48801,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#San_Francisco>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Inuzuka_Minoru>
 	pref1:isPerson "yes" .
@@ -48910,10 +48825,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Turin>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#John_Fante>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Alfred_Kerr>
 	pref1:isPerson "yes" .
@@ -48925,7 +48840,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Russia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Wyndham_Lewis>
 	pref1:isPerson "yes" .
@@ -48949,10 +48864,10 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Kuala_Lumpur>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Haiti>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Juan_Orrego_Salas>
 	pref1:isPerson "yes" .
@@ -49009,7 +48924,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Peshawar>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Fujita_Tsuguharu>
 	pref1:isPerson "yes" .
@@ -49030,7 +48945,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Marrakesh>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Chilean_Congress>
 	pref1:isGroupOrMovement "yes" .
@@ -49048,10 +48963,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Hamburg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Palestine>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Emily_Carr>
 	pref1:isPerson "yes" .
@@ -49060,7 +48975,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Cambridge>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Brassaï>
 	pref1:isPerson "yes" .
@@ -49069,7 +48984,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Randegg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Johannes_Brahms>
 	pref1:isPerson "yes" .
@@ -49087,7 +49002,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Coimbra>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Commonwealth_Fellowship>
 	pref1:isGroupOrMovement "yes" .
@@ -49105,7 +49020,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Dacatur>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Addis_Ababa_Fine_Arts_School>
 	pref1:isGroupOrMovement "yes" .
@@ -49123,7 +49038,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Wellington>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Camden_Town_Group>
 	pref1:isGroupOrMovement "yes" .
@@ -49207,7 +49122,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Milan>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Filippo_Tommaso_Marinetti>
 	pref1:isPerson "yes" .
@@ -49216,13 +49131,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bali>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Erik_Satie>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Strasbourg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Albert_Ayler>
 	pref1:isPerson "yes" .
@@ -49234,7 +49149,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Austria>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Hans_Kayser>
 	pref1:isPerson "yes" .
@@ -49288,13 +49203,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Turkey>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Richard_Nixon>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Frankfurt>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Nellie_Mooney_McClung>
 	pref1:isPerson "yes" .
@@ -49306,7 +49221,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Scotswood-on-Tyne>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean-Luc_Godard>
 	pref1:isPerson "yes" .
@@ -49330,7 +49245,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Olympia>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Bertolt_Brecht>
 	pref1:isPerson "yes" .
@@ -49357,7 +49272,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Cape_Town>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Luigi_Bartolini>
 	pref1:isPerson "yes" .
@@ -49387,7 +49302,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Philadelphia>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Joris_Ivens>
 	pref1:isPerson "yes" .
@@ -49408,25 +49323,25 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#South_Africa>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Rome>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Soviet_Ukraine>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Lourenco_Marques>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Galveston>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Hilda_Lessways>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#New_Guinea>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Rudy_Burckhardt>
 	pref1:isPerson "yes" .
@@ -49447,10 +49362,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Egypt>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Vilna>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Harvard_University>
 	pref1:isGroupOrMovement "yes" .
@@ -49477,7 +49392,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Carthage>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Yakov_Glatshtayn>
 	pref1:isPerson "yes" .
@@ -49489,7 +49404,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Lebanon>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Lincoln_Kirstein>
 	pref1:isPerson "yes" .
@@ -49546,7 +49461,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Gdansk>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Frida_Kahlo>
 	pref1:isPerson "yes" .
@@ -49567,7 +49482,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kiev>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Robert_Flaherty>
 	pref1:isPerson "yes" .
@@ -49576,10 +49491,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Darmstadt>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Popotla>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#André_Boucourechliev>
 	pref1:isPerson "yes" .
@@ -49594,10 +49509,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Salisbury>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Moscow>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Virginia_Woolf>
 	pref1:isPerson "yes" .
@@ -49618,7 +49533,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Odessa>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#British_Army>
 	pref1:isGroupOrMovement "yes" .
@@ -49645,7 +49560,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kolkata>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Philadelphia_Orchestra>
 	pref1:isGroupOrMovement "yes" .
@@ -49678,13 +49593,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Spain>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#U.S.S.R.>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Grotesktanz>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Salon_des_Independents>
 	pref1:isGroupOrMovement "yes" .
@@ -49696,7 +49611,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Córdoba>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#White_Savages_Group>
 	pref1:isGroupOrMovement "yes" .
@@ -49717,7 +49632,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mexico>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Eliot>
 	pref1:isPerson "yes" .
@@ -49729,7 +49644,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Palermo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Pieter_Brueghel>
 	pref1:isPerson "yes" .
@@ -49747,19 +49662,19 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mozambique>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Lo_Sceicco_Bianco>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Museo_de_Arte_Moderno_de_Buenos_Aires>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Cuba>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Osaka>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jules_Barbey>
 	pref1:isPerson "yes" .
@@ -49771,7 +49686,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mysore>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Mark_Rothko>
 	pref1:isPerson "yes" .
@@ -49792,7 +49707,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Malaysia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Society_of_Ottoman_Painters>
 	pref1:isGroupOrMovement "yes" .
@@ -49831,7 +49746,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Mexico_City>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Association_of_South_Russian>
 	pref1:isGroupOrMovement "yes" .
@@ -49858,7 +49773,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#India>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Franz_Kafka>
 	pref1:isPerson "yes" .
@@ -49879,7 +49794,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Alexandria>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Frank_Stella>
 	pref1:isPerson "yes" .
@@ -49894,7 +49809,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Latvia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Istvan_Anhalt>
 	pref1:isPerson "yes" .
@@ -49909,7 +49824,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Valparaíso>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Mihri_Müşfik>
 	pref1:isPerson "yes" .
@@ -49921,7 +49836,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Baku>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Charles_Madge>
 	pref1:isPerson "yes" .
@@ -49930,7 +49845,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Netherlands>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Victoria_Technical_Institute>
 	pref1:isGroupOrMovement "yes" .
@@ -49948,7 +49863,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Saint_Petersburg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Iwaya_Ichiroku>
 	pref1:isPerson "yes" .
@@ -49957,7 +49872,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#USA>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Hitler>
 	pref1:isPerson "yes" .
@@ -49975,7 +49890,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Algeria>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Mr._West>
 	pref1:isPerson "yes" .
@@ -49987,7 +49902,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Orel>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Charlie_Chaplin>
 	pref1:isPerson "yes" .
@@ -49999,7 +49914,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Hiroshima>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Maud_Burke>
 	pref1:isPerson "yes" .
@@ -50017,7 +49932,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Stockholm>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Enrique_Granados>
 	pref1:isPerson "yes" .
@@ -50065,7 +49980,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Ghana>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Walter_Sickert>
 	pref1:isPerson "yes" .
@@ -50104,7 +50019,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kharkiv>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Antonia_Mercé>
 	pref1:isPerson "yes" .
@@ -50113,7 +50028,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Philippines>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Festival_of_Britain>
 	pref1:isGroupOrMovement "yes" .
@@ -50122,13 +50037,13 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Santiago>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Samuel_Liddell_Mathers>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Dunedin>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#T.S._Eliot>
 	pref1:isPerson "yes" .
@@ -50167,13 +50082,13 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Kingston>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Severinus_Boethius>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Amsterdam>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Vittorio_De_Sica>
 	pref1:isPerson "yes" .
@@ -50182,7 +50097,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Manjacaze>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Bay_Area_Figurative_School>
 	pref1:isGroupOrMovement "yes" .
@@ -50194,7 +50109,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Copenhagen>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Deryk_Mendel>
 	pref1:isPerson "yes" .
@@ -50227,10 +50142,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#U.S.A.>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Madrid>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Dane_Rudhyar>
 	pref1:isPerson "yes" .
@@ -50245,7 +50160,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Totnes>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Benedict_Livshits>
 	pref1:isPerson "yes" .
@@ -50284,7 +50199,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Belarus>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Frederick_Guy>
 	pref1:isPerson "yes" .
@@ -50299,7 +50214,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Manchester>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean_Maurice_Eugène_Clément_Jean_Cocteau>
 	pref1:isPerson "yes" .
@@ -50311,7 +50226,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Düsseldorf>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Upton_Sinclair>
 	pref1:isPerson "yes" .
@@ -50335,13 +50250,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Tokyo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Lucy_Middleton>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Winesburg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Thomas_Hart_Benton>
 	pref1:isPerson "yes" .
@@ -50356,7 +50271,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Montreal>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Stuart_Davis>
 	pref1:isPerson "yes" .
@@ -50371,7 +50286,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#France>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Czechoslovak_Socialist_Republic>
 	pref1:isGroupOrMovement "yes" .
@@ -50383,13 +50298,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#US>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#James_Joyce>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Poland>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Imelda_Marcos>
 	pref1:isPerson "yes" .
@@ -50401,13 +50316,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Dublin>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#American_Impressionists>
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Jerusalem>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Mussolini>
 	pref1:isPerson "yes" .
@@ -50437,7 +50352,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#U.S.>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Kwame_Nkrumah>
 	pref1:isPerson "yes" .
@@ -50497,7 +50412,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Fresno>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Arthur_Cravan>
 	pref1:isPerson "yes" .
@@ -50524,7 +50439,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Cologne>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#German_art_school>
 	pref1:isGroupOrMovement "yes" .
@@ -50533,7 +50448,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#United_Arab_Emirates>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Hölderlin>
 	pref1:isPerson "yes" .
@@ -50542,7 +50457,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Norway>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Albert_Camus>
 	pref1:isPerson "yes" .
@@ -50554,7 +50469,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Iraq>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Leonard_Smithers>
 	pref1:isPerson "yes" .
@@ -50572,7 +50487,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Ukraine>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Artists_Handicrafts_Association>
 	pref1:isGroupOrMovement "yes" .
@@ -50584,7 +50499,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Lincoln>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Fourteenth_Street_School>
 	pref1:isGroupOrMovement "yes" .
@@ -50605,7 +50520,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Nadiad>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Pedro_Rebolledo>
 	pref1:isPerson "yes" .
@@ -50629,7 +50544,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Paris>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jean-Paul_Riopelle>
 	pref1:isPerson "yes" .
@@ -50638,13 +50553,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Chennai>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Victoria>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Melbourne>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Friedrich_Nietzsche>
 	pref1:isPerson "yes" .
@@ -50665,7 +50580,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Havana>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Katherine_Anne_Porter>
 	pref1:isPerson "yes" .
@@ -50686,7 +50601,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Hangzhou>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Fraenger>
 	pref1:isPerson "yes" .
@@ -50698,13 +50613,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Southampton>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Kazan>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Argentina>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Auguste_Luchet>
 	pref1:isPerson "yes" .
@@ -50740,7 +50655,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Ireland>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Ivan_Puni>
 	pref1:isPerson "yes" .
@@ -50803,16 +50718,16 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Österreich>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Bucharest>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Alfred_H._Barr>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Tsarina_Alexandra>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Melech_Ravitch>
 	pref1:isPerson "yes" .
@@ -50824,7 +50739,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Kyoto>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Viking_Eggeling>
 	pref1:isPerson "yes" .
@@ -50851,10 +50766,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#China>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Charleston>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#De_Kafka>
 	pref1:isPerson "yes" .
@@ -50872,7 +50787,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Britain>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Georges_Braque>
 	pref1:isPerson "yes" .
@@ -50887,7 +50802,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Thailand>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Hart_Crane>
 	pref1:isPerson "yes" .
@@ -50896,7 +50811,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Temuco>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Afonso_Gaio>
 	pref1:isPerson "yes" .
@@ -50911,7 +50826,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Los_Angeles>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Ministry_of_Education>
 	pref1:isGroupOrMovement "yes" .
@@ -50929,7 +50844,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Hannibal>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Japanese_Red_Army>
 	pref1:isGroupOrMovement "yes" .
@@ -50941,13 +50856,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Varengeville>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Otto_Dix>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Croatia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#T.E._Hulme>
 	pref1:isPerson "yes" .
@@ -50959,7 +50874,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#New_Orleans>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Patricia>
 	pref1:isPerson "yes" .
@@ -50971,7 +50886,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Nashville>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Nina_Nikolaevna_Berberova>
 	pref1:isPerson "yes" .
@@ -50980,7 +50895,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Capri>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Honoré_Daumier>
 	pref1:isPerson "yes" .
@@ -50992,7 +50907,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Wales>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Dinah>
 	pref1:isPerson "yes" .
@@ -51013,7 +50928,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Łódź>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Frieda_Flier>
 	pref1:isPerson "yes" .
@@ -51031,13 +50946,13 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Canada>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Tunis>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Singapore>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Zoltán_Kodály>
 	pref1:isPerson "yes" .
@@ -51049,13 +50964,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Dresden>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Stéphane_Mallarmé>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Pisino>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Katherine_Tynan>
 	pref1:isPerson "yes" .
@@ -51079,13 +50994,13 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Semirotovshchina>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Alexandra_Danilova>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#East_Germany>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Falla>
 	pref1:isPerson "yes" .
@@ -51097,7 +51012,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Leeds>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#John_Dos_Passos>
 	pref1:isPerson "yes" .
@@ -51112,7 +51027,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Berkeley>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Harold_Simmons>
 	pref1:isPerson "yes" .
@@ -51142,7 +51057,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Prague>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Jack_Gelber>
 	pref1:isPerson "yes" .
@@ -51154,10 +51069,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bernanos>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Bourges>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#P._Pijpers>
 	pref1:isPerson "yes" .
@@ -51172,7 +51087,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Soviet_Union>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Jiang_Qing>
 	pref1:isPerson "yes" .
@@ -51211,7 +51126,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Switzerland>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Sartre>
 	pref1:isPerson "yes" .
@@ -51247,22 +51162,22 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#USSR>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#René_Daumal>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#England>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Ottawa>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#University_of_Concepción>
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Burma>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Richard_Hamilton>
 	pref1:isPerson "yes" .
@@ -51307,10 +51222,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Italy>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Tehran>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Alfred_Hitchcock>
 	pref1:isPerson "yes" .
@@ -51319,7 +51234,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Korea>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Farnham_School_of_Art>
 	pref1:isGroupOrMovement "yes" .
@@ -51334,19 +51249,19 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Barcelona>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Vitebsk>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Birmingham>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Chandralekha_Prabhudas_Patel>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Greece>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Julien_Levy>
 	pref1:isPerson "yes" .
@@ -51391,7 +51306,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bonn>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Francis_Bacon_Foundation>
 	pref1:isGroupOrMovement "yes" .
@@ -51400,7 +51315,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Johannesburg>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#California_Institute_of_the_Arts>
 	pref1:isGroupOrMovement "yes" .
@@ -51487,7 +51402,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Belgium>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Leon_Goossens>
 	pref1:isPerson "yes" .
@@ -51526,7 +51441,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Kottayam>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Nancy_Lima_Dent>
 	pref1:isPerson "yes" .
@@ -51535,7 +51450,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Florence>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Saint_Gonçalo>
 	pref1:isPerson "yes" .
@@ -51568,7 +51483,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Malipiero>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Isabel_Bishop>
 	pref1:isPerson "yes" .
@@ -51589,22 +51504,22 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Japan>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Stuttgart>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Doha>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Derain>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#arts_of_Ancient_Egypt>
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Brussels>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Association_of_Free_Artists>
 	pref1:isGroupOrMovement "yes" .
@@ -51619,10 +51534,10 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Lausanne>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Harlem>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Kofi_Antubam>
 	pref1:isPerson "yes" .
@@ -51643,10 +51558,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Cambodge>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Montgomery>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Cedric_Moss>
 	pref1:isPerson "yes" .
@@ -51676,16 +51591,16 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Asilah>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#College_of_Fine_Arts>
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#New_York_City>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Rhodesia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Malay_Teacher’s_Association_of_Selangor>
 	pref1:isGroupOrMovement "yes" .
@@ -51775,7 +51690,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Berlin>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Pablo_Picasso>
 	pref1:isPerson "yes" .
@@ -51835,7 +51750,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Germany>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Anton_Webern>
 	pref1:isPerson "yes" .
@@ -51853,7 +51768,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Santa_Monica>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#University_of_Chile>
 	pref1:isGroupOrMovement "yes" .
@@ -51877,7 +51792,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bobruisk>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Philip_Herriton>
 	pref1:isPerson "yes" .
@@ -51910,7 +51825,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Ethiopia>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Institut_Technologique_d’Art>
 	pref1:isGroupOrMovement "yes" .
@@ -51937,7 +51852,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Manila>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Wigman_School>
 	pref1:isGroupOrMovement "yes" .
@@ -51949,10 +51864,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Ostend>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Uruguay>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Ministry_of_Foreign_Affairs>
 	pref1:isGroupOrMovement "yes" .
@@ -52006,7 +51921,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Houston>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Daoud_Corm>
 	pref1:isPerson "yes" .
@@ -52018,10 +51933,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Achimota>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Budapest>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#D._W._Griffith>
 	pref1:isPerson "yes" .
@@ -52069,10 +51984,10 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Bombay>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Beijing>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#John_Tenniel>
 	pref1:isPerson "yes" .
@@ -52102,7 +52017,7 @@
 	pref1:isGroupOrMovement "yes" .
 
 <http://modernism.uvic.ca/metadata#Portugal>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Jotirao_Phule>
 	pref1:isPerson "yes" .
@@ -52228,7 +52143,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Washington>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Camille_Bryen>
 	pref1:isPerson "yes" .
@@ -52243,16 +52158,16 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Rapallo>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Whitman>
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Chile>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#London>
-	pref1:isCityCity "yes" .
+	pref1:isCity "yes" .
 
 <http://modernism.uvic.ca/metadata#Edward_Kennedy_Ellington>
 	pref1:isPerson "yes" .
@@ -52291,7 +52206,7 @@
 	pref1:isPerson "yes" .
 
 <http://modernism.uvic.ca/metadata#Zimbabwe>
-	pref1:isCountryCountry "yes" .
+	pref1:isCountry "yes" .
 
 <http://modernism.uvic.ca/metadata#Eva_Trout>
 	pref1:isPerson "yes" .
