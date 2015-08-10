@@ -31,8 +31,7 @@ def string_replace(predicate, file_object, end_piece):
     file_object = file_object.replace('=','_')
     file_object = file_object.replace('#','')
     file_object = file_object.replace('-','')
-
-
+    file_object = file_object.replace(':','')
 
     file_object = unidecode(file_object)
     if(file_object == 'no'):
