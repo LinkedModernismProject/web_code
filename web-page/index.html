@@ -292,10 +292,6 @@
         query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
       }
     }
-    else if ($('#tabVis').hasClass('active')) {
-      var subj = this.id.replace(/\s/g, '_');
-      query += 'FILTER regex(str(?Subject), "' + subj/*$("#subj").val()*/ + '", "i") .';
-    }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
     return query;
@@ -398,8 +394,9 @@ function exec1(sparql) {
   d3sparql.query(endpoint, sparql, render);
 }
 
-function visTabClick(){
-  $.cookie("currentVis", $("#listOfVis").find(".active").attr('id'));
+function visTabClick(visID){
+  $.cookie("currentVis", visID);
+  console.log(visID);
   sClick($.cookie("currentSearch"));
   exec1($.cookie("currentSearch"));
 }
@@ -431,7 +428,7 @@ function render(json) {
     var config = {
       "radius": 20,
       "charge": -30,
-      "distance": 100,
+      "distance": 180,
       "width": window.innerWidth,
       "height": 1000,
       "selector": "#visualizations"
@@ -528,12 +525,12 @@ function render(json) {
     <li id="tabRes" ><a data-toggle="tab" href="#sectionRes" class="btn" role="button">Results</a></li>
     <li id="tabVis" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" class="btn" role="button">Visualizations<span class="caret"></span></a>
       <ul class="dropdown-menu" id="listOfVis">
-        <li id='fd'><a id="fd" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Force Directed</a></li>
-        <li id='sb'><a id="sb" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sunburst</a></li>
-        <li id='cp'><a id="cp" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">CirclePack</a></li>
-        <li id='wm'><a id="wm" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">World Map</a></li>
-        <li id='gr'><a id="gr" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Graphs</a></li>
-        <li id='sk'><a id="sk" data-toggle="tab" onclick="visTabClick()" href="#sectionVis">Sankey</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('fd')" href="#sectionVis">Force Directed</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('sb')" href="#sectionVis">Sunburst</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('cp')" href="#sectionVis">CirclePack</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('wm')" href="#sectionVis">World Map</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('bp')" href="#sectionVis">Graphs</a></li>
+        <li><a data-toggle="tab" onclick="visTabClick('sk')" href="#sectionVis">Sankey</a></li>
       </ul>
     </li>
   </ul>
