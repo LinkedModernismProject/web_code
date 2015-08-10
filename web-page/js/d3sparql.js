@@ -1005,13 +1005,10 @@ d3sparql.forcegraph = function(json, config) {
   }
 
   if(json != null) {
-    console.log('not the NULL');
     var svg = d3.select(opts.selector).html("").append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
   } else {
-    console.log('in the NULL');
-    //var svg = d3.select(opts.selector).html('<div class="nodata_outer"><div class="nodata_mid"><div class="nodata_inner"><h1>No Data Recieved With Current Query Search</h1></div></div></div>').append("svg")
     var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
@@ -1028,7 +1025,6 @@ d3sparql.forcegraph = function(json, config) {
   .enter()
   .append("line")
   .attr("class", "link")
-  //Testing here
   .attr("x1", function(d) {return d.source.x})
   .attr("y1", function(d) {return d.source.y})
   .attr("x2", function(d) {return d.target.x})
@@ -1040,12 +1036,10 @@ d3sparql.forcegraph = function(json, config) {
     .on("dragend", dragend);
 
   function dragstart(d, i) {
-    console.log(d+'|||'+i);
     force.stop() // stops the force auto positioning before you start dragging
   }
 
   function dragmove(d, i) {
-    console.log(d+'|||'+i);
     d.px += d3.event.dx;
     d.py += d3.event.dy;
     d.x += d3.event.dx;
@@ -1054,7 +1048,6 @@ d3sparql.forcegraph = function(json, config) {
   }
 
   function dragend(d, i) {
-    console.log(d+'|||'+i);
     d.fixed = true; // of course set the node to fixed so the force doesn't include the node in its auto positioning stuff
     tick();
     force.resume();
@@ -1067,12 +1060,6 @@ d3sparql.forcegraph = function(json, config) {
   .style("fill", function(d) { return d.group; })
   .call(node_drag);
 
-
-  console.log(link);
-  console.log(node);
-  console.log(opts.distance);
-  console.log(opts.charge);
-
   var circle = node.append("circle")
   .attr("class", "node")
   .attr("r", opts.radius)
@@ -1083,33 +1070,10 @@ d3sparql.forcegraph = function(json, config) {
   .charge(opts.charge)
   .linkDistance(opts.distance)
   .gravity(0.05)
-  //.linkStrength(0.001)
   .size([opts.width, opts.height])
   .nodes(graph.nodes)
   .links(graph.links)
-  /*.on("tick", function() {
-    link.attr("x1", function(d) {return d.source.x})
-    .attr("y1", function(d) {return d.source.y})
-    .attr("x2", function(d) {return d.target.x})
-    .attr("y2", function(d) {return d.target.y})
-    text.attr("x", function(d) {return d.x})
-    .attr("y", function(d) {return d.y})
-    circle.attr("cx", function(d) { return d.x = Math.max(opts.radius, Math.min(opts.width - opts.radius, d.x)); })
-    .attr("cy", function(d) { return d.y = Math.max(opts.radius, Math.min(opts.height - opts.radius, d.y)); });
-  })*/
   .start()
-  console.log(force);
-/*
-  setTimeout(function() {
-    console.log('in the tim');
-    console.log(force);
-    //force.stop();
-    force.gravity(0.01);
-    force.linkStrength(0.001);
-    console.log(force);
-  }, 3000);
-*/
-
 
   force.on("tick", tick);
 
@@ -1118,50 +1082,9 @@ d3sparql.forcegraph = function(json, config) {
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
-
   node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   };
 
-
-
-  /*setTimeout(function() {
-    console.log('in the tim');
-    force.gravity(0);
-    force.linkStrength(0);
-  }, 5000);*/
-  //for (var i = 0; i < 100; i++) {
-    //force.tick();
-/*    force.on("tick", function() {
-      console.log('in the tick!!!!!!!!!!!!!!!!!!');
-      link.attr("x1", function(d) {return d.source.x})
-      .attr("y1", function(d) {return d.source.y})
-      .attr("x2", function(d) {return d.target.x})
-      .attr("y2", function(d) {return d.target.y})
-      text.attr("x", function(d) {return d.x})
-      .attr("y", function(d) {return d.y})
-      circle.attr("cx", function(d) { return d.x = Math.max(opts.radius, Math.min(opts.width - opts.radius, d.x)); })
-      .attr("cy", function(d) { return d.y = Math.max(opts.radius, Math.min(opts.height - opts.radius, d.y)); });
-    })
-*/
-    //force.linkStrength(0)
-    console.log('after tick');
-  //}//End of for loop
-  console.log('after FOR tick');
-  //setTimeout(function() {
-  //  force.stop();
-  //}, 5000);
-
-
-  /*setTimeout(function() {
-    console.log('in the tim');
-    console.log(force);
-    force.stop();
-    force.gravity(0);
-    force.linkStrength(1);
-    console.log(force);
-  }, 3000);*/
-  ///////////////node.call(force.drag)
-  //force.stop();
   // default CSS/SVG
   link.attr({
     "stroke": "#000",
