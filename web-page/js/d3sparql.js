@@ -1066,6 +1066,8 @@ d3sparql.forcegraph = function(json, config) {
   var text = node.append("text")
   .text(function(d) {return d[opts.label || "label"]})
   .attr("class", "node")
+  .attr("class", "hasTooltip")
+  .html("<span>Tooltip text</span>")
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)

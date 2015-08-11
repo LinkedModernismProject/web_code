@@ -702,7 +702,25 @@ body {
   font-size: 14px;
 }
 
+.hasTooltip {
+    position:relative;
+}
+.hasTooltip span {
+    display:none;
+}
 
+.hasTooltip:hover span {
+    display:block;
+    background-color:black;
+    border-radius:5px;
+    color:white;
+    box-shadow:1px 1px 3px gray;
+    position:absolute;
+    padding:5px;
+    top:1.3em;
+    left:0px;
+    max-width:200px; /* I don't want the width to be too large... */
+}
 
 /*--------------------------------------VISUALIZATION STUFF----------------------------------------*/
 
