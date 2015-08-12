@@ -111,7 +111,7 @@ Should follow the convention in the miserables.json https://gist.github.com/mbos
 d3sparql.graph = function(json, config) {
   if(json != null) {
   } else {
-    return;
+    return; //Return so no other execution has to take place
   }
   var head = json.name;
   var data = json.children;
@@ -266,7 +266,7 @@ d3sparql.treemapzoom(json, config)
 d3sparql.tree = function(json, config) {
   if(json != null) {
   } else {
-    return;
+    return; //Return so no other execution has to take place
   }
   var head = json.name; //json.head.vars
   var data = json.children; //json.results.bindings
@@ -583,7 +583,7 @@ d3sparql.barchart = function(json, config) {
       .attr("height", opts.height+5)
       //    .append("g")
       //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
-    return;
+    return; //Return so no other execution has to take place
   }
 
   var head = json.name; //json.head.vars
@@ -745,7 +745,7 @@ d3sparql.piechart = function(json, config) {
       .attr("height", opts.height)
       .append("g")
       .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
-    return;
+    return; //Return so no other execution has to take place
   }
 
   var head = json.name; //json.head.vars
@@ -1012,7 +1012,7 @@ d3sparql.forcegraph = function(json, config) {
     var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
-    return;
+    return; //Return so no other execution has to take place
   }
   var graph = d3sparql.graph(json, config)
 
@@ -1177,7 +1177,7 @@ d3sparql.sankey = function(json, config) {
       .attr("height", opts.height + opts.margin * 2)
       .append("g")
       .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
-    return;
+    return; //Return so no other execution has to take place
   }
 
   var nodes = graph.nodes
@@ -1563,7 +1563,7 @@ d3sparql.sunburst = function(json, config) {
       .attr("height", opts.height)
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
-    return;
+    return; //Return so no other execution has to take place
   }
 
   var arc = d3.svg.arc()
@@ -1854,7 +1854,7 @@ d3sparql.circlepack = function(json, config) {
       .attr("height", h)
       .append("svg:g")
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
-    return;
+    return; //Return so no other execution has to take place
   }
 
   //Give each child a size
