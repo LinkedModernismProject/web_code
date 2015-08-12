@@ -1064,10 +1064,12 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .attr("r", opts.radius)
   var text = node.append("text")
-  .text(function(d) {return d[opts.label || "label"]})
   .attr("class", "node")
-  .attr("class", "hasTooltip")
-  .html("<span>Tooltip text</span>")
+  .append('a')
+  .attr('class', 'has-popover')
+  .attr('title', function(d) {return d[opts.label || "label"]})
+  .text(function(d) {return d[opts.label || "label"]})  
+  console.log(text);
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
@@ -1545,13 +1547,17 @@ d3sparql.sunburst = function(json, config) {
   var x = d3.scale.linear().range([0, 2 * Math.PI])
   var y = d3.scale.sqrt().range([0, radius])
   var color = d3.scale.category20()
+  var padding = 5;
+
   if(json != null) {
+    console.log('not NULL');
     var svg = d3.select(opts.selector).html("").append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
   } else {
+    console.log('in the NULL');
     var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
@@ -1559,14 +1565,24 @@ d3sparql.sunburst = function(json, config) {
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
     return;
   }
+
   var arc = d3.svg.arc()
-  .startAngle(function(d)  { return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
-  .endAngle(function(d)    { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
-  .innerRadius(function(d) { return Math.max(0, y(d.y)) })
-  .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)) })
+  .startAngle(function(d)  { 
+    //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x))));
+    return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
+  .endAngle(function(d)    { 
+    //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))));
+    return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
+  .innerRadius(function(d) { 
+    //console.log(Math.max(0, y(d.y)));
+    return Math.max(0, y(d.y)) })
+  .outerRadius(function(d) { 
+    //console.log(Math.max(0, y(d.y + d.dy)));
+    return Math.max(0, y(d.y + d.dy)) })
   var partition = d3.layout.partition()
   .value(function(d) {return d.value})
   var nodes = partition.nodes(tree)
+  console.log(nodes);
   var path = svg.selectAll("path")
   .data(nodes)
   .enter()
@@ -1575,9 +1591,10 @@ d3sparql.sunburst = function(json, config) {
   .attr("class", "arc")
   .style("fill", function(d) { return color((d.children ? d : d.parent).name) })
   .on("click", click)
+  console.log(svg.selectAll("text").data);
   var text = svg.selectAll("text")
-  .data(nodes)
-  .enter()
+  .data(nodes);
+  /*.enter()
   .append("text")
   .attr("transform", function(d) {
     var rotate = x(d.x + d.dx/2) * 180 / Math.PI - 90
@@ -1586,7 +1603,94 @@ d3sparql.sunburst = function(json, config) {
   .attr("dx", ".5em")
   .attr("dy", ".35em")
   .text(function(d) {return d.name})
-  .on("click", click)
+  .on("click", click)*/
+
+  var textEnter = text.enter().append("text")
+      .style("fill-opacity", 1)
+      .style("fill", function(d) {
+        return brightness(d3.rgb(colour(d))) < 125 ? "#eee" : "#000";
+      })
+      .attr("text-anchor", function(d) {
+        return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
+      })
+      .attr("dy", ".2em")
+      .attr("transform", function(d) {
+        console.log(d.name);
+        var multiline = (d.name || "").split(",").length > 1,
+            angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
+            rotate = angle + (multiline ? -.5 : 0);
+        console.log('first multi:'+multiline);
+        return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+      })
+      .on("click", click);
+  textEnter.append("tspan")
+      .attr("x", 0)
+      .text(function(d) { return d.depth ? d.name.split(",")[0] : ""; });
+  textEnter.append("tspan")
+      .attr("x", 0)
+      .attr("dy", "1em")
+      .text(function(d) { return d.depth ? d.name.split(",")[1] || "" : ""; });
+
+  function brightness(rgb) {
+    return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
+  }
+
+  function colour(d) {
+  if (d.children) {
+    // There is a maximum of two children!
+    var colours = d.children.map(colour),
+        a = d3.hsl(colours[0]),
+        b = d3.hsl(colours[1]);
+    // L*a*b* might be better here...
+    return d3.hsl((a.h + b.h) / 2, a.s * 1.2, a.l / 1.2);
+  }
+  return d.colour || "#fff";
+}
+
+
+
+
+
+/*
+  function next_line(line) {
+    console.log(line);
+    var s2 = "";
+    var s3 = line;
+    var t = false;
+    count0 = 0;
+    count1 = 15;
+    while(s3.length>15) {
+      s2 += s3.slice(count0, count1) + '<br />';
+      console.log(s2);
+      console.log(s3);
+      s3 = s3.slice(count1);
+      console.log(s3);
+      if(s3.length<15){
+        t = true;
+      }
+    }
+    console.log(s2);
+    s2 += s3;
+    console.log(s2);
+    //if(t==true) {
+    //  exit();
+    //}
+    return s2;
+  }
+
+
+  console.log(text);
+  console.log(text.length);
+  console.log(text[0].length);
+  for (var i = 0; i < text[0].length; i++) {
+    console.log(text[0][i].innerHTML);
+    text[0][i].innerHTML = next_line(text[0][i].innerHTML);
+    console.log(text[0][i].innerHTML);
+    console.log('!!!'+text[0][i].innerHTML+'!!!');
+  };
+  console.log(text);
+*/
+
 
   // default CSS/SVG
   path.attr({
@@ -1608,12 +1712,26 @@ d3sparql.sunburst = function(json, config) {
     })
     .transition()
     .duration(750)
+    .attrTween("text-anchor", function(d) {
+      return function() {
+        return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
+      };
+    })
     .attrTween("transform", function(d) {
       return function() {
-        var rotate = x(d.x + d.dx / 2) * 180 / Math.PI - 90
-        return "rotate(" + rotate + ") translate(" + y(d.y) + ")"
+        console.log(d.name);
+        //var rotate = x(d.x + d.dx / 2) * 180 / Math.PI - 90
+        //return "rotate(" + rotate + ") translate(" + y(d.y) + ")"
+        var multiline = (d.name || "").split(",").length > 1;
+        console.log('second multi:'+multiline);
+        return function() {
+          var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
+              rotate = angle + (multiline ? -.5 : 0);
+          return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+        };
       }
     })
+    .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
     .each("end", function(e) {
       // required for hiding labels just after the transition when zooming down to the lower level
       d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden")
@@ -1623,7 +1741,8 @@ d3sparql.sunburst = function(json, config) {
     return d.children ? Math.max.apply(Math, d.children.map(maxDepth)) : d.y + d.dy
   }
   function arcTween(d) {
-    var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+    var my = maxY(d),
+    xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
     yd = d3.interpolate(y.domain(), [d.y, maxDepth(d)]),
     yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius])
     return function(d) {
@@ -1634,6 +1753,10 @@ d3sparql.sunburst = function(json, config) {
       }
     }
   }
+  function maxY(d) {
+  return d.children ? Math.max.apply(Math, d.children.map(maxY)) : d.y + d.dy;
+}
+
   function isParentOf(p, c) {
     if (p === c) return true
     if (p.children) {

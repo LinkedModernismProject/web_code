@@ -33,20 +33,19 @@
   <!-- For some visualizations  -->
   <script src="js/d3.min.js"></script>
   <script src="js/highlight.min.js"></script>
-  <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
-
+ 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
   <script src="js/jquery.cookie.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
-
+   
   <!-- Plugin JavaScript -->
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.fittext.js"></script>
   <script src="js/wow.min.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
@@ -54,12 +53,12 @@
   <!-- Visualization Javascript -->
   <script src="js/d3sparql.js"></script>
   <script src="js/convertJSONtoFlare.js"></script>
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="js/sankey.js"></script>
-
+  <script src="js/jquery.qtip.min.js"></script>  
+  
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
-
+  
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
@@ -262,7 +261,18 @@
       sClick(query);
       exec1(query);
     });
-
+    
+    $('#sectionVis').on('click', '.has-popover', 'this.title', function(){
+	console.log(this);
+	$(this).popover({
+            title: this.title,
+            html: 'true',
+	    container: 'body',
+            placement: 'top auto',
+            content: this.text + '<button>yay</button>'
+	});
+    });
+    
     auto.autocorrect();
   });
 
@@ -1368,8 +1378,6 @@ function render(json) {
   </div>
 
 </section>
-
-
 </body>
 <footer>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
