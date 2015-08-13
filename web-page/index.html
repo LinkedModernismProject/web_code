@@ -261,20 +261,23 @@
       sClick(query);
       exec1(query);
     });
-
-    $('#sectionVis').on('click', '.has-popover', 'this.title', function(){
-	console.log(this);
+    $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
+	console.log('in popover');
 	$(this).popover({
             title: this.title,
             html: 'true',
 	    container: 'body',
             placement: 'top auto',
-            content: this.text + '<button>yay</button>'
+            content: ('<a target="_blank" href="https://google.ca#q=' + this.innerHTML + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + this.innerHTML + "'" + ')"><button>Search this term</button></a>')
 	});
     });
 
     auto.autocorrect();
   });
+
+  function popoverClick(term){
+    console.log(term);
+  }
 
   //if the S P O fields are all blank then construct a random query to search
   function randQuery(){
