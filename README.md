@@ -6,9 +6,9 @@ Miscellaneous:
 
 postgres info (starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
 
-**scp info:**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scp to WestCloud: scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
+scp to WestCloud:<br>
+&nbsp;&nbsp;**scp local to remote:**&nbsp;&nbsp;&nbsp;scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination <br>
+&nbsp;&nbsp;**scp remote to local:**&nbsp;&nbsp;&nbsp;scp -i ~/.ssh/key.pem centos@IP:~/path/to/file destination
 
 launch chromium: /opt/chromium/chrome-wrapper %U
 
@@ -19,20 +19,16 @@ launch chromium: /opt/chromium/chrome-wrapper %U
 Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
 
-Search recursively through files for a string:
-
+Search recursively through files for a string:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep -rli 'string' .
 
-Search recursively through dir's for file names:
-
+Search recursively through dir's for file names:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -name 'filename*'
 
-Search recursively through dir's for directory names:
-
+Search recursively through dir's for directory names:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -type d -name 'filename*'
 
-Grep history:
-
+Grep history:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history | grep cmd_name
 
 Uploading tasks:

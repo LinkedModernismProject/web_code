@@ -1,9 +1,8 @@
 #My help file
 
-scp info:
-	Info on the cloud email: Mon May 11 4:40pm
-	scp to WestCloud:
-		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
+scp to WestCloud:
+	scp local to remote:	scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
+	scp remote to local:	scp -i ~/.ssh/key.pem centos@IP:~/path/to/file destination
 
 launch chromium:
 	/opt/chromium/chrome-wrapper %U
