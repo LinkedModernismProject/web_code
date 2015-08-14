@@ -1067,9 +1067,8 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .append('a')
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d[opts.label || "label"]})
+  .attr('title', function(d) {return d[opts.label || "label"] + "<a href='#' class='close' data-dismiss='alert'>&times;</a>"})
   .text(function(d) {return d[opts.label || "label"]})
-  console.log(text);
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
@@ -1229,7 +1228,7 @@ node.append("text")
   .attr("text-anchor", "end")
   .append("a")
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d.label})
+  .attr('title', function(d) {return d.label + "<a href='#' class='close' data-dismiss='alert'>&times;</a>"})
   .attr("transform", null)
   .text(function(d) {return d.label})
   .filter(function(d) {return d.x < opts.width / 2})
@@ -1624,33 +1623,224 @@ d3sparql.sunburst = function(json, config) {
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
       .on("click", click);
+  var name_count = 0;///////////////////////////////////////////////////
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) {
         if(d.depth == 1) {
-          console.log(d.name.split("_").length);
-          return d.depth ? d.name.split("_")[0] : "";
+          return d.name.split("_")[0];
         } else if(d.depth == 2) {
-          dname0 = d.name.substring(0, d.name.length/2)
-
-          return d.depth ? d.name.split("_")[0] : "";
+          var dname = d.name.split(/(?=[A-Z])/);
+          return dname[0];
         } else if(d.depth == 3) {
-          //index
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
+          var lindex = sub0.lastIndexOf('_');
+          console.log(sub0+'|||'+lindex);
+          if(lindex != -1) {
+            sub0 = d.name.substring(0, lindex);
+          } else {  //If there is no _ (no break) in words
+          //  //var sub1 = d.name.substring(Math.floor(d.name.length/3));
+            if(d.name.indexOf('_') != -1) {
+              sub0 = d.name.substring(0, d.name.indexOf('_'));
+              name_count = d.name.indexOf('_');
+            } else {
+              sub0 = d.name;
+            }
+          }
+          console.log(sub0+'|||'+d.name.substring(lindex));
+          return sub0.replace(/_/g, ' ');
         } else {
           return "";
         }});
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[1] || "" : ""; });
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[1] != undefined) {
+            return d.name.split("_")[1];
+          }
+        } else if(d.depth == 2) {
+          var dname = d.name.split(/(?=[A-Z])/);
+          //return d.depth ? d.name.split("_")[0] : "";
+          if(dname[1] != undefined) {
+            if(dname.length==2) {
+              return dname[1];
+            }
+            if(dname[2] != undefined) {
+              if(dname.length>3) {
+                return dname[1]+dname[2];
+              }
+            }
+          }
+        } else if(d.depth == 3) {
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
+          var lindex = sub0.lastIndexOf('_');
+          var s0 = false;
+          var s1 = false;
+          if(lindex != -1) {
+            s0 = true;
+          } else {
+            if(d.name.indexOf('_') != -1) {
+              s1 = true;
+              lindex = d.name.indexOf('_');
+            } //else s1 == false;
+            //else s0 = false;
+          }
+
+          var sub1 = '';
+          var lindex1 = 0;
+
+          if(s0) {
+            sub1 = d.name.substring(lindex+1, (d.name.length/3)*2);
+            lindex1 = sub1.lastIndexOf('_');
+            console.log(sub1+'|||'+d.name);
+          } else if(s1) {
+            sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
+            lindex1 = sub1.lastIndexOf('_');
+          } else {  //Already has whole value
+            sub1 = "";
+          }
+
+          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
+            console.log('pure:'+s0+'|'+s1);
+          }
+
+          if(d.name == 'Enigma_Machine') {
+            console.log('Enigma:lindex:'+lindex); //PROBLEM IS lindex
+            console.log('Enigma_vals:'+s0+'|'+s1);
+            console.log('Enigma_vals:'+sub1+'|'+lindex1);
+            console.log(d.name.substring(lindex+1));
+            console.log('Enigma_vals:'+d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_')));
+          }
+
+          if(lindex1 != -1) { //If there is a _ before 2/3 of d.name
+            sub1 = sub1.substring(0, lindex1);
+          } else {  //If there is no _ in the words
+            if(d.name.substring(lindex+1).indexOf('_') != -1) {
+              sub1 = d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_'))  //Get the first _ from string starting from lindex+1
+            } else {  //If there isn't a _ in the rest of the string
+              sub1 = d.name.substring(lindex+1);
+            }
+          }
+
+          console.log(sub1+'|||'+d.name);
+          return sub1.replace(/_/g, ' ');
+        } else {
+          return "";
+        }});
+      //return d.depth ? d.name.split("_")[1] || "" : ""; });
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[2] || "" : ""; });
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[2] != undefined) {
+            return d.name.split("_")[2];
+          }
+        } else if(d.depth == 2) {
+          var dname = d.name.split(/(?=[A-Z])/);
+          if(dname[2] != undefined) {
+            if(dname.length==3) {
+              return dname[2];
+            }
+            if(dname[3] != undefined) {
+              if(dname.length>4) {
+                var s = "";
+                for (var i = 3; i < dname.length; i++) {
+                  s += dname[i];
+                }
+                return s;
+              }
+            }
+          }
+        } else if(d.depth == 3) {
+          //WORKING, PROBLEM IN 2ND PART WITH lindex
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
+          var lindex = sub0.lastIndexOf('_');
+          var s0 = false;
+          var s1 = false;
+          var s2 = false;
+          var s3 = false;
+          if(lindex != -1) {  //Did get an _ before the 1/3 mark
+            s0 = true;
+          } else {  //After 1/3 mark
+            if(d.name.indexOf('_') != -1) { //Found a first _
+              s1 = true;
+              lindex = d.name.indexOf('_');
+            }
+          }
+          var sub1 = '';
+          var lindex1 = 0;
+          var sub2 = '';
+          if(s0) {
+            s2 = true;
+            sub1 = d.name.substring(lindex+1, (d.name.length/3)*2);
+            lindex1 = sub1.lastIndexOf('_');
+          } else if (s1) {
+            s2 = true;
+            sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
+            lindex1 = sub1.lastIndexOf('_');
+          } else{
+            s2 = false;
+            sub2 = '';
+          };
+
+          if(lindex1 == -1) { //If there was no _ before 2/3 mark
+            lindex1 = d.name.substring(lindex+1).indexOf('_')
+          }
+          //If lindex1 still =-1 here, then already have whole str
+
+
+          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
+            console.log(d.name);
+            console.log('pure0:'+sub0);
+            console.log('pure1:'+sub1);
+            console.log('pureI:'+lindex+'|'+lindex1);
+          }
+
+
+          //var lindex2 = 0;
+          //if(lindex1 != -1) { //If there is a _ before 2/3 mark
+          //  sub2
+          //}
+          if(s2) {
+            if(lindex1 != -1) { //Have both lindex vals //Was a _ before the 2/3 mark
+              sub2 = d.name.substring(lindex+lindex1+1)
+            } //lindex1==-1 and already has the whole str //No _ before 2/3 mark
+          }
+
+
+          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
+            console.log('Pure:'+d.name);
+            console.log('Pure:'+sub0+'|||'+sub1+'|||'+sub2);
+            console.log('Pure:'+lindex+'|||'+lindex1);
+          }
+
+          return sub2.replace(/_/g, ' ');
+        } else {
+          return "";
+        }});
+      //return d.depth ? d.name.split("_")[2] || "" : ""; });
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[3] || "" : ""; });
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[3] != undefined) {
+            var s = "";
+            for (var j = 3; j < d.name.split("_").length; j++) {
+              s += d.name.split("_")[j];
+            };
+            return s;
+          }
+        } else if(d.depth == 3) {
+          //index
+          console.log('in the obj depth!!!!!!!!!!!!');
+        } else {
+          return "";
+        }});
+      //return d.depth ? d.name.split("_")[3] || "" : ""; });
   console.log('here everytime!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
   function brightness(rgb) {
