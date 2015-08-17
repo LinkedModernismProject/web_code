@@ -1647,7 +1647,6 @@ d3sparql.sunburst = function(json, config) {
               sub0 = d.name;
             }
           }
-          console.log(sub0+'|||'+d.name.substring(lindex));
           return sub0.replace(/_/g, ' ');
         } else {
           return "";
@@ -1694,6 +1693,12 @@ d3sparql.sunburst = function(json, config) {
             //else s0 = false;
           }
 
+          if(d.name =='Herbert_Spencer_3') {
+            console.log('Herbert!!!');
+            console.log(sub0+'|||'+lindex);
+            console.log(s0+'|||'+s1);
+          }
+
           var sub1 = '';
           var lindex1 = 0;
 
@@ -1708,9 +1713,12 @@ d3sparql.sunburst = function(json, config) {
             sub1 = "";
           }
 
-          if(d.name == 'typeOfPerson') {
-            console.log('pure:'+s0+'|'+s1);
-            console.log('type:'+lindex+'|'+lindex1);
+          if(d.name =='Herbert_Spencer_3') {
+            console.log('Herbert!!!');
+            console.log(sub0+'|||'+lindex);
+            console.log(s0+'|||'+s1);
+            console.log(sub1+'|||'+lindex1);
+            console.log(d.name.substring(lindex+1).indexOf('_'));
           }
 
           if(d.name == 'Enigma_Machine') {
@@ -1725,10 +1733,18 @@ d3sparql.sunburst = function(json, config) {
             sub1 = sub1.substring(0, lindex1);
           } else {  //If there is no _ in the words
             if(d.name.substring(lindex+1).indexOf('_') != -1) {
-              sub1 = d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_'))  //Get the first _ from string starting from lindex+1
+              sub1 = d.name.substring(lindex+1, (lindex+1)+d.name.substring(lindex+1).indexOf('_'))  //Get the first _ from string starting from lindex+1
             } else {  //If there isn't a _ in the rest of the string
               sub1 = d.name.substring(lindex+1);
             }
+          }
+
+          if(d.name =='Herbert_Spencer_3') {
+            console.log('Herbert!!!');
+            console.log(sub0+'|||'+lindex);
+            console.log(s0+'|||'+s1);
+            console.log(sub1+'|||'+lindex1);
+            console.log(d.name.substring(lindex+1).indexOf('_'));
           }
 
           console.log(sub1+'|||'+d.name);
