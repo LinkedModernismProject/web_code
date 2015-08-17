@@ -1693,10 +1693,11 @@ d3sparql.sunburst = function(json, config) {
             //else s0 = false;
           }
 
-          if(d.name =='Herbert_Spencer_3') {
-            console.log('Herbert!!!');
+          if(d.name =='Symbolists_5') {
+            console.log('Symbolists!!!');
             console.log(sub0+'|||'+lindex);
             console.log(s0+'|||'+s1);
+            console.log(d.name.indexOf('_')+1+'|||'+((d.name.length/3)*2));
           }
 
           var sub1 = '';
@@ -1707,14 +1708,19 @@ d3sparql.sunburst = function(json, config) {
             lindex1 = sub1.lastIndexOf('_');
             console.log(sub1+'|||'+d.name);
           } else if(s1) {
-            sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
+            if((d.name.length/3)*2 < d.name.indexOf('_')+1) {
+              lindex1 = d.name.substring(lindex+1).indexOf('_')
+              //sub1 = d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_'));
+            } else {
+              sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
+            }
             lindex1 = sub1.lastIndexOf('_');
           } else {  //Already has whole value
             sub1 = "";
           }
 
-          if(d.name =='Herbert_Spencer_3') {
-            console.log('Herbert!!!');
+          if(d.name =='Symbolists_5') {
+            console.log('Symbolists_5!!!');
             console.log(sub0+'|||'+lindex);
             console.log(s0+'|||'+s1);
             console.log(sub1+'|||'+lindex1);
@@ -1739,8 +1745,8 @@ d3sparql.sunburst = function(json, config) {
             }
           }
 
-          if(d.name =='Herbert_Spencer_3') {
-            console.log('Herbert!!!');
+          if(d.name =='Symbolists_5') {
+            console.log('Symbolists!!!');
             console.log(sub0+'|||'+lindex);
             console.log(s0+'|||'+s1);
             console.log(sub1+'|||'+lindex1);
