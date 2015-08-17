@@ -1550,14 +1550,12 @@ d3sparql.sunburst = function(json, config) {
   var padding = 5;
 
   if(json != null) {
-    console.log('not NULL');
     var svg = d3.select(opts.selector).html("").append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
   } else {
-    console.log('in the NULL');
     var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
@@ -1582,7 +1580,6 @@ d3sparql.sunburst = function(json, config) {
   var partition = d3.layout.partition()
   .value(function(d) {return d.value})
   var nodes = partition.nodes(tree)
-  console.log(nodes);
   var path = svg.selectAll("path")
   .data(nodes)
   .enter()
@@ -1614,12 +1611,9 @@ d3sparql.sunburst = function(json, config) {
       })
       .attr("dy", ".2em")
       .attr("transform", function(d) {
-        console.log(d.name);
         var multiline = (d.name || "").split("_").length > 1, //boolean
             angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
             rotate = angle + (multiline ? -.5 : 0);
-        console.log('first multi:'+multiline);
-        console.log(angle+'|||'+rotate);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
       .on("click", click);
@@ -1635,7 +1629,6 @@ d3sparql.sunburst = function(json, config) {
         } else if(d.depth == 3) {
           var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
           var lindex = sub0.lastIndexOf('_');
-          console.log(sub0+'|||'+lindex);
           if(lindex != -1) {
             sub0 = d.name.substring(0, lindex);
           } else {  //If there is no _ (no break) in words
@@ -1661,10 +1654,6 @@ d3sparql.sunburst = function(json, config) {
           }
         } else if(d.depth == 2) {
           var dname = d.name.split(/(?=[A-Z])/);
-          //return d.depth ? d.name.split("_")[0] : "";
-          if(d.name == 'typeOfPerson') {
-            console.log(dname);
-          }
           if(dname[1] != undefined) {
             if(dname.length==2) {
               return dname[1];
@@ -1693,46 +1682,21 @@ d3sparql.sunburst = function(json, config) {
             //else s0 = false;
           }
 
-          if(d.name =='Symbolists_5') {
-            console.log('Symbolists!!!');
-            console.log(sub0+'|||'+lindex);
-            console.log(s0+'|||'+s1);
-            console.log(d.name.indexOf('_')+1+'|||'+((d.name.length/3)*2));
-          }
-
           var sub1 = '';
           var lindex1 = 0;
 
           if(s0) {
             sub1 = d.name.substring(lindex+1, (d.name.length/3)*2);
             lindex1 = sub1.lastIndexOf('_');
-            console.log(sub1+'|||'+d.name);
           } else if(s1) {
             if((d.name.length/3)*2 < d.name.indexOf('_')+1) {
               lindex1 = d.name.substring(lindex+1).indexOf('_')
-              //sub1 = d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_'));
             } else {
               sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
             }
             lindex1 = sub1.lastIndexOf('_');
           } else {  //Already has whole value
             sub1 = "";
-          }
-
-          if(d.name =='Symbolists_5') {
-            console.log('Symbolists_5!!!');
-            console.log(sub0+'|||'+lindex);
-            console.log(s0+'|||'+s1);
-            console.log(sub1+'|||'+lindex1);
-            console.log(d.name.substring(lindex+1).indexOf('_'));
-          }
-
-          if(d.name == 'Enigma_Machine') {
-            console.log('Enigma:lindex:'+lindex); //PROBLEM IS lindex
-            console.log('Enigma_vals:'+s0+'|'+s1);
-            console.log('Enigma_vals:'+sub1+'|'+lindex1);
-            console.log(d.name.substring(lindex+1));
-            console.log('Enigma_vals:'+d.name.substring(lindex+1, d.name.substring(lindex+1).indexOf('_')));
           }
 
           if(lindex1 != -1) { //If there is a _ before 2/3 of d.name
@@ -1745,15 +1709,6 @@ d3sparql.sunburst = function(json, config) {
             }
           }
 
-          if(d.name =='Symbolists_5') {
-            console.log('Symbolists!!!');
-            console.log(sub0+'|||'+lindex);
-            console.log(s0+'|||'+s1);
-            console.log(sub1+'|||'+lindex1);
-            console.log(d.name.substring(lindex+1).indexOf('_'));
-          }
-
-          console.log(sub1+'|||'+d.name);
           return sub1.replace(/_/g, ' ');
         } else {
           return "";
@@ -1779,7 +1734,6 @@ d3sparql.sunburst = function(json, config) {
             }
           }
         } else if(d.depth == 3) {
-          //WORKING, PROBLEM IN 2ND PART WITH lindex
           var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
           var lindex = sub0.lastIndexOf('_');
           var s0 = false;
@@ -1815,30 +1769,10 @@ d3sparql.sunburst = function(json, config) {
           }
           //If lindex1 still =-1 here, then already have whole str
 
-
-          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
-            console.log(d.name);
-            console.log('pure0:'+sub0);
-            console.log('pure1:'+sub1);
-            console.log('pureI:'+lindex+'|'+lindex1);
-          }
-
-
-          //var lindex2 = 0;
-          //if(lindex1 != -1) { //If there is a _ before 2/3 mark
-          //  sub2
-          //}
           if(s2) {
             if(lindex1 != -1) { //Have both lindex vals //Was a _ before the 2/3 mark
               sub2 = d.name.substring(lindex+lindex1+1)
             } //lindex1==-1 and already has the whole str //No _ before 2/3 mark
-          }
-
-
-          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
-            console.log('Pure:'+d.name);
-            console.log('Pure:'+sub0+'|||'+sub1+'|||'+sub2);
-            console.log('Pure:'+lindex+'|||'+lindex1);
           }
 
           return sub2.replace(/_/g, ' ');
@@ -1858,14 +1792,9 @@ d3sparql.sunburst = function(json, config) {
             };
             return s;
           }
-        } else if(d.depth == 3) {
-          //index
-          console.log('in the obj depth!!!!!!!!!!!!');
         } else {
           return "";
         }});
-      //return d.depth ? d.name.split("_")[3] || "" : ""; });
-  console.log('here everytime!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
   function brightness(rgb) {
     return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
@@ -1954,10 +1883,6 @@ d3sparql.sunburst = function(json, config) {
       };
     })
     .attrTween("transform", function(d) {
-      //return function() {
-        console.log(d.name);
-        //var rotate = x(d.x + d.dx / 2) * 180 / Math.PI - 90
-        //return "rotate(" + rotate + ") translate(" + y(d.y) + ")"
         var multiline = (d.name || "").split("_").length > 1;
         console.log('second multi:'+multiline);
         return function() {
@@ -1965,7 +1890,6 @@ d3sparql.sunburst = function(json, config) {
               rotate = angle + (multiline ? -.5 : 0);
           return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
         };
-      //}
     })
     .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
     .each("end", function(e) {
@@ -1998,7 +1922,6 @@ d3sparql.sunburst = function(json, config) {
     }
     return false
   }
-  console.log(svg);
   console.log("Done Sunburst");
 }//End of Sunburst
 
