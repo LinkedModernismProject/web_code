@@ -1663,11 +1663,17 @@ d3sparql.sunburst = function(json, config) {
         } else if(d.depth == 2) {
           var dname = d.name.split(/(?=[A-Z])/);
           //return d.depth ? d.name.split("_")[0] : "";
+          if(d.name == 'typeOfPerson') {
+            console.log(dname);
+          }
           if(dname[1] != undefined) {
             if(dname.length==2) {
               return dname[1];
             }
             if(dname[2] != undefined) {
+              if(dname.length==3) {
+                return dname[1]+dname[2];
+              }
               if(dname.length>3) {
                 return dname[1]+dname[2];
               }
@@ -1702,8 +1708,9 @@ d3sparql.sunburst = function(json, config) {
             sub1 = "";
           }
 
-          if(d.name == 'Pure_Mathematics_ed_J_L_Britton_ISBN_0444880593') {
+          if(d.name == 'typeOfPerson') {
             console.log('pure:'+s0+'|'+s1);
+            console.log('type:'+lindex+'|'+lindex1);
           }
 
           if(d.name == 'Enigma_Machine') {
@@ -1740,18 +1747,13 @@ d3sparql.sunburst = function(json, config) {
           }
         } else if(d.depth == 2) {
           var dname = d.name.split(/(?=[A-Z])/);
-          if(dname[2] != undefined) {
-            if(dname.length==3) {
-              return dname[2];
-            }
-            if(dname[3] != undefined) {
-              if(dname.length>4) {
-                var s = "";
-                for (var i = 3; i < dname.length; i++) {
-                  s += dname[i];
-                }
-                return s;
+          if(dname[3] != undefined) {
+            if(dname.length>=4) {
+              var s = "";
+              for (var i = 3; i < dname.length; i++) {
+                s += dname[i];
               }
+              return s;
             }
           }
         } else if(d.depth == 3) {
