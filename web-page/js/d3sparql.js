@@ -1627,18 +1627,26 @@ d3sparql.sunburst = function(json, config) {
           var dname = d.name.split(/(?=[A-Z])/);
           return dname[0];
         } else if(d.depth == 3) {
-          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/2)+2);  //+2 to counter index counting from 0 and substring 2nd value being exclusive
+          if(d.name == 'Abd_alRahman_alNashar_3') {
+            console.log(sub0);
+          }
           var lindex = sub0.lastIndexOf('_');
           if(lindex != -1) {
             sub0 = d.name.substring(0, lindex);
           } else {  //If there is no _ (no break) in words
-          //  //var sub1 = d.name.substring(Math.floor(d.name.length/3));
             if(d.name.indexOf('_') != -1) {
-              sub0 = d.name.substring(0, d.name.indexOf('_'));
-              name_count = d.name.indexOf('_');
+              sub0 = d.name.substring(0, d.name.indexOf('_'));  //Use lindex = d.name.indexOf('_') for the next textEnter.append if hit here
             } else {
               sub0 = d.name;
             }
+          }
+          if(d.name == 'Abd_alRahman_alNashar_3') {
+            console.log(d.name);
+            console.log(d.name.length);
+            console.log(sub0+'|||'+lindex);
+            console.log(d.name.substring(4).indexOf('_'));
+            console.log(d.name.substring(4).indexOf('_'));
           }
           return sub0.replace(/_/g, ' ');
         } else {
@@ -1668,7 +1676,7 @@ d3sparql.sunburst = function(json, config) {
             }
           }
         } else if(d.depth == 3) {
-          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/2)+2);  //+2 to counter index counting from 0 and substring 2nd value being exclusive
           var lindex = sub0.lastIndexOf('_');
           var s0 = false;
           var s1 = false;
@@ -1679,8 +1687,14 @@ d3sparql.sunburst = function(json, config) {
               s1 = true;
               lindex = d.name.indexOf('_');
             } //else s1 == false;
-            //else s0 = false;
+          } //else s0 = false;
+
+          var sub1 = '';
+          if(s0 || s1) {  //Case where there was an _ before 1/2 mark
+            sub1 = d.name.substring(lindex+1);
           }
+
+          /*
 
           var sub1 = '';
           var lindex1 = 0;
@@ -1708,7 +1722,7 @@ d3sparql.sunburst = function(json, config) {
               sub1 = d.name.substring(lindex+1);
             }
           }
-
+          */
           return sub1.replace(/_/g, ' ');
         } else {
           return "";
@@ -1734,6 +1748,7 @@ d3sparql.sunburst = function(json, config) {
             }
           }
         } else if(d.depth == 3) {
+          /*
           var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
           var lindex = sub0.lastIndexOf('_');
           var s0 = false;
@@ -1776,6 +1791,7 @@ d3sparql.sunburst = function(json, config) {
           }
 
           return sub2.replace(/_/g, ' ');
+          */
         } else {
           return "";
         }});
