@@ -1067,7 +1067,7 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .append('a')
   .attr('class', 'has-popover')
- .text(function(d) {return d[opts.label || "label"]})  
+  .text(function(d) {return d[opts.label || "label"]})  
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
@@ -1232,7 +1232,7 @@ node.append("text")
   .filter(function(d) {return d.x < opts.width / 2})
   .attr("x", 6 + sankey.nodeWidth())
   .attr("text-anchor", "start")
-  
+
 // default CSS/SVG
 link.attr({
   "fill": "none",
@@ -1563,16 +1563,16 @@ d3sparql.sunburst = function(json, config) {
   }
 
   var arc = d3.svg.arc()
-  .startAngle(function(d)  { 
+  .startAngle(function(d)  {
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
-  .endAngle(function(d)    { 
+  .endAngle(function(d)    {
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
-  .innerRadius(function(d) { 
+  .innerRadius(function(d) {
     //console.log(Math.max(0, y(d.y)));
     return Math.max(0, y(d.y)) })
-  .outerRadius(function(d) { 
+  .outerRadius(function(d) {
     //console.log(Math.max(0, y(d.y + d.dy)));
     return Math.max(0, y(d.y + d.dy)) })
   var partition = d3.layout.partition()
@@ -1615,7 +1615,7 @@ d3sparql.sunburst = function(json, config) {
             rotate = angle + (multiline ? -.5 : 0);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
-      .on("click", click)
+     .on("click", click)
       .append('a')
       .attr('class','has-popover')
        var name_count = 0;///////////////////////////////////////////////////

@@ -33,11 +33,11 @@
   <!-- For some visualizations  -->
   <script src="js/d3.min.js"></script>
   <script src="js/highlight.min.js"></script>
- 
+
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
   <script src="js/jquery.cookie.js"></script>
-   
+
   <!-- Plugin JavaScript -->
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.fittext.js"></script>
@@ -54,11 +54,11 @@
   <script src="js/d3sparql.js"></script>
   <script src="js/convertJSONtoFlare.js"></script>
   <script src="js/sankey.js"></script>
-  <script src="js/jquery.qtip.min.js"></script>  
-  
+  <script src="js/jquery.qtip.min.js"></script>
+
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
-  
+
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
@@ -261,7 +261,7 @@
       sClick(query);
       exec1(query);
     });
-    
+
     $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
 	console.log('in popover');
 	var innerText = this.innerHTML.replace(/<tspan x="0">/g,' ');
@@ -279,7 +279,7 @@
             content: ('<a target="_blank" href="https://google.ca#q=' + innerText + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
 	});
     });
-    
+
     $(document).on('click', '.popover .close', function(){
         $(this).parents(".popover").popover('hide');
     });
