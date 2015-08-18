@@ -1628,9 +1628,6 @@ d3sparql.sunburst = function(json, config) {
           return dname[0];
         } else if(d.depth == 3) {
           var sub0 = d.name.substring(0, Math.floor(d.name.length/2)+2);  //+2 to counter index counting from 0 and substring 2nd value being exclusive
-          if(d.name == 'Abd_alRahman_alNashar_3') {
-            console.log(sub0);
-          }
           var lindex = sub0.lastIndexOf('_');
           if(lindex != -1) {
             sub0 = d.name.substring(0, lindex);
@@ -1640,13 +1637,6 @@ d3sparql.sunburst = function(json, config) {
             } else {
               sub0 = d.name;
             }
-          }
-          if(d.name == 'Abd_alRahman_alNashar_3') {
-            console.log(d.name);
-            console.log(d.name.length);
-            console.log(sub0+'|||'+lindex);
-            console.log(d.name.substring(4).indexOf('_'));
-            console.log(d.name.substring(4).indexOf('_'));
           }
           return sub0.replace(/_/g, ' ');
         } else {
@@ -1693,41 +1683,10 @@ d3sparql.sunburst = function(json, config) {
           if(s0 || s1) {  //Case where there was an _ before 1/2 mark
             sub1 = d.name.substring(lindex+1);
           }
-
-          /*
-
-          var sub1 = '';
-          var lindex1 = 0;
-
-          if(s0) {
-            sub1 = d.name.substring(lindex+1, (d.name.length/3)*2);
-            lindex1 = sub1.lastIndexOf('_');
-          } else if(s1) {
-            if((d.name.length/3)*2 < d.name.indexOf('_')+1) {
-              lindex1 = d.name.substring(lindex+1).indexOf('_')
-            } else {
-              sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
-            }
-            lindex1 = sub1.lastIndexOf('_');
-          } else {  //Already has whole value
-            sub1 = "";
-          }
-
-          if(lindex1 != -1) { //If there is a _ before 2/3 of d.name
-            sub1 = sub1.substring(0, lindex1);
-          } else {  //If there is no _ in the words
-            if(d.name.substring(lindex+1).indexOf('_') != -1) {
-              sub1 = d.name.substring(lindex+1, (lindex+1)+d.name.substring(lindex+1).indexOf('_'))  //Get the first _ from string starting from lindex+1
-            } else {  //If there isn't a _ in the rest of the string
-              sub1 = d.name.substring(lindex+1);
-            }
-          }
-          */
           return sub1.replace(/_/g, ' ');
         } else {
           return "";
         }});
-      //return d.depth ? d.name.split("_")[1] || "" : ""; });
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
@@ -1747,55 +1706,9 @@ d3sparql.sunburst = function(json, config) {
               return s;
             }
           }
-        } else if(d.depth == 3) {
-          /*
-          var sub0 = d.name.substring(0, Math.floor(d.name.length/3));
-          var lindex = sub0.lastIndexOf('_');
-          var s0 = false;
-          var s1 = false;
-          var s2 = false;
-          var s3 = false;
-          if(lindex != -1) {  //Did get an _ before the 1/3 mark
-            s0 = true;
-          } else {  //After 1/3 mark
-            if(d.name.indexOf('_') != -1) { //Found a first _
-              s1 = true;
-              lindex = d.name.indexOf('_');
-            }
-          }
-          var sub1 = '';
-          var lindex1 = 0;
-          var sub2 = '';
-          if(s0) {
-            s2 = true;
-            sub1 = d.name.substring(lindex+1, (d.name.length/3)*2);
-            lindex1 = sub1.lastIndexOf('_');
-          } else if (s1) {
-            s2 = true;
-            sub1 = d.name.substring(d.name.indexOf('_')+1, (d.name.length/3)*2);
-            lindex1 = sub1.lastIndexOf('_');
-          } else{
-            s2 = false;
-            sub2 = '';
-          };
-
-          if(lindex1 == -1) { //If there was no _ before 2/3 mark
-            lindex1 = d.name.substring(lindex+1).indexOf('_')
-          }
-          //If lindex1 still =-1 here, then already have whole str
-
-          if(s2) {
-            if(lindex1 != -1) { //Have both lindex vals //Was a _ before the 2/3 mark
-              sub2 = d.name.substring(lindex+lindex1+1)
-            } //lindex1==-1 and already has the whole str //No _ before 2/3 mark
-          }
-
-          return sub2.replace(/_/g, ' ');
-          */
         } else {
           return "";
         }});
-      //return d.depth ? d.name.split("_")[2] || "" : ""; });
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
