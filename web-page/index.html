@@ -237,13 +237,13 @@
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $.cookie("currentVis", $("input[name='optradio']:checked").val());
-      $("#tabSearch").removeClass("active");
-      $("#tabVis").addClass("active");
-      if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
+     if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
         var query = randQuery();
       else
         var query = constructQuery();
       console.log(query);
+      $("#tabSearch").removeClass("active");
+      $("#tabVis").addClass("active");
       createCookie(query);
       sClick(query);
       exec1(query);
@@ -264,20 +264,34 @@
     
     $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
 	console.log('in popover');
+	var innerText = this.innerHTML.replace(/<tspan x="0">/g,' ');
+	innerText = innerText.replace(/<tspan dy="1em" x="0">/g,'');
+	innerText = innerText.replace(/<\/tspan>/g,' ');
+	innerText = innerText.trim();
+	innerText = innerText.replace(/ /g,'_');
+        var title = innerText + ' <a href="#" class="close" data-dismiss="alert">&times;</a>';
+	console.log(innerText);
 	$(this).popover({
-            title: this.title,
-            html: 'true',
+	    html: 'true',
+	    title: title,
 	    container: 'body',
             placement: 'top auto',
-            content: ('<a target="_blank" href="https://google.ca#q=' + this.innerHTML + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + this.innerHTML + "'" + ')"><button>Search this term</button></a>')
+            content: ('<a target="_blank" href="https://google.ca#q=' + innerText + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
 	});
     });
     
+    $(document).on('click', '.popover .close', function(){
+        $(this).parents(".popover").popover('hide');
+    });
+
     auto.autocorrect();
   });
 
   function popoverClick(term){
     console.log(term);
+    var query = constructQuery(term);
+    sClick(query);
+    exec1(query);
   }
 
   //if the S P O fields are all blank then construct a random query to search
@@ -291,12 +305,13 @@
   limo:gender 'Chemically Castrated', say would get people that are CC'd and also all the info about those people
   */
   //Function that takes the S P O and makes the query
-  function constructQuery(){
+  function constructQuery(singleWord){
     var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
     if($('#tabSearch').hasClass('active')){
       if($("#subj").val() != ""){
         var subj_ = $("#subj").val();
         subj_ = subj_.replace(/\s/g, '_');
+	console.log('working');
         query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
       if($("#pred").val() != ""){
@@ -305,6 +320,10 @@
       if($("#obj").val() != ""){
         query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
       }
+    }
+    if(singleWord != undefined){
+	singleWord = singleWord.replace(/\s/g, '_');
+        query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
@@ -395,7 +414,7 @@
 //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
+  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataC&";
   var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   $.cookie("currentSearch", query);
   return queryURL;
@@ -403,7 +422,7 @@ function constructURL(query){
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
+  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataC&";
   d3sparql.query(endpoint, sparql, render);
 }
 
@@ -412,17 +431,6 @@ function visTabClick(visID){
   console.log(visID);
   sClick($.cookie("currentSearch"));
   exec1($.cookie("currentSearch"));
-}
-
-function queryREM(){
-  var win = window.open('https://www.google.ca/#q=' + this.id, '_blank');
-  if(win){
-      //Browser has allowed it to be opened
-      win.focus();
-  }else{
-      //Broswer has blocked it
-      alert('Please allow popups for this site');
-  }
 }
 
 function reSearchByClick(){

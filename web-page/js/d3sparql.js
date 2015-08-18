@@ -1067,9 +1067,8 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .append('a')
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d[opts.label || "label"]})
-  .text(function(d) {return d[opts.label || "label"]})  
-var force = d3.layout.force()
+ .text(function(d) {return d[opts.label || "label"]})  
+  var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
   .gravity(0.05)
@@ -1228,7 +1227,6 @@ node.append("text")
   .attr("text-anchor", "end")
   .append("a")
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d.label})  
   .attr("transform", null)
   .text(function(d) {return d.label})
   .filter(function(d) {return d.x < opts.width / 2})
@@ -1550,14 +1548,12 @@ d3sparql.sunburst = function(json, config) {
   var padding = 5;
 
   if(json != null) {
-    console.log('not NULL');
     var svg = d3.select(opts.selector).html("").append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
   } else {
-    console.log('in the NULL');
     var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
@@ -1582,7 +1578,6 @@ d3sparql.sunburst = function(json, config) {
   var partition = d3.layout.partition()
   .value(function(d) {return d.value})
   var nodes = partition.nodes(tree)
-  console.log(nodes);
   var path = svg.selectAll("path")
   .data(nodes)
   .enter()
@@ -1604,7 +1599,8 @@ d3sparql.sunburst = function(json, config) {
   .text(function(d) {return d.name})
   .on("click", click)*/
 
-  var textEnter = text.enter().append("text")
+  var textEnter = text.enter()
+    .append("text")
       .style("fill-opacity", 1)
       .style("fill", function(d) {
         return brightness(d3.rgb(colour(d))) < 125 ? "#eee" : "#000";
@@ -1614,43 +1610,121 @@ d3sparql.sunburst = function(json, config) {
       })
       .attr("dy", ".2em")
       .attr("transform", function(d) {
-        console.log(d.name);
         var multiline = (d.name || "").split("_").length > 1, //boolean
             angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
             rotate = angle + (multiline ? -.5 : 0);
-        console.log('first multi:'+multiline);
-        console.log(angle+'|||'+rotate);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
-      .on("click", click);
+      .on("click", click)
+      .append('a')
+      .attr('class','has-popover')
+       var name_count = 0;///////////////////////////////////////////////////
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) {
         if(d.depth == 1) {
-          console.log(d.name.split("_").length);
-          return d.depth ? d.name.split("_")[0] : "";
+          return d.name.split("_")[0];
         } else if(d.depth == 2) {
-          dname0 = d.name.substring(0, d.name.length/2)
-
-          return d.depth ? d.name.split("_")[0] : "";
+          var dname = d.name.split(/(?=[A-Z])/);
+          return dname[0];
         } else if(d.depth == 3) {
-          //index
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/2)+2);  //+2 to counter index counting from 0 and substring 2nd value being exclusive
+          var lindex = sub0.lastIndexOf('_');
+          if(lindex != -1) {
+            sub0 = d.name.substring(0, lindex);
+          } else {  //If there is no _ (no break) in words
+            if(d.name.indexOf('_') != -1) {
+              sub0 = d.name.substring(0, d.name.indexOf('_'));  //Use lindex = d.name.indexOf('_') for the next textEnter.append if hit here
+            } else {
+              sub0 = d.name;
+            }
+          }
+          return sub0.replace(/_/g, ' ');
         } else {
           return "";
         }});
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[1] || "" : ""; });
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[1] != undefined) {
+            return d.name.split("_")[1];
+          }
+        } else if(d.depth == 2) {
+          var dname = d.name.split(/(?=[A-Z])/);
+          if(dname[1] != undefined) {
+            if(dname.length==2) {
+              return dname[1];
+            }
+            if(dname[2] != undefined) {
+              if(dname.length==3) {
+                return dname[1]+dname[2];
+              }
+              if(dname.length>3) {
+                return dname[1]+dname[2];
+              }
+            }
+          }
+        } else if(d.depth == 3) {
+          var sub0 = d.name.substring(0, Math.floor(d.name.length/2)+2);  //+2 to counter index counting from 0 and substring 2nd value being exclusive
+          var lindex = sub0.lastIndexOf('_');
+          var s0 = false;
+          var s1 = false;
+          if(lindex != -1) {
+            s0 = true;
+          } else {
+            if(d.name.indexOf('_') != -1) {
+              s1 = true;
+              lindex = d.name.indexOf('_');
+            } //else s1 == false;
+          } //else s0 = false;
+
+          var sub1 = '';
+          if(s0 || s1) {  //Case where there was an _ before 1/2 mark
+            sub1 = d.name.substring(lindex+1);
+          }
+          return sub1.replace(/_/g, ' ');
+        } else {
+          return "";
+        }});
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[2] || "" : ""; });
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[2] != undefined) {
+            return d.name.split("_")[2];
+          }
+        } else if(d.depth == 2) {
+          var dname = d.name.split(/(?=[A-Z])/);
+          if(dname[3] != undefined) {
+            if(dname.length>=4) {
+              var s = "";
+              for (var i = 3; i < dname.length; i++) {
+                s += dname[i];
+              }
+              return s;
+            }
+          }
+        } else {
+          return "";
+        }});
   textEnter.append("tspan")
       .attr("x", 0)
       .attr("dy", "1em")
-      .text(function(d) { return d.depth ? d.name.split("_")[3] || "" : ""; });
-  console.log('here everytime!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      .text(function(d) {
+        if(d.depth == 1) {
+          if(d.name.split("_")[3] != undefined) {
+            var s = "";
+            for (var j = 3; j < d.name.split("_").length; j++) {
+              s += d.name.split("_")[j];
+            };
+            return s;
+          }
+        } else {
+          return "";
+        }});
 
   function brightness(rgb) {
     return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
@@ -1667,51 +1741,6 @@ d3sparql.sunburst = function(json, config) {
   }
   return d.colour || "#fff";
 }
-
-
-
-
-
-/*
-  function next_line(line) {
-    console.log(line);
-    var s2 = "";
-    var s3 = line;
-    var t = false;
-    count0 = 0;
-    count1 = 15;
-    while(s3.length>15) {
-      s2 += s3.slice(count0, count1) + '<br />';
-      console.log(s2);
-      console.log(s3);
-      s3 = s3.slice(count1);
-      console.log(s3);
-      if(s3.length<15){
-        t = true;
-      }
-    }
-    console.log(s2);
-    s2 += s3;
-    console.log(s2);
-    //if(t==true) {
-    //  exit();
-    //}
-    return s2;
-  }
-
-
-  console.log(text);
-  console.log(text.length);
-  console.log(text[0].length);
-  for (var i = 0; i < text[0].length; i++) {
-    console.log(text[0][i].innerHTML);
-    text[0][i].innerHTML = next_line(text[0][i].innerHTML);
-    console.log(text[0][i].innerHTML);
-    console.log('!!!'+text[0][i].innerHTML+'!!!');
-  };
-  console.log(text);
-*/
-
 
   // default CSS/SVG
   path.attr({
@@ -1739,10 +1768,6 @@ d3sparql.sunburst = function(json, config) {
       };
     })
     .attrTween("transform", function(d) {
-      //return function() {
-        console.log(d.name);
-        //var rotate = x(d.x + d.dx / 2) * 180 / Math.PI - 90
-        //return "rotate(" + rotate + ") translate(" + y(d.y) + ")"
         var multiline = (d.name || "").split("_").length > 1;
         console.log('second multi:'+multiline);
         return function() {
@@ -1750,7 +1775,6 @@ d3sparql.sunburst = function(json, config) {
               rotate = angle + (multiline ? -.5 : 0);
           return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
         };
-      //}
     })
     .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
     .each("end", function(e) {
@@ -1783,7 +1807,6 @@ d3sparql.sunburst = function(json, config) {
     }
     return false
   }
-  console.log(svg);
   console.log("Done Sunburst");
 }//End of Sunburst
 
