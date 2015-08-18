@@ -1741,51 +1741,6 @@ d3sparql.sunburst = function(json, config) {
   return d.colour || "#fff";
 }
 
-
-
-
-
-/*
-  function next_line(line) {
-    console.log(line);
-    var s2 = "";
-    var s3 = line;
-    var t = false;
-    count0 = 0;
-    count1 = 15;
-    while(s3.length>15) {
-      s2 += s3.slice(count0, count1) + '<br />';
-      console.log(s2);
-      console.log(s3);
-      s3 = s3.slice(count1);
-      console.log(s3);
-      if(s3.length<15){
-        t = true;
-      }
-    }
-    console.log(s2);
-    s2 += s3;
-    console.log(s2);
-    //if(t==true) {
-    //  exit();
-    //}
-    return s2;
-  }
-
-
-  console.log(text);
-  console.log(text.length);
-  console.log(text[0].length);
-  for (var i = 0; i < text[0].length; i++) {
-    console.log(text[0][i].innerHTML);
-    text[0][i].innerHTML = next_line(text[0][i].innerHTML);
-    console.log(text[0][i].innerHTML);
-    console.log('!!!'+text[0][i].innerHTML+'!!!');
-  };
-  console.log(text);
-*/
-
-
   // default CSS/SVG
   path.attr({
     "stroke": "#ffffff",
