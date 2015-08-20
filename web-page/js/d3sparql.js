@@ -1067,8 +1067,7 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .append('a')
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d[opts.label || "label"] + "<a href='#' class='close' data-dismiss='alert'>&times;</a>"})
-  .text(function(d) {return d[opts.label || "label"]})
+  .text(function(d) {return d[opts.label || "label"]})  
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
@@ -1228,7 +1227,6 @@ node.append("text")
   .attr("text-anchor", "end")
   .append("a")
   .attr('class', 'has-popover')
-  .attr('title', function(d) {return d.label + "<a href='#' class='close' data-dismiss='alert'>&times;</a>"})
   .attr("transform", null)
   .text(function(d) {return d.label})
   .filter(function(d) {return d.x < opts.width / 2})
@@ -1601,7 +1599,8 @@ d3sparql.sunburst = function(json, config) {
   .text(function(d) {return d.name})
   .on("click", click)*/
 
-  var textEnter = text.enter().append("text")
+  var textEnter = text.enter()
+    .append("text")
       .style("fill-opacity", 1)
       .style("fill", function(d) {
         return brightness(d3.rgb(colour(d))) < 125 ? "#eee" : "#000";
@@ -1616,8 +1615,10 @@ d3sparql.sunburst = function(json, config) {
             rotate = angle + (multiline ? -.5 : 0);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
-      .on("click", click);
-  var name_count = 0;///////////////////////////////////////////////////
+     .on("click", click)
+      .append('a')
+      .attr('class','has-popover')
+       var name_count = 0;///////////////////////////////////////////////////
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) {

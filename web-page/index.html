@@ -264,12 +264,19 @@
 
     $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
 	console.log('in popover');
-	var title = this.title + ' <a href="#" class="close" data-dismiss="alert">Close</a>';
+	var innerText = this.innerHTML.replace(/<tspan x="0">/g,' ');
+	innerText = innerText.replace(/<tspan dy="1em" x="0">/g,'');
+	innerText = innerText.replace(/<\/tspan>/g,' ');
+	innerText = innerText.trim();
+	innerText = innerText.replace(/ /g,'_');
+        var title = innerText + ' <a href="#" class="close" data-dismiss="alert">&times;</a>';
+	console.log(innerText);
 	$(this).popover({
 	    html: 'true',
+	    title: title,
 	    container: 'body',
             placement: 'top auto',
-            content: ('<a target="_blank" href="https://google.ca#q=' + this.innerHTML + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + this.innerHTML + "'" + ')"><button>Search this term</button></a>')
+            content: ('<a target="_blank" href="https://google.ca#q=' + innerText + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
 	});
     });
 
