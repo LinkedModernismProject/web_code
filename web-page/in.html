@@ -150,7 +150,25 @@
       $("#tabVis").addClass("active");
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
-        query = query + "?Subject limo:hasGender" + " '" + hasGender + "' . ";
+        if(query.indexOf('?Subject limo:hasGender ') != -1) {
+          console.log('in the iffff');
+          //Regex assistance: http://stackoverflow.com/questions/32192526/regex-multiple-match-blocks-within-a-string-javascript
+          var qmatch = query.match(/^(.*:hasGender)\s*'[^']+'\s*(.*)$/);
+          //var qmatch = query.match(/(.*?\?Subject limo:hasGender)/g)
+          var qmatch2 = query.match(/\?Subject limo:hasGender (?:.*?)\.(.*?)/)
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          console.log(qmatch[3]);
+
+          console.log(qmatch2);
+          console.log(qmatch2[0]);
+          console.log(qmatch2[1]);
+          console.log(qmatch2[2]);
+
+        }
+        query = query + "?Subject limo:hasGender '" + hasGender + "' . ";
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
