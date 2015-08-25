@@ -213,7 +213,18 @@
       }
       var originatingCountry = $("#selOriginatingCountry").val();
       if(originatingCountry != "" ){
-        query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+        if(query.indexOf('?Subject limo:originatingCountry ') != -1) {
+          console.log('in the originatingCountry~~~~~~~');
+          var qmatch = query.match(/^(.*:originatingCountry)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + originatingCountry + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+        }
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
