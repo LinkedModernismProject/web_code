@@ -142,7 +142,7 @@
         query += '.'+filt[i];
       };
       console.log(query);
-      query += '. ';
+      query += '.';
       console.log(query);
 
       console.log('!!!'+query+'!!!');
@@ -158,7 +158,6 @@
           console.log(qmatch[0]);
           console.log(qmatch[1]);
           console.log(qmatch[2]);
-          console.log(qmatch[3]);
           console.log(hasGender);
           query = qmatch[1] + " '" + hasGender + "' " + qmatch[2];
           console.log(query);
@@ -169,7 +168,20 @@
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        if(query.indexOf('?Subject limo:gender ') != -1) {
+          console.log('in the GENDER!!!!!!!!!!');
+          var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          console.log('after query match logs~~~~~~~~~~~~~~~~~~~~');
+          query = qmatch[1] + " '" + gender + "' " + qmatch[2];
+          console.log(query);
+          console.log('AFTERRRRRRRRR!!!!!!!!!!!!!');
+        } else {
+          query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        }
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
