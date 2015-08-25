@@ -197,7 +197,19 @@
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
-        query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+        if(query.indexOf('?Subject limo:typeOfPerson ') != -1) {
+          console.log('in the TOP');
+          var qmatch = query.match(/^(.*:typeOfPerson)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + typeOfPerson + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+        }
+        //query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
       var originatingCountry = $("#selOriginatingCountry").val();
       if(originatingCountry != "" ){
