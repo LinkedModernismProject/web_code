@@ -140,7 +140,7 @@
       for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
         query += '.'+filt[i];
       };
-      query += '.';
+      query += '. ';
 
       console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
@@ -228,11 +228,33 @@
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        if(query.indexOf('?Subject limo:birthYear ') != -1) {
+          console.log('in the birthYear~~~~~~~');
+          var qmatch = query.match(/^(.*:birthYear)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + birthYear + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        }
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        if(query.indexOf('?Subject limo:LivedIn ') != -1) {
+          console.log('in the LivedIn~~~~~~~');
+          var qmatch = query.match(/^(.*:LivedIn)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        }
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
