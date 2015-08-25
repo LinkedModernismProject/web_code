@@ -258,7 +258,18 @@
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
-        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+        if(query.indexOf('?Subject limo:associatedWith ') != -1) {
+          console.log('in the associatedWith~~~~~~~');
+          var qmatch = query.match(/^(.*:associatedWith)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + associatedWith + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+        }
       }
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       query += filt[filt.length-1]
