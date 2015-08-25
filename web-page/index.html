@@ -137,13 +137,10 @@
       $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
       query = filt[0];
-      console.log(filt);
       for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
         query += '.'+filt[i];
       };
-      console.log(query);
       query += '.';
-      console.log(query);
 
       console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
@@ -185,7 +182,18 @@
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
-        query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
+        if(query.indexOf('?Subject limo:sexuality ') != -1) {
+          console.log('in the sexuality!!~~~!!~~');
+          var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
+          console.log(query + '\n\nAFTERRRRRRRRR!!!~~~!~!~!~!~');
+        } else {
+          query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
+        }
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
@@ -772,7 +780,7 @@ function render(json) {
                       <option selected value="">Sexuality</option>
                       <option value="bisexual">Bisexual</option>
                       <option value="heterosexual">Heterosexual</option>
-                      <option value="homosexual (invert)">Homosexual</option>
+                      <option value="homosexual invert">Homosexual</option>
                       <option value="unknown">Unknown</option>
                       <option value="asexual">Asexual</option><!--Not currently in our data-->
                     </select>
