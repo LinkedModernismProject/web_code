@@ -133,47 +133,79 @@
       } else {
         var query = $("#queryNum0").text(); //Gets query from previous search
       }
+      console.log(query);
       $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
       query = filt[0];
+      console.log(filt);
       for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
         query += '.'+filt[i];
       };
+      console.log(query);
+      query += '.';
+      console.log(query);
 
       console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
-        query = query + ". ?Subject limo:hasGender" + " '" + hasGender + "' . ";
+        if(query.indexOf('?Subject limo:hasGender ') != -1) {
+          console.log('in the iffff');
+          //Regex assistance: http://stackoverflow.com/questions/32192526/regex-multiple-match-blocks-within-a-string-javascript
+          var qmatch = query.match(/^(.*:hasGender)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          console.log(hasGender);
+          query = qmatch[1] + " '" + hasGender + "' " + qmatch[2];
+          console.log(query);
+          console.log('AFTERRRRRRRRR');
+        } else {
+          query = query + "?Subject limo:hasGender '" + hasGender + "' . ";
+        }
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        query = query + ". ?Subject limo:gender" + " '" + gender + "' . ";
+        if(query.indexOf('?Subject limo:gender ') != -1) {
+          console.log('in the GENDER!!!!!!!!!!');
+          var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
+          console.log(qmatch);
+          console.log(qmatch[0]);
+          console.log(qmatch[1]);
+          console.log(qmatch[2]);
+          console.log('after query match logs~~~~~~~~~~~~~~~~~~~~');
+          query = qmatch[1] + " '" + gender + "' " + qmatch[2];
+          console.log(query);
+          console.log('AFTERRRRRRRRR!!!!!!!!!!!!!');
+        } else {
+          query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        }
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
-        query = query + ". ?Subject limo:sexuality" + " '" + sexuality + "' . ";
+        query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
-        query = query + ". ?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+        query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
       var originatingCountry = $("#selOriginatingCountry").val();
       if(originatingCountry != "" ){
-        query = query + ". ?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+        query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        query = query + ". ?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        query = query + ". ?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
-        query = query + ". ?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+        query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       query += filt[filt.length-1]
@@ -227,7 +259,7 @@
       if(associatedWith != "" ){
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
-      query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
+      query = query +  "} ORDER BY ASC(?Subject) LIMIT 50";
       console.log(query);
       createCookie(query);
       sClick(query);

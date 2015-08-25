@@ -259,7 +259,7 @@
       if(associatedWith != "" ){
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
-      query = query +  "} ORDER BY ASC(?Subject)";
+      query = query +  "} ORDER BY ASC(?Subject) LIMIT 50";
       console.log(query);
       createCookie(query);
       sClick(query);
@@ -357,7 +357,7 @@
 	singleWord = singleWord.replace(/\s/g, '_');
         query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
-    query +=  '} ORDER BY ASC(?Subject)';
+    query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
     console.log(query);
     return query;
   }
