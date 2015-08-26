@@ -126,14 +126,13 @@
       }
     });
 
-    //This is called from the filters search button, it adds filters
+    //This is called from the filters apply to previous search button, and adds filters to prev search
     $(".btn-filters").click(function(){
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       } else {
         var query = $("#queryNum0").text(); //Gets query from previous search
       }
-      console.log(query);
       $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
       query = filt[0];
@@ -142,23 +141,13 @@
       };
       query += '. ';
 
-      console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
         if(query.indexOf('?Subject limo:hasGender ') != -1) {
-          console.log('in the iffff');
-          //Regex assistance: http://stackoverflow.com/questions/32192526/regex-multiple-match-blocks-within-a-string-javascript
           var qmatch = query.match(/^(.*:hasGender)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
-          console.log(hasGender);
           query = qmatch[1] + " '" + hasGender + "' " + qmatch[2];
-          console.log(query);
-          console.log('AFTERRRRRRRRR');
         } else {
           query = query + "?Subject limo:hasGender '" + hasGender + "' . ";
         }
@@ -166,16 +155,8 @@
       var gender = $("#selSex").val();
       if(gender != "" ){
         if(query.indexOf('?Subject limo:gender ') != -1) {
-          console.log('in the GENDER!!!!!!!!!!');
           var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
-          console.log('after query match logs~~~~~~~~~~~~~~~~~~~~');
           query = qmatch[1] + " '" + gender + "' " + qmatch[2];
-          console.log(query);
-          console.log('AFTERRRRRRRRR!!!!!!!!!!!!!');
         } else {
           query = query + "?Subject limo:gender" + " '" + gender + "' . ";
         }
@@ -183,14 +164,8 @@
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
         if(query.indexOf('?Subject limo:sexuality ') != -1) {
-          console.log('in the sexuality!!~~~!!~~');
           var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
         }
@@ -198,14 +173,8 @@
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
         if(query.indexOf('?Subject limo:typeOfPerson ') != -1) {
-          console.log('in the TOP');
           var qmatch = query.match(/^(.*:typeOfPerson)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + typeOfPerson + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
         }
@@ -214,14 +183,8 @@
       var originatingCountry = $("#selOriginatingCountry").val();
       if(originatingCountry != "" ){
         if(query.indexOf('?Subject limo:originatingCountry ') != -1) {
-          console.log('in the originatingCountry~~~~~~~');
           var qmatch = query.match(/^(.*:originatingCountry)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + originatingCountry + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
         }
@@ -229,14 +192,8 @@
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
         if(query.indexOf('?Subject limo:hasBirthdate ') != -1) {
-          console.log('in the hasBirthdate~~~~~~~');
           var qmatch = query.match(/^(.*:hasBirthdate)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + birthYear.trim().replace(/ /g," ") + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
         }
@@ -244,14 +201,8 @@
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
         if(query.indexOf('?Subject limo:associatedWithCountry ') != -1) {
-          console.log('in the associatedWithCountry~~~~~~~');
           var qmatch = query.match(/^(.*:associatedWithCountry)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
         }
@@ -259,14 +210,8 @@
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
         if(query.indexOf('?Subject limo:associatedWith ') != -1) {
-          console.log('in the associatedWith~~~~~~~');
           var qmatch = query.match(/^(.*:associatedWith)\s*'[^']+'\s*(.*)$/);
-          console.log(qmatch);
-          console.log(qmatch[0]);
-          console.log(qmatch[1]);
-          console.log(qmatch[2]);
           query = qmatch[1] + " '" + associatedWith + "' " + qmatch[2];
-          console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
           query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
         }
@@ -510,7 +455,7 @@
 //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
 function constructURL(query){
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
+  var url = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataC&";
   var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
   $.cookie("currentSearch", query);
   return queryURL;
@@ -518,7 +463,7 @@ function constructURL(query){
 
 //d3.select("#endpoint").property("value")
 function exec1(sparql) {
-  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataB&";
+  var endpoint = /*"http://dbpedia.org/sparql";*/ "http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestDataC&";
   d3sparql.query(endpoint, sparql, render);
 }
 
