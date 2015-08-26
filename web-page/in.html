@@ -228,17 +228,17 @@
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        if(query.indexOf('?Subject limo:birthYear ') != -1) {
-          console.log('in the birthYear~~~~~~~');
-          var qmatch = query.match(/^(.*:birthYear)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:hasBirthdate ') != -1) {
+          console.log('in the hasBirthdate~~~~~~~');
+          var qmatch = query.match(/^(.*:hasBirthdate)\s*'[^']+'\s*(.*)$/);
           console.log(qmatch);
           console.log(qmatch[0]);
           console.log(qmatch[1]);
           console.log(qmatch[2]);
-          query = qmatch[1] + " '" + birthYear + "' " + qmatch[2];
+          query = qmatch[1] + " '" + birthYear.trim().replace(/ /g," ") + "' " + qmatch[2];
           console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
-          query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+          query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
         }
       }
       var livedIn = $("#selLivedIn").val();
@@ -313,7 +313,7 @@
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
