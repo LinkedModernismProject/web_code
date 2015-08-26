@@ -243,9 +243,9 @@
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        if(query.indexOf('?Subject limo:LivedIn ') != -1) {
-          console.log('in the LivedIn~~~~~~~');
-          var qmatch = query.match(/^(.*:LivedIn)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:associatedWithCountry ') != -1) {
+          console.log('in the associatedWithCountry~~~~~~~');
+          var qmatch = query.match(/^(.*:associatedWithCountry)\s*'[^']+'\s*(.*)$/);
           console.log(qmatch);
           console.log(qmatch[0]);
           console.log(qmatch[1]);
@@ -253,7 +253,7 @@
           query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
           console.log(query + '\n\nAFTERRRRRRRRR~~~~~~~~~~~!!!~~~!~!~!~!~');
         } else {
-          query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+          query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
         }
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
@@ -317,7 +317,7 @@
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
