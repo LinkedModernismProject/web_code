@@ -33,11 +33,11 @@
   <!-- For some visualizations  -->
   <script src="js/d3.min.js"></script>
   <script src="js/highlight.min.js"></script>
-
+ 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
   <script src="js/jquery.cookie.js"></script>
-
+   
   <!-- Plugin JavaScript -->
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/jquery.fittext.js"></script>
@@ -54,11 +54,11 @@
   <script src="js/d3sparql.js"></script>
   <script src="js/convertJSONtoFlare.js"></script>
   <script src="js/sankey.js"></script>
-  <script src="js/jquery.qtip.min.js"></script>
-
+  <script src="js/jquery.qtip.min.js"></script>  
+  
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
-
+  
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
@@ -126,7 +126,7 @@
       }
     });
 
-    //This is called from the filters search button, it adds filters
+    //This is called from the filters apply to previous search button, and adds filters to prev search
     $(".btn-filters").click(function(){
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
@@ -139,41 +139,82 @@
       for (var i = 1; i < filt.length-1; i++) { //Up to the last ele
         query += '.'+filt[i];
       };
+      query += '. ';
 
-      console.log('!!!'+query+'!!!');
       $("#tabFilter").removeClass("active");
       $("#tabVis").addClass("active");
       var hasGender = $("#selGender").val();
       if(hasGender != "" ){
-        query = query + ". ?Subject limo:hasGender" + " '" + hasGender + "' . ";
+        if(query.indexOf('?Subject limo:hasGender ') != -1) {
+          var qmatch = query.match(/^(.*:hasGender)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + hasGender + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:hasGender '" + hasGender + "' . ";
+        }
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        query = query + ". ?Subject limo:gender" + " '" + gender + "' . ";
+        if(query.indexOf('?Subject limo:gender ') != -1) {
+          var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + gender + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        }
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
-        query = query + ". ?Subject limo:sexuality" + " '" + sexuality + "' . ";
+        if(query.indexOf('?Subject limo:sexuality ') != -1) {
+          var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
+        }
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
       if(typeOfPerson != "" ){
-        query = query + ". ?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+        if(query.indexOf('?Subject limo:typeOfPerson ') != -1) {
+          var qmatch = query.match(/^(.*:typeOfPerson)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + typeOfPerson + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+        }
+        //query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
       var originatingCountry = $("#selOriginatingCountry").val();
       if(originatingCountry != "" ){
-        query = query + ". ?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+        if(query.indexOf('?Subject limo:originatingCountry ') != -1) {
+          var qmatch = query.match(/^(.*:originatingCountry)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + originatingCountry + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+        }
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        query = query + ". ?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        if(query.indexOf('?Subject limo:hasBirthdate ') != -1) {
+          var qmatch = query.match(/^(.*:hasBirthdate)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + birthYear.trim().replace(/ /g," ") + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        }
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        query = query + ". ?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        if(query.indexOf('?Subject limo:associatedWithCountry ') != -1) {
+          var qmatch = query.match(/^(.*:associatedWithCountry)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
+        }
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
-        query = query + ". ?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+        if(query.indexOf('?Subject limo:associatedWith ') != -1) {
+          var qmatch = query.match(/^(.*:associatedWith)\s*'[^']+'\s*(.*)$/);
+          query = qmatch[1] + " '" + associatedWith + "' " + qmatch[2];
+        } else {
+          query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+        }
       }
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
       query += filt[filt.length-1]
@@ -217,17 +258,17 @@
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
       if(birthYear != "" ){
-        query = query + "?Subject limo:birthYear" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+        query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
       }
       var livedIn = $("#selLivedIn").val();
       if(livedIn != "" ){
-        query = query + "?Subject limo:LivedIn" + " '" + livedIn + "' . ";
+        query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
       if(associatedWith != "" ){
         query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
       }
-      query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
+      query = query +  "} ORDER BY ASC(?Subject)";
       console.log(query);
       createCookie(query);
       sClick(query);
@@ -261,7 +302,7 @@
       sClick(query);
       exec1(query);
     });
-
+    
     $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
 	console.log('in popover');
 	var innerText = this.innerHTML.replace(/<tspan x="0">/g,' ');
@@ -279,7 +320,7 @@
             content: ('<a target="_blank" href="https://google.ca#q=' + innerText + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
 	});
     });
-
+    
     $(document).on('click', '.popover .close', function(){
         $(this).parents(".popover").popover('hide');
     });
@@ -325,7 +366,7 @@
 	singleWord = singleWord.replace(/\s/g, '_');
         query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
-    query +=  '} ORDER BY ASC(?Subject) LIMIT 50';
+    query +=  '} ORDER BY ASC(?Subject)';
     console.log(query);
     return query;
   }
@@ -740,7 +781,7 @@ function render(json) {
                       <option selected value="">Sexuality</option>
                       <option value="bisexual">Bisexual</option>
                       <option value="heterosexual">Heterosexual</option>
-                      <option value="homosexual (invert)">Homosexual</option>
+                      <option value="homosexual invert">Homosexual</option>
                       <option value="unknown">Unknown</option>
                       <option value="asexual">Asexual</option><!--Not currently in our data-->
                     </select>

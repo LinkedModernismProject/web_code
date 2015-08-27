@@ -57,7 +57,7 @@ WHERE { ... }
 d3sparql.query = function(endpoint, sparql, callback) {
     var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
     //Add a ? infront of query to run on local dbpedia and comment out the prefix part
-    var url = endpoint + "query=" + encodeURIComponent(prefix) + encodeURIComponent(sparql) + '&timeout=30000&debug=on'
+    var url = endpoint + "query=" + encodeURIComponent(prefix) + encodeURIComponent(sparql + ' LIMIT 50') + '&timeout=30000&debug=on'
     if (d3sparql.debug) { console.log(endpoint) }
     if (d3sparql.debug) { console.log(url) }
     var mime = "application/sparql-results+json"
@@ -1232,7 +1232,7 @@ node.append("text")
   .filter(function(d) {return d.x < opts.width / 2})
   .attr("x", 6 + sankey.nodeWidth())
   .attr("text-anchor", "start")
-
+  
 // default CSS/SVG
 link.attr({
   "fill": "none",
@@ -1563,16 +1563,16 @@ d3sparql.sunburst = function(json, config) {
   }
 
   var arc = d3.svg.arc()
-  .startAngle(function(d)  {
+  .startAngle(function(d)  { 
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
-  .endAngle(function(d)    {
+  .endAngle(function(d)    { 
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
-  .innerRadius(function(d) {
+  .innerRadius(function(d) { 
     //console.log(Math.max(0, y(d.y)));
     return Math.max(0, y(d.y)) })
-  .outerRadius(function(d) {
+  .outerRadius(function(d) { 
     //console.log(Math.max(0, y(d.y + d.dy)));
     return Math.max(0, y(d.y + d.dy)) })
   var partition = d3.layout.partition()
@@ -1615,10 +1615,9 @@ d3sparql.sunburst = function(json, config) {
             rotate = angle + (multiline ? -.5 : 0);
         return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
-     .on("click", click)
+      .on("click", click)
       .append('a')
       .attr('class','has-popover')
-       var name_count = 0;///////////////////////////////////////////////////
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) {
@@ -1769,7 +1768,6 @@ d3sparql.sunburst = function(json, config) {
     })
     .attrTween("transform", function(d) {
         var multiline = (d.name || "").split("_").length > 1;
-        console.log('second multi:'+multiline);
         return function() {
           var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
               rotate = angle + (multiline ? -.5 : 0);
