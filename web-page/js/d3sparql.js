@@ -1067,7 +1067,7 @@ d3sparql.forcegraph = function(json, config) {
   .attr("class", "node")
   .append('a')
   .attr('class', 'has-popover')
-  .text(function(d) {return d[opts.label || "label"]})  
+  .text(function(d) {return d[opts.label || "label"]})
   var force = d3.layout.force()
   .charge(opts.charge)
   .linkDistance(opts.distance)
