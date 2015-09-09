@@ -244,6 +244,30 @@
       </linkURIs>
       <maxRelationLength>2</maxRelationLength>
     </endpoint>	
+
+    <endpoint>
+    <name>New TestE</name>
+    <abbreviation>nt</abbreviation>
+    <description>Limo</description>
+    <endpointURI>http://localhost:8890/sparql</endpointURI>
+    <dontAppendSPARQL>true</dontAppendSPARQL>
+    <defaultGraphURI>http://localhost:8890/bestDataE</defaultGraphURI>
+    <isVirtuoso>true</isVirtuoso>
+    <useProxy>false</useProxy>
+    <method>POST</method>
+    <autocompleteURIs>
+      <autocompleteURI>http://www.w3.org/2000/01/rdf-schema#label</autocompleteURI>
+      <autocompleteURI>http://www.w3.org/1999/02/22-rdf-syntax-ns#</autocompleteURI>
+      <autocompleteURI>http://modernism.uvic.ca/metadata#</autocompleteURI>
+      <autocompleteURI>http://localhost:8890/limo#</autocompleteURI>
+      <autocompleteURI>http://localhost:8890/limo#typeOfPerson</autocompleteURI>
+    </autocompleteURIs>
+    <autocompleteLanguage>en</autocompleteLanguage>
+    <ignoredProperties>
+      <ignoredProperty></ignoredProperty>
+    </ignoredProperties>
+    <maxRelationLength>3</maxRelationLength>
+  </endpoint>
 	
   </endpoints>
 </data>
