@@ -4,10 +4,6 @@ import sys
 open(sys.argv[2], 'a').close()	#To create output file if hasn't been already
 f = open(sys.argv[1], 'r')
 fo = open(sys.argv[2], 'r+')
-#print sys.argv[0]
-#print sys.argv[1]
-#print sys.argv[2]
-#import pdb; pdb.set_trace()
 
 for line in f:
 	if(re.match('^<http://modernism.uvic.ca/metadata#(.*)>', line) is not None):	#re.search('^\s$', line) only for grabbing separator lines
