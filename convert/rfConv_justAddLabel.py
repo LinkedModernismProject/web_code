@@ -1,6 +1,6 @@
 import re
 import sys
-#Pass an input file arg and an output file arg
+#Pass an input file arg and an output file arg, originally wrote to take bestDataE.ttl
 open(sys.argv[2], 'a').close()	#To create output file if hasn't been already
 f = open(sys.argv[1], 'r')
 fo = open(sys.argv[2], 'r+')

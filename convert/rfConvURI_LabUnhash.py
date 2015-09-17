@@ -13,8 +13,6 @@ for line in f:
 		ent_count += 1
 	elif re.search('^\s*rdf', line) or re.search('^\s*pref', line) is not None:
 		fo.write(line.replace('#', '/'))
-	#elif re.search('^\s$', line) is not None:
-	#	fo.write(line)
 	else:
 		fo.write(line.replace('#', '/'))
 
