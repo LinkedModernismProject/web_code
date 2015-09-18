@@ -129,13 +129,14 @@
     <description>Limo</description>
     <endpointURI>http://localhost:8890/sparql</endpointURI>
     <dontAppendSPARQL>true</dontAppendSPARQL>
-    <defaultGraphURI>http://localhost:8890/bestDataUnhash</defaultGraphURI>
+    <defaultGraphURI>http://localhost:8890/bestDataTest</defaultGraphURI>
     <isVirtuoso>false</isVirtuoso>
     <useProxy>false</useProxy>
     <method>POST</method>
-    <autocompleteURIs>      
-      <!--
+    <autocompleteURIs>
+      <!--If none specified uses rdfs:label as default if none specified, as told by developers-->
       <autocompleteURI>http://www.w3.org/2000/01/rdf-schema#label</autocompleteURI>
+      
       <!--
       <autocompleteURI>http://localhost:8890/bestDataAllRdfs</autocompleteURI>
       <autocompleteURI>http://xmlns.com/foaf/0.1/name</autocompleteURI>
@@ -147,7 +148,6 @@
       <autocompleteURI>http://localhost:8890/limo#typeOfPerson</autocompleteURI>
       <autocompleteURI>http://localhost:8890/limo#Person</autocompleteURI>
       -->
-    
     </autocompleteURIs>
     <autocompleteLanguage>en</autocompleteLanguage>
     <linkURIs>
