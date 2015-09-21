@@ -58,8 +58,10 @@
 
   <!--For ScreenShot Button-->
   <script src="js/html2canvas.js"></script>
+  <script src="js/html2canvas.svg.js"></script>
   <script src="js/FileSaver.min.js"></script>
   <script src="js/canvas-toBlob.js"></script>
+  <script src="js/Blob.js"></script>
 
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
@@ -550,19 +552,32 @@
 }
 
   //ScreenShot button
+  /*
+  $(function() {
+    $("#save-screen").click(function() {
+      var visbody = document.getElementById('visualizations');
+      console.log(visbody);
+      var dataURL = visbody.toDataURL("image/jpeg", 1.0);
+      //var d2 = visbody.getContext("2d");
+      //window.open('', document.getElementById('visualizations').toDataURL());
+    });
+  });
+*/
+
+
+
   $(function() {
     console.log('In the screenshotted button');
       $("#save-screen").click(function() {
         console.log('in the btnSave');
           html2canvas($("#visualizations"), {
-              onrendered: function(canvas) {
-                console.log('In onrendered');
-                  theCanvas = canvas;
-
-                  canvas.toBlob(function(blob) {
-                      saveAs(blob, "screenshotted.png"); 
-                  });
-              }
+            onrendered: function(canvas) {
+              console.log('In onrendered');
+              theCanvas = canvas;
+              canvas.toBlob(function(blob) {
+                saveAs(blob, "screenshotted.png"); 
+              });
+            }
           });
       });
   });
@@ -1443,6 +1458,7 @@
       </div>
       <div id="save-screen" class="btn btn-primary btn-top-right">Save as Image</div>
       <!--<span id="visualizations"></span>-->
+      <!--   <canvas id="visualizations" height="1000" width="1000"></canvas> -->
       <div id="visualizations"></div>
       <br/>
       <span id="g2"></span>
