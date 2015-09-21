@@ -491,6 +491,13 @@ fieldset[disabled] .btn-primary.active {
   text-transform: uppercase;
 }
 
+.btn-top-right{
+  position: absolute;
+  right: 0;
+  top: 107px;
+  clear: both;
+}
+
 iframe{
   display: block;
   position: absolute hidden;
