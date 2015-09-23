@@ -552,6 +552,7 @@
 }
 
   //ScreenShot button
+  //LM_vis_screenshot (2) & (3) are both black
   function ssSave() {
     console.log('In ssSave');
     html2canvas($("#visualizations"), {
@@ -559,8 +560,8 @@
       useCORS: true,
       onrendered: function(canvas) {
         var d2 = canvas.getContext("2d");
-        var durl = canvas.toDataURL('png')
-        window.open(durl)
+        var durl = canvas.toDataURL('png');
+        window.open(durl);
 
 
         //var dataa = canvas.toDataURL("image/jpg")
@@ -589,7 +590,9 @@
               console.log(blob);
               saveAs(blob, "LM_vis_screenshot.png"); 
               });
-            }
+            },
+            width: 1200,
+            height: 1070
           });
       });
       console.log('done!');
