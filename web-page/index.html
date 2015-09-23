@@ -552,7 +552,95 @@
 }
 
   //ScreenShot button
+  //LM_vis_screenshot (2) & (3) are both black
+  function ssSave() {
+    console.log('In ssSave');
+    html2canvas($("#visualizations"), {
+      logging: true,
+      useCORS: true,
+      onrendered: function(canvas) {
+        var d2 = canvas.getContext("2d");
+        var durl = canvas.toDataURL('png');
+        window.open(durl);
+
+
+        //var dataa = canvas.toDataURL("image/jpg")
+        //return dataURL.replace(/^data:image\/(png|jpp);base64,/, "");
+
+        
+        //////console.log(img);
+        //////window.location.href=img;
+      }
+    });
+  }
+
+  $(function() {
+    console.log('In the screenshotted button');
+      $("#save-screen").click(function() {
+        console.log('in the btnSave');
+          html2canvas($("#visualizations"), {
+            onrendered: function(canvas) {
+              console.log(canvas);
+              console.log('In onrendered');
+              theCanvas = canvas;
+              console.log(canvas);
+              window.open('', canvas.toDataURL());
+              console.log(theCanvas);
+              canvas.toBlob(function(blob) {
+              console.log(blob);
+              saveAs(blob, "LM_vis_screenshot.png"); 
+              });
+            },
+            width: 1200,
+            height: 1070
+          });
+      });
+      console.log('done!');
+  });
+
   /*
+  $(function() {
+    $("#save-screen").click(function() {
+      var visbody = document.getElementById('canvass');
+      console.log(visbody);
+      var dataURL = visbody.toDataURL("image/jpeg", 1.0);
+      console.log(dataURL);
+      //var d2 = visbody.getContext("2d");
+      //window.open('', document.getElementById('visualizations').toDataURL());
+    });
+  });
+*/
+/*
+$(function() {
+  $("#save-screen").click(function() {
+    function takeScreenShot(){
+      html2canvas(window.parent.document.body, {
+        onrendered: function(canvas) {
+          var visbody = document.getElementsByTagName('visualizations');
+          if(visbody[0] === undefined || visbody[0] === null){
+          }else{
+          document.body.removeChild(visbody[0]);
+          }
+          document.body.appendChild(canvas);
+        }
+      });
+    }
+    function postImage(){
+      var visbody = document.getElementsByTagName('visualizations');
+      var canvasData = visbody[0].toDataURL("image/png");
+      var ajax = new XMLHttpRequest();
+      ajax.open("POST",'~/Downloads/testSave.php',false);
+      ajax.setRequestHeader('Content-Type', 'application/upload');
+      ajax.send(canvasData );
+      alert('done');
+    }
+    takeScreenShot();
+  });
+});
+*/
+
+  /*Old attempts below
+  
   $(function() {
     $("#save-screen").click(function() {
       var visbody = document.getElementById('visualizations');
@@ -562,9 +650,6 @@
       //window.open('', document.getElementById('visualizations').toDataURL());
     });
   });
-*/
-
-
 
   $(function() {
     console.log('In the screenshotted button');
@@ -581,6 +666,8 @@
           });
       });
   });
+  */
+
 
 </script>
 
