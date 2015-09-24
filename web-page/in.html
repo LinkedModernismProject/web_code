@@ -63,6 +63,8 @@
   <script src="js/canvas-toBlob.js"></script>
   <script src="js/Blob.js"></script>
 
+  <script src="js/reimg.js"></script>
+
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
 
@@ -562,15 +564,20 @@
         var d2 = canvas.getContext("2d");
         var durl = canvas.toDataURL('png');
         window.open(durl);
-
-
+        //var png = ReImg.fromSvg(document.getElementById("#visualizations")).toPng();
+        ///////var png = ReImg.fromSvg(document.getElementById(canvas)).toPng();
+        ///////window.open(png);
+        ///////document.write(png);
+        console.log("gets hereee!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //var blob = new Blob(png, {type: "png;charset=utf-8"});
+        //saveAs(png, "bpngin.png");
         //var dataa = canvas.toDataURL("image/jpg")
         //return dataURL.replace(/^data:image\/(png|jpp);base64,/, "");
-
-        
         //////console.log(img);
         //////window.location.href=img;
-      }
+      },
+      width: 1250,
+      height: 1050
     });
   }
 
@@ -580,65 +587,17 @@
         console.log('in the btnSave');
           html2canvas($("#visualizations"), {
             onrendered: function(canvas) {
-              console.log(canvas);
-              console.log('In onrendered');
               theCanvas = canvas;
-              console.log(canvas);
-              window.open('', canvas.toDataURL());
-              console.log(theCanvas);
               canvas.toBlob(function(blob) {
-              console.log(blob);
-              saveAs(blob, "LM_vis_screenshot.png"); 
+              saveAs(blob, "LM_vis_screenshot.png");
               });
             },
-            width: 1200,
-            height: 1070
+            width: 1250,
+            height: 1050
           });
       });
       console.log('done!');
   });
-
-  /*
-  $(function() {
-    $("#save-screen").click(function() {
-      var visbody = document.getElementById('canvass');
-      console.log(visbody);
-      var dataURL = visbody.toDataURL("image/jpeg", 1.0);
-      console.log(dataURL);
-      //var d2 = visbody.getContext("2d");
-      //window.open('', document.getElementById('visualizations').toDataURL());
-    });
-  });
-*/
-/*
-$(function() {
-  $("#save-screen").click(function() {
-    function takeScreenShot(){
-      html2canvas(window.parent.document.body, {
-        onrendered: function(canvas) {
-          var visbody = document.getElementsByTagName('visualizations');
-          if(visbody[0] === undefined || visbody[0] === null){
-          }else{
-          document.body.removeChild(visbody[0]);
-          }
-          document.body.appendChild(canvas);
-        }
-      });
-    }
-    function postImage(){
-      var visbody = document.getElementsByTagName('visualizations');
-      var canvasData = visbody[0].toDataURL("image/png");
-      var ajax = new XMLHttpRequest();
-      ajax.open("POST",'~/Downloads/testSave.php',false);
-      ajax.setRequestHeader('Content-Type', 'application/upload');
-      ajax.send(canvasData );
-      alert('done');
-    }
-    takeScreenShot();
-  });
-});
-*/
-
 
 </script>
 
@@ -794,7 +753,7 @@ $(function() {
         <br/><br/><br/>
         <object width="98%" height="1000">
           <param name="movie" value="RelFinder.swf">
-          <embed src="relfinder/bin/RelFinder.swf" width="100%" height="1000">
+          <embed src="RelFinder.swf" width="100%" height="1000">
           </embed>
         </object>
       </div>
