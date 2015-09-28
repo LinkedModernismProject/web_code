@@ -65,6 +65,9 @@
 
   <script src="js/reimg.js"></script>
 
+  <!--For Restricting Contributors-->
+  <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
 
@@ -599,6 +602,24 @@
       console.log('done!');
   });
 
+
+  //GateKeeper Code
+  //Used to prevent unauthorized users from contributing to project
+  $('#contribute').on('click', function() {
+    keeperpass = window.document.keeper.page.value;
+    keeperframe.location.href = keeperpass + "2.html";
+    timer = setTimeout("keeperTest(keeperpass)",2000);
+  })
+  function keeperTest(pass) {
+    if(keeperframe.keeperpasscheck) {
+      location.href = pass + ".html";
+    } else {
+      location.href = keeperaltpage;
+    }
+  }
+
+
+
 </script>
 
 </head>
@@ -622,7 +643,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a class="page-scroll" href="examples.html">Examples</a></li>
           <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
-          <li><a class="page-scroll" href="contributing.html">Contribute</a></li>
+          <!--<li><a id="contribute" class="page-scroll" href="contributing.html" onclick="keeperCheck()">Contribute!</a></li>-->
+          <li><a id="contribute" class="page-scroll" href="#modal">Contribute!</a></li>
+          <!--<li><a id="contribute" class="page-scroll" href="#" onclick="window.open('contributing.html', 'win', 'width=500, height=500')">Contribute!</a></li>-->
+          <li><a class="page-scroll" >Contribby</a></li>
+          <!--<li><div class="page-scroll" id="contribute">Contribute!!!</div></li>-->
           <li><a class="page-scroll" href="#about">About</a></li>
         </ul>
       </div>
@@ -651,6 +676,36 @@
     </li>
   </ul>
 
+
+  <!--WORKING HERE, On jQuery part now-->
+  <div id="modal" class="popupContainer" style="display:none;">
+  	<header class="popupHeader">
+  		<span class="header_title">Login</span>
+  		<span class="modal_close"><i class="fa fa-times"></i></span>
+  	</header>
+      <section class="popupBody">
+      <!-- Here Goes all the Login and signup Forms -->
+        <div class="user_login">
+          <form>
+            <label>Email / Username</label> <input type="text"><br>
+            <label>Password</label> <input type="password"><br>
+            <div class="checkbox">
+              <input id="remember" type="checkbox"> <label for=
+              "remember">Remember me on this computer</label>
+            </div>
+            <div class="action_butns">
+              <div class="one_half">
+                <a class="butn back_butn" href="#">Back</a>
+              </div>
+              <div class="one_half last">
+                <a class="butn butn_red" href="#">Login</a>
+              </div>
+            </div>
+          </form>
+          <a class="forgot_password" href="#">Forgot password?</a>
+        </div>
+      </section>
+  </div>
 
   <section>
     <div class="tab-content">
