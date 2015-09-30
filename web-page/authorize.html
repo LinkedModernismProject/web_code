@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/ontology.css" type="text/css">
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
 
 	<!-- Plugin CSS -->
   <link rel="stylesheet" href="css/animate.min.css" type="text/css">
@@ -68,7 +68,7 @@
 
 	<div id="modal" class="popupContainer">
 		<header class="popupHeader">
-			<span class="header_title">Login</span>
+			<span class="popupHeader-title">Login</span>
 			<!--<span class="modal_close"><i class="fa fa-times"></i></span>-->
 		</header>
 
@@ -76,9 +76,38 @@
 			<!--GateKeeper Login Box
 			<br><br><br><br><br><br><br>-->
 			<form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
+				<div class="group">
+					<input class="inp" type="text" required>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+					<label>Name!</label>
+				</div>
+				<div class="group">
+					<input class="inp" type="text" required>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+					<label>Email!</label>
+				</div>
+
+				<div class="group">
+					<input  class="inp" type="text" name="page" style="width: 70%" required>
+					<span class="highlight"></span>
+					<span class="bar" style="width: 70%"></span>
+					<label>Testing</label>
+					<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
+					<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
+					<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
+						<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
+					</noscript>
+
+
+
+				</div>
+
+
 				<div style="display:inline;">
-					<input type="text" name="page">
-					<input type="submit" value="Go">
+					<input type="text" name="page" style="width: 71%">
+					<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
 					<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
 					<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
 						<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>

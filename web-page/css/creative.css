@@ -498,6 +498,30 @@ fieldset[disabled] .btn-primary.active {
   clear: both;
 }
 
+.btn-material {
+  position: relative;
+  padding: 8px 30px;
+  border: 0;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #802C73;
+  color: rgba(255, 255, 255, 0.84);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+
+.btn-material.btn-material-primary {
+  color: #FFFFFF;
+}
+
+.btn-material.btn-material-raised {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 iframe{
   display: block;
   position: absolute hidden;
@@ -672,6 +696,19 @@ body {
   height: 80%;
 }
 
+.popupHeader {
+  font-size:16px;
+  text-transform: uppercase;
+  background: #802C73;
+  position:relative;
+  padding:10px 20px;
+  border-bottom:1px solid #DDD;
+  font-weight:bold;
+}
+.popupHeader-title {
+  color: #FFFFFF;
+}
+
 @media (min-width:500px){
   .portrait {
       width:  30%;
@@ -730,6 +767,87 @@ body {
 }
 
 /*--------------------------------------VISUALIZATION STUFF----------------------------------------*/
+
+/*Animation for Contributor Logins*/
+.group {
+  position:relative;
+  margin-bottom:45px;
+}
+.inp {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus { outline:none; }
+
+/* LABEL ======================================= */
+label          {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label     {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar  { position:relative; display:block; width:300px; }
+.bar:before, .bar:after   {
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@keyframes inputHighlighter {
+  from  { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+
+
 
 /*These 3 not used, decided to go with nodata_center*/
 .nodata_outer {
