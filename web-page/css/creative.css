@@ -702,11 +702,16 @@ body {
   background: #802C73;
   position:relative;
   padding:10px 20px;
-  border-bottom:1px solid #DDD;
+  border-bottom:1px solid #802C73;
   font-weight:bold;
+  border-top-left-radius: 0.18em;
+  border-top-right-radius: 0.18em;
 }
 .popupHeader-title {
   color: #FFFFFF;
+}
+.popupBody {
+  padding:20px;
 }
 
 @media (min-width:500px){
@@ -847,6 +852,19 @@ input:focus ~ .highlight {
   to    { width:0; background:transparent; }
 }
 
+/*Extra styles for the Authorization*/
+.popupContainer{
+	position:absolute;
+  width:340px;
+	height: auto;
+	left:40%;
+	top:80px;
+  border-radius: 0.35em;
+  border: 1px solid #802C73;
+	/*background: #E6E6E6;
+  background: #CFCFCF;*/
+  background: #FFFFFF;
+}
 
 
 /*These 3 not used, decided to go with nodata_center*/

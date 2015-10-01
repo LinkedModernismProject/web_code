@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
 	<meta name="author" content="dchang">
-
 	<title>Linked Modernisms</title>
-
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
 	<!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
-
 	<!-- Plugin CSS -->
   <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
 	<!-- Favicon -->
   <link rel="icon" type="image/png" href="img/LiMofavi.png">
   <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
-
-	<script type="text/javascript" src="pop-up-demo/js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="pop-up-demo/js/jquery.leanModal.min.js"></script>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-	<link type="text/css" rel="stylesheet" href="pop-up-demo/css/style2.css" />
-
 </head>
 
 <body>
@@ -43,13 +31,12 @@
         </button>
         <a class="navbar-brand page-scroll" href="index.html" onclick="">Linked Modernisms</a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a class="page-scroll" href="examples.html">Examples</a></li>
           <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
-					<li><a class="page-scroll" href="contributing.html">Contribute</a></li>
+					<li><a class="page-scroll" href="authorize.html">Contribute</a></li>
           <li><a class="page-scroll" href="index.html#about">About</a></li>
         </ul>
       </div>
@@ -60,66 +47,45 @@
 	<hr class="light"></hr>
   <br/>
 
-
-
 	<!--Start of Authorization-->
-	<div class="container">
-	<!--<a id="modal_trigger" href="#modal" class="butn">Click here to Login or register</a>           style="display:none;"-->
-
-	<div id="modal" class="popupContainer">
-		<header class="popupHeader">
-			<span class="popupHeader-title">Login</span>
-			<!--<span class="modal_close"><i class="fa fa-times"></i></span>-->
-		</header>
-		<section class="popupBody">
-			<!--GateKeeper Login Box
-			<br><br><br><br><br><br><br>-->
-			<form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
-				<div class="group">
-					<input class="inp" type="text" required>
-					<span class="highlight"></span>
-					<span class="bar"></span>
-					<label>Name</label>
-				</div>
-				<div class="group">
-					<input class="inp" type="text" required>
-					<span class="highlight"></span>
-					<span class="bar"></span>
-					<label>Email</label>
-				</div>
-				<div class="group">
-					<input  class="inp" type="text" name="page" required>
-					<span class="highlight"></span>
-					<span class="bar"></span>
-					<label>Enter Password</label>
-					<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
-					<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
-					<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
-						<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
-					</noscript>
-				</div>
-
-				<!--
-				<div style="display:inline;">
-					<input type="text" name="page" style="width: 71%">
-					<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
-					<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
-					<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
-						<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
-					</noscript>
-				</div>
-			-->
-			</form>
-
-		</section>
+	<div>
+		<div class="popupContainer">
+			<header class="popupHeader">
+				<span class="popupHeader-title">Login</span>
+			</header>
+			<section class="popupBody">
+				<!--GateKeeper Login Box-->
+				<form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
+					<div class="group">
+						<input class="inp" type="text" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Name</label>
+					</div>
+					<div class="group">
+						<input class="inp" type="text" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Email</label>
+					</div>
+					<div class="group">
+						<input class="inp" type="password" name="page" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Enter Contributor Password</label>
+						<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
+						<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
+						<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
+							<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
+						</noscript>
+					</div>
+				</form>
+			</section>
+		</div>
 	</div>
-</div>
-
 
 <script type="text/javascript">
-	//$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-	var keeperaltpage = "denied.html";	//Maybe just make alert saying you wrong go away
-
+	var keeperaltpage = "denied.html";
 	function keeperCheck() {
   	keeperpass = window.document.keeper.page.value;
   	keeperframe.location.href = keeperpass + "2.html";
@@ -132,12 +98,7 @@
 			location.href = keeperaltpage;
 		}
 	}
-
-
 </script>
-
-
-
 
 </body>
 <footer>
