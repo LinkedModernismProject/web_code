@@ -755,6 +755,26 @@ body {
 
 /*--------------------------------------VISUALIZATION STUFF----------------------------------------*/
 
+#cForm {
+  display: none;
+  /*position: absolute;
+  top:0;; left:0;
+  width: 100%; height: 100%;*/
+}
+#trip {
+  display: none;
+  /*position: absolute;
+  /*top:0; left:0;*/
+  width: 100%; height: 100%;
+}
+#backBtn {
+  display: none;
+}
+.wrap {
+  padding-bottom: 100px;
+  min-height: 100%;
+  margin: 0 auto -100px;
+}
 
 
 /*These 3 not used, decided to go with nodata_center*/

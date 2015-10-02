@@ -48,9 +48,33 @@
   <!--Polymer Paper Input Resources-->
   <link href="bower_components/paper-input/paper-input.html" rel="import">
 
-  </head>
+  <!--Interaction JavaScript-->
+  <script>
+  function contentFade(id, id2, ele) {
+    console.log(id, id2, ele);
+    var butn = '#'+id
+    var elem = '#'+ele
+    console.log(butn +'|||'+elem);
+    $('#'+id).hide();
+    //#('#'+id2).hide();
+    $('#'+id2).hide();
+    $('#backBtn').show();
+    $('#'+ele).fadeIn(700);
+    console.log('DONE');
+  }
+  function fadeBack(id, id2, id3, ele, ele2) {
+    console.log(id, id2, id3, ele, ele2);
+    $('#'+id).hide();
+    $('#'+id2).show();
+    $('#'+id3).show();
+    $('#'+ele).fadeOut(500);
+    $('#'+ele2).fadeOut(500);
+  }
+  </script>
+</head>
 
-  <body id="page-top">
+<body>
+  <div class="wrap">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,35 +110,25 @@
     <p>
       Would you like to fill out a form or directly add a triple?
     </p>
-    <button class="btn btn-xl btn-primary">Fill Out Form</button>
-    <button class="btn btn-xl btn-primary">Add A Triple</button>
-    <br><br><br>
+    <button id="fillForm" class="btn btn-xl btn-primary" onclick="contentFade(this.id, addTrip.id, cForm.id)">Fill Out Form</button>
+    <button id="addTrip" class="btn btn-xl btn-primary" onclick="contentFade(this.id, fillForm.id, trip.id)">Add A Triple</button>
+    <button id="backBtn" class="btn btn-xl btn-primary" onclick="fadeBack(this.id, addTrip.id, fillForm.id, cForm.id, trip.id)">Back</button>
 
 
-<!--    <div style="display:inline-block;">-->
-    <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;"></paper-input>
-    <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;"></paper-input>
-    <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;"></paper-input>
-    <!--</div>-->
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="trip" style="position: relative;left:5%;">
+      <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;"></paper-input>
+      <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;"></paper-input>
+      <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;"></paper-input>
+    </div>
 
 
-
-
+    <!--<br><br><br><br><br><br><br><br><br><br><br><br>-->
 
 
 
 
 
-    <p>
-      To contribute to the Linked Modernisms database you need a login approved by one of our category moderators. If you would like to register please click the register button below. If you already have an account please click the login button.
-    </p>
-
-    <button class="btn btn-xl btn-primary">Login</button>
-    <button class="btn btn-xl btn-primary">Register</button>
-
-<br/><br/>
-    <form>
+    <form id="cForm">
       <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to?</label><br/>
       <input type="textarea" class="non-search-text" name="item-name" placeholder="Please use the format first name middle name(s) last name(s)"></input>
       <br/><br/>
@@ -469,13 +483,10 @@
       <p>Will have list of clickable items here</p>
       <label for="related-production">What other of the following does your production relate to</label><br/>
       <p>Will have list of alternate things to relate to here</p>
-
-
     </form>
-
-
-    </body>
-    <footer>
-      <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
-    </footer>
-    </html>
+  </div>
+</body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="width: 98%; bottom:0; position:relative;"></img></a>
+</footer>
+</html>
