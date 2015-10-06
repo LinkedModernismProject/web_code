@@ -45,6 +45,9 @@
   <!-- Custom Theme JavaScript -->
   <script src="js/creative.js"></script>
 
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
   <!--Polymer Paper Input Resources-->
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
@@ -52,8 +55,6 @@
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
   <link rel="import" href="bower_components/paper-checkbox/demo/index.html">
-
-  </script>
 
   <!--Interaction JavaScript-->
   <script>
@@ -213,27 +214,380 @@
         <option value="Female">Female</option>
         <option value="Other">Other</option>
       </select>
-      <paper-dropdown-menu label="Ethnicity" style="display:block;">
+      <br>
+      <label for="Ethnicity">What Ethnicity is suited for this subject (if any)?</label><br>
+      <paper-dropdown-menu label="Ethnicity" name="Ethnicity">
         <paper-menu class="dropdown-content">
           <paper-item value=""></paper-item>
-          <paper-item value="">Croissant</paper-item>
-          <paper-item value="">Donut</paper-item>
-          <paper-item value="">Financier</paper-item>
-          <paper-item value="">Madeleine</paper-item>
+          <paper-item class="ctTeal" value="Abazins">Abazins</paper-item>
+          <paper-item class="ctTeal" value="Abkhaz">Abkhaz</paper-item>
+          <paper-item class="ctTeal" value="Acadian">Acadian</paper-item>
+          <paper-item class="ctTeal" value="Acehnese">Acehnese</paper-item>
+          <paper-item class="ctTeal" value="Adyghe">Adyghe</paper-item>
+          <paper-item class="ctTeal" value="African">African</paper-item>
+          <paper-item class="ctTeal" value="Afrikaans">Afrikaans</paper-item>
+          <paper-item class="ctTeal" value="Ahom">Ahom</paper-item>
+          <paper-item class="ctTeal" value="Ajam">Ajam</paper-item>
+          <paper-item class="ctTeal" value="Akan">Akan</paper-item>
+          <paper-item class="ctTeal" value="Albanian">Albanian</paper-item>
+          <paper-item class="ctTeal" value="Swiss">Swiss</paper-item>
+          <paper-item class="ctTeal" value="Algonquian">Algonquian</paper-item>
+          <paper-item class="ctTeal" value="Alsatian">Alsatian</paper-item>
+          <paper-item class="ctTeal" value="Amerindian">Amerindian</paper-item>
+          <paper-item class="ctTeal" value="Amhara">Amhara</paper-item>
+          <paper-item class="ctTeal" value="Amish">Amish</paper-item>
+          <paper-item class="ctTeal" value="Andalusian">Andalusian</paper-item>
+          <paper-item class="ctTeal" value="Anglo-Indian">Anglo-Indian</paper-item>
+          <paper-item class="ctTeal" value="Anglo-Irish">Anglo-Irish</paper-item>
+          <paper-item class="ctTeal" value="Apache">Apache</paper-item>
+          <paper-item class="ctTeal" value="Arab">Arab</paper-item>
+          <paper-item class="ctTeal" value="Aragonese">Aragonese</paper-item>
+          <paper-item class="ctTeal" value="Arara">Arara</paper-item>
+          <paper-item class="ctTeal" value="Arawak">Arawak</paper-item>
+          <paper-item class="ctTeal" value="Armenian">Armenian</paper-item>
+          <paper-item class="ctTeal" value="Aromanian">Aromanian</paper-item>
+          <paper-item class="ctTeal" value="Asian">Asian</paper-item>
+          <paper-item class="ctTeal" value="Assamese">Assamese</paper-item>
+          <paper-item class="ctTeal" value="Assyrian">Assyrian</paper-item>
+          <paper-item class="ctTeal" value="Asturian">Asturian</paper-item>
+          <paper-item class="ctTeal" value="Athabaskan">Athabaskan</paper-item>
+          <paper-item class="ctTeal" value="Austrian">Austrian</paper-item>
+          <paper-item class="ctTeal" value="Avar">Avar</paper-item>
+          <paper-item class="ctTeal" value="Azerbaijani">Azerbaijani</paper-item>
+          <paper-item class="ctTeal" value="Azeris">Azeris</paper-item>
+          <paper-item class="ctTeal" value="Bahnar">Bahnar</paper-item>
+          <paper-item class="ctTeal" value="Bahranis">Bahranis</paper-item>
+          <paper-item class="ctTeal" value="Balinese">Balinese</paper-item>
+          <paper-item class="ctTeal" value="Balkars">Balkars</paper-item>
+          <paper-item class="ctTeal" value="Baloch">Baloch</paper-item>
+          <paper-item class="ctTeal" value="Banjar">Banjar</paper-item>
+          <paper-item class="ctTeal" value="Barbadan">Barbadan</paper-item>
+          <paper-item class="ctTeal" value="Basque">Basque</paper-item>
+          <paper-item class="ctTeal" value="Batak">Batak</paper-item>
+          <paper-item class="ctTeal" value="Batsbi">Batsbi</paper-item>
+          <paper-item class="ctTeal" value="Beary">Beary</paper-item>
+          <paper-item class="ctTeal" value="Bedouin">Bedouin</paper-item>
+          <paper-item class="ctTeal" value="Belarusian">Belarusian</paper-item>
+          <paper-item class="ctTeal" value="Bengali">Bengali</paper-item>
+          <paper-item class="ctTeal" value="Berber">Berber</paper-item>
+          <paper-item class="ctTeal" value="Bhil">Bhil</paper-item>
+          <paper-item class="ctTeal" value="Bihari">Bihari</paper-item>
+          <paper-item class="ctTeal" value="Blackfoot">Blackfoot</paper-item>
+          <paper-item class="ctTeal" value="Bolivian">Bolivian</paper-item>
+          <paper-item class="ctTeal" value="Bonda">Bonda</paper-item>
+          <paper-item class="ctTeal" value="Bosniak">Bosniak</paper-item>
+          <paper-item class="ctTeal" value="Brahui">Brahui</paper-item>
+          <paper-item class="ctTeal" value="Breton">Breton</paper-item>
+          <paper-item class="ctTeal" value="Bugis">Bugis</paper-item>
+          <paper-item class="ctTeal" value="Bulgarian">Bulgarian</paper-item>
+          <paper-item class="ctTeal" value="Burgher">Burgher</paper-item>
+          <paper-item class="ctTeal" value="Buryat">Buryat</paper-item>
+          <paper-item class="ctTeal" value="Castilian">Castilian</paper-item>
+          <paper-item class="ctTeal" value="Catalan">Catalan</paper-item>
+          <paper-item class="ctTeal" value="Chakma">Chakma</paper-item>
+          <paper-item class="ctTeal" value="Cham">Cham</paper-item>
+          <paper-item class="ctTeal" value="Chechen">Chechen</paper-item>
+          <paper-item class="ctTeal" value="Chepang">Chepang</paper-item>
+          <paper-item class="ctTeal" value="Cherke">Cherke</paper-item>
+          <paper-item class="ctTeal" value="Cherkess">Cherkess</paper-item>
+          <paper-item class="ctTeal" value="Cherokee">Cherokee</paper-item>
+          <paper-item class="ctTeal" value="Cheyenne">Cheyenne</paper-item>
+          <paper-item class="ctTeal" value="Chickasaw">Chickasaw</paper-item>
+          <paper-item class="ctTeal" value="Chinese">Chinese</paper-item>
+          <paper-item class="ctTeal" value="Chippewa">Chippewa</paper-item>
+          <paper-item class="ctTeal" value="Chitrali">Chitrali</paper-item>
+          <paper-item class="ctTeal" value="Choctaw">Choctaw</paper-item>
+          <paper-item class="ctTeal" value="Comanche">Comanche</paper-item>
+          <paper-item class="ctTeal" value="Chut">Chut</paper-item>
+          <paper-item class="ctTeal" value="Copt">Copt</paper-item>
+          <paper-item class="ctTeal" value="Cornish">Cornish</paper-item>
+          <paper-item class="ctTeal" value="Corsican">Corsican</paper-item>
+          <paper-item class="ctTeal" value="Cossack">Cossack</paper-item>
+          <paper-item class="ctTeal" value="Cree">Cree</paper-item>
+          <paper-item class="ctTeal" value="Creek">Creek</paper-item>
+          <paper-item class="ctTeal" value="Creole">Creole</paper-item>
+          <paper-item class="ctTeal" value="Croat">Croat</paper-item>
+          <paper-item class="ctTeal" value="Crow">Crow</paper-item>
+          <paper-item class="ctTeal" value="Cuban">Cuban</paper-item>
+          <paper-item class="ctTeal" value="Czech">Czech</paper-item>
+          <paper-item class="ctTeal" value="Daco-Romanian">Daco-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Danis">Danis</paper-item>
+          <paper-item class="ctTeal" value="Dargin">Dargin</paper-item>
+          <paper-item class="ctTeal" value="Dayak">Dayak</paper-item>
+          <paper-item class="ctTeal" value="Delaware">Delaware</paper-item>
+          <paper-item class="ctTeal" value="Dene">Dene</paper-item>
+          <paper-item class="ctTeal" value="Dhivehi">Dhivehi</paper-item>
+          <paper-item class="ctTeal" value="Dolgan">Dolgan</paper-item>
+          <paper-item class="ctTeal" value="Dongria Kondha">Dongria Kondha</paper-item>
+          <paper-item class="ctTeal" value="Dravidian">Dravidian</paper-item>
+          <paper-item class="ctTeal" value="Druze">Druze</paper-item>
+          <paper-item class="ctTeal" value="Egyptian">Egyptian</paper-item>
+          <paper-item class="ctTeal" value="English">English</paper-item>
+          <paper-item class="ctTeal" value="Estonian">Estonian</paper-item>
+          <paper-item class="ctTeal" value="Eurasian">Eurasian</paper-item>
+          <paper-item class="ctTeal" value="Evenk">Evenk</paper-item>
+          <paper-item class="ctTeal" value="Filipino">Filipino</paper-item>
+          <paper-item class="ctTeal" value="Finnish">Finnish</paper-item>
+          <paper-item class="ctTeal" value="Flemish">Flemish</paper-item>
+          <paper-item class="ctTeal" value="French">French</paper-item>
+          <paper-item class="ctTeal" value="Frisian">Frisian</paper-item>
+          <paper-item class="ctTeal" value="Friulian">Friulian</paper-item>
+          <paper-item class="ctTeal" value="Fula">Fula</paper-item>
+          <paper-item class="ctTeal" value="Gaelic">Gaelic</paper-item>
+          <paper-item class="ctTeal" value="Celtic">Celtic</paper-item>
+          <paper-item class="ctTeal" value="Galician">Galician</paper-item>
+          <paper-item class="ctTeal" value="Garifuna">Garifuna</paper-item>
+          <paper-item class="ctTeal" value="Georgian">Georgian</paper-item>
+          <paper-item class="ctTeal" value="German">German</paper-item>
+          <paper-item class="ctTeal" value="Gibraltaran">Gibraltaran</paper-item>
+          <paper-item class="ctTeal" value="Gilaki">Gilaki</paper-item>
+          <paper-item class="ctTeal" value="Gondi">Gondi</paper-item>
+          <paper-item class="ctTeal" value="Gotlander">Gotlander</paper-item>
+          <paper-item class="ctTeal" value="Greek">Greek</paper-item>
+          <paper-item class="ctTeal" value="Guatemalan">Guatemalan</paper-item>
+          <paper-item class="ctTeal" value="Gujarati">Gujarati</paper-item>
+          <paper-item class="ctTeal" value="Gurung">Gurung</paper-item>
+          <paper-item class="ctTeal" value="Haida">Haida</paper-item>
+          <paper-item class="ctTeal" value="Han">Han</paper-item>
+          <paper-item class="ctTeal" value="Haole">Haole</paper-item>
+          <paper-item class="ctTeal" value="Hausa">Hausa</paper-item>
+          <paper-item class="ctTeal" value="Hawaiian">Hawaiian</paper-item>
+          <paper-item class="ctTeal" value="Hazara">Hazara</paper-item>
+          <paper-item class="ctTeal" value="Hindkis">Hindkis</paper-item>
+          <paper-item class="ctTeal" value="Hindkowan">Hindkowan</paper-item>
+          <paper-item class="ctTeal" value="Hispanic">Hispanic</paper-item>
+          <paper-item class="ctTeal" value="Honduran">Honduran</paper-item>
+          <paper-item class="ctTeal" value="Hungarian">Hungarian</paper-item>
+          <paper-item class="ctTeal" value="Hutu">Hutu</paper-item>
+          <paper-item class="ctTeal" value="Icelandic">Icelandic</paper-item>
+          <paper-item class="ctTeal" value="Igbo">Igbo</paper-item>
+          <paper-item class="ctTeal" value="Ijaw">Ijaw</paper-item>
+          <paper-item class="ctTeal" value="Indo-American">Indo-American</paper-item>
+          <paper-item class="ctTeal" value="Ingush">Ingush</paper-item>
+          <paper-item class="ctTeal" value="Iraqi">Iraqi</paper-item>
+          <paper-item class="ctTeal" value="Irish">Irish</paper-item>
+          <paper-item class="ctTeal" value="Irish American">Irish American</paper-item>
+          <paper-item class="ctTeal" value="Iroquois">Iroquois</paper-item>
+          <paper-item class="ctTeal" value="Irulas">Irulas</paper-item>
+          <paper-item class="ctTeal" value="Israeli">Israeli</paper-item>
+          <paper-item class="ctTeal" value="Istro-Romanian">Istro-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Italian">Italian</paper-item>
+          <paper-item class="ctTeal" value="Italian American">Italian American</paper-item>
+          <paper-item class="ctTeal" value="Izhorian">Izhorian</paper-item>
+          <paper-item class="ctTeal" value="Jamaican">Jamaican</paper-item>
+          <paper-item class="ctTeal" value="Japanese">Japanese</paper-item>
+          <paper-item class="ctTeal" value="Jarai">Jarai</paper-item>
+          <paper-item class="ctTeal" value="Javanese">Javanese</paper-item>
+          <paper-item class="ctTeal" value="Jewish">Jewish</paper-item>
+          <paper-item class="ctTeal" value="Julaha">Julaha</paper-item>
+          <paper-item class="ctTeal" value="Kabard">Kabard</paper-item>
+          <paper-item class="ctTeal" value="Kabardin">Kabardin</paper-item>
+          <paper-item class="ctTeal" value="Kadai">Kadai</paper-item>
+          <paper-item class="ctTeal" value="Kadazan">Kadazan</paper-item>
+          <paper-item class="ctTeal" value="Kalmyk">Kalmyk</paper-item>
+          <paper-item class="ctTeal" value="Kam-Sui">Kam-Sui</paper-item>
+          <paper-item class="ctTeal" value="Kannadigas">Kannadigas</paper-item>
+          <paper-item class="ctTeal" value="Karachays">Karachays</paper-item>
+          <paper-item class="ctTeal" value="Karbi">Karbi</paper-item>
+          <paper-item class="ctTeal" value="Kashmiri">Kashmiri</paper-item>
+          <paper-item class="ctTeal" value="Kashub">Kashub</paper-item>
+          <paper-item class="ctTeal" value="Katuic">Katuic</paper-item>
+          <paper-item class="ctTeal" value="Kazakh">Kazakh</paper-item>
+          <paper-item class="ctTeal" value="Khasi">Khasi</paper-item>
+          <paper-item class="ctTeal" value="Khmer">Khmer</paper-item>
+          <paper-item class="ctTeal" value="Khmu">Khmu</paper-item>
+          <paper-item class="ctTeal" value="Khonds">Khonds</paper-item>
+          <paper-item class="ctTeal" value="Khowa">Khowa</paper-item>
+          <paper-item class="ctTeal" value="Kiowa">Kiowa</paper-item>
+          <paper-item class="ctTeal" value="Kirat">Kirat</paper-item>
+          <paper-item class="ctTeal" value="Kodava">Kodava</paper-item>
+          <paper-item class="ctTeal" value="Komi">Komi</paper-item>
+          <paper-item class="ctTeal" value="Kongo">Kongo</paper-item>
+          <paper-item class="ctTeal" value="Kongsat">Kongsat</paper-item>
+          <paper-item class="ctTeal" value="Konkani">Konkani</paper-item>
+          <paper-item class="ctTeal" value="Korean">Korean</paper-item>
+          <paper-item class="ctTeal" value="Kumyks">Kumyks</paper-item>
+          <paper-item class="ctTeal" value="Kurds">Kurds</paper-item>
+          <paper-item class="ctTeal" value="Kurukh (Oraon)">Kurukh (Oraon)</paper-item>
+          <paper-item class="ctTeal" value="Kyrgy">Kyrgy</paper-item>
+          <paper-item class="ctTeal" value="Ladin">Ladin</paper-item>
+          <paper-item class="ctTeal" value="Lak">Lak</paper-item>
+          <paper-item class="ctTeal" value="Lao">Lao</paper-item>
+          <paper-item class="ctTeal" value="Latino">Latino</paper-item>
+          <paper-item class="ctTeal" value="Latin American">Latin American</paper-item>
+          <paper-item class="ctTeal" value="Latvian">Latvian</paper-item>
+          <paper-item class="ctTeal" value="Laz">Laz</paper-item>
+          <paper-item class="ctTeal" value="Lebanese">Lebanese</paper-item>
+          <paper-item class="ctTeal" value="Lepcha">Lepcha</paper-item>
+          <paper-item class="ctTeal" value="Lezgin">Lezgin</paper-item>
+          <paper-item class="ctTeal" value="Lithuanian">Lithuanian</paper-item>
+          <paper-item class="ctTeal" value="Livonian">Livonian</paper-item>
+          <paper-item class="ctTeal" value="Lorrainer">Lorrainer</paper-item>
+          <paper-item class="ctTeal" value="Lu">Lu</paper-item>
+          <paper-item class="ctTeal" value="Lumbee">Lumbee</paper-item>
+          <paper-item class="ctTeal" value="Lur">Lur</paper-item>
+          <paper-item class="ctTeal" value="Luxembourger">Luxembourger</paper-item>
+          <paper-item class="ctTeal" value="Macedonian">Macedonian</paper-item>
+          <paper-item class="ctTeal" value="Madan">Madan</paper-item>
+          <paper-item class="ctTeal" value="Madinka">Madinka</paper-item>
+          <paper-item class="ctTeal" value="Magar">Magar</paper-item>
+          <paper-item class="ctTeal" value="Malay">Malay</paper-item>
+          <paper-item class="ctTeal" value="Malayalis">Malayalis</paper-item>
+          <paper-item class="ctTeal" value="Maltese">Maltese</paper-item>
+          <paper-item class="ctTeal" value="Malto">Malto</paper-item>
+          <paper-item class="ctTeal" value="Manchu">Manchu</paper-item>
+          <paper-item class="ctTeal" value="Manx">Manx</paper-item>
+          <paper-item class="ctTeal" value="Marabou">Marabou</paper-item>
+          <paper-item class="ctTeal" value="Marathi">Marathi</paper-item>
+          <paper-item class="ctTeal" value="Mari">Mari</paper-item>
+          <paper-item class="ctTeal" value="Maronite">Maronite</paper-item>
+          <paper-item class="ctTeal" value="Maroon">Maroon</paper-item>
+          <paper-item class="ctTeal" value="Martiniquan">Martiniquan</paper-item>
+          <paper-item class="ctTeal" value="Mazandarani">Mazandarani</paper-item>
+          <paper-item class="ctTeal" value="Megleno-Romanian">Megleno-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Memba">Memba</paper-item>
+          <paper-item class="ctTeal" value="Mers">Mers</paper-item>
+          <paper-item class="ctTeal" value="Meskhetian Turks">Meskhetian Turks</paper-item>
+          <paper-item class="ctTeal" value="Mestizo">Mestizo</paper-item>
+          <paper-item class="ctTeal" value="Metis">Metis</paper-item>
+          <paper-item class="ctTeal" value="Mexican American">Mexican American</paper-item>
+          <paper-item class="ctTeal" value="Miêkmaq">Miêkmaq</paper-item>
+          <paper-item class="ctTeal" value="Minangkabau">Minangkabau</paper-item>
+          <paper-item class="ctTeal" value="Moldovan">Moldovan</paper-item>
+          <paper-item class="ctTeal" value="Mon">Mon</paper-item>
+          <paper-item class="ctTeal" value="Mongol">Mongol</paper-item>
+          <paper-item class="ctTeal" value="Montenegrin">Montenegrin</paper-item>
+          <paper-item class="ctTeal" value="Moravian Vlach">Moravian Vlach</paper-item>
+          <paper-item class="ctTeal" value="Mordvin">Mordvin</paper-item>
+          <paper-item class="ctTeal" value="Morlach">Morlach</paper-item>
+          <paper-item class="ctTeal" value="Mughal">Mughal</paper-item>
+          <paper-item class="ctTeal" value="Muhajir">Muhajir</paper-item>
+          <paper-item class="ctTeal" value="Mulatto">Mulatto</paper-item>
+          <paper-item class="ctTeal" value="Munda">Munda</paper-item>
+          <paper-item class="ctTeal" value="Muong">Muong</paper-item>
+          <paper-item class="ctTeal" value="Murut">Murut</paper-item>
+          <paper-item class="ctTeal" value="Naga people">Naga people</paper-item>
+          <paper-item class="ctTeal" value="Nai">Nai</paper-item>
+          <paper-item class="ctTeal" value="Navajo">Navajo</paper-item>
+          <paper-item class="ctTeal" value="Neapolitan">Neapolitan</paper-item>
+          <paper-item class="ctTeal" value="Netherlandic">Netherlandic</paper-item>
+          <paper-item class="ctTeal" value="Newar">Newar</paper-item>
+          <paper-item class="ctTeal" value="Nicobarese">Nicobarese</paper-item>
+          <paper-item class="ctTeal" value="Nishi">Nishi</paper-item>
+          <paper-item class="ctTeal" value="Nogais">Nogais</paper-item>
+          <paper-item class="ctTeal" value="Northern Irish">Northern Irish</paper-item>
+          <paper-item class="ctTeal" value="Norwegian">Norwegian</paper-item>
+          <paper-item class="ctTeal" value="Nung">Nung</paper-item>
+          <paper-item class="ctTeal" value="Nuristani">Nuristani</paper-item>
+          <paper-item class="ctTeal" value="Nyaw">Nyaw</paper-item>
+          <paper-item class="ctTeal" value="Oriya">Oriya</paper-item>
+          <paper-item class="ctTeal" value="Oromo">Oromo</paper-item>
+          <paper-item class="ctTeal" value="Ossetian">Ossetian</paper-item>
+          <paper-item class="ctTeal" value="Ottawa">Ottawa</paper-item>
+          <paper-item class="ctTeal" value="Pahari">Pahari</paper-item>
+          <paper-item class="ctTeal" value="Pakistani">Pakistani</paper-item>
+          <paper-item class="ctTeal" value="Palestinian">Palestinian</paper-item>
+          <paper-item class="ctTeal" value="Parsi">Parsi</paper-item>
+          <paper-item class="ctTeal" value="Pashtun">Pashtun</paper-item>
+          <paper-item class="ctTeal" value="Pear">Pear</paper-item>
+          <paper-item class="ctTeal" value="Persian">Persian</paper-item>
+          <paper-item class="ctTeal" value="Peruvian">Peruvian</paper-item>
+          <paper-item class="ctTeal" value="Polish">Polish</paper-item>
+          <paper-item class="ctTeal" value="Portuguese">Portuguese</paper-item>
+          <paper-item class="ctTeal" value="Potawatomi">Potawatomi</paper-item>
+          <paper-item class="ctTeal" value="Pueblo">Pueblo</paper-item>
+          <paper-item class="ctTeal" value="Puerto Rican">Puerto Rican</paper-item>
+          <paper-item class="ctTeal" value="Punjabi">Punjabi</paper-item>
+          <paper-item class="ctTeal" value="Qara">Qara</paper-item>
+          <paper-item class="ctTeal" value="Qashqai">Qashqai</paper-item>
+          <paper-item class="ctTeal" value="Quebecois(e)">Quebecois(e)</paper-item>
+          <paper-item class="ctTeal" value="Rajasthani">Rajasthani</paper-item>
+          <paper-item class="ctTeal" value="Roma">Roma</paper-item>
+          <paper-item class="ctTeal" value="Romand">Romand</paper-item>
+          <paper-item class="ctTeal" value="Romani">Romani</paper-item>
+          <paper-item class="ctTeal" value="Romanian">Romanian</paper-item>
+          <paper-item class="ctTeal" value="Romansh">Romansh</paper-item>
+          <paper-item class="ctTeal" value="Russian">Russian</paper-item>
+          <paper-item class="ctTeal" value="Rutul">Rutul</paper-item>
+          <paper-item class="ctTeal" value="Saek">Saek</paper-item>
+          <paper-item class="ctTeal" value="Salish">Salish</paper-item>
+          <paper-item class="ctTeal" value="Salvadoran">Salvadoran</paper-item>
+          <paper-item class="ctTeal" value="Sami">Sami</paper-item>
+          <paper-item class="ctTeal" value="Samoyed">Samoyed</paper-item>
+          <paper-item class="ctTeal" value="Sardinian">Sardinian</paper-item>
+          <paper-item class="ctTeal" value="Saurashtra">Saurashtra</paper-item>
+          <paper-item class="ctTeal" value="Schleswiger">Schleswiger</paper-item>
+          <paper-item class="ctTeal" value="Scottish">Scottish</paper-item>
+          <paper-item class="ctTeal" value="Seminole">Seminole</paper-item>
+          <paper-item class="ctTeal" value="Seraiki">Seraiki</paper-item>
+          <paper-item class="ctTeal" value="Serb">Serb</paper-item>
+          <paper-item class="ctTeal" value="Shabak">Shabak</paper-item>
+          <paper-item class="ctTeal" value="Shan">Shan</paper-item>
+          <paper-item class="ctTeal" value="Sheedis">Sheedis</paper-item>
+          <paper-item class="ctTeal" value="Shina">Shina</paper-item>
+          <paper-item class="ctTeal" value="Shona">Shona</paper-item>
+          <paper-item class="ctTeal" value="Shoshone">Shoshone</paper-item>
+          <paper-item class="ctTeal" value="Sicilian">Sicilian</paper-item>
+          <paper-item class="ctTeal" value="Siddi">Siddi</paper-item>
+          <paper-item class="ctTeal" value="Silesian">Silesian</paper-item>
+          <paper-item class="ctTeal" value="Sindhi">Sindhi</paper-item>
+          <paper-item class="ctTeal" value="Sinhalese">Sinhalese</paper-item>
+          <paper-item class="ctTeal" value="Siouan">Siouan</paper-item>
+          <paper-item class="ctTeal" value="Slavic">Slavic</paper-item>
+          <paper-item class="ctTeal" value="Slovak">Slovak</paper-item>
+          <paper-item class="ctTeal" value="Slovene">Slovene</paper-item>
+          <paper-item class="ctTeal" value="Somali">Somali</paper-item>
+          <paper-item class="ctTeal" value="Sorb">Sorb</paper-item>
+          <paper-item class="ctTeal" value="Spanish">Spanish</paper-item>
+          <paper-item class="ctTeal" value="Sudanese">Sudanese</paper-item>
+          <paper-item class="ctTeal" value="Swedish">Swedish</paper-item>
+          <paper-item class="ctTeal" value="Syrian">Syrian</paper-item>
+          <paper-item class="ctTeal" value="Tabasaran">Tabasaran</paper-item>
+          <paper-item class="ctTeal" value="Tajik">Tajik</paper-item>
+          <paper-item class="ctTeal" value="Talysh">Talysh</paper-item>
+          <paper-item class="ctTeal" value="Tamang">Tamang</paper-item>
+          <paper-item class="ctTeal" value="Tamil">Tamil</paper-item>
+          <paper-item class="ctTeal" value="Tat">Tat</paper-item>
+          <paper-item class="ctTeal" value="Tatar">Tatar</paper-item>
+          <paper-item class="ctTeal" value="Telugu">Telugu</paper-item>
+          <paper-item class="ctTeal" value="Thai">Thai</paper-item>
+          <paper-item class="ctTeal" value="Thakali">Thakali</paper-item>
+          <paper-item class="ctTeal" value="Thami">Thami</paper-item>
+          <paper-item class="ctTeal" value="Tharu">Tharu</paper-item>
+          <paper-item class="ctTeal" value="Tho">Tho</paper-item>
+          <paper-item class="ctTeal" value="Tibetan">Tibetan</paper-item>
+          <paper-item class="ctTeal" value="Tlingit">Tlingit</paper-item>
+          <paper-item class="ctTeal" value="Tobagan">Tobagan</paper-item>
+          <paper-item class="ctTeal" value="Toda">Toda</paper-item>
+          <paper-item class="ctTeal" value="Trinidadian">Trinidadian</paper-item>
+          <paper-item class="ctTeal" value="Tripuris">Tripuris</paper-item>
+          <paper-item class="ctTeal" value="Trukhmens">Trukhmens</paper-item>
+          <paper-item class="ctTeal" value="Tsakhur">Tsakhur</paper-item>
+          <paper-item class="ctTeal" value="Tuluvas">Tuluvas</paper-item>
+          <paper-item class="ctTeal" value="Tungusic">Tungusic</paper-item>
+          <paper-item class="ctTeal" value="Turkmen">Turkmen</paper-item>
+          <paper-item class="ctTeal" value="Tuvan">Tuvan</paper-item>
+          <paper-item class="ctTeal" value="Tyrolean">Tyrolean</paper-item>
+          <paper-item class="ctTeal" value="Udmurt">Udmurt</paper-item>
+          <paper-item class="ctTeal" value="Ukrainian">Ukrainian</paper-item>
+          <paper-item class="ctTeal" value="Ute">Ute</paper-item>
+          <paper-item class="ctTeal" value="Uyghur">Uyghur</paper-item>
+          <paper-item class="ctTeal" value="Uzbeki">Uzbeki</paper-item>
+          <paper-item class="ctTeal" value="Venetian">Venetian</paper-item>
+          <paper-item class="ctTeal" value="Vep">Vep</paper-item>
+          <paper-item class="ctTeal" value="Vietnamese">Vietnamese</paper-item>
+          <paper-item class="ctTeal" value="Walloon">Walloon</paper-item>
+          <paper-item class="ctTeal" value="Welsh">Welsh</paper-item>
+          <paper-item class="ctTeal" value="White Thai">White Thai</paper-item>
+          <paper-item class="ctTeal" value="Yakut">Yakut</paper-item>
+          <paper-item class="ctTeal" value="Yamato">Yamato</paper-item>
+          <paper-item class="ctTeal" value="Yoruba">Yoruba</paper-item>
+          <paper-item class="ctTeal" value="Yukaghir">Yukaghir</paper-item>
+          <paper-item class="ctTeal" value="Zambo">Zambo</paper-item>
+          <paper-item class="ctTeal" value="Zaza">Zaza</paper-item>
+          <paper-item class="ctTeal" value="Zulu">Zulu</paper-item>
         </paper-menu>
       </paper-dropdown-menu>
-      <paper-dropdown-menu label="Ethnicity2">
-        <paper-menu class="dropdown-content">
-          <paper-item value=""></paper-item>
-          <paper-item value="">Croissant</paper-item>
-          <paper-item value="">Donut</paper-item>
-          <paper-item value="">Financier</paper-item>
-          <paper-item value="">Madeleine</paper-item>
-        </paper-menu>
-      </paper-dropdown-menu>
-      <p>
-        What Ethnicity is suited for this subject (if any)?
-      </p>
       <ul class="checkbox-grid">
         <li><paper-checkbox class="teal" value="Abazins">Abazins</paper-checkbox></li>
         <li><paper-checkbox class="teal" value="Abkhaz">Abkhaz</paper-checkbox></li>
@@ -602,8 +956,233 @@
         <li><paper-checkbox class="teal" value="Zambo">Zambo</paper-checkbox></li>
         <li><paper-checkbox class="teal" value="Zaza">Zaza</paper-checkbox></li>
         <li><paper-checkbox class="teal" value="Zulu">Zulu</paper-checkbox></li>
-
       </ul>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+      <label for="usesLang">What languages does the subject speak?</label>
+      <ul class="checkbox-grid" name="usesLang">
+        <li><paper-checkbox class="teal" value="Afrikaans">Afrikaans</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Akan">Akan</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Amharic">Amharic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Assam ese">Assam ese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Azerbaijani">Azerbaijani</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Belarusian">Belarusian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Burmese">Burmese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Bengali">Bengali</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Berber">Berber</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Bhojpuri">Bhojpuri</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Bulgarian">Bulgarian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Cebuano">Cebuano</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Chhattisgarh">Chhattisgarh</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Chitag onian">Chitag onian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Czech">Czech</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Dekhni">Dekhni</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Dutch">Dutch</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Egyptian Arabic">Egyptian Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="English">English</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="French">French</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Fula">Fula</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Fulfulde">Fulfulde</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Gan Chinese">Gan Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="German">German</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Greek">Greek</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Gugarati">Gugarati</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Gulf  Arabic">Gulf  Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Hungarian">Hungarian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Ha usa">Ha usa</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Haitian Creole">Haitian Creole</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Hakka  Chinese">Hakka  Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Haryanvi">Haryanvi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Hebrew">Hebrew</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Hiligaynon">Hiligaynon</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Hindi">Hindi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Igbo">Igbo</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Ilokano">Ilokano</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Italian">Italian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Japanese">Japanese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Javanese">Javanese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Jin Yu Chinese">Jin Yu Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Kannada">Kannada</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Kazakh">Kazakh</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Khme">Khme</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="kinyarwanda">kinyarwanda</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Korean">Korean</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Kurdish">Kurdish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Levantine Arabic">Levantine Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Madurese">Madurese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Magadhi">Magadhi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Maghrebi Arabic">Maghrebi Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Malagasy">Malagasy</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Malay/Indonesian">Malay/Indonesian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Malayalam">Malayalam</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Mandarin Chinese">Mandarin Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Marathi">Marathi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Marwari">Marwari</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Mesopotamian Arabic">Mesopotamian Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Min Bei Chinese">Min Bei Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Min Nan Chinese">Min Nan Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Najdi Arabic">Najdi Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Nepali">Nepali</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Oriya">Oriya</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Oromo">Oromo</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Panjabi">Panjabi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Pashto">Pashto</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Persian">Persian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Polish">Polish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Portuguese">Portuguese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Quechua">Quechua</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Romanian">Romanian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Russian">Russian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Swedish">Swedish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Saêide  Arabic">Saêide  Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Saraiki">Saraiki</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Serbo-croatian">Serbo-croatian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Shinhala">Shinhala</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Shona">Shona</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Sindhi">Sindhi</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Somali">Somali</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Spanish">Spanish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Sudanese Arabic">Sudanese Arabic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Sundanese">Sundanese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Tagalog">Tagalog</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Tamil">Tamil</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Tatar">Tatar</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Telugu">Telugu</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Thai">Thai</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Turkish">Turkish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Ukrainian">Ukrainian</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Urdu">Urdu</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Uyghur">Uyghur</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Uzbek">Uzbek</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Vietnamese">Vietnamese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Wu Chinese">Wu Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Xiang Chinese">Xiang Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Yiddish">Yiddish</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Yoruba">Yoruba</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Yue Chinese (Cantonese)">Yue Chinese (Cantonese)</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Zhuang Chinese">Zhuang Chinese</paper-checkbox></li>
+        <li><paper-checkbox class="teal" value="Zulu">Zulu</paper-checkbox></li>
+      </ul>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+      <label for="pLang">What is this subjects primary language?</label><br>
+      <paper-dropdown-menu label="Primary Language" name="pLang">
+        <paper-menu class="dropdown-content">
+          <paper-item value=""></paper-item>
+          <paper-item class="ctTeal" value="Afrikaans">Afrikaans</paper-item>
+          <paper-item class="ctTeal" value="Akan">Akan</paper-item>
+          <paper-item class="ctTeal" value="Amharic">Amharic</paper-item>
+          <paper-item class="ctTeal" value="Assam ese">Assam ese</paper-item>
+          <paper-item class="ctTeal" value="Azerbaijani">Azerbaijani</paper-item>
+          <paper-item class="ctTeal" value="Belarusian">Belarusian</paper-item>
+          <paper-item class="ctTeal" value="Burmese">Burmese</paper-item>
+          <paper-item class="ctTeal" value="Bengali">Bengali</paper-item>
+          <paper-item class="ctTeal" value="Berber">Berber</paper-item>
+          <paper-item class="ctTeal" value="Bhojpuri">Bhojpuri</paper-item>
+          <paper-item class="ctTeal" value="Bulgarian">Bulgarian</paper-item>
+          <paper-item class="ctTeal" value="Cebuano">Cebuano</paper-item>
+          <paper-item class="ctTeal" value="Chhattisgarh">Chhattisgarh</paper-item>
+          <paper-item class="ctTeal" value="Chitag onian">Chitag onian</paper-item>
+          <paper-item class="ctTeal" value="Czech">Czech</paper-item>
+          <paper-item class="ctTeal" value="Dekhni">Dekhni</paper-item>
+          <paper-item class="ctTeal" value="Dutch">Dutch</paper-item>
+          <paper-item class="ctTeal" value="Egyptian Arabic">Egyptian Arabic</paper-item>
+          <paper-item class="ctTeal" value="English">English</paper-item>
+          <paper-item class="ctTeal" value="French">French</paper-item>
+          <paper-item class="ctTeal" value="Fula">Fula</paper-item>
+          <paper-item class="ctTeal" value="Fulfulde">Fulfulde</paper-item>
+          <paper-item class="ctTeal" value="Gan Chinese">Gan Chinese</paper-item>
+          <paper-item class="ctTeal" value="German">German</paper-item>
+          <paper-item class="ctTeal" value="Greek">Greek</paper-item>
+          <paper-item class="ctTeal" value="Gugarati">Gugarati</paper-item>
+          <paper-item class="ctTeal" value="Gulf  Arabic">Gulf  Arabic</paper-item>
+          <paper-item class="ctTeal" value="Hungarian">Hungarian</paper-item>
+          <paper-item class="ctTeal" value="Ha usa">Ha usa</paper-item>
+          <paper-item class="ctTeal" value="Haitian Creole">Haitian Creole</paper-item>
+          <paper-item class="ctTeal" value="Hakka  Chinese">Hakka  Chinese</paper-item>
+          <paper-item class="ctTeal" value="Haryanvi">Haryanvi</paper-item>
+          <paper-item class="ctTeal" value="Hebrew">Hebrew</paper-item>
+          <paper-item class="ctTeal" value="Hiligaynon">Hiligaynon</paper-item>
+          <paper-item class="ctTeal" value="Hindi">Hindi</paper-item>
+          <paper-item class="ctTeal" value="Igbo">Igbo</paper-item>
+          <paper-item class="ctTeal" value="Ilokano">Ilokano</paper-item>
+          <paper-item class="ctTeal" value="Italian">Italian</paper-item>
+          <paper-item class="ctTeal" value="Japanese">Japanese</paper-item>
+          <paper-item class="ctTeal" value="Javanese">Javanese</paper-item>
+          <paper-item class="ctTeal" value="Jin Yu Chinese">Jin Yu Chinese</paper-item>
+          <paper-item class="ctTeal" value="Kannada">Kannada</paper-item>
+          <paper-item class="ctTeal" value="Kazakh">Kazakh</paper-item>
+          <paper-item class="ctTeal" value="Khme">Khme</paper-item>
+          <paper-item class="ctTeal" value="kinyarwanda">kinyarwanda</paper-item>
+          <paper-item class="ctTeal" value="Korean">Korean</paper-item>
+          <paper-item class="ctTeal" value="Kurdish">Kurdish</paper-item>
+          <paper-item class="ctTeal" value="Levantine Arabic">Levantine Arabic</paper-item>
+          <paper-item class="ctTeal" value="Madurese">Madurese</paper-item>
+          <paper-item class="ctTeal" value="Magadhi">Magadhi</paper-item>
+          <paper-item class="ctTeal" value="Maghrebi Arabic">Maghrebi Arabic</paper-item>
+          <paper-item class="ctTeal" value="Malagasy">Malagasy</paper-item>
+          <paper-item class="ctTeal" value="Malay/Indonesian">Malay/Indonesian</paper-item>
+          <paper-item class="ctTeal" value="Malayalam">Malayalam</paper-item>
+          <paper-item class="ctTeal" value="Mandarin Chinese">Mandarin Chinese</paper-item>
+          <paper-item class="ctTeal" value="Marathi">Marathi</paper-item>
+          <paper-item class="ctTeal" value="Marwari">Marwari</paper-item>
+          <paper-item class="ctTeal" value="Mesopotamian Arabic">Mesopotamian Arabic</paper-item>
+          <paper-item class="ctTeal" value="Min Bei Chinese">Min Bei Chinese</paper-item>
+          <paper-item class="ctTeal" value="Min Nan Chinese">Min Nan Chinese</paper-item>
+          <paper-item class="ctTeal" value="Najdi Arabic">Najdi Arabic</paper-item>
+          <paper-item class="ctTeal" value="Nepali">Nepali</paper-item>
+          <paper-item class="ctTeal" value="Oriya">Oriya</paper-item>
+          <paper-item class="ctTeal" value="Oromo">Oromo</paper-item>
+          <paper-item class="ctTeal" value="Panjabi">Panjabi</paper-item>
+          <paper-item class="ctTeal" value="Pashto">Pashto</paper-item>
+          <paper-item class="ctTeal" value="Persian">Persian</paper-item>
+          <paper-item class="ctTeal" value="Polish">Polish</paper-item>
+          <paper-item class="ctTeal" value="Portuguese">Portuguese</paper-item>
+          <paper-item class="ctTeal" value="Quechua">Quechua</paper-item>
+          <paper-item class="ctTeal" value="Romanian">Romanian</paper-item>
+          <paper-item class="ctTeal" value="Russian">Russian</paper-item>
+          <paper-item class="ctTeal" value="Swedish">Swedish</paper-item>
+          <paper-item class="ctTeal" value="Saêide  Arabic">Saêide  Arabic</paper-item>
+          <paper-item class="ctTeal" value="Saraiki">Saraiki</paper-item>
+          <paper-item class="ctTeal" value="Serbo-croatian">Serbo-croatian</paper-item>
+          <paper-item class="ctTeal" value="Shinhala">Shinhala</paper-item>
+          <paper-item class="ctTeal" value="Shona">Shona</paper-item>
+          <paper-item class="ctTeal" value="Sindhi">Sindhi</paper-item>
+          <paper-item class="ctTeal" value="Somali">Somali</paper-item>
+          <paper-item class="ctTeal" value="Spanish">Spanish</paper-item>
+          <paper-item class="ctTeal" value="Sudanese Arabic">Sudanese Arabic</paper-item>
+          <paper-item class="ctTeal" value="Sundanese">Sundanese</paper-item>
+          <paper-item class="ctTeal" value="Tagalog">Tagalog</paper-item>
+          <paper-item class="ctTeal" value="Tamil">Tamil</paper-item>
+          <paper-item class="ctTeal" value="Tatar">Tatar</paper-item>
+          <paper-item class="ctTeal" value="Telugu">Telugu</paper-item>
+          <paper-item class="ctTeal" value="Thai">Thai</paper-item>
+          <paper-item class="ctTeal" value="Turkish">Turkish</paper-item>
+          <paper-item class="ctTeal" value="Ukrainian">Ukrainian</paper-item>
+          <paper-item class="ctTeal" value="Urdu">Urdu</paper-item>
+          <paper-item class="ctTeal" value="Uyghur">Uyghur</paper-item>
+          <paper-item class="ctTeal" value="Uzbek">Uzbek</paper-item>
+          <paper-item class="ctTeal" value="Vietnamese">Vietnamese</paper-item>
+          <paper-item class="ctTeal" value="Wu Chinese">Wu Chinese</paper-item>
+          <paper-item class="ctTeal" value="Xiang Chinese">Xiang Chinese</paper-item>
+          <paper-item class="ctTeal" value="Yiddish">Yiddish</paper-item>
+          <paper-item class="ctTeal" value="Yoruba">Yoruba</paper-item>
+          <paper-item class="ctTeal" value="Yue Chinese (Cantonese)">Yue Chinese (Cantonese)</paper-item>
+          <paper-item class="ctTeal" value="Zhuang Chinese">Zhuang Chinese</paper-item>
+          <paper-item class="ctTeal" value="Zulu">Zulu</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+
+
+
+
+
+      <br><br><br>
+      
       associated productions
       influencedby
       influenced
