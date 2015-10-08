@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- For some visualizations  -->
+  <script src="js/d3.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+  <!--Polymer Paper Input Resources-->
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-checkbox/demo/index.html">
+
+  <!--Interaction JavaScript-->
+  <script>
+  function contentFade(id, id2, ele) {
+    console.log(id, id2, ele);
+    var butn = '#'+id
+    var elem = '#'+ele
+    console.log(butn +'|||'+elem);
+    $('#'+id).hide();
+    //#('#'+id2).hide();
+    $('#'+id2).hide();
+    $('#backBtn').show();
+    $('#'+ele).fadeIn(700);
+    console.log('DONE');
+  }
+  function fadeBack(id, id2, id3, ele, ele2) {
+    console.log(id, id2, id3, ele, ele2);
+    $('#'+id).hide();
+    $('#'+id2).show();
+    $('#'+id3).show();
+    $('#'+ele).fadeOut(500);
+    $('#'+ele2).fadeOut(500);
+  }
+  </script>
+</head>
+
+<body style="background:#efefef">
+  <div class="wrap">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="index.html">Linked Modernisms</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="page-scroll" href="examples.html">Examples</a></li>
+            <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
+            <li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+            <li><a class="page-scroll" href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <hr class="light"></hr><br/>
+
+    <h1>
+      Contribute To The Linked Modernisms Project
+    </h1><br/>
+
+    <label for="influ">Has the subject influenced anyone?</label>
+    <ul class="checkbox-grid" name="influ">
+      <li><paper-checkbox class="teal" value="Jean Rhys">Jean Rhys</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Ma Group Lajos Kassák">The Ma Group Lajos Kassák</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robinson Jeffers">Robinson Jeffers</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Edwin S. Porter">Edwin S. Porter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Le Film d'Art">Le Film d'Art</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Abel Gance">Abel Gance</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="yussef el guindi">yussef el guindi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Progressivism">Progressivism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Santiniketan School">The Santiniketan School</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rabindranath Tagore">Rabindranath Tagore</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hans Hofman">Hans Hofman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Helen Frankenthaler">Helen Frankenthaler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gyre">Gyre</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Edith Sitwell">Edith Sitwell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Boris Barnet">Boris Barnet</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nancy Cunard">Nancy Cunard</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Burmese Modernism">Burmese Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Max Ernst">Max Ernst</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Paula Modersohn-Becker">Paula Modersohn-Becker</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Brassaï">Brassaï</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alexander 'Skunder' Boghossian">Alexander 'Skunder' Boghossian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Leslie Burrowes">Leslie Burrowes</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dartington Hall">Dartington Hall</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="De Brug (The Bridge)">De Brug (The Bridge)</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arne Jacobsen">Arne Jacobsen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Louis Aragon">Louis Aragon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Uche Okeke">Uche Okeke</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hans Bernhard Henry Scharoun">Hans Bernhard Henry Scharoun</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lucio Costa">Lucio Costa</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Valparaiso School">Valparaiso School</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="1972 Covacevic Gaggero Medina Eche_ique and Gonzalez">1972 Covacevic Gaggero Medina Eche_ique and Gonzalez</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ethel Carrick Fox">Ethel Carrick Fox</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cartier-Bresson">Cartier-Bresson</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hesse">Hesse</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Louay Kayyali">Louay Kayyali</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fateh al-Moudarres">Fateh al-Moudarres</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nazir Nabaa">Nazir Nabaa</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Leila Nseir">Leila Nseir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mahmoud Hammad">Mahmoud Hammad</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marwan Kassab Bachi">Marwan Kassab Bachi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Salat al-Fann al-Hadith al-Alami / Art Moderne International Gallery">Salat al-Fann al-Hadith al-Alami / Art Moderne International Gallery</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elias Zayyat">Elias Zayyat</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bernanos">Bernanos</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="American Impressionism">American Impressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="African Hip Hop Music">African Hip Hop Music</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Clement Meadmore">Clement Meadmore</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Altman">Robert Altman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Motherwell">Robert Motherwell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bruce Onobrakpeya">Bruce Onobrakpeya</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Zionism">Zionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Henry Green">Henry Green</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Otto Joachim">Otto Joachim</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kenneth Murray">Kenneth Murray</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Georgina Beier Ulli Beier">Georgina Beier Ulli Beier</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Silpakorn University and Gala Ocampo">Silpakorn University and Gala Ocampo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cabaret Voltaire">Cabaret Voltaire</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modern Japanese Photography">Modern Japanese Photography</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Amrus Natalsya">Amrus Natalsya</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bertand Russell">Bertand Russell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anarchism">Anarchism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Natalia Goncharova">Natalia Goncharova</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mikhail Larionov">Mikhail Larionov</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cubo-Futurism">Cubo-Futurism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Abstract Expressionism Cesar Legaspi">Abstract Expressionism Cesar Legaspi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Franz Rosenzweig">Franz Rosenzweig</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Neo-Primitivism">Neo-Primitivism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rayism">Rayism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Leopoldo M_ndez">Leopoldo M_ndez</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ballets Russes">Ballets Russes</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ödön von Horváth">Ödön von Horváth</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="British Constructivism">British Constructivism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Japanese architecture">Japanese architecture</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Charlie Parker">Charlie Parker</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Giorgio de Chirico">Giorgio de Chirico</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cyprien Tokoudagba">Cyprien Tokoudagba</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Piet Mondrian">Piet Mondrian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Claude McKay">Claude McKay</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Talley Beatty/Dance">Talley Beatty/Dance</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Doris Humphrey">Doris Humphrey</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Wang Meng">Wang Meng</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="VKhUTEMAS">VKhUTEMAS</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Diederik Johannes Opperman">Diederik Johannes Opperman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nicolaas Petrus van Wyk Louw">Nicolaas Petrus van Wyk Louw</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jan Rabie">Jan Rabie</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Etienne Leroux">Etienne Leroux</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Sestigers">The Sestigers</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Christopher Isherwood">Christopher Isherwood</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Radclyffe Hall">Radclyffe Hall</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Omar el-Nagdi">Omar el-Nagdi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elliott Cook Carter">Elliott Cook Carter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Salah Enani">Salah Enani</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kamel Mostafa">Kamel Mostafa</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mariam Abdel Aleem">Mariam Abdel Aleem</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Taheya Halim">Taheya Halim</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ahmed Nawar">Ahmed Nawar</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bui Xuan Phai">Bui Xuan Phai</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nguyen Phan Chanh">Nguyen Phan Chanh</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nguyen Sang">Nguyen Sang</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Francis Picabia">Francis Picabia</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bombay Progressive Artists' Group">Bombay Progressive Artists' Group</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kaija Saariaho">Kaija Saariaho</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Franco Donatoni">Franco Donatoni</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Automatism">Automatism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dada - Paris">Dada - Paris</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Man Ray">Man Ray</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Cambridge Ritualists">The Cambridge Ritualists</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nativism">Nativism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Organicism">Organicism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Charles Weidman">Charles Weidman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Akhmatova">Akhmatova</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Benjamin De Casseres">Benjamin De Casseres</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modernism in Greece">Modernism in Greece</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Scottish Modernism">Scottish Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Willa Muir">Willa Muir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Edwin Muir">Edwin Muir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Neil M. Gunn">Neil M. Gunn</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lewis Grassic Gibbon/James Leslie Mitchell">Lewis Grassic Gibbon/James Leslie Mitchell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Catherine Carswell">Catherine Carswell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Abstract Art">Abstract Art</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Paul Cézanne">Paul Cézanne</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Degenerate Art">Degenerate Art</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Renoir">Renoir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Roque Jacinto Cordero">Roque Jacinto Cordero</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ned Wayburn">Ned Wayburn</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gertrude Hoffman">Gertrude Hoffman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elisheva Bikhovsky">Elisheva Bikhovsky</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Art Deco">Art Deco</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Art Nouveau">Art Nouveau</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Impressionism">Impressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Siegfried Kracauer">Siegfried Kracauer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="WS Graham">WS Graham</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ian Hamilton Finlay">Ian Hamilton Finlay</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Egon Schiele">Egon Schiele</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Austrian Expressionism">Austrian Expressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gustav Klimt">Gustav Klimt</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anna Margolin">Anna Margolin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Moyshe-Leyb Halpern">Moyshe-Leyb Halpern</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Di yunge">Di yunge</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cambodian Modernism">Cambodian Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Irving Howe">Irving Howe</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Li Yongping">Li Yongping</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mohan Rakesh">Mohan Rakesh</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="CoBrA">CoBrA</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Eli Mandel">Eli Mandel</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Phyllis Webb">Phyllis Webb</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pär Lagerkvist">Pär Lagerkvist</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Odilon Redon">Odilon Redon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Redon">Redon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nathanael West">Nathanael West</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Enrique Iturriaga">Enrique Iturriaga</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Somnath Hore">Somnath Hore</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Futurism">Futurism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Martin Buber">Martin Buber</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jean Eugène Auguste Atget">Jean Eugène Auguste Atget</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Juan O'Gorman">Juan O'Gorman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Kiowa Five">The Kiowa Five</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Czech Avant-Garde Photography">Czech Avant-Garde Photography</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="White Savages Group">White Savages Group</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fauvism">Fauvism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Picasso">Picasso</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kassian Cephas">Kassian Cephas</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ki-Chang Kim">Ki-Chang Kim</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Expressionism">Expressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Miguel Ángel Asturias">Miguel Ángel Asturias</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Theory of Relativity">The Theory of Relativity</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Paul Klee">Paul Klee</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alan Turing">Alan Turing</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rubén Darío">Rubén Darío</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="German Samper Gnecco">German Samper Gnecco</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Joseph Stella">Joseph Stella</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Clyfford Still">Clyfford Still</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Kiowa Five">The Kiowa Five</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ernst Widmer">Ernst Widmer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Willa Cather">Willa Cather</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gloria 'Campobello Nellie' Campobello">Gloria 'Campobello Nellie' Campobello</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Manuel de Falla">Manuel de Falla</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Leon Trotsky">Leon Trotsky</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Russian Formalism">Russian Formalism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jorge Luis Borges">Jorge Luis Borges</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Thomas Mann">Thomas Mann</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ernst Stadler">Ernst Stadler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alan Paton">Alan Paton</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kumudini Lakhia">Kumudini Lakhia</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ruth St. Denis">Ruth St. Denis</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="East-West Dance Encounter">East-West Dance Encounter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Chris Dench">Chris Dench</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="George Balanchine">George Balanchine</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Warsaw Autumn International Festival of Contemporary Music">The Warsaw Autumn International Festival of Contemporary Music</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Boris Vian">Boris Vian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Symbolism">Symbolism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arnold Bennett">Arnold Bennett</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Malley">Malley</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kotaro Takamura">Kotaro Takamura</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Isaac Rosenberg">Isaac Rosenberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yaakov Shabtai">Yaakov Shabtai</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Moshe Shamir">Moshe Shamir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Frederick Ashton">Frederick Ashton</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dance Directors">Dance Directors</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Chen Yingzhen">Chen Yingzhen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bai Xianyong">Bai Xianyong</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Qideng Sheng">Qideng Sheng</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="August Stramm">August Stramm</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Expressionism">Expressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="André Levinson">André Levinson</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Neoclassicism">Neoclassicism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Karlheinz Stockhausen">Karlheinz Stockhausen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modernism and physical culture">Modernism and physical culture</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Navodaya">Navodaya</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Buddhadeva Bose">Buddhadeva Bose</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yevgeny Zamyatin">Yevgeny Zamyatin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Acmeism">Acmeism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Aleister Crowley">Aleister Crowley</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Agnes de Mille">Agnes de Mille</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Heretics Society">The Heretics Society</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pulp Magazines">Pulp Magazines</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="H. P. Lovecraft">H. P. Lovecraft</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lindembergue Cardoso">Lindembergue Cardoso</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Workers Dance League">Workers Dance League</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fernando Cerqueira">Fernando Cerqueira</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alvin Ailey">Alvin Ailey</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Breyten Breytenbach">Breyten Breytenbach</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anna Sokolow">Anna Sokolow</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Else Lasker-Schüler">Else Lasker-Schüler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="A. B. Yehoshua">A. B. Yehoshua</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Blaise Cendrars">Blaise Cendrars</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ragini Devi">Ragini Devi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="I. A. Richards">I. A. Richards</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sophie Maslow">Sophie Maslow</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Andrei Belyi">Andrei Belyi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Aleksandr Blok">Aleksandr Blok</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Graciela Paraskevaidis">Graciela Paraskevaidis</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Georges Rodenbach">Georges Rodenbach</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Leitmotif">Leitmotif</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Etkin">Etkin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Carlos Chávez">Carlos Chávez</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert McAlmon">Robert McAlmon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rebecca West">Rebecca West</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ohno Kazuo butoh Hijikata Tatsumi">Ohno Kazuo butoh Hijikata Tatsumi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Joseph Ernest Renan">Joseph Ernest Renan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="José Martí">José Martí</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Peter Altenberg">Peter Altenberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Volksgemeinschaft">Volksgemeinschaft</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Virago Press">Virago Press</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Herzl">Herzl</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="chairil anwar">chairil anwar</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Isaac Bashevis Singer">Isaac Bashevis Singer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Black Bottom">Black Bottom</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dance Marathons">Dance Marathons</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Maria Jolas">Maria Jolas</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Affonso Eduardo Reidy">Affonso Eduardo Reidy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alexander Archipenko">Alexander Archipenko</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Boichukysty">Boichukysty</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marianne Werefkin">Marianne Werefkin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="David Burliuk">David Burliuk</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ito Michio">Ito Michio</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Walter Hopps">Walter Hopps</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ahad Ha-am">Ahad Ha-am</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Vicki Baum">Vicki Baum</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dorothy Richardson">Dorothy Richardson</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modernist Music in Turkey">Modernist Music in Turkey</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Carl Zuckmayer">Carl Zuckmayer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Charles Bruce">Charles Bruce</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Barney Simon">Barney Simon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Black Arts Movement">Black Arts Movement</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Schnitzler">Schnitzler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ibram Lassaw">Ibram Lassaw</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="David Hare">David Hare</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Zoë Wicomb">Zoë Wicomb</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="parole in libertà">parole in libertà</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Eugenio Montale">Eugenio Montale</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Giuseppe Ungaretti">Giuseppe Ungaretti</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Theodore Roszak">Theodore Roszak</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Demas Nwoko">Demas Nwoko</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Regionalists">The Regionalists</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modern Belly Dance">Modern Belly Dance</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dorothea Lange">Dorothea Lange</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mabel Dodge Luhan">Mabel Dodge Luhan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Frank Stella">Frank Stella</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Neo-Impressionism">Neo-Impressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alain Locke">Alain Locke</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Femenism and Suffragism">Femenism and Suffragism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Serge Garant">Serge Garant</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Poème électronique">Poème électronique</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Raoul Hausmann">Raoul Hausmann</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fauvism">Fauvism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gottfried Benn">Gottfried Benn</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bauhaus">Bauhaus</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marlos Nobre">Marlos Nobre</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alfred Döblin">Alfred Döblin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Woodrow Wilson">Woodrow Wilson</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elizabeth Bowen">Elizabeth Bowen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="John Martin">John Martin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Franklin D. Roosevelt">Franklin D. Roosevelt</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="William James">William James</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="New Criticism">New Criticism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="John Lautner">John Lautner</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="D. H. Lawrence">D. H. Lawrence</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Frank">Robert Frank</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kathe Kollwitz">Kathe Kollwitz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Strindberg">Strindberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ansel Adams">Ansel Adams</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="J.G. Frazer">J.G. Frazer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Harriet Shaw Weaver">Harriet Shaw Weaver</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sophie Taeuber">Sophie Taeuber</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hans/Jean Arp">Hans/Jean Arp</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gabriele Münter">Gabriele Münter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Eric Mendelsohn">Eric Mendelsohn</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="the Indian National Congress">the Indian National Congress</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Juan Gris">Juan Gris</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Almada Negreiros">Almada Negreiros</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Non-Fiction Writing">Non-Fiction Writing</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Emmanuel Levinas">Emmanuel Levinas</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Harry Clément Ulrich Kessler">Harry Clément Ulrich Kessler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Li Yongping">Li Yongping</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Francois Delsarte">Francois Delsarte</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Isadora Duncan">Isadora Duncan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pointillism">Pointillism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ashcan School">Ashcan School</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Julien Levy">Julien Levy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yves Tanguy">Yves Tanguy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Paul Gauguin">Paul Gauguin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Der Sturm">Der Sturm</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Herwarth Walden">Herwarth Walden</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Otto Joachim">Otto Joachim</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Murray Adaskin">Murray Adaskin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Just Intonation">Just Intonation</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="James Tenney">James Tenney</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Expressionism">Expressionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Vorticism">Vorticism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="John Addington Symonds">John Addington Symonds</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Berenice Abbott">Berenice Abbott</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alain Locke">Alain Locke</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elsa Barraine">Elsa Barraine</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lili Boulanger">Lili Boulanger</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Oskar Schlemmer">Oskar Schlemmer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modernism">Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mark Rothko">Mark Rothko</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hans Mattis-Teutsch">Hans Mattis-Teutsch</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Delaunay">Robert Delaunay</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Korean Fauvism">Korean Fauvism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="White Savages Group">White Savages Group</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Xi Xi">Xi Xi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arthur Segal">Arthur Segal</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jazz">Jazz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Minimalism">Minimalism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Francisco Zumaqué">Francisco Zumaqué</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Southwest Modernism">Southwest Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Washington Colour Painters">Washington Colour Painters</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hula">Hula</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Luigi Nono">Luigi Nono</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Société Anonyme">Société Anonyme</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lucia Moholy">Lucia Moholy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Structuralism">Structuralism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yu Dafu">Yu Dafu</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Japanese Secession">Japanese Secession</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kazuo Shinohara">Kazuo Shinohara</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Álvaro Siza Vieira">Álvaro Siza Vieira</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gonçalo Ribeiro Telles">Gonçalo Ribeiro Telles</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Wilhelm Wundt">Wilhelm Wundt</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jewish Art Music">Jewish Art Music</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Israeli Art Music">Israeli Art Music</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Walter Arensberg">Walter Arensberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="New York Dada">New York Dada</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hanya Holm">Hanya Holm</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lee Krasner">Lee Krasner</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Roberto Gerhard">Roberto Gerhard</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Edward Hopper">Edward Hopper</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Edward Hopper">Edward Hopper</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jibanananda Das">Jibanananda Das</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Begali">Begali</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Stalin">Stalin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Meyer Schapiro">Meyer Schapiro</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Japonisme">Japonisme</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Machine Age Exposition">Machine Age Exposition</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ben Shahn">Ben Shahn</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rosalind Epstein Krauss">Rosalind Epstein Krauss</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Klaxon">Klaxon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Architecture">Architecture</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Joseph Cornell">Joseph Cornell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="assemblage">assemblage</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Literary Studies">Literary Studies</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Post-Colonialism">Post-Colonialism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Political Science">Political Science</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anthropology">Anthropology</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Philosophy">Philosophy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Religious Studies">Religious Studies</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Indology">Indology</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Islam">Islam</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jasper Johns">Jasper Johns</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Indian Group of Seven">Indian Group of Seven</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Katherine Dunham">Katherine Dunham</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="James Joyce">James Joyce</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Assemblage">Assemblage</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Yellow Book">The Yellow Book</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Paul-Emile Borduas">Paul-Emile Borduas</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Precisionism">Precisionism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="George Santayan">George Santayan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Joan Miró">Joan Miró</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Buddhadeb Bosu / Buddhadeva Bose">Buddhadeb Bosu / Buddhadeva Bose</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Rauschenberg">Robert Rauschenberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arshile Gorky">Arshile Gorky</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bay Area Figurative School">Bay Area Figurative School</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lincoln Kirstein">Lincoln Kirstein</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Moshe Shamir">Moshe Shamir</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Otto Weininger">Otto Weininger</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Semiotics and Semiology">Semiotics and Semiology</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Demas Nwoko">Demas Nwoko</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Luigi Russolo">Luigi Russolo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Brazilian Modern Art Week">Brazilian Modern Art Week</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marianne Brandt">Marianne Brandt</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anna Seghers">Anna Seghers</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Group of Seven">Group of Seven</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Calligraphy in Japan">Calligraphy in Japan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anne Truitt">Anne Truitt</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Elliott Carter">Elliott Carter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="George Grosz">George Grosz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modigliani">Modigliani</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rousseau">Rousseau</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mingei">Mingei</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mauricio Kagel">Mauricio Kagel</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Czech Cubism">Czech Cubism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pechstein">Pechstein</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kim Chew Ng">Kim Chew Ng</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Namjune Paik">Namjune Paik</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Antonio Gramsci">Antonio Gramsci</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Harold Rosenberg">Harold Rosenberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Helen Frankenthaler">Helen Frankenthaler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Photo League">The Photo League</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yvor Winters">Yvor Winters</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hart Crane">Hart Crane</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Anton Webern">Anton Webern</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Christian Wolff">Christian Wolff</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Norman McLaren">Norman McLaren</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Modernism and Popular Music">Modernism and Popular Music</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bengali Modernism">Bengali Modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hindi literature">Hindi literature</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bryher Ellerman">Bryher Ellerman</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Werner Sombart">Werner Sombart</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="1913 Armory Show">1913 Armory Show</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Glenn Gould">Glenn Gould</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Interior Monologue">Interior Monologue</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Max Jacob">Max Jacob</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Tamara Karsavina">Tamara Karsavina</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Archives Internationales de la Danse">Archives Internationales de la Danse</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="diaspora">diaspora</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Benjamin Fondane">Benjamin Fondane</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nadine Gordimer">Nadine Gordimer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arthur Eric Rowton Gill">Arthur Eric Rowton Gill</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marcus Garvey">Marcus Garvey</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Robert Graves">Robert Graves</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Penelope Spencer">Penelope Spencer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arnold Bennett">Arnold Bennett</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Friedrich Nietzsche">Friedrich Nietzsche</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fodéba Keita">Fodéba Keita</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="East West Dance Encounter">East West Dance Encounter</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ruth St. Denis">Ruth St. Denis</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="John Dos Passos">John Dos Passos</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Eugene Jolas">Eugene Jolas</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kawakami Sadayakko">Kawakami Sadayakko</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kawakami Otojiro">Kawakami Otojiro</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Benjamin Péret">Benjamin Péret</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Francis Ponge">Francis Ponge</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Toronto Dance Theatre">Toronto Dance Theatre</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mass Dance">Mass Dance</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Voorslag">Voorslag</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arthur Kenneth Nortje">Arthur Kenneth Nortje</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fin de siècle">Fin de siècle</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="H.I.E.Dhlomo">H.I.E.Dhlomo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Roy Campbell">Roy Campbell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Frederick guy Butler">Frederick guy Butler</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jerome Robbins">Jerome Robbins</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jean Toomer">Jean Toomer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Raymond Queneau">Raymond Queneau</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Valery Larbaud">Valery Larbaud</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sigurd Leeder">Sigurd Leeder</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="elias canetti">elias canetti</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Guangdong Modern Dance Company">Guangdong Modern Dance Company</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="southern agrarians">southern agrarians</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pil'niak">Pil'niak</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Assadata Dafora">Assadata Dafora</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pierre Jean Jouve">Pierre Jean Jouve</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Tristan Corbière">Tristan Corbière</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sigrid Undset">Sigrid Undset</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Johannes V. Jensen">Johannes V. Jensen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Knut Hamsun">Knut Hamsun</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jonas Lie">Jonas Lie</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Carl Van Vechten">Carl Van Vechten</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hermann Broch">Hermann Broch</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Vasslav Nijinsky">Vasslav Nijinsky</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="New Zealand modernism">New Zealand modernism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Flamenco">Flamenco</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gilberto Mendes">Gilberto Mendes</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jules Laforgue">Jules Laforgue</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Neuer Künstlerischer Tanz">Neuer Künstlerischer Tanz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Flann O'Brien">Flann O'Brien</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sarah Gertrude Millin">Sarah Gertrude Millin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Henri Bergson">Henri Bergson</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kotaro Takamura">Kotaro Takamura</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nikolai Gumilev">Nikolai Gumilev</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Buddha Bandit Poets">The Buddha Bandit Poets</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Avot Yeshurun">Avot Yeshurun</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="George William Russell">George William Russell</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Aestheticism">Aestheticism</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Alejo Carpentier">Alejo Carpentier</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Saint-John Perse">Saint-John Perse</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hope Mirrlees">Hope Mirrlees</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lesbia Harford">Lesbia Harford</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Situationist Cinema">Situationist Cinema</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Vicente Emilio Sojo">Vicente Emilio Sojo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Rabindranath Tagore">Rabindranath Tagore</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ataturk">Ataturk</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Berlin Conference of 1884-1885">Berlin Conference of 1884-1885</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mikhail Afanas'evich Bulgakov">Mikhail Afanas'evich Bulgakov</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Decadence">Decadence</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Claude Cahun">Claude Cahun</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Brentano Franz">Brentano Franz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ian Hamilton Finlay">Ian Hamilton Finlay</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Giacomo Balla">Giacomo Balla</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Andree Howard">Andree Howard</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="The Athenaeum">The Athenaeum</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sir James Frazer">Sir James Frazer</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lion Feuchtwanger">Lion Feuchtwanger</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Walter Benjamin">Walter Benjamin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lewis Nkosi">Lewis Nkosi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="F.R. Scott">F.R. Scott</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="James Joyce">James Joyce</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Germaine Acogny">Germaine Acogny</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Georg Trakl">Georg Trakl</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Solomon Plaatje">Solomon Plaatje</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Isaac Rosenberg">Isaac Rosenberg</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sophus Claussen">Sophus Claussen</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Arthur Cravan">Arthur Cravan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ya'ir Hurvitz">Ya'ir Hurvitz</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Lester Horton">Lester Horton</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Peter Kropotkin">Peter Kropotkin</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marieluise Fleisser">Marieluise Fleisser</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Natalie Barney">Natalie Barney</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mário de Sá-Carneiro">Mário de Sá-Carneiro</paper-checkbox></li>
+    </ul>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <ul class="pagination">
+      <li class="disabled"><a href="#">1</a></li>
+      <li><a href="contributing3.html">2</a></li>
+      <li class="active"><a href="#">3</a></li>
+      <li><a href="contributing5.html">4</a></li>
+      <li><a href="contributing6.html">5</a></li>
+      <li><a href="contributing7.html">6</a></li>
+      <li><a href="contributing8.html">7</a></li>
+    </ul>
+  </div>
+</body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="width: 98%; bottom:0; position:relative;"></img></a>
+</footer>
+</html>
