@@ -9,6 +9,11 @@ body {
   font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
+footer {
+  bottom: 0;
+  background-color: #efefef;
+}
+
 hr {
   max-width: 50px;
   border-color: #474747;
@@ -153,7 +158,7 @@ p {
 
 .text-faded {
   color: rgba(153,51,51,.7);
-  text shadow
+  text: shadow;
 }
 
 section {
@@ -348,11 +353,6 @@ header {
   font-weight: 300;
   color: #721563;
 }
-
-footer {
-  bottom: 0;
-}
-
 
 .service-box {
   margin: 50px auto 0;
@@ -774,6 +774,10 @@ body {
   padding-bottom: 100px;
   min-height: 100%;
   margin: 0 auto -100px;
+}
+
+.ctTeal {
+  color: teal;
 }
 
 

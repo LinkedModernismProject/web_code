@@ -7,43 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
-  <meta name="author" content="barthur">
+  <meta name="author" content="dchang">
 
   <title>Linked Modernisms</title>
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-  <!-- Custom Fonts -->
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-  <!-- Plugin CSS -->
-  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="img/LiMofavi.png">
-  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
-
-  <!-- For some visualizations  -->
-  <script src="js/d3.min.js"></script>
-
-  <!-- jQuery -->
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.cookie.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/jquery.fittext.js"></script>
-  <script src="js/wow.min.js"></script>
-
-  <!-- Custom Theme JavaScript -->
-  <script src="js/creative.js"></script>
 
   <!--Polymer Paper Input Resources-->
   <link rel="import" href="bower_components/paper-input/paper-input.html">
@@ -53,29 +27,35 @@
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
   <link rel="import" href="bower_components/paper-checkbox/demo/index.html">
 
-  </script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
 
   <!--Interaction JavaScript-->
-  <script>
-  function contentFade(id, id2, ele) {
-    var butn = '#'+id
-    var elem = '#'+ele
-    $('#'+id).hide();
-    $('#'+id2).hide();
-    $('#backBtn').show();
-    $('#'+ele).fadeIn(700);
-  }
-  function fadeBack(id, id2, id3, ele, ele2) {
-    $('#'+id).hide();
-    $('#'+id2).show();
-    $('#'+id3).show();
-    $('#'+ele).fadeOut(500);
-    $('#'+ele2).fadeOut(500);
-  }
+  <script type="text/javascript">
+    function contentFade(id, id2, ele) {
+      var butn = '#'+id
+      var elem = '#'+ele
+      $('#'+id).hide();
+      $('#'+id2).hide();
+      $('#backBtn').show();
+      $('#'+ele).fadeIn(700);
+    }
+    function fadeBack(id, id2, id3, ele, ele2) {
+      $('#'+id).hide();
+      $('#'+id2).show();
+      $('#'+id3).show();
+      $('#'+ele).fadeOut(500);
+      $('#'+ele2).fadeOut(500);
+    }
   </script>
 </head>
 
-<body>
+<body style="background:#efefef">
   <div class="wrap">
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -129,9 +109,6 @@
       <br/><br/>
       <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><br/>
       <input type="textarea" class="non-search-text" name="alt-names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>
-      <br/><br/>
-      <label for="birth-date">What was the year your item was born or created in?</label><br/>
-      <input type="textarea" class="non-search-text" name="birth-date" placeholder="Please add the year in the format YYYY"></input>
       <br/><br/>
       <label for="birth-date">What was the year your item was born or created in?</label><br/>
       <input type="textarea" class="non-search-text" name="birth-date" placeholder="Please add the year in the format YYYY"></input>
@@ -192,6 +169,7 @@
         <li><input type="checkbox" value="Sculptor">Sculptor</input></li>
         <li><input type="checkbox" value="Typographer">Typographer</input></li>
       </ul>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <label for="related-agent">What other of the following does your agent relate to</label><br/>
       <p>Will have list of alternate things to relate to here</p>
       <select class="form-control" id="selSexuality">
@@ -213,666 +191,394 @@
         <option value="Female">Female</option>
         <option value="Other">Other</option>
       </select>
-      <paper-dropdown-menu label="Ethnicity" style="display:block;">
+      <br>
+      <label for="Ethnicity">What Ethnicity is suited for this subject (if any)?</label><br>
+      <paper-dropdown-menu label="Ethnicity" name="Ethnicity">
         <paper-menu class="dropdown-content">
           <paper-item value=""></paper-item>
-          <paper-item value="">Croissant</paper-item>
-          <paper-item value="">Donut</paper-item>
-          <paper-item value="">Financier</paper-item>
-          <paper-item value="">Madeleine</paper-item>
+          <paper-item class="ctTeal" value="Abazins">Abazins</paper-item>
+          <paper-item class="ctTeal" value="Abkhaz">Abkhaz</paper-item>
+          <paper-item class="ctTeal" value="Acadian">Acadian</paper-item>
+          <paper-item class="ctTeal" value="Acehnese">Acehnese</paper-item>
+          <paper-item class="ctTeal" value="Adyghe">Adyghe</paper-item>
+          <paper-item class="ctTeal" value="African">African</paper-item>
+          <paper-item class="ctTeal" value="Afrikaans">Afrikaans</paper-item>
+          <paper-item class="ctTeal" value="Ahom">Ahom</paper-item>
+          <paper-item class="ctTeal" value="Ajam">Ajam</paper-item>
+          <paper-item class="ctTeal" value="Akan">Akan</paper-item>
+          <paper-item class="ctTeal" value="Albanian">Albanian</paper-item>
+          <paper-item class="ctTeal" value="Swiss">Swiss</paper-item>
+          <paper-item class="ctTeal" value="Algonquian">Algonquian</paper-item>
+          <paper-item class="ctTeal" value="Alsatian">Alsatian</paper-item>
+          <paper-item class="ctTeal" value="Amerindian">Amerindian</paper-item>
+          <paper-item class="ctTeal" value="Amhara">Amhara</paper-item>
+          <paper-item class="ctTeal" value="Amish">Amish</paper-item>
+          <paper-item class="ctTeal" value="Andalusian">Andalusian</paper-item>
+          <paper-item class="ctTeal" value="Anglo-Indian">Anglo-Indian</paper-item>
+          <paper-item class="ctTeal" value="Anglo-Irish">Anglo-Irish</paper-item>
+          <paper-item class="ctTeal" value="Apache">Apache</paper-item>
+          <paper-item class="ctTeal" value="Arab">Arab</paper-item>
+          <paper-item class="ctTeal" value="Aragonese">Aragonese</paper-item>
+          <paper-item class="ctTeal" value="Arara">Arara</paper-item>
+          <paper-item class="ctTeal" value="Arawak">Arawak</paper-item>
+          <paper-item class="ctTeal" value="Armenian">Armenian</paper-item>
+          <paper-item class="ctTeal" value="Aromanian">Aromanian</paper-item>
+          <paper-item class="ctTeal" value="Asian">Asian</paper-item>
+          <paper-item class="ctTeal" value="Assamese">Assamese</paper-item>
+          <paper-item class="ctTeal" value="Assyrian">Assyrian</paper-item>
+          <paper-item class="ctTeal" value="Asturian">Asturian</paper-item>
+          <paper-item class="ctTeal" value="Athabaskan">Athabaskan</paper-item>
+          <paper-item class="ctTeal" value="Austrian">Austrian</paper-item>
+          <paper-item class="ctTeal" value="Avar">Avar</paper-item>
+          <paper-item class="ctTeal" value="Azerbaijani">Azerbaijani</paper-item>
+          <paper-item class="ctTeal" value="Azeris">Azeris</paper-item>
+          <paper-item class="ctTeal" value="Bahnar">Bahnar</paper-item>
+          <paper-item class="ctTeal" value="Bahranis">Bahranis</paper-item>
+          <paper-item class="ctTeal" value="Balinese">Balinese</paper-item>
+          <paper-item class="ctTeal" value="Balkars">Balkars</paper-item>
+          <paper-item class="ctTeal" value="Baloch">Baloch</paper-item>
+          <paper-item class="ctTeal" value="Banjar">Banjar</paper-item>
+          <paper-item class="ctTeal" value="Barbadan">Barbadan</paper-item>
+          <paper-item class="ctTeal" value="Basque">Basque</paper-item>
+          <paper-item class="ctTeal" value="Batak">Batak</paper-item>
+          <paper-item class="ctTeal" value="Batsbi">Batsbi</paper-item>
+          <paper-item class="ctTeal" value="Beary">Beary</paper-item>
+          <paper-item class="ctTeal" value="Bedouin">Bedouin</paper-item>
+          <paper-item class="ctTeal" value="Belarusian">Belarusian</paper-item>
+          <paper-item class="ctTeal" value="Bengali">Bengali</paper-item>
+          <paper-item class="ctTeal" value="Berber">Berber</paper-item>
+          <paper-item class="ctTeal" value="Bhil">Bhil</paper-item>
+          <paper-item class="ctTeal" value="Bihari">Bihari</paper-item>
+          <paper-item class="ctTeal" value="Blackfoot">Blackfoot</paper-item>
+          <paper-item class="ctTeal" value="Bolivian">Bolivian</paper-item>
+          <paper-item class="ctTeal" value="Bonda">Bonda</paper-item>
+          <paper-item class="ctTeal" value="Bosniak">Bosniak</paper-item>
+          <paper-item class="ctTeal" value="Brahui">Brahui</paper-item>
+          <paper-item class="ctTeal" value="Breton">Breton</paper-item>
+          <paper-item class="ctTeal" value="Bugis">Bugis</paper-item>
+          <paper-item class="ctTeal" value="Bulgarian">Bulgarian</paper-item>
+          <paper-item class="ctTeal" value="Burgher">Burgher</paper-item>
+          <paper-item class="ctTeal" value="Buryat">Buryat</paper-item>
+          <paper-item class="ctTeal" value="Castilian">Castilian</paper-item>
+          <paper-item class="ctTeal" value="Catalan">Catalan</paper-item>
+          <paper-item class="ctTeal" value="Chakma">Chakma</paper-item>
+          <paper-item class="ctTeal" value="Cham">Cham</paper-item>
+          <paper-item class="ctTeal" value="Chechen">Chechen</paper-item>
+          <paper-item class="ctTeal" value="Chepang">Chepang</paper-item>
+          <paper-item class="ctTeal" value="Cherke">Cherke</paper-item>
+          <paper-item class="ctTeal" value="Cherkess">Cherkess</paper-item>
+          <paper-item class="ctTeal" value="Cherokee">Cherokee</paper-item>
+          <paper-item class="ctTeal" value="Cheyenne">Cheyenne</paper-item>
+          <paper-item class="ctTeal" value="Chickasaw">Chickasaw</paper-item>
+          <paper-item class="ctTeal" value="Chinese">Chinese</paper-item>
+          <paper-item class="ctTeal" value="Chippewa">Chippewa</paper-item>
+          <paper-item class="ctTeal" value="Chitrali">Chitrali</paper-item>
+          <paper-item class="ctTeal" value="Choctaw">Choctaw</paper-item>
+          <paper-item class="ctTeal" value="Comanche">Comanche</paper-item>
+          <paper-item class="ctTeal" value="Chut">Chut</paper-item>
+          <paper-item class="ctTeal" value="Copt">Copt</paper-item>
+          <paper-item class="ctTeal" value="Cornish">Cornish</paper-item>
+          <paper-item class="ctTeal" value="Corsican">Corsican</paper-item>
+          <paper-item class="ctTeal" value="Cossack">Cossack</paper-item>
+          <paper-item class="ctTeal" value="Cree">Cree</paper-item>
+          <paper-item class="ctTeal" value="Creek">Creek</paper-item>
+          <paper-item class="ctTeal" value="Creole">Creole</paper-item>
+          <paper-item class="ctTeal" value="Croat">Croat</paper-item>
+          <paper-item class="ctTeal" value="Crow">Crow</paper-item>
+          <paper-item class="ctTeal" value="Cuban">Cuban</paper-item>
+          <paper-item class="ctTeal" value="Czech">Czech</paper-item>
+          <paper-item class="ctTeal" value="Daco-Romanian">Daco-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Danis">Danis</paper-item>
+          <paper-item class="ctTeal" value="Dargin">Dargin</paper-item>
+          <paper-item class="ctTeal" value="Dayak">Dayak</paper-item>
+          <paper-item class="ctTeal" value="Delaware">Delaware</paper-item>
+          <paper-item class="ctTeal" value="Dene">Dene</paper-item>
+          <paper-item class="ctTeal" value="Dhivehi">Dhivehi</paper-item>
+          <paper-item class="ctTeal" value="Dolgan">Dolgan</paper-item>
+          <paper-item class="ctTeal" value="Dongria Kondha">Dongria Kondha</paper-item>
+          <paper-item class="ctTeal" value="Dravidian">Dravidian</paper-item>
+          <paper-item class="ctTeal" value="Druze">Druze</paper-item>
+          <paper-item class="ctTeal" value="Egyptian">Egyptian</paper-item>
+          <paper-item class="ctTeal" value="English">English</paper-item>
+          <paper-item class="ctTeal" value="Estonian">Estonian</paper-item>
+          <paper-item class="ctTeal" value="Eurasian">Eurasian</paper-item>
+          <paper-item class="ctTeal" value="Evenk">Evenk</paper-item>
+          <paper-item class="ctTeal" value="Filipino">Filipino</paper-item>
+          <paper-item class="ctTeal" value="Finnish">Finnish</paper-item>
+          <paper-item class="ctTeal" value="Flemish">Flemish</paper-item>
+          <paper-item class="ctTeal" value="French">French</paper-item>
+          <paper-item class="ctTeal" value="Frisian">Frisian</paper-item>
+          <paper-item class="ctTeal" value="Friulian">Friulian</paper-item>
+          <paper-item class="ctTeal" value="Fula">Fula</paper-item>
+          <paper-item class="ctTeal" value="Gaelic">Gaelic</paper-item>
+          <paper-item class="ctTeal" value="Celtic">Celtic</paper-item>
+          <paper-item class="ctTeal" value="Galician">Galician</paper-item>
+          <paper-item class="ctTeal" value="Garifuna">Garifuna</paper-item>
+          <paper-item class="ctTeal" value="Georgian">Georgian</paper-item>
+          <paper-item class="ctTeal" value="German">German</paper-item>
+          <paper-item class="ctTeal" value="Gibraltaran">Gibraltaran</paper-item>
+          <paper-item class="ctTeal" value="Gilaki">Gilaki</paper-item>
+          <paper-item class="ctTeal" value="Gondi">Gondi</paper-item>
+          <paper-item class="ctTeal" value="Gotlander">Gotlander</paper-item>
+          <paper-item class="ctTeal" value="Greek">Greek</paper-item>
+          <paper-item class="ctTeal" value="Guatemalan">Guatemalan</paper-item>
+          <paper-item class="ctTeal" value="Gujarati">Gujarati</paper-item>
+          <paper-item class="ctTeal" value="Gurung">Gurung</paper-item>
+          <paper-item class="ctTeal" value="Haida">Haida</paper-item>
+          <paper-item class="ctTeal" value="Han">Han</paper-item>
+          <paper-item class="ctTeal" value="Haole">Haole</paper-item>
+          <paper-item class="ctTeal" value="Hausa">Hausa</paper-item>
+          <paper-item class="ctTeal" value="Hawaiian">Hawaiian</paper-item>
+          <paper-item class="ctTeal" value="Hazara">Hazara</paper-item>
+          <paper-item class="ctTeal" value="Hindkis">Hindkis</paper-item>
+          <paper-item class="ctTeal" value="Hindkowan">Hindkowan</paper-item>
+          <paper-item class="ctTeal" value="Hispanic">Hispanic</paper-item>
+          <paper-item class="ctTeal" value="Honduran">Honduran</paper-item>
+          <paper-item class="ctTeal" value="Hungarian">Hungarian</paper-item>
+          <paper-item class="ctTeal" value="Hutu">Hutu</paper-item>
+          <paper-item class="ctTeal" value="Icelandic">Icelandic</paper-item>
+          <paper-item class="ctTeal" value="Igbo">Igbo</paper-item>
+          <paper-item class="ctTeal" value="Ijaw">Ijaw</paper-item>
+          <paper-item class="ctTeal" value="Indo-American">Indo-American</paper-item>
+          <paper-item class="ctTeal" value="Ingush">Ingush</paper-item>
+          <paper-item class="ctTeal" value="Iraqi">Iraqi</paper-item>
+          <paper-item class="ctTeal" value="Irish">Irish</paper-item>
+          <paper-item class="ctTeal" value="Irish American">Irish American</paper-item>
+          <paper-item class="ctTeal" value="Iroquois">Iroquois</paper-item>
+          <paper-item class="ctTeal" value="Irulas">Irulas</paper-item>
+          <paper-item class="ctTeal" value="Israeli">Israeli</paper-item>
+          <paper-item class="ctTeal" value="Istro-Romanian">Istro-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Italian">Italian</paper-item>
+          <paper-item class="ctTeal" value="Italian American">Italian American</paper-item>
+          <paper-item class="ctTeal" value="Izhorian">Izhorian</paper-item>
+          <paper-item class="ctTeal" value="Jamaican">Jamaican</paper-item>
+          <paper-item class="ctTeal" value="Japanese">Japanese</paper-item>
+          <paper-item class="ctTeal" value="Jarai">Jarai</paper-item>
+          <paper-item class="ctTeal" value="Javanese">Javanese</paper-item>
+          <paper-item class="ctTeal" value="Jewish">Jewish</paper-item>
+          <paper-item class="ctTeal" value="Julaha">Julaha</paper-item>
+          <paper-item class="ctTeal" value="Kabard">Kabard</paper-item>
+          <paper-item class="ctTeal" value="Kabardin">Kabardin</paper-item>
+          <paper-item class="ctTeal" value="Kadai">Kadai</paper-item>
+          <paper-item class="ctTeal" value="Kadazan">Kadazan</paper-item>
+          <paper-item class="ctTeal" value="Kalmyk">Kalmyk</paper-item>
+          <paper-item class="ctTeal" value="Kam-Sui">Kam-Sui</paper-item>
+          <paper-item class="ctTeal" value="Kannadigas">Kannadigas</paper-item>
+          <paper-item class="ctTeal" value="Karachays">Karachays</paper-item>
+          <paper-item class="ctTeal" value="Karbi">Karbi</paper-item>
+          <paper-item class="ctTeal" value="Kashmiri">Kashmiri</paper-item>
+          <paper-item class="ctTeal" value="Kashub">Kashub</paper-item>
+          <paper-item class="ctTeal" value="Katuic">Katuic</paper-item>
+          <paper-item class="ctTeal" value="Kazakh">Kazakh</paper-item>
+          <paper-item class="ctTeal" value="Khasi">Khasi</paper-item>
+          <paper-item class="ctTeal" value="Khmer">Khmer</paper-item>
+          <paper-item class="ctTeal" value="Khmu">Khmu</paper-item>
+          <paper-item class="ctTeal" value="Khonds">Khonds</paper-item>
+          <paper-item class="ctTeal" value="Khowa">Khowa</paper-item>
+          <paper-item class="ctTeal" value="Kiowa">Kiowa</paper-item>
+          <paper-item class="ctTeal" value="Kirat">Kirat</paper-item>
+          <paper-item class="ctTeal" value="Kodava">Kodava</paper-item>
+          <paper-item class="ctTeal" value="Komi">Komi</paper-item>
+          <paper-item class="ctTeal" value="Kongo">Kongo</paper-item>
+          <paper-item class="ctTeal" value="Kongsat">Kongsat</paper-item>
+          <paper-item class="ctTeal" value="Konkani">Konkani</paper-item>
+          <paper-item class="ctTeal" value="Korean">Korean</paper-item>
+          <paper-item class="ctTeal" value="Kumyks">Kumyks</paper-item>
+          <paper-item class="ctTeal" value="Kurds">Kurds</paper-item>
+          <paper-item class="ctTeal" value="Kurukh (Oraon)">Kurukh (Oraon)</paper-item>
+          <paper-item class="ctTeal" value="Kyrgy">Kyrgy</paper-item>
+          <paper-item class="ctTeal" value="Ladin">Ladin</paper-item>
+          <paper-item class="ctTeal" value="Lak">Lak</paper-item>
+          <paper-item class="ctTeal" value="Lao">Lao</paper-item>
+          <paper-item class="ctTeal" value="Latino">Latino</paper-item>
+          <paper-item class="ctTeal" value="Latin American">Latin American</paper-item>
+          <paper-item class="ctTeal" value="Latvian">Latvian</paper-item>
+          <paper-item class="ctTeal" value="Laz">Laz</paper-item>
+          <paper-item class="ctTeal" value="Lebanese">Lebanese</paper-item>
+          <paper-item class="ctTeal" value="Lepcha">Lepcha</paper-item>
+          <paper-item class="ctTeal" value="Lezgin">Lezgin</paper-item>
+          <paper-item class="ctTeal" value="Lithuanian">Lithuanian</paper-item>
+          <paper-item class="ctTeal" value="Livonian">Livonian</paper-item>
+          <paper-item class="ctTeal" value="Lorrainer">Lorrainer</paper-item>
+          <paper-item class="ctTeal" value="Lu">Lu</paper-item>
+          <paper-item class="ctTeal" value="Lumbee">Lumbee</paper-item>
+          <paper-item class="ctTeal" value="Lur">Lur</paper-item>
+          <paper-item class="ctTeal" value="Luxembourger">Luxembourger</paper-item>
+          <paper-item class="ctTeal" value="Macedonian">Macedonian</paper-item>
+          <paper-item class="ctTeal" value="Madan">Madan</paper-item>
+          <paper-item class="ctTeal" value="Madinka">Madinka</paper-item>
+          <paper-item class="ctTeal" value="Magar">Magar</paper-item>
+          <paper-item class="ctTeal" value="Malay">Malay</paper-item>
+          <paper-item class="ctTeal" value="Malayalis">Malayalis</paper-item>
+          <paper-item class="ctTeal" value="Maltese">Maltese</paper-item>
+          <paper-item class="ctTeal" value="Malto">Malto</paper-item>
+          <paper-item class="ctTeal" value="Manchu">Manchu</paper-item>
+          <paper-item class="ctTeal" value="Manx">Manx</paper-item>
+          <paper-item class="ctTeal" value="Marabou">Marabou</paper-item>
+          <paper-item class="ctTeal" value="Marathi">Marathi</paper-item>
+          <paper-item class="ctTeal" value="Mari">Mari</paper-item>
+          <paper-item class="ctTeal" value="Maronite">Maronite</paper-item>
+          <paper-item class="ctTeal" value="Maroon">Maroon</paper-item>
+          <paper-item class="ctTeal" value="Martiniquan">Martiniquan</paper-item>
+          <paper-item class="ctTeal" value="Mazandarani">Mazandarani</paper-item>
+          <paper-item class="ctTeal" value="Megleno-Romanian">Megleno-Romanian</paper-item>
+          <paper-item class="ctTeal" value="Memba">Memba</paper-item>
+          <paper-item class="ctTeal" value="Mers">Mers</paper-item>
+          <paper-item class="ctTeal" value="Meskhetian Turks">Meskhetian Turks</paper-item>
+          <paper-item class="ctTeal" value="Mestizo">Mestizo</paper-item>
+          <paper-item class="ctTeal" value="Metis">Metis</paper-item>
+          <paper-item class="ctTeal" value="Mexican American">Mexican American</paper-item>
+          <paper-item class="ctTeal" value="Miêkmaq">Miêkmaq</paper-item>
+          <paper-item class="ctTeal" value="Minangkabau">Minangkabau</paper-item>
+          <paper-item class="ctTeal" value="Moldovan">Moldovan</paper-item>
+          <paper-item class="ctTeal" value="Mon">Mon</paper-item>
+          <paper-item class="ctTeal" value="Mongol">Mongol</paper-item>
+          <paper-item class="ctTeal" value="Montenegrin">Montenegrin</paper-item>
+          <paper-item class="ctTeal" value="Moravian Vlach">Moravian Vlach</paper-item>
+          <paper-item class="ctTeal" value="Mordvin">Mordvin</paper-item>
+          <paper-item class="ctTeal" value="Morlach">Morlach</paper-item>
+          <paper-item class="ctTeal" value="Mughal">Mughal</paper-item>
+          <paper-item class="ctTeal" value="Muhajir">Muhajir</paper-item>
+          <paper-item class="ctTeal" value="Mulatto">Mulatto</paper-item>
+          <paper-item class="ctTeal" value="Munda">Munda</paper-item>
+          <paper-item class="ctTeal" value="Muong">Muong</paper-item>
+          <paper-item class="ctTeal" value="Murut">Murut</paper-item>
+          <paper-item class="ctTeal" value="Naga people">Naga people</paper-item>
+          <paper-item class="ctTeal" value="Nai">Nai</paper-item>
+          <paper-item class="ctTeal" value="Navajo">Navajo</paper-item>
+          <paper-item class="ctTeal" value="Neapolitan">Neapolitan</paper-item>
+          <paper-item class="ctTeal" value="Netherlandic">Netherlandic</paper-item>
+          <paper-item class="ctTeal" value="Newar">Newar</paper-item>
+          <paper-item class="ctTeal" value="Nicobarese">Nicobarese</paper-item>
+          <paper-item class="ctTeal" value="Nishi">Nishi</paper-item>
+          <paper-item class="ctTeal" value="Nogais">Nogais</paper-item>
+          <paper-item class="ctTeal" value="Northern Irish">Northern Irish</paper-item>
+          <paper-item class="ctTeal" value="Norwegian">Norwegian</paper-item>
+          <paper-item class="ctTeal" value="Nung">Nung</paper-item>
+          <paper-item class="ctTeal" value="Nuristani">Nuristani</paper-item>
+          <paper-item class="ctTeal" value="Nyaw">Nyaw</paper-item>
+          <paper-item class="ctTeal" value="Oriya">Oriya</paper-item>
+          <paper-item class="ctTeal" value="Oromo">Oromo</paper-item>
+          <paper-item class="ctTeal" value="Ossetian">Ossetian</paper-item>
+          <paper-item class="ctTeal" value="Ottawa">Ottawa</paper-item>
+          <paper-item class="ctTeal" value="Pahari">Pahari</paper-item>
+          <paper-item class="ctTeal" value="Pakistani">Pakistani</paper-item>
+          <paper-item class="ctTeal" value="Palestinian">Palestinian</paper-item>
+          <paper-item class="ctTeal" value="Parsi">Parsi</paper-item>
+          <paper-item class="ctTeal" value="Pashtun">Pashtun</paper-item>
+          <paper-item class="ctTeal" value="Pear">Pear</paper-item>
+          <paper-item class="ctTeal" value="Persian">Persian</paper-item>
+          <paper-item class="ctTeal" value="Peruvian">Peruvian</paper-item>
+          <paper-item class="ctTeal" value="Polish">Polish</paper-item>
+          <paper-item class="ctTeal" value="Portuguese">Portuguese</paper-item>
+          <paper-item class="ctTeal" value="Potawatomi">Potawatomi</paper-item>
+          <paper-item class="ctTeal" value="Pueblo">Pueblo</paper-item>
+          <paper-item class="ctTeal" value="Puerto Rican">Puerto Rican</paper-item>
+          <paper-item class="ctTeal" value="Punjabi">Punjabi</paper-item>
+          <paper-item class="ctTeal" value="Qara">Qara</paper-item>
+          <paper-item class="ctTeal" value="Qashqai">Qashqai</paper-item>
+          <paper-item class="ctTeal" value="Quebecois(e)">Quebecois(e)</paper-item>
+          <paper-item class="ctTeal" value="Rajasthani">Rajasthani</paper-item>
+          <paper-item class="ctTeal" value="Roma">Roma</paper-item>
+          <paper-item class="ctTeal" value="Romand">Romand</paper-item>
+          <paper-item class="ctTeal" value="Romani">Romani</paper-item>
+          <paper-item class="ctTeal" value="Romanian">Romanian</paper-item>
+          <paper-item class="ctTeal" value="Romansh">Romansh</paper-item>
+          <paper-item class="ctTeal" value="Russian">Russian</paper-item>
+          <paper-item class="ctTeal" value="Rutul">Rutul</paper-item>
+          <paper-item class="ctTeal" value="Saek">Saek</paper-item>
+          <paper-item class="ctTeal" value="Salish">Salish</paper-item>
+          <paper-item class="ctTeal" value="Salvadoran">Salvadoran</paper-item>
+          <paper-item class="ctTeal" value="Sami">Sami</paper-item>
+          <paper-item class="ctTeal" value="Samoyed">Samoyed</paper-item>
+          <paper-item class="ctTeal" value="Sardinian">Sardinian</paper-item>
+          <paper-item class="ctTeal" value="Saurashtra">Saurashtra</paper-item>
+          <paper-item class="ctTeal" value="Schleswiger">Schleswiger</paper-item>
+          <paper-item class="ctTeal" value="Scottish">Scottish</paper-item>
+          <paper-item class="ctTeal" value="Seminole">Seminole</paper-item>
+          <paper-item class="ctTeal" value="Seraiki">Seraiki</paper-item>
+          <paper-item class="ctTeal" value="Serb">Serb</paper-item>
+          <paper-item class="ctTeal" value="Shabak">Shabak</paper-item>
+          <paper-item class="ctTeal" value="Shan">Shan</paper-item>
+          <paper-item class="ctTeal" value="Sheedis">Sheedis</paper-item>
+          <paper-item class="ctTeal" value="Shina">Shina</paper-item>
+          <paper-item class="ctTeal" value="Shona">Shona</paper-item>
+          <paper-item class="ctTeal" value="Shoshone">Shoshone</paper-item>
+          <paper-item class="ctTeal" value="Sicilian">Sicilian</paper-item>
+          <paper-item class="ctTeal" value="Siddi">Siddi</paper-item>
+          <paper-item class="ctTeal" value="Silesian">Silesian</paper-item>
+          <paper-item class="ctTeal" value="Sindhi">Sindhi</paper-item>
+          <paper-item class="ctTeal" value="Sinhalese">Sinhalese</paper-item>
+          <paper-item class="ctTeal" value="Siouan">Siouan</paper-item>
+          <paper-item class="ctTeal" value="Slavic">Slavic</paper-item>
+          <paper-item class="ctTeal" value="Slovak">Slovak</paper-item>
+          <paper-item class="ctTeal" value="Slovene">Slovene</paper-item>
+          <paper-item class="ctTeal" value="Somali">Somali</paper-item>
+          <paper-item class="ctTeal" value="Sorb">Sorb</paper-item>
+          <paper-item class="ctTeal" value="Spanish">Spanish</paper-item>
+          <paper-item class="ctTeal" value="Sudanese">Sudanese</paper-item>
+          <paper-item class="ctTeal" value="Swedish">Swedish</paper-item>
+          <paper-item class="ctTeal" value="Syrian">Syrian</paper-item>
+          <paper-item class="ctTeal" value="Tabasaran">Tabasaran</paper-item>
+          <paper-item class="ctTeal" value="Tajik">Tajik</paper-item>
+          <paper-item class="ctTeal" value="Talysh">Talysh</paper-item>
+          <paper-item class="ctTeal" value="Tamang">Tamang</paper-item>
+          <paper-item class="ctTeal" value="Tamil">Tamil</paper-item>
+          <paper-item class="ctTeal" value="Tat">Tat</paper-item>
+          <paper-item class="ctTeal" value="Tatar">Tatar</paper-item>
+          <paper-item class="ctTeal" value="Telugu">Telugu</paper-item>
+          <paper-item class="ctTeal" value="Thai">Thai</paper-item>
+          <paper-item class="ctTeal" value="Thakali">Thakali</paper-item>
+          <paper-item class="ctTeal" value="Thami">Thami</paper-item>
+          <paper-item class="ctTeal" value="Tharu">Tharu</paper-item>
+          <paper-item class="ctTeal" value="Tho">Tho</paper-item>
+          <paper-item class="ctTeal" value="Tibetan">Tibetan</paper-item>
+          <paper-item class="ctTeal" value="Tlingit">Tlingit</paper-item>
+          <paper-item class="ctTeal" value="Tobagan">Tobagan</paper-item>
+          <paper-item class="ctTeal" value="Toda">Toda</paper-item>
+          <paper-item class="ctTeal" value="Trinidadian">Trinidadian</paper-item>
+          <paper-item class="ctTeal" value="Tripuris">Tripuris</paper-item>
+          <paper-item class="ctTeal" value="Trukhmens">Trukhmens</paper-item>
+          <paper-item class="ctTeal" value="Tsakhur">Tsakhur</paper-item>
+          <paper-item class="ctTeal" value="Tuluvas">Tuluvas</paper-item>
+          <paper-item class="ctTeal" value="Tungusic">Tungusic</paper-item>
+          <paper-item class="ctTeal" value="Turkmen">Turkmen</paper-item>
+          <paper-item class="ctTeal" value="Tuvan">Tuvan</paper-item>
+          <paper-item class="ctTeal" value="Tyrolean">Tyrolean</paper-item>
+          <paper-item class="ctTeal" value="Udmurt">Udmurt</paper-item>
+          <paper-item class="ctTeal" value="Ukrainian">Ukrainian</paper-item>
+          <paper-item class="ctTeal" value="Ute">Ute</paper-item>
+          <paper-item class="ctTeal" value="Uyghur">Uyghur</paper-item>
+          <paper-item class="ctTeal" value="Uzbeki">Uzbeki</paper-item>
+          <paper-item class="ctTeal" value="Venetian">Venetian</paper-item>
+          <paper-item class="ctTeal" value="Vep">Vep</paper-item>
+          <paper-item class="ctTeal" value="Vietnamese">Vietnamese</paper-item>
+          <paper-item class="ctTeal" value="Walloon">Walloon</paper-item>
+          <paper-item class="ctTeal" value="Welsh">Welsh</paper-item>
+          <paper-item class="ctTeal" value="White Thai">White Thai</paper-item>
+          <paper-item class="ctTeal" value="Yakut">Yakut</paper-item>
+          <paper-item class="ctTeal" value="Yamato">Yamato</paper-item>
+          <paper-item class="ctTeal" value="Yoruba">Yoruba</paper-item>
+          <paper-item class="ctTeal" value="Yukaghir">Yukaghir</paper-item>
+          <paper-item class="ctTeal" value="Zambo">Zambo</paper-item>
+          <paper-item class="ctTeal" value="Zaza">Zaza</paper-item>
+          <paper-item class="ctTeal" value="Zulu">Zulu</paper-item>
         </paper-menu>
       </paper-dropdown-menu>
-      <paper-dropdown-menu label="Ethnicity2">
-        <paper-menu class="dropdown-content">
-          <paper-item value=""></paper-item>
-          <paper-item value="">Croissant</paper-item>
-          <paper-item value="">Donut</paper-item>
-          <paper-item value="">Financier</paper-item>
-          <paper-item value="">Madeleine</paper-item>
-        </paper-menu>
-      </paper-dropdown-menu>
-      <p>
-        What Ethnicity is suited for this subject (if any)?
-      </p>
-      <ul class="checkbox-grid">
-        <li><paper-checkbox class="teal" value="Abazins">Abazins</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Abkhaz">Abkhaz</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Acadian">Acadian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Acehnese">Acehnese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Adyghe">Adyghe</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="African">African</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Afrikaans">Afrikaans</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ahom">Ahom</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ajam">Ajam</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Akan">Akan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Albanian">Albanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Swiss">Swiss</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Algonquian">Algonquian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Alsatian">Alsatian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Amerindian">Amerindian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Amhara">Amhara</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Amish">Amish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Andalusian">Andalusian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Anglo-Indian">Anglo-Indian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Anglo-Irish">Anglo-Irish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Apache">Apache</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Arab">Arab</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Aragonese">Aragonese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Arara">Arara</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Arawak">Arawak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Armenian">Armenian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Aromanian">Aromanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Asian">Asian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Assamese">Assamese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Assyrian">Assyrian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Asturian">Asturian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Athabaskan">Athabaskan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Austrian">Austrian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Avar">Avar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Azerbaijani">Azerbaijani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Azeris">Azeris</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bahnar">Bahnar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bahranis">Bahranis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Balinese">Balinese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Balkars">Balkars</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Baloch">Baloch</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Banjar">Banjar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Barbadan">Barbadan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Basque">Basque</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Batak">Batak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Batsbi">Batsbi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Beary">Beary</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bedouin">Bedouin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Belarusian">Belarusian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bengali">Bengali</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Berber">Berber</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bhil">Bhil</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bihari">Bihari</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Blackfoot">Blackfoot</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bolivian">Bolivian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bonda">Bonda</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bosniak">Bosniak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Brahui">Brahui</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Breton">Breton</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bugis">Bugis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Bulgarian">Bulgarian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Burgher">Burgher</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Buryat">Buryat</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Castilian">Castilian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Catalan">Catalan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chakma">Chakma</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cham">Cham</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chechen">Chechen</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chepang">Chepang</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cherke">Cherke</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cherkess">Cherkess</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cherokee">Cherokee</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cheyenne">Cheyenne</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chickasaw">Chickasaw</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chinese">Chinese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chippewa">Chippewa</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chitrali">Chitrali</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Choctaw">Choctaw</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Comanche">Comanche</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Chut">Chut</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Copt">Copt</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cornish">Cornish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Corsican">Corsican</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cossack">Cossack</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cree">Cree</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Creek">Creek</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Creole">Creole</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Croat">Croat</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Crow">Crow</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Cuban">Cuban</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Czech">Czech</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Daco-Romanian">Daco-Romanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Danis">Danis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dargin">Dargin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dayak">Dayak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Delaware">Delaware</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dene">Dene</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dhivehi">Dhivehi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dolgan">Dolgan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dongria Kondha">Dongria Kondha</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Dravidian">Dravidian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Druze">Druze</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Egyptian">Egyptian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="English">English</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Estonian">Estonian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Eurasian">Eurasian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Evenk">Evenk</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Filipino">Filipino</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Finnish">Finnish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Flemish">Flemish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="French">French</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Frisian">Frisian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Friulian">Friulian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Fula">Fula</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gaelic">Gaelic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Celtic">Celtic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Galician">Galician</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Garifuna">Garifuna</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Georgian">Georgian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="German">German</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gibraltaran">Gibraltaran</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gilaki">Gilaki</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gondi">Gondi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gotlander">Gotlander</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Greek">Greek</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Guatemalan">Guatemalan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gujarati">Gujarati</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Gurung">Gurung</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Haida">Haida</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Han">Han</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Haole">Haole</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hausa">Hausa</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hawaiian">Hawaiian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hazara">Hazara</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hindkis">Hindkis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hindkowan">Hindkowan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hispanic">Hispanic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Honduran">Honduran</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hungarian">Hungarian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Hutu">Hutu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Icelandic">Icelandic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Igbo">Igbo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ijaw">Ijaw</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Indo-American">Indo-American</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ingush">Ingush</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Iraqi">Iraqi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Irish">Irish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Irish American">Irish American</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Iroquois">Iroquois</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Irulas">Irulas</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Israeli">Israeli</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Istro-Romanian">Istro-Romanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Italian">Italian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Italian American">Italian American</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Izhorian">Izhorian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Jamaican">Jamaican</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Japanese">Japanese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Jarai">Jarai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Javanese">Javanese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Jewish">Jewish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Julaha">Julaha</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kabard">Kabard</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kabardin">Kabardin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kadai">Kadai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kadazan">Kadazan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kalmyk">Kalmyk</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kam-Sui">Kam-Sui</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kannadigas">Kannadigas</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Karachays">Karachays</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Karbi">Karbi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kashmiri">Kashmiri</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kashub">Kashub</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Katuic">Katuic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kazakh">Kazakh</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Khasi">Khasi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Khmer">Khmer</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Khmu">Khmu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Khonds">Khonds</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Khowa">Khowa</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kiowa">Kiowa</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kirat">Kirat</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kodava">Kodava</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Komi">Komi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kongo">Kongo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kongsat">Kongsat</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Konkani">Konkani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Korean">Korean</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kumyks">Kumyks</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kurds">Kurds</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kurukh (Oraon)">Kurukh (Oraon)</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Kyrgy">Kyrgy</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ladin">Ladin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lak">Lak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lao">Lao</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Latino">Latino</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Latin American">Latin American</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Latvian">Latvian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Laz">Laz</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lebanese">Lebanese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lepcha">Lepcha</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lezgin">Lezgin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lithuanian">Lithuanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Livonian">Livonian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lorrainer">Lorrainer</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lu">Lu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lumbee">Lumbee</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Lur">Lur</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Luxembourger">Luxembourger</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Macedonian">Macedonian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Madan">Madan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Madinka">Madinka</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Magar">Magar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Malay">Malay</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Malayalis">Malayalis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Maltese">Maltese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Malto">Malto</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Manchu">Manchu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Manx">Manx</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Marabou">Marabou</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Marathi">Marathi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mari">Mari</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Maronite">Maronite</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Maroon">Maroon</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Martiniquan">Martiniquan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mazandarani">Mazandarani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Megleno-Romanian">Megleno-Romanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Memba">Memba</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mers">Mers</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Meskhetian Turks">Meskhetian Turks</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mestizo">Mestizo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Metis">Metis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mexican American">Mexican American</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Miêkmaq">Miêkmaq</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Minangkabau">Minangkabau</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Moldovan">Moldovan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mon">Mon</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mongol">Mongol</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Montenegrin">Montenegrin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Moravian Vlach">Moravian Vlach</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mordvin">Mordvin</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Morlach">Morlach</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mughal">Mughal</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Muhajir">Muhajir</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Mulatto">Mulatto</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Munda">Munda</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Muong">Muong</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Murut">Murut</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Naga people">Naga people</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nai">Nai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Navajo">Navajo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Neapolitan">Neapolitan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Netherlandic">Netherlandic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Newar">Newar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nicobarese">Nicobarese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nishi">Nishi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nogais">Nogais</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Northern Irish">Northern Irish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Norwegian">Norwegian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nung">Nung</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nuristani">Nuristani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Nyaw">Nyaw</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Oriya">Oriya</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Oromo">Oromo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ossetian">Ossetian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ottawa">Ottawa</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Pahari">Pahari</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Pakistani">Pakistani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Palestinian">Palestinian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Parsi">Parsi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Pashtun">Pashtun</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Pear">Pear</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Persian">Persian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Peruvian">Peruvian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Polish">Polish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Portuguese">Portuguese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Potawatomi">Potawatomi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Pueblo">Pueblo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Puerto Rican">Puerto Rican</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Punjabi">Punjabi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Qara">Qara</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Qashqai">Qashqai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Quebecois(e)">Quebecois(e)</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Rajasthani">Rajasthani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Roma">Roma</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Romand">Romand</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Romani">Romani</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Romanian">Romanian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Romansh">Romansh</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Russian">Russian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Rutul">Rutul</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Saek">Saek</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Salish">Salish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Salvadoran">Salvadoran</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sami">Sami</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Samoyed">Samoyed</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sardinian">Sardinian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Saurashtra">Saurashtra</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Schleswiger">Schleswiger</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Scottish">Scottish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Seminole">Seminole</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Seraiki">Seraiki</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Serb">Serb</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Shabak">Shabak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Shan">Shan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sheedis">Sheedis</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Shina">Shina</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Shona">Shona</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Shoshone">Shoshone</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sicilian">Sicilian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Siddi">Siddi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Silesian">Silesian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sindhi">Sindhi</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sinhalese">Sinhalese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Siouan">Siouan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Slavic">Slavic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Slovak">Slovak</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Slovene">Slovene</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Somali">Somali</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sorb">Sorb</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Spanish">Spanish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Sudanese">Sudanese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Swedish">Swedish</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Syrian">Syrian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tabasaran">Tabasaran</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tajik">Tajik</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Talysh">Talysh</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tamang">Tamang</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tamil">Tamil</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tat">Tat</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tatar">Tatar</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Telugu">Telugu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Thai">Thai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Thakali">Thakali</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Thami">Thami</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tharu">Tharu</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tho">Tho</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tibetan">Tibetan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tlingit">Tlingit</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tobagan">Tobagan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Toda">Toda</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Trinidadian">Trinidadian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tripuris">Tripuris</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Trukhmens">Trukhmens</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tsakhur">Tsakhur</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tuluvas">Tuluvas</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tungusic">Tungusic</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Turkmen">Turkmen</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tuvan">Tuvan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Tyrolean">Tyrolean</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Udmurt">Udmurt</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ukrainian">Ukrainian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Ute">Ute</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Uyghur">Uyghur</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Uzbeki">Uzbeki</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Venetian">Venetian</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Vep">Vep</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Vietnamese">Vietnamese</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Walloon">Walloon</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Welsh">Welsh</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="White Thai">White Thai</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Yakut">Yakut</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Yamato">Yamato</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Yoruba">Yoruba</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Yukaghir">Yukaghir</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Zambo">Zambo</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Zaza">Zaza</paper-checkbox></li>
-        <li><paper-checkbox class="teal" value="Zulu">Zulu</paper-checkbox></li>
-
-      </ul>
-      associated productions
-      influencedby
-      influenced
-
-
-      <p>Place Stuff</p>
-      <label for="place-type">What of the following best describe your Place?</label><br/>
-      <p>Will have list of clickable items here</p>
-      <label for="related-place">What other of the following does your place relate to</label><br/>
-      <p>Will have list of alternate things to relate to here</p>
-      <br/>
-      <ul class="checkbox-grid">
-      <li><input type="checkbox" value="Afganistan">Afghanistan</input>
-      <li><input type="checkbox" value="Albania">Albania</input>
-      <li><input type="checkbox" value="Algeria">Algeria</input>
-      <li><input type="checkbox" value="American Samoa">American Samoa</input>
-      <li><input type="checkbox" value="Andorra">Andorra</input>
-      <li><input type="checkbox" value="Angola">Angola</input>
-      <li><input type="checkbox" value="Anguilla">Anguilla</input>
-      <li><input type="checkbox" value="Antigua &amp; Barbuda">Antigua &amp; Barbuda</input>
-      <li><input type="checkbox" value="Argentina">Argentina</input>
-      <li><input type="checkbox" value="Armenia">Armenia</input>
-      <li><input type="checkbox" value="Aruba">Aruba</input>
-      <li><input type="checkbox" value="Australia">Australia</input>
-      <li><input type="checkbox" value="Austria">Austria</input>
-      <li><input type="checkbox" value="Azerbaijan">Azerbaijan</input>
-      <li><input type="checkbox" value="Bahamas">Bahamas</input>
-      <li><input type="checkbox" value="Bahrain">Bahrain</input>
-      <li><input type="checkbox" value="Bangladesh">Bangladesh</input>
-      <li><input type="checkbox" value="Barbados">Barbados</input>
-      <li><input type="checkbox" value="Belarus">Belarus</input>
-      <li><input type="checkbox" value="Belgium">Belgium</input>
-      <li><input type="checkbox" value="Belize">Belize</input>
-      <li><input type="checkbox" value="Benin">Benin</input>
-      <li><input type="checkbox" value="Bermuda">Bermuda</input>
-      <li><input type="checkbox" value="Bhutan">Bhutan</input>
-      <li><input type="checkbox" value="Bolivia">Bolivia</input>
-      <li><input type="checkbox" value="Bonaire">Bonaire</input>
-      <li><input type="checkbox" value="Bosnia &amp; Herzegovina">Bosnia &amp; Herzegovina</input>
-      <li><input type="checkbox" value="Botswana">Botswana</input>
-      <li><input type="checkbox" value="Brazil">Brazil</input>
-      <li><input type="checkbox" value="British Indian Ocean Ter">British Indian Ocean Ter</input>
-      <li><input type="checkbox" value="Brunei">Brunei</input>
-      <li><input type="checkbox" value="Bulgaria">Bulgaria</input>
-      <li><input type="checkbox" value="Burkina Faso">Burkina Faso</input>
-      <li><input type="checkbox" value="Burundi">Burundi</input>
-      <li><input type="checkbox" value="Cambodia">Cambodia</input>
-      <li><input type="checkbox" value="Cameroon">Cameroon</input>
-      <li><input type="checkbox" value="Canada">Canada 🇨🇦</input>
-      <li><input type="checkbox" value="Canary Islands">Canary Islands</input>
-      <li><input type="checkbox" value="Cape Verde">Cape Verde</input>
-      <li><input type="checkbox" value="Cayman Islands">Cayman Islands</input>
-      <li><input type="checkbox" value="Central African Republic">Central African Republic</input>
-      <li><input type="checkbox" value="Chad">Chad</input>
-      <li><input type="checkbox" value="Channel Islands">Channel Islands</input>
-      <li><input type="checkbox" value="Chile">Chile</input>
-      <li><input type="checkbox" value="China">China</input>
-      <li><input type="checkbox" value="Christmas Island">Christmas Island</input>
-      <li><input type="checkbox" value="Cocos Island">Cocos Island</input>
-      <li><input type="checkbox" value="Colombia">Colombia</input>
-      <li><input type="checkbox" value="Comoros">Comoros</input>
-      <li><input type="checkbox" value="Congo">Congo</input>
-      <li><input type="checkbox" value="Cook Islands">Cook Islands</input>
-      <li><input type="checkbox" value="Costa Rica">Costa Rica</input>
-      <li><input type="checkbox" value="Cote DIvoire">Cote D'Ivoire</input>
-      <li><input type="checkbox" value="Croatia">Croatia</input>
-      <li><input type="checkbox" value="Cuba">Cuba</input>
-      <li><input type="checkbox" value="Curaco">Curacao</input>
-      <li><input type="checkbox" value="Cyprus">Cyprus</input>
-      <li><input type="checkbox" value="Czech Republic">Czech Republic</input>
-      <li><input type="checkbox" value="Denmark">Denmark</input>
-      <li><input type="checkbox" value="Djibouti">Djibouti</input>
-      <li><input type="checkbox" value="Dominica">Dominica</input>
-      <li><input type="checkbox" value="Dominican Republic">Dominican Republic</input>
-      <li><input type="checkbox" value="East Timor">East Timor</input>
-      <li><input type="checkbox" value="Ecuador">Ecuador</input>
-      <li><input type="checkbox" value="Egypt">Egypt</input>
-      <li><input type="checkbox" value="El Salvador">El Salvador</input>
-      <li><input type="checkbox" value="Equatorial Guinea">Equatorial Guinea</input>
-      <li><input type="checkbox" value="Eritrea">Eritrea</input>
-      <li><input type="checkbox" value="Estonia">Estonia</input>
-      <li><input type="checkbox" value="Ethiopia">Ethiopia</input>
-      <li><input type="checkbox" value="Falkland Islands">Falkland Islands</input>
-      <li><input type="checkbox" value="Faroe Islands">Faroe Islands</input>
-      <li><input type="checkbox" value="Fiji">Fiji</input>
-      <li><input type="checkbox" value="Finland">Finland</input>
-      <li><input type="checkbox" value="France">France</input>
-      <li><input type="checkbox" value="French Guiana">French Guiana</input>
-      <li><input type="checkbox" value="French Polynesia">French Polynesia</input>
-      <li><input type="checkbox" value="French Southern Ter">French Southern Ter</input>
-      <li><input type="checkbox" value="Gabon">Gabon</input>
-      <li><input type="checkbox" value="Gambia">Gambia</input>
-      <li><input type="checkbox" value="Georgia">Georgia</input>
-      <li><input type="checkbox" value="Germany">Germany</input>
-      <li><input type="checkbox" value="Ghana">Ghana</input>
-      <li><input type="checkbox" value="Gibraltar">Gibraltar</input>
-      <li><input type="checkbox" value="Great Britain">Great Britain</input>
-      <li><input type="checkbox" value="Greece">Greece</input>
-      <li><input type="checkbox" value="Greenland">Greenland</input>
-      <li><input type="checkbox" value="Grenada">Grenada</input>
-      <li><input type="checkbox" value="Guadeloupe">Guadeloupe</input>
-      <li><input type="checkbox" value="Guam">Guam</input>
-      <li><input type="checkbox" value="Guatemala">Guatemala</input>
-      <li><input type="checkbox" value="Guinea">Guinea</input>
-      <li><input type="checkbox" value="Guyana">Guyana</input>
-      <li><input type="checkbox" value="Haiti">Haiti</input>
-      <li><input type="checkbox" value="Hawaii">Hawaii</input>
-      <li><input type="checkbox" value="Honduras">Honduras</input>
-      <li><input type="checkbox" value="Hong Kong">Hong Kong</input>
-      <li><input type="checkbox" value="Hungary">Hungary</input>
-      <li><input type="checkbox" value="Iceland">Iceland</input>
-      <li><input type="checkbox" value="India">India</input>
-      <li><input type="checkbox" value="Indonesia">Indonesia</input>
-      <li><input type="checkbox" value="Iran">Iran</input>
-      <li><input type="checkbox" value="Iraq">Iraq</input>
-      <li><input type="checkbox" value="Ireland">Ireland</input>
-      <li><input type="checkbox" value="Isle of Man">Isle of Man</input>
-      <li><input type="checkbox" value="Israel">Israel</input>
-      <li><input type="checkbox" value="Italy">Italy</input>
-      <li><input type="checkbox" value="Jamaica">Jamaica</input>
-      <li><input type="checkbox" value="Japan">Japan</input>
-      <li><input type="checkbox" value="Jordan">Jordan</input>
-      <li><input type="checkbox" value="Kazakhstan">Kazakhstan</input>
-      <li><input type="checkbox" value="Kenya">Kenya</input>
-      <li><input type="checkbox" value="Kiribati">Kiribati</input>
-      <li><input type="checkbox" value="Korea North">Korea North</input>
-      <li><input type="checkbox" value="Korea Sout">Korea South</input>
-      <li><input type="checkbox" value="Kuwait">Kuwait</input>
-      <li><input type="checkbox" value="Kyrgyzstan">Kyrgyzstan</input>
-      <li><input type="checkbox" value="Laos">Laos</input>
-      <li><input type="checkbox" value="Latvia">Latvia</input>
-      <li><input type="checkbox" value="Lebanon">Lebanon</input>
-      <li><input type="checkbox" value="Lesotho">Lesotho</input>
-      <li><input type="checkbox" value="Liberia">Liberia</input>
-      <li><input type="checkbox" value="Libya">Libya</input>
-      <li><input type="checkbox" value="Liechtenstein">Liechtenstein</input>
-      <li><input type="checkbox" value="Lithuania">Lithuania</input>
-      <li><input type="checkbox" value="Luxembourg">Luxembourg</input>
-      <li><input type="checkbox" value="Macau">Macau</input>
-      <li><input type="checkbox" value="Macedonia">Macedonia</input>
-      <li><input type="checkbox" value="Madagascar">Madagascar</input>
-      <li><input type="checkbox" value="Malaysia">Malaysia</input>
-      <li><input type="checkbox" value="Malawi">Malawi</input>
-      <li><input type="checkbox" value="Maldives">Maldives</input>
-      <li><input type="checkbox" value="Mali">Mali</input>
-      <li><input type="checkbox" value="Malta">Malta</input>
-      <li><input type="checkbox" value="Marshall Islands">Marshall Islands</input>
-      <li><input type="checkbox" value="Martinique">Martinique</input>
-      <li><input type="checkbox" value="Mauritania">Mauritania</input>
-      <li><input type="checkbox" value="Mauritius">Mauritius</input>
-      <li><input type="checkbox" value="Mayotte">Mayotte</input>
-      <li><input type="checkbox" value="Mexico">Mexico</input>
-      <li><input type="checkbox" value="Midway Islands">Midway Islands</input>
-      <li><input type="checkbox" value="Moldova">Moldova</input>
-      <li><input type="checkbox" value="Monaco">Monaco</input>
-      <li><input type="checkbox" value="Mongolia">Mongolia</input>
-      <li><input type="checkbox" value="Montserrat">Montserrat</input>
-      <li><input type="checkbox" value="Morocco">Morocco</input>
-      <li><input type="checkbox" value="Mozambique">Mozambique</input>
-      <li><input type="checkbox" value="Myanmar">Myanmar</input>
-      <li><input type="checkbox" value="Nambia">Nambia</input>
-      <li><input type="checkbox" value="Nauru">Nauru</input>
-      <li><input type="checkbox" value="Nepal">Nepal</input>
-      <li><input type="checkbox" value="Netherland Antilles">Netherland Antilles</input>
-      <li><input type="checkbox" value="Netherlands">Netherlands (Holland, Europe)</input>
-      <li><input type="checkbox" value="Nevis">Nevis</input>
-      <li><input type="checkbox" value="New Caledonia">New Caledonia</input>
-      <li><input type="checkbox" value="New Zealand">New Zealand</input>
-      <li><input type="checkbox" value="Nicaragua">Nicaragua</input>
-      <li><input type="checkbox" value="Niger">Niger</input>
-      <li><input type="checkbox" value="Nigeria">Nigeria</input>
-      <li><input type="checkbox" value="Niue">Niue</input>
-      <li><input type="checkbox" value="Norfolk Island">Norfolk Island</input>
-      <li><input type="checkbox" value="Norway">Norway</input>
-      <li><input type="checkbox" value="Oman">Oman</input>
-      <li><input type="checkbox" value="Pakistan">Pakistan</input>
-      <li><input type="checkbox" value="Palau Island">Palau Island</input>
-      <li><input type="checkbox" value="Palestine">Palestine</input>
-      <li><input type="checkbox" value="Panama">Panama</input>
-      <li><input type="checkbox" value="Papua New Guinea">Papua New Guinea</input>
-      <li><input type="checkbox" value="Paraguay">Paraguay</input>
-      <li><input type="checkbox" value="Peru">Peru</input>
-      <li><input type="checkbox" value="Phillipines">Philippines</input>
-      <li><input type="checkbox" value="Pitcairn Island">Pitcairn Island</input>
-      <li><input type="checkbox" value="Poland">Poland</input>
-      <li><input type="checkbox" value="Portugal">Portugal</input>
-      <li><input type="checkbox" value="Puerto Rico">Puerto Rico</input>
-      <li><input type="checkbox" value="Qatar">Qatar</input>
-      <li><input type="checkbox" value="Republic of Montenegro">Republic of Montenegro</input>
-      <li><input type="checkbox" value="Republic of Serbia">Republic of Serbia</input>
-      <li><input type="checkbox" value="Reunion">Reunion</input>
-      <li><input type="checkbox" value="Romania">Romania</input>
-      <li><input type="checkbox" value="Russia">Russia</input>
-      <li><input type="checkbox" value="Rwanda">Rwanda</input>
-      <li><input type="checkbox" value="St Barthelemy">St Barthelemy</input>
-      <li><input type="checkbox" value="St Eustatius">St Eustatius</input>
-      <li><input type="checkbox" value="St Helena">St Helena</input>
-      <li><input type="checkbox" value="St Kitts-Nevis">St Kitts-Nevis</input>
-      <li><input type="checkbox" value="St Lucia">St Lucia</input>
-      <li><input type="checkbox" value="St Maarten">St Maarten</input>
-      <li><input type="checkbox" value="St Pierre &amp; Miquelon">St Pierre &amp; Miquelon</input>
-      <li><input type="checkbox" value="St Vincent &amp; Grenadines">St Vincent &amp; Grenadines</input>
-      <li><input type="checkbox" value="Saipan">Saipan</input>
-      <li><input type="checkbox" value="Samoa">Samoa</input>
-      <li><input type="checkbox" value="Samoa American">Samoa American</input>
-      <li><input type="checkbox" value="San Marino">San Marino</input>
-      <li><input type="checkbox" value="Sao Tome &amp; Principe">Sao Tome &amp; Principe</input>
-      <li><input type="checkbox" value="Saudi Arabia">Saudi Arabia</input>
-      <li><input type="checkbox" value="Senegal">Senegal</input>
-      <li><input type="checkbox" value="Serbia">Serbia</input>
-      <li><input type="checkbox" value="Seychelles">Seychelles</input>
-      <li><input type="checkbox" value="Sierra Leone">Sierra Leone</input>
-      <li><input type="checkbox" value="Singapore">Singapore</input>
-      <li><input type="checkbox" value="Slovakia">Slovakia</input>
-      <li><input type="checkbox" value="Slovenia">Slovenia</input>
-      <li><input type="checkbox" value="Solomon Islands">Solomon Islands</input>
-      <li><input type="checkbox" value="Somalia">Somalia</input>
-      <li><input type="checkbox" value="South Africa">South Africa</input>
-      <li><input type="checkbox" value="Spain">Spain</input>
-      <li><input type="checkbox" value="Sri Lanka">Sri Lanka</input>
-      <li><input type="checkbox" value="Sudan">Sudan</input>
-      <li><input type="checkbox" value="Suriname">Suriname</input>
-      <li><input type="checkbox" value="Swaziland">Swaziland</input>
-      <li><input type="checkbox" value="Sweden">Sweden</input>
-      <li><input type="checkbox" value="Switzerland">Switzerland</input>
-      <li><input type="checkbox" value="Syria">Syria</input>
-      <li><input type="checkbox" value="Tahiti">Tahiti</input>
-      <li><input type="checkbox" value="Taiwan">Taiwan</input>
-      <li><input type="checkbox" value="Tajikistan">Tajikistan</input>
-      <li><input type="checkbox" value="Tanzania">Tanzania</input>
-      <li><input type="checkbox" value="Thailand">Thailand</input>
-      <li><input type="checkbox" value="Togo">Togo</input>
-      <li><input type="checkbox" value="Tokelau">Tokelau</input>
-      <li><input type="checkbox" value="Tonga">Tonga</input>
-      <li><input type="checkbox" value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</input>
-      <li><input type="checkbox" value="Tunisia">Tunisia</input>
-      <li><input type="checkbox" value="Turkey">Turkey</input>
-      <li><input type="checkbox" value="Turkmenistan">Turkmenistan</input>
-      <li><input type="checkbox" value="Turks &amp; Caicos Is">Turks &amp; Caicos Is</input>
-      <li><input type="checkbox" value="Tuvalu">Tuvalu</input>
-      <li><input type="checkbox" value="Uganda">Uganda</input>
-      <li><input type="checkbox" value="Ukraine">Ukraine</input>
-      <li><input type="checkbox" value="United Arab Erimates">United Arab Emirates</input>
-      <li><input type="checkbox" value="United Kingdom">United Kingdom</input>
-      <li><input type="checkbox" value="United States of America">United States of America</input>
-      <li><input type="checkbox" value="Uraguay">Uruguay</input>
-      <li><input type="checkbox" value="Uzbekistan">Uzbekistan</input>
-      <li><input type="checkbox" value="Vanuatu">Vanuatu</input>
-      <li><input type="checkbox" value="Vatican City State">Vatican City State</input>
-      <li><input type="checkbox" value="Venezuela">Venezuela</input>
-      <li><input type="checkbox" value="Vietnam">Vietnam</input>
-      <li><input type="checkbox" value="Virgin Islands (Brit)">Virgin Islands (Brit)</input>
-      <li><input type="checkbox" value="Virgin Islands (USA)">Virgin Islands (USA)</input>
-      <li><input type="checkbox" value="Wake Island">Wake Island</input>
-      <li><input type="checkbox" value="Wallis &amp; Futana Is">Wallis &amp; Futana Is</input>
-      <li><input type="checkbox" value="Yemen">Yemen</input>
-      <li><input type="checkbox" value="Zaire">Zaire</input>
-      <li><input type="checkbox" value="Zambia">Zambia</input>
-      <li><input type="checkbox" value="Zimbabwe">Zimbabwe</input>
-      </ul>
-      <p>Production Stuff</p>
-      <label for="production-type">What of the following best describe your Production?</label><br/>
-      <p>Will have list of clickable items here</p>
-      <label for="related-production">What other of the following does your production relate to</label><br/>
-      <p>Will have list of alternate things to relate to here</p>
     </form>
-  </div>
+    <br>
+    <ul class="pagination">
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="contributing3.html">2</a></li>
+      <li><a href="contributing4.html">3</a></li>
+      <li><a href="contributing5.html">4</a></li>
+      <li><a href="contributing6.html">5</a></li>
+      <li><a href="contributing7.html">6</a></li>
+      <li><a href="contributing8.html">7</a></li>
+    </ul>
+  </div> <!--End of id="wrap"-->
 </body>
 <footer>
-  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="width: 98%; bottom:0; position:relative;"></img></a>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="bottom:0;width:98%;position:relative;"></img></a>
 </footer>
 </html>
