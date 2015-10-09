@@ -522,6 +522,25 @@ fieldset[disabled] .btn-primary.active {
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn-material:hover {
+  color: #FFF;
+  background-color: #9C5B92;
+}
+
+.btn-boot-mat {
+  position: relative;
+  padding: 8px 30px;
+  border: solid 1px;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.84);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+
 iframe{
   display: block;
   position: absolute hidden;
@@ -778,6 +797,10 @@ body {
 
 .ctTeal {
   color: teal;
+}
+
+#c1,#c2,#c3,#c4,#c5,#c6 {
+  display: none;
 }
 
 
