@@ -146,7 +146,7 @@
       <br><br><br>
       <button class="btn-material" type="submit" form="cForm" value="Submit">Submit!</button>  <!--FIX!!!!!!!!-->
     </div>
-    <form id="cForm" method="post" onSubmit="return submitForm()">  <!--remove 1 c to put back after testing-->
+    <form id="ccForm" method="post" onSubmit="return submitForm()">  <!--remove 1 c to put back after testing-->
       <br/><br/>
       <div id="c1">
       <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to?</label><br/>
@@ -837,7 +837,7 @@
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <div id="c3">
         <label for="influ">Has the subject influenced anyone?</label>
-        <ul class="checkbox-grid">
+        <ul class="checkbox-grid" style="position:relative;z-index:1;float:left;margin-bottom:50px;">
           <li><input name="hasInflu" type="checkbox" value="1913 Armory Show">1913 Armory Show</input></li>
           <li><input name="hasInflu" type="checkbox" value="1972 Covacevic Gaggero Medina Eche_ique and Gonzalez">1972 Covacevic Gaggero Medina Eche_ique and Gonzalez</input></li>
           <li><input name="hasInflu" type="checkbox" value="A. B. Yehoshua">A. B. Yehoshua</input></li>
@@ -1386,7 +1386,7 @@
       <br><br><br><br><br><br><br>
       <div id="c4">
         <label for="influBy">Was there anyone who influenced the subject?</label>
-        <ul class="checkbox-grid">
+        <ul class="checkbox-grid" style="position:relative;z-index: 1;float:left;margin-bottom:50px">
           <li><input name="wasInflu" type="checkbox" value="1913 Armory Show">1913 Armory Show</input></li>
           <li><input name="wasInflu" type="checkbox" value="1972 Covacevic Gaggero Medina Eche_ique and Gonzalez">1972 Covacevic Gaggero Medina Eche_ique and Gonzalez</input></li>
           <li><input name="wasInflu" type="checkbox" value="A. B. Yehoshua">A. B. Yehoshua</input></li>
@@ -1926,7 +1926,7 @@
           <li><input name="wasInflu" type="checkbox" value="Álvaro Siza Vieira">Álvaro Siza Vieira</input></li>
           <li><input name="wasInflu" type="checkbox" value="Ödön von Horváth">Ödön von Horváth</input></li>
         </ul>
-      </div>
+      </div> <!--End of c4-->
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -1935,7 +1935,7 @@
       <br><br><br><br><br><br><br>
       <div id="c5">
         <label for="corre">Was there anyone who is associated with the subject?</label>
-        <ul class="checkbox-grid">
+        <ul class="checkbox-grid" style="position:relative;z-index:1;float:left;margin-bottom:50px">
           <li><input name="corres" type="checkbox" value="1913 Armory Show">1913 Armory Show</input></li>
           <li><input name="corres" type="checkbox" value="1972 Covacevic Gaggero Medina Eche_ique and Gonzalez">1972 Covacevic Gaggero Medina Eche_ique and Gonzalez</input></li>
           <li><input name="corres" type="checkbox" value="A. B. Yehoshua">A. B. Yehoshua</input></li>
@@ -2475,7 +2475,7 @@
           <li><input name="corres" type="checkbox" value="Álvaro Siza Vieira">Álvaro Siza Vieira</input></li>
           <li><input name="corres" type="checkbox" value="Ödön von Horváth">Ödön von Horváth</input></li>
         </ul>
-      </div>
+      </div> <!--End of c5-->
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -3030,7 +3030,7 @@
         </div>
         <br><br><br><br>
         <label for="place-type">What of the following best describe your Place?</label>
-          <ul class="checkbox-grid">
+          <ul class="checkbox-grid" style="position:relative;z-index:1;float:left;margin-bottom:50px">
             <li><input name="place" type="checkbox" value="Afghanistan">Afghanistan</input></li>
             <li><input name="place" type="checkbox" value="Aland Islands">Aland Islands</input></li>
             <li><input name="place" type="checkbox" value="Albania">Albania</input></li>
@@ -3280,7 +3280,7 @@
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <label for="related-place">What other of the following does your place relate to?</label>
-          <ul class="checkbox-grid">
+          <ul class="checkbox-grid" style="position:relative;z-index:1;float:left;margin-bottom:50px">
             <li><input name="relatedPlace" type="checkbox" value="Afghanistan">Afghanistan</input></li>
             <li><input name="relatedPlace" type="checkbox" value="Aland Islands">Aland Islands</input></li>
             <li><input name="relatedPlace" type="checkbox" value="Albania">Albania</input></li>
@@ -3527,9 +3527,6 @@
             <li><input name="relatedPlace" type="checkbox" value="Zimbabwe">Zimbabwe</input></li>
           </ul>
       </div> <!--End of c6-->
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <!--<paper-button raised onclick="submitForm()">Submit</paper-button>-->
       <button class="btn-material" type="submit" form="cForm" value="Submit">Submit!</button>
     </form>
