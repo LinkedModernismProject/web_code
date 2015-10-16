@@ -73,29 +73,31 @@
     }
     function submitForm() {
       console.log('in submitForm');
-      var y = $('#cForm').serialize();
-      var x = $('#cForm').serializeArray();
-      console.log(x.length);
-      console.log(y);
+      var x = $('#cForm').serializeArray(); //Gets name and values from form data into and arr of objects
       for(i in x) {
-        console.log(x[i]);
+        if(x[i].value != '') {
+          console.log(x[i]);
+          console.log(x[i].name);
+          console.log(x[i].value);
+
+
+        }
       }
-      var pInp = $('#cForm');
-      console.log(pInp);
-      console.log(pInp.selector);
-      var inputs = $('#cForm : input');
-      var ids = {};
-      inputs.each(function(index) {
-        ids[$(this).attr('name')] = $(this).attr('id');
-      })
-      console.log(ids);
-      window.onbeforeunload = function() {
-        return "Are you sure you want to navigate away?";
-      }
+      //window.onbeforeunload = function() {
+      //  return "Are you sure you want to navigate away?";
+      //}
+      window.location.href = 'http://google.com';
+      console.log('afterreerer');
 
     }
     function submitForm2() {
       document.getElementById('cForm').submit();
+    }
+    function submitForm3() {
+      console.log('in f3');
+      window.location = 'https://www.google.ca/';
+      console.log('afta');
+      return false; //Need to set return to false to stop the default action of the event, and thus can redirect
     }
   </script>
 </head>
@@ -146,7 +148,7 @@
       <br><br><br>
       <button class="btn-material" type="submit" form="cForm" value="Submit">Submit!</button>  <!--FIX!!!!!!!!-->
     </div>
-    <form id="ccForm" method="post" onSubmit="return submitForm()">  <!--remove 1 c to put back after testing-->
+    <form id="cForm" method="post" onSubmit="return submitForm3()">  <!--remove 1 c to put back after testing-->
       <br/><br/>
       <div id="c1">
       <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to?</label><br/>
