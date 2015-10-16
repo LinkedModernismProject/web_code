@@ -2,7 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: #efefef;
+  background-color: #fffffe;
 }
 
 body {
@@ -800,7 +800,7 @@ body {
 }
 
 #c1,#c2,#c3,#c4,#c5,#c6 {
-  display: none;
+  /*display: none;   ###Future implementation*/
 }
 
 
