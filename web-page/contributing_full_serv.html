@@ -86,9 +86,9 @@
       //window.onbeforeunload = function() {
       //  return "Are you sure you want to navigate away?";
       //}
-      window.location.href = 'http://google.com';
+      window.location.href = 'http://linkedmods.uvic.ca:8890/';
       console.log('afterreerer');
-
+      return false; //Need to set return to false to stop the default action of the event, and thus can redirect
     }
     function submitForm2() {
       document.getElementById('cForm').submit();
@@ -148,7 +148,7 @@
       <br><br><br>
       <button class="btn-material" type="submit" form="cForm" value="Submit">Submit!</button>  <!--FIX!!!!!!!!-->
     </div>
-    <form id="cForm" method="post" onSubmit="return submitForm3()">  <!--remove 1 c to put back after testing-->
+    <form id="cForm" method="post" onSubmit="return submitForm()">  <!--remove 1 c to put back after testing-->
       <br/><br/>
       <div id="c1">
       <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to?</label><br/>
