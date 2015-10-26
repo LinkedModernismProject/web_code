@@ -79,11 +79,11 @@ input:focus ~ .highlight {
 
 /*Extra styles for the Authorization*/
 .popupContainer{
-  position:absolute;
+  position:relative;
   width:340px;
   height: auto;
   left:40%;
-  top:80px;
+  /*top:80px; If position:relative then don't need this*/
   border-radius: 0.35em;
   border: 1px solid #802C73;
   /*background: #E6E6E6;
