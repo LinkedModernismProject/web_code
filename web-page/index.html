@@ -355,17 +355,17 @@
   function constructQuery(singleWord){
     var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object .';
     if($('#tabSearch').hasClass('active')){
+      if($("#pred").val() != ""){
+        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
+      }
       if($("#subj").val() != ""){
         var subj_ = $("#subj").val();
         subj_ = subj_.replace(/\s/g, '_');
         console.log('working');
         query += ' FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
-      if($("#pred").val() != ""){
-        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
-      }
       if($("#obj").val() != ""){
-        query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+        query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i") .';
       }
     }
     if(singleWord != undefined){
@@ -411,22 +411,47 @@
 
   //Convert unNaturalQuery string to a Natural Language string
   //For now just making data available to user as Natural Language still needs implementing
-  function toNaturalLang(unNatQuery) {
-    console.log(unNatQuery);
-    var s = unNatQuery.split(/\.(.+)?/);
-    console.log(s);
-
-
-    var test = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/)
-    console.log(test);
-    console.log(test[1]);
+  function toNaturalLang(un_nat_query) {
+    console.log(un_nat_query);
     debugger;
-    //switch (s[1]) {
-    //  case s[1].match(/FILTER regex\(str\(\?Subject\),\s*"([^"])+",.+/):
-    //    break;
-    //  default:
-    //    console.log("didn't match any");
-    //}
+    var s = un_nat_query.split(/\.(.+)?/);
+    var nat_lang = '';
+    var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
+    var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
+    console.log(s);
+    console.log(o_match);
+    //debugger;
+    if (s_match != null) { //There is a subj match in [1]
+      nat_lang += 'Subject: ' + s_match[1].replace(/_/g, ' ');
+    }
+    if (/\s*SELECT distinct \* WHERE \{ \?Subject \?Predicate \?Object\s*/.test(s[0])) {
+      console.log('in the pred if at least');
+      if (s[1].match(/.*\?Subject.*:([^\s])+\s\?Object.*FILTER.*/) != null) { //Case for if there is a subj or obj after the pred
+        console.log('in the match for a pred with FILTER');
+      } else { //Case where no subj and obj so the first pattern will be the pred
+        console.log('the first is just going to be the pred');
+      }
+
+    }
+    debugger;
+
+
+    if (o_match != null) { //There is a obj match in [1]
+      console.log(' int he o match');
+      if(nat_lang != '') {
+        nat_lang += '<br>';
+      }
+      var o = o_match[1].replace(/_/g, ' ');
+      console.log(o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, ''));
+      //debugger;
+      nat_lang += 'Object: ' + o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, '');
+
+    } else {
+      console.log('no matching');
+    }
+    //debugger;
+
+
     //if(s[1].) { //WORKING ON MATCHING
     //  //If the string has a Subject
     //}
@@ -434,7 +459,7 @@
     if(s[0]=='SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object ') { //Case if it is the query had a Predicate
       console.log('in the s0');
     }
-    debugger;
+    //debugger;
 
     console.log(s);
 
