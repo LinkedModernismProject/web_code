@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- For some visualizations  -->
+  <script src="js/d3.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+  <!--Polymer Paper Input Resources-->
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-checkbox/demo/index.html">
+
+  <!--Interaction JavaScript-->
+  <script>
+  function contentFade(id, id2, ele) {
+    console.log(id, id2, ele);
+    var butn = '#'+id
+    var elem = '#'+ele
+    console.log(butn +'|||'+elem);
+    $('#'+id).hide();
+    //#('#'+id2).hide();
+    $('#'+id2).hide();
+    $('#backBtn').show();
+    $('#'+ele).fadeIn(700);
+    console.log('DONE');
+  }
+  function fadeBack(id, id2, id3, ele, ele2) {
+    console.log(id, id2, id3, ele, ele2);
+    $('#'+id).hide();
+    $('#'+id2).show();
+    $('#'+id3).show();
+    $('#'+ele).fadeOut(500);
+    $('#'+ele2).fadeOut(500);
+  }
+  </script>
+</head>
+
+<body style="background:#efefef">
+  <div class="wrap">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="index.html">Linked Modernisms</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="page-scroll" href="examples.html">Examples</a></li>
+            <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
+            <li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+            <li><a class="page-scroll" href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <hr class="light"></hr><br/>
+
+    <h1>
+      Contribute To The Linked Modernisms Project
+    </h1><br/><br/>
+
+    <label for="pLang">What is this subjects primary language?</label>
+    <paper-dropdown-menu label="Primary Language" name="pLang">
+      <paper-menu class="dropdown-content">
+        <paper-item value=""></paper-item>
+        <paper-item class="ctTeal" value="Afrikaans">Afrikaans</paper-item>
+        <paper-item class="ctTeal" value="Akan">Akan</paper-item>
+        <paper-item class="ctTeal" value="Amharic">Amharic</paper-item>
+        <paper-item class="ctTeal" value="Assam ese">Assam ese</paper-item>
+        <paper-item class="ctTeal" value="Azerbaijani">Azerbaijani</paper-item>
+        <paper-item class="ctTeal" value="Belarusian">Belarusian</paper-item>
+        <paper-item class="ctTeal" value="Burmese">Burmese</paper-item>
+        <paper-item class="ctTeal" value="Bengali">Bengali</paper-item>
+        <paper-item class="ctTeal" value="Berber">Berber</paper-item>
+        <paper-item class="ctTeal" value="Bhojpuri">Bhojpuri</paper-item>
+        <paper-item class="ctTeal" value="Bulgarian">Bulgarian</paper-item>
+        <paper-item class="ctTeal" value="Cebuano">Cebuano</paper-item>
+        <paper-item class="ctTeal" value="Chhattisgarh">Chhattisgarh</paper-item>
+        <paper-item class="ctTeal" value="Chitag onian">Chitag onian</paper-item>
+        <paper-item class="ctTeal" value="Czech">Czech</paper-item>
+        <paper-item class="ctTeal" value="Dekhni">Dekhni</paper-item>
+        <paper-item class="ctTeal" value="Dutch">Dutch</paper-item>
+        <paper-item class="ctTeal" value="Egyptian Arabic">Egyptian Arabic</paper-item>
+        <paper-item class="ctTeal" value="English">English</paper-item>
+        <paper-item class="ctTeal" value="French">French</paper-item>
+        <paper-item class="ctTeal" value="Fula">Fula</paper-item>
+        <paper-item class="ctTeal" value="Fulfulde">Fulfulde</paper-item>
+        <paper-item class="ctTeal" value="Gan Chinese">Gan Chinese</paper-item>
+        <paper-item class="ctTeal" value="German">German</paper-item>
+        <paper-item class="ctTeal" value="Greek">Greek</paper-item>
+        <paper-item class="ctTeal" value="Gugarati">Gugarati</paper-item>
+        <paper-item class="ctTeal" value="Gulf  Arabic">Gulf  Arabic</paper-item>
+        <paper-item class="ctTeal" value="Hungarian">Hungarian</paper-item>
+        <paper-item class="ctTeal" value="Ha usa">Ha usa</paper-item>
+        <paper-item class="ctTeal" value="Haitian Creole">Haitian Creole</paper-item>
+        <paper-item class="ctTeal" value="Hakka  Chinese">Hakka  Chinese</paper-item>
+        <paper-item class="ctTeal" value="Haryanvi">Haryanvi</paper-item>
+        <paper-item class="ctTeal" value="Hebrew">Hebrew</paper-item>
+        <paper-item class="ctTeal" value="Hiligaynon">Hiligaynon</paper-item>
+        <paper-item class="ctTeal" value="Hindi">Hindi</paper-item>
+        <paper-item class="ctTeal" value="Igbo">Igbo</paper-item>
+        <paper-item class="ctTeal" value="Ilokano">Ilokano</paper-item>
+        <paper-item class="ctTeal" value="Italian">Italian</paper-item>
+        <paper-item class="ctTeal" value="Japanese">Japanese</paper-item>
+        <paper-item class="ctTeal" value="Javanese">Javanese</paper-item>
+        <paper-item class="ctTeal" value="Jin Yu Chinese">Jin Yu Chinese</paper-item>
+        <paper-item class="ctTeal" value="Kannada">Kannada</paper-item>
+        <paper-item class="ctTeal" value="Kazakh">Kazakh</paper-item>
+        <paper-item class="ctTeal" value="Khme">Khme</paper-item>
+        <paper-item class="ctTeal" value="kinyarwanda">kinyarwanda</paper-item>
+        <paper-item class="ctTeal" value="Korean">Korean</paper-item>
+        <paper-item class="ctTeal" value="Kurdish">Kurdish</paper-item>
+        <paper-item class="ctTeal" value="Levantine Arabic">Levantine Arabic</paper-item>
+        <paper-item class="ctTeal" value="Madurese">Madurese</paper-item>
+        <paper-item class="ctTeal" value="Magadhi">Magadhi</paper-item>
+        <paper-item class="ctTeal" value="Maghrebi Arabic">Maghrebi Arabic</paper-item>
+        <paper-item class="ctTeal" value="Malagasy">Malagasy</paper-item>
+        <paper-item class="ctTeal" value="Malay/Indonesian">Malay/Indonesian</paper-item>
+        <paper-item class="ctTeal" value="Malayalam">Malayalam</paper-item>
+        <paper-item class="ctTeal" value="Mandarin Chinese">Mandarin Chinese</paper-item>
+        <paper-item class="ctTeal" value="Marathi">Marathi</paper-item>
+        <paper-item class="ctTeal" value="Marwari">Marwari</paper-item>
+        <paper-item class="ctTeal" value="Mesopotamian Arabic">Mesopotamian Arabic</paper-item>
+        <paper-item class="ctTeal" value="Min Bei Chinese">Min Bei Chinese</paper-item>
+        <paper-item class="ctTeal" value="Min Nan Chinese">Min Nan Chinese</paper-item>
+        <paper-item class="ctTeal" value="Najdi Arabic">Najdi Arabic</paper-item>
+        <paper-item class="ctTeal" value="Nepali">Nepali</paper-item>
+        <paper-item class="ctTeal" value="Oriya">Oriya</paper-item>
+        <paper-item class="ctTeal" value="Oromo">Oromo</paper-item>
+        <paper-item class="ctTeal" value="Panjabi">Panjabi</paper-item>
+        <paper-item class="ctTeal" value="Pashto">Pashto</paper-item>
+        <paper-item class="ctTeal" value="Persian">Persian</paper-item>
+        <paper-item class="ctTeal" value="Polish">Polish</paper-item>
+        <paper-item class="ctTeal" value="Portuguese">Portuguese</paper-item>
+        <paper-item class="ctTeal" value="Quechua">Quechua</paper-item>
+        <paper-item class="ctTeal" value="Romanian">Romanian</paper-item>
+        <paper-item class="ctTeal" value="Russian">Russian</paper-item>
+        <paper-item class="ctTeal" value="Swedish">Swedish</paper-item>
+        <paper-item class="ctTeal" value="Saêide  Arabic">Saêide  Arabic</paper-item>
+        <paper-item class="ctTeal" value="Saraiki">Saraiki</paper-item>
+        <paper-item class="ctTeal" value="Serbo-croatian">Serbo-croatian</paper-item>
+        <paper-item class="ctTeal" value="Shinhala">Shinhala</paper-item>
+        <paper-item class="ctTeal" value="Shona">Shona</paper-item>
+        <paper-item class="ctTeal" value="Sindhi">Sindhi</paper-item>
+        <paper-item class="ctTeal" value="Somali">Somali</paper-item>
+        <paper-item class="ctTeal" value="Spanish">Spanish</paper-item>
+        <paper-item class="ctTeal" value="Sudanese Arabic">Sudanese Arabic</paper-item>
+        <paper-item class="ctTeal" value="Sundanese">Sundanese</paper-item>
+        <paper-item class="ctTeal" value="Tagalog">Tagalog</paper-item>
+        <paper-item class="ctTeal" value="Tamil">Tamil</paper-item>
+        <paper-item class="ctTeal" value="Tatar">Tatar</paper-item>
+        <paper-item class="ctTeal" value="Telugu">Telugu</paper-item>
+        <paper-item class="ctTeal" value="Thai">Thai</paper-item>
+        <paper-item class="ctTeal" value="Turkish">Turkish</paper-item>
+        <paper-item class="ctTeal" value="Ukrainian">Ukrainian</paper-item>
+        <paper-item class="ctTeal" value="Urdu">Urdu</paper-item>
+        <paper-item class="ctTeal" value="Uyghur">Uyghur</paper-item>
+        <paper-item class="ctTeal" value="Uzbek">Uzbek</paper-item>
+        <paper-item class="ctTeal" value="Vietnamese">Vietnamese</paper-item>
+        <paper-item class="ctTeal" value="Wu Chinese">Wu Chinese</paper-item>
+        <paper-item class="ctTeal" value="Xiang Chinese">Xiang Chinese</paper-item>
+        <paper-item class="ctTeal" value="Yiddish">Yiddish</paper-item>
+        <paper-item class="ctTeal" value="Yoruba">Yoruba</paper-item>
+        <paper-item class="ctTeal" value="Yue Chinese (Cantonese)">Yue Chinese (Cantonese)</paper-item>
+        <paper-item class="ctTeal" value="Zhuang Chinese">Zhuang Chinese</paper-item>
+        <paper-item class="ctTeal" value="Zulu">Zulu</paper-item>
+      </paper-menu>
+    </paper-dropdown-menu>
+    <br><br><br>
+
+    <label for="usesLang">What languages does the subject speak?</label>
+    <ul class="checkbox-grid" name="usesLang">
+      <li><paper-checkbox class="teal" value="Afrikaans">Afrikaans</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Akan">Akan</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Amharic">Amharic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Assam ese">Assam ese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Azerbaijani">Azerbaijani</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Belarusian">Belarusian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Burmese">Burmese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bengali">Bengali</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Berber">Berber</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bhojpuri">Bhojpuri</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Bulgarian">Bulgarian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Cebuano">Cebuano</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Chhattisgarh">Chhattisgarh</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Chitag onian">Chitag onian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Czech">Czech</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dekhni">Dekhni</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Dutch">Dutch</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Egyptian Arabic">Egyptian Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="English">English</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="French">French</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fula">Fula</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Fulfulde">Fulfulde</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gan Chinese">Gan Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="German">German</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Greek">Greek</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gugarati">Gugarati</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Gulf  Arabic">Gulf  Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hungarian">Hungarian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ha usa">Ha usa</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Haitian Creole">Haitian Creole</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hakka  Chinese">Hakka  Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Haryanvi">Haryanvi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hebrew">Hebrew</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hiligaynon">Hiligaynon</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Hindi">Hindi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Igbo">Igbo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ilokano">Ilokano</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Italian">Italian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Japanese">Japanese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Javanese">Javanese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Jin Yu Chinese">Jin Yu Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kannada">Kannada</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kazakh">Kazakh</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Khme">Khme</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="kinyarwanda">kinyarwanda</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Korean">Korean</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Kurdish">Kurdish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Levantine Arabic">Levantine Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Madurese">Madurese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Magadhi">Magadhi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Maghrebi Arabic">Maghrebi Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Malagasy">Malagasy</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Malay/Indonesian">Malay/Indonesian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Malayalam">Malayalam</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mandarin Chinese">Mandarin Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marathi">Marathi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Marwari">Marwari</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Mesopotamian Arabic">Mesopotamian Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Min Bei Chinese">Min Bei Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Min Nan Chinese">Min Nan Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Najdi Arabic">Najdi Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Nepali">Nepali</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Oriya">Oriya</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Oromo">Oromo</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Panjabi">Panjabi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Pashto">Pashto</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Persian">Persian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Polish">Polish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Portuguese">Portuguese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Quechua">Quechua</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Romanian">Romanian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Russian">Russian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Swedish">Swedish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Saêide  Arabic">Saêide  Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Saraiki">Saraiki</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Serbo-croatian">Serbo-croatian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Shinhala">Shinhala</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Shona">Shona</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sindhi">Sindhi</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Somali">Somali</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Spanish">Spanish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sudanese Arabic">Sudanese Arabic</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Sundanese">Sundanese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Tagalog">Tagalog</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Tamil">Tamil</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Tatar">Tatar</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Telugu">Telugu</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Thai">Thai</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Turkish">Turkish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Ukrainian">Ukrainian</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Urdu">Urdu</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Uyghur">Uyghur</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Uzbek">Uzbek</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Vietnamese">Vietnamese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Wu Chinese">Wu Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Xiang Chinese">Xiang Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yiddish">Yiddish</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yoruba">Yoruba</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Yue Chinese (Cantonese)">Yue Chinese (Cantonese)</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Zhuang Chinese">Zhuang Chinese</paper-checkbox></li>
+      <li><paper-checkbox class="teal" value="Zulu">Zulu</paper-checkbox></li>
+    </ul>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <ul class="pagination">
+      <li class="disabled"><a href="#">1</a></li>
+      <li class="active"><a href="#">2</a></li>
+      <li><a href="contributing4.html">3</a></li>
+      <li><a href="contributing5.html">4</a></li>
+      <li><a href="contributing6.html">5</a></li>
+      <li><a href="contributing7.html">6</a></li>
+      <li><a href="contributing8.html">7</a></li>
+    </ul>
+  </div>
+</body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="width: 98%; bottom:0; position:relative;"></img></a>
+</footer>
+</html>

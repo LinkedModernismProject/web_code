@@ -9,6 +9,11 @@ body {
   font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
+footer {
+  bottom: 0;
+  background-color: #efefef;
+}
+
 hr {
   max-width: 50px;
   border-color: #474747;
@@ -350,11 +355,6 @@ header {
   color: #721563;
 }
 
-footer {
-  bottom: 0;
-}
-
-
 .service-box {
   margin: 50px auto 0;
   max-width: 400px;
@@ -523,6 +523,25 @@ fieldset[disabled] .btn-primary.active {
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.btn-material:hover {
+  color: #FFF;
+  background-color: #9C5B92;
+}
+
+.btn-boot-mat {
+  position: relative;
+  padding: 8px 30px;
+  border: solid 1px;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.84);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+
 iframe{
   display: block;
   position: absolute hidden;
@@ -649,8 +668,8 @@ body {
 .vis-select1 input:active +.vis-s1{opacity: .9;}
 .vis-select1 input:checked +.vis-s1{
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 .vis-s{
     cursor:pointer;
@@ -781,6 +800,9 @@ body {
   color: teal;
 }
 
+#c1,#c2,#c3,#c4,#c5,#c6 {
+  /*display: none;   ###Future implementation*/
+}
 
 /*These 3 not used, decided to go with nodata_center*/
 .nodata_outer {
@@ -842,10 +864,10 @@ circle.child {
 }
 
 .ui-autocomplete {
-	position: absolute;
-	top: 0;
-	left: 0;
-	cursor: default;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
   max-height: 40em;
   overflow-y: auto;
   /* prevent horizontal scrollbar */
@@ -853,56 +875,56 @@ circle.child {
 }
 
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1.1em;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
 }
 .ui-widget .ui-widget {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 .ui-menu {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: block;
-	outline: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
 }
 .ui-menu .ui-menu {
-	position: absolute;
+  position: absolute;
 }
 .ui-menu .ui-menu-item {
-	position: relative;
-	margin: 0;
-	padding: 3px 1em 3px .4em;
-	cursor: pointer;
-	min-height: 0; /* support: IE7 */
-	/* support: IE10, see #8844 */
-	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 }
 .ui-menu .ui-menu-divider {
-	margin: 5px 0;
-	height: 0;
-	font-size: 0;
-	line-height: 0;
-	border-width: 1px 0 0 0;
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
 }
 .ui-menu .ui-state-focus,
 .ui-menu .ui-state-active {
-	margin: -1px;
+  margin: -1px;
 }
 
 /* icon support */
 .ui-menu-icons {
-	position: relative;
+  position: relative;
 }
 .ui-menu-icons .ui-menu-item {
-	padding-left: 2em;
+  padding-left: 2em;
 }
 
 .ui-widget-content {
-	border: 1px solid #aaaaaa;
-	background: #ffffff;
-	color: #222222;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  color: #222222;
 }
 
 .ui-state-hover,
@@ -911,18 +933,18 @@ circle.child {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #999999;
-	background: #dadada;
-	font-weight: normal;
-	color: #212121;
+  border: 1px solid #999999;
+  background: #dadada;
+  font-weight: normal;
+  color: #212121;
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #aaaaaa;
-	background: #ffffff;
-	font-weight: normal;
-	color: #212121;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  font-weight: normal;
+  color: #212121;
 }
 
 .ui-helper-hidden-accessible {

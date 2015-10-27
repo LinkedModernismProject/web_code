@@ -121,9 +121,9 @@ Turtle
 			ns0:story_writer "True" ;
 			ns0:performer "True" .
 
-startVirtuoso.sh
-	cd /usr/local/virtuoso-opensource/bin/
-	sudo ./virtuoso-t -f &
+startVirtuoso.sh<br>
+&nbsp;&nbsp;cd /usr/local/virtuoso-opensource/bin/<br>
+&nbsp;&nbsp;sudo ./virtuoso-t -f &
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}
