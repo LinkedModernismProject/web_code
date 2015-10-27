@@ -997,7 +997,7 @@ d3sparql.forcegraph = function(json, config) {
   var opts = {
     "radius":    config.radius    || function(d) {return d.value ? scale(d.value) : 1 + d.label.length },
     "charge":    config.charge    || -150,
-    "distance":  config.distance  || 50,
+    "distance":  config.distance  || 50, //Change distance in index for this
     "width":     config.width     || window.width,
     "height":    config.height    || 1000,
     "label":     config.label     || false,
@@ -1069,8 +1069,8 @@ d3sparql.forcegraph = function(json, config) {
   .attr('class', 'has-popover')
   .text(function(d) {return d[opts.label || "label"]})
   var force = d3.layout.force()
-  .charge(opts.charge)
-  .linkDistance(opts.distance)
+  .charge(-150)//opts.charge)
+  .linkDistance(130)//opts.distance)
   .gravity(0.05)
   .size([opts.width, opts.height])
   .nodes(graph.nodes)

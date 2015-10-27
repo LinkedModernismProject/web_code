@@ -2,7 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: #efefef;
+  background-color: #fffffe;
 }
 
 body {
@@ -127,6 +127,7 @@ h4,
 h5,
 h6 {
   color: #721563;
+  text-align: center;
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
@@ -153,7 +154,7 @@ p {
 
 .text-faded {
   color: rgba(153,51,51,.7);
-  text shadow
+  text: shadow;
 }
 
 section {
@@ -491,6 +492,37 @@ fieldset[disabled] .btn-primary.active {
   text-transform: uppercase;
 }
 
+.btn-top-right{
+  position: absolute;
+  right: 0;
+  top: 107px;
+  clear: both;
+}
+
+.btn-material {
+  position: relative;
+  padding: 8px 30px;
+  border: 0;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #802C73;
+  color: rgba(255, 255, 255, 0.84);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+
+.btn-material.btn-material-primary {
+  color: #FFFFFF;
+}
+
+.btn-material.btn-material-raised {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 iframe{
   display: block;
   position: absolute hidden;
@@ -611,7 +643,7 @@ body {
 .vis-select input:active +.vis-s{opacity: .9;}
 .vis-select input:checked +.vis-s{
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 .vis-select1 input:active +.vis-s1{opacity: .9;}
@@ -723,6 +755,32 @@ body {
 }
 
 /*--------------------------------------VISUALIZATION STUFF----------------------------------------*/
+
+#cForm {
+  display: none;
+  /*position: absolute;
+  top:0;; left:0;
+  width: 100%; height: 100%;*/
+}
+#trip {
+  display: none;
+  /*position: absolute;
+  /*top:0; left:0;*/
+  width: 100%; height: 100%;
+}
+#backBtn {
+  display: none;
+}
+.wrap {
+  padding-bottom: 100px;
+  min-height: 100%;
+  margin: 0 auto -100px;
+}
+
+.ctTeal {
+  color: teal;
+}
+
 
 /*These 3 not used, decided to go with nodata_center*/
 .nodata_outer {

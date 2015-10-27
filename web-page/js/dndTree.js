@@ -16,7 +16,7 @@ treeJSON = d3.json("data/ontology.json", function(error, treeData) {
     var root;
 
     // size of the diagram
-    var viewerWidth = $(document).width() * .8;
+    var viewerWidth = $("#tree-container").width();
     var viewerHeight = $(document).height() * .8;
 
     var tree = d3.layout.tree()

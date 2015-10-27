@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="dchang">
+  <title>Linked Modernisms</title>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+  <link rel="stylesheet" href="css/polymer.css" type="text/css">
+	<!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+	<!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+</head>
+
+<body>
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="index.html" onclick="">Linked Modernisms</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="page-scroll" href="examples.html">Examples</a></li>
+          <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
+					<li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+          <li><a class="page-scroll" href="index.html#about">About</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <hr class="light"></hr>
+  <br/>
+
+  <p style="postion:relative;">&nbsp;&nbsp;&nbsp;The Linked Modernisms Project is an open-source project that takes into consideration, expert opinions and verifications on our data.
+    If you feel you are qualified and would like to contribute to the integrity of our data, please get in contact with Project Lead <a href="http://www.uvic.ca/humanities/english/people/regularfaculty/ross-stephen.php" target="_blank">Stephen Ross</a>.</p>
+
+	<!--Start of Authorization-->
+	<div>
+		<div class="popupContainer">
+			<header class="popupHeader">
+				<span class="popupHeader-title">Login</span>
+			</header>
+			<section class="popupBody">
+				<!--GateKeeper Login Box-->
+				<form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
+					<div class="group">
+						<input class="inp" type="text" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Name</label>
+					</div>
+					<div class="group">
+						<input class="inp" type="text" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Email</label>
+					</div>
+					<div class="group">
+						<input class="inp" type="password" name="page" required>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Enter Contributor Password</label>
+						<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
+						<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
+						<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
+							<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
+						</noscript>
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	var keeperaltpage = "denied.html";
+	function keeperCheck() {
+  	keeperpass = window.document.keeper.page.value;
+  	keeperframe.location.href = keeperpass + "2.html";
+  	timer = setTimeout("keeperTest(keeperpass)",2000);
+	}
+	function keeperTest(pass){
+  	if(keeperframe.keeperpasscheck) {
+			location.href = pass + ".html";
+		} else {
+			location.href = keeperaltpage;
+		}
+	}
+</script>
+
+</body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%; bottom: 0; position: fixed;"></img></a>
+</footer>
+</html>
