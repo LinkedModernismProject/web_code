@@ -27,7 +27,6 @@
                     { "name": "Reviewer", "size": 500},
                     { "name": "Story Writer", "size": 500},
                     { "name": "Travel Writer", "size": 500}
-
                   ]}
                 ]},
             { "name": "Media Artist",
@@ -58,7 +57,7 @@
               ]},
             { "name": "Political Figure",
               "children": [
-                { "name": "Speech Writer", "size": 500},
+                { "name": "Speech Writer", "size": 500}
               ]},
             { "name": "Thinker",
               "children": [
@@ -106,12 +105,12 @@
                 { "name": "Childrens Writing", "size": 500},
                 { "name": "Drama",
                   "children": [
-                    { "name": "Play", "size": 500},
+                    { "name": "Play", "size": 500}
                   ]},
                 { "name": "Periodical",
                   "children": [
                     { "name": "Literary Journal", "size": 500},
-                    { "name": "Little Magazine", "size": 500},
+                    { "name": "Little Magazine", "size": 500}
                   ]},
                 { "name": "Poetry",
                   "children": [
@@ -124,7 +123,7 @@
                             { "name": "Dramatic Monologue", "size": 500},
                             { "name": "Dramatic Poem", "size": 500},
                             { "name": "Lyric", "size": 500},
-                            { "name": "Narrative", "size": 500},
+                            { "name": "Narrative", "size": 500}
                           ]}
                       ]},
                     { "name": "Poetry Collection", "size": 500}
@@ -143,7 +142,7 @@
                 { "name": "Cartoon", "size": 500},
                 { "name": "Film",
                   "children": [
-                    { "name": "Documentary Film", "size": 500}
+                    { "name": "Documentary Film", "size": 500},
                     { "name": "Fiction Film", "size": 500}
                   ]},
                 { "name": "Journalism", "size": [500]},
