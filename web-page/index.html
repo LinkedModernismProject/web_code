@@ -353,24 +353,24 @@
   */
   //Function that takes the S P O and makes the query
   function constructQuery(singleWord){
-    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object .';
     if($('#tabSearch').hasClass('active')){
       if($("#subj").val() != ""){
         var subj_ = $("#subj").val();
         subj_ = subj_.replace(/\s/g, '_');
         console.log('working');
-        query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
+        query += ' FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
       if($("#pred").val() != ""){
-        query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
+        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
       }
       if($("#obj").val() != ""){
-        query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+        query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
       }
     }
     if(singleWord != undefined){
       singleWord = singleWord.replace(/\s/g, '_');
-      query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
+      query += ' FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject)';
     console.log(query);
@@ -409,6 +409,37 @@
     return ("");
   }
 
+  //Convert unNaturalQuery string to a Natural Language string
+  //For now just making data available to user as Natural Language still needs implementing
+  function toNaturalLang(unNatQuery) {
+    console.log(unNatQuery);
+    var s = unNatQuery.split(/\.(.+)?/);
+    console.log(s);
+
+
+    var test = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/)
+    console.log(test);
+    console.log(test[1]);
+    debugger;
+    //switch (s[1]) {
+    //  case s[1].match(/FILTER regex\(str\(\?Subject\),\s*"([^"])+",.+/):
+    //    break;
+    //  default:
+    //    console.log("didn't match any");
+    //}
+    //if(s[1].) { //WORKING ON MATCHING
+    //  //If the string has a Subject
+    //}
+
+    if(s[0]=='SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object ') { //Case if it is the query had a Predicate
+      console.log('in the s0');
+    }
+    debugger;
+
+    console.log(s);
+
+  }
+
   //populates the previous searches table
   function populatePrevious(cdata){
     var name = "query=";
@@ -418,6 +449,8 @@
     }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
+      if(i==0) toNaturalLang(c);
+      console.log(c);
       if(i > 3){
         var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
       } else{
