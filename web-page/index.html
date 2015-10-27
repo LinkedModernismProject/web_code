@@ -417,23 +417,40 @@
     var s = un_nat_query.split(/\.(.+)?/);
     var nat_lang = '';
     var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
+    var p_match = s[1].match(/.*\?Subject.*:([^\s]+)\s\?Object.*FILTER.*/);
     var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
     console.log(s);
     console.log(o_match);
-    //debugger;
     if (s_match != null) { //There is a subj match in [1]
       nat_lang += 'Subject: ' + s_match[1].replace(/_/g, ' ');
     }
     if (/\s*SELECT distinct \* WHERE \{ \?Subject \?Predicate \?Object\s*/.test(s[0])) {
       console.log('in the pred if at least');
-      if (s[1].match(/.*\?Subject.*:([^\s])+\s\?Object.*FILTER.*/) != null) { //Case for if there is a subj or obj after the pred
-        console.log('in the match for a pred with FILTER');
+      console.log(p_match);
+      debugger;
+      if (p_match != null) { //Case for if there is a subj or obj after the pred
+        if (nat_lang != '') { //If there is a value before the pred (can only be subj at this point)
+          nat_lang += '<br>'
+        }
+        nat_lang += 'Predicate: ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
       } else { //Case where no subj and obj so the first pattern will be the pred
         console.log('the first is just going to be the pred');
+        if (nat_lang != '') {
+          nat_lang += '<br>'
+        }
+        console.log(s[1]);
+        debugger;
+        nat_lang += 'Predicate: ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
+        //WORKING on getting here after filter
+
+
+
+
+
+
       }
 
     }
-    debugger;
 
 
     if (o_match != null) { //There is a obj match in [1]
@@ -452,14 +469,9 @@
     //debugger;
 
 
-    //if(s[1].) { //WORKING ON MATCHING
-    //  //If the string has a Subject
-    //}
-
     if(s[0]=='SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object ') { //Case if it is the query had a Predicate
       console.log('in the s0');
     }
-    //debugger;
 
     console.log(s);
 
