@@ -18,12 +18,16 @@
                 { "name": "Writer",
                   "children": [
                     { "name": "Biographer", "size": 500},
+                    { "name": "Childrens Author", "size": 500},
                     { "name": "Diarist", "size": 500},
                     { "name": "Letter Writer", "size": 500},
                     { "name": "Novelist", "size": 500},
                     { "name": "Playwright", "size": 500},
                     { "name": "Poet", "size": 500},
-                    { "name": "Story Writer", "size": 500}
+                    { "name": "Reviewer", "size": 500},
+                    { "name": "Story Writer", "size": 500},
+                    { "name": "Travel Writer", "size": 500}
+
                   ]}
                 ]},
             { "name": "Media Artist",
@@ -52,7 +56,10 @@
                 { "name": "Performer", "size": 500},
                 { "name": "Singer", "size": 500}
               ]},
-            { "name": "Political Figure", "size": 500},
+            { "name": "Political Figure",
+              "children": [
+                { "name": "Speech Writer", "size": 500},
+              ]},
             { "name": "Thinker",
               "children": [
                 { "name": "Critic", "size": 500},
@@ -78,6 +85,7 @@
         { "name": "City", "size": 500},
         { "name": "Country", "size": 500},
         { "name": "Empire", "size": 500},
+        { "name": "Place of Study", "size": 500},
         { "name": "Region", "size": 500},
         { "name": "Venue", "size": 500}
       ]},
@@ -85,32 +93,46 @@
       "children": [
         { "name": "Artifact",
           "children": [
+            { "name": "Architecture", "size": 500},
             { "name": "Design",
               "children": [
                 { "name": "Fashion Design", "size": 500},
+                { "name": "Graphic Design", "size": 500},
                 { "name": "Industrial Design", "size": 500},
                 { "name": "Urban Design", "size": 500}
               ]},
             { "name": "Literature",
               "children": [
-                { "name": "Biography", "size": 500},
-                { "name": "Diary", "size": 500},
-                { "name": "Drama", "size": 500},
-                { "name": "Letter", "size": 500},
+                { "name": "Childrens Writing", "size": 500},
+                { "name": "Drama",
+                  "children": [
+                    { "name": "Play", "size": 500},
+                  ]},
+                { "name": "Periodical",
+                  "children": [
+                    { "name": "Literary Journal", "size": 500},
+                    { "name": "Little Magazine", "size": 500},
+                  ]},
                 { "name": "Poetry",
                   "children": [
-                    { "name": "Dramatic Monologue", "size": 500},
-                    { "name": "Dramatic Poem", "size": 500},
                     { "name": "Poem",
                       "children": [
-                        { "name": "Lyric", "size": 500},
-                        { "name": "Narrative", "size": 500}
+                        { "name": "Experimental Form", "size": 500},
+                        { "name": "Free Verse", "size": 500},
+                        { "name": "Traditional Form",
+                          "children": [
+                            { "name": "Dramatic Monologue", "size": 500},
+                            { "name": "Dramatic Poem", "size": 500},
+                            { "name": "Lyric", "size": 500},
+                            { "name": "Narrative", "size": 500},
+                          ]}
                       ]},
                     { "name": "Poetry Collection", "size": 500}
                   ]},
-                { "name": "Prose",
+                { "name": "Prose Fiction",
                   "children": [
                     { "name": "Novel", "size": 500},
+                    { "name": "Novella", "size": 500},
                     { "name": "Short Story", "size": 500},
                     { "name": "Short Story Collection", "size": 500}
                   ]}
@@ -119,11 +141,13 @@
               "children": [
                 { "name": "Advertisement", "size": 500},
                 { "name": "Cartoon", "size": 500},
-                { "name": "Film", "size": 500},
-                { "name": "Magazine",
+                { "name": "Film",
                   "children": [
-                    { "name": "Little Magazine", "size": 500}
+                    { "name": "Documentary Film", "size": 500}
+                    { "name": "Fiction Film", "size": 500}
                   ]},
+                { "name": "Journalism", "size": [500]},
+                { "name": "Magazine", "size": [500]},
                 { "name": "Newspaper", "size": 500},
                 { "name": "Radio Program", "size": 500},
                 { "name": "Screenplay", "size": 500},
@@ -138,8 +162,19 @@
             { "name": "NonFiction",
               "children": [
                 { "name": "Anthropology", "size": 500},
+                { "name": "Aphorism", "size": 500},
                 { "name": "AutoBiography", "size": 500},
+                { "name": "Biography", "size": 500},
+                { "name": "Correspondence",
+                  "children": [
+                    { "name": "Diary", "size": 500},
+                    { "name": "Letters", "size": 500}
+                  ]},
                 { "name": "Criticism", "size": 500},
+                { "name": "Dictionary", "size": 500},
+                { "name": "Encyclopedia", "size": 500},
+                { "name": "Essay", "size": 500},
+                { "name": "Essay Collection", "size": 500},
                 { "name": "Ethnography", "size": 500},
                 { "name": "History", "size": 500},
                 { "name": "Manifesto", "size": 500},
@@ -159,7 +194,7 @@
                 { "name": "Musical Composition", "size": 500},
                 { "name": "Musical Performance", "size": 500},
                 { "name": "Opera", "size": 500},
-                { "name": "Play", "size": 500},
+                { "name": "Play Performance", "size": 500},
                 { "name": "Recital Reading", "size": 500},
                 { "name": "Song", "size": 500},
                 { "name": "Theatre", "size": 500},
@@ -174,7 +209,7 @@
                 { "name": "Object", "size": 500},
                 { "name": "Painting", "size": 500},
                 { "name": "Photography", "size": 500},
-                { "name": "Print Making", "size": 500},
+                { "name": "Print", "size": 500},
                 { "name": "Sculpture", "size": 500},
                 { "name": "Textiles", "size": 500},
                 { "name": "Typography", "size": 500},
@@ -192,7 +227,6 @@
         ]},
         { "name": "Event",
           "children": [
-            { "name": "Collection", "size": 500},
             { "name": "Epidemic", "size": 500},
             { "name": "Event Other", "size": 500},
             { "name": "Exhibit", "size": 500},
