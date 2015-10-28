@@ -414,43 +414,39 @@
   function toNaturalLang(un_nat_query) {
     var s = un_nat_query.split(/\.(.+)?/);
     var nat_lang = '';
-    console.log(s);
-    var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
-    var p_match = s[1].match(/.*\?Subject.*:([^\s]+)\s*\?Object.*/);
-    var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
-    var filters = s[1].match(/:([^\s]+)\s*'/g);
-
-    console.log(un_nat_query);
-    console.log(s);
-    console.log(filters);
-
-
+    if (un_nat_query !== 'undefined') { //Check for if an undefined search happens, then return with an empty string
+      var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
+      var p_match = s[1].match(/.*\?Subject.*:([^\s]+)\s*\?Object.*/);
+      var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
+      var filters = s[1].match(/:([^\s]+)\s*'([^']+)'/g);
+    } else {
+      return '';
+    }
     if (s_match != null) { //There is a subj match in [1]
-      nat_lang += 'Subject: ' + s_match[1].replace(/_/g, ' ');
+      nat_lang += '<strong>Subject:</strong> ' + s_match[1].replace(/_/g, ' ');
     }
     if (p_match != null) { //There is a pred match in [1]
       if (nat_lang != '') { //If there is a value before the pred (can only be subj at this point)
         nat_lang += '<br>'
       }
-      nat_lang += 'Predicate: ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
+      nat_lang += '<strong>Predicate:</strong> ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
     }
     if (o_match != null) { //There is a obj match in [1]
       if(nat_lang != '') {
         nat_lang += '<br>';
       }
       var o = o_match[1].replace(/_/g, ' ');
-      nat_lang += 'Object: ' + o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, '');
+      nat_lang += '<strong>Object:</strong> ' + o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, '');
     }
     if (filters != null) { //There is filters in [1]
-      console.log('got not filtersf');
       if(nat_lang != '') {
         nat_lang += '<br>';
       }
       for (var i = 0; i < filters.length; i++) {
         if(i==0) {
-          nat_lang += 'Filters: ' + filters[i].slice(1, -2)
+          nat_lang += '<strong>Filters:</strong> ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
         } else {
-          nat_lang += ', ' + filters[i].slice(1, -2)
+          nat_lang += '; ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
         }
       }
     }
@@ -469,14 +465,11 @@
     }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      console.log(c);  //FIX UNDEFINED AT 417 FROM C I BELIEVE
       var nat_lang = toNaturalLang(c);
-      console.log(nat_lang);
-      debugger;
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
       }
       $(prev).appendTo("#memory-box");
     }
