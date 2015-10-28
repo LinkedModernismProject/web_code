@@ -137,7 +137,7 @@
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       } else {
-        var query = $("#queryNum0").text(); //Gets query from previous search
+        var query = $("body").data("queryData0"); //Gets query from previous search
       }
       $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
@@ -164,7 +164,7 @@
           var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + gender + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+          query = query + "?Subject limo:gender '" + gender + "' . ";
         }
       }
       var sexuality = $("#selSexuality").val();
@@ -173,7 +173,7 @@
           var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:sexuality" + " '" + sexuality + "' . ";
+          query = query + "?Subject limo:sexuality '" + sexuality + "' . ";
         }
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
@@ -182,7 +182,7 @@
           var qmatch = query.match(/^(.*:typeOfPerson)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + typeOfPerson + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+          query = query + "?Subject limo:typeOfPerson '" + typeOfPerson + "' . ";
         }
         //query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
@@ -192,7 +192,7 @@
           var qmatch = query.match(/^(.*:originatingCountry)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + originatingCountry + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+          query = query + "?Subject limo:originatingCountry '" + originatingCountry + "' . ";
         }
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
@@ -201,7 +201,7 @@
           var qmatch = query.match(/^(.*:hasBirthdate)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + birthYear.trim().replace(/ /g," ") + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+          query = query + "?Subject limo:hasBirthdate '" + birthYear.trim().replace(/ /g,"_") + "' . ";
         }
       }
       var livedIn = $("#selLivedIn").val();
@@ -210,7 +210,7 @@
           var qmatch = query.match(/^(.*:associatedWithCountry)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
+          query = query + "?Subject limo:associatedWithCountry '" + livedIn + "' . ";
         }
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
@@ -219,7 +219,7 @@
           var qmatch = query.match(/^(.*:associatedWith)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + associatedWith + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+          query = query + "?Subject limo:associatedWith '" + associatedWith + "'@en . ";
         }
       }
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
@@ -353,24 +353,23 @@
   */
   //Function that takes the S P O and makes the query
   function constructQuery(singleWord){
-    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object .';
     if($('#tabSearch').hasClass('active')){
       if($("#subj").val() != ""){
         var subj_ = $("#subj").val();
         subj_ = subj_.replace(/\s/g, '_');
-        console.log('working');
-        query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
+        query += ' FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
       if($("#pred").val() != ""){
-        query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
+        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
       }
       if($("#obj").val() != ""){
-        query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+        query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i") .';
       }
     }
     if(singleWord != undefined){
       singleWord = singleWord.replace(/\s/g, '_');
-      query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
+      query += ' FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject)';
     console.log(query);
@@ -409,11 +408,52 @@
     return ("");
   }
 
-  //Takes previous search text and makes it look nicer for the filters page
-  function beautifyPreviousSearch(queryText) {
-	//TODO
-
-  }
+  //Convert unNaturalQuery string to a Natural Language string
+  //For now just making data available to user as Natural Language still needs implementing
+  function toNaturalLang(un_nat_query) {
+    var s = un_nat_query.split(/\.(.+)?/);
+    var nat_lang = '';
+    if (un_nat_query !== 'undefined') { //Check for if an undefined search happens, then return with an empty string
+      var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
+      var p_match = s[1].match(/.*\?Subject.*:([^\s]+)\s*\?Object.*/);
+      var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
+      var filters = s[1].match(/:([^\s]+)\s*'([^']+)'/g);
+    } else {
+      return '';
+    }
+    if (s_match != null) { //There is a subj match in [1]
+      nat_lang += '<strong>Subject:</strong> ' + s_match[1].replace(/_/g, ' ');
+    }
+    if (p_match != null) { //There is a pred match in [1]
+      if (nat_lang != '') { //If there is a value before the pred (can only be subj at this point)
+        nat_lang += '<br>'
+      }
+      nat_lang += '<strong>Predicate:</strong> ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
+    }
+    if (o_match != null) { //There is a obj match in [1]
+      if(nat_lang != '') {
+        nat_lang += '<br>';
+      }
+      var o = o_match[1].replace(/_/g, ' ');
+      nat_lang += '<strong>Object:</strong> ' + o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, '');
+    }
+    if (filters != null) { //There is filters in [1]
+      if(nat_lang != '') {
+        nat_lang += '<br>';
+      }
+      for (var i = 0; i < filters.length; i++) {
+        if(i==0) {
+          nat_lang += '<strong>Filters:</strong> ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
+        } else {
+          nat_lang += ', ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
+        }
+      }
+    }
+    if (s_match==null && p_match==null && o_match==null && filters==null) { //There has been no search
+      console.log('No match for prev searches');
+    }
+    return nat_lang;
+  } //End of toNaturalLang
 
   //populates the previous searches table
   function populatePrevious(cdata){
@@ -424,11 +464,12 @@
     }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
+      var nat_lang = toNaturalLang(c);
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
-	$("body").data("queryData" + i, c);
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+        $("body").data("queryData" + i, c);
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
         $("body").data("queryData" + i, c);
       }
       $(prev).appendTo("#memory-box");
@@ -676,7 +717,7 @@
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
             <p>
-The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing. 
+The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing.
 <br/><br/>
 The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
             </p>
@@ -695,10 +736,10 @@ The Degrees of Separation tool allows you to explore all possible relations amon
 
           <div>
             <p>&nbsp;&nbsp;&nbsp;
-            Linked Modernisms is a powerful tool for browsing, searching, and visualizing the metadata associated with the content of the Routledge Encyclopedia of Modernism (REM). Through a combination of machine reasoning and human intervention, Linked Modernisms applies a custom information ontology to the content of the REM to generate ever more sophisticated metadata. Users can search specific terms, relationships, characteristics, or combinations as they explore the world of modernism. They can select from several visualization options, save their searches, and use the results to chart new directions in global modernist studies. 
-	    </p>   
+            Linked Modernisms is a powerful tool for browsing, searching, and visualizing the metadata associated with the content of the Routledge Encyclopedia of Modernism (REM). Through a combination of machine reasoning and human intervention, Linked Modernisms applies a custom information ontology to the content of the REM to generate ever more sophisticated metadata. Users can search specific terms, relationships, characteristics, or combinations as they explore the world of modernism. They can select from several visualization options, save their searches, and use the results to chart new directions in global modernist studies.
+	    </p>
 <h3>How does it work?</h3><br/>
-<p>&nbsp;Linked Modernisms is dynamic, with each part constantly developing and causing the other parts to develop in turn. Those parts are: 
+<p>&nbsp;Linked Modernisms is dynamic, with each part constantly developing and causing the other parts to develop in turn. Those parts are:
 <br/>
 a)    The Routledge Encyclopedia of Modernism (REM). (For more on the REM, please visit ghostprof.org).
 <br/>
@@ -706,9 +747,9 @@ b)    Casaubon, our customized information ontology. (For more on Casaubon, plea
 <br/>
 c)    The machine reasoning algorithm we use to generate and enhance our metadata.
 <br/>
-d)    Our metadata, which is organized into n-triples in a Virtuoso environment. 
+d)    Our metadata, which is organized into n-triples in a Virtuoso environment.
 <br/><br/>&nbsp;&nbsp;&nbsp;
-Following the dynamic ontology methodology established by the Indiana Philosophy Ontology team https://inpho.cogs.indiana.edu, Linked Modernisms never rests, since all its components are constantly developing. The REM changes regularly as new content is added and existing content is revised. The Casaubon ontology undergoes regular revision to accommodate relationships and categories required by both our data and our users. The algorithm responds to human feedback on its results so that it continues to learn how to provide better results over time as well. Finally, of course, the metadata itself changes with each shift in any or all of the other parts. In fact, all the parts change constantly in response to changes in one another. The result is an environment that – though it will never be perfect – continues to improve with time. 
+Following the dynamic ontology methodology established by the Indiana Philosophy Ontology team https://inpho.cogs.indiana.edu, Linked Modernisms never rests, since all its components are constantly developing. The REM changes regularly as new content is added and existing content is revised. The Casaubon ontology undergoes regular revision to accommodate relationships and categories required by both our data and our users. The algorithm responds to human feedback on its results so that it continues to learn how to provide better results over time as well. Finally, of course, the metadata itself changes with each shift in any or all of the other parts. In fact, all the parts change constantly in response to changes in one another. The result is an environment that – though it will never be perfect – continues to improve with time.
 <br/>&nbsp;&nbsp;&nbsp;
 For its visualizations, Linked Modernisms combines multiple libraries, including d3.js, and d3sparql.js. The Degrees of Separation tool is adapted from the RelFinder, produced by Heim, Lohmann, and Stegemann at Visual Data Web (http://www.visualdataweb.org/relfinder.php). The environment in which all this magic takes place is provided by Opensource Virtuoso (http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main).
 <br/>&nbsp;&nbsp;&nbsp;
