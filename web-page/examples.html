@@ -58,25 +58,40 @@
   <h1>
     Example Searches
   </h1>
-  <p>
-    select * where { ?Subject ?Predicate ?Object } limit 10         our normal search
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object } ORDER BY DESC(?Subject) LIMIT 20      Good ex.
-    <br/>
-    SELECT distinct * WHERE { ?Subject ?Predicate ?Object } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?Predicate
-    <br/>
-    SELECT distinct * WHERE {   ?Subject ?Predicate ?Object FILTER regex(?Subject, "Jean")} ORDER BY ASC(?Object) LIMIT 5    Filters
-    <br/>
-    SELECT distinct * WHERE { ?Subject foaf:name ?name. ?Subject ?Predicate ?Object } limit 24
-    <br/>
-    PREFIX ty: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  SELECT * WHERE {{ ?Predicate a ty:Property} }  limit 10
-    <br/>
-    SELECT distinct *  WHERE{ ?node foaf:givenName ?givenName. ?node foaf:name ?name .    ?node &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt;  }  LIMIT 10
-    <br/>
-    Filter bif contains lbl "string"   FILTER regex(str(?Subject), "war")
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {   ?Subject ?Predicate ?Object . ?Subject foaf:surname "Lines"@en} ORDER BY ASC(?Subject)
-  </p>
+
+
+
+
+	<ul style="width:100%;margin-bottom:1500px;position:relative">
+		<li class="twoxgrid boldtitles">
+			<p class="underboldtitles">Sunburst Search</p><p>Search= Subject:Alan Turing</p>
+			<a href="img/examples/Alan_Turing.png" target="_blank"><img src="img/examples/Alan_Turing.png" alt="alan_turing" class="examples"></a>
+		</li>
+		<li class="twoxgrid boldtitles">
+			<p class="underboldtitles">Force Directed Graph</p><br><p>Search= Object:poetry; then applied filters Gender:Man, Sexuality:Heterosexual, and BirthYear:1887</p>
+			<a href="img/examples/filters_search.png" target="_blank"><img src="img/examples/filters_search.png" alt="filters_search" class="examples"></a>
+		</li>
+		<li class="twoxgrid boldtitles">
+			<p class="underboldtitles">Sankey</p><br><p>Search= Subject:Clement Meadmore</p>
+			<a href="img/examples/Robinson_Jeffers.png" target="_blank"><img src="img/examples/Robinson_Jeffers.png" alt="Robinson_Jeffers" class="examples"></a>
+		</li>
+		<li class="twoxgrid boldtitles">
+			<p class="underboldtitles">Degrees of Separation</p><br><p>Search= Degrees of Separation between: Henri Matisse and Pablo Picasso</p>
+			<a href="img/examples/matisse_picasso.png" target="_blank"><img src="img/examples/matisse_picasso.png" alt="matisse_picasso" class="examples"></a>
+		</li>
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 <footer>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
