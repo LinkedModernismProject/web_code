@@ -26,6 +26,30 @@ hr {
     width: 25%;
 }
 
+.twoxgrid {
+  list-style-type: none;
+  float: left;
+  margin:0 1% 7% 0;
+  height: 500px;
+  width: 48%;
+}
+
+.searchtitles {
+  float: left;
+  text-decoration: underline;
+}
+
+.searches {
+  float: left;
+  clear: left;
+  margin: 0px 0px 7px;
+}
+
+.examples {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 input[type="textarea"]{
 
   margin: 0;

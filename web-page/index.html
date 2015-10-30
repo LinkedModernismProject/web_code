@@ -173,7 +173,7 @@
           var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:hasSexuality" + " '" + sexuality + "' . ";
+          query = query + "?Subject limo:hasSexuality '" + sexuality + "' . ";
         }
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
@@ -630,7 +630,7 @@ height: 1050
 });
 }
 
- 
+
   $(function() {
     console.log('In the screenshotted button');
       $("#save-screen").click(function() {
