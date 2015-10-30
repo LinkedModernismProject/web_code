@@ -81,14 +81,14 @@
   function notif_panel(title, msg) {
     console.log('in notif_panel!!!');
     jQuery(document.body).append(' \
-      <div class="topcorner hide_panel" id="notification" onClick="close_notif()"> \
-      <div class="panel panel-primary"> \
-        <div class="panel-heading"> \
-          <h3 class="panel-title">'+title+'</h3> \
-        </div> \
-        <div class="panel-body">'+msg+
-        '</div> \
-      </div> </div>');
+    <div class="topcorner hide_panel" id="notification" onClick="close_notif()"> \
+    <div class="panel panel-primary"> \
+    <div class="panel-heading"> \
+    <h3 class="panel-title">'+title+'</h3> \
+    </div> \
+    <div class="panel-body">'+msg+
+    '</div> \
+    </div> </div>');
     jQuery('#notification').show().fadeOut(10000, function() {
       console.log('notif!!!');
       jQuery('#notification').remove();
@@ -137,7 +137,7 @@
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       } else {
-        var query = $("#queryNum0").text(); //Gets query from previous search
+        var query = $("body").data("queryData0"); //Gets query from previous search
       }
       $.cookie("currentVis", $("input[name='optradio1']:checked").val());
       var filt = query.split("\.")
@@ -164,7 +164,7 @@
           var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + gender + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+          query = query + "?Subject limo:gender '" + gender + "' . ";
         }
       }
       var sexuality = $("#selSexuality").val();
@@ -182,7 +182,7 @@
           var qmatch = query.match(/^(.*:typeOfPerson)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + typeOfPerson + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
+          query = query + "?Subject limo:typeOfPerson '" + typeOfPerson + "' . ";
         }
         //query = query + "?Subject limo:typeOfPerson" + " '" + typeOfPerson + "' . ";
       }
@@ -192,7 +192,7 @@
           var qmatch = query.match(/^(.*:originatingCountry)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + originatingCountry + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:originatingCountry" + " '" + originatingCountry + "' . ";
+          query = query + "?Subject limo:originatingCountry '" + originatingCountry + "' . ";
         }
       }
       var birthYear = $("#selBirthYear").val(); //Will need work for using real data
@@ -201,7 +201,7 @@
           var qmatch = query.match(/^(.*:hasBirthdate)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + birthYear.trim().replace(/ /g," ") + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:hasBirthdate" + " '" + birthYear.trim().replace(/ /g,"_") + "' . ";
+          query = query + "?Subject limo:hasBirthdate '" + birthYear.trim().replace(/ /g,"_") + "' . ";
         }
       }
       var livedIn = $("#selLivedIn").val();
@@ -210,7 +210,7 @@
           var qmatch = query.match(/^(.*:associatedWithCountry)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + livedIn + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:associatedWithCountry" + " '" + livedIn + "' . ";
+          query = query + "?Subject limo:associatedWithCountry '" + livedIn + "' . ";
         }
       }
       var associatedWith = $("#selAssociationA").val().trim().replace(" ","_");
@@ -219,7 +219,7 @@
           var qmatch = query.match(/^(.*:associatedWith)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + associatedWith + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:associatedWith" + " '" + associatedWith + "'@en . ";
+          query = query + "?Subject limo:associatedWith '" + associatedWith + "'@en . ";
         }
       }
       //query = query +  "} ORDER BY ASC(?Subject) LIMIT 50 ";
@@ -285,9 +285,9 @@
     $(".btn-search").click(function(){
       $.cookie("currentVis", $("input[name='optradio']:checked").val());
       if($("#subj").val() === "" && $("#pred").val() === "" && $("#obj").val() === "" )
-        var query = randQuery();
+      var query = randQuery();
       else
-        var query = constructQuery();
+      var query = constructQuery();
       console.log(query);
       $("#tabSearch").removeClass("active");
       $("#tabVis").addClass("active");
@@ -353,24 +353,23 @@
   */
   //Function that takes the S P O and makes the query
   function constructQuery(singleWord){
-    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ';
+    var query = ' SELECT distinct * WHERE { ?Subject ?Predicate ?Object .';
     if($('#tabSearch').hasClass('active')){
       if($("#subj").val() != ""){
         var subj_ = $("#subj").val();
         subj_ = subj_.replace(/\s/g, '_');
-        console.log('working');
-        query += 'FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
+        query += ' FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
       if($("#pred").val() != ""){
-        query += '?Subject limo:' + $("#pred").val() + ' ?Object .';
+        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
       }
       if($("#obj").val() != ""){
-        query += 'FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i")';
+        query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i") .';
       }
     }
     if(singleWord != undefined){
       singleWord = singleWord.replace(/\s/g, '_');
-      query += 'FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
+      query += ' FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject)';
     console.log(query);
@@ -409,11 +408,52 @@
     return ("");
   }
 
-  //Takes previous search text and makes it look nicer for the filters page
-  function beautifyPreviousSearch(queryText) {
-	//TODO
-
-  }
+  //Convert unNaturalQuery string to a Natural Language string
+  //For now just making data available to user as Natural Language still needs implementing
+  function toNaturalLang(un_nat_query) {
+    var s = un_nat_query.split(/\.(.+)?/);
+    var nat_lang = '';
+    if (un_nat_query !== 'undefined') { //Check for if an undefined search happens, then return with an empty string
+      var s_match = s[1].match(/.*FILTER regex\(str\(\?Subject\),\s*"([^"]+)",.+/);
+      var p_match = s[1].match(/.*\?Subject.*:([^\s]+)\s*\?Object.*/);
+      var o_match = s[1].match(/.*FILTER regex\(str\(\?Object\),\s*"([^"]+)",.+/);
+      var filters = s[1].match(/:([^\s]+)\s*'([^']+)'/g);
+    } else {
+      return '';
+    }
+    if (s_match != null) { //There is a subj match in [1]
+      nat_lang += '<strong>Subject:</strong> ' + s_match[1].replace(/_/g, ' ');
+    }
+    if (p_match != null) { //There is a pred match in [1]
+      if (nat_lang != '') { //If there is a value before the pred (can only be subj at this point)
+        nat_lang += '<br>'
+      }
+      nat_lang += '<strong>Predicate:</strong> ' + p_match[1].replace(/_/g, ' '); //Shouldn't need to replace, but just a Safeguard
+    }
+    if (o_match != null) { //There is a obj match in [1]
+      if(nat_lang != '') {
+        nat_lang += '<br>';
+      }
+      var o = o_match[1].replace(/_/g, ' ');
+      nat_lang += '<strong>Object:</strong> ' + o_match[1].replace(/_/g, ' ').replace(/\^/g, '').replace(/\$/g, '');
+    }
+    if (filters != null) { //There is filters in [1]
+      if(nat_lang != '') {
+        nat_lang += '<br>';
+      }
+      for (var i = 0; i < filters.length; i++) {
+        if(i==0) {
+          nat_lang += '<strong>Filters:</strong> ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
+        } else {
+          nat_lang += ', ' + filters[i].slice(1, -1).replace(/\s*'/, ':');
+        }
+      }
+    }
+    if (s_match==null && p_match==null && o_match==null && filters==null) { //There has been no search
+      console.log('No match for prev searches');
+    }
+    return nat_lang;
+  } //End of toNaturalLang
 
   //populates the previous searches table
   function populatePrevious(cdata){
@@ -424,11 +464,12 @@
     }
     for(var i = 0; i < ca.length; i++) {
       var c = ca[i];
+      var nat_lang = toNaturalLang(c);
       if(i > 3){
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
-	$("body").data("queryData" + i, c);
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+        $("body").data("queryData" + i, c);
       } else{
-        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+        var prev = "<p id= 'queryNum" + i + "'>" + nat_lang + '</p>' + '<input data-toggle="tab" href="#sectionVis"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
         $("body").data("queryData" + i, c);
       }
       $(prev).appendTo("#memory-box");
@@ -503,8 +544,8 @@
     if(val === "fd"){
       var config = {
         "radius": 20,
-        "charge": -30,
-        "distance": 180,
+        "charge": -150,
+        "distance": 130,
         "width": window.innerWidth,
         "height": 1000,
         "selector": "#visualizations"
@@ -540,7 +581,7 @@
       //d3sparql.coordmap(json, config);
       d3sparql.barchart(json, config);
     } else if(val === "bp"){  //CHANGE val's to correct one's later
-      var config = {
+    var config = {
       "width": window.innerWidth,
       "height": 900,
       "margin": 150,
@@ -559,34 +600,37 @@
   }
 }
 
-  //ScreenShot button
+//ScreenShot button
+
 /*  //LM_vis_screenshot (2) & (3) are both black
-  function ssSave() {
-    console.log('In ssSave');
-    html2canvas($("#visualizations"), {
-      logging: true,
-      useCORS: true,
-      onrendered: function(canvas) {
-        var d2 = canvas.getContext("2d");
-        var durl = canvas.toDataURL('png');
-        window.open(durl);
-        //var png = ReImg.fromSvg(document.getElementById("#visualizations")).toPng();
-        ///////var png = ReImg.fromSvg(document.getElementById(canvas)).toPng();
-        ///////window.open(png);
-        ///////document.write(png);
-        console.log("gets hereee!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        //var blob = new Blob(png, {type: "png;charset=utf-8"});
-        //saveAs(png, "bpngin.png");
-        //var dataa = canvas.toDataURL("image/jpg")
-        //return dataURL.replace(/^data:image\/(png|jpp);base64,/, "");
-        //////console.log(img);
-        //////window.location.href=img;
-      },
-      width: 1250,
-      height: 1050
-    });
-  }
-*/
+//LM_vis_screenshot (2) & (3) are both black
+function ssSave() {
+console.log('In ssSave');
+html2canvas($("#visualizations"), {
+logging: true,
+useCORS: true,
+onrendered: function(canvas) {
+var d2 = canvas.getContext("2d");
+var durl = canvas.toDataURL('png');
+window.open(durl);
+//var png = ReImg.fromSvg(document.getElementById("#visualizations")).toPng();
+///////var png = ReImg.fromSvg(document.getElementById(canvas)).toPng();
+///////window.open(png);
+///////document.write(png);
+console.log("gets hereee!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//var blob = new Blob(png, {type: "png;charset=utf-8"});
+//saveAs(png, "bpngin.png");
+//var dataa = canvas.toDataURL("image/jpg")
+//return dataURL.replace(/^data:image\/(png|jpp);base64,/, "");
+//////console.log(img);
+//////window.location.href=img;
+},
+width: 1250,
+height: 1050
+});
+}
+
+ 
   $(function() {
     console.log('In the screenshotted button');
       $("#save-screen").click(function() {
@@ -604,7 +648,9 @@
       });
       console.log('done!');
   });
-
+  console.log('done!');
+});
+*/
 </script>
 
 </head>
@@ -673,9 +719,10 @@
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
 
             <p>
-The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing. 
-<br/><br/>
-The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
+              The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing.
+              <br/><br/>
+              The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
+
             </p>
             <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -690,82 +737,118 @@ The Degrees of Separation tool allows you to explore all possible relations amon
           <br/><br/>
           <h1>About The Project</h1><br/><br/><br/><br/><br/>
 
-          <div>
+          <div class="text80">
             <p>&nbsp;&nbsp;&nbsp;
-            Linked Modernisms is a powerful tool for browsing, searching, and visualizing the metadata associated with the content of the Routledge Encyclopedia of Modernism (REM). Through a combination of machine reasoning and human intervention, Linked Modernisms applies a custom information ontology to the content of the REM to generate ever more sophisticated metadata. Users can search specific terms, relationships, characteristics, or combinations as they explore the world of modernism. They can select from several visualization options, save their searches, and use the results to chart new directions in global modernist studies. 
-	    </p>   
-<h3>How does it work?</h3><br/>
-<p>&nbsp;Linked Modernisms is dynamic, with each part constantly developing and causing the other parts to develop in turn. Those parts are: 
-<br/>
-a)    The Routledge Encyclopedia of Modernism (REM). (For more on the REM, please visit ghostprof.org).
-<br/>
-b)    Casaubon, our customized information ontology. (For more on Casaubon, please visit our Ontology page).
-<br/>
-c)    The machine reasoning algorithm we use to generate and enhance our metadata.
-<br/>
-d)    Our metadata, which is organized into n-triples in a Virtuoso environment. 
-<br/><br/>&nbsp;&nbsp;&nbsp;
-Following the dynamic ontology methodology established by the Indiana Philosophy Ontology team https://inpho.cogs.indiana.edu, Linked Modernisms never rests, since all its components are constantly developing. The REM changes regularly as new content is added and existing content is revised. The Casaubon ontology undergoes regular revision to accommodate relationships and categories required by both our data and our users. The algorithm responds to human feedback on its results so that it continues to learn how to provide better results over time as well. Finally, of course, the metadata itself changes with each shift in any or all of the other parts. In fact, all the parts change constantly in response to changes in one another. The result is an environment that – though it will never be perfect – continues to improve with time. 
-<br/>&nbsp;&nbsp;&nbsp;
-For its visualizations, Linked Modernisms combines multiple libraries, including d3.js, and d3sparql.js. The Degrees of Separation tool is adapted from the RelFinder, produced by Heim, Lohmann, and Stegemann at Visual Data Web (http://www.visualdataweb.org/relfinder.php). The environment in which all this magic takes place is provided by Opensource Virtuoso (http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main).
-<br/>&nbsp;&nbsp;&nbsp;
-We would like to thank the contributors to the REM who provided the initial metadata for Linked Modernisms by filling out an exhaustive questionnaire about the entries they provided. Their answers helped form the set upon which our algorithm was initially trained. After that initial step, Linked Modernisms’ metadata is now produced algorithmically, with the results vetted by domain experts before it is integrated into our database. "
-              </p>
-<br/>
+              Linked Modernisms is a powerful tool for browsing, searching, and visualizing the metadata associated with the content of the Routledge Encyclopedia of Modernism (REM). Through a combination of machine reasoning and human intervention, Linked Modernisms applies a custom information ontology to the content of the REM to generate ever more sophisticated metadata. Users can search specific terms, relationships, characteristics, or combinations as they explore the world of modernism. They can select from several visualization options, save their searches, and use the results to chart new directions in global modernist studies.
+            </p>
+            <h3>How does it work?</h3><br/>
+            <p>&nbsp;Linked Modernisms is dynamic, with each part constantly developing and causing the other parts to develop in turn. Those parts are:
+              <br/>
+              a)    The Routledge Encyclopedia of Modernism (REM). (For more on the REM, please visit ghostprof.org).
+              <br/>
+              b)    Casaubon, our customized information ontology. (For more on Casaubon, please visit our Ontology page).
+              <br/>
+              c)    The machine reasoning algorithm we use to generate and enhance our metadata.
+              <br/>
+              d)    Our metadata, which is organized into n-triples in a Virtuoso environment.
+              <br/><br/>&nbsp;&nbsp;&nbsp;
+              Following the dynamic ontology methodology established by the Indiana Philosophy Ontology team https://inpho.cogs.indiana.edu, Linked Modernisms never rests, since all its components are constantly developing. The REM changes regularly as new content is added and existing content is revised. The Casaubon ontology undergoes regular revision to accommodate relationships and categories required by both our data and our users. The algorithm responds to human feedback on its results so that it continues to learn how to provide better results over time as well. Finally, of course, the metadata itself changes with each shift in any or all of the other parts. In fact, all the parts change constantly in response to changes in one another. The result is an environment that – though it will never be perfect – continues to improve with time.
+              <br/>&nbsp;&nbsp;&nbsp;
+              For its visualizations, Linked Modernisms combines multiple libraries, including d3.js, and d3sparql.js. The Degrees of Separation tool is adapted from the RelFinder, produced by Heim, Lohmann, and Stegemann at Visual Data Web, <a href="http://www.visualdataweb.org/relfinder.php">found here</a>. The environment in which all this magic takes place is provided by Opensource Virtuoso, <a href="http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main">found here</a>.
+              <br/>&nbsp;&nbsp;&nbsp;
+              We would like to thank the contributors to the REM who provided the initial metadata for Linked Modernisms by filling out an exhaustive questionnaire about the entries they provided. Their answers helped form the set upon which our algorithm was initially trained. After that initial step, Linked Modernisms’ metadata is now produced algorithmically, with the results vetted by domain experts before it is integrated into our database. "
+            </p>
+            <br/>
+          </div>
 
-            </div>
-
-            <div class="portrait">
-              <a href="http://ghostprof.org">
-                <img  class="portrait-img" src="img/Portraits/StephenRoss.jpeg" alt="...">
-                <h4>Dr. Stephen Ross</h4>
-                <p class="info-text">Project Lead, UVic.</p>
-              </a>
-            </div>
-            <div class="portrait">
-              <a href"http://www.jefnterysayers.com/">
-                <img  class="portrait-img" src="img/Portraits/JenterySayers.jpg" alt="...">
-                <h4>Jentery Sayers</h4>
-                <p class="info-text">Director of the Maker Lab in the Humanities, UVic</p>
-              </a>
-            </div>
-            <div class="portrait">
+          <div class="text80">
+          <div class="portrait">
+            <a href="http://ghostprof.org">
+              <img  class="portrait-img" src="img/Portraits/StephenRoss.jpeg" alt="...">
+              <h4>Dr. Stephen Ross</h4>
+              <p class="info-text">Project Lead, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href"http://www.jefnterysayers.com/">
+              <img  class="portrait-img" src="img/Portraits/JenterySayers.jpg" alt="...">
+              <h4>Jentery Sayers</h4>
+              <p class="info-text">Director of the Maker Lab in the Humanities, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href"https://www.uoguelph.ca/arts/sets-susan-brown">
               <img  class="portrait-img" src="img/Portraits/SusanBrown.jpg" alt="...">
               <h4>Susan Irene Brown</h4>
               <p class="info-text">Research Chair in Digital Humanities, University of Guelph.</p>
-            </div>
-            <div class="portrait">
-              <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
-                <img  class="portrait-img" src="img/Portraits/ColinAllen.jpg" alt="...">
-                <h4>Colin Allen</h4>
-                <p class="info-text">Department of History and Philosophy of Science, Indiana University</p>
-              </a>
-            </div>
-            <div class="portrait">
-              <a href="http://web.uvic.ca/~siemens/">
-                <img  class="portrait-img" src="img/Portraits/RaySiemens.jpg" alt="...">
-                <h4>Ray Siemens</h4>
-                <p class="info-text">Canada Research Chair in Humanities Computing, UVic.</p>
-              </a>
-            </div>
-            <div class="portrait">
-              <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
-                <img  class="portrait-img" src="img/Portraits/JonSaklofske.jpg" alt="...">
-                <h4>Jon Saklofske</h4>
-                <p class="info-text">Department of English, Acadia University.</p>
-              </a>
-            </div>
-            <div class="portrait">
-              <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
-                <img class="portrait-img" src="img/Portraits/ChristineWalde.jpg" alt="...">
-                <h4>Christine Walde</h4>
-                <p class="info-text">Grants and Awards Librarian, UVic.</p>
-              </a>
-            </div>
-
-          </section>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
+              <img  class="portrait-img" src="img/Portraits/ColinAllen.jpg" alt="...">
+              <h4>Colin Allen</h4>
+              <p class="info-text">Professor of History and Philosophy of Science, Indiana University</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://web.uvic.ca/~siemens/">
+              <img  class="portrait-img" src="img/Portraits/RaySiemens.jpg" alt="...">
+              <h4>Ray Siemens</h4>
+              <p class="info-text">Canada Research Chair in Humanities Computing, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
+              <img  class="portrait-img" src="img/Portraits/JonSaklofske.jpg" alt="...">
+              <h4>Jon Saklofske</h4>
+              <p class="info-text">Department of English, Acadia University.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
+              <img class="portrait-img" src="img/Portraits/ChristineWalde.jpg" alt="...">
+              <h4>Christine Walde</h4>
+              <p class="info-text">Grants and Awards Librarian, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://scalar.usc.edu/maker/english-507/users/109">
+              <img class="portrait-img" src="img/Portraits/JanaUsiskin.jpg" alt="...">
+              <h4>Jana Usiskin</h4>
+              <p class="info-text">Graduate Student, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
+              <img class="portrait-img" src="img/Portraits/CarolineWinter.jpg" alt="...">
+              <h4>Caroline Winter</h4>
+              <p class="info-text">PHD Student, UVic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="https://www.linkedin.com/in/braydenarthur">
+              <img class="portrait-img" src="img/Portraits/BraydenArthur.jpg" alt="...">
+              <h4>Brayden Arthur</h4>
+              <p class="info-text">SEng Student, Uvic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="https://github.com/dustinchang">
+              <img class="portrait-img" src="img/Portraits/DustinChang.jpg" alt="...">
+              <h4>Dustin Chang</h4>
+              <p class="info-text">CSC Student, Uvic.</p>
+            </a>
+          </div>
+          <div class="portrait">
+            <a href="https://rcf.uvic.ca/bmoa">
+              <img class="portrait-img" src="img/Portraits/BelaidMoa.png" alt="...">
+              <h4>Belaid Moa</h4>
+              <p class="info-text">HPC and Research Computing Specialist, Uvic.</p>
+            </a>
+          </div>
+        </div>
+        </section>
       </div>
-
       <div class="tab-pane fade" id="sectionDist">
         <br/><br/><br/>
         <object width="98%" height="1000">
@@ -798,7 +881,7 @@ We would like to thank the contributors to the REM who provided the initial meta
               <label class="vis-s fd" for="fd"></label>
               <input id="sb" type="radio" name="optradio" value="sb" />
               <label class="vis-s sb"for="sb"></label>
-            <!--  <input id="cp" type="radio" name="optradio" value="cp" />
+              <!--  <input id="cp" type="radio" name="optradio" value="cp" />
               <label class="vis-s cp" for="cp"></label>
               <input id="wm" type="radio" name="optradio" value="wm" />
               <label class="vis-s wm"for="wm"></label>
@@ -1428,22 +1511,22 @@ We would like to thank the contributors to the REM who provided the initial meta
                 </div>
               </div>
               <br/>
-            <h6>Select a visualization</h6>
-            <div class="vis-select1">
-              <input id="fd1" type="radio" checked="checked" name="optradio1" value="fd" />
-              <label class="vis-s1 fd" for="fd1"></label>
-              <input id="sb1" type="radio" name="optradio1" value="sb" />
-              <label class="vis-s1 sb"for="sb1"></label>
-              <!--<input id="cp1" type="radio" name="optradio1" value="cp" />
-              <label class="vis-s1 cp" for="cp1"></label>
-              <input id="wm1" type="radio" name="optradio1" value="wm" />
-              <label class="vis-s1 wm"for="wm1"></label>
-              <input id="bp1" type="radio" name="optradio1" value="bp" />
-              <label class="vis-s1 bp" for="bp1"></label>-->
-              <input id="sk1" type="radio" name="optradio1" value="sk" />
-              <label class="vis-s1 sk"for="sk1"></label>
-            </div>
-            <br/>
+              <h6>Select a visualization</h6>
+              <div class="vis-select1">
+                <input id="fd1" type="radio" checked="checked" name="optradio1" value="fd" />
+                <label class="vis-s1 fd" for="fd1"></label>
+                <input id="sb1" type="radio" name="optradio1" value="sb" />
+                <label class="vis-s1 sb"for="sb1"></label>
+                <!--<input id="cp1" type="radio" name="optradio1" value="cp" />
+                <label class="vis-s1 cp" for="cp1"></label>
+                <input id="wm1" type="radio" name="optradio1" value="wm" />
+                <label class="vis-s1 wm"for="wm1"></label>
+                <input id="bp1" type="radio" name="optradio1" value="bp" />
+                <label class="vis-s1 bp" for="bp1"></label>-->
+                <input id="sk1" type="radio" name="optradio1" value="sk" />
+                <label class="vis-s1 sk"for="sk1"></label>
+              </div>
+              <br/>
 
               <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Apply to Previous Search" class="btn btn-primary btn-filters btn-xl"/>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--Space between buttons-->
@@ -1503,7 +1586,7 @@ We would like to thank the contributors to the REM who provided the initial meta
 
   </div>
 
-  </section>
+</section>
 </body>
 <footer>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
