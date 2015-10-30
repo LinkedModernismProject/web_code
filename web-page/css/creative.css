@@ -42,7 +42,8 @@ hr {
 .searches {
   float: left;
   clear: left;
-  margin: 0px 0px 7px;
+  margin: 0px 0px 10px;
+  width: 100%;
 }
 
 .examples {
