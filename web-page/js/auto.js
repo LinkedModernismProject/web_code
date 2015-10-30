@@ -20885,7 +20885,6 @@ var availableTagsSubj = [
   "Mabel Dodge Luhan",
   "Frank Stella",
   "Neo-Impressionism",
-  "Alain Locke",
   "Femenism and Suffragism",
   "Serge Garant",
   "Poème électronique",

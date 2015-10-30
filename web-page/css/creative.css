@@ -29,16 +29,20 @@ hr {
 .twoxgrid {
   list-style-type: none;
   float: left;
-  margin:0 1% 5% 0;
+  margin:0 1% 7% 0;
   height: 500px;
   width: 48%;
 }
 
-
-
-.underboldtitles {
-  font-weight: bold;
+.searchtitles {
+  float: left;
   text-decoration: underline;
+}
+
+.searches {
+  float: left;
+  clear: left;
+  margin: 0px 0px 7px;
 }
 
 .examples {
