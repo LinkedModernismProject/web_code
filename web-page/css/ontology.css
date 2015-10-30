@@ -282,3 +282,18 @@ fieldset[disabled] .btn-primary.active {
 .btn.active {
   text-color: #af2532;
 }
+
+.text80 {
+  margin: 0 1%;
+}
+
+@media (min-width:500px){
+  .text80 {
+    margin: 0 5%;
+  }
+}
+@media (min-width:900px){
+  .text80 {
+    margin: 0 10%;
+  }
+}

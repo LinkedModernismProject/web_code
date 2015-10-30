@@ -28,7 +28,7 @@
 	<script src="js/d3.min.js"></script>
 	<script src="js/dndTree.js"></script>
 	<script type="text/javascript">
-	
+
 	$(function() {
 	    var viewerWidth = $(document).width() * .1;
 	    $("#tree-container").css("margin-left",viewerWidth);
@@ -72,6 +72,7 @@
   </h1>
 <br/>
 <br/>
+<div class="text80">
 <p>&nbsp;
 Casaubon is a custom ontology produced by mashing up existing ontologies such as FOAF, SKOS, OWL, LIBRIS, and DC. We have worked hard to create as few custom classes and attributes as possible, but the relative lack of ontologies designed with cultural production in mind has necessitated doing so in some cases.
 <br/><br/>
@@ -79,16 +80,17 @@ Casaubon is a custom ontology produced by mashing up existing ontologies such as
 <br/>&nbsp;
 Casaubon was generated over about a year’s work by Jana Millar Usiskin, Caroline Winter, and Christine Walde, all working at the University of Victoria. These are the steps they took:
 <br/>&nbsp;
-1.    Guided by the principles of ontology construction established by Noy and McGuinness (http://protegewiki.stanford.edu/wiki/Ontology101), and anticipating a context in which we would continue to develop Casaubon dynamically (after Allen, Buckner, Niepert, and Murdock 2010 and 2012 < https://inpho.cogs.indiana.edu/papers>, we began by devising a parsimonious core framework of classes sufficient to cover all the types of entities contained in the Routledge Encyclopedia of Modernism (REM). 
+1.    Guided by the principles of ontology construction established by Noy and McGuinness (http://protegewiki.stanford.edu/wiki/Ontology101), and anticipating a context in which we would continue to develop Casaubon dynamically (after Allen, Buckner, Niepert, and Murdock 2010 and 2012 < https://inpho.cogs.indiana.edu/papers>, we began by devising a parsimonious core framework of classes sufficient to cover all the types of entities contained in the Routledge Encyclopedia of Modernism (REM).
 <br/>&nbsp;
-2.    We then drew upon domain expert knowledge to flesh out those classes in terms of sub-classes and attributes. The initial result was a questionnaire which we administered to the contributors to the REM through SurveyMonkey. The results of that process allowed us to coalesce the framework into an information ontology per se. 
+2.    We then drew upon domain expert knowledge to flesh out those classes in terms of sub-classes and attributes. The initial result was a questionnaire which we administered to the contributors to the REM through SurveyMonkey. The results of that process allowed us to coalesce the framework into an information ontology per se.
 <br/>&nbsp;
-3.    Casaubon was then prototyped without reference to other ontologies using Protégé (http://protege.stanford.edu). The result was coherent, valid, and comprehensive enough for us to move on to integration with existing ontologies. 
+3.    Casaubon was then prototyped without reference to other ontologies using Protégé (http://protege.stanford.edu). The result was coherent, valid, and comprehensive enough for us to move on to integration with existing ontologies.
 <br/>&nbsp;
 4.    Our team compared the classes, sub-classes, and attributes of Casaubon with those in existing ontologies and adapted our bespoke schema to correspond to more widely used standards such as FOAF, SKOS, OWL, LIBRIS, and DC.
 <br/>&nbsp;
 The result is the most comprehensive ontology for describing cultural production yet produced. We continue to develop it in response to changes in the other elements of Linked Modernisms, and according to what our users tell us they would like to see. Click here to download the ontology (either as an image or as an XML file), and don’t hesitate to tell us what it’s missing. "
 </p>
+</div>
     <div id="tree-container" border="1" height="300" style="text-align: center;"></div>
     <br/>
     <div class="pull-right">

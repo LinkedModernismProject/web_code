@@ -11,7 +11,7 @@ body {
 
 footer {
   bottom: 0;
-  background-color: #efefef;
+  background-color: #fffffe;
 }
 
 hr {
@@ -702,11 +702,26 @@ body {
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 
+.text80 {
+  margin: 0 1%;
+}
+
+@media (min-width:500px){
+  .text80 {
+    margin: 0 5%;
+  }
+}
+@media (min-width:900px){
+  .text80 {
+    margin: 0 10%;
+  }
+}
+
 .portrait {
-    width:  100%;
+    display:inline-flex;
+    width:  80%;
     height: auto;
-    position: relative;
-    float:left;
+    position: fixed;
     text-align: center;
     margin: 0 1%;
 }
@@ -718,10 +733,9 @@ body {
 
 @media (min-width:500px){
   .portrait {
-      width:  30%;
+      width:  20%;
       height: auto;
       position: relative;
-      float:left;
       text-align: center;
       margin: 0 1%;
   }
@@ -737,14 +751,8 @@ body {
       width:  12%;
       height: auto;
       position: relative;
-      float:left;
       text-align: center;
-      margin: 0 1%;
-  }
-
-  .portrait-img{
-    width: 100%;
-    height: 100%;
+      margin: 0 2%;
   }
 }
 
