@@ -160,17 +160,17 @@
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        if(query.indexOf('?Subject limo:gender ') != -1) {
-          var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:hasSex ') != -1) {
+          var qmatch = query.match(/^(.*:hasSex)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + gender + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:gender '" + gender + "' . ";
+          query = query + "?Subject limo:hasSex '" + gender + "' . ";
         }
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
-        if(query.indexOf('?Subject limo:sexuality ') != -1) {
-          var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:hasSexuality ') != -1) {
+          var qmatch = query.match(/^(.*:hasSexuality)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
         } else {
           query = query + "?Subject limo:hasSexuality '" + sexuality + "' . ";
@@ -248,7 +248,7 @@
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        query = query + "?Subject limo:hasSex" + " '" + gender + "' . ";
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
