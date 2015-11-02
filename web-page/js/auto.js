@@ -20541,6 +20541,7 @@ auto.autocorrect = function() {
 "art nouveau"
       ]
 var availableTagsPred = [
+  "associatedWith",
   "associatedWithLiterature",
   "groupOrMovement",
   "isPerson",
