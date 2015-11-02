@@ -57709,8 +57709,7 @@
 	pref1:associatedWithVenues "McGill Fortnightly Review" ;
 	pref1:associatedWithVenues "New Provinces" .
 
-<http://modernism.uvic.ca/metadata/James_Joyce>
-  rdfs:label "James Joyce" ;
+<http://modernism.uvic.ca/metadata#James_Joyce>
   pref1:associatedWithLiterature "poetry" ;
 	pref1:associatedWithLiterature "prose" ;
 	rdf:type "Person" ;
