@@ -48,3 +48,13 @@
 
   Pred: influencedBy
   Filter by: Lived In (associatedWithCountry): Spain
+
+
+#Degrees of Separation Searches
+  John Martin & Martha Graham
+  Doris Humphrey & George Balanchine (really good if filter out flourishesIn & type under link tab)
+  Henri Matisse & Georges Rouault
+  Guillaume Apollinaire & Pablo Picasso
+  Alain Locke Claude Mckay
+  Anna Seghers & George Grosz
+  Alan Turing & Max Ernst
