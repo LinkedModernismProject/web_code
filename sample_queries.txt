@@ -24,36 +24,27 @@
   Irish literary revival
 
 
-#Searches through filters
+#Searches through filters New Searches, or starting from the
+#top and starting search and then applying each one after
+  Occupation (typeOfPerson): painter
+  PlaceOfOrigin (originatingCountry): Ethiopia
+  BirthYear (hasBirthdate): 1937 (If you want to add)
+
+  Lived In (associatedWithCountry): Canada
+  Sexuality (hasSexuality): unknown
+  Gender (hasGender): man
+  Occupation (typeOfPerson): sculptor
+
+  #Do first 2 at same time if doing applying
+  Occupation (typeOfPerson): thinker
+  Lived In (associatedWithCountry): Spain
+  PlaceOfOrigin (originatingCountry: United States of America
+  Sex (hasSex): male
 
 
+#Searches through Search page then filtered
+  Obj: Manifesto
+  Filter by: Sexuality (hasSexuality): homosexual
 
-
-
-
-
-
-
-#Maybe's
-  Strindberg
-  Isadora Duncan
-  Paula Modersohn-Becker (If fix her data)
-
-
-
-
-
-  Writers to include would be James Joyce, Virginia Woolf, Thomas Mann, Jose Luis Borges, Jean Rhys.
-
-
-  Architects: Le Corbusier
-
-  Drama: Strindberg, Ibsen, Beckett, Ionesco
-
-  Music: Schoenberg, Webern, Debussy, Cage
-
-  Film: Murnau, Truffaut, Riefenstahl
-
-  Dance: Isadora Duncan, Martha Graham, Ted Shawn and Ruth Dennis
-
-  Intellectual Currents: Heidegger, Horkheimer, Benjamin, Simone Weil, Simone de Beauvoir
+  Pred: influencedBy
+  Filter by: Lived In (associatedWithCountry): Spain
