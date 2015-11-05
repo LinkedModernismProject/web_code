@@ -11,6 +11,20 @@
 #Searches for just a predicate:
   usesLanguages
   HasGender
+  typeOfPerson
+  knows (maybe)
+  influencedBy
+  originatingCountry
+
+#Searches for just a object
+  man / woman / male / female
+  Virginia Woolf
+  poetry
+  musician
+  Irish literary revival
+
+
+#Searches through filters
 
 
 
@@ -23,6 +37,7 @@
 #Maybe's
   Strindberg
   Isadora Duncan
+  Paula Modersohn-Becker (If fix her data)
 
 
 
