@@ -1,0 +1,44 @@
+#Sample Queries
+
+#Searches for just a subject:
+  Alan Turing
+  Robinson Jeffers
+  Ethel Carrick Fox
+  Dartington Hall (Maybe, check validity)
+  Ruth St. Denis (doubled right now though)
+  Walter Benjamin (doubled right now though)
+
+#Searches for just a predicate:
+  usesLanguages
+  HasGender
+
+
+
+
+
+
+
+
+
+#Maybe's
+  Strindberg
+  Isadora Duncan
+
+
+
+
+
+  Writers to include would be James Joyce, Virginia Woolf, Thomas Mann, Jose Luis Borges, Jean Rhys.
+
+
+  Architects: Le Corbusier
+
+  Drama: Strindberg, Ibsen, Beckett, Ionesco
+
+  Music: Schoenberg, Webern, Debussy, Cage
+
+  Film: Murnau, Truffaut, Riefenstahl
+
+  Dance: Isadora Duncan, Martha Graham, Ted Shawn and Ruth Dennis
+
+  Intellectual Currents: Heidegger, Horkheimer, Benjamin, Simone Weil, Simone de Beauvoir

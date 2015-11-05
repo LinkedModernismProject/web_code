@@ -20552,7 +20552,7 @@ var availableTagsPred = [
   "membersOrFiguresAssociatedWithGroupOrMovement",
   "worksOrEventsMostCommonlyAssociatedWithGroupOrMovement",
   "hasGender",
-  "gender",
+  "hasSex",
   "sexuality",
   "correspondedWith",
   "knows",
