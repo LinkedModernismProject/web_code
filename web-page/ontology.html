@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
-	<meta name="author" content="barthur">
-
-	<title>Linked Modernisms</title>
-
-	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/ontology.css" type="text/css">
-
-	<!-- Plugin CSS -->
-  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-	<!-- Favicon -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+  <title>Linked Modernisms</title>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/ontology.css" type="text/css">
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/LiMofavi.png">
   <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
-
-	<!-- script for animating tree -->
-	<script src="js/jquery.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/dndTree.js"></script>
-	<script type="text/javascript">
-
-	$(function() {
-	    var viewerWidth = $(document).width() * .1;
-	    $("#tree-container").css("margin-left",viewerWidth);
-	    $("#tree-container").css("margin-right",viewerWidth);
-	});
-	</script>
+  <!-- script for animating tree -->
+  <script src="js/jquery.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/dndTree.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    var viewerWidth = $(document).width() * .1;
+    $("#tree-container").css("margin-left",viewerWidth);
+    $("#tree-container").css("margin-right",viewerWidth);
+  });
+  </script>
+  <!-- Note: jQuery & Boostrap js files only added for Bootstrap menu when page is shrunk -->
+  <!-- Note: Both are needed to work, and jquery.js also needs to be above bootstrap.min.js -->
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 </head>
-
 <body>
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -50,7 +45,6 @@
         </button>
         <a class="navbar-brand page-scroll" href="index.html" onclick="">Linked Modernisms</a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -64,40 +58,37 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
-	<br/>
-  <hr class="light"></hr>
   <br/>
+  <hr class="light"></hr><br/>
   <h1>
     The Modernism Ontology
-  </h1>
-<br/>
-<br/>
-<div class="text80">
-<p>&nbsp;
-Casaubon is a custom ontology produced by mashing up existing ontologies such as FOAF, SKOS, OWL, LIBRIS, and DC. We have worked hard to create as few custom classes and attributes as possible, but the relative lack of ontologies designed with cultural production in mind has necessitated doing so in some cases.
-<br/><br/>
-<h4>How it was Built</h4>
-<br/>&nbsp;
-Casaubon was generated over about a year’s work by Jana Millar Usiskin, Caroline Winter, and Christine Walde, all working at the University of Victoria. These are the steps they took:
-<br/>&nbsp;
-1.    Guided by the principles of ontology construction established by Noy and McGuinness (http://protegewiki.stanford.edu/wiki/Ontology101), and anticipating a context in which we would continue to develop Casaubon dynamically (after Allen, Buckner, Niepert, and Murdock 2010 and 2012 < https://inpho.cogs.indiana.edu/papers>, we began by devising a parsimonious core framework of classes sufficient to cover all the types of entities contained in the Routledge Encyclopedia of Modernism (REM).
-<br/>&nbsp;
-2.    We then drew upon domain expert knowledge to flesh out those classes in terms of sub-classes and attributes. The initial result was a questionnaire which we administered to the contributors to the REM through SurveyMonkey. The results of that process allowed us to coalesce the framework into an information ontology per se.
-<br/>&nbsp;
-3.    Casaubon was then prototyped without reference to other ontologies using Protégé (http://protege.stanford.edu). The result was coherent, valid, and comprehensive enough for us to move on to integration with existing ontologies.
-<br/>&nbsp;
-4.    Our team compared the classes, sub-classes, and attributes of Casaubon with those in existing ontologies and adapted our bespoke schema to correspond to more widely used standards such as FOAF, SKOS, OWL, LIBRIS, and DC.
-<br/>&nbsp;
-The result is the most comprehensive ontology for describing cultural production yet produced. We continue to develop it in response to changes in the other elements of Linked Modernisms, and according to what our users tell us they would like to see. Click here to download the ontology (either as an image or as an XML file), and don’t hesitate to tell us what it’s missing. "
-</p>
-</div>
-    <div id="tree-container" border="1" height="300" style="text-align: center;"></div>
-    <br/>
+  </h1><br/><br/>
+  <div class="text80">
+  <p>&nbsp;
+  Casaubon is a custom ontology produced by mashing up existing ontologies such as FOAF, SKOS, OWL, LIBRIS, and DC. We have worked hard to create as few custom classes and attributes as possible, but the relative lack of ontologies designed with cultural production in mind has necessitated doing so in some cases.
+  <br/><br/>
+  <h4>How it was Built</h4>
+  <br/>&nbsp;
+  Casaubon was generated over about a year’s work by Jana Millar Usiskin, Caroline Winter, and Christine Walde, all working at the University of Victoria. These are the steps they took:
+  <br/>&nbsp;
+  1.    Guided by the principles of ontology construction established by Noy and McGuinness (http://protegewiki.stanford.edu/wiki/Ontology101), and anticipating a context in which we would continue to develop Casaubon dynamically (after Allen, Buckner, Niepert, and Murdock 2010 and 2012 < https://inpho.cogs.indiana.edu/papers>, we began by devising a parsimonious core framework of classes sufficient to cover all the types of entities contained in the Routledge Encyclopedia of Modernism (REM).
+  <br/>&nbsp;
+  2.    We then drew upon domain expert knowledge to flesh out those classes in terms of sub-classes and attributes. The initial result was a questionnaire which we administered to the contributors to the REM through SurveyMonkey. The results of that process allowed us to coalesce the framework into an information ontology per se.
+  <br/>&nbsp;
+  3.    Casaubon was then prototyped without reference to other ontologies using Protégé (http://protege.stanford.edu). The result was coherent, valid, and comprehensive enough for us to move on to integration with existing ontologies.
+  <br/>&nbsp;
+  4.    Our team compared the classes, sub-classes, and attributes of Casaubon with those in existing ontologies and adapted our bespoke schema to correspond to more widely used standards such as FOAF, SKOS, OWL, LIBRIS, and DC.
+  <br/>&nbsp;
+  The result is the most comprehensive ontology for describing cultural production yet produced. We continue to develop it in response to changes in the other elements of Linked Modernisms, and according to what our users tell us they would like to see. Click here to download the ontology (either as an image or as an XML file), and don’t hesitate to tell us what it’s missing. "
+  </p>
+  </div>
+  <div id="tree-container" border="1" height="300" style="text-align: center;"></div>
+  <br/>
     <div class="pull-right">
-                        <a id="fileRequest" href="data/ontology.json" class="btn btn-xl btn-primary">Download the Ontology</a>
-                        <span style="col-xs-offset-2 col-md-offset-2"></span>
-                        <br/>
-                </div>
+      <a id="fileRequest" href="data/ontology.json" class="btn btn-xl btn-primary">Download the Ontology</a>
+      <span style="col-xs-offset-2 col-md-offset-2"></span>
+      <br/>
+    </div>
 </body>
 <footer>
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
