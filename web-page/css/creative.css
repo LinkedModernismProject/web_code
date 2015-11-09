@@ -553,6 +553,10 @@ fieldset[disabled] .btn-primary.active {
   background-color: #9C5B92;
 }
 
+.btn-space {
+  margin-left: 15px;
+}
+
 .btn-boot-mat {
   position: relative;
   padding: 8px 30px;

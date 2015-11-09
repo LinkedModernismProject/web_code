@@ -133,7 +133,7 @@
     });
 
     //This is called from the filters apply to previous search button, and adds filters to prev search
-    $(".btn-filters").click(function(){
+    $("#filterer").click(function(){
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       } else {
@@ -281,6 +281,54 @@
       exec1(query);
     });
 
+    //Executes and presents the user a visualization of a random query
+    $("#random").on('click', function() {
+      $.cookie("currentVis", $("input[name='optradio']:checked").val());
+      var rn = Math.floor(Math.random() * 10 + 1);
+      switch (rn) {
+        case 0:
+          //Case SR
+          break;
+        case 1:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Alan_Turing", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 2:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Dartington_Hall", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 3:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Ruth_St._Denis", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 4:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ?Subject limo:originatingCountry ?Object .} ORDER BY ASC(?Subject)';
+          break;
+        case 5:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^Virginia Woolf$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 6:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^musician$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 7:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^Irish literary revival$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 8:
+          var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ?Subject limo:typeOfPerson 'painter' . ?Subject limo:originatingCountry 'Ethiopia' . ?Subject limo:hasBirthdate '1937' . } ORDER BY ASC(?Subject)";
+          break;
+        case 9:
+          var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ?Subject limo:hasGender 'man' . ?Subject limo:hasSexuality 'unknown' . ?Subject limo:typeOfPerson 'sculptor' . ?Subject limo:associatedWithCountry 'Canada' . } ORDER BY ASC(?Subject)";
+          break;
+        case 10:
+          var query = " SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ?Subject limo:influencedBy ?Object . ?Subject limo:associatedWithCountry 'Spain' . } ORDER BY ASC(?Subject)";
+          break;
+        default:
+          alert('Please Try Again'); //Should never reach this point
+      }
+      $("#tabSearch").removeClass("active");
+      $("#tabVis").addClass("active");
+      createCookie(query);
+      sClick(query);
+      exec1(query);
+    });
+
     //calls ajax function when the search button is pressed
     $(".btn-search").click(function(){
       $.cookie("currentVis", $("input[name='optradio']:checked").val());
@@ -385,7 +433,6 @@
       dataType: "html",
       cache: false,
       success: function(response){
-        console.log('in success');
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
@@ -895,6 +942,7 @@ height: 1050
               <input type="textarea" name="obj" id="obj" class="primary-search" placeholder="Object (leave blank for anything)"></textarea>
               <div class="clearfix visible-xs-block"><br/></div><br/><br/>
               <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="random" value="Random Search" class="btn btn-primary btn-xl btn-space"/>
             </fieldset>
 
             <br/>
@@ -1553,9 +1601,8 @@ height: 1050
               <br/>
 
               <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Apply to Previous Search" class="btn btn-primary btn-filters btn-xl"/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--Space between buttons-->
               <!--For the newSearch button in filters-->
-              <input data-toggle="tab" href="#sectionVis" type="submit" id="newSearch" value="New Search" class="btn btn-primary btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="newSearch" value="New Search" class="btn btn-primary btn-xl btn-space"/>
 
             </div>
 
