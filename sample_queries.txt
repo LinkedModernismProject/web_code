@@ -22,6 +22,7 @@
   poetry
   musician
   Irish literary revival
+  Mandarin Chinese
 
 
 #Searches through filters New Searches, or starting from the
@@ -58,3 +59,9 @@
   Alain Locke Claude Mckay
   Anna Seghers & George Grosz
   Alan Turing & Max Ernst
+
+
+
+#Look into:
+  may 4 movement
+  soloman
