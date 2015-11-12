@@ -2252,5 +2252,9 @@ function createVis(term, qry) {
   }
   console.log(query);
   var endpoint = "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
+  populateResults(query);
   d3sparql.query(endpoint, query, render);
+  console.log('before!!!!!!!!!!!********************************************************************');
+  //populateResults(query);
+  console.log('afer********************************************************************');
 }
