@@ -2229,6 +2229,7 @@ function createVis(term, qry) {
     'natureOfEvent': null,
     'originatingCountry': null,
     'seeAlso': null,
+    'terminatesIn': null,
     'timeOfForgerySinceInitialAppearance': null,
     'timeToTranslation': null,
     'translationTargetLanguage': null,
