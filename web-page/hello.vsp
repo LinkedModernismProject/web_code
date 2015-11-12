@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Simple FORM demo</title>
+  </head>
+  <body>
+<?vsp
+  declare i integer;
+  declare thisvsp varchar;
+  i := 1;
+  thisvsp := aref(path,length(path)-1);
+  while (i <= 5)
+    {
+?>
+i = <?= i ?>
+thispath=<?= thisvsp ?>
+<?vsp
+      i := i + 1;
+      string_to_file('../var/lib/virtuoso/vsp/test.txt','hello',-1);
+    }
+    thisvsp:=file_to_string('../var/lib/virtuoso/vsp/test.txt');
+?>
+<br>
+ fromText= <?= thisvsp ?>
+  </body>
+</html>
