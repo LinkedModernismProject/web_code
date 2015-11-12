@@ -575,7 +575,7 @@
 
   //d3.select("#endpoint").property("value")
   function createVisualizations(sparql) {
-    console.log('in the exec1~~~~~~~~~~~~~~~~~~~~~~~~~~\n'+ sparql);
+    console.log('in the createVisualizations~~~~~~~~~~~~~~~~~~~~~~~~~~\n'+ sparql);
     var endpoint = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
     d3sparql.query(endpoint, sparql, render);
   }
