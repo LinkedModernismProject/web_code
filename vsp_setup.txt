@@ -1,0 +1,15 @@
+#Setting up VSP
+
+  Went into Conductor
+  Logged in as dba
+  System Admin tab -> User Accounts tab -> Next button
+  Selected vspdemo and changed details below:
+    User type: SQL/ODBC
+    Primary Role: dba
+    Qouta: 2000MB
+    Account Roles: Selected >>  administrators
+                                SPARQL_SELECT
+                                SPARQL_SPONGE
+                                SPARQL_LOAD_SERVICE_DATA
+                                SPARQL_UPDATE
+
