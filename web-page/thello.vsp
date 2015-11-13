@@ -1,7 +1,7 @@
 <html>
  <body>
   <h1>Test Params</h1>
-  <form method="get" action="thello.vsp">
+  <form method="post" action="thello.vsp">
     <p>Enter your name</p>
     <input type="text" name="tex"/>
     <input type="submit" name="sub" value="submit"/>
