@@ -1,0 +1,31 @@
+<html>
+ <body>
+  <h1>Test Params</h1>
+  <form method="get" action="thello.vsp">
+    <p>Enter your name</p>
+    <input type="text" name="tex"/>
+    <input type="submit" name="sub" value="submit"/>
+  </form>
+
+
+  <?vsp
+  declare _arg1 integer; --   the underscore helps to differentiate from
+  declare _arg2 varchar; --   the keyword name, whereas the variable names
+  declare _arg3 varchar; --   help use remember which is which.
+  declare tester varchar;
+
+  _arg1 := atoi(get_keyword('arg1', params));
+  _arg2 := {?'arg2'};
+  _arg3 := get_keyword('arg3', params, 'was empty');
+
+  tester := get_keyword('tex', params, 'was empty');
+
+
+  ?>
+  <p>values returned:</p>
+  <p>arg1: <?=_arg1?></p>
+  <p>arg2: <?=_arg2?></p>
+  <p>arg3: <?=_arg3?></p>
+  <p>tester: <?=tester?></p>
+ </body>
+</html>
