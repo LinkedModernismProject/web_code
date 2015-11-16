@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="dchang">
+
+  <title>Linked Modernisms</title>
+  <!-- Polyfill Web Components support for older browsers -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!--Polymer Paper Input Resources-->
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-checkbox/demo/index.html">
+  <link rel="import" href="bower_components/iron-form/iron-form.html">
+  <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
+  <script src="getData.vsp"></script>
+
+  <script>
+    function getData() {
+      console.log('in getData~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+      debugger;
+      var x = $('#fm').serializeArray();
+      console.log(x);
+      for(i in x) {
+        if(x[i].value != '' || x[i].value != 'none') {
+          console.log(x[i]);
+          console.log(x[i].name);
+          console.log(x[i].value);
+        }
+      }
+      $.ajax({
+        type: "post",
+        url: "testvsp.vsp",
+        data: x,
+        success: function(response){
+          alert(response);
+        }
+      }).done(function(msg) {
+        console.log('done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      })
+      debugger;
+      window.location.href = 'http://linkedmods.uvic.ca:8890/';
+      console.log('afterreerer END~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+      return false;
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="index.html">Linked Modernisms</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="page-scroll" href="examples.html">Examples</a></li>
+            <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
+            <li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+            <li><a class="page-scroll" href="index.html#about">About</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <hr class="light"></hr><br/>
+
+    <h1>
+      Contribute To The Linked Modernisms Project
+    </h1><br/><br/>
+
+
+
+
+    <form id="fm" onSubmit="return getData()"> <!-- method="post" action="testvsp.vsp" -->
+    <p>
+    <fieldset>
+    <legend>Why are you contacting us?</legend>
+    <div>
+      <!--<div>
+        <h1>Text to PDF </h1>
+        <% form_tag :action => 'parse_comments' do %>
+            <%= text_area :myform, :comments, :cols => '40', :rows => '5' %>
+            <%= submit_tag "Submit" %>
+        <% end %>
+      </div>-->
+
+      <div style="position:relative;left:5%;">
+        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
+        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
+        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
+      </div>
+      <ul class="checkbox-grid" name="usesLang">
+        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Afrikaans">Afrikaans</paper-checkbox></li>
+        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Akan">Akan</paper-checkbox></li>
+        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Amharic">Amharic</paper-checkbox></li>
+      </ul>
+
+      <br>
+      <input type="text" name="namer" id="namer!" placeholder="name">
+      <input type="radio" name="q1_why" id="q1a" value="Technical Support!!!">
+      <label for="q1a">Technical Support</label><br />
+      <input type="radio" name="q1_why" id="q1b">
+      <label for="q1b">Applying for Work</label><br />
+      <input type="radio" name="q1_why" id="q1c">
+      <label for="q1c">Wanted to Hire You</label><br />
+      <input type="radio" name="q1_why" id="q1d">
+      <label for="q1d">Other</label><br />
+    </div>
+    </fieldset>
+    <fieldset>
+    <legend>What service are you interested in? (Check all that apply.)</legend>
+    <div>
+    <input type="checkbox" name="q2_service[]" id="q2a" value="Heating" />
+    <label for="q2a">Heating</label><br />
+    <input type="checkbox" name="q2_service[]" id="q2b" value="Cooling" />
+    <label for="q2b">Cooling</label><br />
+    <input type="checkbox" name="q2_service[]" id="q2c" value="Plumbing" />
+    <label for="q2c">Plumbing</label><br />
+    <input type="checkbox" name="q2_service[]" id="q2d" value="Wiring" />
+    <label for="q2d">Wiring</label><br />
+    <input type="checkbox" name="q2_service[]" id="q2e" value="Carpentry" />
+    <label for="q2e">Carpentry</label>
+    </div>
+    </fieldset>
+    <fieldset>
+    <legend>Where are you from?</legend>
+    <div>
+    <label for="q3">Pick your state:</label>
+    <select id="q3" name="q3_state">
+    <option value="none">Choose One</option>
+
+    <option value="MN">Minnesota</option>
+    <option value="MT">Montana</option>
+    <option value="NY">New York</option>
+    </select>
+    </div>
+    </fieldset>
+    <fieldset>
+    <legend>Comments</legend>
+    <div>
+    <label for="q4">Please provide additional comments about our services.</label><br />
+    <textarea id="q4" name="q4_comments" rows="4" cols="40"></textarea>
+    </div>
+    </fieldset>
+    <fieldset>
+    <div>
+    <!--<label for="submit">Submit the form</label>
+    <input type="submit" id="submit" name="submit" value="Send your Input" />-->
+    <button type="submit">Submitter</button>
+    </div>
+    </fieldset>
+    </form>
+
+
+
+
+  </div> <!--End of id="wrap"-->
+</body>
+<footer>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="bottom:0;width:98%;position:relative;"></img></a>
+</footer>
+</html>
