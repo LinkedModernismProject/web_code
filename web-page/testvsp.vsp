@@ -38,16 +38,15 @@
   <script src="js/jquery.js"></script>
   <script src="js/jquery.cookie.js"></script>
 
-  <script src="getData.vsp"></script>
+  <!--<script src="getData.vsp"></script>  Creates an Unexpected token < error-->
 
   <script>
     function getData() {
       console.log('in getData~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-      debugger;
       var x = $('#fm').serializeArray();
       console.log(x);
       for(i in x) {
-        if(x[i].value != '' || x[i].value != 'none') {
+        if(x[i].value != '' && x[i].value != 'none') {
           console.log(x[i]);
           console.log(x[i].name);
           console.log(x[i].value);
@@ -63,7 +62,12 @@
       }).done(function(msg) {
         console.log('done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       })
-      debugger;
+      <?vsp
+        declare teste varchar;
+        teste:='HELP';
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',teste,-1);
+
+      ?>
       window.location.href = 'http://linkedmods.uvic.ca:8890/';
       console.log('afterreerer END~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
       return false;
@@ -114,14 +118,6 @@
     <fieldset>
     <legend>Why are you contacting us?</legend>
     <div>
-      <!--<div>
-        <h1>Text to PDF </h1>
-        <% form_tag :action => 'parse_comments' do %>
-            <%= text_area :myform, :comments, :cols => '40', :rows => '5' %>
-            <%= submit_tag "Submit" %>
-        <% end %>
-      </div>-->
-
       <div style="position:relative;left:5%;">
         <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
         <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
