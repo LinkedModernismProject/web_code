@@ -53,21 +53,72 @@
         }
       }
       $.ajax({
-        type: "post",
+        type: "get",
         url: "testvsp.vsp",
         data: x,
         success: function(response){
-          alert(response);
+          console.log(response);
         }
       }).done(function(msg) {
         console.log('done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       })
       <?vsp
         declare teste varchar;
-        teste:='HELP';
-        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',teste,-1);
+        declare test2 varchar;
+        declare test4 varchar;
+        declare test5 any;
+        declare test6 any;
+        declare test7 varchar;
+        declare test8 any;
+        declare test9 varchar;
+        declare test10 any;
+        declare inte integer;
+        declare test11 any;
+
+
+        teste:='HELP\n';
+        test2:= concat(get_keyword('spo', params, 'empty'),'\n');
+        test4:= concat(get_keyword('spo', params, 'empty'),'\n');
+        test:= 'any';
+        test10:= make_array(10, test9);
+        aset (test10, 0, inte + 65);
+        test11:= aref (test10, 0);
+        test6:= isarray(params); -- doesnt work
+        test7:= deserialize(serialize(params));
+        test8:= http_get('http://linkedmods.uvic.ca:8890/testvsp.vsp'); -- didnt work
+
+        if (test2 = 'empty\n') {
+          -- Here is to cover the case where it is empty and not wanting that value added to file
+          declare _placeholder varchar;
+        } else {
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST8: ',-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test5,-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spo: ',-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test2,-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spo4: ',-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test4,-1);
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spoTEST: ',-1);
+
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST7: ',-1);
+
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST_BEFORE: ',-1);
+
+
+        }
+        if(test6) {
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TRUE',-1);
+        } else {
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','FALSE',-1);
+        }
 
       ?>
+      //DIDN'T WORK
+      //Value that is not wanted in file
+      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','IN THE EMTPY~~~~~!!!!!!!!!!!!~~~~~\n',-1);
+      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test6,-1);
+      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test7,-1);
+      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test8,-1);
+
       window.location.href = 'http://linkedmods.uvic.ca:8890/';
       console.log('afterreerer END~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
       return false;
@@ -119,9 +170,9 @@
     <legend>Why are you contacting us?</legend>
     <div>
       <div style="position:relative;left:5%;">
-        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
-        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
-        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="spo[]"></paper-input>
+        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="spo"></paper-input>
+        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="spo"></paper-input>
+        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="spo"></paper-input>
       </div>
       <ul class="checkbox-grid" name="usesLang">
         <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Afrikaans">Afrikaans</paper-checkbox></li>
@@ -133,11 +184,11 @@
       <input type="text" name="namer" id="namer!" placeholder="name">
       <input type="radio" name="q1_why" id="q1a" value="Technical Support!!!">
       <label for="q1a">Technical Support</label><br />
-      <input type="radio" name="q1_why" id="q1b">
+      <input type="radio" name="q1_why" id="q1b" value="Applying for work~~~">
       <label for="q1b">Applying for Work</label><br />
-      <input type="radio" name="q1_why" id="q1c">
+      <input type="radio" name="q1_why" id="q1c" value="Wanted to Hire You~~~">
       <label for="q1c">Wanted to Hire You</label><br />
-      <input type="radio" name="q1_why" id="q1d">
+      <input type="radio" name="q1_why" id="q1d" value="Other~!~!!~">
       <label for="q1d">Other</label><br />
     </div>
     </fieldset>
