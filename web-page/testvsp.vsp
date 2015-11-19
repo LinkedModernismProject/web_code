@@ -62,62 +62,6 @@
       }).done(function(msg) {
         console.log('done!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       })
-      <?vsp
-        declare teste varchar;
-        declare test2 varchar;
-        declare test4 varchar;
-        declare test5 any;
-        declare test6 any;
-        declare test7 varchar;
-        declare test8 any;
-        declare test9 varchar;
-        declare test10 any;
-        declare inte integer;
-        declare test11 any;
-
-
-        teste:='HELP\n';
-        test2:= concat(get_keyword('spo', params, 'empty'),'\n');
-        test4:= concat(get_keyword('spo', params, 'empty'),'\n');
-        test:= 'any';
-        test10:= make_array(10, test9);
-        aset (test10, 0, inte + 65);
-        test11:= aref (test10, 0);
-        test6:= isarray(params); -- doesnt work
-        test7:= deserialize(serialize(params));
-        test8:= http_get('http://linkedmods.uvic.ca:8890/testvsp.vsp'); -- didnt work
-
-        if (test2 = 'empty\n') {
-          -- Here is to cover the case where it is empty and not wanting that value added to file
-          declare _placeholder varchar;
-        } else {
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST8: ',-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test5,-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spo: ',-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test2,-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spo4: ',-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test4,-1);
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','spoTEST: ',-1);
-
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST7: ',-1);
-
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TEST_BEFORE: ',-1);
-
-
-        }
-        if(test6) {
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','TRUE',-1);
-        } else {
-          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','FALSE',-1);
-        }
-
-      ?>
-      //DIDN'T WORK
-      //Value that is not wanted in file
-      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','IN THE EMTPY~~~~~!!!!!!!!!!!!~~~~~\n',-1);
-      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test6,-1);
-      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test7,-1);
-      //string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',test8,-1);
 
       window.location.href = 'http://linkedmods.uvic.ca:8890/';
       console.log('afterreerer END~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
@@ -164,20 +108,20 @@
 
 
 
-    <form id="fm" onSubmit="return getData()"> <!-- method="post" action="testvsp.vsp" -->
+    <form id="fm" method="post" action="getData.vsp"> <!--onSubmit="return getData()">   -->
     <p>
     <fieldset>
     <legend>Why are you contacting us?</legend>
     <div>
       <div style="position:relative;left:5%;">
-        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="spo"></paper-input>
-        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="spo"></paper-input>
-        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="spo"></paper-input>
+        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="s_po"></paper-input>
+        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="s_p_o"></paper-input>
+        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="sp_o"></paper-input>
       </div>
       <ul class="checkbox-grid" name="usesLang">
-        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Afrikaans">Afrikaans</paper-checkbox></li>
-        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Akan">Akan</paper-checkbox></li>
-        <li><paper-checkbox class="teal" type="checkbox" name="checker[]" value="Amharic">Amharic</paper-checkbox></li>
+        <li><paper-checkbox class="teal" type="checkbox" name="Afrikaans" value="Afrikaans">Afrikaans</paper-checkbox></li>
+        <li><paper-checkbox class="teal" type="checkbox" name="Akan" value="Akan">Akan</paper-checkbox></li>
+        <li><paper-checkbox class="teal" type="checkbox" name="Amharic" value="Amharic">Amharic</paper-checkbox></li>
       </ul>
 
       <br>
@@ -195,15 +139,15 @@
     <fieldset>
     <legend>What service are you interested in? (Check all that apply.)</legend>
     <div>
-    <input type="checkbox" name="q2_service[]" id="q2a" value="Heating" />
+    <input type="checkbox" name="Heating" id="q2a" value="Heating" />
     <label for="q2a">Heating</label><br />
-    <input type="checkbox" name="q2_service[]" id="q2b" value="Cooling" />
+    <input type="checkbox" name="Cooling" id="q2b" value="Cooling" />
     <label for="q2b">Cooling</label><br />
-    <input type="checkbox" name="q2_service[]" id="q2c" value="Plumbing" />
+    <input type="checkbox" name="Plumbing" id="q2c" value="Plumbing" />
     <label for="q2c">Plumbing</label><br />
-    <input type="checkbox" name="q2_service[]" id="q2d" value="Wiring" />
+    <input type="checkbox" name="Wiring" id="q2d" value="Wiring" />
     <label for="q2d">Wiring</label><br />
-    <input type="checkbox" name="q2_service[]" id="q2e" value="Carpentry" />
+    <input type="checkbox" name="Carpentry" id="q2e" value="Carpentry" />
     <label for="q2e">Carpentry</label>
     </div>
     </fieldset>
@@ -213,7 +157,6 @@
     <label for="q3">Pick your state:</label>
     <select id="q3" name="q3_state">
     <option value="none">Choose One</option>
-
     <option value="MN">Minnesota</option>
     <option value="MT">Montana</option>
     <option value="NY">New York</option>
