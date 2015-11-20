@@ -28,4 +28,10 @@
   <p>arg3: <?=_arg3?></p>
   <p>tester: <?=tester?></p>
  </body>
+
+ <!--
+      string_to_file('../var/lib/virtuoso/vsp/test.txt','Yue_Chinese_Cantonese: ',-1);
+      string_to_file('../var/lib/virtuoso/vsp/test.txt',concat(get_keyword('Yue_Chinese_Cantonese', params, ''), '\n'), -1);
+
+ -->
 </html>
