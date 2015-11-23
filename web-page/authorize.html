@@ -63,15 +63,15 @@
       </header>
       <section class="popupBody">
         <!--GateKeeper Login Box-->
-        <form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
+        <form id="kfm" name="keeper" action="javascript:keeperCheck();" style="margin:0;">
           <div class="group">
-            <input class="inp" type="text" required>
+            <input name="name" class="inp" type="text" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Name</label>
           </div>
           <div class="group">
-            <input class="inp" type="text" required>
+            <input name="email" class="inp" type="text" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Email</label>
@@ -95,6 +95,19 @@
 <script type="text/javascript">
   var keeperaltpage = "denied.html";
   function keeperCheck() {
+    var s_arr = $('#kfm').serializeArray();
+    //Get Name and Email values
+    $.ajax({
+      type: "post",
+      url: "get_users.vsp",
+      data: s_arr,
+      success: function(response) {
+        console.log('in keeperCheck success');
+      }
+    }).done(function(msg) {
+      console.log('in keeperCheck done~~~~~~~~~~~~~~~~~~~');
+    })
+    //Actual KeeperCheck
     keeperpass = window.document.keeper.page.value;
     keeperframe.location.href = keeperpass + "2.html";
     timer = setTimeout("keeperTest(keeperpass)",2000);
