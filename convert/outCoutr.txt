@@ -1,0 +1,245 @@
+244
+<li><paper-checkbox class="teal" value="Afghanistan">Afghanistan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Aland Islands">Aland Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Albania">Albania</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Algeria">Algeria</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="American Samoa">American Samoa</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Andorra">Andorra</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Angola">Angola</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Anguilla">Anguilla</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Antarctica">Antarctica</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Antigua And Barbuda">Antigua And Barbuda</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Argentina">Argentina</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Armenia">Armenia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Aruba">Aruba</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Australia">Australia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Austria">Austria</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Austria-Hungary">Austria-Hungary</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Azerbaijan">Azerbaijan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bahamas">Bahamas</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bahrain">Bahrain</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bangladesh">Bangladesh</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Barbados">Barbados</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Belarus">Belarus</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Belgium">Belgium</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Belize">Belize</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Benin">Benin</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bermuda">Bermuda</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bhutan">Bhutan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bolivia">Bolivia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bosnia and Herzegovina">Bosnia and Herzegovina</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Botswana">Botswana</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bouvet Island">Bouvet Island</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Brazil">Brazil</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Brunei">Brunei</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Bulgaria">Bulgaria</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Burkina Faso">Burkina Faso</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Burundi">Burundi</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cambodia">Cambodia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cameroon">Cameroon</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Canada">Canada</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cape Verde">Cape Verde</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cayman Islands">Cayman Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Central African Republic">Central African Republic</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Chad">Chad</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Chile">Chile</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="China">China</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Christmas Island">Christmas Island</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Colombia">Colombia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Comoros">Comoros</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Congo">Congo</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Congo">Congo</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cook Islands">Cook Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Costa Rica">Costa Rica</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cote D'Ivoire">Cote D'Ivoire</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Croatia">Croatia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cuba">Cuba</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Cyprus">Cyprus</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Czech Republic">Czech Republic</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Denmark">Denmark</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Djibouti">Djibouti</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Dominica">Dominica</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Dominican Republic">Dominican Republic</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ecuador">Ecuador</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Egypt">Egypt</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="El Salvador">El Salvador</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="England">England</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Equatorial Guinea">Equatorial Guinea</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Eritrea">Eritrea</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Estonia">Estonia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ethiopia">Ethiopia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Faroe Islands">Faroe Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Fiji">Fiji</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Finland">Finland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="France">France</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="French Guiana">French Guiana</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="French Polynesia">French Polynesia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="French Southern Territories">French Southern Territories</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Gabon">Gabon</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Gambia">Gambia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Georgia">Georgia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Germany">Germany</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ghana">Ghana</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Gibraltar">Gibraltar</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Greece">Greece</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Greenland">Greenland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Grenada">Grenada</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guadeloupe">Guadeloupe</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guam">Guam</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guatemala">Guatemala</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guernsey">Guernsey</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guinea">Guinea</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guinea-Bissau">Guinea-Bissau</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Guyana">Guyana</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Haiti">Haiti</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Heard Island And Mcdonald Islands">Heard Island And Mcdonald Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Holy See">Holy See</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Honduras">Honduras</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Hong Kong">Hong Kong</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Hungary">Hungary</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Iceland">Iceland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="India">India</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Indonesia">Indonesia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Iran">Iran</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Iraq">Iraq</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ireland">Ireland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Isle Of Man">Isle Of Man</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Israel">Israel</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Italy">Italy</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Jamaica">Jamaica</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Japan">Japan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Jersey">Jersey</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Jordan">Jordan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Kazakhstan">Kazakhstan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Kenya">Kenya</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Kiribati">Kiribati</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Korea">Korea</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Kuwait">Kuwait</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Kyrgyzstan">Kyrgyzstan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Laos">Laos</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Latvia">Latvia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Lebanon">Lebanon</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Lesotho">Lesotho</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Liberia">Liberia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Libya">Libya</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Liechtenstein">Liechtenstein</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Lithuania">Lithuania</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Luxembourg">Luxembourg</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Macao">Macao</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Macedonia">Macedonia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Madagascar">Madagascar</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Malawi">Malawi</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Malaysia">Malaysia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Maldives">Maldives</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mali">Mali</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Malta">Malta</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Marshall Islands">Marshall Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Martinique">Martinique</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mauritania">Mauritania</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mauritius">Mauritius</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mayotte">Mayotte</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mexico">Mexico</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Moldova">Moldova</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Monaco">Monaco</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mongolia">Mongolia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Montserrat">Montserrat</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Morocco">Morocco</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Mozambique">Mozambique</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Myanmar">Myanmar</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Namibia">Namibia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Nauru">Nauru</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Nepal">Nepal</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Netherlands">Netherlands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Dutch Antilles">Dutch Antilles</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="New Caledonia">New Caledonia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Aotearoa/New Zealand">Aotearoa/New Zealand</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Nicaragua">Nicaragua</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Niger">Niger</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Nigeria">Nigeria</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Niue">Niue</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Norfolk Island">Norfolk Island</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Northern Mariana Islands">Northern Mariana Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Norway">Norway</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Oman">Oman</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Pakistan">Pakistan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Palau">Palau</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Palestine">Palestine</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Panama">Panama</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Papua New Guinea">Papua New Guinea</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Paraguay">Paraguay</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Peru">Peru</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Philippines">Philippines</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Pitcairn">Pitcairn</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Poland">Poland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Portugal">Portugal</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Prussia">Prussia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Puerto Rico">Puerto Rico</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Qatar">Qatar</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Reunion">Reunion</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Romania">Romania</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Russia">Russia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Rwanda">Rwanda</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saint Helena">Saint Helena</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saint Kitts And Nevis">Saint Kitts And Nevis</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saint Lucia">Saint Lucia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saint Pierre And Miquelon">Saint Pierre And Miquelon</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saint Vincent And The Grenadines">Saint Vincent And The Grenadines</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Samoa">Samoa</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="San Marino">San Marino</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Sao Tome And Principe">Sao Tome And Principe</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Saudi Arabia">Saudi Arabia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Scotland">Scotland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Senegal">Senegal</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Serbia And Montenegro">Serbia And Montenegro</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Seychelles">Seychelles</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Sierra Leone">Sierra Leone</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Singapore">Singapore</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Slovakia">Slovakia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Slovenia">Slovenia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Solomon Islands">Solomon Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Somalia">Somalia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="South Africa">South Africa</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="South Georgia And The South Sandwich Islands">South Georgia And The South Sandwich Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Spain">Spain</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ceylon/Sri Lanka">Ceylon/Sri Lanka</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Sudan">Sudan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Suriname">Suriname</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Swaziland">Swaziland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Sweden">Sweden</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Switzerland">Switzerland</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Syria">Syria</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Taiwan">Taiwan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tajikistan">Tajikistan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tanzania">Tanzania</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Thailand">Thailand</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="East Timor">East Timor</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Togo">Togo</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tokelau">Tokelau</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tonga">Tonga</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Trinidad And Tobago">Trinidad And Tobago</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tunisia">Tunisia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Turkey">Turkey</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Turkmenistan">Turkmenistan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value=""></paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Turks And Caicos Islands">Turks And Caicos Islands</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Tuvalu">Tuvalu</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Uganda">Uganda</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Ukraine">Ukraine</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="United Arab Emirates">United Arab Emirates</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="United Kingdom">United Kingdom</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="United States of America">United States of America</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Uruguay">Uruguay</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Uzbekistan">Uzbekistan</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Vanuatu">Vanuatu</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Venezuela">Venezuela</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Viet Nam">Viet Nam</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Virgin Islands British">Virgin Islands British</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Virgin Islands U.S.">Virgin Islands U.S.</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Wales">Wales</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Wallis And Futuna">Wallis And Futuna</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Yemen">Yemen</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Yugoslavia">Yugoslavia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Zambia">Zambia</paper-checkbox></li>
+<li><paper-checkbox class="teal" value="Zimbabwe">Zimbabwe</paper-checkbox></li>

@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
-	<meta name="author" content="barthur">
-
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="dchang">
   <title>Linked Modernisms</title>
-
   <!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/creative.css" type="text/css">
-
-  <!-- Plugin CSS -->
-  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-	<!-- Favicon -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/LiMofavi.png">
   <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
-
+  <!-- Note: jQuery & Boostrap js files only added for Bootstrap menu when page is shrunk -->
+  <!-- Note: Both are needed to work, and jquery.js also needs to be above bootstrap.min.js -->
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 </head>
-
 <body>
-	<section>
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -40,13 +35,12 @@
         </button>
         <a class="navbar-brand page-scroll" href="index.html" onclick="">Linked Modernisms</a>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a class="page-scroll" href="examples.html">Examples</a></li>
           <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
-					<li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+          <li><a class="page-scroll" href="authorize.html">Contribute</a></li>
           <li><a class="page-scroll" href="index.html#about">About</a></li>
         </ul>
       </div>
@@ -54,33 +48,35 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
+	<section>
   <hr class="light"></hr>
   <br/>
-  <h1>
-    Example Searches
-  </h1>
-  <p>
-    select * where { ?Subject ?Predicate ?Object } limit 10         our normal search
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object } ORDER BY DESC(?Subject) LIMIT 20      Good ex.
-    <br/>
-    SELECT distinct * WHERE { ?Subject ?Predicate ?Object } ORDER BY RAND() LIMIT 2       Gets 2 kinds of ?Predicate
-    <br/>
-    SELECT distinct * WHERE {   ?Subject ?Predicate ?Object FILTER regex(?Subject, "Jean")} ORDER BY ASC(?Object) LIMIT 5    Filters
-    <br/>
-    SELECT distinct * WHERE { ?Subject foaf:name ?name. ?Subject ?Predicate ?Object } limit 24
-    <br/>
-    PREFIX ty: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;  SELECT * WHERE {{ ?Predicate a ty:Property} }  limit 10
-    <br/>
-    SELECT distinct *  WHERE{ ?node foaf:givenName ?givenName. ?node foaf:name ?name .    ?node &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt;  }  LIMIT 10
-    <br/>
-    Filter bif contains lbl "string"   FILTER regex(str(?Subject), "war")
-    <br/>
-    SELECT distinct ?Subject ?Predicate ?Object WHERE {   ?Subject ?Predicate ?Object . ?Subject foaf:surname "Lines"@en} ORDER BY ASC(?Subject)
-  </p>
+  <h1>Example Searches</h1>
+  <ul>
+    <li class="twoxgrid">
+      <h3 class="searchtitles">Sunburst Search</h3>
+      <strong class="searches">Search= Subject:Alan Turing</strong>
+      <a href="img/examples/Alan_Turing.png" target="_blank"><img src="img/examples/Alan_Turing.png" alt="alan_turing" class="examples"></a>
+    </li>
+    <li class="twoxgrid">
+      <h3 class="searchtitles">Force Directed Graph</h3>
+      <strong class="searches">Search= Object:poetry; then applied filters Gender:Man, Sexuality:Heterosexual, and BirthYear:1887</strong>
+      <a href="img/examples/filters_search.png" target="_blank"><img src="img/examples/filters_search.png" alt="filters_search" class="examples"></a>
+    </li>
+    <li class="twoxgrid">
+      <h3 class="searchtitles">Sankey</h3>
+      <strong class="searches">Search= Subject:Clement Meadmore</strong>
+      <a href="img/examples/Robinson_Jeffers.png" target="_blank"><img src="img/examples/Robinson_Jeffers.png" alt="Robinson_Jeffers" class="examples"></a>
+    </li>
+    <li class="twoxgrid">
+      <h3 class="searchtitles">Degrees of Separation</h3>
+      <strong class="searches">Search= Degrees of Separation between: Henri Matisse and Pablo Picasso</strong>
+      <a href="img/examples/matisse_picasso.png" target="_blank"><img src="img/examples/matisse_picasso.png" alt="matisse_picasso" class="examples"></a>
+    </li>
+  </ul>
 </section>
-	<footer>
-	  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
-	</footer>
+<footer>
+	<a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
+</footer>
 </body>
 </html>

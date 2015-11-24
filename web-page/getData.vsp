@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Get Data from Contributions</title>
+    <style>
+      /*Indiviual styles here as no reason to load whole creative file again here*/
+      h1 {
+        margin-top: 15%;
+        text-align: center;
+        color: #721563;
+        font-size: 275%;
+      }
+    </style>
+    <script>
+      function getRequestData() {
+        console.log('in the getRequestData~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+        //Redirects page to main page
+        //window.location.href = 'http://linkedmods.uvic.ca:8890/';
+        console.log('afterreerer');
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Thank you for you submission</h1>
+    <script>
+      getRequestData();
+    </script>
+    <?vsp
+      declare _s_po, _s_p_o, _sp_o, _usesLang, _Afrikaans, _Akan, _Amharic, _namer, _q1_why, _q1_why, _q1_why, _q1_why, _Heating, _Cooling, _Plumbing, _Wiring, _Carpentry, _q3_state, _q4_comments varchar;
+      _s_po := concat(get_keyword('s_po', params, ''), '\n');
+      _s_p_o := concat(get_keyword('s_p_o', params, ''), '\n');
+      _sp_o := concat(get_keyword('sp_o', params, ''), '\n');
+      _usesLang := concat(get_keyword('usesLang', params, ''), '\n');
+      _Afrikaans := concat(get_keyword('Afrikaans', params, ''), '\n');
+      _Akan := concat(get_keyword('Akan', params, ''), '\n');
+      _Amharic := concat(get_keyword('Amharic', params, ''), '\n');
+      _namer := concat(get_keyword('namer', params, ''), '\n');
+      _q1_why := concat(get_keyword('q1_why', params, ''), '\n');
+      _q1_why := concat(get_keyword('q1_why', params, ''), '\n');
+      _q1_why := concat(get_keyword('q1_why', params, ''), '\n');
+      _q1_why := concat(get_keyword('q1_why', params, ''), '\n');
+      _Heating := concat(get_keyword('Heating', params, ''), '\n');
+      _Cooling := concat(get_keyword('Cooling', params, ''), '\n');
+      _Plumbing := concat(get_keyword('Plumbing', params, ''), '\n');
+      _Wiring := concat(get_keyword('Wiring', params, ''), '\n');
+      _Carpentry := concat(get_keyword('Carpentry', params, ''), '\n');
+      _q3_state := concat(get_keyword('q3_state', params, ''), '\n');
+      _q4_comments := concat(get_keyword('q4_comments', params, ''), '\n');
+
+
+
+
+
+      if(_s_po = '\n') {
+        declare _placeholder varchar;
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','IN THE EMPTY\n', -1);
+      } else {
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_s_po: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_s_po, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_s_p_o: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_s_p_o, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_sp_o: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_sp_o, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_usesLang: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_usesLang, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Afrikaans: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Afrikaans, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Akan: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Akan, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Amharic: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Amharic, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_namer: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_namer, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_q1_why: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_q1_why, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Heating: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Heating, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Cooling: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Cooling, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Plumbing: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Plumbing, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Wiring: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Wiring, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_Carpentry: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_Carpentry, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_q3_state: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_q3_state, -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','_q4_comments: ', -1);
+        string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt',_q4_comments, -1);
+      }
+    ?>
+  </body>
+</html>

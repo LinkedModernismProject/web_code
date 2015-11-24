@@ -12,11 +12,15 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/creative.css" type="text/css">
   <link rel="stylesheet" href="css/polymer.css" type="text/css">
-	<!-- Plugin CSS -->
-  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-	<!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/LiMofavi.png">
   <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+  <!-- Note: jQuery & Boostrap js files only added for Bootstrap menu when page is shrunk -->
+  <!-- Note: Both are needed to work, and jquery.js also needs to be above bootstrap.min.js -->
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +41,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a class="page-scroll" href="examples.html">Examples</a></li>
           <li><a class="page-scroll" href="ontology.html">Ontology</a></li>
-					<li><a class="page-scroll" href="authorize.html">Contribute</a></li>
+          <li><a class="page-scroll" href="authorize.html">Contribute</a></li>
           <li><a class="page-scroll" href="index.html#about">About</a></li>
         </ul>
       </div>
@@ -51,57 +55,70 @@
   <p style="postion:relative;width75%;padding: 0% 15% 0%">The Linked Modernisms Project is an open-source project that takes into consideration, expert opinions and verifications on our data.
     If you feel you are qualified and would like to contribute to the integrity of our data, please get in contact with Project Lead <a href="http://www.uvic.ca/humanities/english/people/regularfaculty/ross-stephen.php" target="_blank">Stephen Ross</a>.</p>
 
-	<!--Start of Authorization-->
-	<div>
-		<div class="popupContainer">
-			<header class="popupHeader">
-				<span class="popupHeader-title">Login</span>
-			</header>
-			<section class="popupBody">
-				<!--GateKeeper Login Box-->
-				<form name="keeper" action="javascript:keeperCheck();" style="margin:0;">
-					<div class="group">
-						<input class="inp" type="text" required>
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label>Name</label>
-					</div>
-					<div class="group">
-						<input class="inp" type="text" required>
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label>Email</label>
-					</div>
-					<div class="group">
-						<input class="inp" type="password" name="page" required>
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label>Enter Contributor Password</label>
-						<input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
-						<iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
-						<noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
-							<br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
-						</noscript>
-					</div>
-				</form>
-			</section>
-		</div>
-	</div>
+  <!--Start of Authorization-->
+  <div>
+    <div class="popupContainer">
+      <header class="popupHeader">
+        <span class="popupHeader-title">Login</span>
+      </header>
+      <section class="popupBody">
+        <!--GateKeeper Login Box-->
+        <form id="kfm" name="keeper" action="javascript:keeperCheck();" style="margin:0;">
+          <div class="group">
+            <input name="name" class="inp" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Name</label>
+          </div>
+          <div class="group">
+            <input name="email" class="inp" type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Email</label>
+          </div>
+          <div class="group">
+            <input class="inp" type="password" name="page" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Enter Contributor Password</label>
+            <input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
+            <iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
+            <noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
+              <br>Javascript is required to access this<br>area. Yours seems to be disabled.</div>
+            </noscript>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
 
 <script type="text/javascript">
-	var keeperaltpage = "denied.html";
-	function keeperCheck() {
-  	keeperpass = window.document.keeper.page.value;
-  	keeperframe.location.href = keeperpass + "2.html";
-  	timer = setTimeout("keeperTest(keeperpass)",2000);
-	}
-	function keeperTest(pass){
-  	if(keeperframe.keeperpasscheck) {
-			location.href = pass + ".html";
-		} else {
-			location.href = keeperaltpage;
-		}
-	}
+  var keeperaltpage = "denied.html";
+  function keeperCheck() {
+    var s_arr = $('#kfm').serializeArray();
+    //Get Name and Email values
+    $.ajax({
+      type: "post",
+      url: "get_users.vsp",
+      data: s_arr,
+      success: function(response) {
+        console.log('in keeperCheck success');
+      }
+    }).done(function(msg) {
+      console.log('in keeperCheck done~~~~~~~~~~~~~~~~~~~');
+    })
+    //Actual KeeperCheck
+    keeperpass = window.document.keeper.page.value;
+    keeperframe.location.href = keeperpass + "2.html";
+    timer = setTimeout("keeperTest(keeperpass)",2000);
+  }
+  function keeperTest(pass){
+    if(keeperframe.keeperpasscheck) {
+      location.href = pass + ".html";
+    } else {
+      location.href = keeperaltpage;
+    }
+  }
 </script>
 
 </body>

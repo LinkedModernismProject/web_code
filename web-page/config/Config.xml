@@ -127,7 +127,8 @@
     <name>New TestE</name>
     <abbreviation>nt</abbreviation>
     <description>Limo</description>
-    <endpointURI>http://localhost:8890/sparql</endpointURI>
+    <!--<endpointURI>http://localhost:8890/sparql</endpointURI>-->
+    <endpointURI>http://linkedmods.uvic.ca:8890/sparql</endpointURI>
     <dontAppendSPARQL>true</dontAppendSPARQL>
     <defaultGraphURI>http://localhost:8890/bestDataTest</defaultGraphURI>
     <isVirtuoso>false</isVirtuoso>
