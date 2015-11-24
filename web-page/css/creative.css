@@ -10,6 +10,7 @@ body {
 }
 
 footer {
+  position: sticky;
   bottom: 0;
   background-color: #fffffe;
 }
@@ -165,6 +166,7 @@ p {
 section {
   width: auto;
   height: auto;
+  min-height: 100%;
   padding: 0;
 }
 
