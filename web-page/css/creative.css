@@ -51,6 +51,11 @@ hr {
   max-height: 100%;
 }
 
+.request_trip {
+  display:inline-block;
+  width:25%;
+}
+
 input[type="textarea"]{
 
   margin: 0;
@@ -106,7 +111,12 @@ input[type="text"] {
   }
 }
 
-
+hr.noLine {
+  max-width: 20px;
+  height: 0px;
+  border-width: 0px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(175,37,50,.2), rgba(0, 0, 0, 0));
+}
 
 hr.light {
   max-width: 4000px;
