@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Get Data from Contributions</title>
+    <style>
+      /*Indiviual styles here as no reason to load whole creative file again here*/
+      h1 {
+        margin-top: 15%;
+        text-align: center;
+        color: #721563;
+        font-size: 275%;
+      }
+    </style>
+    <script>
+      //Redirects page to main page
+      function redirect() {
+        window.location.href = 'http://linkedmods.uvic.ca:8890/';
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Thank You For You Contribution</h1>
+    <script>redirect();</script>
+    <?vsp
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', 'Subject: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', concat(get_keyword('pap_Subj', params, ''), '\n\t'), -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', 'Predicate: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', concat(get_keyword('pap_Pred', params, ''), '\n\t'), -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', 'Object: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_triples.txt', concat(get_keyword('pap_Obj', params, ''), '\n'), -1);
+    ?>
+  </body>
+</html>

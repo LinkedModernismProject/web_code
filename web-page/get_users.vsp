@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Get Contributors</title>
+  </head>
+  <body>
+    <h1>Hello User</h1>
+    <?vsp
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', 'Name: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', concat(get_keyword('name', params, ''), '\n\t'), -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', 'Email: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', concat(get_keyword('email', params, ''), '\n\t'), -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', 'Pass: ', -1);
+      string_to_file('../var/lib/virtuoso/vsp/out_users.txt', concat(get_keyword('page', params, ''), '\n'), -1);
+    ?>
+  </body>
+</html>
