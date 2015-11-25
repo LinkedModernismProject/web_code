@@ -66,6 +66,9 @@
   <!-- To use real Values -->
   <script src="js/convertResponse.js"></script>
 
+  <!-- To createVis and allow searching -->
+  <script src="js/createVis.js"></script>
+
   <!-- Script for interacting with database and visualizations & General javascript-->
   <script type="text/javascript">
   var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
@@ -103,7 +106,7 @@
       //Function calls to populate for last search on page load
       $.ajax({
         type: "get",
-        url: constructURL(populateResults(cdata)),
+        url: constructURL(popResultsHelper(cdata)),
         context: document.body,
         dataType: "html",
         cache: false,
@@ -133,7 +136,7 @@
     });
 
     //This is called from the filters apply to previous search button, and adds filters to prev search
-    $(".btn-filters").click(function(){
+    $("#filterer").click(function(){
       if($("queryNum0")===undefined) {  //Safeguard
         var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ";
       } else {
@@ -160,20 +163,20 @@
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        if(query.indexOf('?Subject limo:gender ') != -1) {
-          var qmatch = query.match(/^(.*:gender)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:hasSex ') != -1) {
+          var qmatch = query.match(/^(.*:hasSex)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + gender + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:gender '" + gender + "' . ";
+          query = query + "?Subject limo:hasSex '" + gender + "' . ";
         }
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
-        if(query.indexOf('?Subject limo:sexuality ') != -1) {
-          var qmatch = query.match(/^(.*:sexuality)\s*'[^']+'\s*(.*)$/);
+        if(query.indexOf('?Subject limo:hasSexuality ') != -1) {
+          var qmatch = query.match(/^(.*:hasSexuality)\s*'[^']+'\s*(.*)$/);
           query = qmatch[1] + " '" + sexuality + "' " + qmatch[2];
         } else {
-          query = query + "?Subject limo:hasSexuality" + " '" + sexuality + "' . ";
+          query = query + "?Subject limo:hasSexuality '" + sexuality + "' . ";
         }
       }
       var typeOfPerson = $("#selTypeOfPerson").val(); //Occupation
@@ -227,8 +230,8 @@
       console.log(query);
 
       createCookie(query);
-      sClick(query);
-      exec1(query);
+      populateResults(query);
+      createVisualizations(query);
     });
 
     //Begins a new search with the selected filter elements when the "New Search" button is pressed
@@ -248,7 +251,7 @@
       }
       var gender = $("#selSex").val();
       if(gender != "" ){
-        query = query + "?Subject limo:gender" + " '" + gender + "' . ";
+        query = query + "?Subject limo:hasSex" + " '" + gender + "' . ";
       }
       var sexuality = $("#selSexuality").val();
       if(sexuality != "" ){
@@ -277,8 +280,56 @@
       query = query +  "} ORDER BY ASC(?Subject)";
       console.log(query);
       createCookie(query);
-      sClick(query);
-      exec1(query);
+      populateResults(query);
+      createVisualizations(query);
+    });
+
+    //Executes and presents the user a visualization of a random query
+    $("#random").on('click', function() {
+      $.cookie("currentVis", $("input[name='optradio']:checked").val());
+      var rn = Math.floor(Math.random() * 10 + 1);
+      switch (rn) {
+        case 0:
+          //Case SR
+          break;
+        case 1:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Alan_Turing", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 2:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Dartington_Hall", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 3:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Subject), "Ruth_St._Denis", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 4:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^Virginia Woolf$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 5:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^Irish literary revival$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 6:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^musician$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 7:
+          var query = 'SELECT distinct * WHERE { ?Subject ?Predicate ?Object . FILTER regex(str(?Object), "^Mandarin Chinese$", "i") .} ORDER BY ASC(?Subject)';
+          break;
+        case 8:
+          var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ?Subject limo:typeOfPerson 'painter' . ?Subject limo:originatingCountry 'Ethiopia' . ?Subject limo:hasBirthdate '1937' . } ORDER BY ASC(?Subject)";
+          break;
+        case 9:
+          var query = "SELECT distinct ?Subject ?Predicate ?Object WHERE {?Subject ?Predicate ?Object . ?Subject limo:hasGender 'man' . ?Subject limo:hasSexuality 'unknown' . ?Subject limo:typeOfPerson 'sculptor' . ?Subject limo:associatedWithCountry 'Canada' . } ORDER BY ASC(?Subject)";
+          break;
+        case 10:
+          var query = " SELECT distinct * WHERE { ?Subject ?Predicate ?Object . ?Subject limo:influencedBy ?Object . ?Subject limo:associatedWithCountry 'Spain' . } ORDER BY ASC(?Subject)";
+          break;
+        default:
+          alert('Please Try Again'); //Should never reach this point
+      }
+      $("#tabSearch").removeClass("active");
+      $("#tabVis").addClass("active");
+      createCookie(query);
+      populateResults(query);
+      createVisualizations(query);
     });
 
     //calls ajax function when the search button is pressed
@@ -292,8 +343,8 @@
       $("#tabSearch").removeClass("active");
       $("#tabVis").addClass("active");
       createCookie(query);
-      sClick(query);
-      exec1(query);
+      populateResults(query);
+      createVisualizations(query);
     });
 
     //Searches by previous query from cookie
@@ -305,17 +356,21 @@
       var query = $("body").data("queryData" + i);
       console.log(query);
       createCookie(query);
-      sClick(query);
-      exec1(query);
+      populateResults(query);
+      createVisualizations(query);
     });
 
     $('#visualizations').on('click', '.has-popover', 'this.title', function(event){
-      console.log('in popover');
+      console.log('in popover, we have the problem ->\n' + this.innerHTML);
       var innerText = this.innerHTML.replace(/<tspan x="0">/g,' ');
       innerText = innerText.replace(/<tspan dy="1em" x="0">/g,'');
+      innerText = innerText.replace(/<tspan x="0" dy="1em">/g,'');
       innerText = innerText.replace(/<\/tspan>/g,' ');
       innerText = innerText.trim();
-      innerText = innerText.replace(/ /g,'_');
+      //Testing
+      //innerText = innerText.replace('\n', '');
+      //End of Testing
+      innerText = innerText.replace(/\s/g,'_');
       var title = innerText + ' <a href="#" class="close" data-dismiss="alert">&times;</a>';
       console.log(innerText);
       $(this).popover({
@@ -339,7 +394,7 @@
     });
 
     $('#visOptions .dropdown-menu').on({
-    	"click":function(e){
+      "click":function(e){
           e.stopPropagation();
         }
     });
@@ -350,8 +405,9 @@
   function popoverClick(term){
     console.log(term);
     var query = constructQuery(term);
-    sClick(query);
-    exec1(query);
+    console.log('ACTUAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' + query);
+    populateResults(query);
+    createVis(term, query);
   }
 
   //if the S P O fields are all blank then construct a random query to search
@@ -381,7 +437,7 @@
       }
     }
     if(singleWord != undefined){
-      singleWord = singleWord.replace(/\s/g, '_');
+      //singleWord = singleWord.replace(/\s/g, '_');
       query += ' FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject)';
@@ -390,7 +446,8 @@
   }
 
   //executed on search button click, this populates the results page
-  function sClick(query){
+  function populateResults(query){
+    console.log('in the populateResults~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' + query);
     $.ajax({
       type: "get",
       url: constructURL(query),
@@ -398,7 +455,7 @@
       dataType: "html",
       cache: false,
       success: function(response){
-        console.log('in success');
+        console.log('in the success');
         response = convertResponse(response); //Remove Link appearances in table
         $("#results").html(response);
         $("tr").addClass("table-hover");
@@ -411,11 +468,11 @@
   }
 
   //helps populate results table and execute default visualization (Force Directed)
-  function populateResults(cdata){
+  function popResultsHelper(cdata){
     var ca = cdata.split(';');
     var c = ca[0];
     if (c.indexOf(name) == 0){
-      exec1(c.substring(name.length,c.length))
+      createVisualizations(c.substring(name.length,c.length))
       return c.substring(name.length,c.length);
     }
     return ("");
@@ -530,7 +587,8 @@
   }
 
   //d3.select("#endpoint").property("value")
-  function exec1(sparql) {
+  function createVisualizations(sparql) {
+    console.log('in the createVisualizations~~~~~~~~~~~~~~~~~~~~~~~~~~\n'+ sparql);
     var endpoint = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
     d3sparql.query(endpoint, sparql, render);
   }
@@ -538,8 +596,8 @@
   function visTabClick(visID){
     $.cookie("currentVis", visID);
     console.log(visID);
-    sClick($.cookie("currentSearch"));
-    exec1($.cookie("currentSearch"));
+    populateResults($.cookie("currentSearch"));
+    createVisualizations($.cookie("currentSearch"));
   }
 
   function reSearchByClick(){
@@ -614,7 +672,6 @@
 }
 
 //ScreenShot button
-
 /*  //LM_vis_screenshot (2) & (3) are both black
 //LM_vis_screenshot (2) & (3) are both black
 function ssSave() {
@@ -644,24 +701,24 @@ height: 1050
 }
 
 
-$(function() {
-console.log('In the screenshotted button');
-$("#save-screen").click(function() {
-console.log('in the btnSave');
-html2canvas($("#visualizations"), {
-onrendered: function(canvas) {
-theCanvas = canvas;
-canvas.toBlob(function(blob) {
-saveAs(blob, "LM_vis_screenshot.png");
-});
-},
-width: 1250,
-height: 1050
-});
-});
-console.log('done!');
-});
-console.log('done!');
+  $(function() {
+    console.log('In the screenshotted button');
+    $("#save-screen").click(function() {
+      console.log('in the btnSave');
+      html2canvas($("#visualizations"), {
+        onrendered: function(canvas) {
+          theCanvas = canvas;
+          canvas.toBlob(function(blob) {
+            saveAs(blob, "LM_vis_screenshot.png");
+          });
+        },
+        width: 1250,
+        height: 1050
+      });
+    });
+    console.log('done!');
+  });
+  console.log('done!');
 });
 */
 </script>
@@ -730,7 +787,6 @@ console.log('done!');
             </noscript>
 
             <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
-
             <div class="hidden-xs">
               <div class="col-xs-12 col-sm-6">
                 <p>
@@ -751,12 +807,11 @@ console.log('done!');
                 The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing.
               </p>
               <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
-            <br/><br/>
-            <p>
-              The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
-            </p>
-            <a data-toggle="tab" href="#sectionDist" class="btn btn-fn btn-primary btn-xl" id="diff-search">Degrees of Separation</a>
-
+              <br/><br/>
+              <p>
+                The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
+              </p>
+              <a data-toggle="tab" href="#sectionDist" class="btn btn-fn btn-primary btn-xl" id="diff-search">Degrees of Separation</a>
             </div>
 
 
@@ -911,6 +966,7 @@ console.log('done!');
               <input type="textarea" name="obj" id="obj" class="primary-search" placeholder="Object (leave blank for anything)"></textarea>
               <div class="clearfix visible-xs-block"><br/></div><br/><br/>
               <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="random" value="Random Search" class="btn btn-primary btn-xl btn-space"/>
             </fieldset>
 
             <br/>
@@ -955,6 +1011,8 @@ console.log('done!');
                       <option value="man">Man</option>
                       <option value="woman">Woman</option>
                       <option value="Other">Other</option>
+                      <option value="androgynous">Androgynous</option>
+                      <option value="trans">Trans</option>
                     </select>
                   </div>
                   <br/>
@@ -995,7 +1053,6 @@ console.log('done!');
                       <option value="diarist">Diarist</option>
                       <option value="director">Director</option>
                       <option value="Editor">Editor</option>
-                      <option value="editor">editor</option>
                       <option value="film maker">Film Maker</option>
                       <option value="historian">Historian</option>
                       <option value="illustrator">Illustrator</option>
@@ -1568,9 +1625,8 @@ console.log('done!');
               <br/>
 
               <input data-toggle="tab" href="#sectionVis" type="submit" id="filterer" value="Apply to Previous Search" class="btn btn-primary btn-filters btn-xl"/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--Space between buttons-->
               <!--For the newSearch button in filters-->
-              <input data-toggle="tab" href="#sectionVis" type="submit" id="newSearch" value="New Search" class="btn btn-primary btn-xl"/>
+              <input data-toggle="tab" href="#sectionVis" type="submit" id="newSearch" value="New Search" class="btn btn-primary btn-xl btn-space"/>
 
             </div>
 
@@ -1606,21 +1662,28 @@ console.log('done!');
     <div class="tab-pane fade" id="sectionVis">
       <br/>
       <ul class="nav navbar-nav pull-right" id="visOptions" >
-       <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog">&nbsp;</span></a>
-         <ul class="dropdown-menu dropdown-menu-right">
-           <li><h3>Options</h3></li>
-           <li class="divider"></li>
-           <li><a href="#">Take Screenshot</a></li>
-           <li class="divider"></li>
-           <li><a href="#">Do Other Thing</a></li>
-           <li class="divider"></li>
-           <li><h4>Muting</h4></li>
-           <li><input type="textarea" placeholder="Lorem Ipsum"></input></li>
-         </ul>
-       </li>
-     </ul>
-
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog">&nbsp;</span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><h3>Options</h3></li>
+            <li class="divider"></li>
+            <li><a href="#">Take Screenshot</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Do Other Thing</a></li>
+            <li class="divider"></li>
+            <li><h4>Muting</h4></li>
+            <li><input type="textarea" placeholder="Lorem Ipsum"></input></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="col-sm-offset-1">
+        <span class="hover-box hidden">
+          <p id="item-name"></p>
+          <button class="btn btn-primary">Search this on the REM</button>
+          <button class="btn btn-primary">New search with this term</button>
+        </span>
+      </div>
+      <!--<div id="save-screen" class="btn btn-primary btn-top-right">Save as Image</div>-->
       <!--<span id="visualizations"></span>-->
       <!--   <canvas id="visualizations" height="1000" width="1000"></canvas> -->
       <!--<input type="button" id"btnSave" onclick="ssSave()" value="Save Me">-->
