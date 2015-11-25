@@ -191,13 +191,9 @@
           <paper-typeahead label="Object" data="[[data2]]" name="pap_Obj" class="request_trip"></paper-typeahead>
         </template>
         <script>
-          $.ajax({
-            url: "data/subject_list_ordered.json",
-            dataType: "json",
-            success: function(response) {
-              //console.log(response);
-              document.querySelector('#spo').data = $.map(response, function(ele) { return ele; })
-            }
+          $.post("data/subject_list_ordered.json", function(response) {
+            console.log(response);
+            document.querySelector('#spo').data = $.map(response, function(ele) { return ele; })
           })
           $.post("data/preds_ordered.json", function(response) {
             console.log(response);
