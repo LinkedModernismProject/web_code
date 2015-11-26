@@ -23,7 +23,17 @@ hr {
 
 .checkbox-grid li {
     display: block;
+    /*float: left;*/
+    width: 25%;
+}
+.checkbox-grid input {
+    display: block;
     float: left;
+    width: 25%;
+}
+.checkbox-grid label {
+    display: block;
+    /*clear: left;*/
     width: 25%;
 }
 
@@ -55,6 +65,13 @@ hr {
 .request_trip {
   display:inline-block;
   width:25%;
+}
+
+.form-gap {
+  position:relative;
+  z-index:1;
+  float:left;
+  margin-bottom:50px;
 }
 
 input[type="textarea"]{
