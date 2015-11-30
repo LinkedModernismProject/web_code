@@ -233,10 +233,10 @@
     <form id="cForm" method="post" action="request.vsp" class="form-gap"> <!-- onSubmit="return submitForm()">  remove 1 c to put back after testing-->
       <div id="c1">
       <label for="entity_name">What is the english name with no accents of the Agent, Place, or Production you wish to add to? <span style="color:red"><em>(*required)</em></span></label>
-      <paper-input floatingLabel label="Please use the format first name middle name(s) last name(s)" class="fm-input" name="entity_name"  pattern="^((?!.*(<\/form>|<script>)).)*$" required></paper-input>
+      <paper-input floatingLabel label="Please use the format first name middle name(s) last name(s)" class="fm-input" name="entity_name"  pattern="^((?!.*(<\/form|<script>)).)*$" required></paper-input>
 
       <label for="alt_entity_names">What are the alternate names of your Agent, Place, or Production?</label>
-      <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names" pattern="^((?!.*(<\/form>|<script>)).)*$"></paper-input>
+      <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names" pattern="^((?!.*(<\/form|<script>)).)*$"></paper-input>
 
       <label for="birth-date">What was the year your entity was born or created in?</label>
       <paper-input-container class="fm-input">
