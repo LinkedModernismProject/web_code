@@ -148,6 +148,10 @@
       return false; //Need to set return to false to stop the default action of the event, and thus can redirect
     }
 
+    function validate_out() {
+      console.log('in the validate_out');
+    }
+
     //To stop the submission by pressing the enter button
     $(document).ready(function() {
       $(window).keydown(function(event) {
@@ -234,10 +238,10 @@
       <div id="c1">
       <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to? <span style="color:red"><em>(*required)</em></span></label><!--<br/>
       <input type="textarea" class="non-search-text" name="entity_name" placeholder="Please use the format first name middle name(s) last name(s)" required></input>-->
-      <paper-input floatingLabel label="Please use the format first name middle name(s) last name(s)" class="fm-input" name="entity_name" required></paper-input>
+      <paper-input floatingLabel label="Please use the format first name middle name(s) last name(s)" class="fm-input" name="entity_name"  pattern="^((?!.*(<\/form>|<script>)).)*$" required></paper-input>
       <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><!--<br/>
       <input type="textarea" class="non-search-text" name="alt_entity_names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>-->
-      <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names"></paper-input>
+      <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names" pattern="^((?!.*(<\/form>|<script>)).)*$"></paper-input>
 
       <label for="birth-date">What was the year your item was born or created in?</label>
       <paper-input-container class="fm-input">
