@@ -1,0 +1,113 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-input/paper-input-container.html">
+<link rel="import" href="bower_components/paper-item/paper-item.html">
+<link rel="import" href="bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="bower_components/paper-material/paper-material.html">
+<link rel="import" href="bower_components/font-roboto/roboto.html">
+<link rel="import" href="bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
+<link rel="import" href="bower_components/iron-selector/iron-selectable.html">
+<link rel="import" href="bower_components/iron-behaviors/iron-control-state.html">
+<link rel="import" href="bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
+<link rel="import" href="bower_components/iron-input/iron-input.html">
+<link rel="import" href="bower_components/paper-input/paper-input-behavior.html">
+
+<dom-module id="paper-typeahead">
+  <template>
+    <style>
+      :host {
+        font-family: "Roboto";
+        display: block;
+      }
+      input::-webkit-input-placeholder {
+        color: var(--paper-input-container-color, --secondary-text-color);
+      }
+      input:-moz-placeholder {
+        color: var(--paper-input-container-color, --secondary-text-color);
+      }
+      input::-moz-placeholder {
+        color: var(--paper-input-container-color, --secondary-text-color);
+      }
+      input:-ms-input-placeholder {
+        color: var(--paper-input-container-color, --secondary-text-color);
+      }
+      paper-material {
+        border-radius: 0 0 2px 2px;
+        width: 100%;
+        margin-top: 2px;
+        position: absolute;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: var(--paper-typeahead-results-layer-max-height);
+      }
+      .iron-selected:not(paper-input-container) {
+        background: var(--paper-typeahead-result-selected-background, --paper-indigo-50);
+      }
+      paper-item[pressed] {
+        @apply(--paper-typeahead-result-pressed);
+      }
+      paper-item {
+        cursor: pointer;
+        position: relative;
+        @apply(--paper-typeahead-result);
+        --paper-item-min-height: var(--paper-typeahead-result-min-height, 30px);
+        --paper-item-selected-weight: var(--paper-typeahead-selected-weight, normal);
+        --paper-item-selected: var(--paper-typeahead-result-selected);
+        --paper-item-focused: var(--paper-typeahead-result-focused);
+      }
+      paper-item:not(:last-of-type) {
+        border-bottom: solid 1px var(--paper-typeahead-divider-color, --divider-color);
+      }
+      paper-item:focus:before {
+        display: none;
+      }
+    </style>
+    <paper-input-container 
+      class="selectable"
+      no-label-float="[[noLabelFloat]]" 
+      always-float-label="[[_computeAlwaysFloatLabel(alwaysFloatLabel,placeholder)]]" 
+      auto-validate$="[[autoValidate]]" 
+      disabled$="[[disabled]]" 
+      invalid="[[invalid]]">
+      <label hidden$="[[!label]]">[[label]]</label>
+      <input is="iron-input" id="input"
+        aria-labelledby$="[[_ariaLabelledBy]]"
+        aria-describedby$="[[_ariaDescribedBy]]"
+        disabled$="[[disabled]]"
+        bind-value="{{value}}"
+        value="{{typedValue::input}}"
+        invalid="{{invalid}}"
+        prevent-invalid-input="[[preventInvalidInput]]"
+        allowed-pattern="[[allowedPattern]]"
+        validator="[[validator]]"
+        type$="[[type]]"
+        pattern$="[[pattern]]"
+        required$="[[required]]"
+        autocomplete$="[[autocomplete]]"
+        autofocus$="[[autofocus]]"
+        inputmode$="[[inputmode]]"
+        minlength$="[[minlength]]"
+        maxlength$="[[maxlength]]"
+        min$="[[min]]"
+        max$="[[max]]"
+        step$="[[step]]"
+        name$="[[name]]"
+        placeholder$="[[placeholder]]"
+        readonly$="[[readonly]]"
+        size$="[[size]]"
+        autocapitalize$="[[autocapitalize]]"
+        autocorrect$="on"
+        on-change="_onChange">
+        <template is="dom-if" if="[[!_hideResults]]">
+          <paper-material elevation="[[elevation]]" on-mouseleave="_mouseleaveItems">
+            <template is="dom-repeat" items="[[filteredItems]]">
+              <paper-item on-mouseenter="_mouseenterItem" class="selectable">
+                <span>[[item]]</span>
+              </paper-item>
+            </template>
+          </paper-material>
+        </template>
+    </paper-input-container>
+    
+  </template>
+</dom-module>
+<script src="paper-typeahead.js"></script>
