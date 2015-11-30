@@ -65,19 +65,19 @@
         <!--GateKeeper Login Box-->
         <form id="kfm" name="keeper" action="javascript:keeperCheck();" style="margin:0;">
           <div class="group">
-            <input name="name" class="inp" type="text" required>
+            <input name="name" class="inp" type="text" pattern="[a-zA-Z0-9\s]+" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Name</label>
           </div>
           <div class="group">
-            <input name="email" class="inp" type="text" required>
+            <input name="email" class="inp" type="email" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Email</label>
           </div>
           <div class="group">
-            <input class="inp" type="password" name="page" required>
+            <input class="inp" type="password" name="page" pattern="^((?!.*(<\/form|<script>)).)*$" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Enter Contributor Password</label>
