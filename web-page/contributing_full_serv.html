@@ -238,22 +238,20 @@
       <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><!--<br/>
       <input type="textarea" class="non-search-text" name="alt_entity_names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>-->
       <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names"></paper-input>
-      <label for="birth-date">What was the year your item was born or created in?</label><!--<br/>
-      <input type="textarea" class="non-search-text" name="birth_date" placeholder="Please add the year in the format YYYY"></input>
-      <br/><br/><br/>-->
-      <paper-input floatingLabel label="Please add the year in the format YYYY" class="fm-input" name="birth_date" type="number" maxlength="4" char-counter autoValidate pattern="[0-9]*" error-message="numbers only"></paper-input>
 
-      <label for="death-date">What was the year your item died if it did so?</label><!--<br/>
-      <input type="textarea" class="non-search-text" name="death_date" placeholder="Please add the year in the format YYYY"></input>
-      <br/><br/><br/>-->
-      <paper-input floatingLabel label="Please add the year in the format YYYY" class="fm-input" name="death_date" type="number"></paper-input>
-
+      <label for="birth-date">What was the year your item was born or created in?</label>
       <paper-input-container class="fm-input">
         <label>Please add the year in the format YYYY</label>
-        <input is="iron-input" maxlength="4" name="birth_date" prevent-invalid-input allowed-pattern="[0-9]">
+        <input is="iron-input" maxlength="4" minlength="4" name="birth_date" id="birth-date" prevent-invalid-input allowed-pattern="[0-9]">
         <paper-input-char-counter></paper-input-char-counter>
       </paper-input-container>
 
+      <label for="death-date">What was the year your item died if it did so?</label>
+      <paper-input-container class="fm-input">
+        <label>Please add the year in the format YYYY</label>
+        <input is="iron-input" maxlength="4" minlength="4" name="death_date" id="death_date" prevent-invalid-input allowed-pattern="[0-9]">
+        <paper-input-char-counter></paper-input-char-counter>
+      </paper-input-container>
 
       <label for="occupation">What of the following best describe your Agent?</label><br/>
       <div class="checkbox-grid checkbox checkbox-info form-gap">
@@ -356,7 +354,7 @@
       </div>  <!--end of occupation checkboxes-->
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <label for="sexuality">What is the sexuality of your subject (if any)?</label><br>
-      <div class="col-md-6">
+      <div class="col-md-6 fm-input">
         <select class="form-control" id="selSexuality" name="selSexuality">
           <option selected value="">Sexuality</option>
           <option value="Bisexual">Bisexual</option>
@@ -367,7 +365,7 @@
       </div>
       <br><br><br>
       <label for="gender">What is the gender of your subject (if any)?</label><br>
-      <div class="col-md-6">
+      <div class="col-md-6 fm-input">
         <select class="form-control" id="selGender" name="selGender">
           <option selected value="">Gender</option>
           <option value="Male">Male</option>
@@ -377,7 +375,7 @@
       </div>
       <br><br><br>
       <label for="sex">What is the sexual orientation of your subject (if any)?</label><br>
-      <div class="col-md-6">
+      <div class="col-md-6 fm-input">
         <select class="form-control" id="selSex" name="selSex">
           <option selected value="">Sex</option>
           <option value="Male">Male</option>
@@ -387,7 +385,7 @@
       </div>
       <br><br><br>
       <label for="Ethnicity">What Ethnicity is suited for this subject (if any)?</label><br>
-      <div class="col-lg-10">
+      <div class="col-lg-10 fm-input">
         <select class="form-control" id="EthDrop" name="ethnic">
           <option selected value="">Ethnicity</option>
           <option value="Abazins">Abazins</option>
@@ -763,7 +761,7 @@
       <br><br><br>
       <div id="c2">
         <label for="pLang">What is this subjects primary language?</label><br>
-        <div class="col-lg-10">
+        <div class="col-lg-10 fm-input">
           <select class="form-control" name="pLang">
             <option selected value="">Primary Language</option>
             <option value="Afrikaans">Afrikaans</option>
@@ -3231,7 +3229,7 @@
 
       <div id="c6">
         <label for="creatBy">Who was the subject created by?</label><br>
-        <div class="col-lg-10">
+        <div class="col-lg-10 fm-input">
           <select class="form-control" id="creatBy" name="createdBy" style="position:relative;z-index:1;float:left;margin-bottom:50px">
             <option selected value="">Created By</option>
             <option value="1913 Armory Show">1913 Armory Show</option>
@@ -3775,7 +3773,7 @@
           </select>
         </div>
         <label for="place-type">Which of the following best describes your Place?</label><br>
-          <div class="col-lg-10">
+          <div class="col-lg-10 fm-input">
             <select class="form-control" id="place" name="place" style="position:relative;z-index:1;float:left;margin-bottom:50px">
               <option selected value="">Place</option>
               <option value="Afghanistan">Afghanistan</option>
