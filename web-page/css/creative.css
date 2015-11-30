@@ -109,6 +109,11 @@ select.form-control {
   border-radius: 0;
 }
 
+.fm-input {
+  display:inline-block;
+  width:80%;
+}
+
 input[type="textarea"]{
 
   margin: 0;

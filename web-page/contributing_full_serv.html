@@ -231,20 +231,30 @@
 
 
     <form id="cForm" method="post" action="request.vsp"> <!-- onSubmit="return submitForm()">  remove 1 c to put back after testing-->
-      <br/><br/>
       <div id="c1">
-      <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to? <span style="color:red"><em>(*required)</em></span></label><br/>
-      <input type="textarea" class="non-search-text" name="entity_name" placeholder="Please use the format first name middle name(s) last name(s)" required></input>
-      <br/><br/><br/>
-      <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><br/>
-      <input type="textarea" class="non-search-text" name="alt_entity_names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>
-      <br/><br/><br/>
-      <label for="birth-date">What was the year your item was born or created in?</label><br/>
+      <label for="item-name">What is the english name with no accents of the Agent, Place, or Production you wish to add to? <span style="color:red"><em>(*required)</em></span></label><!--<br/>
+      <input type="textarea" class="non-search-text" name="entity_name" placeholder="Please use the format first name middle name(s) last name(s)" required></input>-->
+      <paper-input floatingLabel label="Please use the format first name middle name(s) last name(s)" class="fm-input" name="entity_name" required></paper-input>
+      <label for="alt-names">What are the alternate names of your Agent, Place, or Production?</label><!--<br/>
+      <input type="textarea" class="non-search-text" name="alt_entity_names" placeholder="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2"></input>-->
+      <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names"></paper-input>
+      <label for="birth-date">What was the year your item was born or created in?</label><!--<br/>
       <input type="textarea" class="non-search-text" name="birth_date" placeholder="Please add the year in the format YYYY"></input>
-      <br/><br/><br/>
-      <label for="death-date">What was the year your item died if it did so?</label><br/>
+      <br/><br/><br/>-->
+      <paper-input floatingLabel label="Please add the year in the format YYYY" class="fm-input" name="birth_date" type="number" maxlength="4" char-counter autoValidate pattern="[0-9]*" error-message="numbers only"></paper-input>
+
+      <label for="death-date">What was the year your item died if it did so?</label><!--<br/>
       <input type="textarea" class="non-search-text" name="death_date" placeholder="Please add the year in the format YYYY"></input>
-      <br/><br/><br/>
+      <br/><br/><br/>-->
+      <paper-input floatingLabel label="Please add the year in the format YYYY" class="fm-input" name="death_date" type="number"></paper-input>
+
+      <paper-input-container class="fm-input">
+        <label>Please add the year in the format YYYY</label>
+        <input is="iron-input" maxlength="4" name="birth_date" prevent-invalid-input allowed-pattern="[0-9]">
+        <paper-input-char-counter></paper-input-char-counter>
+      </paper-input-container>
+
+
       <label for="occupation">What of the following best describe your Agent?</label><br/>
       <div class="checkbox-grid checkbox checkbox-info form-gap">
         <input id="occupation_Actor" name="occupation_Actor" type="checkbox" value="Actor">
@@ -343,7 +353,7 @@
         <label for="occupation_Visual">Visual Artist</label>
         <input id="occupation_Writer" name="occupation_Writer" type="checkbox" value="Writer">
         <label for="occupation_Writer">Writer</label>
-    </div>  <!--end of occupation checkboxes-->
+      </div>  <!--end of occupation checkboxes-->
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <label for="sexuality">What is the sexuality of your subject (if any)?</label><br>
       <div class="col-md-6">
