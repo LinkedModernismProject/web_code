@@ -203,14 +203,10 @@
 
     <form id="trip" method="post" action="request_triple.vsp">
       <div style="position: relative;left:5%;">
-        <paper-input floatingLabel label="Subject" style="display:inline-block;width:30%;" name="single_subj"></paper-input>
-        <paper-input floatingLabel label="Predicate" style="display:inline-block;width:30%;" name="single_pred"></paper-input>
-        <paper-input floatingLabel label="Object" style="display:inline-block;width:30%;" name="single_obj"></paper-input>
-        <br>
         <template id="spo" is="dom-bind">
-          <paper-typeahead label="Subject" data="[[data]]" name="pap_Subj" class="request_trip"></paper-typeahead>
-          <paper-typeahead label="Predicate" data="[[data1]]" name="pap_Pred" class="request_trip"></paper-typeahead>
-          <paper-typeahead label="Object" data="[[data2]]" name="pap_Obj" class="request_trip"></paper-typeahead>
+          <paper-typeahead label="Subject" data="[[data]]" name="pap_Subj" class="request_trip" pattern="^((?!.*(<\/form|<script>)).)*$"></paper-typeahead>
+          <paper-typeahead label="Predicate" data="[[data1]]" name="pap_Pred" class="request_trip" pattern="^((?!.*(<\/form|<script>)).)*$"></paper-typeahead>
+          <paper-typeahead label="Object" data="[[data2]]" name="pap_Obj" class="request_trip" pattern="^((?!.*(<\/form|<script>)).)*$"></paper-typeahead>
         </template>
         <script>
           $.post("data/subject_list_ordered.json", function(response) {
