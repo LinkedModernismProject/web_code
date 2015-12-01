@@ -11,15 +11,22 @@ for line in f:
     if re.match('Subject:\s+(.+)', line) is not None:
         subj_match = re.match('Subject:\s+(.+)', line)
         fo.write('<http://modernism.uvic.ca/metadata#'+ subj_match.group(1).replace(' ', '_') + '>\n')
-    elif re.match('(\s+)Predicate:\s+(.+)', line) is not None:
-        pred_match = re.match('(\s+)Predicate:\s+(.+)', line)
-        pred_list = pred_match.split(' ')
-        pred_camel = pred_list[0]
-        if len(pred_list) > 1:
-            for s in pred_list[1:]:
-                pass
+    elif re.match('(\s+)(Predicate|Object):\s+(.+)', line) is not None:
+        po_match = re.match('(\s+)(Predicate|Object):\s+(.+)', line)
+        po_list = po_match.group(3).split(' ')
+        po_camel = po_list[0]
+        if po_match.group(2) == 'Predicate':
+            if len(po_list) > 1:
+                for s in po_list[1:]:
+                    po_camel += s.capitalize()
 
-        fo.write(pred_match.group(1) + 'pref1:' + pred_match.group(3).replace(' ', '') + '\n')
+        if po_match.group(2) == 'Predicate':
+            fo.write(po_match.group(1) + 'pref1:' + po_camel + ' "')
+        elif po_match.group(2) == 'Object':
+            fo.write(' '.join(po_list) + '" .\n\n')
+
+    elif re.match('(\s+)Object:\s+(.+)', line) is not None:
+        pass
     else:
         pass #Shouldn't get here in any case, except the end of the file
 
