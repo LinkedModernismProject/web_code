@@ -235,18 +235,20 @@
       <paper-input floatingLabel label="Please use any non-english spellings of your Item here in the form Alternate Name 1, Alternate Name 2" class="fm-input" name="alt_entity_names" pattern="^((?!.*(<\/form|<script>)).)*$"></paper-input>
 
       <label for="birth-date">What was the year your entity was born or created in?</label>
-      <paper-input-container class="fm-input">
+      <paper-input floatingLabel label="Please add the year in the format YYYY" class="fm-input" name="birth_date" id="birth-date" minlength="4" maxlength="4" char-counter auto-validate pattern="[0-9]*" error-message="4 numbers only"></paper-input>
+      <!--<paper-input-container class="fm-input">
         <label>Please add the year in the format YYYY</label>
         <input is="iron-input" maxlength="4" minlength="4" name="birth_date" id="birth-date" prevent-invalid-input allowed-pattern="[0-9]">
         <paper-input-char-counter></paper-input-char-counter>
-      </paper-input-container>
+      </paper-input-container>-->
 
       <label for="death-date">What was the year your entity died, if it did so?</label>
-      <paper-input-container class="fm-input">
+      <paper-input label="Please add the year in the format YYYY" class="fm-input" name="death_date" id="death_date" minlength="4" maxlength="4" char-counter auto-validate pattern="[0-9]*" error-message="4 numbers only"></paper-input>
+      <!--<paper-input-container class="fm-input">
         <label>Please add the year in the format YYYY</label>
         <input is="iron-input" maxlength="4" minlength="4" name="death_date" id="death_date" prevent-invalid-input allowed-pattern="[0-9]">
         <paper-input-char-counter style="margin-bottom:25px;"></paper-input-char-counter>
-      </paper-input-container>
+      </paper-input-container>-->
 
       <label for="occupation">What of the following best describe your Agent?</label><br/>
       <div class="checkbox-grid checkbox checkbox-info form-gap" id="occupation">
