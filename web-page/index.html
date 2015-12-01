@@ -382,13 +382,6 @@
       });
     });
 
-    (window.onscroll = function() {
-        var foot = document.getElementById('footer');
-        foot.style.position = "static";
-        if( foot.offsetTop < document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.offsetHeight - foot.offsetHeight)
-            foot.style.position = "fixed";
-    })();
-
     $(document).on('click', '.popover .close', function(){
       $(this).parents(".popover").popover('hide');
     });
@@ -400,6 +393,13 @@
     });
 
     auto.autocorrect();
+
+    (window.onscroll = function() {
+        var foot = document.getElementById('footer');
+        foot.style.position = "static";
+        if( foot.offsetTop < document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.offsetHeight - foot.offsetHeight)
+            foot.style.position = "fixed";
+    })();
   });
 
   function popoverClick(term){
