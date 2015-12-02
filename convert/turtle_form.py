@@ -1,3 +1,4 @@
+#Ex to run: python turtle_form.py input_data_file output_data_file
 import re
 import sys
 #Pass an input file arg and an output file arg, originally wrote to take out_triples.txt
