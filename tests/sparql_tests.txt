@@ -1,3 +1,4 @@
+/usr/local/virtuoso-opensource/bin
 ./isql 1111 dba
 Enter Password:
 
