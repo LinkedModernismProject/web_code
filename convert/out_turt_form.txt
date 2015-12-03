@@ -1,0 +1,36 @@
+dustin1		changman		hasAlias
+dustin1		1234		hasBirthdate
+dustin1		5678		terminatesIn
+dustin1		Editor		typeOfPerson
+dustin1		Thinker		typeOfPerson
+dustin1		Heterosexual		hasSexuality
+dustin1		Male		hasGender
+dustin1		Male		hasSex
+dustin1		Asian		associatedWithEthnicity
+dustin1		English		usesPrimaryLanguage
+dustin1		English		usesLanguage
+dustin1		Japanese		usesLanguage
+dustin1		Abstract Art		influenced
+dustin1		Alan Turing		influenced
+dustin1		Abstract Art		influencedBy
+dustin1		Architecture		influencedBy
+dustin1		Alan Turing		createdBy
+dustin1		China		originatingCountry
+dustin1		Canada		associatedWithCountry
+dustin2		igneel		hasAlias
+dustin2		1234		hasBirthdate
+dustin2		9999		terminatesIn
+dustin2		Cartoonist		typeOfPerson
+dustin2		Heterosexual		hasSexuality
+dustin2		Male		hasGender
+dustin2		Male		hasSex
+dustin2		Dravidian		associatedWithEthnicity
+dustin2		Jin Yu Chinese		usesPrimaryLanguage
+dustin2		Mandarin Chinese		usesLanguage
+dustin2		Alan Turing		influenced
+dustin2		Group of Seven		influenced
+dustin2		White Savages Group		influencedBy
+dustin2		White Savages Group		influencedBy
+dustin2		Wang Meng		createdBy
+dustin2		China		originatingCountry
+dustin2		Japan		associatedWithCountry
