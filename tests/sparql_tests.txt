@@ -4,7 +4,12 @@ Enter Password:
 #Querying a specific graph
   sparql select ?a ?b ?c where { graph <http://localhost:8890/dustin> { ?a ?b ?c}} limit 20 ;
 
-#Inserting a triple
-  sparql INSERT DATA INTO <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" }
-#Specifying the spo
-  sparql PREFIX te: <http://tester/> INSERT DATA INTO <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" }
+#Inserting a Triple
+  sparql INSERT DATA INTO <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" } ;
+#Inserting a Specific Triple
+  sparql PREFIX te: <http://tester/> INSERT DATA INTO <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" } ;
+
+#Deleting a Triple
+  sparql DELETE DATA FROM <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" } ;
+#Deleting a Specific Triple
+  sparql PREFIX te: <http://tester/yo/> DELETE DATA FROM <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" } ;
