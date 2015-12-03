@@ -1,0 +1,8 @@
+./isql 1111 dba
+Enter Password:
+
+#Querying a specific graph
+  sparql select ?a ?b ?c where { graph <http://localhost:8890/dustin> { ?a ?b ?c}} limit 20 ;
+
+#Inserting a triple
+  sparql INSERT DATA INTO <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" }
