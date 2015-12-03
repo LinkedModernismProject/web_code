@@ -6,3 +6,5 @@ Enter Password:
 
 #Inserting a triple
   sparql INSERT DATA INTO <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" }
+#Specifying the spo
+  sparql PREFIX te: <http://tester/> INSERT DATA INTO <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" }
