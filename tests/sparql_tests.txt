@@ -9,8 +9,14 @@ Enter Password:
   sparql INSERT DATA INTO <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" } ;
 #Inserting a Specific Triple
   sparql PREFIX te: <http://tester/> INSERT DATA INTO <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" } ;
+  sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX limo: <http://localhost:8890/limo#> INSERT DATA INTO <http://localhost:8890/dustin> { meta:Apple  limo:OS "OS X" };
 
 #Deleting a Triple
   sparql DELETE DATA FROM <http://localhost:8890/dustin> { <http://example/book3>  dc:title  "Fundamentals of Compiler Design" } ;
 #Deleting a Specific Triple
   sparql PREFIX te: <http://tester/yo/> DELETE DATA FROM <http://localhost:8890/dustin> { <http://modernism.uvic.ca/metadata#The_Master>  te:Of  "Time!!!" } ;
+  sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX limo: <http://localhost:8890/limo#> DELETE DATA FROM <http://localhost:8890/dustin> { meta:Apple  limo:OS "OS X" };
+
+
+#Query for a certain predicate, gets the s, and o, where p=http://localhost:8890/limo#VisualArts
+  select * where { ?s <http://localhost:8890/limo#VisualArts> ?o } limit 20
