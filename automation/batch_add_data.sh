@@ -3,11 +3,16 @@ user="vspdemo"
 file="$1"
 file2="$2"
 echo "Hello, $file, $file2"
+echo "Please enter your SPARQL Password: "
+read -sr SPARQL_PASSWORD
 
+#Read from file and delimit on tabs (any number of them) and read through array
 while IFS=$'\t' read -r -a arr; do
-    echo "Text read from file: $line"
-    echo "${arr[0]}"
-    echo "${arr[1]}"
-    echo "${arr[2]}"
-    #echo $line | cut -d $'\t' -f2
+	if [ ! -z "${arr[0]}" ] && [ ! -z "${arr[1]}" ] && [ ! -z "${arr[2]}" ] ; then #To stop from grabbing blank lines in arg file given
+		./isql 1111 $user $SPARQL_PASSWORD <<-EOF
+		  sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX pref1: <http://localhost:8890/limo#> INSERT DATA INTO <http://localhost:8890/dustin> { meta:${arr[0]}  pref1:${arr[2]}  "${arr[1]}" } ;
+		  EXIT;
+		EOF
+	fi
 done < "$1"
+echo -e "\nThank you for entering data."
