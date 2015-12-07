@@ -3,27 +3,19 @@ user="vspdemo"
 echo "Would you like to INSERT data or DELETE data?"
 read -r ins_del
 ins_del="${ins_del,,}"
-if [ "insert" != "$ins_del" ]; then
-	echo "hellloooooo"
-fi
 if [[ "insert" != "$ins_del" && "delete" != "$ins_del" ]] ; then
 	echo "Ending appropriately, or you may need to type a valid command: 'insert' or 'delete'"
 	exit 0
 fi
 echo "Please enter the following information (Case Sensitive):"
 echo "Please enter the Subject you want deleted :"
-read -sr del_subj
+read -r del_subj
 echo "Please enter the Predicate you want deleted :"
-read -sr del_pred
+read -r del_pred
 echo "Please enter the Object you want deleted :"
-read -sr del_obj
+read -r del_obj
 echo "Please enter your SPARQL Password: "
 read -sr SPARQL_PASSWORD
-
-echo $del_subj
-echo $del_pred
-echo $del_obj
-echo $SPARQL_PASSWORD
 
 if [ "insert" = "$ins_del" ] ; then
 	echo "inserting~~~"
