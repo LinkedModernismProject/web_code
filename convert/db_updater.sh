@@ -1,9 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 user="vspdemo"
 echo "Would you like to INSERT data or DELETE data?"
 read -r ins_del
 ins_del="${ins_del,,}"
-if [[ "$ins_del" -ne "insert" || "delete" -ne "$ins_del" ]] ; then
+if [ "insert" != "$ins_del" ]; then
+	echo "hellloooooo"
+fi
+if [[ "insert" != "$ins_del" && "delete" != "$ins_del" ]] ; then
 	echo "Ending appropriately, or you may need to type a valid command: 'insert' or 'delete'"
 	exit 0
 fi
