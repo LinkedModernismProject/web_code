@@ -11,7 +11,7 @@ for file in *.txt; do
   	while IFS=$'\t' read -r -a arr; do
 	  	if [ ! -z "${arr[0]}" ] && [ ! -z "${arr[1]}" ] && [ ! -z "${arr[2]}" ] ; then #To stop from grabbing blank lines in arg file given
 		     ../../../../../../../bin/isql 1111 $user $SPARQL_PASSWORD <<-EOF
-		       sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX pref1: <http://localhost:8890/limo#> DELETE DATA FROM <http://localhost:8890/dustin> { meta:${arr[0]}  pref1:${arr[2]}  "${arr[1]}" } ;
+		       sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX pref1: <http://localhost:8890/limo#> DELETE DATA FROM <http://localhost:8890/bestDataProduction> { meta:${arr[0]}  pref1:${arr[2]}  "${arr[1]}" } ;
 				EXIT;
 			EOF
       fi
