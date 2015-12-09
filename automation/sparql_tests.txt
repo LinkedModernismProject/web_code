@@ -18,7 +18,8 @@ Enter Password:
   sparql PREFIX meta: <http://modernism.uvic.ca/metadata#> PREFIX limo: <http://localhost:8890/limo#> DELETE DATA FROM <http://localhost:8890/dustin> { meta:Apple  limo:OS "OS X" };
 
 #Copy a graph IRI into another graph IRI, will create dest graph if non-existent
-  sparql COPY <http://localhost:8890/dustin> TO <http://localhost:8890/dustin2>
+  sparql COPY <http://localhost:8890/dustin> TO <http://localhost:8890/dustin2>;
+  sparql COPY <http://localhost:8890/bestDataProduction> TO <http://localhost:8890/bestDataProduction_backup>;
 
 #Query for a certain predicate, gets the s, and o, where p=http://localhost:8890/limo#VisualArts
   select * where { ?s <http://localhost:8890/limo#VisualArts> ?o } limit 20
