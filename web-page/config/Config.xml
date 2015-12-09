@@ -130,7 +130,7 @@
     <!--<endpointURI>http://localhost:8890/sparql</endpointURI>-->
     <endpointURI>http://linkedmods.uvic.ca:8890/sparql</endpointURI>
     <dontAppendSPARQL>true</dontAppendSPARQL>
-    <defaultGraphURI>http://localhost:8890/bestDataTest</defaultGraphURI>
+    <defaultGraphURI>http://localhost:8890/bestDataRelFinder</defaultGraphURI>
     <isVirtuoso>false</isVirtuoso>
     <useProxy>false</useProxy>
     <method>POST</method>

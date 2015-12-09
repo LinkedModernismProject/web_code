@@ -20,6 +20,7 @@ Enter Password:
 #Copy a graph IRI into another graph IRI, will create dest graph if non-existent
   sparql COPY <http://localhost:8890/dustin> TO <http://localhost:8890/dustin2>;
   sparql COPY <http://localhost:8890/bestDataProduction> TO <http://localhost:8890/bestDataProduction_backup>;
+  sparql COPY <http://localhost:8890/bestDataTest> TO <http://localhost:8890/bestDataRelFinder>;
 
 #Query for a certain predicate, gets the s, and o, where p=http://localhost:8890/limo#VisualArts
   select * where { ?s <http://localhost:8890/limo#VisualArts> ?o } limit 20
