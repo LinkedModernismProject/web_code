@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--For consistent Polymer elements & fix css issue-->
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +23,13 @@
   <script src="js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
+  <!-- Color style for Polymer input elements-->
+  <style is="custom-style">
+  :root {
+          /* Label and underline color when the input is focused */
+          --paper-input-container-focus-color: teal;
+  }
+  </style>
 </head>
 
 <body>
@@ -65,22 +74,13 @@
         <!--GateKeeper Login Box-->
         <form id="kfm" name="keeper" action="javascript:keeperCheck();" style="margin:0;">
           <div class="group">
-            <input name="name" class="inp" type="text" pattern="[a-zA-Z0-9\s]+" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Name</label>
+            <paper-input label="Name" name="name" auto-validate pattern="[a-zA-Z0-9\s]+" error-message="Please use alphanumeric characters" required></paper-input>
           </div>
           <div class="group">
-            <input name="email" class="inp" type="email" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Email</label>
+            <paper-input label="Email" name="email" auto-validate type="email" error-message="Please enter a valid email address" required></paper-input>
           </div>
           <div class="group">
-            <input class="inp" type="password" name="page" pattern="^((?!.*(<\/form|<script>)).)*$" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Enter Contributor Password</label>
+            <paper-input label="Contributor Password" name="page" type=password auto-validate pattern="^((?!.*(<\/form|<script>)).)*$" error-message="Invalid" required></paper-input>
             <input type="submit" value="Go" class="btn-material btn-material-primary btn-material-raised">
             <iframe src="" name="keeperframe" frameborder="0" style="width:0px;height:0px;"></iframe>
             <noscript><div style="display:inline;color:#ff0000; background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
