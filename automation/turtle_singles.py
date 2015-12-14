@@ -5,7 +5,7 @@ import sys
 #Ex to run: python turtle_singles.py test_ts.txt out_turt_sing.txt
 open(sys.argv[2], 'a').close()	#To create output file if hasn't been already
 f = open(sys.argv[1], 'r')
-fo = open(sys.argv[2], 'r+')
+fo = open(sys.argv[2], 'a')
 
 pred_holder = ''
 
