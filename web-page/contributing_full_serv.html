@@ -209,15 +209,12 @@
         </template>
         <script>
           $.post("data/subject_list_ordered.json", function(response) {
-            console.log(response);
             document.querySelector('#spo').data = $.map(response, function(ele) { return ele; })
           })
           $.post("data/preds_ordered.json", function(response) {
-            console.log(response);
             document.querySelector('#spo').data1 = $.map(response, function(ele) { return ele; })
           })
           $.post("data/obj_ordered_cutdown.json", function(response) {
-            console.log(response);
             document.querySelector('#spo').data2 = $.map(response, function(ele) { return ele; })
           })
         </script>
