@@ -1,8 +1,8 @@
 import os, re
 from unidecode import unidecode
 
-rdf_file = open("/Users/brayden/Documents/web_code/convert/bestDataB.ttl",'r')
-write_file = open("/Users/brayden/Documents/web_code/convert/bestDataE.ttl",'w+')
+rdf_file = open("/Users/brayden/Documents/web_code/convert/bestDataProductionDec.ttl",'r')
+write_file = open("/Users/brayden/Documents/web_code/convert/bestDataProductionDoS.ttl",'w+')
 string_dict = {}
 i = 0
 
@@ -26,9 +26,9 @@ def string_replace(predicate, file_object, end_piece):
     file_object = file_object.replace('?','')
     file_object = file_object.replace('>','')
     file_object = file_object.replace('<','')
-    file_object = file_object.replace('»','')
     file_object = file_object.replace('`','')
     file_object = file_object.replace('=','_')
+    file_object = file_object.replace('-','_')
     file_object = file_object.replace('#','')
     file_object = file_object.replace(':','')
 
@@ -42,14 +42,18 @@ def string_replace(predicate, file_object, end_piece):
         return
     elif(re.search('hasBirthdate$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
-    elif(re.search('hasDeathdate$', predicate) != None):
+    elif(re.search('terminatesIn$', predicate) != None):
         write_file.write('\tpref1:terminatesIn pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
-    elif(re.search('hasGender$', predicate) != None):
+    elif(re.search('originatedInCountry$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
-    elif(re.search('gender$', predicate) != None):
-        write_file.write('\tpref1:hasSex pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
-    elif(re.search('sexuality$', predicate) != None):
-        write_file.write('\tpref1:hasSexuality pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('hasGender$', predicate) != None):
+        write_file.write(predicate + ' pref1:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('studiedAt$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('hasSex$', predicate) != None):
+        write_file.write(predicate + ' pref1:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('hasSexuality$', predicate) != None):
+        write_file.write(predicate + ' pref1:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('PerformingArts$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('^\tpref1:is', predicate) != None):
@@ -57,21 +61,16 @@ def string_replace(predicate, file_object, end_piece):
     elif(re.search('VisualArts$', predicate) != None):
         write_file.write(predicate + ' pref1:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('flourishesIn$', predicate) != None):
-        years = file_object.split('-')
-        years[0] = years[0].replace('\tpref1:','')
-        tmp = end_piece
-        for x in range(int(years[0]),int(years[1]) + 1):
-            if(re.search('\.',tmp) != None):
-                print(x)
-                print(years[1])
-                print(tmp)
-                if(x != (int(years[1]))):
-                    end_piece = ';\n'
-                elif(x == (int(years[1]))):
-                    end_piece = '.\n'
-
-            write_file.write('\tpref1:flourishesIn pref0:' + str(x) + ' ' + end_piece)
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('inspiredBy$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('affiliatedWith$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('founderOrLeader$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('founderOf$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('hasNationality$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('membersOrFiguresAssociatedWithGroupOrMovement$', predicate) != None):
         write_file.write('\tpref1:associatedWith pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
@@ -110,6 +109,8 @@ def string_replace(predicate, file_object, end_piece):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('associatedWithEmpire$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('type$', predicate) != None):
+        write_file.write(predicate + ' pref1:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('associatedWithCities$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('associatedWithVenues$', predicate) != None):
@@ -117,6 +118,8 @@ def string_replace(predicate, file_object, end_piece):
     elif(re.search('associatedWithEthnicity$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('associatedWithLiterature$', predicate) != None):
+        write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
+    elif(re.search('associatedWith$', predicate) != None):
         write_file.write(predicate + ' pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
     elif(re.search('NonFictionOrConceptOrIdeaTypeOfWriting$', predicate) != None):
         write_file.write('\tpref1:typeOfWriting pref0:' + file_object.strip().replace(' ','_') + ' ' + end_piece)
@@ -177,9 +180,19 @@ for x in rdf_file:
     string_dict[i] = split_line
     i = i + 1
     if(len(split_line) <= 1):
-        tmp = split_line[0].replace('"','')
-        tmp = tmp.replace(',','')
-        write_file.write(unidecode(tmp))
+        replaceBad = split_line[0].split("#")
+        if(replaceBad[0] != '\n'):
+            noBadCharacters = replaceBad[1].replace('.','')
+            noBadCharacters = noBadCharacters.replace(':','')
+            noBadCharacters = noBadCharacters.replace(',','')
+            noBadCharacters = noBadCharacters.replace('"','')
+            print(noBadCharacters)
+            tmp = replaceBad[0] + '#' + noBadCharacters
+            write_file.write(unidecode(tmp))
+        else:
+            tmp = split_line[0].replace('"','')
+            tmp = tmp.replace(',','')
+            write_file.write(unidecode(tmp))
     elif(len(split_line) > 1):
         if(split_line[1] != 'yes'):
             if(split_line[1] != 'No'):
