@@ -593,6 +593,13 @@ fieldset[disabled] .btn-primary.active {
   clear: both;
 }
 
+.btn-top-right-intab{
+  position: absolute;
+  right: 0;
+  top: 55px;
+  clear: both;
+}
+
 .btn-material {
   position: relative;
   padding: 8px 30px;
@@ -761,7 +768,7 @@ body {
 .vis-select input:checked +.vis-s{
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 .vis-select1 input:active +.vis-s1{opacity: .9;}
 .vis-select1 input:checked +.vis-s1{
