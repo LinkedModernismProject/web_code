@@ -13,7 +13,7 @@
     <script>
       //Redirects page to main page
       function redirect() {
-        window.location.href = 'http://linkedmods.uvic.ca:8890/';
+        window.location.href = 'http://linkedmods.uvic.ca';
         return false;
       }
     </script>

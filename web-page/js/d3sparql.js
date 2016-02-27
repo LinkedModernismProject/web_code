@@ -740,7 +740,7 @@ d3sparql.piechart = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
@@ -1009,7 +1009,7 @@ d3sparql.forcegraph = function(json, config) {
       .attr("width", opts.width)
       .attr("height", opts.height)
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
     return; //Return so no other execution has to take place
@@ -1169,7 +1169,7 @@ d3sparql.sankey = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width + opts.margin * 2)
       .attr("height", opts.height + opts.margin * 2)
       .append("g")
@@ -1554,7 +1554,7 @@ d3sparql.sunburst = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
@@ -1886,7 +1886,7 @@ d3sparql.circlepack = function(json, config) {
       .append("svg:g")
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
   } else {
-    var vis = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>')
+    var vis = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>')
       .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
       .attr("width", w)
       .attr("height", h)
