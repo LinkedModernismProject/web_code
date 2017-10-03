@@ -1,0 +1,3207 @@
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWithRegion "Europe" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWithCountry "United States" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWith "Jazz Age" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWith "Roaring Twenties" .
+
+<http://modernism.uvic.ca/metadata#Tutankhamen>
+	pref1:locatedIn "Egypt" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:influencedBy "French" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:influencedBy "Classical" .
+
+<http://modernism.uvic.ca/metadata#Art_Nouveau>
+	pref1:seeAlso "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Art_Nouveau>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:influencedBy "Art Nouveau" .
+
+<http://modernism.uvic.ca/metadata#Paul_Iribe>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Pierre_Legrain>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Jacques_Doucet>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Dufy>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Paul_Poiret>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Paul_Iribe>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Pierre_Legrain>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Jacques_Doucet>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Dufy>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Paul_Poiret>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Lafayette>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Le_Bon>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Printemps>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWith "United States" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWith "Paris" .
+
+<http://modernism.uvic.ca/metadata#Paris>
+	pref1:associatedWith "France" .
+
+<http://modernism.uvic.ca/metadata#Universal_Exposition>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Soci>
+	pref1:influencedBy "World War One" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWith "Exposition Internationale des Arts" .
+
+<http://modernism.uvic.ca/metadata#Exposition_Internationale_des_Arts>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Pierre_Patout>
+	pref1:associatedWith "Deco" .
+
+<http://modernism.uvic.ca/metadata#Ruhlmann>
+	pref1:creatorOf "Grand-Salon" .
+
+<http://modernism.uvic.ca/metadata#Grand-Salon>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Ruhlmann>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Ruhlmann>
+	pref1:associatedWith "Jean Dunand" .
+
+<http://modernism.uvic.ca/metadata#Jean_Dunand>
+	pref1:associatedWith "Jean Lambert-Rucki" .
+
+<http://modernism.uvic.ca/metadata#Ruhlmann>
+	pref1:associatedWith "Jean Lambert-Rucki" .
+
+<http://modernism.uvic.ca/metadata#Jean_Dunand>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Jean_Dunand>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Paul_Gauguin>
+	pref1:associatedWith "Paul Cezanne" .
+
+<http://modernism.uvic.ca/metadata#Paul_Gauguin>
+	pref1:associatedWith "Puvis de Chavannes" .
+
+<http://modernism.uvic.ca/metadata#Paul_Gauguin>
+	pref1:associatedWith "Odilon Redon" .
+
+<http://modernism.uvic.ca/metadata#Paul_Gauguin>
+	pref1:associatedWith "Henri de Toulouse-Lautrec" .
+
+<http://modernism.uvic.ca/metadata#Paul_Cezanne>
+	pref1:associatedWith "Puvis de Chavannes" .
+
+<http://modernism.uvic.ca/metadata#Paul_Cezanne>
+	pref1:associatedWith "Odilon Redon" .
+
+<http://modernism.uvic.ca/metadata#Paul_Cezanne>
+	pref1:associatedWith "Henri de Toulouse-Lautrec" .
+
+<http://modernism.uvic.ca/metadata#Puvis_de_Chavannes>
+	pref1:associatedWith "Odilon Redon" .
+
+<http://modernism.uvic.ca/metadata#Puvis_de_Chavannes>
+	pref1:associatedWith "Henri de Toulouse-Lautrec" .
+
+<http://modernism.uvic.ca/metadata#Odilon_Redon>
+	pref1:associatedWith "Henri de Toulouse-Lautrec" .
+
+<http://modernism.uvic.ca/metadata#Henri_Matisse>
+	pref1:associatedWith "Andre Derain" .
+
+<http://modernism.uvic.ca/metadata#Matisse>
+	pref1:influenced "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Robert>
+	pref1:associatedWith "Sonia Delaunay" .
+
+<http://modernism.uvic.ca/metadata#Sonia_Delaunay>
+	pref1:creatorOf "Simultan" .
+
+<http://modernism.uvic.ca/metadata#Serge_Diaghilev>
+	pref1:associatedWith "Bakst" .
+
+<http://modernism.uvic.ca/metadata#Serge_Diaghilev>
+	pref1:associatedWith "Paris" .
+
+<http://modernism.uvic.ca/metadata#Bakst>
+	pref1:associatedWith "Paris" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:influencedBy "Cubist" .
+
+<http://modernism.uvic.ca/metadata#Bakst>
+	pref1:influencedBy "Cubist" .
+
+<http://modernism.uvic.ca/metadata#Groult>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Henri_Matisse>
+	pref1:influencedBy "African" .
+
+<http://modernism.uvic.ca/metadata#Pablo_Picasso>
+	pref1:influencedBy "African" .
+
+<http://modernism.uvic.ca/metadata#Henri_Matisse>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Pablo_Picasso>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Henri_Matisse>
+	pref1:associatedWith "Pablo Picasso" .
+
+<http://modernism.uvic.ca/metadata#A._M._Cassandre>
+	pref1:depictorOf "Normandie" .
+
+<http://modernism.uvic.ca/metadata#A._M._Cassandre>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Le_Corbusier>
+	pref1:associatedWith "Walter Gropius" .
+
+<http://modernism.uvic.ca/metadata#Le_Corbusier>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Walter_Gropius>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Le_Corbusier>
+	pref1:associatedWith "Pierre Jeanneret" .
+
+<http://modernism.uvic.ca/metadata#Le_Corbusier>
+	pref1:associatedWith "Charlotte Perriand" .
+
+<http://modernism.uvic.ca/metadata#Pierre_Jeanneret>
+	pref1:associatedWith "Charlotte Perriand" .
+
+<http://modernism.uvic.ca/metadata#Le_Corbusier>
+	pref1:influencedBy "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Pierre_Jeanneret>
+	pref1:influencedBy "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Charlotte_Perriand>
+	pref1:influencedBy "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:influencedBy "Great Depression" .
+
+<http://modernism.uvic.ca/metadata#Chrysler_Building>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Empire_State_Building>
+	pref1:influencedBy "Art Deco" .
+
+<http://modernism.uvic.ca/metadata#Chrysler_Building>
+	pref1:locatedIn "New York City" .
+
+<http://modernism.uvic.ca/metadata#Empire_State_Building>
+	pref1:locatedIn "New York City" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:originatedIn "Pirmasens" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:founderOf "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:associatedWith "Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#Tristan_Tzara>
+	pref1:founderOf "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Tristan_Tzara>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:originatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:associatedWith "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Tristan_Tzara>
+	pref1:associatedWith "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:locatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:hadIntimateRelationshipWith "Emmy Hennings" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Munich" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Berlin" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "World War" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Germany" .
+
+<http://modernism.uvic.ca/metadata#Emmy_Hennings>
+	pref1:associatedWith "Germany" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:hasReligion "Catholic" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Ticino" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:contributedTo "Der Pfälzerwald" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:studiedAt "University of Munich" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influencedBy "Nietzsche" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "Nietzsche" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Munich" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Berlin" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influencedBy "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Die_Nase_des_Michelangelo>
+	pref1:associatedWith "Germany" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Expressionist" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influenced "Expressionist" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Hans Leybold" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:hasAlias "Ha Hu Baley" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:hasAlias "Klarinetta Klaball" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Klabund" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWIth "Marietta di Monaco" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:knew "Hennings" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Switzerland" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:founderOf "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Hennings>
+	pref1:founderOf "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influenced "Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influencedBy "Dada" .
+
+<http://modernism.uvic.ca/metadata#Sound_Poem_`_Karawane>
+	pref1:originatedIn "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Sound_Poem_`_Karawane>
+	pref1:appearedIn "Dada Almanach.jpegHugo Ball 's Sound Poem ` Karawane" .
+
+<http://modernism.uvic.ca/metadata#Sound_Poem_`_Karawane>
+	pref1:locatedIn "International Dada Archive" .
+
+<http://modernism.uvic.ca/metadata#Sound_Poem_`_Karawane>
+	pref1:locatedin "University of Iowa Libraries" .
+
+<http://modernism.uvic.ca/metadata#Sound_Poem_`_Karawane>
+	pref1:influencedBy "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada_Almanach.jpegHugo_Ball_'s_Sound_Poem_`_Karawane>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Flametti>
+	pref1:depictorOf "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Flametti>
+	pref1:depictorOf "Maxim Ensemble" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:associatedWith "Maxim Ensemble" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:hadIntimateRelationshipWith "Hennings" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Agnuzzo" .
+
+<http://modernism.uvic.ca/metadata#Hennings>
+	pref1:associatedWith "Agnuzzo" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "German Intelligentsia" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "Germany" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "Luther" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "French Revolution" .
+
+<http://modernism.uvic.ca/metadata#Die_Folgen_der_Reformation>
+	pref1:associatedWith "Catholic" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:depictorOf "Agnuzzo" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Hermann Hesse" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:creatorOf "Die Flucht" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:creatorOf "Flight Out of Time" .
+
+<http://modernism.uvic.ca/metadata#Flight_Out_of_Time>
+	pref1:influenced "Zurich Dada" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:influenced "Zurich Dada" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "Vom Dandysmus der Armen" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "Dada Diary" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "Sämtliche Werke" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "Flametti" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "The Dandyism of the Poor" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:creatorOf "Tenderenda der Phantast" .
+
+<http://modernism.uvic.ca/metadata#Sergei_Diaghilev>
+	pref1:hasNationality "Russian" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:foundedBy "Sergei Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Sergei_Diaghilev>
+	pref1:founderOf "Ballets Russes" .
+
+<http://modernism.uvic.ca/metadata#Richard_Wagner>
+	pref1:influence "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:influencedBy "Richard Wagner" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Suedois>
+	pref1:foundedBy "Rolf de Maré" .
+
+<http://modernism.uvic.ca/metadata#Rolf_de_Mare>
+	pref1:founderOf "Ballets Suédois" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Suedois>
+	pref1:influencedBy "Ballets Russes" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:influencedBy "Ballets Suédois" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:travelledTo "Venice" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:influencedBy "Rolf de Maré" .
+
+<http://modernism.uvic.ca/metadata#Rolf_de_Mare>
+	pref1:influencedBy "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Colonel_de_Basil>
+	pref1:influencedBy "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:influenced "Colonel de Basil" .
+
+<http://modernism.uvic.ca/metadata#Salon>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:hasNationality "Russian" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:performedIn "Western Europe" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:performedIn "Americas" .
+
+<http://modernism.uvic.ca/metadata#Ballets_Russes>
+	pref1:peformedIn "Australia" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:influencedBy "Gesamtkunstwerk" .
+
+<http://modernism.uvic.ca/metadata#Lev_Bakst>
+	pref1:memberOf "Mir" .
+
+<http://modernism.uvic.ca/metadata#Alexandre_Benois>
+	pref1:memberOf "Mir" .
+
+<http://modernism.uvic.ca/metadata#Alexander_Golovin>
+	pref1:memberOf "Mir" .
+
+<http://modernism.uvic.ca/metadata#Nikolai_Riurikh>
+	pref1:memberOf "Mir" .
+
+<http://modernism.uvic.ca/metadata#Mikhail_Fokine>
+	pref1:hasNationality "Russian" .
+
+<http://modernism.uvic.ca/metadata#Vaslav_Nijinsky>
+	pref1:hasNationality "Russian" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Lev Bakst" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Alexandre Benois" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Alexander Golovin" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Nikolai Riurikh" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Mikhail Fokine" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Vaslav Nijinsky" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Mir" .
+
+<http://modernism.uvic.ca/metadata#Igor_Stravinsky>
+	pref1:associatedWith "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Igor Stravinsky" .
+
+<http://modernism.uvic.ca/metadata#Igor_Stravinsky>
+	pref1:influenced "Ballets Russes" .
+
+<http://modernism.uvic.ca/metadata#Bakst>
+	pref1:contributedTo "L’après-midi d’un" .
+
+<http://modernism.uvic.ca/metadata#Bakst>
+	pref1:contributedTo "Schéhérezade" .
+
+<http://modernism.uvic.ca/metadata#Les_Sylphides>
+	pref1:associatedWith "Lac des Cygnes" .
+
+<http://modernism.uvic.ca/metadata#Scheherezade>
+	pref1:associatedWith "L’après-midi d’un" .
+
+<http://modernism.uvic.ca/metadata#Natalia_Goncharova>
+	pref1:hasNationality "Russian" .
+
+<http://modernism.uvic.ca/metadata#Natalia_Goncharova>
+	pref1:associatedWith "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:associatedWith "Natalia Goncharova" .
+
+<http://modernism.uvic.ca/metadata#NEO-PRIMITIVISM>
+	pref1:influenced "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Fokine>
+	pref1:associatedWith "Nijinsky" .
+
+<http://modernism.uvic.ca/metadata#Nijinsky>
+	pref1:associatedWith "Fokine" .
+
+<http://modernism.uvic.ca/metadata#Leonid_Massine>
+	pref1:associatedWith "Fokine" .
+
+<http://modernism.uvic.ca/metadata#Fokine>
+	pref1:associatedWith "Leonid Massine" .
+
+<http://modernism.uvic.ca/metadata#Leonid_Massine>
+	pref1:associatedWith "Nijinsky" .
+
+<http://modernism.uvic.ca/metadata#Nijinsky>
+	pref1:associatedWith "Leonid Massine" .
+
+<http://modernism.uvic.ca/metadata#Massine>
+	pref1:associatedWith "Diaghilev" .
+
+<http://modernism.uvic.ca/metadata#Diaghilev>
+	pref1:asssociatedWith "Massine" .
+
+<http://modernism.uvic.ca/metadata#Mikhail_Larionov>
+	pref1:contributedTo "Soleil" .
+
+<http://modernism.uvic.ca/metadata#Picasso>
+	pref1:contributedTo "Soleil" .
+
+<http://modernism.uvic.ca/metadata#Cubist>
+	pref1:influencedBy "Soleil" .
+
+<http://modernism.uvic.ca/metadata#Giacomo_Balla>
+	pref1:associatedWith "Stravinsky" .
+
+<http://modernism.uvic.ca/metadata#Stravinsky>
+	pref1:associatedWith "Giacomo Balla" .
+
+<http://modernism.uvic.ca/metadata#Marie_Laurencin>
+	pref1:associatedWith "Francis Poulenc" .
+
+<http://modernism.uvic.ca/metadata#Francis_Poulenc>
+	pref1:associatedWith "Marie Laurencin" .
+
+<http://modernism.uvic.ca/metadata#Picasso>
+	pref1:associatedWith "Chanel" .
+
+<http://modernism.uvic.ca/metadata#Chanel>
+	pref1:associatedWith "Picasso" .
+
+<http://modernism.uvic.ca/metadata#Picasso>
+	pref1:associatedWith "Darius Milhaud" .
+
+<http://modernism.uvic.ca/metadata#Darius_Milhaud>
+	pref1:associatedWith "Picasso" .
+
+<http://modernism.uvic.ca/metadata#Chanel>
+	pref1:associatedWith "Darius Milhaud" .
+
+<http://modernism.uvic.ca/metadata#Darius_Milhaud>
+	pref1:associatedWith "Chanel" .
+
+<http://modernism.uvic.ca/metadata#Yakulov>
+	pref1:associatedWith "Prokofiev" .
+
+<http://modernism.uvic.ca/metadata#Prokofiev>
+	pref1:associatedWith "Yakulov" .
+
+<http://modernism.uvic.ca/metadata#Yakulov>
+	pref1:depictorOf "Soviet Union Le" .
+
+<http://modernism.uvic.ca/metadata#Soviet_Union_Le>
+	pref1:depictedBy "Yakulov" .
+
+<http://modernism.uvic.ca/metadata#Prokofiev>
+	pref1:depictorOf "Soviet Union Le" .
+
+<http://modernism.uvic.ca/metadata#Soviet_Union_Le>
+	pref1:depictedBy "Prokofiev" .
+
+<http://modernism.uvic.ca/metadata#Ford_Madox_Ford>
+	pref1:creatorOf "Saddest Story" .
+
+<http://modernism.uvic.ca/metadata#Rebecca_West>
+	pref1:creatorOf "Indissoluble Matrimony" .
+
+<http://modernism.uvic.ca/metadata#Saddest_Story>
+	pref1:createdBy "Ford Madox Ford" .
+
+<http://modernism.uvic.ca/metadata#Indissoluble_Matrimony>
+	pref1:createdBy "Rebecca West" .
+
+<http://modernism.uvic.ca/metadata#Kate_Lechmere>
+	pref1:financerOf "Rebel Art Centre" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:influencedBy "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Expressionist" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Spencer Gore" .
+
+<http://modernism.uvic.ca/metadata#Spencer_Gore>
+	pref1:depictedBy "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Saddest_Story>
+	pref1:associatedWith "Good Soldier" .
+
+<http://modernism.uvic.ca/metadata#Rebecca_West>
+	pref1:creatorOf "Indissoluble Matrimony" .
+
+<http://modernism.uvic.ca/metadata#Edward_Wadsworth>
+	pref1:depcitorOf "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Pound>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Gaudier-Brzeska>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "Pound" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "Gaudier-Brzeska" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:creatorOf "Tarr" .
+
+<http://modernism.uvic.ca/metadata#Tarr>
+	pref1:createdBy "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Poetry>
+	pref1:publisherOf "Tarr" .
+
+<http://modernism.uvic.ca/metadata#The_Egoist>
+	pref1:publisherOf "Tarr" .
+
+<http://modernism.uvic.ca/metadata#Poetry>
+	pref1:publisherOf "Lewis" .
+
+<http://modernism.uvic.ca/metadata#The_Egoist>
+	pref1:publisherOf "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Tarr>
+	pref1:publishedBy "Poetry" .
+
+<http://modernism.uvic.ca/metadata#Tarr>
+	pref1:publishedBy "The Egoist" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:publishedBy "The Egoist" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:publishedBy "The Egoist" .
+
+<http://modernism.uvic.ca/metadata#Guillaume_Apollinaire>
+	pref1:associatedWith "Vorticists" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Vorticists" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:memberOf "Vorticists" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "Jonathan Swift" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "William Shakespeare" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "French Revolution" .
+
+<http://modernism.uvic.ca/metadata#French_Revolution>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#William_Shakespeare>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Jonathan_Swift>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:influencedByDegreeDirect "Marinetteism" .
+
+<http://modernism.uvic.ca/metadata#Futurist>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influencedBy "Futurist" .
+
+<http://modernism.uvic.ca/metadata#Italian_Futurism>
+	pref1:influencedByDegreeDirect "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Futurism>
+	pref1:influenced "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Futurism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Cubism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Expressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Futurism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Cubism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Futurism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Expressionism" .
+
+<http://modernism.uvic.ca/metadata#Picasso>
+	pref1:influencedDegreeDirect "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Futurists>
+	pref1:influenced "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Cubism>
+	pref1:associatedWith "Impressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Cubism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Impressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Kandinsky>
+	pref1:depictedBy "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Kandinsky>
+	pref1:influenced "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Cubism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Impressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Cubism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Impressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Expressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Expressionism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:depictorOf "Futurism" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influencedBy "Futurism" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:creatorOf "Saddest Story" .
+
+<http://modernism.uvic.ca/metadata#Saddest_Story>
+	pref1:createdBy "Ford" .
+
+<http://modernism.uvic.ca/metadata#Gaudier-Brzeska>
+	pref1:associatedWith "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Pound" .
+
+<http://modernism.uvic.ca/metadata#Gaudier-Brzeska>
+	pref1:associatedWith "Pound" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Gaudier-Brzeska" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Pound" .
+
+<http://modernism.uvic.ca/metadata#Enemy_of_the_Stars>
+	pref1:influencedBy "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Max_Stirner>
+	pref1:influenced "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Max_Stirner>
+	pref1:influenced "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:influenced "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#God_of_Sport_and_Blood>
+	pref1:associatedWith "Constantinople Our Star" .
+
+<http://modernism.uvic.ca/metadata#Constantinople_Our_Star>
+	pref1:associatedWith "God of Sport and Blood" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Lewis" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:creatorOf "Crowd-Master" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "T. S. Eliot" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Ford" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Dismorr" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "First World War" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:associatedWith "Saunders" .
+
+<http://modernism.uvic.ca/metadata#T._S._Eliot>
+	pref1:associatedWith "Ford" .
+
+<http://modernism.uvic.ca/metadata#T._S._Eliot>
+	pref1:associatedWith "Dismorr" .
+
+<http://modernism.uvic.ca/metadata#T._S._Eliot>
+	pref1:associatedWith "Saunders" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Dismorr" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "First World War" .
+
+<http://modernism.uvic.ca/metadata#Ford>
+	pref1:associatedWith "Saunders" .
+
+<http://modernism.uvic.ca/metadata#First_World_War>
+	pref1:associatedWith "Saunders" .
+
+<http://modernism.uvic.ca/metadata#Lewis>
+	pref1:creatorOf "The Caliph" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:foundedBy "Malcolm Arbuthnot" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:foundedBy "Lawrence Atkinson" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:foundedBy "Cuthbert Hamilton" .
+
+<http://modernism.uvic.ca/metadata#Malcolm_Arbuthnot>
+	pref1:founderOf "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Lawrence_Atkinson>
+	pref1:founderOf "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Cuthbert_Hamilton>
+	pref1:founderOf "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:influenced "Dismorr" .
+
+<http://modernism.uvic.ca/metadata#Vorticism>
+	pref1:influenced "Vorticism" .
+
+<http://modernism.uvic.ca/metadata#Marshall_McLuhan>
+	pref1:influencedBy "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influenced "Marshall McLuhan" .
+
+<http://modernism.uvic.ca/metadata#Mick_Sheridan>
+	pref1:creatorOf "BAST" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influenced "BAST" .
+
+<http://modernism.uvic.ca/metadata#BAST>
+	pref1:influencedBy "Vorticist" .
+
+<http://modernism.uvic.ca/metadata#Vorticist>
+	pref1:influenced "Mick Sheridan" .
+
+<http://modernism.uvic.ca/metadata#Charles_Baudelaire>
+	pref1:creatorOf "Les Fleurs" .
+
+<http://modernism.uvic.ca/metadata#Les_Fleurs>
+	pref1:createdBy "Charles Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Charles_Baudelaire>
+	pref1:creatorOf "Spleen de Paris" .
+
+<http://modernism.uvic.ca/metadata#Spleen_de_Paris>
+	pref1:createdBy "Charles Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Charles_Baudelaire>
+	pref1:creatorOf "Le Peintre de" .
+
+<http://modernism.uvic.ca/metadata#Le_Peintre_de>
+	pref1:createdBy "Charles Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Charles_Pierre_Baudelaire>
+	pref1:originatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Charles_Pierre_Baudelaire>
+	pref1:associatedWith "Joseph-François Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Joseph-Francois_Baudelaire>
+	pref1:associatedWith "Charles Pierre Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Charles_Pierre_Baudelaire>
+	pref1:associatedWith "Archembaut Defayis" .
+
+<http://modernism.uvic.ca/metadata#Archembaut_Defayis>
+	pref1:associatedWith "Charles Pierre Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Joseph-Francois_Baudelaire>
+	pref1:associatedWith "Caroline" .
+
+<http://modernism.uvic.ca/metadata#Caroline>
+	pref1:associatedWith "Joseph-François Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Jacques_Aupick>
+	pref1:associatedWith "Empire" .
+
+<http://modernism.uvic.ca/metadata#Empire>
+	pref1:associatedWith "Jacques Aupick" .
+
+<http://modernism.uvic.ca/metadata#Latin>
+	pref1:locatedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Jeanne_Duval>
+	pref1:hasAlias "Vénus Noire" .
+
+<http://modernism.uvic.ca/metadata#Venus_Noire>
+	pref1:aliasOf "Jeanne Duval" .
+
+<http://modernism.uvic.ca/metadata#Poemes_en_Prose>
+	pref1:originatedIn "Brussels" .
+
+<http://modernism.uvic.ca/metadata#Baudelaire>
+	pref1:influencedBy "Parnasse" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:associatedWith "Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:influencedBy "Romanticism" .
+
+<http://modernism.uvic.ca/metadata#Romanticism>
+	pref1:associatedWith "Parnasse" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:influencedBy "Romanticism" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:associatedWith "Vigny" .
+
+<http://modernism.uvic.ca/metadata#Vigny>
+	pref1:associatedWith "Parnasse" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:associatedWith "Lamartine" .
+
+<http://modernism.uvic.ca/metadata#Lamartine>
+	pref1:associatedWith "Parnasse" .
+
+<http://modernism.uvic.ca/metadata#Parnasse>
+	pref1:associatedWith "Sainte-Beuve" .
+
+<http://modernism.uvic.ca/metadata#Sainte-Beuve>
+	pref1:associatedWith "Parnasse" .
+
+<http://modernism.uvic.ca/metadata#Vigny>
+	pref1:influencedBy "Romanticism" .
+
+<http://modernism.uvic.ca/metadata#Lamartine>
+	pref1:influencedBy "Romanticism" .
+
+<http://modernism.uvic.ca/metadata#Sainte-Beuve>
+	pref1:influencedBy "Romanticism" .
+
+<http://modernism.uvic.ca/metadata#Vigny>
+	pref1:associatedWith "Lamartine" .
+
+<http://modernism.uvic.ca/metadata#Lamartine>
+	pref1:associatedWith "Vigny" .
+
+<http://modernism.uvic.ca/metadata#Vigny>
+	pref1:associatedWith "Sainte-Beuve" .
+
+<http://modernism.uvic.ca/metadata#Sainte-Beuve>
+	pref1:associatedWith "Vigny" .
+
+<http://modernism.uvic.ca/metadata#Vigny>
+	pref1:associatedWith "Sainte-Beuve" .
+
+<http://modernism.uvic.ca/metadata#Sainte-Beuve>
+	pref1:associatedWith "Vigny" .
+
+<http://modernism.uvic.ca/metadata#Baudelaire>
+	pref1:associatedWith "` War Number" .
+
+<http://modernism.uvic.ca/metadata#`_War_Number>
+	pref1:associatedWith "Baudelaire" .
+
+<http://modernism.uvic.ca/metadata#Courbet>
+	pref1:associatedWith "Daumier" .
+
+<http://modernism.uvic.ca/metadata#Daumier>
+	pref1:associatedWith "Courbet" .
+
+<http://modernism.uvic.ca/metadata#Courbet>
+	pref1:associatedWith "Delacroix" .
+
+<http://modernism.uvic.ca/metadata#Delacroix>
+	pref1:associatedWith "Courbet" .
+
+<http://modernism.uvic.ca/metadata#Courbet>
+	pref1:associatedWith "Manet" .
+
+<http://modernism.uvic.ca/metadata#Manet>
+	pref1:associatedWith "Courbet" .
+
+<http://modernism.uvic.ca/metadata#Daumier>
+	pref1:associatedWith "Delacroix" .
+
+<http://modernism.uvic.ca/metadata#Delacroix>
+	pref1:associatedWith "Daumier" .
+
+<http://modernism.uvic.ca/metadata#Daumier>
+	pref1:associatedWith "Manet" .
+
+<http://modernism.uvic.ca/metadata#Manet>
+	pref1:associatedWith "Daumier" .
+
+<http://modernism.uvic.ca/metadata#Delacroix>
+	pref1:associatedWith "Manet" .
+
+<http://modernism.uvic.ca/metadata#Manet>
+	pref1:associatedWith "Delacroix" .
+
+<http://modernism.uvic.ca/metadata#Weimar>
+	pref1:locatedIn "Thuringia" .
+
+<http://modernism.uvic.ca/metadata#Thuringia>
+	pref1:locationOf "Weimar" .
+
+<http://modernism.uvic.ca/metadata#Thuringia>
+	pref1:locatedIn "Germany" .
+
+<http://modernism.uvic.ca/metadata#Germany>
+	pref1:locationOn "Thuringia" .
+
+<http://modernism.uvic.ca/metadata#Weimar>
+	pref1:locatedIn "Germany" .
+
+<http://modernism.uvic.ca/metadata#Germany>
+	pref1:locationOf "Weimar" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Weimar" .
+
+<http://modernism.uvic.ca/metadata#Weimar>
+	pref1:assocatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Dessau" .
+
+<http://modernism.uvic.ca/metadata#Dessau>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Weimar>
+	pref1:associatedWith "Dessau" .
+
+<http://modernism.uvic.ca/metadata#Dessau>
+	pref1:associatedWith "Weimar" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Walter Gropius" .
+
+<http://modernism.uvic.ca/metadata#Walter_Gropius>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Hannes Meyer" .
+
+<http://modernism.uvic.ca/metadata#Hannes_Meyer>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Mies van der Rohe" .
+
+<http://modernism.uvic.ca/metadata#Mies_van_der_Rohe>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Lyonel_Feininger>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Lyonel Feininger" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Vassily_Kandinsky>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Vassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Lucia_Moholy-Nagy>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Lucia Moholy-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Herbert_Bayer>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Herbert Bayer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Breuer>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Marcel Breuer" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Wilhelm_Wagenfeld>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Wilhelm Wagenfeld" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Josef_Albers>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Josef Albers" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Marianne_Brandt>
+	pref1:associatedWith "Gunta Stölzl" .
+
+<http://modernism.uvic.ca/metadata#Gunta_Stolzl>
+	pref1:associatedWith "Marianne Brandt" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:creatorOf "Bauhausbücher" .
+
+<http://modernism.uvic.ca/metadata#Bauhausbucher>
+	pref1:createdBy "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Weimar" .
+
+<http://modernism.uvic.ca/metadata#Weimar>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Haus_am_Horn>
+	pref1:createdBy "Georg Muche" .
+
+<http://modernism.uvic.ca/metadata#Georg_Muche>
+	pref1:creatorOf "Haus am Horn" .
+
+<http://modernism.uvic.ca/metadata#Weimar_Bauhaus>
+	pref1:locatedIn "Germany" .
+
+<http://modernism.uvic.ca/metadata#Germany>
+	pref1:locationOf "Weimar Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "non-German" .
+
+<http://modernism.uvic.ca/metadata#non-German>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Lászlo Mohol-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Laszlo_Mohol-Nagy>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Johannes Itten" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Itten>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Laszlo_Mohol-Nagy>
+	pref1:hasNationality "Hungarian" .
+
+<http://modernism.uvic.ca/metadata#Laszlo_Mohol-Nagy>
+	pref1:associatedWith "Johannes Itten" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Itten>
+	pref1:associatedWith "Lászlo Mohol-Nagy" .
+
+<http://modernism.uvic.ca/metadata#Theo_van_Doesburg>
+	pref1:hasNationality "Dutch" .
+
+<http://modernism.uvic.ca/metadata#Theo_van_Doesburg>
+	pref1:founderOf "Dutch De Stijl" .
+
+<http://modernism.uvic.ca/metadata#Dutch_De_Stijl>
+	pref1:foundedBy "Theo van Doesburg" .
+
+<http://modernism.uvic.ca/metadata#Theo_van_Doesburg>
+	pref1:influenced "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Dutch_De_Stijl>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Dutch De Stijl" .
+
+<http://modernism.uvic.ca/metadata#Louis_Sullivan>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Louis Sullivan" .
+
+<http://modernism.uvic.ca/metadata#Hannes_Meyer>
+	pref1:hasNationality "Swiss" .
+
+<http://modernism.uvic.ca/metadata#Hannes_Meyer>
+	pref1:influencedBy "Walter Gropius" .
+
+<http://modernism.uvic.ca/metadata#Meyer>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Meyer" .
+
+<http://modernism.uvic.ca/metadata#Mies_van_der_Rohe>
+	pref1:influencedBy "Hannes Meyer" .
+
+<http://modernism.uvic.ca/metadata#Hannes_Meyer>
+	pref1:associatedWith "Mies van der Rohe" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "National Socialists" .
+
+<http://modernism.uvic.ca/metadata#National_Socialists>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Berlin>
+	pref1:locationOf "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:locatedIn "Berlin" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:influencedBy "Expressionism" .
+
+<http://modernism.uvic.ca/metadata#Expressionism>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Lothar_Schreyer>
+	pref1:hasTitle "Master of Form" .
+
+<http://modernism.uvic.ca/metadata#Lothar_Schreyer>
+	pref1:associatedWith "Expressionist" .
+
+<http://modernism.uvic.ca/metadata#Expressionist>
+	pref1:associatedWith "Lothar Schreyer" .
+
+<http://modernism.uvic.ca/metadata#Oskar_Schlemmer>
+	pref1:influencedBy "Schreyer" .
+
+<http://modernism.uvic.ca/metadata#Schreyer>
+	pref1:associatedWith "Oskar Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Triadic_Ballet>
+	pref1:hasAlias "Das Triadische Ballett" .
+
+<http://modernism.uvic.ca/metadata#Das_Triadische_Ballett>
+	pref1:hasAlias "Triadic Ballet" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:creatorOf "Bauhaus Dances" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus_Dances>
+	pref1:createdBy "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus_Dances>
+	pref1:hasAlias "Die Bauhaustänze" .
+
+<http://modernism.uvic.ca/metadata#Die_Bauhaustanze>
+	pref1:hasAlias "Bauhaus Dances" .
+
+<http://modernism.uvic.ca/metadata#Schlemmer>
+	pref1:associatedWith "Theatre Workshop" .
+
+<http://modernism.uvic.ca/metadata#Theatre_Workshop>
+	pref1:associatedWith "Schlemmer" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Itten>
+	pref1:associatedWith "Grunow" .
+
+<http://modernism.uvic.ca/metadata#Grunow>
+	pref1:influencedBy "Johannes Itten" .
+
+<http://modernism.uvic.ca/metadata#Grunow>
+	pref1:associatedWith "Karla Grosch" .
+
+<http://modernism.uvic.ca/metadata#Karla_Grosch>
+	pref1:associatedWith "Grunow" .
+
+<http://modernism.uvic.ca/metadata#Grosch>
+	pref1:influencedBy "Gret Palucca" .
+
+<http://modernism.uvic.ca/metadata#Gret_Palucca>
+	pref1:associatedWith "Grosch" .
+
+<http://modernism.uvic.ca/metadata#Gret_Palucca>
+	pref1:performedIn "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Wassily_Kandinsky>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Wassily_Kandinsky>
+	pref1:creatorOf "` Dance Curves" .
+
+<http://modernism.uvic.ca/metadata#`_Dance_Curves>
+	pref1:createdBy "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#Bauhaus>
+	pref1:associatedWith "` Dance Curves" .
+
+<http://modernism.uvic.ca/metadata#`_Dance_Curves>
+	pref1:associatedWith "Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Wassily_Kandinsky>
+	pref1:associatedWith "Palucca" .
+
+<http://modernism.uvic.ca/metadata#Palucca>
+	pref1:associatedWith "Wassily Kandinsky" .
+
+<http://modernism.uvic.ca/metadata#`_Dance_Curves>
+	pref1:associatedWith "Palucca" .
+
+<http://modernism.uvic.ca/metadata#Palucca>
+	pref1:associatedWith "` Dance Curves" .
+
+<http://modernism.uvic.ca/metadata#White_Festival>
+	pref1:hasAlternativeTitle "Das Weiße Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Weisse_Fest>
+	pref1:hasAlternativeTitle "White Festival" .
+
+<http://modernism.uvic.ca/metadata#White_Festival>
+	pref1:associatedWith "Das Bart-Nasen-Herzensfest" .
+
+<http://modernism.uvic.ca/metadata#Das_Bart-Nasen-Herzensfest>
+	pref1:associatedWith "White Festival" .
+
+<http://modernism.uvic.ca/metadata#Das_Weisse_Fest>
+	pref1:associatedWith "Das Bart-Nasen-Herzensfest" .
+
+<http://modernism.uvic.ca/metadata#Das_Bart-Nasen-Herzensfest>
+	pref1:associatedWith "Das Weiße Fest" .
+
+<http://modernism.uvic.ca/metadata#Metallic_Festival>
+	pref1:hasAlternativeTitle "Das Metallische Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Metallische_Fest>
+	pref1:hasAlternativeTitle "Metallic Festival" .
+
+<http://modernism.uvic.ca/metadata#White_Festival>
+	pref1:associatedWith "Metallic Festival" .
+
+<http://modernism.uvic.ca/metadata#Metallic_Festival>
+	pref1:associatedWith "White Festival" .
+
+<http://modernism.uvic.ca/metadata#White_Festival>
+	pref1:associatedWith "Das Metallische Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Metallische_Fest>
+	pref1:associatedWith "White Festival" .
+
+<http://modernism.uvic.ca/metadata#Das_Weisse_Fest>
+	pref1:associatedWith "Das Bart-Nasen-Herzensfest" .
+
+<http://modernism.uvic.ca/metadata#Das_Bart-Nasen-Herzensfest>
+	pref1:associatedWith "Das Weiße Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Weisse_Fest>
+	pref1:associatedWith "Metallic Festival" .
+
+<http://modernism.uvic.ca/metadata#Metallic_Festival>
+	pref1:associatedWith "Das Weiße Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Weisse_Fest>
+	pref1:associatedWith "Das Metallische Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Metallische_Fest>
+	pref1:associatedWith "Das Weiße Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Bart-Nasen-Herzensfest>
+	pref1:associatedWith "Metallic Festival" .
+
+<http://modernism.uvic.ca/metadata#Metallic_Festival>
+	pref1:associatedWith "Das Bart-Nasen-Herzensfest" .
+
+<http://modernism.uvic.ca/metadata#Das_Bart-Nasen-Herzensfest>
+	pref1:associatedWith "Das Metallische Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Metallische_Fest>
+	pref1:associatedWith "Das Bart-Nasen-Herzensfest" .
+
+<http://modernism.uvic.ca/metadata#Metallic_Festival>
+	pref1:associatedWith "Das Metallische Fest" .
+
+<http://modernism.uvic.ca/metadata#Das_Metallische_Fest>
+	pref1:associatedWith "Metallic Festival" .
+
+<http://modernism.uvic.ca/metadata#East_Germany>
+	pref1:locationOf "Dessau Bauhaus" .
+
+<http://modernism.uvic.ca/metadata#Dessau_Bauhaus>
+	pref1:locatedIn "East Germany" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:hasReligion "Jewish" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:orginatedIn "Berlin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:associatedWith "Frankfurt Institute for Social Research" .
+
+<http://modernism.uvic.ca/metadata#Frankfurt_Institute_for_Social_Research>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:knew "Bertolt Brecht" .
+
+<http://modernism.uvic.ca/metadata#Bertolt_Brecht>
+	pref1:knew "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Theodor_W._Adorno>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:associatedWith "Theodor W. Adorno" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:creatorOf "Arcades Project" .
+
+<http://modernism.uvic.ca/metadata#Arcades_Project>
+	pref1:createdBy "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:creatorOf "Das Passagen-Werk" .
+
+<http://modernism.uvic.ca/metadata#Das_Passagen-Werk>
+	pref1:createdBy "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Arcades_Project>
+	pref1:hasAlternativeTitle "Das Passagen-Werk" .
+
+<http://modernism.uvic.ca/metadata#Das_Passagen-Werk>
+	pref1:hasAlternativeTitle "Arcades Project" .
+
+<http://modernism.uvic.ca/metadata#Arcades_Project>
+	pref1:associatedWith "Paris" .
+
+<http://modernism.uvic.ca/metadata#Paris>
+	pref1:associatedWith "Arcades Project" .
+
+<http://modernism.uvic.ca/metadata#Das_Passagen-Werk>
+	pref1:associatedWith "Paris" .
+
+<http://modernism.uvic.ca/metadata#Paris>
+	pref1:associatedWith "Das Passagen-Werk" .
+
+<http://modernism.uvic.ca/metadata#Aragon>
+	pref1:creatorOf "Le Paysan de Paris" .
+
+<http://modernism.uvic.ca/metadata#Le_Paysan_de_Paris>
+	pref1:createdBy "Aragon" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:influencedBy "Paul Klee" .
+
+<http://modernism.uvic.ca/metadata#Paul_Klee>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:influencedBy "Angelus Novus" .
+
+<http://modernism.uvic.ca/metadata#Angelus_Novus>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:influencedBy "Angel of History" .
+
+<http://modernism.uvic.ca/metadata#Angel_of_History>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Angelus_Novus>
+	pref1:hasAlternativeTitle "Angel of History" .
+
+<http://modernism.uvic.ca/metadata#Angel_of_History>
+	pref1:hasAlternativeTitle "Angelus Novus" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:livedIn "Europe" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:associatedWith "New York" .
+
+<http://modernism.uvic.ca/metadata#New_York>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Benjamin>
+	pref1:associatedWith "Nazis" .
+
+<http://modernism.uvic.ca/metadata#Nazis>
+	pref1:associatedWith "Benjamin" .
+
+<http://modernism.uvic.ca/metadata#Nazis>
+	pref1:locatedIn "Europe" .
+
+<http://modernism.uvic.ca/metadata#Europe>
+	pref1:locationOf "Nazis" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:hasNationality "Irish" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:associatedWith "Labour Party" .
+
+<http://modernism.uvic.ca/metadata#Labour_Party>
+	pref1:associatedWith "Bernard Shaw" .
+
+<http://modernism.uvic.ca/metadata#Labour_Party>
+	pref1:locatedIn "England" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:associatedWith "England" .
+
+<http://modernism.uvic.ca/metadata#England>
+	pref1:associatedWith "Bernard Shaw" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:receivedAward "Edward Wadsworth" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:receivedAward "Academy Award" .
+
+<http://modernism.uvic.ca/metadata#Bernard_Shaw>
+	pref1:creatorOf "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:createdBy "Bernard Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:originatedIn "Dublin" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:travelledTo "London" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Hornet " .
+
+<http://modernism.uvic.ca/metadata#Hornet>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Fabian Society" .
+
+<http://modernism.uvic.ca/metadata#Fabian_Society>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Fabian_Society>
+	pref1:originatedIn "British" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Quintessence of Ibsenism " .
+
+<http://modernism.uvic.ca/metadata#Quintessence_of_Ibsenism>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Quintessence_of_Ibsenism>
+	pref1:associatedWith "Fabians" .
+
+<http://modernism.uvic.ca/metadata#Fabians>
+	pref1:associatedWith "Quintessence of Ibsenism " .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Fabians" .
+
+<http://modernism.uvic.ca/metadata#Fabians>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Philanderer " .
+
+<http://modernism.uvic.ca/metadata#Philanderer>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Candida" .
+
+<http://modernism.uvic.ca/metadata#Candida>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Man of Destiny " .
+
+<http://modernism.uvic.ca/metadata#Man_of_Destiny>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Royal Court" .
+
+<http://modernism.uvic.ca/metadata#Royal_Court>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Royal_Court>
+	pref1:foundedBy "Harley Granville-Barker" .
+
+<http://modernism.uvic.ca/metadata#Harley_Granville-Barker>
+	pref1:founderOf "Royal Court" .
+
+<http://modernism.uvic.ca/metadata#Royal_Court>
+	pref1:foundedBy "J. E. Vedrenne" .
+
+<http://modernism.uvic.ca/metadata#J._E._Vedrenne>
+	pref1:founderOf "Royal Court" .
+
+<http://modernism.uvic.ca/metadata#Harley_Granville-Barker>
+	pref1:associatedWith "J. E. Vedrenne" .
+
+<http://modernism.uvic.ca/metadata#J._E._Vedrenne>
+	pref1:associatedWith "Harley Granville-Barker" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Harley Granville-Barker" .
+
+<http://modernism.uvic.ca/metadata#Harley_Granville-Barker>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "J. E. Vedrenne" .
+
+<http://modernism.uvic.ca/metadata#J._E._Vedrenne>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Creative Evolution" .
+
+<http://modernism.uvic.ca/metadata#Creative_Evolution>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Granville-Barker>
+	pref1:performerOf "John Tanner" .
+
+<http://modernism.uvic.ca/metadata#Granville-Barker>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#John_Tanner>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "John Tanner" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Ireland" .
+
+<http://modernism.uvic.ca/metadata#Ireland>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Misalliance" .
+
+<http://modernism.uvic.ca/metadata#Misalliance>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:performedIn "London" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:directedBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:directorOf "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Alan_Jay_Lerner>
+	pref1:influencedBy "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:influencedDegreeDirect "Alan Jay Lerner" .
+
+<http://modernism.uvic.ca/metadata#Frederick_Loewe>
+	pref1:influencedBy "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:influencedDegreeDirect "Frederick Loewe" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:influencedDegreeDirect "Alan Jay Lerner" .
+
+<http://modernism.uvic.ca/metadata#Alan_Jay_Lerner>
+	pref1:influencedByDegreeDirect "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:influencedDegreeDirect "Frederick Loewe" .
+
+<http://modernism.uvic.ca/metadata#Frederick_Loewe>
+	pref1:influencedByDegreeDirect "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:associatedWith "Henry Higgins" .
+
+<http://modernism.uvic.ca/metadata#Henry_Higgins>
+	pref1:associatedWith "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Henry_Higgins>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Henry Higgins" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:knew "Henry Sweet" .
+
+<http://modernism.uvic.ca/metadata#Henry_Sweet>
+	pref1:knew "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Pygmalion>
+	pref1:associatedWith "Eliza Doolittle" .
+
+<http://modernism.uvic.ca/metadata#Eliza_Doolittle>
+	pref1:associatedWith "Pygmalion" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Eliza Doolittle" .
+
+<http://modernism.uvic.ca/metadata#Eliza_Doolittle>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Henry_Higgins>
+	pref1:associatedWith "Eliza Doolittle" .
+
+<http://modernism.uvic.ca/metadata#Eliza_Doolittle>
+	pref1:associatedWith "Henry Higgins" .
+
+<http://modernism.uvic.ca/metadata#Henry_Higgins>
+	pref1:associatedWith "Henry Sweet" .
+
+<http://modernism.uvic.ca/metadata#Henry_Sweet>
+	pref1:associatedWith "Henry Higgins" .
+
+<http://modernism.uvic.ca/metadata#Higgins>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Higgins" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:creatorOf "Heartbreak House" .
+
+<http://modernism.uvic.ca/metadata#Heartbreak_House>
+	pref1:createdBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Creative Evolution" .
+
+<http://modernism.uvic.ca/metadata#Creative_Evolution>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:depictorOf "Garden of Eden" .
+
+<http://modernism.uvic.ca/metadata#Garden_of_Eden>
+	pref1:depictedBy "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Creative_Evolution>
+	pref1:associatedWith "Garden of Eden" .
+
+<http://modernism.uvic.ca/metadata#Garden_of_Eden>
+	pref1:associatedWith "Creative Evolution" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Benito Mussolini" .
+
+<http://modernism.uvic.ca/metadata#Benito_Mussolini>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Joseph Stalin" .
+
+<http://modernism.uvic.ca/metadata#Joseph_Stalin>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:associatedWith "Adolph Hitler" .
+
+<http://modernism.uvic.ca/metadata#Adolph_Hitler>
+	pref1:associatedWith "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Benito_Mussolini>
+	pref1:associatedWith "Joseph Stalin" .
+
+<http://modernism.uvic.ca/metadata#Joseph_Stalin>
+	pref1:associatedWith "Benito Mussolini" .
+
+<http://modernism.uvic.ca/metadata#Benito_Mussolini>
+	pref1:associatedWith "Adolph Hitler" .
+
+<http://modernism.uvic.ca/metadata#Adolph_Hitler>
+	pref1:associatedWith "Benito Mussolini" .
+
+<http://modernism.uvic.ca/metadata#Joseph_Stalin>
+	pref1:associatedWith "Adolph Hitler" .
+
+<http://modernism.uvic.ca/metadata#Adolph_Hitler>
+	pref1:associatedWith "Joseph Stalin" .
+
+<http://modernism.uvic.ca/metadata#Ibsen>
+	pref1:creatorOf "Geneva" .
+
+<http://modernism.uvic.ca/metadata#Geneva>
+	pref1:createdBy "Ibsen" .
+
+<http://modernism.uvic.ca/metadata#Benito_Mussolini>
+	pref1:associatedWith "Geneva" .
+
+<http://modernism.uvic.ca/metadata#Geneva>
+	pref1:associatedWith "Benito Mussolini" .
+
+<http://modernism.uvic.ca/metadata#Joseph_Stalin>
+	pref1:associatedWith "Geneva" .
+
+<http://modernism.uvic.ca/metadata#Geneva>
+	pref1:associatedWith "Joseph Stalin" .
+
+<http://modernism.uvic.ca/metadata#Adolph_Hitler>
+	pref1:associatedWith "Geneva" .
+
+<http://modernism.uvic.ca/metadata#Geneva>
+	pref1:associatedWith "Adolph Hitler" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:influencedDegreeKey "Bertolt Brecht" .
+
+<http://modernism.uvic.ca/metadata#Bertolt_Brecht>
+	pref1:influencedByDegreeKey "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:influencedDegreeKey "Tom Stoppard" .
+
+<http://modernism.uvic.ca/metadata#Tom_Stoppard>
+	pref1:influencedByDegreeKey "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw>
+	pref1:influencedDegreeKey "Tony Kushner" .
+
+<http://modernism.uvic.ca/metadata#Tony_Kushner>
+	pref1:influencedByDegreeKey "Shaw" .
+
+<http://modernism.uvic.ca/metadata#Shaw_Festival>
+	pref1:locatedIn "Niagara-on-the-Lake" .
+
+<http://modernism.uvic.ca/metadata#Niagara-on-the-Lake>
+	pref1:locationOf "Shaw Festival" .
+
+<http://modernism.uvic.ca/metadata#Shaw_Festival>
+	pref1:locatedIn "Ontario" .
+
+<http://modernism.uvic.ca/metadata#Ontario>
+	pref1:locationOf "Shaw Festival" .
+
+<http://modernism.uvic.ca/metadata#Shaw_Festival>
+	pref1:locatedIn "Canada" .
+
+<http://modernism.uvic.ca/metadata#Canada>
+	pref1:locationOf "Shaw Festival" .
+
+<http://modernism.uvic.ca/metadata#Niagara-on-the-Lake>
+	pref1:locatedIn "Ontario" .
+
+<http://modernism.uvic.ca/metadata#Ontario>
+	pref1:locationOf "Niagara-on-the-Lake" .
+
+<http://modernism.uvic.ca/metadata#Niagara-on-the-Lake>
+	pref1:locatedIn "Canada" .
+
+<http://modernism.uvic.ca/metadata#Canada>
+	pref1:locationOf "Niagara-on-the-Lake" .
+
+<http://modernism.uvic.ca/metadata#Ontario>
+	pref1:locatedIn "Canada" .
+
+<http://modernism.uvic.ca/metadata#Canada>
+	pref1:locationOf "Ontario" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:originatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Zurich>
+	pref1:locatedIn "Switzerland" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:influencedBy "French Enlightenment" .
+
+<http://modernism.uvic.ca/metadata#Hugo_Ball>
+	pref1:associatedWith "Emmy Hennings" .
+
+<http://modernism.uvic.ca/metadata#Emmy_Hennings>
+	pref1:associatedWith "Hugo Ball" .
+
+<http://modernism.uvic.ca/metadata#Hans_Arp>
+	pref1:associatedWith "Otto van Rees" .
+
+<http://modernism.uvic.ca/metadata#Otto_van_Rees>
+	pref1:associatedWith "Hans Arp" .
+
+<http://modernism.uvic.ca/metadata#Hennings>
+	pref1:associatedWith "Ball" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Hennings" .
+
+<http://modernism.uvic.ca/metadata#Hans_Arp>
+	pref1:associatedWith "Sophie Taeuber" .
+
+<http://modernism.uvic.ca/metadata#Sophie_Taeuber>
+	pref1:associatedWith "Hans Arp" .
+
+<http://modernism.uvic.ca/metadata#Sophie_Taeuber>
+	pref1:associatedWith "Galerie Tanner" .
+
+<http://modernism.uvic.ca/metadata#Galerie_Tanner>
+	pref1:associatedWith "Sophie Taeuber" .
+
+<http://modernism.uvic.ca/metadata#Tristan_Tzara>
+	pref1:associatedWith "Marcel Janco" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Janco>
+	pref1:associatedWith "Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#Richard_Huelsenbeck>
+	pref1:associatedWith "Ball" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Richard Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Galerie_Dada.pngFigure>
+	pref1:originatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Sophie_Taeuber>
+	pref1:associatedWith "Galerie Dada" .
+
+<http://modernism.uvic.ca/metadata#Galerie_Dada>
+	pref1:associatedWith "Sophie Taeuber" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:foundedBy "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:associatedWith "Ball" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:associatedWith "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Ball>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:foundedBy "Ball" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:associatedWith "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:associatedWith "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:associatedWith "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:associatedWith "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Berlin_Dada>
+	pref1:originatedIn "Germany" .
+
+<http://modernism.uvic.ca/metadata#Berlin_Dada>
+	pref1:associatedWith "Zurich Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaists>
+	pref1:associatedWith "Berlin Dada" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaists>
+	pref1:influencedBy "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:founderOf "Zurich Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaists>
+	pref1:foundedBy "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:associatedWith "Galerie Dada" .
+
+<http://modernism.uvic.ca/metadata#Galerie_Dada>
+	pref1:associatedWith "Zurich Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaists>
+	pref1:associatedWith "Galerie Dada" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:foundedBy "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:originatedIn "Europe" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:associatedWith "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Zurich>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Arp>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Arp" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:flourishedIn "Paris" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:associatedWith "Surrealism" .
+
+<http://modernism.uvic.ca/metadata#Surrealism>
+	pref1:associatedWith "Dada" .
+
+<http://modernism.uvic.ca/metadata#Surrealism>
+	pref1:originatedIn "Dada" .
+
+<http://modernism.uvic.ca/metadata#Tzara>
+	pref1:associatedWith "Surrealism" .
+
+<http://modernism.uvic.ca/metadata#Surrealism>
+	pref1:associatedWith "Tzara" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Surrealism" .
+
+<http://modernism.uvic.ca/metadata#Surrealism>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Richard_Huelsenbeck>
+	pref1:associatedWith "Zurich Dada" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dada>
+	pref1:associatedWith "Richard Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dada>
+	pref1:originatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dada>
+	pref1:associatedWith "Cabaret Voltaire" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:associatedWith "Zurich Dada" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dada>
+	pref1:influencedBy "Richard Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Cabaret_Voltaire>
+	pref1:influencedBy "Richard Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Johannes Baader" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baader>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "George Grosz" .
+
+<http://modernism.uvic.ca/metadata#George_Grosz>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Raoul Hausmann" .
+
+<http://modernism.uvic.ca/metadata#Raoul_Hausmann>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "John Heartfield" .
+
+<http://modernism.uvic.ca/metadata#John_Heartfield>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Wieland Herzfelde" .
+
+<http://modernism.uvic.ca/metadata#Wieland_Herzfelde>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Hannah Höch" .
+
+<http://modernism.uvic.ca/metadata#Hannah_Hoch>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Franz_Jung>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Franz Jung" .
+
+<http://modernism.uvic.ca/metadata#Walter_Mehring>
+	pref1:associatedWith "Otto Schmalhausen" .
+
+<http://modernism.uvic.ca/metadata#Otto_Schmalhausen>
+	pref1:associatedWith "Walter Mehring" .
+
+<http://modernism.uvic.ca/metadata#Club_Dada>
+	pref1:originatedIn "Berlin" .
+
+<http://modernism.uvic.ca/metadata#Munich_Secessionist_Lovis_Corinth>
+	pref1:associatedWith "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:associatedWith "Munich Secessionist Lovis Corinth" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:creatorOf "Dadaist Manifesto" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:foundedBy "Huelsenbeck" .
+
+<http://modernism.uvic.ca/metadata#Huelsenbeck>
+	pref1:founderOf "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dadaist>
+	pref1:influencedBy "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dadaist>
+	pref1:influencedBy "Pantagruel" .
+
+<http://modernism.uvic.ca/metadata#First_International_Dada_Fair>
+	pref1:associatedWith "Berlin Dadaists Grosz" .
+
+<http://modernism.uvic.ca/metadata#Berlin_Dadaists_Grosz>
+	pref1:associatedWith "First International Dada Fair" .
+
+<http://modernism.uvic.ca/metadata#Hausmann>
+	pref1:memberOf "Berlin Dadaists Grosz" .
+
+<http://modernism.uvic.ca/metadata#Heartfield>
+	pref1:memberOf "Berlin Dadaists Grosz" .
+
+<http://modernism.uvic.ca/metadata#First_International_Dada_Fair>
+	pref1:exhibitedIn "Otto Burchard" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Johannes Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Rudolf_Schlichter>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Georg_Scholz>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Georg Scholz" .
+
+<http://modernism.uvic.ca/metadata#Otto_Dix>
+	pref1:associatedWith "Francis Picabia" .
+
+<http://modernism.uvic.ca/metadata#Francis_Picabia>
+	pref1:associatedWith "Otto Dix" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Johannes Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Rudolf_Schlichter>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Georg Scholz" .
+
+<http://modernism.uvic.ca/metadata#Georg_Scholz>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Max_Ernst>
+	pref1:associatedWith "Otto Dix" .
+
+<http://modernism.uvic.ca/metadata#Otto_Dix>
+	pref1:associatedWith "Max Ernst" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Rudolf_Schlichter>
+	pref1:associatedWith "Johannes Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Georg Scholz" .
+
+<http://modernism.uvic.ca/metadata#Georg_Scholz>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Otto Dix" .
+
+<http://modernism.uvic.ca/metadata#Otto_Dix>
+	pref1:associatedWith "Johannes Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Rudolf_Schlichter>
+	pref1:associatedWith "Georg Scholz" .
+
+<http://modernism.uvic.ca/metadata#Georg_Scholz>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Rudolf_Schlichter>
+	pref1:associatedWith "Otto Dix" .
+
+<http://modernism.uvic.ca/metadata#Otto_Dix>
+	pref1:associatedWith "Rudolf Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Heartfield>
+	pref1:creatorOf "Prussian Archangel" .
+
+<http://modernism.uvic.ca/metadata#Schlichter>
+	pref1:creatorOf "Prussian Archangel" .
+
+<http://modernism.uvic.ca/metadata#Prussian_Archangel>
+	pref1:createdBy "Heartfield" .
+
+<http://modernism.uvic.ca/metadata#Prussian_Archangel>
+	pref1:createdBy "Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Heartfield>
+	pref1:associatedWith "Schlichter" .
+
+<http://modernism.uvic.ca/metadata#Schlichter>
+	pref1:associatedWith "Heartfield" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:flourishedIn "Cologne" .
+
+<http://modernism.uvic.ca/metadata#Alfred_Grunwald>
+	pref1:associatedWith "Johannes Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Johannes_Baargeld>
+	pref1:associatedWith "Alfred Grünwald" .
+
+<http://modernism.uvic.ca/metadata#Luise_Strauss-Ernst>
+	pref1:associatedWith "Franz Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Franz_Seiwert>
+	pref1:associatedWith "Luise Strauss-Ernst" .
+
+<http://modernism.uvic.ca/metadata#Luise_Strauss-Ernst>
+	pref1:associatedWith "Anton Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Anton_Raderscheidt>
+	pref1:associatedWith "Luise Strauss-Ernst" .
+
+<http://modernism.uvic.ca/metadata#Luise_Strauss-Ernst>
+	pref1:associatedWith "Marta Hegemann" .
+
+<http://modernism.uvic.ca/metadata#Marta_Hegemann>
+	pref1:associatedWith "Luise Strauss-Ernst" .
+
+<http://modernism.uvic.ca/metadata#Luise_Strauss-Ernst>
+	pref1:associatedWith "Angelika Hoerle" .
+
+<http://modernism.uvic.ca/metadata#Angelika_Hoerle>
+	pref1:associatedWith "Luise Strauss-Ernst" .
+
+<http://modernism.uvic.ca/metadata#Franz_Seiwert>
+	pref1:associatedWith "Anton Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Anton_Raderscheidt>
+	pref1:associatedWith "Franz Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Franz_Seiwert>
+	pref1:associatedWith "Marta Hegemann" .
+
+<http://modernism.uvic.ca/metadata#Marta_Hegemann>
+	pref1:associatedWith "Franz Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Franz_Seiwert>
+	pref1:associatedWith "Angelika Hoerle" .
+
+<http://modernism.uvic.ca/metadata#Angelika_Hoerle>
+	pref1:associatedWith "Franz Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Anton_Raderscheidt>
+	pref1:associatedWith "Marta Hegemann" .
+
+<http://modernism.uvic.ca/metadata#Marta_Hegemann>
+	pref1:associatedWith "Anton Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Anton_Raderscheidt>
+	pref1:associatedWith "Angelika Hoerle" .
+
+<http://modernism.uvic.ca/metadata#Angelika_Hoerle>
+	pref1:associatedWith "Anton Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Marta_Hegemann>
+	pref1:associatedWith "Angelika Hoerle" .
+
+<http://modernism.uvic.ca/metadata#Angelika_Hoerle>
+	pref1:associatedWith "Marta Hegemann" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:memberOf "Cologne Society of the Arts" .
+
+<http://modernism.uvic.ca/metadata#Baargeld>
+	pref1:memberOf "Cologne Society of the Arts" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:associatedWith "Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Raderscheidt>
+	pref1:associatedWith "Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:memberOf "Cologne Dada" .
+
+<http://modernism.uvic.ca/metadata#Raderscheidt>
+	pref1:memberOf "Cologne Dada" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:founderOf "Dada West Stupidia" .
+
+<http://modernism.uvic.ca/metadata#Dada_West_Stupidia>
+	pref1:foundedBy "Ernst" .
+
+<http://modernism.uvic.ca/metadata#Baargeld>
+	pref1:founderOf "Dada West Stupidia" .
+
+<http://modernism.uvic.ca/metadata#Dada_West_Stupidia>
+	pref1:foundedBy "Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Dada_West_Stupidia>
+	pref1:originatedIn "Zurich" .
+
+<http://modernism.uvic.ca/metadata#Dada_West_Stupidia>
+	pref1:associatedWith "Fatagaga" .
+
+<http://modernism.uvic.ca/metadata#Fatagaga>
+	pref1:associatedWith "Dada West Stupidia" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:associatedWith "Cologne Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dadaists>
+	pref1:associatedWith "Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Raderscheidt>
+	pref1:associatedWith "Cologne Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dadaists>
+	pref1:associatedWith "Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dadaists>
+	pref1:associatedWith "Hoerles" .
+
+<http://modernism.uvic.ca/metadata#Hoerles>
+	pref1:associatedWith "Cologne Dadaists" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:associatedWith "Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Raderscheidt>
+	pref1:associatedWith "Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:associatedWith "Hoerles" .
+
+<http://modernism.uvic.ca/metadata#Hoerles>
+	pref1:associatedWith "Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Seiwert>
+	pref1:founderOf "Stupid" .
+
+<http://modernism.uvic.ca/metadata#Stupid>
+	pref1:foundedBy "Seiwert" .
+
+<http://modernism.uvic.ca/metadata#Raderscheidt>
+	pref1:founderOf "Stupid" .
+
+<http://modernism.uvic.ca/metadata#Stupid>
+	pref1:foundedBy "Räderscheidt" .
+
+<http://modernism.uvic.ca/metadata#Hoerles>
+	pref1:founderOf "Stupid" .
+
+<http://modernism.uvic.ca/metadata#Stupid>
+	pref1:foundedBy "Hoerles" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:associatedWith "André Breton" .
+
+<http://modernism.uvic.ca/metadata#Andre_Breton>
+	pref1:associatedWith "Ernst" .
+
+<http://modernism.uvic.ca/metadata#Andre_Breton>
+	pref1:inspiredBy "Ernst" .
+
+<http://modernism.uvic.ca/metadata#Surrealists>
+	pref1:inspiredBy "Ernst" .
+
+<http://modernism.uvic.ca/metadata#Dada_Early_Spring_Exhibition>
+	pref1:associatedWith "Cologne" .
+
+<http://modernism.uvic.ca/metadata#Cologne>
+	pref1:associatedWith "Dada Early Spring Exhibition" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:associatedWith "Dada Early Spring Exhibition" .
+
+<http://modernism.uvic.ca/metadata#Baargeld>
+	pref1:associatedWith "Dada Early Spring Exhibition" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:associatedWith "Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Baargeld>
+	pref1:associatedWith "Bridgeman" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dada>
+	pref1:associatedWith "Baargeld" .
+
+<http://modernism.uvic.ca/metadata#Baargeld>
+	pref1:associatedWith "Cologne Dada" .
+
+<http://modernism.uvic.ca/metadata#Ernst>
+	pref1:associatedWith "Cologne Dada" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dada>
+	pref1:associatedWith "Ernst" .
+
+<http://modernism.uvic.ca/metadata#Cologne>
+	pref1:locatedIn "Cologne Dada" .
+
+<http://modernism.uvic.ca/metadata#Cologne_Dada>
+	pref1:locatedIn "Cologne" .
+
+<http://modernism.uvic.ca/metadata#New_York>
+	pref1:locatedIn "Dada" .
+
+<http://modernism.uvic.ca/metadata#Dada>
+	pref1:locatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:locatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#New_York>
+	pref1:locatedIn "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dada>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Zurich Dada" .
+
+<http://modernism.uvic.ca/metadata#American>
+	pref1:hasNationality "Louise Arensberg" .
+
+<http://modernism.uvic.ca/metadata#Louise_Arensberg>
+	pref1:locatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Duchamp>
+	pref1:associatedWith "New York" .
+
+<http://modernism.uvic.ca/metadata#New_York>
+	pref1:associatedWith "Marcel Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:hasNationality "American" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "Elsa von Freytag-Lovinghoven" .
+
+<http://modernism.uvic.ca/metadata#Elsa_von_Freytag-Lovinghoven>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:locatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#Elsa_von_Freytag-Lovinghoven>
+	pref1:locatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#Picabia>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "Picabia" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "Marcel Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Duchamp>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Duchamp>
+	pref1:creatorOf "Fountain" .
+
+<http://modernism.uvic.ca/metadata#Fountain>
+	pref1:createdBy "Marcel Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Duchamp>
+	pref1:associatedWith "Alfred StieglitzSource" .
+
+<http://modernism.uvic.ca/metadata#Alfred_StieglitzSource>
+	pref1:associatedWith "Marcel Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Marcel_Duchamp>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Marcel Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Alfred_StieglitzSource>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Alfred StieglitzSource" .
+
+<http://modernism.uvic.ca/metadata#New_York>
+	pref1:originatedIn "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:originatedIn "New York" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Duchamp>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Duchamp>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Man_Ray>
+	pref1:associatedWith "Zurich Dadaist Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaist_Tristan_Tzara>
+	pref1:associatedWith "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#Duchamp>
+	pref1:associatedWith "Zurich Dadaist Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaist_Tristan_Tzara>
+	pref1:associatedWith "Duchamp" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:associatedWith "Zurich Dadaist Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaist_Tristan_Tzara>
+	pref1:associatedWith "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:editedBy "Man Ray" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:editedBy "Duchamp" .
+
+<http://modernism.uvic.ca/metadata#Zurich_Dadaist_Tristan_Tzara>
+	pref1:contributedTo "New York Dada" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:influencedBy "Zurich Dadaist Tristan Tzara" .
+
+<http://modernism.uvic.ca/metadata#New_York_Dada>
+	pref1:inspiredBy "Zurich Dadaist Tristan Tzara" .
+

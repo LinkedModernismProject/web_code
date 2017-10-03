@@ -1,0 +1,2681 @@
+0    PERSON    69    0    NNP    Art/Deco
+0    O    70    0    VBD    was
+0    O    71    0    DT    the
+0    O    72    0    JJ    predominant
+0    O    73    0    JJ    decorative
+0    O    74    0    NN    style
+0    O    75    0    IN    in
+0    LOCATION    76    0    NNP    Europe
+0    O    77    0    CC    and
+0    O    78    0    DT    the
+0    LOCATION    79    0    NNPS    United/States
+0    O    80    0    IN    between
+0    O    81    0    DT    the
+0    MISC    82    0    NNS    World/Wars
+0    O    83    0    ,    ,
+0    O    84    0    IN    with
+0    O    85    0    PRP$    its
+0    O    86    0    NN    peak
+0    O    87    0    IN    of
+0    O    88    0    NN    consumer
+0    O    89    0    NN    popularity
+0    O    90    0    VBN    reached
+0    O    91    0    IN    during
+0    O    92    0    DT    the
+0    O    93    0    NNS    late-1920s
+
+
+69 76 associatedWithRegion
+69 79 associatedWithCountry
+
+
+0    O    94    0    .    .
+
+
+1    O    0    0    DT    The
+1    O    1    0    JJ    new
+1    O    2    0    NN    style
+1    O    3    0    CC    and
+1    O    4    0    VBG    accompanying
+1    O    5    0    NN    attitude
+1    O    6    0    VBD    were
+1    O    7    0    JJ    synonymous
+1    O    8    0    IN    with
+1    O    9    0    VBG    being
+1    O    10    0    NN    \
+1    O    11    0    ''    '
+1    O    12    0    JJ    91modern
+1    O    13    0    NN    \
+1    O    14    0    CD    '92
+1    O    15    0    IN    as
+1    O    16    0    DT    the
+1    O    17    0    NN    design
+1    O    18    0    CC    and
+1    O    19    0    NN    appearance
+1    O    20    0    IN    of
+1    LOCATION    21    0    NNP    Art/Deco
+1    O    22    0    NNS    objects
+1    O    23    0    VBD    incorporated
+1    O    24    0    DT    a
+1    O    25    0    JJ    unique
+1    O    26    0    CC    and
+1    O    27    0    JJ    new
+1    O    28    0    NN    vocabulary
+1    O    29    0    IN    of
+1    O    30    0    NNS    forms
+1    O    31    0    VBG    reflecting
+1    O    32    0    DT    the
+1    O    33    0    NNS    complexities
+1    O    34    0    CC    and
+1    O    35    0    NNS    innovations
+1    O    36    0    IN    of
+1    O    37    0    DT    the
+1    O    38    0    JJ    emergent
+1    O    39    0    JJ    twentieth-century
+1    O    40    0    ,    ,
+1    O    41    0    IN    with
+1    O    42    0    DT    this
+1    O    43    0    NN    period
+1    O    44    0    RB    also
+1    O    45    0    VBN    known
+1    O    46    0    IN    as
+1    O    47    0    DT    the
+1    MISC    48    0    NN    Jazz/Age
+1    O    49    0    CC    and
+1    O    50    0    DT    the
+1    LOCATION    51    0    NNP    Roaring/Twenties
+1    O    52    0    .    .
+
+
+21 48 associatedWith
+21 51 associatedWith
+
+
+2    PERSON    0    0    NNP    Art/Deco
+2    O    1    0    VBZ    is
+2    O    2    0    VBN    associated
+2    O    3    0    IN    with
+2    O    4    0    DT    the
+2    O    5    0    JJ    hedonistic
+2    O    6    0    VB    abandon
+2    O    7    0    IN    of
+2    O    8    0    DT    a
+2    O    9    0    JJ    post-war
+2    O    10    0    NN    society
+2    O    11    0    WDT    that
+2    O    12    0    VBD    was
+2    O    13    0    VBN    determined
+2    O    14    0    TO    to
+2    O    15    0    VB    enjoy
+2    O    16    0    NN    life
+2    O    17    0    RB    once
+2    O    18    0    RB    again
+2    O    19    0    ,    ,
+2    O    20    0    IN    while
+2    O    21    0    DT    the
+2    O    22    0    NN    consumer
+2    O    23    0    VB    embrace
+2    O    24    0    IN    of
+2    O    25    0    RB    newly
+2    O    26    0    VBN    designed
+2    O    27    0    NNS    products
+2    O    28    0    WDT    that
+2    O    29    0    VBD    popularized
+2    PERSON    30    0    NNP    Art/Deco
+2    O    31    0    VBZ    reflects
+2    O    32    0    DT    the
+2    O    33    0    JJ    dramatic
+2    O    34    0    JJ    social
+2    O    35    0    NNS    changes
+2    O    36    0    CC    and
+2    O    37    0    JJ    technological
+2    O    38    0    NNS    advancements
+2    O    39    0    VBG    happening
+2    O    40    0    IN    throughout
+2    O    41    0    DT    this
+2    O    42    0    NN    period
+2    O    43    0    .    .
+
+
+3    O    0    0    NN    \
+3    O    1    0    CD    \
+3    PERSON    2    0    NNP    Art/Deco
+3    O    3    0    NN    style
+3    O    4    0    VBZ    is
+3    O    5    0    VBN    characterized
+3    O    6    0    IN    by
+3    O    7    0    PRP$    its
+3    O    8    0    NN    preference
+3    O    9    0    IN    for
+3    O    10    0    VBN    simplified
+3    O    11    0    JJ    geometric
+3    O    12    0    NNS    forms
+3    O    13    0    CC    and
+3    O    14    0    JJ    stylized
+3    O    15    0    JJ    natural
+3    O    16    0    NNS    forms
+3    O    17    0    ,    ,
+3    O    18    0    VBG    including
+3    O    19    0    NNS    flowers
+3    O    20    0    ,    ,
+3    O    21    0    NNS    animals
+3    O    22    0    ,    ,
+3    O    23    0    CC    and
+3    O    24    0    JJ    female
+3    O    25    0    NNS    figures
+3    O    26    0    IN    in
+3    O    27    0    PRP$    its
+3    O    28    0    NNS    decorations
+3    O    29    0    ,    ,
+3    O    30    0    IN    with
+3    O    31    0    DT    these
+3    O    32    0    NNS    motifs
+3    O    33    0    VBD    applied
+3    O    34    0    TO    to
+3    O    35    0    NNS    objects
+3    O    36    0    IN    in
+3    O    37    0    DT    every
+3    O    38    0    NN    area
+3    O    39    0    IN    of
+3    O    40    0    NN    architecture
+3    O    41    0    ,    ,
+3    O    42    0    NN    furniture
+3    O    43    0    ,    ,
+3    O    44    0    JJ    industrial
+3    O    45    0    NN    design
+3    O    46    0    ,    ,
+3    O    47    0    DT    the
+3    O    48    0    JJ    decorative
+3    O    49    0    NNS    arts
+3    O    50    0    ,    ,
+3    O    51    0    NN    fashion
+3    O    52    0    ,    ,
+3    O    53    0    NN    jewelry
+3    O    54    0    ,    ,
+3    O    55    0    NNS    graphics
+3    O    56    0    ,    ,
+3    O    57    0    NN    bookbinding
+3    O    58    0    ,    ,
+3    O    59    0    NN    glassware
+3    O    60    0    ,    ,
+3    O    61    0    CC    and
+3    O    62    0    NNS    ceramics
+3    O    63    0    .    .
+
+
+4    O    0    0    IN    As
+4    O    1    0    DT    a
+4    O    2    0    NN    style
+4    O    3    0    ,    ,
+4    O    4    0    PRP    it
+4    O    5    0    VBZ    is
+4    O    6    0    VBN    known
+4    O    7    0    RB    primarily
+4    O    8    0    IN    for
+4    O    9    0    PRP$    its
+4    O    10    0    NN    opulence
+4    O    11    0    IN    in
+4    O    12    0    NNS    materials
+4    O    13    0    CC    and
+4    O    14    0    NN    sense
+4    O    15    0    IN    of
+4    O    16    0    NN    glamour
+4    O    17    0    ,    ,
+4    O    18    0    NN    luxury
+4    O    19    0    ,    ,
+4    O    20    0    CC    and
+4    O    21    0    NN    prosperity
+4    O    22    0    ,    ,
+4    O    23    0    IN    with
+4    O    24    0    CD    one
+4    O    25    0    IN    of
+4    O    26    0    PRP$    its
+4    O    27    0    RBS    most
+4    O    28    0    VBG    defining
+4    O    29    0    NNS    features
+4    O    30    0    VBG    being
+4    O    31    0    DT    the
+4    O    32    0    JJ    streamlined
+4    O    33    0    NN    curve
+4    O    34    0    IN    in
+4    O    35    0    DT    the
+4    O    36    0    NN    shape
+4    O    37    0    IN    of
+4    O    38    0    JJ    many
+4    O    39    0    IN    of
+4    O    40    0    PRP$    its
+4    O    41    0    NNS    objects
+4    O    42    0    .    .
+
+
+5    O    0    0    DT    The
+5    MISC    1    0    NNP    Art/Deco
+5    O    2    0    NN    synthesis
+5    O    3    0    IN    of
+5    O    4    0    JJ    decorative
+5    O    5    0    NNS    elements
+5    O    6    0    VBN    brought
+5    O    7    0    RB    together
+5    O    8    0    JJ    geometric
+5    O    9    0    CC    and
+5    O    10    0    JJ    exotic
+5    O    11    0    NNS    shapes
+5    O    12    0    ,    ,
+5    O    13    0    JJ    luxurious
+5    O    14    0    NNS    materials
+5    O    15    0    ,    ,
+5    O    16    0    JJ    bold
+5    O    17    0    NN    color
+5    O    18    0    ,    ,
+5    O    19    0    CC    and
+5    O    20    0    VBN    heightened
+5    O    21    0    NN    aestheticism
+5    O    22    0    .    .
+
+
+6    ORGANIZATION    0    0    NNP    Certain/Art/Deco
+6    O    1    0    NNS    motifs
+6    O    2    0    RB    also
+6    O    3    0    VBD    reflected
+6    O    4    0    JJ    popular
+6    O    5    0    JJ    geographic
+6    O    6    0    NNS    interests
+6    O    7    0    IN    at
+6    O    8    0    DT    the
+6    O    9    0    NN    time
+6    O    10    0    .    .
+
+
+7    O    0    0    NNP    Zigzags
+7    O    1    0    ,    ,
+7    O    2    0    VBD    stepped
+7    O    3    0    JJ    pyramidal
+7    O    4    0    NNS    forms
+7    O    5    0    ,    ,
+7    O    6    0    CC    and
+7    O    7    0    NNS    sunbursts
+7    O    8    0    VBD    were
+7    O    9    0    VBN    inspired
+7    O    10    0    IN    by
+7    O    11    0    DT    the
+7    MISC    12    0    NNP    Near/Eastern
+7    O    13    0    CC    and
+7    MISC    14    0    JJ    Aztec
+7    O    15    0    NNS    cultures
+7    O    16    0    ,    ,
+7    O    17    0    CC    and
+7    O    18    0    IN    by
+7    O    19    0    DT    the
+7    O    20    0    NN    interest
+7    O    21    0    VBN    generated
+7    O    22    0    IN    from
+7    O    23    0    DT    the
+7    O    24    0    JJ    recent
+7    O    25    0    NNS    discoveries
+7    O    26    0    IN    in
+7    LOCATION    27    0    NNP    Egypt
+7    O    28    0    IN    in
+7    O    29    0    DT    the
+7    O    30    0    CD    1920s
+7    O    31    0    ,    ,
+7    O    32    0    VBG    including
+7    O    33    0    NNP    King
+7    PERSON    34    0    NNP    Tutankhamen
+7    O    35    0    NN    \
+7    O    36    0    ''    '
+7    O    37    0    NNS    92s
+7    O    38    0    NN    tomb
+7    O    39    0    .    .
+
+
+34 27 locatedIn
+
+
+8    PERSON    0    0    NNP    Art/Deco
+8    O    1    0    NNS    designers
+8    O    2    0    VBD    continued
+8    O    3    0    TO    to
+8    O    4    0    VB    mine
+8    O    5    0    DT    the
+8    MISC    6    0    JJ    French
+8    O    7    0    NNS    styles
+8    O    8    0    IN    from
+8    O    9    0    DT    the
+8    O    10    0    NN    past
+8    O    11    0    IN    for
+8    O    12    0    JJ    traditional
+8    O    13    0    NNS    elements
+8    O    14    0    WDT    that
+8    O    15    0    VBD    contributed
+8    O    16    0    DT    a
+8    O    17    0    NN    sense
+8    O    18    0    IN    of
+8    MISC    19    0    JJ    Classical
+8    O    20    0    NN    restraint
+8    O    21    0    CC    and
+8    O    22    0    NN    grandeur
+8    O    23    0    IN    with
+8    O    24    0    JJ    elegant
+8    O    25    0    NNS    proportions
+8    O    26    0    CC    and
+8    O    27    0    JJ    stylized
+8    O    28    0    JJ    natural
+8    O    29    0    NNS    motifs
+8    O    30    0    IN    of
+8    O    31    0    NNS    figures
+8    O    32    0    ,    ,
+8    O    33    0    JJ    floral
+8    O    34    0    NNS    garlands
+8    O    35    0    ,    ,
+8    O    36    0    CC    and
+8    O    37    0    NNS    cornucopias
+8    O    38    0    .    .
+
+
+0 6 influencedBy
+0 19 influencedBy
+
+
+9    O    0    0    CC    But
+9    O    1    0    ,    ,
+9    O    2    0    IN    like
+9    ORGANIZATION    3    0    NNP    Art/Nouveau
+9    O    4    0    ,    ,
+9    O    5    0    WDT    which
+9    O    6    0    PRP    it
+9    O    7    0    VBD    replaced
+9    O    8    0    IN    in
+9    O    9    0    NN    popularity
+9    O    10    0    ,    ,
+9    PERSON    11    0    NNP    Art/Deco
+9    O    12    0    IN    as
+9    O    13    0    DT    a
+9    O    14    0    NN    style
+9    O    15    0    VBD    was
+9    O    16    0    RB    thoroughly
+9    O    17    0    VBN    engaged
+9    O    18    0    IN    with
+9    O    19    0    WP    what
+9    O    20    0    VBD    was
+9    O    21    0    JJ    current
+9    O    22    0    CC    and
+9    O    23    0    WP    what
+9    O    24    0    PRP    it
+9    O    25    0    VBD    meant
+9    O    26    0    TO    to
+9    O    27    0    VB    be
+9    O    28    0    JJ    modern
+9    O    29    0    .    .
+
+
+3 11 seeAlso
+3 11 associatedWith
+11 3 influencedBy
+
+
+10    O    0    0    NN    \
+10    O    1    0    CD    \
+10    O    2    0    DT    The
+10    O    3    0    NNS    collaborations
+10    O    4    0    IN    among
+10    O    5    0    NNS    artists
+10    O    6    0    ,    ,
+10    O    7    0    NNS    designers
+10    O    8    0    ,    ,
+10    O    9    0    CC    and
+10    O    10    0    NN    fashion
+10    O    11    0    NNS    designers
+10    O    12    0    VBD    led
+10    O    13    0    TO    to
+10    O    14    0    DT    some
+10    O    15    0    IN    of
+10    O    16    0    DT    the
+10    O    17    0    RBS    most
+10    O    18    0    JJ    innovative
+10    O    19    0    CC    and
+10    O    20    0    JJ    interesting
+10    O    21    0    NNS    examples
+10    O    22    0    IN    of
+10    LOCATION    23    0    NNP    Art/Deco
+10    O    24    0    NNS    ensembles
+10    O    25    0    ,    ,
+10    O    26    0    JJ    such
+10    O    27    0    IN    as
+10    O    28    0    DT    the
+10    O    29    0    JJ    tribal
+10    O    30    0    NN    theme
+10    O    31    0    NN    d
+10    O    32    0    CD    \
+10    O    33    0    ``    `
+10    O    34    0    NN    e9cor
+10    O    35    0    VBN    made
+10    O    36    0    IN    by
+10    PERSON    37    0    NNP    Eileen/Gray
+10    O    38    0    ,    ,
+10    PERSON    39    0    NNP    Paul/Iribe
+10    O    40    0    ,    ,
+10    O    41    0    CC    and
+10    PERSON    42    0    NNP    Pierre/Legrain
+10    O    43    0    IN    for
+10    O    44    0    DT    the
+10    O    45    0    NN    home
+10    O    46    0    IN    of
+10    O    47    0    JJ    successful
+10    O    48    0    NN    couturier
+10    PERSON    49    0    NNP    Jacques/Doucet
+10    O    50    0    ,    ,
+10    O    51    0    CC    or
+10    O    52    0    DT    the
+10    O    53    0    NN    textile
+10    O    54    0    NNS    designs
+10    O    55    0    IN    by
+10    O    56    0    DT    the
+10    O    57    0    NN    artist
+10    PERSON    58    0    NNP    Raoul/Dufy
+10    O    59    0    IN    for
+10    O    60    0    DT    the
+10    O    61    0    NN    fashion
+10    O    62    0    NN    designer
+10    PERSON    63    0    NNP    Paul/Poiret
+10    O    64    0    .    .
+
+
+39 23 influencedBy
+42 23 influencedBy
+49 23 influencedBy
+58 23 influencedBy
+63 23 influencedBy
+39 23 associatedWith
+42 23 associatedWith
+49 23 associatedWith
+58 23 associatedWith
+63 23 associatedWith
+
+
+11    O    0    0    RBR    More
+11    O    1    0    JJ    moderate
+11    O    2    0    NNS    versions
+11    O    3    0    IN    of
+11    O    4    0    DT    these
+11    O    5    0    JJ    lavish
+11    O    6    0    NNS    interiors
+11    O    7    0    VBD    were
+11    O    8    0    RB    soon
+11    O    9    0    JJ    available
+11    O    10    0    IN    from
+11    O    11    0    DT    the
+11    O    12    0    NN    design
+11    O    13    0    NNS    studios
+11    O    14    0    VBN    affiliated
+11    O    15    0    IN    with
+11    O    16    0    DT    the
+11    O    17    0    VBG    leading
+11    O    18    0    NN    department
+11    O    19    0    NNS    stores
+11    O    20    0    IN    in
+11    LOCATION    21    0    NNP    Paris
+11    O    22    0    ,    ,
+11    O    23    0    VBG    including
+11    LOCATION    24    0    NNP    Lafayette
+11    O    25    0    ,    ,
+11    PERSON    26    0    NNP    Le/Bon
+11    O    27    0    NNP    March
+11    O    28    0    CD    \
+11    O    29    0    ``    `
+11    O    30    0    NN    e9
+11    O    31    0    ,    ,
+11    O    32    0    CC    and
+11    PERSON    33    0    NNP    Printemps
+11    O    34    0    ,    ,
+11    O    35    0    DT    all
+11    O    36    0    IN    of
+11    O    37    0    WDT    which
+11    O    38    0    VBN    employed
+11    O    39    0    VBG    leading
+11    O    40    0    NNS    designers
+11    O    41    0    ,    ,
+11    O    42    0    JJ    such
+11    O    43    0    IN    as
+11    PERSON    44    0    NNP    Paul/Follot
+11    O    45    0    ,    ,
+11    PERSON    46    0    NNP    Ren
+11    O    47    0    NNP    \
+11    O    48    0    ``    `
+11    O    49    0    VBD    e9
+11    PERSON    50    0    NNP    Prou
+11    O    51    0    ,    ,
+11    O    52    0    CC    and
+11    PERSON    53    0    NNP    Maurice/Defr
+11    O    54    0    CD    \
+11    O    55    0    ``    `
+11    O    56    0    NN    e8ne
+11    O    57    0    ,    ,
+11    O    58    0    TO    to
+11    O    59    0    VB    create
+11    O    60    0    NNS    designs
+11    O    61    0    WDT    that
+11    O    62    0    MD    would
+11    O    63    0    VB    appeal
+11    O    64    0    TO    to
+11    O    65    0    DT    the
+11    O    66    0    NN    mass
+11    O    67    0    NN    public
+11    O    68    0    VBG    seeking
+11    O    69    0    DT    the
+11    O    70    0    JJ    same
+11    O    71    0    JJ    elegant
+11    O    72    0    NN    sophistication
+11    O    73    0    JJ    available
+11    O    74    0    TO    to
+11    O    75    0    JJ    wealthy
+11    O    76    0    NNS    connoisseurs
+11    O    77    0    .    .
+
+
+24 21 locatedIn
+26 21 locatedIn
+33 21 locatedIn
+
+
+12    O    0    0    NN    \
+12    O    1    0    CD    \
+12    MISC    2    0    NNP    French
+12    O    3    0    NNP    Art
+12    PERSON    4    0    NNP    Deco
+12    O    5    0    IN    in
+12    O    6    0    JJ    particular
+12    O    7    0    VBZ    is
+12    O    8    0    VBN    characterized
+12    O    9    0    IN    by
+12    O    10    0    PRP$    its
+12    O    11    0    JJ    exquisite
+12    O    12    0    NN    craftsmanship
+12    O    13    0    CC    and
+12    O    14    0    PRP$    its
+12    O    15    0    JJ    luxurious
+12    O    16    0    NN    wealth
+12    O    17    0    IN    of
+12    O    18    0    NNS    materials
+12    O    19    0    ,    ,
+12    O    20    0    IN    as
+12    O    21    0    VBN    seen
+12    O    22    0    IN    in
+12    O    23    0    DT    the
+12    O    24    0    NNS    ensembles
+12    O    25    0    IN    of
+12    LOCATION    26    0    NNP    Jacques
+12    O    27    0    :    -
+12    O    28    0    CD    \
+12    O    29    0    ``    `
+12    O    30    0    JJ    c9mile
+12    PERSON    31    0    NN    Ruhlmann
+12    O    32    0    CC    or
+12    O    33    0    DT    the
+12    O    34    0    NNS    designers
+12    O    35    0    NN    S
+12    O    36    0    CD    \
+12    O    37    0    ``    `
+12    O    38    0    FW    fce
+12    O    39    0    FW    et
+12    PERSON    40    0    NN    Mare
+12    O    41    0    .    .
+
+
+13    PERSON    0    0    NNP    Ruhlmann
+13    O    1    0    NN    \
+13    O    2    0    ''    '
+13    O    3    0    NNS    92s
+13    O    4    0    VBP    corner
+13    O    5    0    NN    cabinet
+13    O    6    0    IN    in
+13    O    7    0    JJ    lacquered
+13    O    8    0    NN    rosewood
+13    O    9    0    ,    ,
+13    O    10    0    IN    of
+13    O    11    0    WDT    which
+13    O    12    0    EX    there
+13    O    13    0    VBP    are
+13    O    14    0    JJ    several
+13    O    15    0    NNS    variations
+13    O    16    0    ,    ,
+13    O    17    0    VBZ    takes
+13    O    18    0    PRP$    its
+13    O    19    0    JJ    overall
+13    O    20    0    NN    shape
+13    O    21    0    IN    from
+13    O    22    0    DT    the
+13    O    23    0    JJ    eighteenth
+13    O    24    0    NN    century
+13    O    25    0    CC    but
+13    O    26    0    VBZ    features
+13    O    27    0    JJ    delicate
+13    O    28    0    NNS    inlays
+13    O    29    0    IN    of
+13    O    30    0    NN    ivory
+13    O    31    0    IN    in
+13    O    32    0    DT    the
+13    O    33    0    JJ    stylized
+13    O    34    0    JJ    floral
+13    O    35    0    NN    bouquet
+13    O    36    0    VBG    decorating
+13    O    37    0    PRP$    its
+13    O    38    0    NN    front
+13    O    39    0    .    .
+
+
+14    O    0    0    DT    A
+14    O    1    0    JJ    subtle
+14    O    2    0    JJ    rectangular
+14    O    3    0    NN    border
+14    O    4    0    VBN    formed
+14    O    5    0    IN    from
+14    O    6    0    NN    ivory
+14    O    7    0    NNS    circles
+14    O    8    0    VBZ    outlines
+14    O    9    0    DT    the
+14    O    10    0    NN    cabinet
+14    O    11    0    NN    \
+14    O    12    0    ''    '
+14    O    13    0    NNS    92s
+14    O    14    0    JJ    front
+14    O    15    0    RB    subtly
+14    O    16    0    VBG    offsetting
+14    O    17    0    PRP$    its
+14    O    18    0    JJ    square
+14    O    19    0    NN    shape
+14    O    20    0    ,    ,
+14    O    21    0    IN    with
+14    O    22    0    DT    these
+14    O    23    0    NNS    circles
+14    O    24    0    RB    then
+14    O    25    0    VBD    carried
+14    O    26    0    IN    over
+14    O    27    0    TO    to
+14    O    28    0    DT    the
+14    O    29    0    NNS    decorations
+14    O    30    0    WDT    that
+14    O    31    0    VBP    adorn
+14    O    32    0    DT    the
+14    O    33    0    NN    base
+14    O    34    0    IN    of
+14    O    35    0    DT    the
+14    O    36    0    NNS    legs
+14    O    37    0    .    .
+
+
+15    O    0    0    NN    \
+15    O    1    0    CD    \
+15    O    2    0    IN    In
+15    O    3    0    DT    the
+15    LOCATION    4    0    NNPS    United/States
+15    O    5    0    ,    ,
+15    O    6    0    DT    the
+15    O    7    0    JJ    characteristic
+15    PERSON    8    0    NNP    Art/Deco
+15    O    9    0    JJ    architectural
+15    O    10    0    NN    design
+15    O    11    0    VBD    included
+15    O    12    0    DT    the
+15    O    13    0    JJ    ascendant
+15    O    14    0    VBD    stepped
+15    O    15    0    NNS    forms
+15    O    16    0    WDT    that
+15    O    17    0    VBD    were
+15    O    18    0    RB    ideally
+15    O    19    0    VBN    suited
+15    O    20    0    TO    to
+15    O    21    0    DT    the
+15    O    22    0    JJ    slender
+15    O    23    0    NN    form
+15    O    24    0    IN    of
+15    O    25    0    DT    the
+15    O    26    0    JJ    urban
+15    O    27    0    NN    skyscraper
+15    O    28    0    VBD    made
+15    O    29    0    JJ    possible
+15    O    30    0    IN    with
+15    O    31    0    DT    the
+15    O    32    0    NN    development
+15    O    33    0    IN    of
+15    O    34    0    DT    the
+15    O    35    0    NN    elevator
+15    O    36    0    .    .
+
+
+8 4 associatedWith
+
+
+16    O    0    0    RB    Similarly
+16    O    1    0    ,    ,
+16    O    2    0    DT    the
+16    O    3    0    JJ    streamlined
+16    O    4    0    JJ    aesthetic
+16    O    5    0    IN    of
+16    O    6    0    DT    the
+16    PERSON    7    0    NNP    Art/Deco
+16    O    8    0    NN    curve
+16    O    9    0    VBD    was
+16    O    10    0    VBN    found
+16    O    11    0    TO    to
+16    O    12    0    VB    be
+16    O    13    0    RB    ideally
+16    O    14    0    VBN    suited
+16    O    15    0    IN    for
+16    O    16    0    NN    apartment
+16    O    17    0    NNS    buildings
+16    O    18    0    ,    ,
+16    O    19    0    NNS    trains
+16    O    20    0    ,    ,
+16    O    21    0    NNS    automobiles
+16    O    22    0    ,    ,
+16    O    23    0    CC    and
+16    O    24    0    NN    furniture
+16    O    25    0    ,    ,
+16    O    26    0    IN    with
+16    O    27    0    DT    the
+16    O    28    0    VBN    rounded
+16    O    29    0    NNS    corners
+16    O    30    0    CC    and
+16    O    31    0    JJ    gentle
+16    O    32    0    NNS    curves
+16    O    33    0    JJ    reflective
+16    O    34    0    IN    of
+16    O    35    0    JJ    effortless
+16    O    36    0    CC    and
+16    O    37    0    JJ    graceful
+16    O    38    0    RB    forward
+16    O    39    0    NN    motion
+16    O    40    0    CC    and
+16    O    41    0    JJ    technological
+16    O    42    0    NN    advancement
+16    O    43    0    .    .
+
+
+17    O    0    0    NNP    Industrial
+17    O    1    0    NNS    designers
+17    O    2    0    RB    soon
+17    O    3    0    VBD    adopted
+17    O    4    0    DT    the
+17    O    5    0    JJ    streamlined
+17    O    6    0    NN    curve
+17    O    7    0    IN    for
+17    O    8    0    NN    consumer
+17    O    9    0    NNS    products
+17    O    10    0    ,    ,
+17    O    11    0    VBG    including
+17    O    12    0    NNS    radios
+17    O    13    0    ,    ,
+17    O    14    0    NNS    clocks
+17    O    15    0    ,    ,
+17    O    16    0    NN    cigarette
+17    O    17    0    NNS    lighters
+17    O    18    0    ,    ,
+17    O    19    0    CC    and
+17    O    20    0    JJ    other
+17    O    21    0    NN    household
+17    O    22    0    NNS    appliances
+17    O    23    0    RB    now
+17    O    24    0    VBG    being
+17    O    25    0    VBN    made
+17    O    26    0    IN    from
+17    LOCATION    27    0    NNP    Bakelite
+17    O    28    0    CC    and
+17    O    29    0    JJ    other
+17    O    30    0    JJ    new
+17    O    31    0    NNS    types
+17    O    32    0    IN    of
+17    O    33    0    NNS    plastics
+17    O    34    0    .    .
+
+
+18    O    0    0    NN    \
+18    O    1    0    CD    \
+18    O    2    0    JJ    Several
+18    O    3    0    NNS    factors
+18    O    4    0    VBD    were
+18    O    5    0    JJ    influential
+18    O    6    0    IN    in
+18    O    7    0    DT    the
+18    O    8    0    NN    development
+18    O    9    0    CC    and
+18    O    10    0    NN    popularization
+18    O    11    0    IN    of
+18    LOCATION    12    0    NNP    Art/Deco
+18    O    13    0    VBG    beginning
+18    O    14    0    IN    in
+18    LOCATION    15    0    NNP    Paris
+18    O    16    0    IN    in
+18    O    17    0    DT    the
+18    O    18    0    JJ    first
+18    O    19    0    NN    decade
+18    O    20    0    IN    of
+18    O    21    0    DT    the
+18    O    22    0    JJ    twentieth
+18    O    23    0    NN    century
+18    O    24    0    .    .
+
+
+12 15 associatedWith
+
+
+19    O    0    0    VBN    Founded
+19    O    1    0    IN    in
+19    O    2    0    CD    1901
+19    O    3    0    ,    ,
+19    O    4    0    DT    the
+19    LOCATION    5    0    NNP    Soci
+19    O    6    0    NNP    \
+19    O    7    0    ``    `
+19    O    8    0    FW    e9t
+19    O    9    0    FW    \
+19    O    10    0    ``    `
+19    O    11    0    FW    e9
+19    O    12    0    FW    des
+19    PERSON    13    0    FW    Artistes
+19    O    14    0    NN    D
+19    O    15    0    CD    \
+19    O    16    0    ``    `
+19    O    17    0    NNS    e9corateurs
+19    O    18    0    VBD    worked
+19    O    19    0    TO    to
+19    O    20    0    VB    promote
+19    O    21    0    DT    the
+19    O    22    0    RBS    most
+19    O    23    0    JJ    talented
+19    O    24    0    NNS    designers
+19    O    25    0    IN    in
+19    LOCATION    26    0    NNP    France
+19    O    27    0    TO    to
+19    O    28    0    VB    reinforce
+19    O    29    0    DT    the
+19    O    30    0    NN    country
+19    O    31    0    NN    \
+19    O    32    0    ''    '
+19    O    33    0    NNS    92s
+19    O    34    0    NN    position
+19    O    35    0    IN    at
+19    O    36    0    DT    the
+19    O    37    0    NN    forefront
+19    O    38    0    IN    of
+19    O    39    0    RB    increasingly
+19    O    40    0    JJ    competitive
+19    MISC    41    0    JJ    European
+19    O    42    0    NNS    markets
+19    O    43    0    .    .
+
+
+20    O    0    0    DT    This
+20    O    1    0    NN    impetus
+20    O    2    0    VBD    was
+20    O    3    0    RB    largely
+20    O    4    0    IN    in
+20    O    5    0    NN    response
+20    O    6    0    TO    to
+20    O    7    0    DT    the
+20    O    8    0    NNS    exhibits
+20    O    9    0    IN    at
+20    O    10    0    DT    the
+20    ORGANIZATION    11    0    NNP    Universal/Exposition
+20    O    12    0    IN    in
+20    LOCATION    13    0    NNP    Paris
+20    O    14    0    IN    in
+20    O    15    0    CD    1900
+20    O    16    0    ,    ,
+20    O    17    0    WRB    where
+20    O    18    0    DT    the
+20    ORGANIZATION    19    0    NNP    Art/Nouveau
+20    O    20    0    NN    style
+20    O    21    0    VBD    was
+20    O    22    0    VBN    seen
+20    O    23    0    IN    as
+20    O    24    0    VBG    having
+20    O    25    0    VBN    become
+20    O    26    0    RB    too
+20    O    27    0    VBN    commercialized
+20    O    28    0    CC    and
+20    O    29    0    VBN    diluted
+20    O    30    0    .    .
+
+
+13 26 associatedWith
+11 13 locatedIn
+
+
+21    O    0    0    DT    The
+21    ORGANIZATION    1    0    NNP    Soci
+21    O    2    0    NNP    \
+21    O    3    0    ``    `
+21    O    4    0    FW    e9t
+21    O    5    0    FW    \
+21    O    6    0    ``    `
+21    O    7    0    FW    e9
+21    O    8    0    FW    \
+21    O    9    0    ''    '
+21    O    10    0    NNS    92s
+21    O    11    0    NNS    efforts
+21    O    12    0    TO    to
+21    O    13    0    VB    organize
+21    O    14    0    DT    another
+21    O    15    0    JJ    international
+21    O    16    0    NN    exposition
+21    O    17    0    VBD    were
+21    O    18    0    RB    initially
+21    O    19    0    VBN    delayed
+21    O    20    0    IN    because
+21    O    21    0    IN    of
+21    MISC    22    0    CD    World/War/One
+21    O    23    0    .    .
+
+
+1 22 influencedBy
+
+
+22    O    0    0    WRB    When
+22    O    1    0    RB    finally
+22    O    2    0    VBN    realized
+22    O    3    0    ,    ,
+22    O    4    0    DT    the
+22    MISC    5    0    NNP    Art/Deco
+22    O    6    0    NN    style
+22    O    7    0    VBD    was
+22    O    8    0    VBN    seen
+22    O    9    0    IN    at
+22    O    10    0    PRP$    its
+22    O    11    0    JJS    best
+22    O    12    0    NN    expression
+22    O    13    0    IN    in
+22    O    14    0    DT    the
+22    O    15    0    JJ    various
+22    O    16    0    NNS    pavilions
+22    O    17    0    CC    and
+22    O    18    0    NNS    ensembles
+22    O    19    0    IN    at
+22    O    20    0    DT    the
+22    ORGANIZATION    21    0    NNP    Exposition/Internationale/des/Arts
+22    O    22    0    NN    d
+22    O    23    0    CD    \
+22    O    24    0    ``    `
+22    O    25    0    NNS    e9coratifs
+22    O    26    0    FW    et
+22    O    27    0    FW    industriels
+22    O    28    0    NNS    modernes
+22    O    29    0    ,    ,
+22    O    30    0    VBN    held
+22    O    31    0    IN    in
+22    LOCATION    32    0    NNP    Paris
+22    O    33    0    IN    in
+22    O    34    0    CD    1925
+22    O    35    0    ,    ,
+22    O    36    0    WDT    which
+22    O    37    0    VBD    drew
+22    O    38    0    IN    over
+22    O    39    0    CD    6
+22    O    40    0    CD    million
+22    O    41    0    NNS    visitors
+22    O    42    0    ,    ,
+22    O    43    0    CC    and
+22    O    44    0    IN    from
+22    O    45    0    WDT    which
+22    O    46    0    DT    the
+22    O    47    0    NN    name
+22    PERSON    48    0    NNP    Art/Deco
+22    O    49    0    VBD    was
+22    O    50    0    RB    eventually
+22    O    51    0    VBN    applied
+22    O    52    0    TO    to
+22    O    53    0    VB    describe
+22    O    54    0    WP    what
+22    O    55    0    VBD    was
+22    O    56    0    DT    the
+22    O    57    0    JJ    predominant
+22    O    58    0    NN    style
+22    O    59    0    IN    in
+22    O    60    0    DT    the
+22    O    61    0    NNS    objects
+22    O    62    0    CC    and
+22    O    63    0    VBZ    exhibits
+22    O    64    0    IN    on
+22    O    65    0    NN    view
+22    O    66    0    .    .
+
+
+5 21 associatedWith
+21 32 locatedIn
+
+
+23    O    0    0    NN    \
+23    O    1    0    CD    \
+23    O    2    0    IN    From
+23    O    3    0    DT    the
+23    O    4    0    CD    1925
+23    O    5    0    NNP    Exposition
+23    O    6    0    ,    ,
+23    O    7    0    CD    one
+23    O    8    0    JJ    prime
+23    O    9    0    NN    example
+23    O    10    0    IN    of
+23    MISC    11    0    NNP    French
+23    O    12    0    NNP    Art
+23    PERSON    13    0    NNP    Deco
+23    O    14    0    VBZ    is
+23    O    15    0    DT    the
+23    O    16    0    NN    pavilion
+23    O    17    0    NN    \
+23    O    18    0    ''    '
+23    O    19    0    NN    91H
+23    O    20    0    CD    \
+23    O    21    0    ``    `
+23    O    22    0    NN    f4tel
+23    O    23    0    NN    d
+23    O    24    0    NN    \
+23    O    25    0    ''    '
+23    O    26    0    JJ    92un
+23    O    27    0    NNP    Collectionneur
+23    O    28    0    CD    \
+23    O    29    0    CD    '92
+23    O    30    0    VBN    designed
+23    O    31    0    IN    by
+23    PERSON    32    0    NNP    Pierre/Patout
+23    O    33    0    .    .
+
+
+32 13 associatedWith
+
+
+24    O    0    0    DT    The
+24    O    1    0    NN    exterior
+24    O    2    0    VBZ    features
+24    O    3    0    VBD    stepped
+24    O    4    0    JJ    architectural
+24    O    5    0    NNS    forms
+24    O    6    0    VBG    incorporating
+24    O    7    0    JJ    unadorned
+24    O    8    0    JJ    geometric
+24    O    9    0    NNS    shapes
+24    O    10    0    IN    with
+24    O    11    0    DT    an
+24    O    12    0    JJ    elegant
+24    O    13    0    JJ    plain
+24    O    14    0    NN    fa
+24    O    15    0    CD    \
+24    O    16    0    ``    `
+24    O    17    0    VB    e7ade
+24    O    18    0    CC    and
+24    O    19    0    DT    a
+24    O    20    0    NN    variation
+24    O    21    0    IN    of
+24    O    22    0    DT    the
+24    O    23    0    JJ    restrained
+24    MISC    24    0    JJ    Classical
+24    O    25    0    NN    vocabulary
+24    O    26    0    IN    of
+24    O    27    0    NNS    columns
+24    O    28    0    CC    and
+24    O    29    0    DT    a
+24    O    30    0    JJ    decorative
+24    O    31    0    NN    frieze
+24    O    32    0    .    .
+
+
+25    O    0    0    DT    The
+25    O    1    0    JJ    overall
+25    O    2    0    NN    building
+25    O    3    0    VBZ    is
+25    O    4    0    DT    a
+25    O    5    0    JJ    harmonious
+25    O    6    0    NN    balance
+25    O    7    0    IN    of
+25    O    8    0    NN    square
+25    O    9    0    ,    ,
+25    O    10    0    JJ    circular
+25    O    11    0    ,    ,
+25    O    12    0    JJ    horizontal
+25    O    13    0    CC    and
+25    O    14    0    JJ    vertical
+25    O    15    0    NNS    elements
+25    O    16    0    IN    with
+25    O    17    0    JJ    solid
+25    O    18    0    CC    and
+25    O    19    0    NN    glass
+25    O    20    0    NNS    masses
+25    O    21    0    .    .
+
+
+26    PERSON    0    0    NNP    Ruhlmann
+26    O    1    0    VBD    designed
+26    O    2    0    PRP$    its
+26    MISC    3    0    NNP    Grand-Salon
+26    O    4    0    NN    interior
+26    O    5    0    CC    and
+26    O    6    0    DT    this
+26    O    7    0    NN    ensemble
+26    O    8    0    VBZ    remains
+26    O    9    0    CD    one
+26    O    10    0    IN    of
+26    O    11    0    DT    the
+26    O    12    0    JJS    best
+26    O    13    0    NNS    examples
+26    O    14    0    IN    of
+26    PERSON    15    0    NNP    Art/Deco
+26    O    16    0    NN    \
+26    O    17    0    ''    '
+26    O    18    0    NNS    92s
+26    O    19    0    NN    sumptuousness
+26    O    20    0    CC    and
+26    O    21    0    JJ    overall
+26    O    22    0    NN    eclecticism
+26    O    23    0    .    .
+
+
+0 3 creatorOf
+3 15 influencedBy
+0 15 influencedBy
+
+
+27    O    0    0    DT    The
+27    O    1    0    NN    wall
+27    O    2    0    NNS    coverings
+27    O    3    0    VBD    featured
+27    O    4    0    DT    a
+27    O    5    0    VBG    repeating
+27    O    6    0    JJ    red
+27    O    7    0    NN    pattern
+27    O    8    0    IN    of
+27    O    9    0    NNS    birds
+27    O    10    0    CC    and
+27    O    11    0    JJ    floral
+27    O    12    0    NNS    garlands
+27    O    13    0    IN    over
+27    O    14    0    DT    a
+27    O    15    0    JJ    yellow
+27    O    16    0    NN    ground
+27    O    17    0    WDT    that
+27    O    18    0    VBZ    is
+27    O    19    0    VBN    carried
+27    O    20    0    RP    over
+27    O    21    0    IN    into
+27    O    22    0    DT    the
+27    O    23    0    NN    carpeting
+27    O    24    0    CC    and
+27    O    25    0    DT    the
+27    O    26    0    NN    upholstery
+27    O    27    0    IN    of
+27    O    28    0    DT    the
+27    O    29    0    NN    furniture
+27    O    30    0    .    .
+
+
+28    O    0    0    DT    The
+28    O    1    0    RB    relatively
+28    O    2    0    JJ    simple
+28    O    3    0    NNS    lines
+28    O    4    0    CC    and
+28    O    5    0    NNS    shapes
+28    O    6    0    IN    of
+28    O    7    0    DT    the
+28    O    8    0    NN    furniture
+28    O    9    0    MD    may
+28    O    10    0    VB    appear
+28    O    11    0    RB    deceptively
+28    O    12    0    JJ    simple
+28    O    13    0    IN    until
+28    O    14    0    DT    the
+28    O    15    0    NNS    materials
+28    O    16    0    ,    ,
+28    O    17    0    NN    craftsmanship
+28    O    18    0    ,    ,
+28    O    19    0    CC    and
+28    O    20    0    NN    beauty
+28    O    21    0    IN    of
+28    O    22    0    DT    each
+28    O    23    0    JJ    individual
+28    O    24    0    NN    piece
+28    O    25    0    VBZ    is
+28    O    26    0    VBN    recognized
+28    O    27    0    .    .
+
+
+29    O    0    0    IN    For
+29    O    1    0    NN    example
+29    O    2    0    ,    ,
+29    O    3    0    DT    a
+29    O    4    0    JJ    large
+29    O    5    0    NN    cabinet
+29    O    6    0    IN    by
+29    PERSON    7    0    NNP    Ruhlmann
+29    O    8    0    ,    ,
+29    PERSON    9    0    NNP    Jean/Dunand
+29    O    10    0    ,    ,
+29    O    11    0    CC    and
+29    PERSON    12    0    NNP    Jean/Lambert-Rucki
+29    O    13    0    IN    from
+29    O    14    0    DT    this
+29    O    15    0    NN    room
+29    O    16    0    VBZ    is
+29    O    17    0    JJ    simple
+29    O    18    0    IN    in
+29    O    19    0    NN    form
+29    O    20    0    RB    yet
+29    O    21    0    PRP$    its
+29    O    22    0    NN    luxuriousness
+29    O    23    0    VBZ    comes
+29    O    24    0    IN    from
+29    O    25    0    DT    the
+29    O    26    0    JJ    black
+29    O    27    0    NN    lacquer
+29    O    28    0    NN    exterior
+29    O    29    0    VBN    incised
+29    O    30    0    IN    with
+29    O    31    0    NN    silver
+29    O    32    0    NN    decoration
+29    O    33    0    VBG    depicting
+29    O    34    0    CD    two
+29    O    35    0    NNS    animals
+29    O    36    0    .    .
+
+
+7 9 associatedWith
+9 12 associatedWith
+7 12 associatedWith
+
+
+
+
+
+
+30    O    0    0    PRP    They
+30    O    1    0    VBP    are
+30    O    2    0    VBN    made
+30    O    3    0    IN    from
+30    O    4    0    JJ    stylized
+30    O    5    0    JJ    geometric
+30    O    6    0    NNS    shapes
+30    O    7    0    CC    and
+30    O    8    0    NN    zigzag
+30    O    9    0    NNS    lines
+30    O    10    0    IN    with
+30    O    11    0    DT    these
+30    O    12    0    NNS    lines
+30    O    13    0    RB    then
+30    O    14    0    VBD    angled
+30    O    15    0    IN    across
+30    O    16    0    DT    the
+30    O    17    0    JJ    top
+30    O    18    0    TO    to
+30    O    19    0    VB    echo
+30    O    20    0    DT    the
+30    O    21    0    NNS    rays
+30    O    22    0    IN    of
+30    O    23    0    DT    the
+30    O    24    0    NN    sun
+30    O    25    0    .    .
+
+
+31    O    0    0    DT    The
+31    O    1    0    JJ    undulating
+31    O    2    0    NNS    sides
+31    O    3    0    IN    of
+31    O    4    0    DT    the
+31    O    5    0    NN    cabinet
+31    O    6    0    NN    balance
+31    O    7    0    DT    the
+31    O    8    0    JJ    flat
+31    O    9    0    NN    expanse
+31    O    10    0    IN    of
+31    O    11    0    DT    the
+31    O    12    0    NN    middle
+31    O    13    0    IN    while
+31    O    14    0    DT    the
+31    O    15    0    JJ    subtle
+31    O    16    0    JJ    linear
+31    O    17    0    NNS    decorations
+31    O    18    0    VBP    are
+31    O    19    0    VBN    repeated
+31    O    20    0    IN    throughout
+31    O    21    0    TO    to
+31    O    22    0    VB    lighten
+31    O    23    0    PRP$    its
+31    O    24    0    JJ    overall
+31    O    25    0    NN    solidity
+31    O    26    0    .    .
+
+
+32    O    0    0    NNP    Lacquer
+32    O    1    0    VBD    was
+32    O    2    0    DT    a
+32    O    3    0    JJ    favored
+32    O    4    0    NN    technique
+32    O    5    0    IN    for
+32    O    6    0    NN    furniture
+32    O    7    0    IN    during
+32    O    8    0    DT    the
+32    PERSON    9    0    NNP    Art/Deco
+32    O    10    0    NN    period
+32    O    11    0    IN    with
+32    PERSON    12    0    NNP    Jean/Dunand
+32    O    13    0    CD    one
+32    O    14    0    IN    of
+32    O    15    0    PRP$    its
+32    O    16    0    NNS    masters
+32    O    17    0    .    .
+
+
+12 9 associatedWith
+12 9 influencedBy
+
+
+33    O    0    0    PRP    It
+33    O    1    0    VBD    was
+33    O    2    0    VBN    introduced
+33    O    3    0    IN    by
+33    MISC    4    0    JJ    Japanese
+33    O    5    0    NNS    craftsmen
+33    O    6    0    CC    and
+33    O    7    0    VBZ    requires
+33    O    8    0    JJ    intensive
+33    O    9    0    NN    labor
+33    O    10    0    ,    ,
+33    O    11    0    NN    time
+33    O    12    0    ,    ,
+33    O    13    0    CC    and
+33    O    14    0    NN    expertise
+33    O    15    0    TO    to
+33    O    16    0    VB    achieve
+33    O    17    0    DT    the
+33    O    18    0    JJ    smooth
+33    O    19    0    CC    and
+33    O    20    0    JJ    flawless
+33    O    21    0    NN    surface
+33    O    22    0    VBN    seen
+33    O    23    0    RB    here
+33    O    24    0    .    .
+
+
+34    O    0    0    NN    \
+34    O    1    0    SYM    \
+34    O    2    0    FW    pard
+34    O    3    0    FW    \
+34    O    4    0    NN    pardeftab720
+34    O    5    0    CD    \
+34    O    6    0    NN    ri720
+34    O    7    0    CD    \
+34    O    8    0    NN    partightenfactor0
+34    O    9    0    CD    \
+34    O    10    0    NN    f1
+34    O    11    0    CD    \
+34    O    12    0    NN    cf0
+34    O    13    0    CD    \
+34    O    14    0    CD    \
+34    O    15    0    NN    pard
+34    O    16    0    CD    \
+34    O    17    0    NN    pardeftab720
+34    O    18    0    CD    \
+34    O    19    0    NN    ri720
+34    O    20    0    CD    \
+34    O    21    0    NN    partightenfactor0
+34    O    22    0    CD    \
+34    O    23    0    NN    f0
+34    O    24    0    CD    \
+34    O    25    0    NN    cf0
+34    O    26    0    JJ    Coincident
+34    O    27    0    IN    with
+34    O    28    0    DT    the
+34    O    29    0    NNS    efforts
+34    O    30    0    IN    of
+34    O    31    0    DT    the
+34    ORGANIZATION    32    0    NNP    Soci
+34    O    33    0    NNP    \
+34    O    34    0    ``    `
+34    O    35    0    FW    e9t
+34    O    36    0    FW    \
+34    O    37    0    ``    `
+34    O    38    0    FW    e9
+34    O    39    0    FW    des
+34    PERSON    40    0    FW    Artistes
+34    O    41    0    NN    D
+34    O    42    0    CD    \
+34    O    43    0    ``    `
+34    O    44    0    NNS    e9corateurs
+34    O    45    0    TO    to
+34    O    46    0    VB    revitalize
+34    O    47    0    DT    the
+34    O    48    0    NN    design
+34    O    49    0    NN    trade
+34    O    50    0    ,    ,
+34    O    51    0    VBG    leading
+34    MISC    52    0    JJ    Parisian
+34    O    53    0    NNS    artists
+34    O    54    0    RB    similarly
+34    O    55    0    VBD    recognized
+34    O    56    0    DT    the
+34    O    57    0    NN    need
+34    O    58    0    TO    to
+34    O    59    0    VB    exhibit
+34    O    60    0    RB    together
+34    O    61    0    ,    ,
+34    O    62    0    VBG    founding
+34    O    63    0    DT    the
+34    ORGANIZATION    64    0    NNP    Salon
+34    O    65    0    NN    d
+34    O    66    0    NN    \
+34    O    67    0    ''    '
+34    O    68    0    NN    92Automne
+34    O    69    0    IN    in
+34    O    70    0    CD    1903
+34    O    71    0    .    .
+
+
+35    O    0    0    DT    The
+35    O    1    0    NN    group
+35    O    2    0    VBD    was
+35    O    3    0    JJ    responsible
+35    O    4    0    IN    for
+35    O    5    0    VBG    introducing
+35    MISC    6    0    NNPS    Parisians
+35    O    7    0    TO    to
+35    O    8    0    DT    the
+35    O    9    0    NN    work
+35    O    10    0    IN    of
+35    O    11    0    VBG    leading
+35    O    12    0    NNS    artists
+35    O    13    0    ,    ,
+35    O    14    0    VBG    including
+35    PERSON    15    0    NNP    Paul/Gauguin
+35    O    16    0    ,    ,
+35    PERSON    17    0    NNP    Paul/Cezanne
+35    O    18    0    ,    ,
+35    PERSON    19    0    NNP    Puvis/de/Chavannes
+35    O    20    0    ,    ,
+35    PERSON    21    0    NNP    Odilon/Redon
+35    O    22    0    ,    ,
+35    O    23    0    CC    and
+35    PERSON    24    0    NNP    Henri/de/Toulouse-Lautrec
+35    O    25    0    IN    among
+35    O    26    0    NNS    others
+35    O    27    0    .    .
+
+
+15 17 associatedWith
+15 19 associatedWith
+15 21 associatedWith
+15 24 associatedWith
+17 19 associatedWith
+17 21 associatedWith
+17 24 associatedWith
+19 21 associatedWith
+19 24 associatedWith
+21 24 associatedWith
+
+
+36    O    0    0    IN    In
+36    O    1    0    CD    1905
+36    O    2    0    ,    ,
+36    O    3    0    DT    the
+36    ORGANIZATION    4    0    NNP    Salon
+36    O    5    0    NN    d
+36    O    6    0    NN    \
+36    O    7    0    ''    '
+36    O    8    0    NN    92Automne
+36    O    9    0    VBD    introduced
+36    O    10    0    DT    the
+36    O    11    0    NN    work
+36    O    12    0    IN    of
+36    O    13    0    DT    the
+36    LOCATION    14    0    NNP    Fauves
+36    O    15    0    ,    ,
+36    O    16    0    RB    principally
+36    PERSON    17    0    NNP    Henri/Matisse
+36    O    18    0    CC    and
+36    PERSON    19    0    NNP    Andre/Derain
+36    O    20    0    ,    ,
+36    O    21    0    WP$    whose
+36    O    22    0    JJ    liberated
+36    O    23    0    CC    and
+36    O    24    0    JJ    abstract
+36    O    25    0    NN    use
+36    O    26    0    IN    of
+36    O    27    0    NN    color
+36    O    28    0    CC    and
+36    O    29    0    VBD    simplified
+36    O    30    0    NNS    forms
+36    O    31    0    VBN    designated
+36    O    32    0    PRP    them
+36    O    33    0    IN    as
+36    O    34    0    NN    \
+36    O    35    0    ''    '
+36    O    36    0    JJ    91wild
+36    O    37    0    NNS    beasts
+36    O    38    0    .    .
+
+
+17 19 associatedWith
+
+
+37    O    0    0    NN    \
+37    O    1    0    CD    '92
+37    PERSON    2    0    NNP    Matisse
+37    O    3    0    NN    \
+37    O    4    0    ''    '
+37    O    5    0    NNS    92s
+37    O    6    0    VBG    curving
+37    O    7    0    NN    arabesque
+37    O    8    0    NNS    lines
+37    O    9    0    ,    ,
+37    O    10    0    IN    along
+37    O    11    0    IN    with
+37    O    12    0    DT    the
+37    O    13    0    NN    flattening
+37    O    14    0    IN    of
+37    O    15    0    NN    form
+37    O    16    0    ,    ,
+37    O    17    0    JJ    bold
+37    O    18    0    NNS    colors
+37    O    19    0    ,    ,
+37    O    20    0    CC    and
+37    O    21    0    JJ    linear
+37    O    22    0    NNS    reductions
+37    O    23    0    VBG    occurring
+37    O    24    0    IN    in
+37    O    25    0    JJ    modern
+37    O    26    0    NN    art
+37    O    27    0    ,    ,
+37    O    28    0    VBD    were
+37    O    29    0    RB    quickly
+37    O    30    0    VBN    adapted
+37    O    31    0    IN    by
+37    O    32    0    JJ    commercial
+37    O    33    0    NNS    designers
+37    O    34    0    IN    in
+37    O    35    0    DT    the
+37    O    36    0    NN    creation
+37    O    37    0    IN    of
+37    ORGANIZATION    38    0    NNP    Art/Deco
+37    O    39    0    NNS    objects
+37    O    40    0    IN    for
+37    O    41    0    NN    sale
+37    O    42    0    TO    to
+37    O    43    0    DT    the
+37    O    44    0    JJR    wider
+37    O    45    0    NN    public
+37    O    46    0    .    .
+
+
+2 38 influenced
+
+
+38    O    0    0    NN    \
+38    O    1    0    CD    \
+38    O    2    0    DT    The
+38    O    3    0    JJ    formal
+38    O    4    0    NNS    experiments
+38    O    5    0    IN    of
+38    MISC    6    0    NNP    Cubism
+38    O    7    0    VBD    led
+38    O    8    0    TO    to
+38    O    9    0    DT    an
+38    O    10    0    VBN    increased
+38    O    11    0    NN    interest
+38    O    12    0    IN    in
+38    O    13    0    JJ    geometric
+38    O    14    0    NN    form
+38    O    15    0    CC    and
+38    O    16    0    NN    abstraction
+38    O    17    0    IN    in
+38    O    18    0    JJ    many
+38    O    19    0    NNS    realms
+38    O    20    0    IN    of
+38    O    21    0    NN    art
+38    O    22    0    CC    and
+38    O    23    0    NN    design
+38    O    24    0    .    .
+
+
+39    O    0    0    DT    The
+39    MISC    1    0    NNS    Italian/Futurists
+39    O    2    0    RB    also
+39    O    3    0    VBD    explored
+39    O    4    0    JJ    dynamic
+39    O    5    0    NN    movement
+39    O    6    0    ,    ,
+39    O    7    0    NN    speed
+39    O    8    0    ,    ,
+39    O    9    0    CC    and
+39    O    10    0    DT    the
+39    O    11    0    NN    machine
+39    O    12    0    JJ    aesthetic
+39    O    13    0    .    .
+
+
+40    O    0    0    DT    The
+40    O    1    0    NN    exploration
+40    O    2    0    IN    of
+40    O    3    0    NN    movement
+40    O    4    0    VBG    using
+40    O    5    0    JJ    pure
+40    O    6    0    NNS    areas
+40    O    7    0    IN    of
+40    O    8    0    NN    color
+40    O    9    0    CC    and
+40    O    10    0    JJ    non-representational
+40    O    11    0    NNS    forms
+40    O    12    0    VBZ    permeates
+40    O    13    0    DT    the
+40    O    14    0    NN    work
+40    O    15    0    IN    of
+40    LOCATION    16    0    NNP    Robert
+40    O    17    0    CC    and
+40    PERSON    18    0    NNP    Sonia/Delaunay
+40    O    19    0    .    .
+
+
+16 18 associatedWith
+
+
+41    O    0    0    PRP    They
+41    O    1    0    VBD    coined
+41    O    2    0    DT    the
+41    O    3    0    NN    term
+41    O    4    0    NN    \
+41    O    5    0    ''    '
+41    O    6    0    NN    91simultaneity
+41    O    7    0    CD    \
+41    O    8    0    CD    '92
+41    O    9    0    TO    to
+41    O    10    0    VB    characterize
+41    O    11    0    WRB    how
+41    O    12    0    PRP$    their
+41    O    13    0    JJ    abstract
+41    O    14    0    NN    imagery
+41    O    15    0    VBN    made
+41    O    16    0    IN    of
+41    O    17    0    VBG    interpenetrating
+41    O    18    0    JJ    geometric
+41    O    19    0    NNS    areas
+41    O    20    0    IN    of
+41    O    21    0    JJ    pure
+41    O    22    0    NN    color
+41    O    23    0    VBD    visualized
+41    O    24    0    DT    the
+41    O    25    0    JJ    rapid
+41    O    26    0    NN    motion
+41    O    27    0    CC    and
+41    O    28    0    NN    movement
+41    O    29    0    WDT    that
+41    O    30    0    VBD    structured
+41    O    31    0    JJ    urban
+41    O    32    0    NN    life
+41    O    33    0    .    .
+
+
+42    O    0    0    RB    Soon
+42    O    1    0    ,    ,
+42    PERSON    2    0    NNP    Sonia/Delaunay
+42    O    3    0    VBD    began
+42    O    4    0    VBG    applying
+42    O    5    0    DT    these
+42    O    6    0    NNS    designs
+42    O    7    0    TO    to
+42    O    8    0    NN    clothing
+42    O    9    0    CC    and
+42    O    10    0    NNS    objects
+42    O    11    0    ,    ,
+42    O    12    0    WDT    which
+42    O    13    0    VBD    were
+42    O    14    0    VBN    sold
+42    O    15    0    IN    through
+42    O    16    0    VBG    leading
+42    O    17    0    NN    department
+42    O    18    0    NNS    stores
+42    O    19    0    CC    and
+42    O    20    0    IN    at
+42    O    21    0    PRP$    her
+42    ORGANIZATION    22    0    NNP    Simultan
+42    O    23    0    NN    \
+42    O    24    0    ``    `
+42    O    25    0    NN    e9
+42    O    26    0    NNS    boutiques
+42    O    27    0    ,    ,
+42    O    28    0    VBG    including
+42    O    29    0    CD    one
+42    O    30    0    IN    at
+42    O    31    0    DT    the
+42    O    32    0    CD    1925
+42    O    33    0    NNP    Exposition
+42    O    34    0    .    .
+
+
+2 22 creatorOf
+
+
+43    O    0    0    NN    \
+43    O    1    0    CD    \
+43    O    2    0    DT    The
+43    PERSON    3    0    NNP    Ballets/Russes
+43    O    4    0    VBD    was
+43    O    5    0    CD    one
+43    O    6    0    IN    of
+43    O    7    0    DT    the
+43    O    8    0    RBS    most
+43    O    9    0    JJ    important
+43    O    10    0    NNS    influences
+43    O    11    0    IN    on
+43    O    12    0    DT    the
+43    O    13    0    NN    development
+43    O    14    0    IN    of
+43    O    15    0    JJ    visual
+43    O    16    0    NN    culture
+43    O    17    0    IN    in
+43    O    18    0    DT    the
+43    O    19    0    NNS    1910s
+43    O    20    0    .    .
+
+
+44    O    0    0    VBN    Brought
+44    O    1    0    TO    to
+44    LOCATION    2    0    NNP    Paris
+44    O    3    0    IN    in
+44    O    4    0    CD    1909
+44    O    5    0    ,    ,
+44    O    6    0    DT    the
+44    O    7    0    NNS    performances
+44    O    8    0    IN    by
+44    PERSON    9    0    NNP    Serge/Diaghilev
+44    O    10    0    NN    \
+44    O    11    0    ''    '
+44    O    12    0    NNS    92s
+44    O    13    0    NN    company
+44    O    14    0    CC    and
+44    O    15    0    PRP$    his
+44    O    16    0    JJ    talented
+44    O    17    0    NNS    collaborators
+44    O    18    0    ,    ,
+44    O    19    0    VBG    including
+44    O    20    0    DT    the
+44    O    21    0    NN    designer
+44    O    22    0    NN    L
+44    O    23    0    CD    \
+44    O    24    0    ``    `
+44    O    25    0    FW    e9on
+44    PERSON    26    0    FW    Bakst
+44    O    27    0    ,    ,
+44    O    28    0    JJ    astonished
+44    O    29    0    NNS    audiences
+44    O    30    0    CC    and
+44    O    31    0    VBD    inspired
+44    O    32    0    NNS    designers
+44    O    33    0    IN    with
+44    O    34    0    PRP$    their
+44    O    35    0    VBG    enveloping
+44    O    36    0    CC    and
+44    O    37    0    VBG    intoxicating
+44    O    38    0    NN    mixture
+44    O    39    0    IN    of
+44    O    40    0    NN    ornament
+44    O    41    0    ,    ,
+44    O    42    0    NN    pattern
+44    O    43    0    ,    ,
+44    O    44    0    CC    and
+44    O    45    0    NN    color
+44    O    46    0    IN    in
+44    O    47    0    NNS    spectacles
+44    O    48    0    VBG    evoking
+44    O    49    0    JJ    exotic
+44    O    50    0    CC    and
+44    O    51    0    JJ    far-away
+44    O    52    0    NNS    realms
+44    O    53    0    CC    or
+44    O    54    0    JJ    rhythmic
+44    MISC    55    0    NN    Cubist
+44    O    56    0    NN    modernism
+44    O    57    0    IN    in
+44    O    58    0    DT    the
+44    O    59    0    NN    dancing
+44    O    60    0    ,    ,
+44    O    61    0    NNS    costumes
+44    O    62    0    ,    ,
+44    O    63    0    CC    and
+44    O    64    0    JJ    scenic
+44    O    65    0    NNS    designs
+44    O    66    0    IN    for
+44    O    67    0    PRP$    their
+44    O    68    0    JJ    varied
+44    O    69    0    NNS    productions
+44    O    70    0    .    .
+
+
+9 26 associatedWith
+9 2 associatedWith
+26 2 associatedWith
+8 55 influencedBy
+26 55 influencedBy
+
+
+
+
+45    O    0    0    NN    \
+45    O    1    0    CD    \
+45    O    2    0    CD    One
+45    O    3    0    NN    example
+45    O    4    0    IN    of
+45    O    5    0    WRB    how
+45    O    6    0    DT    these
+45    O    7    0    NNS    ideas
+45    O    8    0    IN    from
+45    O    9    0    DT    the
+45    O    10    0    JJ    visual
+45    O    11    0    NNS    arts
+45    O    12    0    VBD    were
+45    O    13    0    VBN    translated
+45    O    14    0    IN    into
+45    O    15    0    DT    the
+45    O    16    0    NN    realm
+45    O    17    0    IN    of
+45    LOCATION    18    0    NNP    Art/Deco
+45    O    19    0    VBZ    is
+45    O    20    0    VBN    seen
+45    O    21    0    IN    in
+45    O    22    0    NN    furniture
+45    O    23    0    NN    designer
+45    PERSON    24    0    NNP    Andr
+45    O    25    0    CD    \
+45    O    26    0    ``    `
+45    O    27    0    FW    e9
+45    PERSON    28    0    FW    Groult
+45    O    29    0    FW    \
+45    O    30    0    ''    '
+45    O    31    0    JJ    92s
+45    O    32    0    NN    chiffonier
+45    O    33    0    CC    or
+45    O    34    0    NN    bureau
+45    O    35    0    VBD    made
+45    O    36    0    IN    for
+45    O    37    0    DT    a
+45    O    38    0    NN    woman
+45    O    39    0    NN    \
+45    O    40    0    ''    '
+45    O    41    0    NNS    92s
+45    O    42    0    NN    room
+45    O    43    0    IN    of
+45    O    44    0    DT    a
+45    O    45    0    NN    pavilion
+45    O    46    0    IN    at
+45    O    47    0    DT    the
+45    O    48    0    CD    1925
+45    O    49    0    NNP    Exposition
+45    O    50    0    .    .
+
+
+28 18 influencedBy
+
+
+46    O    0    0    PRP$    Its
+46    O    1    0    JJ    anthropomorphic
+46    O    2    0    NN    shape
+46    O    3    0    NNS    echoes
+46    O    4    0    DT    the
+46    O    5    0    JJ    curvaceous
+46    O    6    0    JJ    female
+46    O    7    0    NN    form
+46    O    8    0    CC    and
+46    O    9    0    PRP    it
+46    O    10    0    VBZ    is
+46    O    11    0    VBN    made
+46    O    12    0    IN    from
+46    O    13    0    RB    typically
+46    O    14    0    JJ    exotic
+46    O    15    0    NNS    materials
+46    O    16    0    ,    ,
+46    O    17    0    VBG    including
+46    O    18    0    NN    ivory
+46    O    19    0    NNS    keyholes
+46    O    20    0    CC    and
+46    O    21    0    NN    sharkskin
+46    O    22    0    ,    ,
+46    O    23    0    RB    also
+46    O    24    0    VBN    known
+46    O    25    0    IN    as
+46    O    26    0    NN    shagreen
+46    O    27    0    ,    ,
+46    O    28    0    IN    in
+46    O    29    0    DT    a
+46    O    30    0    JJ    bold
+46    O    31    0    JJ    yellow
+46    O    32    0    NN    color
+46    O    33    0    .    .
+
+
+47    O    0    0    DT    The
+47    O    1    0    NN    shagreen
+47    O    2    0    VBZ    has
+47    O    3    0    VBN    been
+47    O    4    0    VBN    applied
+47    O    5    0    IN    in
+47    O    6    0    DT    the
+47    O    7    0    NN    pattern
+47    O    8    0    IN    of
+47    O    9    0    DT    a
+47    O    10    0    JJ    large
+47    O    11    0    NN    sun
+47    O    12    0    IN    at
+47    O    13    0    DT    the
+47    O    14    0    JJ    bottom
+47    O    15    0    VBG    emitting
+47    O    16    0    NNS    rays
+47    O    17    0    WDT    that
+47    O    18    0    JJ    alternate
+47    O    19    0    IN    into
+47    O    20    0    NNS    squares
+47    O    21    0    CC    and
+47    O    22    0    NNS    circles
+47    O    23    0    IN    as
+47    O    24    0    PRP    they
+47    O    25    0    VBP    reach
+47    O    26    0    DT    the
+47    O    27    0    JJ    top
+47    O    28    0    VBG    resulting
+47    O    29    0    IN    in
+47    O    30    0    DT    an
+47    O    31    0    JJ    exciting
+47    O    32    0    RB    yet
+47    O    33    0    VBN    restrained
+47    O    34    0    NN    object
+47    O    35    0    IN    in
+47    O    36    0    WDT    which
+47    O    37    0    PRP$    its
+47    O    38    0    JJ    sophisticated
+47    O    39    0    CC    and
+47    O    40    0    JJ    luxurious
+47    O    41    0    NN    appearance
+47    O    42    0    VBP    are
+47    O    43    0    PRP$    its
+47    O    44    0    JJ    foremost
+47    O    45    0    NNS    concerns
+47    O    46    0    .    .
+
+
+48    O    0    0    NN    \
+48    O    1    0    CD    \
+48    O    2    0    IN    Throughout
+48    O    3    0    DT    the
+48    O    4    0    NN    beginning
+48    O    5    0    IN    of
+48    O    6    0    DT    the
+48    O    7    0    JJ    twentieth
+48    O    8    0    NN    century
+48    O    9    0    ,    ,
+48    O    10    0    DT    the
+48    O    11    0    NN    appeal
+48    O    12    0    IN    of
+48    O    13    0    DT    the
+48    O    14    0    JJ    exotic
+48    O    15    0    VBD    was
+48    O    16    0    RB    continually
+48    O    17    0    VBN    fueled
+48    O    18    0    IN    by
+48    LOCATION    19    0    NNP    France
+48    O    20    0    NN    \
+48    O    21    0    ''    '
+48    O    22    0    NNS    92s
+48    O    23    0    JJ    vast
+48    O    24    0    JJ    colonial
+48    O    25    0    NNS    territories
+48    O    26    0    ,    ,
+48    O    27    0    JJ    inspiring
+48    O    28    0    DT    an
+48    O    29    0    NN    interest
+48    O    30    0    IN    in
+48    O    31    0    JJ    primitive
+48    O    32    0    CC    or
+48    O    33    0    JJ    tribal
+48    O    34    0    NNS    forms
+48    O    35    0    IN    from
+48    LOCATION    36    0    NNP    Africa
+48    O    37    0    :    ;
+48    O    38    0    DT    an
+48    O    39    0    NN    interest
+48    O    40    0    IN    in
+48    O    41    0    JJ    new
+48    O    42    0    NNS    techniques
+48    O    43    0    CC    and
+48    O    44    0    JJ    aestheticized
+48    O    45    0    NN    surface
+48    O    46    0    NNS    qualities
+48    O    47    0    ,    ,
+48    O    48    0    VBG    including
+48    O    49    0    NN    lacquer
+48    O    50    0    CC    and
+48    O    51    0    JJ    ceramic
+48    O    52    0    NN    glazing
+48    O    53    0    IN    from
+48    LOCATION    54    0    NNP    Asia
+48    O    55    0    :    ;
+48    O    56    0    CC    and
+48    O    57    0    DT    the
+48    O    58    0    NN    use
+48    O    59    0    IN    of
+48    O    60    0    JJ    rare
+48    O    61    0    CC    and
+48    O    62    0    JJ    exotic
+48    O    63    0    NNS    woods
+48    O    64    0    ,    ,
+48    O    65    0    JJ    semi-precious
+48    O    66    0    NNS    stones
+48    O    67    0    ,    ,
+48    O    68    0    CC    and
+48    O    69    0    JJ    other
+48    O    70    0    NNS    materials
+48    O    71    0    IN    from
+48    O    72    0    DT    the
+48    O    73    0    NNS    colonies
+48    O    74    0    ,    ,
+48    O    75    0    JJ    such
+48    O    76    0    IN    as
+48    O    77    0    NN    sharkskin
+48    O    78    0    ,    ,
+48    O    79    0    NN    tortoiseshell
+48    O    80    0    ,    ,
+48    O    81    0    CC    and
+48    O    82    0    NN    ivory
+48    O    83    0    IN    for
+48    O    84    0    NNS    inlays
+48    O    85    0    .    .
+
+
+49    MISC    0    0    JJ    African
+49    O    1    0    NNS    objects
+49    O    2    0    CC    and
+49    O    3    0    NNS    sculptures
+49    O    4    0    VBD    had
+49    O    5    0    VBN    helped
+49    O    6    0    JJ    modern
+49    O    7    0    NNS    artists
+49    O    8    0    ,    ,
+49    O    9    0    VBG    including
+49    PERSON    10    0    NNP    Henri/Matisse
+49    O    11    0    CC    and
+49    PERSON    12    0    NNP    Pablo/Picasso
+49    O    13    0    ,    ,
+49    O    14    0    TO    to
+49    O    15    0    NN    harness
+49    O    16    0    DT    the
+49    O    17    0    JJ    geometric
+49    O    18    0    NNS    forms
+49    O    19    0    CC    and
+49    O    20    0    JJ    bold
+49    O    21    0    JJ    linear
+49    O    22    0    NNS    elements
+49    O    23    0    VBN    seen
+49    O    24    0    IN    in
+49    MISC    25    0    JJ    African
+49    O    26    0    NNS    objects
+49    O    27    0    TO    to
+49    O    28    0    VB    formulate
+49    O    29    0    PRP$    their
+49    O    30    0    JJ    abstract
+49    O    31    0    NNS    vocabularies
+49    O    32    0    IN    in
+49    O    33    0    DT    the
+49    O    34    0    JJ    fine
+49    O    35    0    NNS    arts
+49    O    36    0    WDT    that
+49    O    37    0    RB    soon
+49    O    38    0    VBD    revitalized
+49    O    39    0    NN    imagery
+49    O    40    0    IN    in
+49    O    41    0    DT    the
+49    O    42    0    NN    design
+49    O    43    0    NN    realm
+49    O    44    0    IN    during
+49    O    45    0    DT    the
+49    MISC    46    0    NNP    Art/Deco
+49    O    47    0    NN    period
+49    O    48    0    .    .
+
+
+10 0 influencedBy
+12 0 influencedBy
+10 46 associatedWith
+12 46 associatedWith
+10 12 associatedWith
+
+
+50    O    0    0    NN    \
+50    MISC    1    0    NN    \/Travel
+50    O    2    0    ,    ,
+50    O    3    0    NN    adventure
+50    O    4    0    ,    ,
+50    O    5    0    CC    and
+50    O    6    0    DT    the
+50    O    7    0    JJ    ongoing
+50    O    8    0    JJ    contemporary
+50    O    9    0    NN    interest
+50    O    10    0    IN    in
+50    O    11    0    DT    these
+50    O    12    0    JJ    faraway
+50    O    13    0    NN    colonial
+50    O    14    0    NNS    destinations
+50    O    15    0    VBD    supplied
+50    O    16    0    NNS    motifs
+50    O    17    0    WDT    that
+50    O    18    0    VBD    were
+50    O    19    0    VBN    applied
+50    O    20    0    TO    to
+50    O    21    0    NNS    graphics
+50    O    22    0    CC    and
+50    O    23    0    NN    advertising
+50    O    24    0    VBG    using
+50    O    25    0    JJ    streamlined
+50    PERSON    26    0    NNP    Art/Deco
+50    O    27    0    NNS    forms
+50    O    28    0    .    .
+
+
+51    O    0    0    IN    After
+51    O    1    0    DT    the
+51    O    2    0    NNS    restrictions
+51    O    3    0    IN    in
+51    O    4    0    NN    place
+51    O    5    0    IN    during
+51    O    6    0    DT    the
+51    O    7    0    NN    war
+51    O    8    0    ,    ,
+51    O    9    0    JJ    many
+51    O    10    0    NNS    people
+51    O    11    0    VBD    were
+51    O    12    0    RB    now
+51    O    13    0    VBN    captivated
+51    O    14    0    IN    by
+51    O    15    0    DT    the
+51    O    16    0    NN    allure
+51    O    17    0    IN    of
+51    O    18    0    NN    travel
+51    O    19    0    CC    and
+51    O    20    0    NN    leisure
+51    O    21    0    VBD    made
+51    O    22    0    RB    increasingly
+51    O    23    0    JJ    accessible
+51    O    24    0    IN    with
+51    O    25    0    DT    the
+51    O    26    0    NN    automobile
+51    O    27    0    ,    ,
+51    O    28    0    NNS    railroads
+51    O    29    0    ,    ,
+51    O    30    0    CC    and
+51    O    31    0    NN    luxury
+51    O    32    0    NN    ocean
+51    O    33    0    NNS    liners
+51    O    34    0    .    .
+
+
+52    O    0    0    DT    Some
+52    O    1    0    IN    of
+52    O    2    0    DT    the
+52    O    3    0    RBS    most
+52    O    4    0    JJ    representative
+52    O    5    0    NNS    examples
+52    O    6    0    IN    of
+52    ORGANIZATION    7    0    NNP    Art/Deco
+52    O    8    0    VBD    came
+52    O    9    0    IN    from
+52    O    10    0    DT    these
+52    MISC    11    0    JJ    trans-Atlantic
+52    O    12    0    NN    cruise
+52    O    13    0    NNS    ships
+52    O    14    0    .    .
+
+
+53    O    0    0    DT    A
+53    O    1    0    NN    poster
+53    O    2    0    IN    by
+53    PERSON    3    0    NNP    A./M./Cassandre
+53    O    4    0    ,    ,
+53    O    5    0    DT    a
+53    O    6    0    VBG    leading
+53    O    7    0    JJ    graphic
+53    O    8    0    NN    artist
+53    O    9    0    ,    ,
+53    O    10    0    VBZ    advertises
+53    O    11    0    DT    the
+53    PERSON    12    0    NNP    Normandie
+53    O    13    0    ,    ,
+53    O    14    0    CD    one
+53    O    15    0    IN    of
+53    O    16    0    DT    the
+53    O    17    0    JJS    largest
+53    O    18    0    NN    cruise
+53    O    19    0    NNS    ships
+53    O    20    0    IN    from
+53    O    21    0    DT    this
+53    O    22    0    NN    era
+53    O    23    0    ,    ,
+53    O    24    0    IN    in
+53    O    25    0    WDT    which
+53    O    26    0    DT    the
+53    O    27    0    JJ    tall
+53    O    28    0    JJ    elegant
+53    O    29    0    NN    ship
+53    O    30    0    VBZ    glides
+53    O    31    0    RB    majestically
+53    O    32    0    IN    through
+53    O    33    0    DT    the
+53    O    34    0    JJ    calm
+53    O    35    0    NN    water
+53    O    36    0    ,    ,
+53    O    37    0    PRP$    its
+53    O    38    0    NN    bow
+53    O    39    0    VBG    featuring
+53    O    40    0    DT    the
+53    O    41    0    JJ    streamlined
+53    O    42    0    NN    curve
+53    O    43    0    RB    so
+53    O    44    0    JJ    representative
+53    O    45    0    IN    of
+53    ORGANIZATION    46    0    NNP    Art/Deco
+53    O    47    0    .    .
+
+
+3 12 depictorOf
+3 46 influencedBy
+
+
+54    MISC    0    0    NNP    Onboard
+54    O    1    0    DT    these
+54    O    2    0    NN    cruise
+54    O    3    0    NNS    liners
+54    O    4    0    ,    ,
+54    O    5    0    DT    the
+54    O    6    0    NN    luxury
+54    O    7    0    CC    and
+54    O    8    0    NN    craftsmanship
+54    O    9    0    IN    of
+54    ORGANIZATION    10    0    NNP    Art/Deco
+54    O    11    0    VBD    realized
+54    O    12    0    PRP$    its
+54    O    13    0    JJS    fullest
+54    O    14    0    NN    expression
+54    O    15    0    IN    in
+54    O    16    0    JJ    fantastical
+54    O    17    0    CC    and
+54    O    18    0    JJ    lavish
+54    O    19    0    NNS    ensembles
+54    O    20    0    IN    of
+54    O    21    0    NN    furniture
+54    O    22    0    ,    ,
+54    O    23    0    NN    lighting
+54    O    24    0    ,    ,
+54    O    25    0    CC    and
+54    O    26    0    NNS    artworks
+54    O    27    0    WDT    that
+54    O    28    0    VBD    fulfilled
+54    O    29    0    DT    the
+54    O    30    0    RBS    most
+54    O    31    0    JJ    opulent
+54    O    32    0    CC    and
+54    O    33    0    JJ    luxurious
+54    O    34    0    NNS    tastes
+54    O    35    0    .    .
+
+
+55    O    0    0    NN    \
+55    O    1    0    CD    \
+55    O    2    0    JJ    Much
+55    O    3    0    IN    of
+55    LOCATION    4    0    NNP    Art/Deco
+55    O    5    0    VBZ    appears
+55    O    6    0    IN    in
+55    O    7    0    NN    hindsight
+55    O    8    0    IN    as
+55    O    9    0    DT    a
+55    O    10    0    NN    glittering
+55    O    11    0    NN    fa
+55    O    12    0    CD    \
+55    O    13    0    ``    `
+55    O    14    0    VB    e7ade
+55    O    15    0    DT    that
+55    O    16    0    VBD    hid
+55    O    17    0    JJ    ongoing
+55    O    18    0    JJ    economic
+55    O    19    0    NNS    hardships
+55    O    20    0    CC    and
+55    O    21    0    JJ    political
+55    O    22    0    NNS    instabilities
+55    O    23    0    .    .
+
+
+56    O    0    0    IN    In
+56    O    1    0    DT    the
+56    LOCATION    2    0    NNPS    United/States
+56    O    3    0    ,    ,
+56    O    4    0    NNP    Prohibition
+56    O    5    0    VBD    led
+56    O    6    0    TO    to
+56    O    7    0    DT    the
+56    O    8    0    NN    rise
+56    O    9    0    IN    of
+56    O    10    0    JJ    organized
+56    O    11    0    NN    crime
+56    O    12    0    CC    and
+56    O    13    0    DT    a
+56    O    14    0    NN    sense
+56    O    15    0    IN    of
+56    O    16    0    NN    illicitness
+56    O    17    0    VBN    associated
+56    O    18    0    IN    with
+56    O    19    0    NN    jazz
+56    O    20    0    NNS    clubs
+56    O    21    0    CC    and
+56    O    22    0    JJ    popular
+56    O    23    0    NN    culture
+56    O    24    0    .    .
+
+
+57    O    0    0    IN    As
+57    O    1    0    JJ    many
+57    O    2    0    NNS    people
+57    O    3    0    VBD    sought
+57    O    4    0    TO    to
+57    O    5    0    VB    escape
+57    O    6    0    PRP$    their
+57    O    7    0    JJ    mundane
+57    O    8    0    JJ    daily
+57    O    9    0    NNS    concerns
+57    O    10    0    ,    ,
+57    O    11    0    DT    the
+57    O    12    0    NNS    movies
+57    O    13    0    VBD    provided
+57    O    14    0    DT    a
+57    O    15    0    JJ    great
+57    O    16    0    NN    refuge
+57    O    17    0    .    .
+
+
+58    O    0    0    NNS    Costumes
+58    O    1    0    ,    ,
+58    O    2    0    NNS    sets
+58    O    3    0    ,    ,
+58    O    4    0    CC    and
+58    O    5    0    NN    lighting
+58    O    6    0    VBD    were
+58    O    7    0    DT    all
+58    O    8    0    NNS    vehicles
+58    O    9    0    IN    for
+58    O    10    0    VBG    popularizing
+58    O    11    0    DT    the
+58    O    12    0    JJ    elegant
+58    O    13    0    CC    and
+58    O    14    0    JJ    seductive
+58    O    15    0    NN    atmosphere
+58    O    16    0    IN    of
+58    ORGANIZATION    17    0    NNP    Art/Deco
+58    O    18    0    .    .
+
+
+59    O    0    0    NN    \
+59    O    1    0    CD    \
+59    O    2    0    DT    The
+59    O    3    0    NN    popularity
+59    O    4    0    IN    of
+59    ORGANIZATION    5    0    NNP    Art/Deco
+59    O    6    0    VBD    waned
+59    O    7    0    IN    as
+59    O    8    0    NN    interest
+59    O    9    0    VBD    grew
+59    O    10    0    IN    in
+59    O    11    0    NN    cost
+59    O    12    0    JJ    effective
+59    O    13    0    NN    mass
+59    O    14    0    NN    production
+59    O    15    0    CC    and
+59    O    16    0    JJ    industrial
+59    O    17    0    NNS    materials
+59    O    18    0    ,    ,
+59    O    19    0    JJ    such
+59    O    20    0    IN    as
+59    O    21    0    JJ    tubular
+59    O    22    0    NN    steel
+59    O    23    0    ,    ,
+59    O    24    0    WDT    that
+59    O    25    0    VBD    lacked
+59    O    26    0    JJ    excess
+59    O    27    0    NN    ornamentation
+59    O    28    0    CC    and
+59    O    29    0    VBD    was
+59    O    30    0    VBN    suited
+59    O    31    0    TO    to
+59    O    32    0    DT    the
+59    O    33    0    NN    ethos
+59    O    34    0    IN    of
+59    O    35    0    NN    \
+59    O    36    0    ''    '
+59    O    37    0    JJ    91form
+59    O    38    0    VBG    following
+59    O    39    0    NN    function
+59    O    40    0    CD    \
+59    O    41    0    CD    '92
+59    O    42    0    WDT    that
+59    O    43    0    VBD    began
+59    O    44    0    TO    to
+59    O    45    0    VB    influence
+59    O    46    0    DT    the
+59    O    47    0    NN    direction
+59    O    48    0    IN    of
+59    O    49    0    JJ    modern
+59    O    50    0    NN    design
+59    O    51    0    IN    from
+59    O    52    0    NNS    architects
+59    O    53    0    JJ    such
+59    O    54    0    IN    as
+59    ORGANIZATION    55    0    NNP    Le/Corbusier
+59    O    56    0    CC    and
+59    PERSON    57    0    NNP    Walter/Gropius
+59    O    58    0    .    .
+
+
+55 57 associatedWith
+55 5 influencedBy
+57 5 influencedBy
+
+
+
+
+60    O    0    0    DT    The
+60    O    1    0    VBG    burgeoning
+60    O    2    0    NN    modernism
+60    O    3    0    IN    of
+60    O    4    0    DT    the
+60    MISC    5    0    NNP    Bauhaus
+60    O    6    0    JJ    aesthetic
+60    O    7    0    VBD    existed
+60    O    8    0    RB    harmoniously
+60    O    9    0    IN    with
+60    O    10    0    DT    the
+60    O    11    0    JJ    streamlined
+60    PERSON    12    0    NNP    Art/Deco
+60    O    13    0    TO    to
+60    O    14    0    DT    an
+60    O    15    0    NN    extent
+60    O    16    0    IN    as
+60    O    17    0    DT    the
+60    O    18    0    JJ    chaise-lounge
+60    O    19    0    NN    chair
+60    O    20    0    IN    by
+60    ORGANIZATION    21    0    NNP    Le/Corbusier
+60    O    22    0    ,    ,
+60    PERSON    23    0    NNP    Pierre/Jeanneret
+60    O    24    0    ,    ,
+60    O    25    0    CC    and
+60    PERSON    26    0    NNP    Charlotte/Perriand
+60    O    27    0    IN    in
+60    O    28    0    JJ    chrome-plated
+60    O    29    0    JJ    tubular
+60    O    30    0    NN    steel
+60    O    31    0    VBN    covered
+60    O    32    0    IN    with
+60    O    33    0    NN    cowhide
+60    O    34    0    NN    upholstery
+60    O    35    0    VBZ    illustrates
+60    O    36    0    .    .
+
+
+5 12 associatedWith
+21 23 associatedWith
+21 26 associatedWith
+23 26 associatedWith
+21 5 influencedBy
+23 5 influencedBy
+26 5 influencedBy
+
+
+
+
+61    O    0    0    DT    The
+61    O    1    0    NN    disregard
+61    O    2    0    IN    for
+61    O    3    0    NN    cost
+61    O    4    0    CC    or
+61    O    5    0    NN    practicality
+61    O    6    0    IN    in
+61    O    7    0    DT    the
+61    O    8    0    NNS    materials
+61    O    9    0    CC    and
+61    O    10    0    DT    the
+61    O    11    0    JJ    opulent
+61    O    12    0    NNS    designs
+61    O    13    0    IN    of
+61    ORGANIZATION    14    0    NNP    Art/Deco
+61    O    15    0    NNS    ensembles
+61    O    16    0    RB    eventually
+61    O    17    0    VBD    led
+61    O    18    0    TO    to
+61    O    19    0    PRP$    its
+61    O    20    0    NN    demise
+61    O    21    0    ,    ,
+61    O    22    0    DT    an
+61    O    23    0    NN    end
+61    O    24    0    WDT    that
+61    O    25    0    VBD    was
+61    O    26    0    JJ    inescapable
+61    O    27    0    IN    with
+61    O    28    0    DT    the
+61    O    29    0    NN    beginning
+61    O    30    0    IN    of
+61    O    31    0    DT    the
+61    LOCATION    32    0    NNP    Great/Depression
+61    O    33    0    IN    in
+61    O    34    0    CD    1929
+61    O    35    0    CC    and
+61    O    36    0    VBG    escalating
+61    O    37    0    JJ    political
+61    O    38    0    NNS    tensions
+61    O    39    0    IN    throughout
+61    LOCATION    40    0    NNP    Europe
+61    O    41    0    IN    in
+61    O    42    0    DT    the
+61    O    43    0    NNS    1930s
+61    O    44    0    .    .
+
+
+14 32 influencedBy
+
+
+62    O    0    0    NN    \
+62    O    1    0    CD    \
+62    O    2    0    DT    The
+62    O    3    0    RBS    most
+62    O    4    0    JJ    triumphant
+62    O    5    0    JJ    crowning
+62    O    6    0    NNS    examples
+62    O    7    0    IN    of
+62    ORGANIZATION    8    0    NNP    Art/Deco
+62    O    9    0    NN    architecture
+62    O    10    0    VBP    are
+62    O    11    0    DT    the
+62    O    12    0    NNS    skyscrapers
+62    O    13    0    IN    in
+62    LOCATION    14    0    NNP    New/York/City
+62    O    15    0    ,    ,
+62    O    16    0    VBG    including
+62    O    17    0    DT    the
+62    ORGANIZATION    18    0    NNP    Chrysler/Building
+62    O    19    0    ,    ,
+62    O    20    0    CD    1927-30
+62    O    21    0    ,    ,
+62    O    22    0    CC    and
+62    O    23    0    DT    the
+62    ORGANIZATION    24    0    NNP    Empire/State/Building
+62    O    25    0    ,    ,
+62    O    26    0    CD    1929-31
+62    O    27    0    .    .
+
+
+18 8 influencedBy
+24 8 influencedBy
+18 14 locatedIn
+24 14 locatedIn
+
+
+63    O    0    0    JJ    Geometric
+63    O    1    0    CC    and
+63    O    2    0    VBD    stepped
+63    O    3    0    JJ    pyramidal
+63    O    4    0    NNS    forms
+63    O    5    0    IN    in
+63    O    6    0    DT    each
+63    O    7    0    VBP    evoke
+63    O    8    0    DT    the
+63    O    9    0    JJ    streamlined
+63    O    10    0    JJ    aesthetic
+63    O    11    0    IN    that
+63    O    12    0    VBD    prevailed
+63    O    13    0    IN    in
+63    O    14    0    DT    the
+63    O    15    0    JJ    preceding
+63    O    16    0    NN    period
+63    O    17    0    .    .
+
+
+64    O    0    0    DT    These
+64    O    1    0    VBP    serve
+64    O    2    0    IN    as
+64    O    3    0    DT    a
+64    O    4    0    JJ    dynamic
+64    O    5    0    NN    reminder
+64    O    6    0    IN    of
+64    O    7    0    DT    the
+64    LOCATION    8    0    NNP    Art/Deco
+64    O    9    0    ,    ,
+64    O    10    0    DT    the
+64    O    11    0    JJ    final
+64    O    12    0    NN    design
+64    O    13    0    NN    style
+64    O    14    0    IN    of
+64    O    15    0    DT    the
+64    O    16    0    JJ    twentieth-century
+64    O    17    0    DT    that
+64    O    18    0    VBD    was
+64    O    19    0    VBN    conceived
+64    O    20    0    IN    of
+64    O    21    0    IN    as
+64    O    22    0    DT    a
+64    O    23    0    JJ    complete
+64    O    24    0    CC    and
+64    O    25    0    JJ    all-encompassing
+64    O    26    0    NN    program
+64    O    27    0    VBG    uniting
+64    O    28    0    NN    architecture
+64    O    29    0    ,    ,
+64    O    30    0    NNS    arts
+64    O    31    0    ,    ,
+64    O    32    0    NN    clothing
+64    O    33    0    ,    ,
+64    O    34    0    NNS    graphics
+64    O    35    0    ,    ,
+64    O    36    0    CC    and
+64    O    37    0    DT    the
+64    O    38    0    VBN    applied
+64    O    39    0    NNS    arts
+64    O    40    0    .    .
+
+
+65    O    0    0    NN    \
+65    O    1    0    -RRB-    -RCB-
