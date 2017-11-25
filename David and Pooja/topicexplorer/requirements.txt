@@ -1,0 +1,13 @@
+bottle>=0.12
+numpy
+brewer2mpl>=1.4
+pystache>=0.5.4
+networkx
+wget>=2.1
+unidecode
+pdfminer
+pyenchant
+configparser
+matplotlib
+paste
+vsm
