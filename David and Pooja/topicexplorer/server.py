@@ -532,7 +532,7 @@ def get_host_port(args):
     """
     Returns the hostname and port number
     """
-    config = ConfigParser({'port': '8000', 'host': '0.0.0.0'})
+    config = ConfigParser({'port': '3001', 'host': '0.0.0.0'})
     with open(args.config, encoding='utf8') as configfile:
         config.read_file(configfile)
 
@@ -620,7 +620,7 @@ def create_app(args):
         'keyfile': None,
         'ca_certs': None,
         'ssl': False,
-        'port': '8000',
+        'port': '3001',
         'host': '0.0.0.0',
         'icons': 'link',
         'corpus_link': None,
