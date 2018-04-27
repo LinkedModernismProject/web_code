@@ -127,9 +127,9 @@
     <name>Linked Modernisms</name>
     <abbreviation>nt</abbreviation>
     <description>Limo</description>
-    <endpointURI>http://linkedmods.uvic.ca:8890/sparql</endpointURI>
+    <endpointURI>http://linkedmods.uvic.ca:80/sparql</endpointURI>
     <dontAppendSPARQL>true</dontAppendSPARQL>
-    <defaultGraphURI>http://localhost:8890/bestDataRelFinder</defaultGraphURI>
+    <defaultGraphURI>http://localhost:80/bestDataRelFinder</defaultGraphURI>
     <isVirtuoso>false</isVirtuoso>
     <useProxy>false</useProxy>
     <method>POST</method>
@@ -141,7 +141,7 @@
     <linkURIs>
       <linkURI>http://xmlns.com/foaf/0.1/page</linkURI>
     </linkURIs>
-    <maxRelationLength>3</maxRelationLength>
+    <maxRelationLength>6</maxRelationLength>
   </endpoint>
 
   </endpoints>

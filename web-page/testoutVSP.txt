@@ -1,0 +1,17 @@
+_s_po: dustinon
+_s_p_o: pred
+_sp_o: obj
+_usesLang: 
+_Afrikaans: 
+_Akan: 
+_Amharic: 
+_namer: namer1
+_q1_why: Applying for work~~~
+_Heating: Heating
+_Cooling: 
+_Plumbing: 
+_Wiring: Wiring
+_Carpentry: 
+_q3_state: NY
+_q4_comments: Commento!
+hellohellohellohellohellohellohellohellohellohello

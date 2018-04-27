@@ -68,7 +68,7 @@
       return false;
     }
   </script>
-
+  
 </head>
 
 <body>
@@ -107,7 +107,7 @@
 
 
 
-
+    
     <form id="fm" method="post" action="getData.vsp"> <!--onSubmit="return getData()">   -->
     <p>
     <fieldset>

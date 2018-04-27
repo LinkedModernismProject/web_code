@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <link rel="icon" type="image/png" href="img/LiMofavi.png">
+  <link rel="shortcut icon" type="image/x-icon" href="img/LiMofavi.ico">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- For some visualizations  -->
+  <script src="js/d3.min.js"></script>
+  <script src="js/highlight.min.js"></script>
+  <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+
+  <!-- Visualization Javascript -->
+  <script src="js/d3sparql.js"></script>
+  <script src="js/convertJSONtoFlare.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+
+
+  <!-- Script for interacting with database and visualizations -->
+  <script type="text/javascript">
+
+
+
+  //call table url process and visualization process for selected visualization
+  $(function() {
+    //$.removeCookie("query")
+
+    //retrieve cookie and send it off to fill results, visualizations, and previou searches tab
+    var cdata = $.cookie("query");
+    if(cdata != null || cdata != undefined){
+      //Function calls to populate for last search on page load
+      $.ajax({
+        type: "get",
+        url: constructURLStart(populateResults(cdata)),
+        context: document.body,
+        dataType: "html",
+        cache: false,
+        success: function(response){
+          $("#results").html(response);
+          $("table").addClass("table-hover");
+        }
+      });
+
+      //fills the last searches box
+      populatePrevious(cdata);
+    }
+
+    //calls ajax function when the search button is pressed
+    $(".btn-search").click(function(){
+      $("#tabA").removeClass("active");
+      $("#tabB").removeClass("active");
+      $("#tabC").addClass("active");
+      var query = $("#query").val();
+      createCookie(query);
+      sClick(query);
+      exec1(query);
+    });
+
+    $(".panel").on("click",".btn-prev",function(){
+      $("#tabB").removeClass("active");
+      $("#tabC").addClass("active");
+      var i = this.id;
+      var query = $("#queryNum" + i).text();
+      createCookie(query);
+      sClick(query);
+      exec1(query);
+    });
+
+  });
+
+  //currently useless
+  function filters(){
+    var query = $("#query").val();
+  }
+
+  //executed on search button click, this populates the results page
+  function sClick(query){
+    $.ajax({
+      type: "get",
+      url: constructURL(query),
+      context: document.body,
+      dataType: "html",
+      cache: false,
+      success: function(response){
+        $("#results").html(response);
+        $("table").addClass("table-hover");
+      }
+    });
+  }
+
+  //helps populate results table and execute default visualization (Force Directed)
+  function populateResults(cdata){
+    var ca = cdata.split(';');
+    var c = ca[0];
+    if (c.indexOf(name) == 0){
+      exec1(c.substring(name.length,c.length))
+      return c.substring(name.length,c.length);
+    }
+    return ("");
+  }
+
+  //populates the previous searches table
+  function populatePrevious(cdata){
+    var name = "query=";
+    var ca = cdata.split(';');
+    if($("#memory-box") != ""){
+      $("#memory-box").replaceWith('<span id="memory-box" class="memory-box"></span>');
+    }
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      if(i > 3){
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/>';
+      } else{
+        var prev = "<p id= 'queryNum" + i + "'>" + c + '</p>' + '<input data-toggle="tab" href="#sectionC"'  + 'id="' + i + '"' + 'value="Search this again" class="btn btn-primary btn-prev"' + '"/><br/><hr class="light"/>';
+      }
+      $(prev).appendTo("#memory-box");
+    }
+  }
+
+  //creates a cookie if none exist, appends search to the cookie if one does exist up to 5
+  function createCookie(query){
+    var currentTime = new Date();
+    var expiry = new Date(currentTime.getTime() + 28*24*60*60*1000);
+    var cdata = $.cookie("query");
+    if(typeof cdata === null || cdata === undefined || cdata === "") {
+      $.cookie("query",query, { expires: expiry});
+      var cdata = $.cookie("query");
+      populatePrevious(cdata);
+      return;
+    } else {
+      var preQuery = cdata.split(';');
+      var maxC = 0;
+      for(var i = preQuery.length; i > 0 ; i-- && maxC++) {
+        var c = preQuery[maxC];
+        query = query + ";" + c;
+        if(maxC > 2){ //For some reason 2 means 5, don't question it
+        $.cookie("query",query, { expires: expiry});
+        var cdata = $.cookie("query");
+        populatePrevious(cdata);
+        return;
+      }
+    }
+    $.cookie("query",query, { expires: expiry});
+    var cdata = $.cookie("query");
+    populatePrevious(cdata);
+  }
+  return;
+}
+
+
+// default-graph-uri=http://localhost:8890/may26&
+function constructURL(query){
+  var url = "http://dbpedia.org/sparql";
+  var queryURL = url + "?query=" + encodeURIComponent(query);
+  return queryURL;
+}
+
+//for filling by last search
+function constructURLStart(query){
+  var url = "http://dbpedia.org/sparql";
+  var queryURL = url + "?query=" + encodeURIComponent(query);
+  return queryURL;
+}
+
+//d3.select("#endpoint").property("value")
+function exec1(sparql) {
+  var endpoint = "http://dbpedia.org/sparql";
+  d3sparql.query(endpoint, sparql, render);
+}
+
+
+function render(json) {
+  // set options and call the d3xxxxx function in this library ...
+  // set all configs & name them
+
+  //put if clause for radio buttons here
+  var val = $("input[name='optradio']:checked").val();
+  if(val === "fd"){
+    var config = {
+      "radius": 20,
+      "charge": -30,
+      "distance": 100,
+      "width": window.innerWidth,
+      "height": 1000,
+      "selector": "#visualizations"
+    }
+    d3sparql.forcegraph(json, config);
+  } else if(val === "sb"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 150,
+      "selector": "#visualizations"
+    }
+    d3sparql.sunburst(json, config);
+  } else if(val === "cp"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 800,
+      "diameter": 700,
+      "selector": "#visualizations"
+    }
+    d3sparql.circlepack(json, config);
+  } else if(val === "wm"){
+    var config = {
+      "var_lat": "lat",
+      "var_lng": "lng",
+      "width": window.innerWidth,
+      "height": 480,
+      "radius": 5,
+      "color": "#55C25E",
+      "topojson": "data/world.json",
+      "selector": "#visualizations"
+    }
+    d3sparql.coordmap(json, config);
+  } else if(val === "ch"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 150,
+      "selector": "#visualizations"
+    }
+    d3sparql.piechart(json, config);
+  } else if(val === "sk"){
+    var config = {
+      "width": window.innerWidth,
+      "height": 900,
+      "margin": 10,
+      "selector": "#visualizations"
+    }
+    d3sparql.sankey(json, config);
+  }
+}
+
+</script>
+
+
+
+</head>
+<!-- I may yet find a use for this stuff
+
+<label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="sk">Sankey</label>
+
+-->
+<body id="page-top">
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top" onclick="">Linked Modernisms</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="page-scroll" href="#ontology">Ontology</a></li>
+          <li><a class="page-scroll" href="#about">About</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <hr class="light"></hr><br/>
+
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active" id="tabA" ><a data-toggle="tab" href="#sectionA" class="btn" role="button">Home</a></li>
+    <li id="tabB" ><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
+    <li id="tabC" ><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
+    <li id="tabD" ><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
+  </ul>
+
+
+  <section>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="sectionA">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="header-content">
+          <div class="header-content-inner">
+            <a><img src="img/LinkedModernismTNR.svg"></img></a>
+            <hr class="top">
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em> </p>
+
+
+            <noscript>
+              Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser or is disabled on this page, please switch to a browser that allows JavaScript or allow JavaScript on this page
+            </noscript>
+
+
+            <fieldset>
+              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10" placeholder="Ex: Argentinian Painters inspired by Da Vinci"></textarea>
+              <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+            </fieldset>
+
+
+            <!--   <label class="radio-inline"><input checked="checked" type="radio" name="optradio" value="fd">Force Directed</label>  -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="sb">Sunburst</label>                          -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="cp">Circle Pack</label                        -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="wm">World Map</label                          -->
+            <!--   <label class="radio-inline"><input type="radio" name="optradio" value="ch">Graphs</label>                            -->
+            <!--<label class="radio-inline"><input type="radio" name="optradio" value="den">Dendrogram</label>                          -->
+
+            <br/>
+            <h6>Select a visualization</h6>
+            <div class="vis-select">
+              <input id="fd" type="radio" checked="checked" name="optradio" value="fd" />
+              <label class="vis-s fd" for="fd"></label>
+              <input id="sb" type="radio" name="optradio" value="sb" />
+              <label class="vis-s sb"for="sb"></label>
+              <input id="cp" type="radio" name="optradio" value="cp" />
+              <label class="vis-s cp" for="cp"></label>
+              <input id="wm" type="radio" name="optradio" value="wm" />
+              <label class="vis-s wm"for="wm"></label>
+              <input id="ch" type="radio" name="optradio" value="ch" />
+              <label class="vis-s ch" for="ch"></label>
+              <input id="sk" type="radio" name="optradio" value="sk" />
+              <label class="vis-s sk"for="sk"></label>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="sectionB">
+        <br/>
+
+        <div class="col-md-8 col-small-8">
+
+          <div class="col-md-12 col-sm 1">
+            <h1>All Filters</h1>
+          </div>
+          <form>
+            <input type="text" id="sub-name" placeholder="Your search in SPARQL"></input>
+          </form>
+          <br/>
+          <div class="row">
+            <div class="form-group form-inline">
+              <div class="col-sm-3 col-md-3">
+                <select class="form-control" id="sel1">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-sm-3 col-md-3">
+                <select class="form-control" id="sel2">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-sm-3 col-md-3">
+                <select class="form-control" id="sel3">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="col-sm-3 col-md-3">
+                <select class="form-control" id="sel3">
+                  <option selected disabled>Choose one</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <br/>
+
+          <div class="row">
+            <div class="col-sm-3 col-md-3 col-md-offset-1">
+              <h3>Agent</h3>
+              <div class="form-group">
+                <div>
+                  <select class="form-control" id="selGender">
+                    <option selected disabled>Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="selSex">
+                    <option selected disabled>Sex</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <h3>Place</h3>
+              <div class="form-group">
+                <div>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+              <h3>Production</h3>
+              <div class="form-group">
+                <div>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <br/>
+                <div>
+                  <select class="form-control" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <br/><br/><br/>
+          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+        </div>
+
+
+        <div class="col-md-3 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h5 class="panel-title" >
+                Previous Searches
+              </h5>
+            </div>
+            <div class="panel-body">
+              <span class="memory-box" id="memory-box"></span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="tab-pane fade" id="sectionC">
+        <br/><br/><br/><br/><span id="results"></span>
+
+      </div>
+
+
+      <!-- Other ones I want
+      http://bl.ocks.org/dwtkns/4973620 -artifacts only
+      http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
+    -->
+    <div class="tab-pane fade" id="sectionD">
+      <br/>
+      <span id="visualizations"></span>
+
+      <br/>
+    </div>
+
+
+
+  </div>
+</section>
+
+<br/>
+
+<section id="ontology">
+  <br/>
+  <hr class="light"></hr>
+  <br/>
+  <h1>
+    The Modernism Ontology
+  </h1>
+  <br>
+  &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+  <p>&nbsp;&nbsp;&nbsp;
+    In the works of Gaiman, a predominant concept is the distinction between feminine and masculine. The subject is contextualised into a conceptualist narrative that includes language as a reality.
+    “Sexual identity is elitist,” says Bataille. But many desituationisms concerning Baudrillardist simulacra exist. Derrida’s critique of expressionism states that culture may be used to entrench the status quo, given that truth is distinct from reality.
+    However, an abundance of narratives concerning the common ground between art and sexual identity may be discovered. Foucault promotes the use of Marxist class to attack outdated perceptions of society.
+  </p>
+  <p>&nbsp;&nbsp;&nbsp;
+    In the works of Fellini, a predominant concept is the concept of subsemiotic language. Therefore, Bataille promotes the use of expressionism to challenge sexism. McElwaine[2] states that we have to choose between neotextual capitalist theory and capitalist libertarianism.
+    “Sexual identity is fundamentally meaningless,” says Sartre; however, according to Finnis[3] , it is not so much sexual identity that is fundamentally meaningless, but rather the meaninglessness, and some would say the fatal flaw, of sexual identity. But Baudrillardist simulacra implies that narrativity is used to disempower minorities, but only if the premise of expressionism is valid; otherwise, discourse must come from the masses. In Amarcord, Fellini affirms Baudrillardist simulacra; in Satyricon, however, he denies neotextual capitalist theory.
+  </p>
+</section>
+
+
+
+<section id="about">
+  <br/>
+  <hr class="light"></hr>
+  <br/><br/>
+  <h1>About The Project</h1><br/><br/><br/><br/><br/>
+
+  <div>
+    <p>&nbsp;&nbsp;&nbsp;
+      Building upon the Routledge Encyclopedia of Modernism (REM), Linked Modernisms will create an unprecedented resource for the study of global modernism. Its key objective is to enable the study of modernism as a truly global phenomenon. Linked Modernisms will make the world of modernist cultural production accessible to scholars by bringing Big Data methods to bear on a trans-disciplinary and trans-national body of scholarship. To this end, Linked Modernisms combines expertise in the fields of dance, film, literature, visual arts, architecture and design, performance, music, and intellectual currents with leading work on information ontologies, topic modeling, and faceted searching. With Linked Modernisms, a user will be able to explore global modernism in terms of characteristics or relationships instead of keywords. Instead of searching for entries that contain the terms Spanish, painter, and dancer, a scholar can search for all entries that are about Spanish painters who are dancers. The entries themselves need not contain the search terms, as long as the metadata does. Applied to the REM, this method will transform our understanding of global modernism and break new ground in computational modes of humanities inquiry: it will enhance what we know about global modernism by changing how we come to know it.</p>
+
+      <p>&nbsp;&nbsp;&nbsp;
+        Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
+      </p>
+
+      <p>&nbsp;&nbsp;&nbsp;
+        The Linked Modernisms project uses multiple fantastic libraries and combines them all together to form a greater whole with which to examine Modernism. We use d3.js, and d3sparql.js to help with our visualizations and back end interaction. Quepy and the virtuoso sponger to take your natural language searches and turn them into SPARQL. We also have Opensource Virtuoso as the backend of our project.
+      </p>
+
+    </div>
+
+
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://ghostprof.org">
+        <img class="portrait" src="img/Portraits/StephenRoss.jpeg" alt="...">
+        <h4>Dr. Stephen Ross</h4>
+        <p>Project Lead, UVic.</p>
+      </a>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href"http://www.jenterysayers.com/">
+        <img class="portrait" src="img/Portraits/JenterySayers.jpg" alt="...">
+        <h4>Jentery Sayers</h4>
+        <p>Director of the Maker Lab in the Humanities, UVic</p>
+      </a>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <img class="portrait" src="img/Portraits/SusanBrown.jpg" alt="...">
+      <h4>Susan Irene Brown</h4>
+      <p>Research Chair in Digital Humanities, University of Guelph.</p>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://www.indiana.edu/~hpscdept/people/allen.shtml">
+        <img class="portrait" src="img/Portraits/ColinAllen.jpg" alt="...">
+        <h4>Colin Allen</h4>
+        <p>Department of History and Philosophy of Science, Indiana University</p>
+      </a>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://web.uvic.ca/~siemens/">
+        <img class="portrait" src="img/Portraits/RaySiemens.jpg" alt="...">
+        <h4>Ray Siemens</h4>
+        <p>Canada Research Chair in Humanities Computing, UVic.</p>
+      </a>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://plato.acadiau.ca/courses/engl/saklofske/">
+        <img class="portrait" src="img/Portraits/JonSaklofske.jpg" alt="...">
+        <h4>Jon Saklofske</h4>
+        <p>Department of English, Acadia University.</p>
+      </a>
+    </div>
+    <div class="clearfix visible-lg-block"></div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+      <a href="http://www.uvic.ca/library/research/librarians/cwalde/index.php">
+        <img class="portrait" src="img/Portraits/ChristineWalde.jpg" alt="...">
+        <h4>Christine Walde</h4>
+        <p>Grants and Awards Librarian, UVic.</p>
+      </a>
+    </div>
+
+  </section>
+  <br/>
+  <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
+  <br/><br/>
+
+
+</body>
+</html>

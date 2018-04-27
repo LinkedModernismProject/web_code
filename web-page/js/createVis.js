@@ -2242,17 +2242,19 @@ function createVis(term, qry) {
   }
   console.log('in the createVis~~~~~~~~~~~~~~~~~~~~~~~~~~\n'+ qry);
   console.log(term);
-  if (term in preds) {
-    query = constructPred(term);
-  } else if (term.replace(/_/g, '') in preds) {
-    query = constructPred(term.replace(/_/g, ''));
-  } else if (term in subjs || term.replace(/_/g, ' ') in subjs) { //Don't need both cases cause either way should query with _'s
-    query = constructSubj(term);
-  } else { //Else it's a object which search by strings
-    query = constructObj(term.replace(/_/g, ' '));
-  }
+ //DM edits
+ // if (term in preds) {
+ //   query = constructPred(term);
+ // } else if (term.replace(/_/g, '') in preds) {
+ //   query = constructPred(term.replace(/_/g, ''));
+ // } else if (term in subjs || term.replace(/_/g, ' ') in subjs) { //Don't need both cases cause either way should query with _'s
+ //   query = constructSubj(term);
+ // } else { //Else it's a object which search by strings
+ //   query = constructObj(term.replace(/_/g, ' '));
+ // }
+  query = constructSubj(term);
   console.log(query);
-  var endpoint = "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
+  var endpoint = "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProductionDM&";
   populateResults(query);
   d3sparql.query(endpoint, query, render);
   console.log('before!!!!!!!!!!!********************************************************************');

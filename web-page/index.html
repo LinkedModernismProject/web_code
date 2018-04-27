@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
+ 
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
@@ -93,7 +93,6 @@
     '</div> \
     </div> </div>');
     jQuery('#notification').show().fadeOut(10000, function() {
-      console.log('notif!!!');
       jQuery('#notification').remove();
     });
   }
@@ -116,7 +115,6 @@
           $("table").addClass("table-hover");
         },
         error: function(err) {
-          console.log('in the error');
           notif_panel('No Data Received','Current search retrieved no data, please try another search; Or our site may be updating, and you may have to try again later.');
         }
       });
@@ -339,7 +337,7 @@
       var query = randQuery();
       else
       var query = constructQuery();
-      console.log(query);
+      console.log("The query is " + query);
       $("#tabSearch").removeClass("active");
       $("#tabVis").addClass("active");
       createCookie(query);
@@ -372,14 +370,14 @@
       //End of Testing
       innerText = innerText.replace(/\s/g,'_');
       var title = innerText + ' <a href="#" class="close" data-dismiss="alert">&times;</a>';
-      console.log(innerText);
       $(this).popover({
         html: 'true',
         title: title,
         container: 'body',
         placement: 'top auto',
-        content: ('<a target="_blank" href="https://google.ca#q=' + innerText + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
+        content: ('<a target="_blank" href="https://www.rem.routledge.com/search?searchString=' + innerText.replace('_','+') + '"><button>Search on REM</button></a>&nbsp;<a onClick="popoverClick(' + "'" + innerText + "'" + ')"><button>Search this term</button></a>')
       });
+      console.log("This is inner text!" + innerText)
     });
 
     $(document).on('click', '.popover .close', function(){
@@ -403,9 +401,7 @@
   });
 
   function popoverClick(term){
-    console.log(term);
     var query = constructQuery(term);
-    console.log('ACTUAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' + query);
     populateResults(query);
     createVis(term, query);
   }
@@ -430,7 +426,7 @@
         query += ' FILTER regex(str(?Subject), "' + subj_/*$("#subj").val()*/ + '", "i") .';
       }
       if($("#pred").val() != ""){
-        query += ' ?Subject limo:' + $("#pred").val() + ' ?Object .';
+        query += ` FILTER regex(str(?Predicate), "${$("#pred").val()}", "i") .`;
       }
       if($("#obj").val() != ""){
         query += ' FILTER regex(str(?Object), "^' + $("#obj").val() + '$", "i") .';
@@ -441,13 +437,12 @@
       query += ' FILTER regex(str(?Subject), "' + singleWord + '", "i") .';
     }
     query +=  '} ORDER BY ASC(?Subject)';
-    console.log(query);
+    console.log("The query is " + query);
     return query;
   }
 
   //executed on search button click, this populates the results page
   function populateResults(query){
-    console.log('in the populateResults~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' + query);
     $.ajax({
       type: "get",
       url: constructURL(query),
@@ -580,7 +575,7 @@
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
   function constructURL(query){
     //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
-    var url = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
+    var url = /*"http://dbpedia.org/sparql";*/  "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProductionDM&";
     var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
     $.cookie("currentSearch", query);
     return queryURL;
@@ -588,8 +583,7 @@
 
   //d3.select("#endpoint").property("value")
   function createVisualizations(sparql) {
-    console.log('in the createVisualizations~~~~~~~~~~~~~~~~~~~~~~~~~~\n'+ sparql);
-    var endpoint = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:8890/sparql?default-graph-uri=http://localhost:8890/bestDataProduction&";
+    var endpoint = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProductionDM&";
     d3sparql.query(endpoint, sparql, render);
   }
 
@@ -1675,24 +1669,6 @@ height: 1050
           <button class="btn btn-primary">New search with this term</button>
         </span>
       </div>
-      <!--Start of new feature, not implemented yet
-      <ul class="nav navbar-nav pull-right" id="visOptions" >
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog">&nbsp;</span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li><h3>Options</h3></li>
-            <li class="divider"></li>
-            <li><a href="#">Take Screenshot</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Do Other Thing</a></li>
-            <li class="divider"></li>
-            <li><h4>Muting</h4></li>
-            <li><input type="textarea" placeholder="Lorem Ipsum"></input></li>
-          </ul>
-        </li>
-      </ul>
-      End of new feature, not implemented yet-->
-
       <!--<div id="save-screen" class="btn btn-primary btn-top-right">Save as Image</div>-->
       <!--<span id="visualizations"></span>-->
       <!--   <canvas id="visualizations" height="1000" width="1000"></canvas> -->
@@ -1710,5 +1686,15 @@ height: 1050
 <footer id="footer">
   <a href="http://www.sshrc-crsh.gc.ca/" id="sshrc"><img src="img/sshrc/SSHRC_Colour-en.svg" style="display: inline; width: 98%;"></img></a>
 </footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72790016-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

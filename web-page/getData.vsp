@@ -12,9 +12,9 @@
     </style>
     <script>
       function getRequestData() {
-        console.log('in the getRequestData~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+        console.log('in the getRequestData~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');        
         //Redirects page to main page
-        //window.location.href = 'http://linkedmods.uvic.ca:8890/';
+        window.location.href = 'http://linkedmods.uvic.ca:8890/';
         console.log('afterreerer');
         return false;
       }

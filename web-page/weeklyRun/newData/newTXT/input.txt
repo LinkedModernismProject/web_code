@@ -1,0 +1,324 @@
+dustin1		changman		hasAlias
+dustin1		1234		hasBirthdate
+dustin1		5678		terminatesIn
+dustin1		Editor		typeOfPerson
+dustin1		Thinker		typeOfPerson
+dustin1		Heterosexual		hasSexuality
+dustin1		Male		hasGender
+dustin1		Male		hasSex
+dustin1		Asian		associatedWithEthnicity
+dustin1		English		usesPrimaryLanguage
+dustin1		English		usesLanguage
+dustin1		Japanese		usesLanguage
+dustin1		Abstract Art		influenced
+dustin1		Alan Turing		influenced
+dustin1		Abstract Art		influencedBy
+dustin1		Architecture		influencedBy
+dustin1		Alan Turing		createdBy
+dustin1		China		originatingCountry
+dustin1		Canada		associatedWithCountry
+dustin2		igneel		hasAlias
+dustin2		1234		hasBirthdate
+dustin2		9999		terminatesIn
+dustin2		Cartoonist		typeOfPerson
+dustin2		Heterosexual		hasSexuality
+dustin2		Male		hasGender
+dustin2		Male		hasSex
+dustin2		Dravidian		associatedWithEthnicity
+dustin2		Jin Yu Chinese		usesPrimaryLanguage
+dustin2		Mandarin Chinese		usesLanguage
+dustin2		Alan Turing		influenced
+dustin2		Group of Seven		influenced
+dustin2		White Savages Group		influencedBy
+dustin2		White Savages Group		influencedBy
+dustin2		Wang Meng		createdBy
+dustin2		China		originatingCountry
+dustin2		Japan		associatedWithCountry
+Marcel Duchamp		Rrose Selavy, Rose Selavy 		hasAlias
+Marcel Duchamp		1887		hasBirthdate
+Marcel Duchamp		1968		terminatesIn
+Marcel Duchamp		Visual Artist		typeOfPerson
+Marcel Duchamp		Heterosexual		hasSexuality
+Marcel Duchamp		Male		hasGender
+Marcel Duchamp		Male		hasSex
+Marcel Duchamp		French		associatedWithEthnicity
+Marcel Duchamp		English		usesLanguage
+Marcel Duchamp		French		usesLanguage
+Marcel Duchamp		1913 Armory Show		influenced
+Marcel Duchamp		Abstract Art		influenced
+Marcel Duchamp		Francis Picabia		influenced
+Marcel Duchamp		Hans/Jean Arp		influenced
+Marcel Duchamp		Jasper Johns		influenced
+Marcel Duchamp		Man Ray		influenced
+Marcel Duchamp		Max Ernst		influenced
+Marcel Duchamp		New York Dada		influenced
+Marcel Duchamp		Robert Rauschenberg		influenced
+Marcel Duchamp		Walter Arensberg		influenced
+Marcel Duchamp		1913 Armory Show		influencedBy
+Marcel Duchamp		Francis Picabia		influencedBy
+Marcel Duchamp		Hans/Jean Arp		influencedBy
+Marcel Duchamp		Man Ray		influencedBy
+Marcel Duchamp		Picasso		influencedBy
+Marcel Duchamp		Walter Arensberg		influencedBy
+Marcel Duchamp		1913 Armory Show		createdBy
+Marcel Duchamp		Brazil		associatedWithCountry
+Marcel Duchamp		France		associatedWithCountry
+Marcel Duchamp		Germany		associatedWithCountry
+Marcel Duchamp		Spain		associatedWithCountry
+Marcel Duchamp		United States of America		associatedWithCountry
+Joseph Conrad		Josef Konrad Korzeniowski		hasAlias
+Joseph Conrad		1857		hasBirthdate
+Joseph Conrad		1924		terminatesIn
+Joseph Conrad		Literary Artist		typeOfPerson
+Joseph Conrad		Writer		typeOfPerson
+Joseph Conrad		Letter Writer		typeOfPerson
+Joseph Conrad		Novelist		typeOfPerson
+Joseph Conrad		Story Writer		typeOfPerson
+Joseph Conrad		Thinker		typeOfPerson
+Joseph Conrad		Critic		typeOfPerson
+Joseph Conrad		Heterosexual		hasSexuality
+Joseph Conrad		Male		hasGender
+Joseph Conrad		Male		hasSex
+Joseph Conrad		Polish		associatedWithEthnicity
+Joseph Conrad		English		usesPrimaryLanguage
+Joseph Conrad		English		usesLanguage
+Joseph Conrad		French		usesLanguage
+Joseph Conrad		Polish		usesLanguage
+Joseph Conrad		Russian		usesLanguage
+Joseph Conrad		Alfred Döblin		influenced
+Joseph Conrad		Dorothy Richardson		influenced
+Joseph Conrad		Edith Sitwell		influenced
+Joseph Conrad		Fin de siècle		influenced
+Joseph Conrad		Henry Green		influenced
+Joseph Conrad		Impressionism		influenced
+Joseph Conrad		Interior Monologue		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		Jean Rhys		influenced
+Joseph Conrad		Jorge Luis Borges		influenced
+Joseph Conrad		José Martí		influenced
+Joseph Conrad		Literary Studies		influenced
+Joseph Conrad		New Criticism		influenced
+Joseph Conrad		Robert Graves		influenced
+Joseph Conrad		Rubén Darío		influenced
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Friedrich Nietzsche		influencedBy
+Joseph Conrad		Impressionism		influencedBy
+Joseph Conrad		Interior Monologue		influencedBy
+dustin1		changman		hasAlias
+dustin1		1234		hasBirthdate
+dustin1		5678		terminatesIn
+dustin1		Editor		typeOfPerson
+dustin1		Thinker		typeOfPerson
+dustin1		Heterosexual		hasSexuality
+dustin1		Male		hasGender
+dustin1		Male		hasSex
+dustin1		Asian		associatedWithEthnicity
+dustin1		English		usesPrimaryLanguage
+dustin1		English		usesLanguage
+dustin1		Japanese		usesLanguage
+dustin1		Abstract Art		influenced
+dustin1		Alan Turing		influenced
+dustin1		Abstract Art		influencedBy
+dustin1		Architecture		influencedBy
+dustin1		Alan Turing		createdBy
+dustin1		China		originatingCountry
+dustin1		Canada		associatedWithCountry
+dustin2		igneel		hasAlias
+dustin2		1234		hasBirthdate
+dustin2		9999		terminatesIn
+dustin2		Cartoonist		typeOfPerson
+dustin2		Heterosexual		hasSexuality
+dustin2		Male		hasGender
+dustin2		Male		hasSex
+dustin2		Dravidian		associatedWithEthnicity
+dustin2		Jin Yu Chinese		usesPrimaryLanguage
+dustin2		Mandarin Chinese		usesLanguage
+dustin2		Alan Turing		influenced
+dustin2		Group of Seven		influenced
+dustin2		White Savages Group		influencedBy
+dustin2		White Savages Group		influencedBy
+dustin2		Wang Meng		createdBy
+dustin2		China		originatingCountry
+dustin2		Japan		associatedWithCountry
+Marcel Duchamp		Rrose Selavy, Rose Selavy 		hasAlias
+Marcel Duchamp		1887		hasBirthdate
+Marcel Duchamp		1968		terminatesIn
+Marcel Duchamp		Visual Artist		typeOfPerson
+Marcel Duchamp		Heterosexual		hasSexuality
+Marcel Duchamp		Male		hasGender
+Marcel Duchamp		Male		hasSex
+Marcel Duchamp		French		associatedWithEthnicity
+Marcel Duchamp		English		usesLanguage
+Marcel Duchamp		French		usesLanguage
+Marcel Duchamp		1913 Armory Show		influenced
+Marcel Duchamp		Abstract Art		influenced
+Marcel Duchamp		Francis Picabia		influenced
+Marcel Duchamp		Hans/Jean Arp		influenced
+Marcel Duchamp		Jasper Johns		influenced
+Marcel Duchamp		Man Ray		influenced
+Marcel Duchamp		Max Ernst		influenced
+Marcel Duchamp		New York Dada		influenced
+Marcel Duchamp		Robert Rauschenberg		influenced
+Marcel Duchamp		Walter Arensberg		influenced
+Marcel Duchamp		1913 Armory Show		influencedBy
+Marcel Duchamp		Francis Picabia		influencedBy
+Marcel Duchamp		Hans/Jean Arp		influencedBy
+Marcel Duchamp		Man Ray		influencedBy
+Marcel Duchamp		Picasso		influencedBy
+Marcel Duchamp		Walter Arensberg		influencedBy
+Marcel Duchamp		1913 Armory Show		createdBy
+Marcel Duchamp		Brazil		associatedWithCountry
+Marcel Duchamp		France		associatedWithCountry
+Marcel Duchamp		Germany		associatedWithCountry
+Marcel Duchamp		Spain		associatedWithCountry
+Marcel Duchamp		United States of America		associatedWithCountry
+Joseph Conrad		Josef Konrad Korzeniowski		hasAlias
+Joseph Conrad		1857		hasBirthdate
+Joseph Conrad		1924		terminatesIn
+Joseph Conrad		Literary Artist		typeOfPerson
+Joseph Conrad		Writer		typeOfPerson
+Joseph Conrad		Letter Writer		typeOfPerson
+Joseph Conrad		Novelist		typeOfPerson
+Joseph Conrad		Story Writer		typeOfPerson
+Joseph Conrad		Thinker		typeOfPerson
+Joseph Conrad		Critic		typeOfPerson
+Joseph Conrad		Heterosexual		hasSexuality
+Joseph Conrad		Male		hasGender
+Joseph Conrad		Male		hasSex
+Joseph Conrad		Polish		associatedWithEthnicity
+Joseph Conrad		English		usesPrimaryLanguage
+Joseph Conrad		English		usesLanguage
+Joseph Conrad		French		usesLanguage
+Joseph Conrad		Polish		usesLanguage
+Joseph Conrad		Russian		usesLanguage
+Joseph Conrad		Alfred Döblin		influenced
+Joseph Conrad		Dorothy Richardson		influenced
+Joseph Conrad		Edith Sitwell		influenced
+Joseph Conrad		Fin de siècle		influenced
+Joseph Conrad		Henry Green		influenced
+Joseph Conrad		Impressionism		influenced
+Joseph Conrad		Interior Monologue		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		Jean Rhys		influenced
+Joseph Conrad		Jorge Luis Borges		influenced
+Joseph Conrad		José Martí		influenced
+Joseph Conrad		Literary Studies		influenced
+Joseph Conrad		New Criticism		influenced
+Joseph Conrad		Robert Graves		influenced
+Joseph Conrad		Rubén Darío		influenced
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Friedrich Nietzsche		influencedBy
+Joseph Conrad		Impressionism		influencedBy
+Joseph Conrad		Interior Monologue		influencedBy
+dustin1		changman		hasAlias
+dustin1		1234		hasBirthdate
+dustin1		5678		terminatesIn
+dustin1		Editor		typeOfPerson
+dustin1		Thinker		typeOfPerson
+dustin1		Heterosexual		hasSexuality
+dustin1		Male		hasGender
+dustin1		Male		hasSex
+dustin1		Asian		associatedWithEthnicity
+dustin1		English		usesPrimaryLanguage
+dustin1		English		usesLanguage
+dustin1		Japanese		usesLanguage
+dustin1		Abstract Art		influenced
+dustin1		Alan Turing		influenced
+dustin1		Abstract Art		influencedBy
+dustin1		Architecture		influencedBy
+dustin1		Alan Turing		createdBy
+dustin1		China		originatingCountry
+dustin1		Canada		associatedWithCountry
+dustin2		igneel		hasAlias
+dustin2		1234		hasBirthdate
+dustin2		9999		terminatesIn
+dustin2		Cartoonist		typeOfPerson
+dustin2		Heterosexual		hasSexuality
+dustin2		Male		hasGender
+dustin2		Male		hasSex
+dustin2		Dravidian		associatedWithEthnicity
+dustin2		Jin Yu Chinese		usesPrimaryLanguage
+dustin2		Mandarin Chinese		usesLanguage
+dustin2		Alan Turing		influenced
+dustin2		Group of Seven		influenced
+dustin2		White Savages Group		influencedBy
+dustin2		White Savages Group		influencedBy
+dustin2		Wang Meng		createdBy
+dustin2		China		originatingCountry
+dustin2		Japan		associatedWithCountry
+Marcel Duchamp		Rrose Selavy, Rose Selavy 		hasAlias
+Marcel Duchamp		1887		hasBirthdate
+Marcel Duchamp		1968		terminatesIn
+Marcel Duchamp		Visual Artist		typeOfPerson
+Marcel Duchamp		Heterosexual		hasSexuality
+Marcel Duchamp		Male		hasGender
+Marcel Duchamp		Male		hasSex
+Marcel Duchamp		French		associatedWithEthnicity
+Marcel Duchamp		English		usesLanguage
+Marcel Duchamp		French		usesLanguage
+Marcel Duchamp		1913 Armory Show		influenced
+Marcel Duchamp		Abstract Art		influenced
+Marcel Duchamp		Francis Picabia		influenced
+Marcel Duchamp		Hans/Jean Arp		influenced
+Marcel Duchamp		Jasper Johns		influenced
+Marcel Duchamp		Man Ray		influenced
+Marcel Duchamp		Max Ernst		influenced
+Marcel Duchamp		New York Dada		influenced
+Marcel Duchamp		Robert Rauschenberg		influenced
+Marcel Duchamp		Walter Arensberg		influenced
+Marcel Duchamp		1913 Armory Show		influencedBy
+Marcel Duchamp		Francis Picabia		influencedBy
+Marcel Duchamp		Hans/Jean Arp		influencedBy
+Marcel Duchamp		Man Ray		influencedBy
+Marcel Duchamp		Picasso		influencedBy
+Marcel Duchamp		Walter Arensberg		influencedBy
+Marcel Duchamp		1913 Armory Show		createdBy
+Marcel Duchamp		Brazil		associatedWithCountry
+Marcel Duchamp		France		associatedWithCountry
+Marcel Duchamp		Germany		associatedWithCountry
+Marcel Duchamp		Spain		associatedWithCountry
+Marcel Duchamp		United States of America		associatedWithCountry
+Joseph Conrad		Josef Konrad Korzeniowski		hasAlias
+Joseph Conrad		1857		hasBirthdate
+Joseph Conrad		1924		terminatesIn
+Joseph Conrad		Literary Artist		typeOfPerson
+Joseph Conrad		Writer		typeOfPerson
+Joseph Conrad		Letter Writer		typeOfPerson
+Joseph Conrad		Novelist		typeOfPerson
+Joseph Conrad		Story Writer		typeOfPerson
+Joseph Conrad		Thinker		typeOfPerson
+Joseph Conrad		Critic		typeOfPerson
+Joseph Conrad		Heterosexual		hasSexuality
+Joseph Conrad		Male		hasGender
+Joseph Conrad		Male		hasSex
+Joseph Conrad		Polish		associatedWithEthnicity
+Joseph Conrad		English		usesPrimaryLanguage
+Joseph Conrad		English		usesLanguage
+Joseph Conrad		French		usesLanguage
+Joseph Conrad		Polish		usesLanguage
+Joseph Conrad		Russian		usesLanguage
+Joseph Conrad		Alfred Döblin		influenced
+Joseph Conrad		Dorothy Richardson		influenced
+Joseph Conrad		Edith Sitwell		influenced
+Joseph Conrad		Fin de siècle		influenced
+Joseph Conrad		Henry Green		influenced
+Joseph Conrad		Impressionism		influenced
+Joseph Conrad		Interior Monologue		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		James Joyce		influenced
+Joseph Conrad		Jean Rhys		influenced
+Joseph Conrad		Jorge Luis Borges		influenced
+Joseph Conrad		José Martí		influenced
+Joseph Conrad		Literary Studies		influenced
+Joseph Conrad		New Criticism		influenced
+Joseph Conrad		Robert Graves		influenced
+Joseph Conrad		Rubén Darío		influenced
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Arnold Bennett		influencedBy
+Joseph Conrad		Friedrich Nietzsche		influencedBy
+Joseph Conrad		Impressionism		influencedBy
+Joseph Conrad		Interior Monologue		influencedBy

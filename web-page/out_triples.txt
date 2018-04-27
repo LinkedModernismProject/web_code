@@ -1,0 +1,48 @@
+Subject: Alan Turing
+	Predicate: creatorOf
+	Object: Turing states
+Subject: Alan Turing
+	Predicate: hasAlias
+	Object: Grover
+Subject: Dada - Paris
+	Predicate: flourishesIn
+	Object: 1919
+Subject: Joseph Conrad
+	Predicate: originatingCountry
+	Object: Poland
+Subject: Claude McKay
+	Predicate: 
+	Object: 
+Subject: Claude Cahun
+	Predicate: originatingCountry
+	Object: 
+Subject: Claude Cahun
+	Predicate: 
+	Object: 
+Subject: TestSub
+	Predicate: TestPred
+	Object: TestObj
+Subject: TestSub
+	Predicate: TestPred
+	Object: TestObj
+Subject: TestSub
+	Predicate: TestPred
+	Object: TestObj
+Subject: testSub
+	Predicate: testPred
+	Object: testObj
+Subject: testSub
+	Predicate: testPred
+	Object: testObj
+Subject: testSub
+	Predicate: testPred
+	Object: testObj
+Subject: testSub
+	Predicate: testPred
+	Object: testObj
+Subject: testSub
+	Predicate: testPred
+	Object: testObj
+Subject: Claude McKay
+	Predicate: correspondedWith
+	Object: A Little Boy in Search of God: Mysticism in a Personal Light, 1976

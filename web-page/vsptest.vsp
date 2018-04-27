@@ -1,0 +1,21 @@
+<HTML>
+  <HEAD>
+    <TITLE>Simple FORM demo</TITLE>
+  </HEAD>
+  <BODY>
+  <P>Last value sent:
+
+  <?vsp
+    //http(get_keyword('myInput', params, 'no value'));
+    print hello world
+   ?>
+
+</P>
+
+  <FORM METHOD="POST" ACTION="vsptest.vsp">
+    <P>Test form, type some info and click Submit</P>
+    <INPUT TYPE="TEXT" NAME="myInput" />
+    <INPUT TYPE="SUBMIT" NAME="submit" VALUE="Submit" />
+  </FORM>
+  </BODY>
+</HTML>

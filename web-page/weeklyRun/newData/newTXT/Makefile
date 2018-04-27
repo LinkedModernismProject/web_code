@@ -1,0 +1,9 @@
+all: sh
+
+sh: update_search update_relfinder
+
+update_search: batch_add_data.sh
+	./batch_add_data.sh
+
+update_relfinder: batch_add_data_RelFinder.sh
+	./batch_add_data_RelFinder.sh

@@ -1,0 +1,94 @@
+{
+	"name": "s, p, o",
+	"children": [{
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default-iid",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nullable",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nonblank",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default-iid-nonblank-nullable",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#default-nullable",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-nullable",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-dt",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}, {
+		"name": "http://www.openlinksw.com/virtrdf-data-formats#sql-varchar-dt-nullable",
+		"children": [{
+			"name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+			"children": [{
+				"name": "http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat",
+				"size": 1000
+			}]
+		}]
+	}]
+}

@@ -1,0 +1,3 @@
+Subject: Alan Turing
+	Predicate: creatorOf
+	Object: Turing states

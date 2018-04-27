@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linked Modernisms is a web based visualization and analysis portal for The Routledge Encyclopedia of Modernism.">
+  <meta name="author" content="barthur">
+
+  <title>Linked Modernisms</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- For some visualizations  -->
+  <script src="js/d3.min.js"></script>
+  <script src="js/highlight.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/creative.js"></script>
+
+
+</head>
+<!-- I may yet find a use for this stuff
+<div id="center-container">
+<div id="infovis"></div>
+</div>
+
+<div id="log"></div>
+
+
+
+
+<input type="text" name="default-graph-uri" id="default-graph-uri" value="http://dbpedia.org/sparql" size="80"/>
+<br/>
+<select name="should-sponge" id="should-sponge">  <option selected="selected" value="">Use only local data (including data retrieved before), but do not retrieve more</option>
+<option value="soft">Retrieve remote RDF data for all missing source graphs</option>
+<option value="grab-all">Retrieve all missing remote RDF data that might be useful</option>
+<option value="grab-all-seealso">Retrieve all missing remote RDF data that might be useful, including seeAlso references</option>
+<option value="grab-everything">Try to download all referenced resources (this may be very slow and inefficient)</option>
+</select>
+<br/>
+<input name="query" id="query" type="textarea" value="select distinct ?Concept where {[] a ?Concept} LIMIT 100"  onchange="format_select(this)" onkeyup="format_select(this)">
+<a data-toggle="tab" role="button" href="#sectionC" class="btn btn-primary btn-xl">Search</a>
+<br>
+<label for="format" class="n">Display Results As:</label>
+<select name="format">
+<option value="auto">Auto</option>
+<option value="text/html" selected="selected">HTML</option>
+<option value="application/vnd.ms-excel">Spreadsheet</option>
+<option value="application/sparql-results+xml">XML</option>
+<option value="application/sparql-results+json">JSON</option>
+<option value="application/javascript">Javascript</option>
+<option value="text/plain">NTriples</option>
+<option value="application/rdf+xml">RDF/XML</option>
+</select>
+
+
+<select name="format" id="format" onchange="format_change(this)">
+<option value="auto" >Auto</option>
+<option value="text/html" selected="selected">HTML</option>
+<option value="application/vnd.ms-excel" >Spreadsheet</option>
+<option value="application/sparql-results+xml" >XML</option>
+<option value="application/sparql-results+json" >JSON</option>
+<option value="application/javascript" >Javascript</option>
+<option value="text/plain" >NTriples</option>
+<option value="application/rdf+xml" >RDF/XML</option>
+<option value="text/csv">CSV</option>
+</select>
+<br /><br />
+<br />
+<label for="format" class="n">Results Format</label>
+
+
+action="http://dbpedia.org/sparql" method="post"
+
+
+$("searcher").click(function{
+$get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#",
+cache: false,
+success: function(html){
+$("#useless").append(html);
+}
+});
+
+$("#searcher").click(function(){
+$.get("http://dbpedia.org/sparql?query=select+*+where+{+%3Fs+%3Fp+%3Fo+}+limit+10#", function(data, status){
+alert("Data: " + data + "\nStatus: " + status);
+});
+});
+$("#useless").text(searchData)
+
+$(document).ready(function() {
+console.log( "document loaded" );
+});
+
+
+<form>
+<fieldset>
+<input type="textarea" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" value="select * where { ?s ?p ?o } limit 10"></textarea>
+<input id="searcher" type="submit" value="Search" class="btn btn-primary btn-xl"/>
+</fieldset>
+</form>
+
+
+<table class="table-hover" id="results">
+<thead>
+<tr>
+<th>Subject</th>
+<th>Predicate</th>
+<th>Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bruges</td>
+<td>Is a City</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Communist Manifesto</td>
+<td>Is a Manifesto</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Gilbert Gottfried</td>
+<td>Has Sexuality</td>
+<td>Heterosexual</td>
+</tr>
+</tbody>
+</table>
+
+-->
+<body id="page-top">
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top" onclick="">Linked Modernisms</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="page-scroll" href="#ontology">Ontology</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#about">About</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <hr class="light"></hr><br/>
+
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a data-toggle="tab" href="#sectionA" class="btn" role="button">Search</a></li>
+    <li><a data-toggle="tab" href="#sectionB" class="btn" role="button">Filters</a></li>
+    <li><a data-toggle="tab" href="#sectionC" class="btn" role="button">Results</a></li>
+    <li><a data-toggle="tab" href="#sectionD" class="btn" role="button">Visualizations</a></li>
+  </ul>
+
+
+  <section>
+    <div class="tab-content">
+
+
+
+      <div class="tab-pane fade in active" id="sectionA">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="header-content">
+          <div class="header-content-inner">
+            <h1>Linked Modernisms</h1>
+            <hr class="top">
+            <p>Linked Modernisms is a web based visualization and analysis portal <br>for <em>The Routledge Encyclopedia of Modernism.</em></p>
+            <noscript>
+              Linked Modernism uses a lot of JavaScript, it turns out that Javascript isn't available on this browser, please switch to a browser that allows JavaScript or allow JavaScript on this page
+            </noscript>
+
+
+            <script type="text/javascript">
+
+            $(function() {
+              $(".btn-search").click(function(){
+                $.ajax({
+                  type: "POST",
+                  url: constructURL(),
+                  context: document.body,
+                  dataType: "html",
+                  cache: false,
+                  success: function(response){
+                    $("#results").html(response);
+                  }
+                });
+              });
+
+              function constructURL(){
+                var url = "http://localhost:8890/sparql";
+                var query = $("#query").val();
+                var queryURL = encodeURI(url + "?default-graph-uri=http://localhost:8890/may26&query=" + query);
+                 
+                //WORKS var queryURL = encodeURI(url + "?default-graph-uri=")+encodeURIComponent("http://localhost:8890/may26") + encodeURI("&query=" + query);
+                console.log(queryURL);
+                return queryURL;
+              };
+            });
+
+
+
+            </script>
+
+
+            <fieldset>
+              <input type="textarea" name="query" id="query" value="select * where { ?s ?p ?o } limit 10"></textarea>
+              <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+            </fieldset>
+            <br/> 
+            <label class="radio-inline"><input type="radio" name="optradio">Force Directed</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Stepwise</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Venn Diagram</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="tab-pane fade" id="sectionB">
+        <br/>
+        <button class="btn btn-xl btn-primary">show uri information</button>
+        <button class="btn btn-xl btn-primary">I'm button B</button>
+        <button class="btn btn-xl btn-primary">I'm button C</button>
+        <button class="btn btn-xl btn-primary">I'm button D</button>
+        <br/>&nbsp;
+        <input type="textarea" placeholder="Enter your query in SPARQL"></input>
+        <br/>&nbsp;
+        <select name="template" id="template" onchange="template_insert()">
+          <option value="">-- Template --</option>
+          <option value="
+          SELECT DISTINCT ?s ?p ?o
+          WHERE
+          {
+            ?s ?p ?o .
+          }">Select</option>
+
+          <option value="
+          CONSTRUCT
+          {
+            ?s ?p ?o .
+          }
+          WHERE
+          {
+            ?s ?p ?o .
+          }">Construct</option>
+          <option value="
+          ASK WHERE
+          {
+            ?s ?p ?o .
+          }">Ask</option>
+          <option value="CONSTRUCT { ?thing rdfs:type ?type;
+            foaf:name ?name;
+            geo:geometry ?geo .}
+            WHERE     {	?thing a ?type;
+              foaf:name ?name;
+              geo:geometry ?geo .
+              FILTER (bif:st_intersects (?geo, bif:st_point (__P_LAT__,__P_LON__), 200))
+            }
+            ">Proximity query</option>
+          </select>
+          <br/>&nbsp;
+          <br/>&nbsp;
+          <label for="format" class="n">Change default URI</label>
+          <input data-toggle="tab" href="#sectionC" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+
+        </div>
+
+
+
+
+
+        <div class="tab-pane fade" id="sectionC">
+          <br/><br/><br/><br/><span id="results"/>
+
+        </div>
+
+
+        <!-- Other ones I want
+        http://bl.ocks.org/dwtkns/4973620 -artifacts only
+        http://blog.cartodb.com/cartodb-makes-d3-maps-a-breeze/ for artifacts
+      -->
+      <div class="tab-pane fade" id="sectionD">
+        <br/>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="forcedirected.html"><button id="fd-button"></button></a>
+            <div class="caption">
+              <p>Force Directed graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a href="zoomcircle.html"><button id="zc-button"></button></a>
+            <div class="caption">
+              <p>Zoom Circle graph</p>
+            </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <br/>
+
+  <section id="ontology">
+    <br/>
+    <hr class="light"></hr>
+    <br/>
+    <h1>
+      The Modernism Ontology
+    </h1>
+    <br>
+    &nbsp;&nbsp;<iframe src="ontology.html" marginwidth="1" marginheight="1" scrolling="no"></iframe>
+    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </section>
+
+
+
+
+  <section id="about">
+    <br/>
+    <hr class="light"></hr>
+    <br/><br/>
+    <h1>About The Project</h1><br/><br/><br/><br/><br/>
+    <div>
+      <p>&nbsp;&nbsp;&nbsp;
+        Linked Modernisms will allow us to move beyond simply asserting modernism’s global dimensions to demonstrating it concretely, showing the vectors by which modernist memes, techniques, themes, approaches, materials, and ideas traveled and retraveled the world. Because the knowledge-base upon which Linked Modernisms is built takes in modernism in all its modes, and because our data-gathering efforts aim to be as comprehensive as possible, Linked Modernisms will become a crucial scholarly resource for the study global modernism.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
+            <p>Project Lead</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
+            <p>He is the batman.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
+            <p>He is the batman.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
+            <p>He is the batman.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2">
+        <div class="thumbnail">
+          <img src="img/ghostprof.jpeg" alt="...">
+          <div class="caption">
+            <h4>Dr. Stephen Ross</h4>
+            <p>He is the batman.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+</body>
+</html>

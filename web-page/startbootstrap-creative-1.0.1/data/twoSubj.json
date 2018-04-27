@@ -1,0 +1,14 @@
+{
+    "name": "flare",
+    "children": [{
+        "name": "analytics",
+        "children": [{
+        /}/]
+    }, {
+        "name": "animate",
+        "children": [{
+        /}/]
+    }]
+}
+
+

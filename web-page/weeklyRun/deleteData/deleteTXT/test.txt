@@ -1,0 +1,5 @@
+Stephen_Ross		Play FreeBird		atConcerts
+Stephen_Ross		Person		type
+Stephen Ross		Canada		associatedWithCountry
+Stephen Ross		Scotch		drinks
+Stephen Ross		male		hasSex

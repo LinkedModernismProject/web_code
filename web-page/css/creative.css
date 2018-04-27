@@ -823,7 +823,7 @@ body {
 }
 
 .portrait {
-    display:inline-flex;
+    display:inline-grid;
     width:  80%;
     height: auto;
     position: fixed;

@@ -1,0 +1,136 @@
+{ "name": "Thing",
+  "children": [
+  { "name": "Agent",
+    "children": [
+      { "name": "Group Or Movement",
+        "children": [
+            {"name": "Group", "size": 500},
+            {"name": "Movement", "size": 500}
+          ]},
+      { "name": "Person",
+        "children": [
+        { "name": "Actor", "size": 500},
+        { "name": "Architect", "size": 500},
+        { "name": "Biographer", "size": 500},
+        { "name": "Choreographer", "size": 500},
+        { "name": "Collector", "size": 500},
+        { "name": "Critic", "size": 500},
+        { "name": "Dancer", "size": 500},
+        { "name": "Designer", "size": 500},
+        { "name": "Director", "size": 500},
+        { "name": "Historian", "size": 500},
+        { "name": "Impresario", "size": 500},
+        { "name": "Musician", "size": 500},
+        { "name": "Painter", "size": 500},
+        { "name": "Patron", "size": 500},
+        { "name": "Performer", "size": 500},
+        { "name": "Playwright", "size": 500},
+        { "name": "Political Figure", "size": 500},
+        { "name": "Radio Performer", "size": 500},
+        { "name": "Radio Writer", "size": 500},
+        { "name": "Screenwriter", "size": 500},
+        { "name": "Sculptor", "size": 500},
+        { "name": "Singer", "size": 500},
+        { "name": "Television Performer", "size": 500},
+        { "name": "Television Writer", "size": 500},
+        { "name": "Thinker", "size": 500},
+        { "name": "Typographer", "size": 500},
+        { "name": "Writer",
+          "children": [
+            { "name": "Novelist", "size": 500},
+            { "name": "Poet", "size": 500},
+            { "name": "Story Writer", "size": 500}
+            ]}
+        ]}
+      ]},
+  { "name": "Place",
+    "children": [
+    { "name": "City", "size": 500},
+    { "name": "Country", "size": 500},
+    { "name": "Empire", "size": 500},
+    { "name": "Region", "size": 500},
+    { "name": "Venue", "size": 500}
+    ]},
+  { "name": "Production",
+    "children": [
+      { "name": "Artifact",
+        "children": [
+          { "name": "Literature",
+            "children": [
+              { "name": "Drama", "size": 500},
+              { "name": "Poetry", "size": 500},
+              { "name": "Prose",
+                "children": [
+                  { "name": "Novel", "size": 500},
+                  { "name": "Short Story", "size": 500}
+                ]}
+            ]},
+          { "name": "Music",
+            "children": [
+              {"name": "Classical", "size": 500},
+              {"name": "Experimental", "size": 500},
+              {"name": "Popular Music", "size": 500}
+            ]},
+          { "name": "NonFiction",
+            "children": [
+              { "name": "Anthropology", "size": 500},
+              { "name": "AutoBiography", "size": 500},
+              { "name": "Criticism", "size": 500},
+              { "name": "Ethnography", "size": 500},
+              { "name": "History", "size": 500},
+              { "name": "Manifesto", "size": 500},
+              { "name": "Philosophy", "size": 500},
+              { "name": "Political Tract", "size": 500},
+              { "name": "Religious Study", "size": 500},
+              { "name": "Theory", "size": 500}
+            ]},
+          { "name": "Performing Arts",
+            "children": [
+              {"name": "Dance", "size": 500},
+              {"name": "Magic", "size": 500},
+              {"name": "Opera", "size": 500},
+              {"name": "Recital Reading", "size": 500},
+              {"name": "Theatre", "size": 500},
+              {"name": "Vaudeville Music Hall", "size": 500}
+            ]},
+          { "name": "Visual Arts",
+            "children": [
+              {"name": "Architecture", "size": 500},
+              {"name": "Design", "size": 500},
+              {"name": "Drawing", "size": 500},
+              {"name": "Film", "size": 500},
+              {"name": "Object", "size": 500},
+              {"name": "Painting", "size": 500},
+              {"name": "Photography", "size": 500},
+              {"name": "Print Making", "size": 500},
+              {"name": "Sculpture", "size": 500},
+              {"name": "Textiles", "size": 500},
+              {"name": "Typography", "size": 500},
+              {"name": "Visual Installation", "size": 500}
+            ]}
+      ]},
+      { "name": "Concept",
+        "children": [
+          { "name": "Concept Other", "size": 500},
+          { "name": "Idea", "size": 500},
+          { "name": "Method", "size": 500},
+          { "name": "Style", "size": 500},
+          { "name": "Technique", "size": 500}
+      ]},
+      { "name": "Event",
+        "children": [
+          { "name": "Collection", "size": 500},
+          { "name": "Event Other", "size": 500},
+          { "name": "Exhibit", "size": 500},
+          { "name": "Installation", "size": 500},
+          { "name": "Performance", "size": 500},
+          { "name": "Political Happening", "size": 500},
+          { "name": "Reading", "size": 500},
+          { "name": "Revolution", "size": 500},
+          { "name": "Riot", "size": 500},
+          { "name": "Sporting Event", "size": 500},
+          { "name": "War", "size": 500},
+          { "name": "World Fair", "size": 500}
+      ]}
+    ]}
+]}

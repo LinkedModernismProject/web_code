@@ -1,0 +1,10 @@
+@prefix pref0: <http://modernism.uvic.ca/metadata#> .
+@prefix pref1: <http://localhost:8890/limo#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://modernism.uvic.ca/metadata#Jean_Rhys>
+	pref1:associatedWithLiterature "prose" ;
+	rdf:type "Person" ;
+	pref1:typeOfPerson "novelist" ;
+	pref1:typeOfPerson "story writer" ;
+	pref1:typeOfPerson "performer" .

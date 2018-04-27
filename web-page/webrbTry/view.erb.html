@@ -1,0 +1,11 @@
+<html>
+<body>
+	
+
+<h1>Text to PDF </h1>
+<% form_tag :action => 'parse_comments' do %>
+    <%= text_area :myform, :comments, :cols => '40', :rows => '5' %>
+    <%= submit_tag "Submit" %>
+<% end %>
+</body>
+</html>

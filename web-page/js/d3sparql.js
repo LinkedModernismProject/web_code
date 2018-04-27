@@ -55,7 +55,7 @@ WHERE { ... }
 */
 
 d3sparql.query = function(endpoint, sparql, callback) {
-    var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:8890/limo#> ";
+    var prefix = "PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> PREFIX limo: <http://localhost:80/limo#> ";
     //Add a ? infront of query to run on local dbpedia and comment out the prefix part
     var url = endpoint + "query=" + encodeURIComponent(prefix) + encodeURIComponent(sparql + ' LIMIT 50') + '&timeout=30000&debug=on'
     if (d3sparql.debug) { console.log(endpoint) }
@@ -64,12 +64,11 @@ d3sparql.query = function(endpoint, sparql, callback) {
     d3.xhr(url, mime, function(request) {
       try {
         var json = request.responseText
-        if (d3sparql.queryed) { console.log(json) }
         json = convert(json) //Converting json to flare.json in convertJSONtoFlare.js
-        if (d3sparql.queryed) { console.log(json) }
         callback(JSON.parse(json))
       } catch(e) {
-        console.log('in the CATCH');
+	console.log(e);
+        console.log('in the  CATCH');
         json = null;
         notif_panel('No Data Found', 'Please try another search as your query has no results');
         callback(JSON.parse(json))
@@ -740,7 +739,7 @@ d3sparql.piechart = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
@@ -1009,7 +1008,7 @@ d3sparql.forcegraph = function(json, config) {
       .attr("width", opts.width)
       .attr("height", opts.height)
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
     return; //Return so no other execution has to take place
@@ -1169,7 +1168,7 @@ d3sparql.sankey = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.margin + "," + opts.margin + ")")
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width + opts.margin * 2)
       .attr("height", opts.height + opts.margin * 2)
       .append("g")
@@ -1232,7 +1231,7 @@ node.append("text")
   .filter(function(d) {return d.x < opts.width / 2})
   .attr("x", 6 + sankey.nodeWidth())
   .attr("text-anchor", "start")
-
+  
 // default CSS/SVG
 link.attr({
   "fill": "none",
@@ -1554,7 +1553,7 @@ d3sparql.sunburst = function(json, config) {
       .append("g")
       .attr("transform", "translate(" + opts.width/2 + "," + opts.height/2 + ")");
   } else {
-    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>').append("svg")
+    var svg = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>').append("svg")
       .attr("width", opts.width)
       .attr("height", opts.height)
       .append("g")
@@ -1563,16 +1562,16 @@ d3sparql.sunburst = function(json, config) {
   }
 
   var arc = d3.svg.arc()
-  .startAngle(function(d)  {
+  .startAngle(function(d)  { 
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x))) })
-  .endAngle(function(d)    {
+  .endAngle(function(d)    { 
     //console.log(Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))));
     return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))) })
-  .innerRadius(function(d) {
+  .innerRadius(function(d) { 
     //console.log(Math.max(0, y(d.y)));
     return Math.max(0, y(d.y)) })
-  .outerRadius(function(d) {
+  .outerRadius(function(d) { 
     //console.log(Math.max(0, y(d.y + d.dy)));
     return Math.max(0, y(d.y + d.dy)) })
   var partition = d3.layout.partition()
@@ -1886,7 +1885,7 @@ d3sparql.circlepack = function(json, config) {
       .append("svg:g")
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")")
   } else {
-    var vis = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Recieved With Current Query Search</h1></div>')
+    var vis = d3.select(opts.selector).html('<div class="nodata_center"><h1>No Data Received With Current Query Search</h1></div>')
       .insert("svg:svg", "h2")  // TODO: check if this svg: and h2 is required
       .attr("width", w)
       .attr("height", h)

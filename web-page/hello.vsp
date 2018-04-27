@@ -3,22 +3,34 @@
     <title>Simple FORM demo</title>
   </head>
   <body>
-<?vsp
-  declare i integer;
-  declare thisvsp varchar;
-  i := 1;
-  thisvsp := aref(path,length(path)-1);
-  while (i <= 5)
-    {
-?>
-i = <?= i ?>
-thispath=<?= thisvsp ?>
-<?vsp
-      i := i + 1;
-      string_to_file('../var/lib/virtuoso/vsp/test.txt','hello',-1);
-    }
-    thisvsp:=file_to_string('../var/lib/virtuoso/vsp/test.txt');
-?>
+
+    <form method="post" action="hello.vsp">
+      <p>Enter your name</p>
+      <input type="text" name="tex"/>
+      <input type="submit" name="sub" value="submit"/>
+    </form>
+
+    <?vsp
+      http(get_keyword('myInput', params, 'no value'));
+    ?>
+
+
+    <?vsp
+      declare i integer;
+      declare thisvsp varchar;
+      i := 1;
+      thisvsp := aref(path,length(path)-1);
+      while (i <= 5)
+        {
+    ?>
+    i = <?= i ?>
+    thispath=<?= thisvsp ?>
+    <?vsp
+          i := i + 1;
+          string_to_file('../var/lib/virtuoso/vsp/testoutVSP.txt','hello',-1);
+        }
+        thisvsp:=file_to_string('../var/lib/virtuoso/vsp/testoutVSP.txt');
+    ?>
 <br>
  fromText= <?= thisvsp ?>
   </body>

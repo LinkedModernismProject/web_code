@@ -1,0 +1,2 @@
+Alan Turing		Turing states		creatorOf
+Alan Turing		Grover		hasAlias
