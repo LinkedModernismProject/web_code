@@ -1,0 +1,208 @@
+I use Chrome and as such have my bookmarks in my bookmarks bar (Top Level).
+If there is no title then it is top level of my bookmarks directories.
+Otherwise, I have put line breaks (2 for a top level directory,
+	1 for a sub-directory) and titles when I started new directories
+	containing specific sites to those titles topics.
+I also have sub-directories within some of the directories, where I have
+	put descriptions in () to try and help make sense of the categories.
+Hopefully you can understand the categories of my bookmarks, if you need any
+	help feel free to contact me.
+
+https://github.com/LinkedModernismProject/web_code
+https://linkedmodernisms.slack.com/messages/general/
+http://www.hypexr.org/linux_scp_help.php
+
+JavaScript
+https://fezvrasta.github.io/bootstrap-material-design/
+http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
+http://stackoverflow.com/questions/30654088/how-to-make-bootstrap-navbar-background-have-a-transparent-fade-into-the-webpage
+http://stackoverflow.com/questions/5105143/list-of-all-characters-that-should-be-escaped-before-put-in-to-regex
+http://www.w3schools.com/jsref/jsref_obj_regexp.asp
+http://stackoverflow.com/questions/29117347/javascript-replacing-characters-on-both-sides-of-a-string
+http://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript
+http://www.jqueryrain.com/?sPi0WIEh
+http://stackoverflow.com/questions/16615303/slide-panel-in-from-right
+https://codeforgeek.com/2014/10/desktop-notification-like-facebook-using-html5/
+http://stackoverflow.com/questions/7911916/jquery-append-div-inside-div-with-id-and-manipulate
+http://docs.voyant-tools.org/tools/
+
+CSS (within JavaScript Directory)
+http://stackoverflow.com/questions/3582619/how-to-change-css-display-none-or-block-property-using-jquery
+http://stackoverflow.com/questions/9862167/positioning-div-element-at-center-of-screen
+http://stackoverflow.com/questions/396145/how-to-vertically-center-a-div-for-all-browsers#6182661
+http://stackoverflow.com/questions/356809/best-way-to-center-a-div-on-a-page-vertically-and-horizontally
+http://stackoverflow.com/questions/3760998/position-element-at-bottom-right-corner-of-current-window
+http://stackoverflow.com/questions/14231329/how-to-place-div-in-top-right-hand-corner-of-page
+http://ryanfait.com/html5-sticky-footer/
+http://stackoverflow.com/questions/632100/apply-css-style-to-child-elements
+http://stackoverflow.com/questions/31866125/d3-js-prepended-plus-sign
+http://stackoverflow.com/questions/10632367/href-javascriptfunction-how-does-it-work
+http://stackoverflow.com/questions/245868/what-is-the-difference-between-the-different-methods-of-putting-javascript-code
+http://stackoverflow.com/questions/1070760/javascript-function-in-href-vs-onclick
+
+Polymer Desgin (Within JavaScript Directory)
+https://scotch.io/tutorials/google-material-design-input-boxes-in-css3#update!-no-js-necessary!
+http://www.sitepoint.com/introduction-to-web-components-and-polymer-tutorial/
+https://elements.polymer-project.org/
+https://elements.polymer-project.org/elements/paper-input
+https://elements.polymer-project.org/browse?package=paper-elements
+http://stackoverflow.com/questions/19082870/fade-a-page-in-with-jquery-after-a-button-is-clicked
+http://stackoverflow.com/questions/16278147/javascript-fade-div-in-on-button-click-then-on-2nd-button-click-fade-out
+http://stackoverflow.com/questions/26242817/using-jquery-checking-if-multiple-checkboxes-are-checked
+http://stackoverflow.com/questions/169506/obtain-form-input-fields-using-jquery
+https://www.joedolson.com/2007/02/processing-forms-with-php/
+http://bytes.com/topic/php/insights/664241-using-html-forms-pass-data-php
+http://www.slideshare.net/webhostingguy/deploying-php-applications-using-virtuoso-as-application-server
+http://stackoverflow.com/questions/18153745/bootstrap-3-hide-dropdown-menu-on-menu-item-click
+https://github.com/flatlogic/awesome-bootstrap-checkbox
+
+
+D3
+http://biohackathon.org/d3sparql/
+http://bl.ocks.org/mbostock/3885304
+http://bl.ocks.org/mbostock/4403522
+http://bl.ocks.org/mbostock/4062045
+http://bl.ocks.org/mbostock/4600693
+http://stackoverflow.com/questions/20393658/how-to-stop-movement-of-force-directed-graph-on-force-start
+http://bl.ocks.org/mbostock/1080941
+http://bl.ocks.org/norrs/2883411
+http://bl.ocks.org/mbostock/3750558
+http://stackoverflow.com/questions/14296309/freezing-force-directed-network-graph-and-make-draggable-in-d3
+http://bl.ocks.org/mbostock/1093130
+http://bl.ocks.org/jhb/5955887
+http://stackoverflow.com/questions/19195888/d3-sankey-highlight-all-connected-paths-from-start-to-end
+http://bl.ocks.org/git-ashish/8959771
+http://mbostock.github.io/d3/talk/20111116/pack-hierarchy.html
+http://bl.ocks.org/mbostock/7607535
+https://www.google.ca/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=text%20overlapping%20in%20circlepack
+http://www.jasondavies.com/coffee-wheel/
+http://bl.ocks.org/mbostock/4348373
+http://stackoverflow.com/questions/2830826/javascript-checking-for-any-lowercase-letters-in-a-string
+http://stackoverflow.com/questions/6055152/finding-uppercase-characters-within-a-string
+http://stackoverflow.com/questions/6090182/program-checking-string-of-characters-for-capital-letters
+http://stackoverflow.com/questions/13958929/how-to-properly-rotate-text-labels-in-a-d3-sunburst-diagram
+
+
+Huviz
+https://github.com/smurp/huviz
+http://alpha.orlando.dev.semandra.com/
+
+
+VSP
+http://docs.openlinksw.com/virtuoso/functions.html#encoding
+http://docs.openlinksw.com/virtuoso/fn_file_dirlist.html
+http://docs.openlinksw.com/virtuoso/vsp1.html
+http://docs.openlinksw.com/virtuoso/runtimehosting.html
+
+
+RelFinder
+http://www.visualdataweb.org/relfinder.php
+http://www.visualdataweb.org/configuration.php
+http://www.visualdataweb.org/linking.php
+http://www.visualdataweb.org/integrating.php
+http://linuxconfig.org/how-to-install-adobe-flash-player-plugin-for-firefox-on-centos-7-linux
+https://code.google.com/archive/p/relfinder/issues
+https://code.google.com/p/relfinder/issues/detail?id=52
+https://github.com/Dustin-Lee/relfinder
+http://haystack.csail.mit.edu/blog/2008/11/06/a-quick-tutorial-on-the-tutrle-rdf-serialization/
+
+
+Virtuoso
+http://www.slideshare.net/rumito/virtuoso-sponger-rdfizer-middleware-for-creating-rdf-from-non-rdf-data-sources
+http://docs.openlinksw.com/virtuoso/rdfiridereferencing.html
+http://kidehen.typepad.com/kingsley_idehens_typepad/2011/01/simple-virtuoso-installation-utilization-guide-for-sparql-users-update-4.html
+https://github.com/openlink/Virtuoso-RDFIzer-Mapper-Scripts
+http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSponger
+http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSpongerLinkedDataHooksIntoSPARQLEx2
+http://docs.openlinksw.com/virtuoso/rdfinsertmethods.html#rdfinsertmethodplapissimpleexample
+http://docs.openlinksw.com/virtuoso/virtuososponger.html#virtuosospongercreatecustcartran
+http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSpongerCartridgeProgrammersGuide
+
+Sparql (Within Virtuoso Directory)
+http://answers.semanticweb.com/questions/15875/transitivity-and-inference-with-virtuoso
+http://www.w3.org/TR/rdf-sparql-query/#predObjLists
+http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSponger#Ho Does It Work?"
+
+XML (Within Sparql Directory)
+http://www.iro.umontreal.ca/~lapalme/ForestInsteadOfTheTrees/HTML/ch07s04.html
+http://www.gac-grid.de/project-products/Software/XML2RDF.html
+http://www.w3.org/TR/xslt
+http://www.w3.org/Style/XSL/
+http://www.gac-grid.org/project-products/Software/XML2RDF.html
+
+Back to in Sparql Directory
+http://stackoverflow.com/questions/15328666/run-a-sparql-query-against-two-graphs
+http://www.w3.org/Submission/SPARQL-Update/
+http://www.w3.org/TR/sparql11-update/
+
+Natural Language (Within Virtuoso Directory)
+https://gist.github.com/gicmo/bc3cbe4a8b9e32448d9f
+http://stackoverflow.com/questions/21012327/how-to-convert-text-file-document-into-rdf-triples
+http://site.nlp2rdf.org/
+https://github.com/NLP2RDF/software
+https://web.archive.org/web/20120907184244/http://nltk.googlecode.com/svn/trunk/doc/howto/relextract.html
+https://github.com/machinalis/iepy
+http://stackoverflow.com/questions/26473681/pip-install-numpy-throws-an-error-ascii-codec-cant-decode-byte-0xe2
+http://pip.readthedocs.org/en/latest/installing.html#install-pip
+http://iepy.readthedocs.org/en/latest/installation.html
+http://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu
+https://docs.google.com/spreadsheets/d/10r-L9fcVk5B9GPv7y1-1LRWeG9Tn9523W8vOZ76I4TY/edit#gid=0
+https://github.com/peterexner/KOSHIK
+https://code.google.com/p/mate-tools/
+https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
+http://staffwww.dcs.shef.ac.uk/people/I.Augenstein/ESWC2012-LODifier.pdf
+http://cogcomp.cs.illinois.edu/page/demo_view/Wikifier
+
+Bash (Within Virtuoso Directory)
+http://tldp.org/LDP/abs/html/comparison-ops.html
+http://stackoverflow.com/questions/9736202/bash-read-tab-separated-file-line-into-array
+http://stackoverflow.com/questions/1706431/the-easiest-way-to-replace-white-spaces-with-underscores-in-bash
+
+Back within the Virtuoso Directory
+http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtRDFDatasetDump
+http://stackoverflow.com/questions/19224549/sparql-regular-expression-not-match
+
+
+ScreenShots
+http://stackoverflow.com/questions/6887183/how-to-take-screen-shot-of-a-div-with-javascript
+https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js
+https://github.com/eligrey/FileSaver.js/
+https://github.com/niklasvh/html2canvas
+https://github.com/eligrey/Blob.js
+https://github.com/eligrey/canvas-toBlob.js
+http://www.fabiobiondi.com/blog/2012/10/export-and-save-a-screenshot-of-an-html5-canvas-using-php-jquery-and-easeljs/
+http://stackoverflow.com/questions/21695410/html5-how-to-take-a-print-screen-on-a-particulat-div-class-or-id
+http://www.jedox.com/en/screen-shot-web-via-javascript-saving-back-server
+https://getfireshot.com/api.php
+http://phantomjs.org/screen-capture.html
+http://www.c-sharpcorner.com/UploadFile/65794e/generate-screenshot-using-html-and-javascript/
+http://stackoverflow.com/questions/16429214/html2canvas-saving-as-a-jpeg-without-opening-in-browser
+http://stackoverflow.com/questions/16792805/how-to-take-screenshot-of-canvas
+https://github.com/gillyb/reimg
+https://github.com/bgrins/DrawWindow
+
+
+SecurityPasses
+http://www.javascriptkit.com/script/cut10.shtml
+http://www.pageresource.com/jscript/jpass.htm
+http://stackoverflow.com/questions/18095144/password-protect-page
+http://davidwalsh.name/password-protect-directory-using-htaccess
+http://www.seas.upenn.edu/cets/answers/auth-htpasswd.html
+http://www.elated.com/articles/password-protecting-your-pages-with-htaccess/
+
+MightActuallyWork (Within SecurityPasses directory)
+http://www.htmliseasy.com/keeper/
+http://www.htmliseasy.com/keeper/index2.html
+http://www.allwebco-templates.com/support/scripts/password/help-password.html
+http://www.wikihow.com/Password-Protect-a-Web-Page
+http://andwecode.com/create-popup-login-and-signup-form/
+
+
+MigthWorkForServer (Directory for sever security possiblities)
+http://stackoverflow.com/questions/16889618/process-html-form-submission-with-ruby-to-modify-local-file-on-server
+https://kooneiform.wordpress.com/2010/02/28/python-and-ajax-for-beginners-with-webpy-and-jquery/
+https://pointlessprogramming.wordpress.com/2011/02/13/python-cgi-tutorial-1/
+
+Back in top level
+http://stackoverflow.com/questions/32238196/how-does-the-key-argument-in-pythons-sorted-function-work
+http://jsfiddle.net/8TT4p/1448/

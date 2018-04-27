@@ -1,0 +1,109 @@
+#Things to still teach/show
+how to change and then add changes to github
+
+#Documentation
+
+#Aliases
+In your own terminal, to log onto our server, I've aliased it as: site
+Change to vsp where all our main stuff is: vsp
+Change to weeklyRun/newData/newTXT: addtxt
+Change to weeklyRun/deleteData/deleteTXT: deltxt
+Change to weeklyRun/newData/converters: converters
+Change to weeklyRun/newData/newDOCX: newdocx
+Change to use ISQL: vob
+Create a file: stf
+Change owner of file: scc
+Run turtle_form.py converter: getformdata
+Run turtle_singles.py converter: getsingledata
+
+#VIM Commands
+  Once in you can hit 'i' to go into INSERT mode, then start editing
+  To quit use ESC :q
+  To force quit use ESC :q!
+  To write(save) and quit ESC :wq
+
+
+#Creating and Changing owners of files(so you can save them)
+  To create the file: stf filename
+  To change owner of file so you can save it: scc filename
+
+#Flattening a folder
+  cd ~/temp
+  getfilelist path_to_directory_that_want_flattened
+  Then it puts them all into newDOCX (use alias newdocx to go into newDOCX)
+
+#To upload data to Quad Store with Turtle Files
+  Go to http://linkedmods.uvic.ca:8890/conductor/
+  Go to Linked Data tab
+  Go to Quad Store Upload
+  Choose edited file to upload
+  Change Named Graph IRI to either bestDataProduction(for searches) or bestDataRelFinder(for RelFinder)
+
+#Looking up specific data on Conductor:
+  http://linkedmods.uvic.ca:8890/conductor/
+  Username: dba
+  Password: in email
+  Go to Linked Data tab -> Graphs tab
+  Find bestDataProduction(for searches) or bestDataRelFinder(for RelFinder)
+  Go to SPARQL tab
+  Enter Graph IRI
+  Query: select * where {?s ?p ?o} limit 100
+    Ex to search bestDataProduction:
+      To specify some subject: select * where {<http://modernism.uvic.ca/metadata#Stephen_Ross> ?p ?o} limit 100
+    Ex to RelFinder bestDataRelFinder:
+      To specify some subject: select * where {<http://modernism.uvic.ca/metadata/Stephen_Ross> ?p ?o} limit 100
+
+#Using ISQL & Creating Backups
+  Change directory to /usr/local/virtuoso-opensource/bin  (aliased to vob)
+  ./isql 1111 vspdemo
+  Enter Password: Igneel
+  #Copy a graph IRI into another graph IRI, will create destination graph if non-existent
+    #Ones I used, I suggest you use the backups as well so we don't have a ton of other graph IRIs floating around
+    sparql COPY <http://localhost:8890/bestDataProduction> TO <http://localhost:8890/bestDataProduction_backup>;
+    sparql COPY <http://localhost:8890/bestDataRelFinder> TO <http://localhost:8890/bestDataRelFinder_backup>;
+
+#Removing Single Triples
+logon to server (alias: site)
+
+
+
+
+#Get a new training set (ask Brayden for further instructions)
+->make new training set
+
+
+#Inputting data
+  Contribute->Enter Information
+  ->Fill out a form with data or a single triple
+  ->Or can just make a .txt file within the addtxt directory that has the format of subjTABTABobjTABTABpredNEWLINE
+
+#To get data from single triples and form data
+->Then run the turtle_singles and turtle_form converters
+  getformdata to get the form data into input.txt in newTXT
+  getsingledata to get the single triples added data into input.txt in newTXT
+  You can go into newTXT(use alias addtxt), and you can view the input.txt file with vim
+
+->Get data from stanfordCore (ask Brayden for further instructions)
+
+
+->Then once in subjTABTABobjTABTABpredNEWLINE format
+  make
+  #Running make will ask for a password(Igneel), need two (1 for batch_add, 1 for batch_add_RelFinder)
+
+->Then we can run batch adds for data to be added to bestDataProduction & bestDataRelFinder
+
+#Deleting data
+  deltxt to get to directory, then whatever is in the .txt files will be deleted, so check them first.
+  The .txt files must be in the subjTABTABobjTABTABpredNEWLINE format
+  Then once confirmed what is wanted deleted
+  Run make
+  Enter passwords, same as above
+
+
+#SCP Send Cool Package
+Sending a directory:
+  Format: scp -ri ~/.ssh/key.pem filename centos@IP:/path/to/destination
+  Ex: scp -ri ~/.ssh/compute_canada_key.pem Ready/ centos@206.12.59.136:~/temp
+Sending a single file:
+  Format: scp -Ci ~/.ssh/compute_canada_key.pem filename centos@IP:/path/to/destination
+  Ex: scp -Ci ~/.ssh/compute_canada_key.pem test.txt centos@206.12.59.136:~/temp

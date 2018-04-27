@@ -1,0 +1,5 @@
+@prefix pref0: <http://modernism.uvic.ca/metadata#> .
+@prefix pref1: <http://localhost:8890/limo#> .
+
+<http://modernism.uvic.ca/metadata#Art_Deco>
+	pref1:associatedWithRegion “Europe" .
