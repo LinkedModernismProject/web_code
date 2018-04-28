@@ -1,0 +1,558 @@
+What is the name of the author-s of PaperX?
+SELECT DISTINCT ?x1 WHERE { :PaperX :author ?x2 . ?x2 :name ?x1 . }
+What is the label of a topic or is the title of a publication?
+SELECT DISTINCT ?x1 WHERE { { ?x2 a :topic . ?x2 :label ?x1 . } UNION { ?x3 a :publication . ?x3 :title ?x1 . } }
+What is the label of a topic and is not the title of a publication?
+SELECT DISTINCT ?x1 WHERE { ?x2 a :topic . ?x2 :label ?x1 . FILTER NOT EXISTS { ?x3 a :publication . ?x3 :title ?x1 . } }
+The author-s of a publication have which name and maybe have which email?
+SELECT DISTINCT ?x3 ?x4 WHERE { ?x1 a :publication . ?x1 :author ?x2 . ?x2 :name ?x3 . OPTIONAL { ?x2 :email ?x4 . } }
+What is the name of an author X of a publication and if defined, what is the email of X ?
+SELECT DISTINCT ?x1 ?x4 WHERE { ?x2 a :publication . ?x2 :author ?x3 . ?x3 :name ?x1 . OPTIONAL { ?x3 :email ?x4 . } }
+Which person is an author of every publication?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :person . FILTER NOT EXISTS { ?x2 a :publication . FILTER NOT EXISTS { ?x2 :author ?x1 . } } }
+Which person is an author of at least 10 publication-s?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :person . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x3 a :publication . ?x3 :author ?x1 . } GROUP BY ?x1 } FILTER (?x2 >= 10) . }
+Which mountain has the highest elevation ?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :mountain . ?x1 :elevation ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Which mountain has an elevation that is the 2nd highest ?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :mountain . ?x1 :elevation ?x2 . } ORDER BY DESC(?x2) OFFSET 1 LIMIT 1
+Which person-s have the 10 lowest age ?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :person . ?x1 :age ?x2 . } ORDER BY ASC(?x2) LIMIT 10
+Which person-s have a child whose age is the 3rd to 5th lowest ?
+SELECT DISTINCT ?x1 ?x3 WHERE { ?x1 a :person . ?x1 :child ?x2 . ?x2 :age ?x3 . } ORDER BY ASC(?x3) OFFSET 2 LIMIT 3
+How many person-s are an author of PaperX?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :person . :PaperX :author ?x2 . } 
+PaperX has how many author-s?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { :PaperX :author ?x2 . } 
+What is the number of author-s of PaperX?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { VALUES ?x3 { :PaperX } . ?x3 :author ?x2 . } 
+Which publication has how many author-s?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :publication . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :author ?x3 . } GROUP BY ?x1 } }
+Which publication has at least 3 author-s?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :author ?x3 . } GROUP BY ?x1 } FILTER (?x2 >= 3) . }
+Which publication has between 2 and 3 author-s?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :author ?x3 . } GROUP BY ?x1 } FILTER (?x2 >= 2) . FILTER (?x2 <= 3) . }
+Which publication has the most author-s?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :publication . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :author ?x3 . } GROUP BY ?x1 } } ORDER BY DESC(?x2) LIMIT 1
+Who is the author of the most publication-s?
+SELECT DISTINCT ?x1 ?x2 WHERE { { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x3 a :publication . ?x3 :author ?x1 . } GROUP BY ?x1 } } ORDER BY DESC(?x2) LIMIT 1
+How many person-s have which affiliation ?
+SELECT DISTINCT ?x3 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :person . ?x2 :affiliation ?x3 . } GROUP BY ?x3 
+What is the number of person-s per affiliation ?
+SELECT DISTINCT ?x3 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :person . ?x2 :affiliation ?x3 . } GROUP BY ?x3 
+How many publication-s have an author that has which affiliation?
+SELECT DISTINCT ?x4 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :publication . ?x2 :author ?x3 . ?x3 :affiliation ?x4 . } GROUP BY ?x4 
+What is the number of publication-s X per the affiliation of an author of X ?
+SELECT DISTINCT ?x3 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :publication . ?x2 :author ?x4 . ?x4 :affiliation ?x3 . } GROUP BY ?x3 
+What is the number of publication-s whose author has some affiliation A per A ?
+SELECT DISTINCT ?x3 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :publication . ?x2 :author ?x4 . ?x4 :affiliation ?x5 . BIND (?x5 AS ?x3) . } GROUP BY ?x3 
+What is the average number of publication-s per author ?
+SELECT DISTINCT  (AVG(?x2) AS ?x1) WHERE { { SELECT DISTINCT ?x4 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x3 a :publication . ?x3 :author ?x4 . } GROUP BY ?x4 } } 
+For every journal J, give me the average number of publication-s that are-publishedIn J per author.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :journal . { SELECT DISTINCT ?x1 (AVG(?x3) AS ?x2) WHERE { { SELECT DISTINCT ?x1 ?x5 (COUNT(DISTINCT ?x4) AS ?x3) WHERE { ?x4 a :publication . ?x4 :publishedIn ?x1 . ?x4 :author ?x5 . } GROUP BY ?x1 ?x5 } } GROUP BY ?x1 } }
+What is a subtopic+ of InformationSystems?
+SELECT DISTINCT ?x1 WHERE { :InformationSystems :subtopic+ ?x1 . }
+What is a publication?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . }
+What has a rdf:type that is-rdfs:subClassOf* the class publication?
+SELECT DISTINCT ?x1 WHERE { ?x1 a ?x2 . ?x2 rdfs:subClassOf* :publication . }
+Which rdf:Property relates a publication to a person?
+SELECT DISTINCT ?x1 WHERE { ?x1 a rdf:Property . ?x2 a :publication . ?x3 a :person . ?x2 ?x1 ?x3 . }
+To which nationality an author of PaperX belongs?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :nationality . :PaperX :author ?x2 . ?x2 a ?x1 . }
+In which graph whose source is SourceX every publication has at least 1 author?
+SELECT DISTINCT ?x1 WHERE { ?x1 :source :SourceX . FILTER NOT EXISTS { GRAPH ?x1 { ?x2 a :publication . } FILTER NOT EXISTS { GRAPH ?x1 { { SELECT DISTINCT ?x2 (COUNT(DISTINCT ?x4) AS ?x3) WHERE { ?x2 :author ?x4 . } GROUP BY ?x2 } FILTER (?x3 >= 1) . } } } }
+Give me all researcher-s which from service Facebook have at least 10 friend-s.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :researcher . SERVICE SILENT :Facebook { { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :friend ?x3 . } GROUP BY ?x1 } FILTER (?x2 >= 10) . } }
+In which graph PersonX know-s PersonY?
+SELECT DISTINCT ?x1 WHERE { GRAPH ?x1 { :PersonX :know :PersonY . } }
+Which person knows PersonX in at least 3 graphs?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :person . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { GRAPH ?x3 { ?x1 :knows :PersonX . } } GROUP BY ?x1 } FILTER (?x2 >= 3) . }
+How many publication-s have topic 'Computer Science' ?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :publication . ?x2 :topic ?x3 . FILTER (REGEX(str(?x3),'Computer','i') && REGEX(str(?x3),'Science','i')) . } 
+Which person whose rdfs:label is 'John Smith' is an author of PaperX ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :person . ?x1 rdfs:label ?x2 . FILTER (REGEX(str(?x2),'John','i') && REGEX(str(?x2),'Smith','i')) . :PaperX :author ?x1 . }
+Which organisation has a str that matches "^http:/www.aifb.unikarlsruhe.de/"?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :organisation . BIND (str(?x1) AS ?x2) . FILTER REGEX(?x2,"^http:/www.aifb.unikarlsruhe.de/") . }
+The string of which organisation matches "^http:/www.aifb.unikarlsruhe.de/"?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :organisation . BIND (str(?x1) AS ?x2) . FILTER REGEX(?x2,"^http:/www.aifb.unikarlsruhe.de/") . }
+What has language "de" and is the rdfs:label of the topic that has a rdfs:label whose str is "Database Management" and whose language is "en"?
+SELECT DISTINCT ?x1 WHERE { ?x2 a :topic . ?x2 rdfs:label ?x3 . FILTER (str(?x3) = "Database Management") . FILTER (lang(?x3) = "en") . ?x2 rdfs:label ?x1 . FILTER (lang(?x1) = "de") . }
+Which publication has pageNumber 8?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . ?x1 :pageNumber 8 . }
+Which publication has a pageNumber whose str is "08"?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . ?x1 :pageNumber ?x2 . FILTER (str(?x2) = "08") . }
+Which rectangle has the heigth * the width equal to 100 and has 2 * (the height + the width) equal to 40 ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :rectangle . ?x1 :heigth ?x2 . ?x1 :width ?x3 . BIND (?x2 * ?x3 AS ?x4) . FILTER (?x4 = 100) . ?x1 :height ?x5 . ?x1 :width ?x6 . BIND (?x5 + ?x6 AS ?x7) . BIND (2 * ?x7 AS ?x8) . FILTER (?x8 = 40) . }
+Return concat("Hello ", the foaf:firstName, " ", the foaf:lastName, " !") of all person-s .
+SELECT DISTINCT ?x1 ?x2 ?x3 ?x4 WHERE { ?x1 a :person . ?x1 foaf:firstName ?x2 . ?x1 foaf:lastName ?x3 . BIND (concat("Hello ",?x2," ",?x3," !") AS ?x4) . }
+Which person has substr(the foaf:name,0,3) that contains "Dr" ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :person . ?x1 foaf:name ?x2 . BIND (substr(?x2,0,3) AS ?x3) . FILTER contains(?x3,"Dr") . }
+Is every odd + every even an even ?
+ASK { FILTER NOT EXISTS { ?x1 a :odd . ?x2 a :even . FILTER NOT EXISTS { BIND (?x1 + ?x2 AS ?x3) . ?x3 a :even . } } }
+Which publication-s have authorList [PersonA, PersonB, PersonC] ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . ?x1 :authorList [ rdf:first :PersonA ; rdf:rest [ rdf:first :PersonB ; rdf:rest [ rdf:first :PersonC ; rdf:rest rdf:nil ] ] ] . }
+Which publication-s have authorList [PersonA, _, PersonC] ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :publication . ?x1 :authorList [ rdf:first :PersonA ; rdf:rest [ rdf:first ?x2 ; rdf:rest [ rdf:first :PersonC ; rdf:rest rdf:nil ] ] ] . }
+What is an rdf:element of the authorList of PaperX ?
+SELECT DISTINCT ?x1 WHERE { :PaperX :authorList ?x2 . ?x2 rdf:rest*/rdf:first ?x1 . }
+PaperX has authorList [..., what, ...] ?
+SELECT DISTINCT ?x1 WHERE { ?x3 rdf:rest* [ rdf:first ?x1 ; rdf:rest ?x2 ] . :PaperX :authorList ?x3 . }
+What is the rdf:last of the authorList of PaperX ?
+SELECT DISTINCT ?x1 WHERE { :PaperX :authorList ?x2 . ?x2 rdf:rest* (?x1) . }
+PaperX has authorList [..., what] ?
+SELECT DISTINCT ?x1 WHERE { ?x2 rdf:rest* [ rdf:first ?x1 ; rdf:rest rdf:nil ] . :PaperX :authorList ?x2 . }
+Return the publication-s of PersonX .
+SELECT DISTINCT ?x1 WHERE { :PersonX :publication ?x1 . }
+List all author-s of PaperX .
+SELECT DISTINCT ?x1 WHERE { :PaperX :author ?x1 . }
+Give me the title of the publication-s of PersonX .
+SELECT DISTINCT ?x1 ?x2 WHERE { :PersonX :publication ?x1 . ?x1 :title ?x2 . }
+Whether PubliX has an author that worksFor OrgY?
+ASK { :PubliX :author ?x1 . ?x1 :worksFor :OrgY . }
+Does PaperX have an author that worksFor OrgY ?
+ASK { :PaperX :author ?x1 . ?x1 :worksFor :OrgY . }
+Describe PaperX.
+DESCRIBE :PaperX
+Describe every author of PaperX.
+DESCRIBE ?x1 WHERE { :PaperX :author ?x1 . }
+For every person X that shares a parent with a person Y, return that X has sibling Y and Y has sibling X.
+CONSTRUCT { ?x1 :sibling ?x3 . ?x3 :sibling ?x1 . } WHERE { ?x1 a :person . ?x1 :parent ?x2 . ?x3 a :person . ?x3 :parent ?x2 . }
+For every person X, for S = concat(every firstname, " ", every lastname) of X, return that X has fullname S.
+CONSTRUCT { ?x1 :fullname ?x4 . } WHERE { ?x1 a :person . ?x1 :firstname ?x2 . ?x1 :lastname ?x3 . BIND (concat(?x2," ",?x3) AS ?x4) . }
+If a person X shares a parent with a person Y then return that X has sibling Y and Y has sibling X.
+CONSTRUCT { ?x1 :sibling ?x3 . ?x3 :sibling ?x1 . } WHERE { ?x1 a :person . ?x1 :parent ?x2 . ?x3 a :person . ?x3 :parent ?x2 . }
+BookX is a book whose title is "A new book" and whose author is PersonY.
+INSERT DATA { :BookX a :book . } 
+INSERT DATA { :BookX :title "A new book" . } 
+INSERT DATA { :BookX :author :PersonY . } 
+In graph GraphA BookX has title "Compiler Design" and not "Compiler desing".
+INSERT DATA { GRAPH :GraphA { :BookX :title "Compiler Design" . } } 
+DELETE DATA { GRAPH :GraphA { :BookX :title "Compiler desing" . } } 
+For every book B that some P relates to some V and whose date < 2001-01-01, P does not relate B to V.
+DELETE { ?x1 ?x2 ?x3 . } WHERE { ?x1 a :book . ?x1 ?x2 ?x3 . ?x1 :date ?x4 . FILTER (?x4 < "2001-01-01"^^xsd:date) . }
+If a book B has at least 2 author-s then B is a CollaborativeWork.
+INSERT { ?x1 a :CollaborativeWork . } WHERE { ?x1 a :book . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :author ?x3 . } GROUP BY ?x1 } FILTER (?x2 >= 2) . }
+Load <http://example.org/data.rdf> into GraphA.
+LOAD <http://example.org/data.rdf> INTO GRAPH :GraphA
+Move GraphA to the default graph.
+MOVE :GraphA TO DEFAULT
+Clear all named graphs.
+CLEAR NAMED
+Drop all graphs.
+DROP ALL
+Every P that relates some S to some V in graph GraphA relates S to V in graph GraphB.
+INSERT { GRAPH :GraphB { ?x2 ?x1 ?x3 . } } WHERE { GRAPH :GraphA { ?x2 ?x1 ?x3 . } }
+Every P that relates some S to some V in graph GraphA relates S to V in graph GraphB and not GraphA.
+DELETE { GRAPH :GraphA { ?x2 ?x1 ?x3 . } } INSERT { GRAPH :GraphB { ?x2 ?x1 ?x3 . } } WHERE { GRAPH :GraphA { ?x2 ?x1 ?x3 . } }
+List all Film-s.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . }
+Which Film has director res:Tim_Burton and is-starring res:Johnny_Depp and res:Helena_Bonham_Carter ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :director res:Tim_Burton . ?x1 :starring res:Johnny_Depp . ?x1 :starring res:Helena_Bonham_Carter . }
+Which Film whose releaseDate is greater or equal to 2010-01-01 has a director whose birthPlace is res:England or res:United_States ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :releaseDate ?x2 . FILTER (?x2 >= "2010-01-01"^^xsd:date) . ?x1 :director ?x3 . { ?x3 :birthPlace res:England . } UNION { ?x3 :birthPlace res:United_States . } }
+Which Film has country res:France or has a director or starring or musicComposer whose birthPlace is res:France ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . { ?x1 :country res:France . } UNION { { ?x1 :director ?x2 . } UNION { ?x1 :starring ?x2 . } UNION { ?x1 :musicComposer ?x2 . } ?x2 :birthPlace res:France . } }
+Which Person has birthPlace res:United_States and is the director of a Film that is-starring res:Johnny_Depp and whose releaseDate is what ?
+SELECT DISTINCT ?x1 ?x3 WHERE { ?x1 a :Person . ?x1 :birthPlace res:United_States . ?x2 a :Film . ?x2 :starring res:Johnny_Depp . ?x2 :releaseDate ?x3 . ?x2 :director ?x1 . }
+Which Person X is the director of a Film that is-starring X ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Person . ?x2 a :Film . ?x2 :starring ?x1 . ?x2 :director ?x1 . }
+Which Film has which country X and has a director whose birthPlace is not X ?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Film . ?x1 :country ?x2 . ?x1 :director ?x3 . ?x3 :birthPlace ?x2 . }
+How many Film-s whose director is res:Tim_Burton are-starring which Person ?
+SELECT DISTINCT ?x1 ?x3 WHERE { ?x3 a :Person . { SELECT DISTINCT ?x3 (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :Film . ?x2 :director res:Tim_Burton . ?x2 :starring ?x3 . } GROUP BY ?x3 } }
+Give me all yago:RussianCosmonauts that are a yago:FemaleAstronauts.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:RussianCosmonauts . ?x1 a yago:FemaleAstronauts . }
+Give me the birthDate of the starring-s of res:Charmed.
+SELECT DISTINCT ?x1 ?x2 WHERE { res:Charmed :starring ?x1 . ?x1 :birthDate ?x2 . }
+Who is the dbp:spouse of the child of res:Ingrid_Bergman?
+SELECT DISTINCT ?x1 WHERE { res:Ingrid_Bergman :child ?x2 . ?x2 dbp:spouse ?x1 . }
+res:Brooklyn_Bridge crosses which River?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :River . res:Brooklyn_Bridge :crosses ?x1 . }
+How many yago:EuropeanCountries have governmentType 'monarchy'?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a yago:EuropeanCountries . ?x2 :governmentType ?x3 . FILTER (REGEX(str(?x3),'monarchy','i')) . } 
+What is the deathPlace of res:John_F._Kennedy?
+SELECT DISTINCT ?x1 WHERE { res:John_F._Kennedy :deathPlace ?x1 . }
+Is the spouse of res:Barack_Obama 'Michelle'?
+ASK { res:Barack_Obama :spouse ?x1 . BIND (?x1 AS ?x2) . FILTER (REGEX(str(?x2),'Michelle','i')) . }
+Which yago:StatesOfGermany have dbp:rulingParty 'SPD' or 'Social Democratic Party'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfGermany . { ?x1 dbp:rulingParty ?x2 . FILTER (REGEX(str(?x2),'SPD','i')) . } UNION { ?x1 dbp:rulingParty ?x3 . FILTER (REGEX(str(?x3),'Social','i') && REGEX(str(?x3),'Democratic','i') && REGEX(str(?x3),'Party','i')) . } }
+Which yago:StatesOfTheUnitedStates have dbp:mineral 'Gold'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:mineral ?x2 . FILTER (REGEX(str(?x2),'Gold','i')) . }
+What is the sourceCountry of res:Nile?
+SELECT DISTINCT ?x1 WHERE { res:Nile :sourceCountry ?x1 . }
+Which Country is the location of more than 2 Cave-s?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Country . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x3 a :Cave . ?x3 :location ?x1 . } GROUP BY ?x1 } FILTER (?x2 > 2) . }
+Is res:Proinsulin a Protein?
+ASK { res:Proinsulin a :Protein . }
+What is the dbp:classis of 'tree frog'?
+SELECT DISTINCT ?x1 WHERE { ?x2 dbp:classis ?x1 . FILTER (REGEX(str(?x2),'tree','i') && REGEX(str(?x2),'frog','i')) . }
+What is the height of res:Claudia_Schiffer?
+SELECT DISTINCT ?x1 WHERE { res:Claudia_Schiffer :height ?x1 . }
+Who is the creator of res:Goofy?
+SELECT DISTINCT ?x1 WHERE { res:Goofy :creator ?x1 . }
+Give me the capital-s of the yago:AfricanCountries.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a yago:AfricanCountries . ?x1 :capital ?x2 . }
+Give me all City-es that isPartOf res:New_Jersey and whose populationTotal is greater than 100000.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :City . ?x1 :isPartOf res:New_Jersey . ?x1 :populationTotal ?x2 . FILTER (?x2 > 100000) . }
+What is the dbp:museum of res:The_Scream ?
+SELECT DISTINCT ?x1 WHERE { res:The_Scream dbp:museum ?x1 . }
+Is the largestCity of res:Egypt the capital of res:Egypt?
+ASK { res:Egypt :largestCity ?x1 . res:Egypt :capital ?x1 . }
+What is the numberOfEmployees of res:IBM?
+SELECT DISTINCT ?x1 WHERE { res:IBM :numberOfEmployees ?x1 . }
+What are the dbp:borderingstates of res:Illinois?
+SELECT DISTINCT ?x1 WHERE { res:Illinois dbp:borderingstates ?x1 . }
+What is the country of res:Limerick_Lake?
+SELECT DISTINCT ?x1 WHERE { res:Limerick_Lake :country ?x1 . }
+Which TelevisionShow has creator res:Walt_Disney?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :TelevisionShow . ?x1 :creator res:Walt_Disney . }
+Which Mountain has the highest elevation lesser than the elevation of res:Annapurna?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Mountain . ?x1 :elevation ?x2 . res:Annapurna :elevation ?x3 . FILTER (?x2 < ?x3) . } ORDER BY DESC(?x2) LIMIT 1
+Which Film has director res:Garry_Marshall and is-starring res:Julia_Roberts?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :director res:Garry_Marshall . ?x1 :starring res:Julia_Roberts . }
+Which Bridge shares a dbp:design with res:Manhattan_Bridge?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Bridge . ?x1 dbp:design ?x2 . res:Manhattan_Bridge dbp:design ?x2 . }
+Does res:Andrew_Jackson have a battle?
+ASK { res:Andrew_Jackson :battle ?x1 . }
+Which yago:EuropeanCountries have governmentType res:Constitutional_monarchy?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:EuropeanCountries . ?x1 :governmentType res:Constitutional_monarchy . }
+What are the dbp:awards of res:WikiLeaks?
+SELECT DISTINCT ?x1 WHERE { res:WikiLeaks dbp:awards ?x1 . }
+Which yago:StatesOfTheUnitedStates has the lowest dbp:densityrank?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:densityrank ?x2 . } ORDER BY ASC(?x2) LIMIT 1
+What is the currency of res:Czech_Republic?
+SELECT DISTINCT ?x1 WHERE { res:Czech_Republic :currency ?x1 . }
+Which yago:EuropeanUnionMemberStates have dbp:currencyCode 'EUR'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:EuropeanUnionMemberStates . ?x1 dbp:currencyCode ?x2 . FILTER (REGEX(str(?x2),'EUR','i')) . }
+What is the areaCode of res:Berlin?
+SELECT DISTINCT ?x1 WHERE { res:Berlin :areaCode ?x1 . }
+Which Country has more than 2 officialLanguage-s?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Country . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :officialLanguage ?x3 . } GROUP BY ?x1 } FILTER (?x2 > 2) . }
+Who is the owner of res:Universal_Studios?
+SELECT DISTINCT ?x1 WHERE { res:Universal_Studios :owner ?x1 . }
+What are the dbp:country of res:Yenisei_River?
+SELECT DISTINCT ?x1 WHERE { res:Yenisei_River dbp:country ?x1 . }
+What is the dbp:accessioneudate of res:Latvia?
+SELECT DISTINCT ?x1 WHERE { res:Latvia dbp:accessioneudate ?x1 . }
+Which yago:MonarchsOfTheUnitedKingdom have a spouse whose birthPlace is res:Germany?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:MonarchsOfTheUnitedKingdom . ?x1 :spouse ?x2 . ?x2 :birthPlace res:Germany . }
+What is the date of res:Battle_of_Gettysburg?
+SELECT DISTINCT ?x1 WHERE { res:Battle_of_Gettysburg :date ?x1 . }
+Which Mountain that is-locatedInArea res:Australia has the highest elevation?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Mountain . ?x1 :locatedInArea res:Australia . ?x1 :elevation ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Give me all SoccerClub whose dbp:ground is 'Spain'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :SoccerClub . ?x1 dbp:ground ?x2 . FILTER (REGEX(str(?x2),'Spain','i')) . }
+What are the officialLanguage-s of res:Philippines?
+SELECT DISTINCT ?x1 WHERE { res:Philippines :officialLanguage ?x1 . }
+What is the leaderName of res:New_York_City?
+SELECT DISTINCT ?x1 WHERE { res:New_York_City :leaderName ?x1 . }
+Who is the dbp:designer of res:Brooklyn_Bridge?
+SELECT DISTINCT ?x1 WHERE { res:Brooklyn_Bridge dbp:designer ?x1 . }
+Which Organisation-s whose dbp:industry is 'Telecommunication' have location res:Belgium?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Organisation . ?x1 dbp:industry ?x2 . FILTER (REGEX(str(?x2),'Telecommunication','i')) . ?x1 :location res:Belgium . }
+Does res:Frank_Herbert have no deathDate?
+ASK { FILTER NOT EXISTS { res:Frank_Herbert :deathDate ?x1 . } }
+What is the highestPlace of res:Karakoram?
+SELECT DISTINCT ?x1 WHERE { res:Karakoram :highestPlace ?x1 . }
+Give me the foaf:homepage of res:Forbes.
+SELECT DISTINCT ?x1 WHERE { res:Forbes foaf:homepage ?x1 . }
+Give me all Company-es whose dbp:industry is 'advertising'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Company . ?x1 dbp:industry ?x2 . FILTER (REGEX(str(?x2),'advertising','i')) . }
+What is the deathCause of res:Bruce_Carver?
+SELECT DISTINCT ?x1 WHERE { res:Bruce_Carver :deathCause ?x1 . }
+Give me all yago:SchoolTypes.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:SchoolTypes . }
+Which President-s or yago:Presidents have birthDate '1945'?
+SELECT DISTINCT ?x1 WHERE { { ?x1 a :President . } UNION { ?x1 a yago:Presidents . } ?x1 :birthDate ?x2 . FILTER (REGEX(str(?x2),'1945','i')) . }
+Give me all yago:PresidentsOfTheUnitedStates.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:PresidentsOfTheUnitedStates . }
+Who is the spouse of res:Abraham_Lincoln?
+SELECT DISTINCT ?x1 WHERE { res:Abraham_Lincoln :spouse ?x1 . }
+Who is the developer of res:World_of_Warcraft?
+SELECT DISTINCT ?x1 WHERE { res:World_of_Warcraft :developer ?x1 . }
+What is the foaf:homepage of res:Tom_Cruise?
+SELECT DISTINCT ?x1 WHERE { res:Tom_Cruise foaf:homepage ?x1 . }
+List all TelevisionEpisode-s whose series is res:The_Sopranos and whose seasonNumber is 1.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :TelevisionEpisode . ?x1 :series res:The_Sopranos . ?x1 :seasonNumber 1 . }
+Who is the producer of the most Film-s?
+SELECT DISTINCT ?x1 ?x2 WHERE { { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x3 a :Film . ?x3 :producer ?x1 . } GROUP BY ?x1 } } ORDER BY DESC(?x2) LIMIT 1
+Give me all foaf:Person whose foaf:givenName is 'Jimmy'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a foaf:Person . ?x1 foaf:givenName ?x2 . FILTER (REGEX(str(?x2),'Jimmy','i')) . }
+Is there a VideoGame that is 'Battle Chess'?
+ASK { ?x1 a :VideoGame . BIND (?x1 AS ?x2) . FILTER (REGEX(str(?x2),'Battle','i') && REGEX(str(?x2),'Chess','i')) . }
+Which Mountain has a greater dbp:elevationM than res:Nanga_Parbat?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Mountain . ?x1 dbp:elevationM ?x2 . res:Nanga_Parbat dbp:elevationM ?x3 . FILTER (?x2 > ?x3) . }
+Who is the author of res:Wikipedia?
+SELECT DISTINCT ?x1 WHERE { res:Wikipedia :author ?x1 . }
+Who does 'Last Action Hero' be-starring?
+SELECT DISTINCT ?x1 WHERE { ?x2 :starring ?x1 . FILTER (REGEX(str(?x2),'Last','i') && REGEX(str(?x2),'Action','i') && REGEX(str(?x2),'Hero','i')) . }
+Which Software-s have developer an Organisation whose foundationPlace is res:California?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Software . ?x2 a :Organisation . ?x2 :foundationPlace res:California . ?x1 :developer ?x2 . }
+Which Company has dbp:industry res:Aerospace and res:Nuclear_reactor_technology?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Company . ?x1 dbp:industry res:Aerospace . ?x1 dbp:industry res:Nuclear_reactor_technology . }
+Is res:Christian_Bale a starring of res:Batman_Begins?
+ASK { res:Batman_Begins :starring res:Christian_Bale . }
+Give me the foaf:homepage of the Company-es whose dbp:numEmployees is greater than 500000.
+SELECT DISTINCT ?x1 ?x3 ?x2 WHERE { ?x1 a :Company . ?x1 dbp:numEmployees ?x3 . FILTER (?x3 > 500000) . ?x1 foaf:homepage ?x2 . }
+Which Actor-s have birthPlace res:Germany or a thing whose country is res:Germany?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Actor . { ?x1 :birthPlace res:Germany . } UNION { ?x2 :country res:Germany . ?x1 :birthPlace ?x2 . } }
+Which Cave-s have an dbp:entranceCount greater than 3?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Cave . ?x1 dbp:entranceCount ?x2 . FILTER (?x2 > 3) . }
+Give me all Film-s whose producer is res:Hal_Roach.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :producer res:Hal_Roach . }
+Give me all VideoGame-s whose publisher is 'Mean Hamster Software'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :VideoGame . ?x1 :publisher ?x2 . FILTER (REGEX(str(?x2),'Mean','i') && REGEX(str(?x2),'Hamster','i') && REGEX(str(?x2),'Software','i')) . }
+What is a :language of res:Estonia or is-spokenIn res:Estonia?
+SELECT DISTINCT ?x1 WHERE { { res:Estonia :language ?x1 . } UNION { ?x1 :spokenIn res:Estonia . } }
+Who is the keyPerson of res:Aldi?
+SELECT DISTINCT ?x1 WHERE { res:Aldi :keyPerson ?x1 . }
+Which yago:CapitalsInEurope are a yago:HostCitiesOfTheSummerOlympicGames?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:CapitalsInEurope . ?x1 a yago:HostCitiesOfTheSummerOlympicGames . }
+Who has orderInOffice '^5th President United States'?
+SELECT DISTINCT ?x1 WHERE { ?x1 :orderInOffice ?x2 . FILTER (REGEX(str(?x2),'^5th','i') && REGEX(str(?x2),'President','i') && REGEX(str(?x2),'United','i') && REGEX(str(?x2),'States','i')) . }
+How many Film-s have producer res:Hal_Roach?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :Film . ?x2 :producer res:Hal_Roach . } 
+What is the album of 'Last Christmas'?
+SELECT DISTINCT ?x1 WHERE { ?x2 :album ?x1 . FILTER (REGEX(str(?x2),'Last','i') && REGEX(str(?x2),'Christmas','i')) . }
+Give me all Book-s whose author is res:Danielle_Steel.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Book . ?x1 :author res:Danielle_Steel . }
+Which Airport-s have location res:California ?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Airport . ?x1 :location res:California . }
+Give me all RecordLabel-s whose genre is res:Grunge and whose country is res:Canada.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :RecordLabel . ?x1 :genre res:Grunge . ?x1 :country res:Canada . }
+Which Country has the most dbp:officialLanguages?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Country . { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 dbp:officialLanguages ?x3 . } GROUP BY ?x1 } } ORDER BY DESC(?x2) LIMIT 1
+What is the programmingLanguage of res:GIMP?
+SELECT DISTINCT ?x1 WHERE { res:GIMP :programmingLanguage ?x1 . }
+Who are the producer-s of the Film-s that are-starring res:Natalie_Portman?
+SELECT DISTINCT ?x1 WHERE { ?x2 a :Film . ?x2 :starring res:Natalie_Portman . ?x2 :producer ?x1 . }
+Give me all Film-s that are-starring res:Tom_Cruise.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :starring res:Tom_Cruise . }
+Which Film-s are-starring res:Julia_Roberts and res:Richard_Gere?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :starring res:Julia_Roberts . ?x1 :starring res:Richard_Gere . }
+Give me all yago:FemaleHeadsOfGovernment whose dbp:office is res:Chancellor_of_Germany.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:FemaleHeadsOfGovernment . ?x1 dbp:office res:Chancellor_of_Germany . }
+Who is the author of res:The_Pillars_of_the_Earth?
+SELECT DISTINCT ?x1 WHERE { res:The_Pillars_of_the_Earth :author ?x1 . }
+How many Film-s are-starring res:Leonardo_DiCaprio?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :Film . ?x2 :starring res:Leonardo_DiCaprio . } 
+Give me all SoccerClub-s whose league is res:Premier_League.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :SoccerClub . ?x1 :league res:Premier_League . }
+What is the dbp:foundation of res:Capcom?
+SELECT DISTINCT ?x1 WHERE { res:Capcom dbp:foundation ?x1 . }
+Which Organisation-s have dbp:foundation or formationYear '1950'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Organisation . { ?x1 dbp:foundation ?x2 . } UNION { ?x1 :formationYear ?x2 . } FILTER (REGEX(str(?x2),'1950','i')) . }
+Which Mountain has the highest elevation?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Mountain . ?x1 :elevation ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Does res:Natalie_Portman have a birthPlace whose country is res:United_States?
+ASK { res:Natalie_Portman :birthPlace ?x1 . ?x1 :country res:United_States . }
+What is the budget of the Film whose director is 'Zdenek Sverak' and whose releaseDate is the earliest?
+SELECT DISTINCT ?x1 WHERE { { SELECT DISTINCT ?x4 WHERE { ?x2 a :Film . ?x2 :director ?x3 . FILTER (REGEX(str(?x3),'Zdenek','i') && REGEX(str(?x3),'Sverak','i')) . ?x2 :releaseDate ?x4 . } ORDER BY ASC(?x4) LIMIT 1} ?x2 :budget ?x1 . }
+How many Fire-s have location res:Paris and have period 'Middle Age'?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :Fire . ?x2 :location res:Paris . ?x2 :period ?x3 . FILTER (REGEX(str(?x3),'Middle','i') && REGEX(str(?x3),'Age','i')) . } 
+Is 'Jen Friebe' a Vegan?
+ASK { ?x1 a :Vegan . FILTER (REGEX(str(?x1),'Jen','i') && REGEX(str(?x1),'Friebe','i')) . }
+How many divorce-s of 'Michael Jordan' are there?
+SELECT DISTINCT ?x2 WHERE { { SELECT DISTINCT ?x1 (COUNT(DISTINCT ?x3) AS ?x2) WHERE { ?x1 :divorce ?x3 . } GROUP BY ?x1 } FILTER (REGEX(str(?x1),'Michael','i') && REGEX(str(?x1),'Jordan','i')) . }
+Which Painting has the highest beauty?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Painting . ?x1 :beauty ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Give me all Species whose livingPlace is 'Teutoburg Forest'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Species . ?x1 :livingPlace ?x2 . FILTER (REGEX(str(?x2),'Teutoburg','i') && REGEX(str(?x2),'Forest','i')) . }
+What is the releaseDateInNetherlands of 'Worst Case Scenario'?
+SELECT DISTINCT ?x1 WHERE { ?x2 :releaseDateInNetherlands ?x1 . FILTER (REGEX(str(?x2),'Worst','i') && REGEX(str(?x2),'Case','i') && REGEX(str(?x2),'Scenario','i')) . }
+Which Town that has country res:Germany has a populationTotal greater than 250000?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Town . ?x1 :country res:Germany . ?x1 :populationTotal ?x2 . FILTER (?x2 > 250000) . }
+Who is the successor of res:John_F._Kennedy?
+SELECT DISTINCT ?x1 WHERE { res:John_F._Kennedy :successor ?x1 . }
+Who is the leader of res:Berlin?
+SELECT DISTINCT ?x1 WHERE { res:Berlin :leader ?x1 . }
+What is the numberOfStudents of res:Vrije_Universiteit?
+SELECT DISTINCT ?x1 WHERE { res:Vrije_Universiteit :numberOfStudents ?x1 . }
+Which Mountain has the 2nd highest elevation?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Mountain . ?x1 :elevation ?x2 . } ORDER BY DESC(?x2) OFFSET 1 LIMIT 1
+Give me all Person-s whose occupation is res:Skateboarding and whose (nationality or birthPlace) is res:Sweden.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Person . ?x1 :occupation res:Skateboarding . { ?x1 :nationality res:Sweden . } UNION { ?x1 :birthPlace res:Sweden . } }
+What is the dbp:admittancedate of res:Alberta?
+SELECT DISTINCT ?x1 WHERE { res:Alberta dbp:admittancedate ?x1 . }
+What is a dbp:country of res:Himalayas?
+SELECT DISTINCT ?x1 WHERE { res:Himalayas dbp:country ?x1 . }
+Give me all Person-s whose instrument is res:Trumpet and whose occupation is res:Bandleader.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Person . ?x1 :instrument res:Trumpet . ?x1 :occupation res:Bandleader . }
+What is the dbp:strength of res:New_York_City_Fire_Department?
+SELECT DISTINCT ?x1 WHERE { res:New_York_City_Fire_Department dbp:strength ?x1 . }
+Which FormulaOneRacer has the highest races?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :FormulaOneRacer . ?x1 :races ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Give me all WorldHeritageSite whose dbp:year is between 2008 and 2013.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :WorldHeritageSite . ?x1 dbp:year ?x2 . FILTER (?x2 >= 2008) . FILTER (?x2 <= 2013) . }
+Which SoccerPlayer whose team has league res:Premier_League has the latest birthDate?
+SELECT DISTINCT ?x1 ?x3 WHERE { ?x1 a :SoccerPlayer . ?x1 :team ?x2 . ?x2 :league res:Premier_League . ?x1 :birthDate ?x3 . } ORDER BY DESC(?x3) LIMIT 1
+Give me all bandMember-s of res:Prodigy.
+SELECT DISTINCT ?x1 WHERE { res:Prodigy :bandMember ?x1 . }
+Which River has the highest dbp:length?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :River . ?x1 dbp:length ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+Does the TelevisionShow that is a dbp:tv of res:Battlestar_Galactica and with the latest releaseDate have a greater numberOfEpisodes than the TelevisionShow that is a dbp:tv of res:Battlestar_Galactica and with the earliest releaseDate?
+ASK { { SELECT DISTINCT ?x6 WHERE { ?x1 a :TelevisionShow . res:Battlestar_Galactica dbp:tv ?x1 . ?x1 :releaseDate ?x6 . } ORDER BY DESC(?x6) LIMIT 1} { SELECT DISTINCT ?x5 WHERE { ?x2 a :TelevisionShow . res:Battlestar_Galactica dbp:tv ?x2 . ?x2 :releaseDate ?x5 . } ORDER BY ASC(?x5) LIMIT 1} ?x1 :numberOfEpisodes ?x3 . ?x2 :numberOfEpisodes ?x4 . FILTER (?x3 > ?x4) . }
+Give me all Automobile-s whose assembly is res:Germany.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Automobile . ?x1 :assembly res:Germany . }
+
+Give me all Person-s whose birthPlace is res:Vienna and whose deathPlace is res:Berlin.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Person . ?x1 :birthPlace res:Vienna . ?x1 :deathPlace res:Berlin . }
+What is the height of res:Michael_Jordan?
+SELECT DISTINCT ?x1 WHERE { res:Michael_Jordan :height ?x1 . }
+What is the capital of res:Canada?
+SELECT DISTINCT ?x1 WHERE { res:Canada :capital ?x1 . }
+Who is the dbp:governor of res:Wyoming?
+SELECT DISTINCT ?x1 WHERE { res:Wyoming dbp:governor ?x1 . }
+Does 'Prince Harry' have the same dbp:mother as 'Prince William'?
+ASK { ?x1 dbp:mother ?x3 . ?x2 dbp:mother ?x4 . FILTER (?x3 = ?x4) . FILTER (REGEX(str(?x2),'Prince','i') && REGEX(str(?x2),'William','i')) . FILTER (REGEX(str(?x1),'Prince','i') && REGEX(str(?x1),'Harry','i')) . }
+Who is the dbp:father of res:Elizabeth_II?
+SELECT DISTINCT ?x1 WHERE { res:Elizabeth_II dbp:father ?x1 . }
+Which yago:StatesOfTheUnitedStates has the latest dbp:admittancedate?
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:admittancedate ?x2 . } ORDER BY DESC(?x2) LIMIT 1
+How many officialLanguage-s of res:Seychelles are there?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { res:Seychelles :officialLanguage ?x2 . } 
+res:Sean_Parnell is the dbp:governor of which yago:StatesOfTheUnitedStates?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:governor res:Sean_Parnell . }
+Give me all Film-s whose director is res:Francis_Ford_Coppola.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :director res:Francis_Ford_Coppola . }
+Give me all Person-s that are a starring of a Film whose director and starring is res:William_Shatner.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Person . ?x2 a :Film . ?x2 :director res:William_Shatner . ?x2 :starring res:William_Shatner . ?x2 :starring ?x1 . }
+What is the dbp:birthName of res:Angela_Merkel?
+SELECT DISTINCT ?x1 WHERE { res:Angela_Merkel dbp:birthName ?x1 . }
+Give me all yago:CurrentNationalLeaders whose dbp:religion is res:Methodism.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:CurrentNationalLeaders . ?x1 dbp:religion res:Methodism . }
+How many spouse-s of res:Nicole_Kidman are there?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { res:Nicole_Kidman :spouse ?x2 . } 
+Give me all Organisation-s whose type is res:Nonprofit_organization and whose location is res:Australia.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Organisation . ?x1 :type res:Nonprofit_organization . ?x1 :location res:Australia . }
+What are the battle-s of res:T._E._Lawrence?
+SELECT DISTINCT ?x1 WHERE { res:T._E._Lawrence :battle ?x1 . }
+Who is the developer of res:Minecraft?
+SELECT DISTINCT ?x1 WHERE { res:Minecraft :developer ?x1 . }
+
+
+What is the populationTotal of res:Maribor?
+SELECT DISTINCT ?x1 WHERE { res:Maribor :populationTotal ?x1 . }
+Give me all Company-es whose location is res:Munich.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Company . ?x1 :location res:Munich . }
+List all Game-s whose publisher is 'GMT'.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Game . ?x1 :publisher ?x2 . FILTER (REGEX(str(?x2),'GMT','i')) . }
+Whom does res:Intel be-foundedBy?
+SELECT DISTINCT ?x1 WHERE { res:Intel :foundedBy ?x1 . }
+Who is the dbp:spouse of res:Amanda_Palmer?
+SELECT DISTINCT ?x1 WHERE { res:Amanda_Palmer dbp:spouse ?x1 . }
+Give me all dbp:breed of res:German_Shepherd.
+SELECT DISTINCT ?x1 WHERE { res:German_Shepherd dbp:breed ?x1 . }
+What are the city-es of res:Weser?
+SELECT DISTINCT ?x1 WHERE { res:Weser :city ?x1 . }
+What are the country-es of res:Rhine?
+SELECT DISTINCT ?x1 WHERE { res:Rhine :country ?x1 . }
+Who has occupation res:Surfing and has birthPlace res:Philippines?
+SELECT DISTINCT ?x1 WHERE { ?x1 :occupation res:Surfing . ?x1 :birthPlace res:Philippines . }
+
+Which Place-s whose country is res:United_Kingdom is the headquarter of res:Secret_Intelligence_Service?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Place . ?x1 :country res:United_Kingdom . res:Secret_Intelligence_Service :headquarter ?x1 . }
+Which Weapon shares the dbp:designer with res:Uzi?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Weapon . ?x1 dbp:designer ?x2 . res:Uzi dbp:designer ?x2 . }
+Does res:Cuban_Missile_Crisis have an earlier date than res:Bay_of_Pigs_Invasion?
+ASK { res:Cuban_Missile_Crisis :date ?x1 . res:Bay_of_Pigs_Invasion :date ?x2 . FILTER (?x1 < ?x2) . }
+Give me all yago:FrisianIslands whose country is res:Netherlands.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:FrisianIslands . ?x1 :country res:Netherlands . }
+
+What is the dbp:leaderParty of res:Lisbon?
+SELECT DISTINCT ?x1 WHERE { res:Lisbon dbp:leaderParty ?x1 . }
+What are the dbp:nickname of res:San_Francisco?
+SELECT DISTINCT ?x1 WHERE { res:San_Francisco dbp:nickname ?x1 . }
+Which yago:GreekGoddesses have dbp:abode res:Mount_Olympus?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:GreekGoddesses . ?x1 dbp:abode res:Mount_Olympus . }
+Which ?date do res:Hells_Angels be-dbp:founded?
+SELECT DISTINCT ?x1 WHERE { res:Hells_Angels dbp:founded ?x1 . }
+Give me all Astronaut-s whose mission is res:Apollo_14.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Astronaut . ?x1 :mission res:Apollo_14 . }
+What is the dbp:timezone of res:Salt_Lake_City?
+SELECT DISTINCT ?x1 WHERE { res:Salt_Lake_City dbp:timezone ?x1 . }
+Which yago:StatesOfTheUnitedStates share the dbp:timezone with res:Utah?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:timezone ?x2 . res:Utah dbp:timezone ?x2 . }
+Give me all Lake-s whose country is res:Denmark.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Lake . ?x1 :country res:Denmark . }
+How many SpaceMission-s are there?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { ?x2 a :SpaceMission . } 
+Does res:Aristotle be-influencedBy res:Socrates?
+ASK { res:Aristotle :influencedBy res:Socrates . }
+Give me all Film-s whose country is res:Argentina.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :country res:Argentina . }
+Give me all LaunchPad-s whose operator is res:NASA.
+SELECT DISTINCT ?x1 WHERE { ?x1 a :LaunchPad . ?x1 :operator res:NASA . }
+What are the instrument-s of res:John_Lennon?
+SELECT DISTINCT ?x1 WHERE { res:John_Lennon :instrument ?x1 . }
+What has dbp:shipNamesake res:Benjamin_Franklin?
+SELECT DISTINCT ?x1 WHERE { ?x1 dbp:shipNamesake res:Benjamin_Franklin . }
+Who are the parent-s of the spouse of 'Juan Carlos I'?
+SELECT DISTINCT ?x1 WHERE { ?x2 :spouse ?x3 . ?x3 :parent ?x1 . FILTER (REGEX(str(?x2),'Juan','i') && REGEX(str(?x2),'Carlos','i') && REGEX(str(?x2),'I','i')) . }
+What is the numberOfEmployees of res:Google?
+SELECT DISTINCT ?x1 WHERE { res:Google :numberOfEmployees ?x1 . }
+Does 'Tesla' have award 'Nobel Prize Physics'?
+ASK { ?x1 :award ?x2 . FILTER (REGEX(str(?x2),'Nobel','i') && REGEX(str(?x2),'Prize','i') && REGEX(str(?x2),'Physics','i')) . FILTER (REGEX(str(?x1),'Tesla','i')) . }
+Is res:Michelle_Obama the spouse of res:Barack_Obama?
+ASK { res:Barack_Obama :spouse res:Michelle_Obama . }
+What is the dbp:beginningDate of res:Statue_of_Liberty?
+SELECT DISTINCT ?x1 WHERE { res:Statue_of_Liberty dbp:beginningDate ?x1 . }
+Which yago:StatesOfTheUnitedStates is the dbp:location of res:Fort_Knox?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfTheUnitedStates . res:Fort_Knox dbp:location ?x1 . }
+res:Benjamin_Franklin has how many child-s?
+SELECT DISTINCT  (COUNT(DISTINCT ?x2) AS ?x1) WHERE { res:Benjamin_Franklin :child ?x2 . } 
+What is the deathDate of res:Michael_Jackson?
+SELECT DISTINCT ?x1 WHERE { res:Michael_Jackson :deathDate ?x1 . }
+Which yago:DaughtersOfBritishEarls have the same deathPlace as birthPlace?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:DaughtersOfBritishEarls . ?x1 :deathPlace ?x2 . ?x1 :birthPlace ?x3 . FILTER (?x2 = ?x3) . }
+List the child-s of res:Margaret_Thatcher.
+SELECT DISTINCT ?x1 WHERE { res:Margaret_Thatcher :child ?x1 . }
+Who has dbp:nickname res:Scarface?
+SELECT DISTINCT ?x1 WHERE { ?x1 dbp:nickname res:Scarface . }
+Does res:Margaret_Thatcher have profession res:Chemist?
+ASK { res:Margaret_Thatcher :profession res:Chemist . }
+Does res:Dutch_Schultz have dbp:ethnicity 'Jewish'?
+ASK { res:Dutch_Schultz dbp:ethnicity ?x1 . FILTER (REGEX(str(?x1),'Jewish','i')) . }
+Give me all Book-s whose author is res:William_Goldman and whose numberOfPages is greater than 300.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Book . ?x1 :author res:William_Goldman . ?x1 :numberOfPages ?x2 . FILTER (?x2 > 300) . }
+Which Book-s have author res:Jack_Kerouac and have publisher res:Viking_Press?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Book . ?x1 :author res:Jack_Kerouac . ?x1 :publisher res:Viking_Press . }
+Give me all yago:AmericanInventions.
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:AmericanInventions . }
+What is the elevation of res:Mount_Everest?
+SELECT DISTINCT ?x1 WHERE { res:Mount_Everest :elevation ?x1 . }
+Who is the creator of res:Captain_America?
+SELECT DISTINCT ?x1 WHERE { res:Captain_America :creator ?x1 . }
+What is the populationTotal of the capital of res:Australia?
+SELECT DISTINCT ?x1 WHERE { res:Australia :capital ?x2 . ?x2 :populationTotal ?x1 . }
+What is the largestCity of res:Australia?
+SELECT DISTINCT ?x1 WHERE { res:Australia :largestCity ?x1 . }
+Who is the musicComposer of res:Harold_and_Maude?
+SELECT DISTINCT ?x1 WHERE { res:Harold_and_Maude :musicComposer ?x1 . }
+Which Film-s have starring and director res:Clint_Eastwood?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :starring res:Clint_Eastwood . ?x1 :director res:Clint_Eastwood . }
+Which Place is the restingPlace of 'Juliana Netherlands'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Place . ?x2 :restingPlace ?x1 . FILTER (REGEX(str(?x2),'Juliana','i') && REGEX(str(?x2),'Netherlands','i')) . }
+What is the dbp:residence of res:Prime_Minister_of_Spain?
+SELECT DISTINCT ?x1 WHERE { res:Prime_Minister_of_Spain dbp:residence ?x1 . }
+Which yago:StatesOfTheUnitedStates has dbp:postalabbreviation 'MN'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a yago:StatesOfTheUnitedStates . ?x1 dbp:postalabbreviation ?x2 . FILTER (REGEX(str(?x2),'MN','i')) . }
+Give me all Song-s whose artist is res:Bruce_Springsteen and whose releaseDate has a year between 1980 and 1990.
+SELECT DISTINCT ?x1 ?x2 ?x3 WHERE { ?x1 a :Song . ?x1 :artist res:Bruce_Springsteen . ?x1 :releaseDate ?x2 . BIND (year(?x2) AS ?x3) . FILTER (?x3 >= 1980) . FILTER (?x3 <= 1990) . }
+Which Film-s have director res:Akira_Kurosawa and have a later releaseDate than 'Rashomon'?
+SELECT DISTINCT ?x1 WHERE { ?x1 a :Film . ?x1 :director res:Akira_Kurosawa . ?x1 :releaseDate ?x3 . ?x2 :releaseDate ?x4 . FILTER (?x3 > ?x4) . FILTER (REGEX(str(?x2),'Rashomon','i')) . }
+What is the dbp:foundation of the dbp:brewery of res:Pilsner_Urquell?
+SELECT DISTINCT ?x1 WHERE { res:Pilsner_Urquell dbp:brewery ?x2 . ?x2 dbp:foundation ?x1 . }
+Who is the dbp:author of the anthem of res:Poland?
+SELECT DISTINCT ?x1 WHERE { res:Poland :anthem ?x2 . ?x2 dbp:author ?x1 . }
+Give me all dbp:bSide of the Album-s whose artist is res:Ramones.
+SELECT DISTINCT ?x1 ?x2 WHERE { ?x1 a :Album . ?x1 :artist res:Ramones . ?x1 dbp:bSide ?x2 . }
+Who is the dbp:artist of res:The_Storm_on_the_Sea_of_Galilee?
+SELECT DISTINCT ?x1 WHERE { res:The_Storm_on_the_Sea_of_Galilee dbp:artist ?x1 . }
+What is the nationality of the creator of res:Miffy?
+SELECT DISTINCT ?x1 WHERE { res:Miffy :creator ?x2 . ?x2 :nationality ?x1 . }
+What is the recordLabel of the Album whose artist is res:Elvis_Presley and whose releaseDate is the earliest?
+SELECT DISTINCT ?x1 WHERE { { SELECT DISTINCT ?x3 WHERE { ?x2 a :Album . ?x2 :artist res:Elvis_Presley . ?x2 :releaseDate ?x3 . } ORDER BY ASC(?x3) LIMIT 1} ?x2 :recordLabel ?x1 . }
+Who has product res:Orangina?
+SELECT DISTINCT ?x1 WHERE { ?x1 :product res:Orangina . }

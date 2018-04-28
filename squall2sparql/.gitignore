@@ -1,0 +1,7 @@
+*.cm[i,o,a,x]
+*.cmx[a,s]
+*.[a,o]
+*.exe
+*.bat
+*~
+_build/*

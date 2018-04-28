@@ -1,0 +1,3 @@
+[submodule "lib"]
+	path = lib
+	url = https://bitbucket.org/sebferre/ocaml-lib.git

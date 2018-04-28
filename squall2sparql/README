@@ -1,0 +1,27 @@
+To build squall2sparql, here are the instructions:
+
+1. clone the Git repository in some directory,
+   and its dependencies (Git submodules)
+
+% git clone https://bitbucket.org/sebferre/squall2sparql.git
+% cd squall2sparql
+% git submodule init
+% git submodule update
+
+2. compile the project. This only assumes you have installed
+   the OCaml compilers version 3.12.1 (see http://caml.inria.fr/ocaml/release-prev.en.html).
+
+% make
+
+If successful, you get the following "user interfaces":
+- script (squall2sparql): takes a SQUALL sentence on the standard input,
+    and returns the SPARQL translation on the standard output
+- interpreter (squall.exe): prompts the user for SQUALL sentences, and
+    displays its SPARQL translation, as well as intermediate representations
+    in between
+- Ocsigen web form (webform.cma, webform.conf, webform.css): a web site
+    featuring a SQUALL form, connections to DBpedia SPARQL endpoints, and
+    SQUALL examples. Assuming you have installed the Ocsigen server
+    (see http://ocsigen.org/), you can run it by executing
+
+% ocsigenserver -c webform.conf

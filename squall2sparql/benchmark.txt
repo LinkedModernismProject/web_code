@@ -1,0 +1,70 @@
+
+Path expressions.
+* what is the name of the author-s of A ?
+
+Union.
+* what is the label of a topic or is the title of a publication ?
+
+Difference.
+* what is the label of a topic and is not the title of a publication ?
+
+Optional.
+* the author-s of a publication have which name and maybe have which email ? 
+
+Quantification.
+* what is an author of every publication ?
+* every publication has which author ?
+
+Aggregation.
+* how many person-s are an author of A ?
+* A has how many author-s ?
+* what is the count of the author-s of A ?
+* which publication has how many author-s ?
+
+Grouping.
+* how many publication-s have an author that has which affiliation ?
+
+Reification.
+* in which graph A has some topic ?
+
+Namespaces.
+* what has a uri that matches "^http:/www.aifb.unikarlsruhe.de/" ?
+* the uri of what matches "^http:/www.aifb.unikarlsruhe.de/" ?
+
+Language.
+* what has lang "de" and is the label of the topic that has a label whose str is "Database Management" and whose tag is "en" ?
+
+Literals and Datatypes.
+* which publication has pageNumber 8 ?
+
+* which publication has a pageNumber whose str is "08" ?
+
+Collections and containers.
+*** what is the *last* of the authorList of A ?
+*** what is the rdf:first of the term:sublist whose rdf:rest is rdf:nil of A ?
+
+Recursion.
+*** what is a trans-subtopic of InformationSystems ?
+
+Entailment.
+* what is a publication ?
+*** what has a type that opt-trans-rdfs:subClassOf publication ?
+
+Closed questions.
+* whether X has an author that worksFor Y ?
+
+
+Insertion.
+* there is a book A whose title is "A new book" and whose author is B.
+
+Deletion.
+* in graph G A has title "Compiler Design" and not "Compiler desing".
+
+Group of updates.
+* for every book ?b that ?p ?v and whose date < "2001-01-01"^^xsd:date, not ?b ?p ?v.
+
+Copy.
+* every thing that ?p ?v in graph G ?p ?v in graph G2.
+
+Move.
+* every thing that ?p ?v in graph G ?p ?v in graph G2 and not G.
