@@ -4,36 +4,39 @@ Miscellaneous:
 * hasBirthdate/Deathdate, possibly have the dates in another pred?
 * Combine all the isPerson, isEvent, isArtifact... to hasType
 
-postgres info (starts it): postgres -D /Users/brayden/limo/iepy/limo/db/
+postgres info
+	 postgres -D /Users/brayden/limo/iepy/limo/db/ 
+	 starts it
 
-scp to WestCloud:<br>
-&nbsp;&nbsp;**scp local to remote:**&nbsp;&nbsp;&nbsp;scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination <br>
-&nbsp;&nbsp;**scp remote to local:**&nbsp;&nbsp;&nbsp;scp -i ~/.ssh/key.pem centos@IP:~/path/to/file destination
 
-launch chromium: /opt/chromium/chrome-wrapper %U
+scp info:
+	Info on the cloud email: Mon May 11 4:40pm
+	scp to WestCloud:
+		scp -C -i ~/.ssh/key.pem  filename centos@IP:/path/to/destination
 
-**localhost:** localhost:8890
+launch chromium:
+	/opt/chromium/chrome-wrapper %U
+
+localhost:
+	localhost:8890
 
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/
 
 Possibly?
 /usr/local/virtuoso-opensource/var/lib/virtuoso/vsp/bin
 
-Search recursively through files for a string:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep -rli 'string' .
+Search recursively through files for a string:
+	grep -rli 'string' .
 
-Search recursively through dir's for file names:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -name 'filename*'
+Search recursively through dir's for file names:
+	find . -name 'filename*'
 
-Search recursively through dir's for directory names:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find . -type d -name 'filename*'
-
-Grep history:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;history | grep cmd_name
+Grep history:
+	history | grep cmd_name
 
 Uploading tasks:
-* Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
-
+	Possibe changes to quotes to JSON file make by d3.xhr, may need to modify convertJSONtoFlare.js
+	
 ___________________________________________________________________________________________________
 
 ~/www/rdfconvert/rdfconvert-0.4/bin/
@@ -60,7 +63,6 @@ ________________________________________________________________________________
 
 Setting up rsub:
 	http://log.liminastudio.com/writing/tutorials/sublime-tunnel-of-love-how-to-edit-remote-files-with-sublime-text-via-an-ssh-tunnel
-	
 	For Host part:
 		Host IP
 		    RemoteForward 52698 127.0.0.1:52698
@@ -82,7 +84,7 @@ It is recommended that Turtle files have the extension ".ttl" (all lowercase) on
 
 
 Working On:
-	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store.
+	You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store. 
 
 
 Special character regex:
@@ -121,9 +123,9 @@ Turtle
 			ns0:story_writer "True" ;
 			ns0:performer "True" .
 
-startVirtuoso.sh<br>
-&nbsp;&nbsp;cd /usr/local/virtuoso-opensource/bin/<br>
-&nbsp;&nbsp;sudo ./virtuoso-t -f &
+startVirtuoso.sh
+	cd /usr/local/virtuoso-opensource/bin/
+	sudo ./virtuoso-t -f & 
 
 Querying Dataset:
 	select ?obj where {<http://modernism.uvic.ca/metadata#Lajos_Kassk,_The_Ma_Group> <http://modernism.uvic.ca/metadata#Open-Ended_Response> ?obj .}

@@ -1,3 +1,0 @@
-Alan Turing		Turing states		creatorOff
-Alan Turing2		Turing2 states2		creatorOf2
-Alan Turing3		Turing3 states3		creatorOf3

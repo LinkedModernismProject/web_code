@@ -1,9 +1,0 @@
-Subject: Alan Turing
-	Predicate: creator off
-	Object: Turing states
-Subject: Alan Turing2
-	Predicate: creatorOf2
-	Object: Turing2 states2
-Subject: Alan Turing3
-	Predicate: creatorOf3
-	Object: Turing3 states3

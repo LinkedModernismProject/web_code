@@ -1818,10 +1818,7 @@
 	pref1:hasSex "male" ;
 	pref1:hasSexuality "heterosexual" ;
 	pref1:correspondedWith "Haile Selassie I" ;
-	pref1:correspondedWith "Kebedech Tekleab" ;
-	pref1:correspondedWith "Compte Philippe D Arschot";
-	pref1:correspondedWith "Aime Cesaire";
-	pref1:correspondedWith "Leopold Senghor";	
+	pref1:correspondedWith "Kebedech Tekleab Compte Philippe D Arschot Aime Cesaire Leopold Senghor" ;
 	pref1:correspondedWith "Gerard Sokoto Tiberio" ;
 	pref1:correspondedWith "Ibrahim Papa-Taal" ;
 	pref1:knows "Tewodros Tsige Markos" ;

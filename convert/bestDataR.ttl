@@ -1,5 +1,7 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#label> .
 
 <http://modernism.uvic.ca/metadata#Jean_Rhys>
+	rdfs:label "Jean Rhys" ;
 	rdfs:associatedWithLiterature "prose" ;
 	rdfs:type "Person" ;
 	rdfs:typeOfPerson "novelist" ;
