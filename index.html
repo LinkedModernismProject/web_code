@@ -130,6 +130,9 @@
       } else if(this.id === "diff-search"){
         $("#tabHome").removeClass("active");
         $("#tabDist").addClass("active");
+      } else if(this.id === "topic-explore"){
+        $("#tabHome").removeClass("active");
+        $("#tabDist").addClass("active");
       }
     });
 
@@ -798,6 +801,12 @@ height: 1050
 
               <div class="col-xs-12 col-sm-6">
                 <p>
+                  Description TBA
+                </p>
+                <a data-toggle="tab" href="#sectionTopicExplorer" class="btn btn-fn btn-primary btn-xl" id="topic-search">Topic Explorer</a>
+
+              <div class="col-xs-12 col-sm-6">
+                <p>
                   The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
                 </p>
                 <a data-toggle="tab" href="#sectionDist" class="btn btn-fn btn-primary btn-xl" id="diff-search">Degrees of Separation</a>
@@ -808,6 +817,11 @@ height: 1050
                 The Search Function allows you to search the metadata for the entire REM. It uses a combination of natural language querying with intuitive auto-completion. Its powerful system of filters lets you zero in on relevant results and adjust the graphs to show only what you're interested in seeing.
               </p>
               <a data-toggle="tab" href="#sectionSearch" class="btn btn-fn btn-primary btn-xl" id="reg-search">Search Function</a>
+              <br/><br/>
+              <p>
+                Topic explorer description TBA.
+              </p>
+              <a data-toggle="tab" href="#sectionTopicExplorer" class="btn btn-fn btn-primary btn-xl" id="topic-search">Topic Explorer</a>
               <br/><br/>
               <p>
                 The Degrees of Separation tool allows you to explore all possible relations among two or more terms appearing in the REM. Sophisticated visualization options and filtering let you clarify the results so you see only what you really want to see, without unnecessary clutter.
