@@ -574,11 +574,21 @@
     return;
   }
 
+  var dataSource = 'curated';
+  function updateDataSource(source){
+      dataSource = source;
+  }
+
   // http://localhost:8890/sparql?default-graph-uri=http://localhost:8890/bestData&
   //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
   function constructURL(query){
     //Change url to the localhost one and remove ? from infront of query and uncomment the encodeURIComponent(prefix) to run on server
     var url = /*"http://dbpedia.org/sparql";*/  "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProductionDM&";
+
+    if (dataSource === 'curated') {
+        url = /*"http://dbpedia.org/sparql";*/  "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProduction&";
+    }
+
     var queryURL = url + "query=" + encodeURIComponent(prefix) + encodeURIComponent(query) + '&timeout=30000&debug=on';
     $.cookie("currentSearch", query);
     return queryURL;
@@ -587,6 +597,9 @@
   //d3.select("#endpoint").property("value")
   function createVisualizations(sparql) {
     var endpoint = /*"http://dbpedia.org/sparql";*/ "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProductionDM&";
+    if (dataSource === 'curated') {
+      endpoint = /*"http://dbpedia.org/sparql";*/  "http://linkedmods.uvic.ca:80/sparql?default-graph-uri=http://localhost:80/bestDataProduction&";
+    }
     d3sparql.query(endpoint, sparql, render);
   }
 
@@ -985,10 +998,22 @@ height: 1050
               <input type="textarea" name="pred" id="pred" class="primary-search" placeholder="Predicate (leave blank for anything)"></textarea>
               <input type="textarea" name="obj" id="obj" class="primary-search" placeholder="Object (leave blank for anything)"></textarea>
               <div class="clearfix visible-xs-block"><br/></div><br/><br/>
-              <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
-              <input data-toggle="tab" href="#sectionVis" type="submit" id="random" value="Random Search" class="btn btn-primary btn-xl btn-space"/>
+              <div align="left">
+                <div align="left" style="padding: 0 400px; display: inline-block;">
+                  <input data-toggle="tab" href="#sectionVis" type="submit" id="searcher" value="Search" class="btn btn-primary btn-search btn-xl"/>
+                  <input data-toggle="tab" href="#sectionVis" type="submit" id="random" value="Random Search" class="btn btn-primary btn-xl btn-space"/>
+                  <p style="margin:0; padding: 3px;">Data source:</p>
+                  <form>
+                    <label class="radio-inline">
+                      <input type="radio" name="dataSource" onclick="updateDataSource('curated');" checked="checked">Curated
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="dataSource" onclick="updateDataSource('dbpedia');">DBpedia
+                    </label>
+                  </form>
+                </div>
+              </div>
             </fieldset>
-
             <br/>
             <h6>Select a visualization</h6>
             <div class="vis-select">
