@@ -1,0 +1,2873 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://linkedmods.uvic.ca:8890/data/liMoCasaubon1.13"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://linkedmods.uvic.ca:8890/data/liMoCasaubon1.13">
+    <Prefix name="" IRI="http://linkedmods.uvic.ca:8890/data/liMoCasaubon1.13#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/TR/2008/WD-skos-reference-20080829/skos#"/>
+    <Declaration>
+        <Class IRI="#ActingPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Actor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Advertisement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Anthropology"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aphorism"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Architect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Architecture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Artifact"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AutoBiography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Biographer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Biography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cartoon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChildrensAuthor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChildrensWriting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Choreographer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Choreography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#City"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Collection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Collector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Concept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConceptOther"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Concert"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Correspondence"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Critic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Criticism"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dancer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Design"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Designer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Diary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dictionary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Director"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Documentary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drama"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DramaticMonologue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DramaticPoem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Drawing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Empire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Encyclopedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Epidemic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Essay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EssayCollection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ethnography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EventOther"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Exhibit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Experimental"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ExperimentalForm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FashionDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FashionShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FictionFilm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Film"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FreeVerse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GraphicDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GroupOrMovement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Historian"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#History"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Idea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Impresario"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IndustrialDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IndustrialDesigner"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Installation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Journalism"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Letters"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LiteraryJournal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Literature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LittleMagazine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lyric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Magazine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Magic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manifesto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MediaArts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Method"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Movement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Music"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MusicalComposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MusicalPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Musician"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Narrative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Newspaper"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonFiction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Novel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Novelist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Novella"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Object"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Opera"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Painter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Painting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Patron"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Performer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PerformingArts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Periodical"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Philosophy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Photography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Place"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlaceOfStudy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Play"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Playwright"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poetry"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoetryCollection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoliticalCampaign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoliticalFigure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoliticalHappening"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoliticalPlatform"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PoliticalTract"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PopularMusic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Print"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Production"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProseFiction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RadioPerformer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RadioProgram"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RadioWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RecitalReading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Region"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ReligiousStudy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Review"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reviewer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Revolution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Riot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Screenplay"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Screenwriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sculptor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sculpture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShortStory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShortStoryCollection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Singer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Song"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Speech"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpeechWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportingEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StoryWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Strike"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Style"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Technique"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TelevisionPerformer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TelevisionShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TelevisionWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Textiles"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theatre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Thinker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TraditionalForm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TravelWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TravelWriting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Typographer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Typography"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UrbanDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UrbanDesigner"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VaudevilleMusicHall"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Venue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisualArts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisualDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisualInstallation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#War"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WorldFair"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Cartoonist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Composer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Diarist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Editor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Filmmaker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Illustrator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Journalist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/LetterWriter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/LiteraryArtist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MediaArtist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PerformingArtist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Philosopher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Printmaker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Publisher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Theorist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/VisualArtist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Writer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#affiliatedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aliasOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#appearedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#associatedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#collectedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#collectorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contributedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#correspondedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#createdBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#creatorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depictedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depictorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#directedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#directorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#editedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#editorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#financedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#financerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#foundedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#founderOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hadIntimateRelationshipWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAlias"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAlternativeTitle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEthnicity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMember"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasNationality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReligion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedByDegreeClimactic"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedByDegreeDirect"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedByDegreeKey"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedByDegreePossible"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedByDegreeProximate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedDegreeClimactic"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedDegreeDirect"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedDegreeKey"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedDegreePossible"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedDegreeProximate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#knew"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#lecturedAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#locatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#locationOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memberOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#metWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#organizedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#organizerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#originatedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publisherOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#receivedAward"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#referredTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#seeAlso"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#studiedAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#travelledTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/publishedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#alludesTo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWith"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithBuddhism"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithChristianity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithCity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithCountry"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithEmpire"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithEthnicity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithHinduism"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithIslam"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithJudaism"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithLiterature"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithNonFiction"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithOtherReligion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithRegion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithSikhism"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#associatedWithVenue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#commencesIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#familyName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#flourishesIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#forgedIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#givenName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBirthdate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasEthnicity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasForm"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasGender"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLanguage"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNationality"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasNature"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasReligion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasScope"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSex"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSexuality"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTitle"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasType"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasVariant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#includesParatext"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#influencedBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#originatedIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#originatedInCountry"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#refersDirectly"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#terminatesIn"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#translated"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#translatedFrom"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#translatedInto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#usesLanguage"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#usesPrimaryLanguage"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Actor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performedIn"/>
+            <Class IRI="#Production"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Architect"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Architecture"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Biographer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Biography"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ChildrensAuthor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#ChildrensWriting"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Choreographer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Choreography"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Collector"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#collectorOf"/>
+            <Class IRI="#Artifact"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Critic"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Criticism"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Dancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performedIn"/>
+            <Class IRI="#Dance"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Designer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#GraphicDesign"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Director"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#directorOf"/>
+            <Class IRI="#Production"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Group"/>
+        <ObjectMinCardinality cardinality="2">
+            <ObjectProperty IRI="#hasMember"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        </ObjectMinCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Historian"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#History"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Impresario"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#financerOf"/>
+            <Class IRI="#Artifact"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Impresario"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#organizerOf"/>
+            <Class IRI="#Artifact"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#IndustrialDesigner"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#IndustrialDesign"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Journalism"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Journalism"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MusicalComposition"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#MusicalComposition"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Musician"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Music"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Novelist"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Novel"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Painter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Painting"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Performer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performedIn"/>
+            <Class IRI="#Production"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Playwright"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Drama"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Poet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Poetry"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RadioPerformer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performedIn"/>
+            <Class IRI="#RadioProgram"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RadioWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#RadioProgram"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Reviewer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Review"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Screenwriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Screenplay"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Screenwriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#TelevisionShow"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sculptor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Sculpture"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Singer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performerOf"/>
+            <Class IRI="#Song"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SpeechWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Speech"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#StoryWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#ShortStory"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#StoryWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#ShortStoryCollection"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TelevisionPerformer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#performedIn"/>
+            <Class IRI="#TelevisionShow"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TelevisionWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#TelevisionShow"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TravelWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#TravelWriting"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Typographer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Typography"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#UrbanDesigner"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#UrbanDesign"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Cartoonist"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Cartoon"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Composer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#MusicalComposition"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Diarist"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Diary"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Editor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#editorOf"/>
+            <Class IRI="#Artifact"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Filmmaker"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Film"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Illustrator"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Drawing"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Journalist"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Journalism"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/LetterWriter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Letters"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Philosopher"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Philosophy"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Printmaker"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Print"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Publisher"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#publisherOf"/>
+            <Class IRI="#Artifact"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/Theorist"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#creatorOf"/>
+            <Class IRI="#Theory"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#ActingPerformance"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Actor"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Advertisement"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Anthropology"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aphorism"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Architect"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Architecture"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Artifact"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AutoBiography"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Biographer"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Biography"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cartoon"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChildrensAuthor"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChildrensWriting"/>
+        <Class IRI="#Literature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Choreographer"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Choreography"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#City"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classical"/>
+        <Class IRI="#Music"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Collection"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Collector"/>
+        <Class IRI="#Patron"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Concept"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConceptOther"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Concert"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Correspondence"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Country"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Critic"/>
+        <Class IRI="#Thinker"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Criticism"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dance"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dancer"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Design"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Designer"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diary"/>
+        <Class IRI="#Correspondence"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dictionary"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Documentary"/>
+        <Class IRI="#Film"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drama"/>
+        <Class IRI="#Literature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DramaticMonologue"/>
+        <Class IRI="#TraditionalForm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DramaticPoem"/>
+        <Class IRI="#TraditionalForm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Drawing"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Empire"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Encyclopedia"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Epidemic"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Essay"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EssayCollection"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ethnography"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Event"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EventOther"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Exhibit"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Experimental"/>
+        <Class IRI="#Music"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ExperimentalForm"/>
+        <Class IRI="#Poem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FashionDesign"/>
+        <Class IRI="#Design"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FashionShow"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FictionFilm"/>
+        <Class IRI="#Film"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FreeVerse"/>
+        <Class IRI="#Poem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GraphicDesign"/>
+        <Class IRI="#Design"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Group"/>
+        <Class IRI="#GroupOrMovement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GroupOrMovement"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Historian"/>
+        <Class IRI="#Thinker"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#History"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Idea"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Impresario"/>
+        <Class IRI="#Patron"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IndustrialDesign"/>
+        <Class IRI="#Design"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IndustrialDesigner"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Installation"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Journalism"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Letters"/>
+        <Class IRI="#Correspondence"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LiteraryJournal"/>
+        <Class IRI="#Periodical"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Literature"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LittleMagazine"/>
+        <Class IRI="#Periodical"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lyric"/>
+        <Class IRI="#TraditionalForm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Magazine"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Magic"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manifesto"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MediaArts"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Method"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Movement"/>
+        <Class IRI="#GroupOrMovement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Music"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MusicalComposition"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MusicalPerformance"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Musician"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Narrative"/>
+        <Class IRI="#TraditionalForm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Newspaper"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonFiction"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Novel"/>
+        <Class IRI="#ProseFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Novelist"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Novella"/>
+        <Class IRI="#ProseFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Object"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Opera"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Painter"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Painting"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Patron"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Performance"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Performer"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PerformingArts"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Periodical"/>
+        <Class IRI="#Literature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Philosophy"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Photography"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlaceOfStudy"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Play"/>
+        <Class IRI="#Drama"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayPerformance"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Playwright"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poem"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poet"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poetry"/>
+        <Class IRI="#Literature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoetryCollection"/>
+        <Class IRI="#Poetry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoliticalCampaign"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoliticalFigure"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoliticalHappening"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoliticalPlatform"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PoliticalTract"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PopularMusic"/>
+        <Class IRI="#Music"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Print"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProseFiction"/>
+        <Class IRI="#Literature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RadioPerformer"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RadioProgram"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RadioWriter"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reading"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RecitalReading"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Region"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ReligiousStudy"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Review"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reviewer"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Revolution"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Riot"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Screenplay"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Screenwriter"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sculptor"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sculpture"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShortStory"/>
+        <Class IRI="#ProseFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShortStoryCollection"/>
+        <Class IRI="#ProseFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Singer"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Song"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Speech"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpeechWriter"/>
+        <Class IRI="#PoliticalFigure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportingEvent"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StoryWriter"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Strike"/>
+        <Class IRI="#PoliticalHappening"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Style"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Technique"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TelevisionPerformer"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TelevisionShow"/>
+        <Class IRI="#MediaArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TelevisionWriter"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Textiles"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theatre"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theory"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Thinker"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TraditionalForm"/>
+        <Class IRI="#Poem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TravelWriter"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TravelWriting"/>
+        <Class IRI="#NonFiction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Typographer"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Typography"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UrbanDesign"/>
+        <Class IRI="#Design"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UrbanDesigner"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VaudevilleMusicHall"/>
+        <Class IRI="#PerformingArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Venue"/>
+        <Class IRI="#Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisualArts"/>
+        <Class IRI="#Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisualDesign"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisualInstallation"/>
+        <Class IRI="#VisualArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#War"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WorldFair"/>
+        <Class IRI="#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Cartoonist"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Composer"/>
+        <Class IRI="/PerformingArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Diarist"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Editor"/>
+        <Class IRI="/LiteraryArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Filmmaker"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Illustrator"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Journalist"/>
+        <Class IRI="/MediaArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/LetterWriter"/>
+        <Class IRI="/Writer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/LiteraryArtist"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MediaArtist"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/PerformingArtist"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Philosopher"/>
+        <Class IRI="#Thinker"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Printmaker"/>
+        <Class IRI="/VisualArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Publisher"/>
+        <Class IRI="/LiteraryArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Theorist"/>
+        <Class IRI="#Thinker"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/VisualArtist"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Writer"/>
+        <Class IRI="/LiteraryArtist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Artifact"/>
+        <Class IRI="#Concept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Artifact"/>
+        <Class IRI="#Event"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Concept"/>
+        <Class IRI="#Event"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#GroupOrMovement"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Place"/>
+        <Class IRI="#Production"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Place"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Production"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#affiliatedWith"/>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#correspondedWith"/>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#founderOf"/>
+        <ObjectProperty IRI="#memberOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hadIntimateRelationshipWith"/>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDegreeClimactic"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDegreeDirect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDegreeKey"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDegreePossible"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDegreeProximate"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDegreeClimactic"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDegreeDirect"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDegreeKey"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDegreePossible"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDegreeProximate"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#knew"/>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#metWith"/>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influenced"/>
+        <ObjectProperty IRI="#influence"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedBy"/>
+        <ObjectProperty IRI="#influence"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedByDifferentKind"/>
+        <ObjectProperty IRI="#influencedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedBySameKind"/>
+        <ObjectProperty IRI="#influencedBy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedDifferentKind"/>
+        <ObjectProperty IRI="#influenced"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#influencedSameKind"/>
+        <ObjectProperty IRI="#influenced"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aliasOf"/>
+        <ObjectProperty IRI="#hasAlias"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#collectedBy"/>
+        <ObjectProperty IRI="#collectorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#createdBy"/>
+        <ObjectProperty IRI="#creatorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#depictorOf"/>
+        <ObjectProperty IRI="#depictedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#editedBy"/>
+        <ObjectProperty IRI="#editorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#founderOf"/>
+        <ObjectProperty IRI="#foundedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#memberOf"/>
+        <ObjectProperty IRI="#hasMember"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#locatedIn"/>
+        <ObjectProperty IRI="#locationOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#organizerOf"/>
+        <ObjectProperty IRI="#organizedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/publishedBy"/>
+        <ObjectProperty IRI="#publisherOf"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#associatedWith"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#correspondedWith"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#metWith"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#influenced"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#influencedBy"/>
+    </TransitiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#correspondedWith"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#foundedBy"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasMember"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#memberOf"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#metWith"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#originatedIn"/>
+    </IrreflexiveObjectProperty>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#alludesTo"/>
+        <DataProperty IRI="#influencedBy"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithBuddhism"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithChristianity"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithCity"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithCountry"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithEmpire"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithEthnicity"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithHinduism"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithIslam"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithJudaism"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithLiterature"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithNonFiction"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithOtherReligion"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithRegion"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithReligion"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithSikhism"/>
+        <DataProperty IRI="#associatedWithReligion"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#associatedWithVenue"/>
+        <DataProperty IRI="#associatedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#originatedInCountry"/>
+        <DataProperty IRI="#originatedIn"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#refersDirectly"/>
+        <DataProperty IRI="#influencedBy"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#translated"/>
+        <DataProperty IRI="#hasLanguage"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#translatedFrom"/>
+        <DataProperty IRI="#translated"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#translatedInto"/>
+        <DataProperty IRI="#translated"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#usesLanguage"/>
+        <DataProperty IRI="#hasLanguage"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#usesPrimaryLanguage"/>
+        <DataProperty IRI="#hasLanguage"/>
+    </SubDataPropertyOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ActingPerformance</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Need a different term? [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Artifact</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FOAF defines document in the context of social media, but broadly considered it&apos;s similar to our Artifact. Maybe there&apos;s a more accurate term in FOAF?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">Where does advertising go?</Literal>
+        </Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Artifact</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Should there be a MediaArts category?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Artifact</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Classical</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In the survey, this categroy was labelled &quot;Classical or Art Music&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Collection</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Is this an exhibition of a collection?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Concept</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://www.w3.org/2004/02/skos/core#Concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Exhibit</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">What&apos;s the difference between Collection and Exhibit?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Experimental</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In the survey this category was labelled &quot;Experimental or Avant Garde.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Group</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">WE&apos;re defining a group as having at least 2 members</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Group</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_group
+http://xmlns.com/foaf/spec/#term_organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GroupOrMovement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey question asked if the term was a &quot;group or a movement,&quot; so we created this general category and created subclasses that made the distinction between Group and Movement. In a later version we might reconsider whether Movement belongs here or whether it is a Production (produced by some Agent(s)).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Installation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Why do we privilege the eventness of an installation and not a reading or music composition, etc? Should we remove one &quot;Installation&quot;?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LSD</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">LSD is a typed-in answer for Aldous Huxley&apos;s metadata for Q43. The question asks for a method, style, or technique, but since LSD isn&apos;t categorized, I&apos;ve put it as a member of Method.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Literature</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Although other methods of subclassing Literature, the metadata survey asked participants whether their term was associated with Poetry, Prose, or Drama so we have initially used this subclasses for the first version of the ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Movement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Movements aren&apos;t defined by number of members, since it can be disembodied or abstract</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Music</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Do we add folk songs and religious music?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NonFiction</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In 2.0, need to add classes for essays, essay collections [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NonFiction</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The metadata survey indicated that the Non-Fiction Writing class could have types as shown in the subclasses below.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PerformingArts</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">We need Radio and Television subclasses.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Poet</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">We&apos;ve defined Poet as a group of those who wrote Poetry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Poetry</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In 2.0, should we add subclasses for poetry collections and individual poems? [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Production</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FOAF has Project, which is a production by a group. We&apos;re not sure how to capture it in our ontology as our production could also be created by an individual.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RecitalReading</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&quot;Recital and Reading&quot; were considered one category in the survey.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VaudevilleMusicHall</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&quot;Vaudeville and Music Hall&quot; were considered one category in the survey.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#affiliatedWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This means an official type of association</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#aliasOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Not symmetric because that would place the two names as interchangable. The inverse relationship with hasAlias connects the two names. [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#aliasOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 41: &quot;List any aliases, alternative titles, nicknames, or other monikers by which your term was known. Do not include translations from original titles or names of works.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#appearedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q63 [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">To consider: what is the difference between &quot;is associated with&quot; and &quot;associated with.&quot; How can we reflect this difference in the ontology?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithBuddhism</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q22.37. Possible values in survey are [cw]
+{&quot; Pure Land&quot; , &quot;Chan / Zen / Seon / Thien&quot; , &quot;Humanistic Buddhism&quot; , &quot;Madhyamaka&quot; , &quot;Mahayana&quot; , &quot;Nichiren&quot; , &quot;Nikaya/ Hinayana&quot; , &quot;Nyingmapa&quot; , &quot;Shingon Buddhism&quot; , &quot;Tathagatagarbha&quot; , &quot;Theravada&quot; , &quot;Tiantai&quot; , &quot;Tibetan Buddhism&quot; , &quot;Vajrayana&quot; , &quot;Yogācāra&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithChristianity</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q19.34. Possible survey answers are [cw]
+{&quot;African Initiated Churches&quot; , &quot;Anabaptists&quot; , &quot;Anglicanism&quot; , &quot;Assyrian Church of the East&quot; , &quot;Baptists&quot; , &quot;Bible Student groups&quot; , &quot;Brethren&quot; , &quot;Cerdonians&quot; , &quot;Charismatics&quot; , &quot;Christian Gnosticism&quot; , &quot;Christian Identity&quot; , &quot;Christian Universalism&quot; , &quot;Colorbasians&quot; , &quot;Congregationalist Churches&quot; , &quot;Eastern Orthodox Church&quot; , &quot;Ebionites&quot; , &quot;Esoteric Christianity&quot; , &quot;Gnosticism&quot; , &quot;Irvingites&quot; , &quot;Latter Day Saints&quot; , &quot;Lutheranism&quot; , &quot;Messianic Judaism / Jewish Christian&quot; , &quot;Methodist&quot; , &quot;Millerite&quot; , &quot;New Thought&quot; , &quot;Nontrinitarianism&quot; , &quot;Oneness Pentecostalism&quot; , &quot;Oriental Orthodox Church&quot; , &quot;Pentecostalism&quot; , &quot;Pietists&quot; , &quot;Presbyterianism&quot; , &quot;Protestantism&quot; , &quot;Reformed Churches&quot; , &quot;Religious Society of Friends (Quakers)&quot; , &quot;Roman Catholic&quot; , &quot;Simonians&quot; , &quot;Southcottites&quot; , &quot;Stone-Campbell Restoration Movement&quot; , &quot;Swedenborgianism&quot; , &quot;The Creativity Movement&quot; , &quot;Unitarianism&quot; , &quot;United&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithCity</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This Data Property is to capture associations with cities that are not terms in the REM.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithCountry</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q58. Possible values in survey are
+{&quot;Afghanistan&quot; , &quot;AlandIslands&quot; , &quot;Albania&quot; , &quot;Algeria&quot; , &quot;AmericanSamoa&quot; , &quot;Andorra&quot; , &quot;Angola&quot; , &quot;Anguilla&quot; , &quot;Antarctica&quot; , &quot;AntiguaAndBarbuda&quot; , &quot;Aotearoa/NewZealand&quot; , &quot;Argentina&quot; , &quot;Armenia&quot; , &quot;Aruba&quot; , &quot;Australia&quot; , &quot;Austria&quot; , &quot;Austria-Hungary&quot; , &quot;Azerbaijan&quot; , &quot;Bahamas&quot; , &quot;Bahrain&quot; , &quot;Bangladesh&quot; , &quot;Barbados&quot; , &quot;Belarus&quot; , &quot;Belgium&quot; , &quot;Belize&quot; , &quot;Benin&quot; , &quot;Bermuda&quot; , &quot;Bhutan&quot; , &quot;Bolivia&quot; , &quot;BosniaAndHerzegovina&quot; , &quot;Botswana&quot; , &quot;BouvetIsland&quot; , &quot;Brazil&quot; , &quot;Brunei&quot; , &quot;Bulgaria&quot; , &quot;BurkinaFaso&quot; , &quot;Burundi&quot; , &quot;Cambodia&quot; , &quot;Cameroon&quot; , &quot;Canada&quot; , &quot;CapeVerde&quot; , &quot;CaymanIslands&quot; , &quot;CentralAfricanRepublic&quot; , &quot;Ceylon/SriLanka&quot; , &quot;Chad&quot; , &quot;Chile&quot; , &quot;China&quot; , &quot;ChristmasIsland&quot; , &quot;Cocos(Keeling)Islands&quot; , &quot;Colombia&quot; , &quot;Comoros&quot; , &quot;Congo&quot; , &quot;CookIslands&quot; , &quot;CostaRica&quot; , &quot;CoteD&apos;Ivoire&quot; , &quot;Croatia&quot; , &quot;Cuba&quot; , &quot;Cyprus&quot; , &quot;CzechRepublic&quot; , &quot;Denmark&quot; , &quot;Djibouti&quot; , &quot;Dominica&quot; , &quot;DominicanRepublic&quot; , &quot;DutchAntilles&quot; , &quot;EastTimor&quot; , &quot;Ecuador&quot; , &quot;Egypt&quot; , &quot;ElSalvador&quot; , &quot;England&quot; , &quot;EquatorialGuinea&quot; , &quot;Eritrea&quot; , &quot;Estonia&quot; , &quot;Ethiopia&quot; , &quot;FalklandIslands(Malvinas)&quot; , &quot;FaroeIslands&quot; , &quot;Fiji&quot; , &quot;Finland&quot; , &quot;France&quot; , &quot;FrenchGuinea&quot; , &quot;FrenchPolynesia&quot; , &quot;FrenchSouthernTerritories&quot; , &quot;Gabon&quot; , &quot;Gambia&quot; , &quot;Georgia&quot; , &quot;Germany&quot; , &quot;Ghana&quot; , &quot;Gibraltar&quot; , &quot;Greece&quot; , &quot;Greenland&quot; , &quot;Grenada&quot; , &quot;Guadeloupe&quot; , &quot;Guam&quot; , &quot;Guatemala&quot; , &quot;Guemsey&quot; , &quot;Guinea&quot; , &quot;Guinea-Bissau&quot; , &quot;Guyana&quot; , &quot;Haiti&quot; , &quot;HearIslandAndMcdonaldIslands&quot; , &quot;HolySee&quot; , &quot;Honduras&quot; , &quot;HongKong&quot; , &quot;Hungary&quot; , &quot;Iceland&quot; , &quot;India&quot; , &quot;Indonesia&quot; , &quot;Iran&quot; , &quot;Iraq&quot; , &quot;Ireland&quot; , &quot;IsleOfMan&quot; , &quot;Israel&quot; , &quot;Italy&quot; , &quot;Jamaica&quot; , &quot;Japan&quot; , &quot;Jersey&quot; , &quot;Jordan&quot; , &quot;Kazakhstan&quot; , &quot;Kenya&quot; , &quot;Kiribati&quot; , &quot;Korea&quot; , &quot;Kuwait&quot; , &quot;Kyrgyzstan&quot; , &quot;Laos&quot; , &quot;Latvia&quot; , &quot;Lebanon&quot; , &quot;Lesotho&quot; , &quot;Liberia&quot; , &quot;Libya&quot; , &quot;Liechtenstein&quot; , &quot;Lithuania&quot; , &quot;Luxembourg&quot; , &quot;Macao&quot; , &quot;Macedonia&quot; , &quot;Madagascar&quot; , &quot;Malawi&quot; , &quot;Malaysia&quot; , &quot;Maldives&quot; , &quot;Mali&quot; , &quot;Malta&quot; , &quot;MarshallIslands&quot; , &quot;Martinique&quot; , &quot;Mauritania&quot; , &quot;Mauritius&quot; , &quot;Mayotte&quot; , &quot;Mexico&quot; , &quot;Moldova&quot; , &quot;Monaco&quot; , &quot;Mongolia&quot; , &quot;Montserrat&quot; , &quot;Morocco&quot; , &quot;Mozambique&quot; , &quot;Myanmar&quot; , &quot;Namibia&quot; , &quot;Nauru&quot; , &quot;Nepal&quot; , &quot;Netherlands&quot; , &quot;NewCaledonia&quot; , &quot;Nicaragua&quot; , &quot;Niger&quot; , &quot;Nigeria&quot; , &quot;Niue&quot; , &quot;NorfolkIsland&quot; , &quot;NorthernMarianaIslands&quot; , &quot;Norway&quot; , &quot;Oman&quot; , &quot;Pakistan&quot; , &quot;Palau&quot; , &quot;Palestine&quot; , &quot;Panama&quot; , &quot;PapuaNewGuinea&quot; , &quot;Paraguay&quot; , &quot;Peru&quot; , &quot;Philippines&quot; , &quot;Pitcairn&quot; , &quot;Poland&quot; , &quot;Portugal&quot; , &quot;Prussia&quot; , &quot;PuertoRico&quot; , &quot;Qatar&quot; , &quot;Reunion&quot; , &quot;Romania&quot; , &quot;Russia&quot; , &quot;Rwanda&quot; , &quot;SaintHelena&quot; , &quot;SaintKittsAndNevis&quot; , &quot;SaintLucia&quot; , &quot;SaintPierreAndMiquelon&quot; , &quot;SaintVincentAndTheGrenadines&quot; , &quot;Samoa&quot; , &quot;SanMarino&quot; , &quot;SaoTomeAndPrincipe&quot; , &quot;SaudiArabia&quot; , &quot;Scotland&quot; , &quot;Senegal&quot; , &quot;SerbiaAndMontenegro&quot; , &quot;Seychelles&quot; , &quot;SierraLeone&quot; , &quot;Singapore&quot; , &quot;Slovakia&quot; , &quot;Slovenia&quot; , &quot;SolomonIslands&quot; , &quot;Somalia&quot; , &quot;SouthAfrica&quot; , &quot;SouthGeorgiaAndTheSouthSandwichIslands&quot; , &quot;Spain&quot; , &quot;Sudan&quot; , &quot;Suriname&quot; , &quot;Swaziland&quot; , &quot;Sweden&quot; , &quot;Switzerland&quot; , &quot;Syria&quot; , &quot;Taiwan&quot; , &quot;Tajikstan&quot; , &quot;Tanzania&quot; , &quot;Thailand&quot; , &quot;Togo&quot; , &quot;Tokelau&quot; , &quot;Tonga&quot; , &quot;TrinidadAndTobego&quot; , &quot;Tunisia&quot; , &quot;Turkey&quot; , &quot;Turkmenistan&quot; , &quot;TurksAndCaicosIslands&quot; , &quot;Tuvalu&quot; , &quot;Uganda&quot; , &quot;Ukraine&quot; , &quot;UnitedArabEmirates&quot; , &quot;UnitedKingdom&quot; , &quot;UnitedStatesOfAmerica&quot; , &quot;Uruguay&quot; , &quot;Uzbekistan&quot; , &quot;Vanuatu&quot; , &quot;Venezuela&quot; , &quot;VietNam&quot; , &quot;VirginIslandsBritish&quot; , &quot;VirginIslandsUS&quot; , &quot;Wales&quot; , &quot;WallisAndFutuna&quot; , &quot;Yemen&quot; , &quot;Yugoslavia&quot; , &quot;Zambia&quot; , &quot;Zimbabwe&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithEmpire</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q38.60. Possible values in survey are [cw]
+{&quot;Austro-Hungarian&quot; , &quot;Belgian&quot; , &quot;British&quot; , &quot;French&quot; , &quot;German&quot; , &quot;Ottoman&quot; , &quot;RashidiArabia&quot; , &quot;Russian&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithEthnicity</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q39.64. Possible values in survey are [cw]
+{&quot;Abazins&quot; , &quot;Abkhaz&quot; , &quot;Acadian&quot; , &quot;Acehnese&quot; , &quot;Adyghe&quot; , &quot;African&quot; , &quot;AfricanDescendedPlusOther&quot; , &quot;Afrikaans&quot; , &quot;Ahom&quot; , &quot;Ajam&quot; , &quot;Akan&quot; , &quot;Albanian&quot; , &quot;Algonquian&quot; , &quot;Alsatian&quot; , &quot;Amerindian&quot; , &quot;Amhara&quot; , &quot;Amish&quot; , &quot;Andalusian&quot; , &quot;Anglo-Indian&quot; , &quot;Anglo-Irish&quot; , &quot;Apache&quot; , &quot;Arab&quot; , &quot;Aragonese&quot; , &quot;Arara&quot; , &quot;Arawak&quot; , &quot;Armenian&quot; , &quot;Aromanian&quot; , &quot;AsianDescendedPlusOther&quot; , &quot;Assamese&quot; , &quot;AssyrianOrChaldeanorSyriac&quot; , &quot;Asturian&quot; , &quot;Athabaskan&quot; , &quot;Austrian&quot; , &quot;Avar&quot; , &quot;Azerbaijani&quot; , &quot;Azeris&quot; , &quot;Bahnar&quot; , &quot;Bahranis&quot; , &quot;Balinese&quot; , &quot;Balkars&quot; , &quot;Baloch&quot; , &quot;Banjar&quot; , &quot;Barbadan&quot; , &quot;Basque&quot; , &quot;Batak&quot; , &quot;Batsbi&quot; , &quot;Beary&quot; , &quot;Bedouin&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhil&quot; , &quot;Bihari&quot; , &quot;Blackfoot&quot; , &quot;Bolivian&quot; , &quot;Bonda&quot; , &quot;Bosniak&quot; , &quot;BrahuiPeople&quot; , &quot;Breton&quot; , &quot;Bugis&quot; , &quot;Bulgarian&quot; , &quot;Burgher&quot; , &quot;Buryat&quot; , &quot;Castillan&quot; , &quot;Catalan&quot; , &quot;Celtic&quot; , &quot;Chakma&quot; , &quot;Cham&quot; , &quot;Chechen&quot; , &quot;Chepang&quot; , &quot;Cherke&quot; , &quot;Cherkess&quot; , &quot;Cherokee&quot; , &quot;Cheyenne&quot; , &quot;Chickasaw&quot; , &quot;Chinese&quot; , &quot;Chippewa&quot; , &quot;Chitrali&quot; , &quot;Choctaw&quot; , &quot;Chut&quot; , &quot;Comanche&quot; , &quot;Copt&quot; , &quot;Cornish&quot; , &quot;Corsican&quot; , &quot;Cossak&quot; , &quot;Cree&quot; , &quot;Creek&quot; , &quot;Creole&quot; , &quot;Croat&quot; , &quot;Crow&quot; , &quot;Cuban&quot; , &quot;Czech&quot; , &quot;DacoRomantian&quot; , &quot;Danis&quot; , &quot;Dargin&quot; , &quot;Dayak&quot; , &quot;Delaware&quot; , &quot;Dene&quot; , &quot;Dhivehi&quot; , &quot;Dolgan&quot; , &quot;DongriaKondha&quot; , &quot;Dravidian&quot; , &quot;Druze&quot; , &quot;Egyptian&quot; , &quot;English&quot; , &quot;Estonian&quot; , &quot;Eurasian&quot; , &quot;Evenk&quot; , &quot;Filipino&quot; , &quot;Finnish&quot; , &quot;Flemish&quot; , &quot;French&quot; , &quot;Frisian&quot; , &quot;Friulian&quot; , &quot;Fula&quot; , &quot;Gaelic&quot; , &quot;Galician&quot; , &quot;Garifuna&quot; , &quot;Georgian&quot; , &quot;German&quot; , &quot;Gibraltaran&quot; , &quot;Gilaki&quot; , &quot;Gondi&quot; , &quot;Gotlander&quot; , &quot;Greek&quot; , &quot;Guatemalan&quot; , &quot;Gujarati&quot; , &quot;Gurung&quot; , &quot;Haida&quot; , &quot;Han&quot; , &quot;Haole&quot; , &quot;Hausa&quot; , &quot;Hawaiian&quot; , &quot;Hazara&quot; , &quot;Hindkis&quot; , &quot;Hindkowan&quot; , &quot;Hispanic&quot; , &quot;Honduran&quot; , &quot;Hulu&quot; , &quot;Hungarian&quot; , &quot;Icelandic&quot; , &quot;Igbo&quot; , &quot;Ijaw&quot; , &quot;IndoAmerican&quot; , &quot;IndoDescendedPlusOther&quot; , &quot;Inguish&quot; , &quot;Iraqi&quot; , &quot;Irish&quot; , &quot;IrishAmerican&quot; , &quot;Iroquois&quot; , &quot;Israeli&quot; , &quot;IstroRomanian&quot; , &quot;Italian&quot; , &quot;ItalianAmerican&quot; , &quot;Izhorian&quot; , &quot;Jamaican&quot; , &quot;Japanese&quot; , &quot;Jarai&quot; , &quot;Javanese&quot; , &quot;Jewish&quot; , &quot;Julaha&quot; , &quot;Kabard&quot; , &quot;Kabardin&quot; , &quot;Kadai&quot; , &quot;Kadazan&quot; , &quot;Kalmyk&quot; , &quot;KamSui&quot; , &quot;Kannadigas&quot; , &quot;Karachays&quot; , &quot;KarbiOrMikir&quot; , &quot;Kashmiri&quot; , &quot;Kashub&quot; , &quot;Katuic&quot; , &quot;Kazakh&quot; , &quot;Khasi&quot; , &quot;Khmer&quot; , &quot;Khmu&quot; , &quot;Khonds&quot; , &quot;Khowa&quot; , &quot;Kiowa&quot; , &quot;KiratPeople&quot; , &quot;Kodava&quot; , &quot;Komi&quot; , &quot;Kongo&quot; , &quot;Kongsat&quot; , &quot;Konkani&quot; , &quot;Korean&quot; , &quot;Kumyks&quot; , &quot;Kurds&quot; , &quot;KurukhOraon&quot; , &quot;Kyrgy&quot; , &quot;Ladin&quot; , &quot;Lak&quot; , &quot;Lao&quot; , &quot;LatinoOrLatina&quot; , &quot;Latvian&quot; , &quot;Laz&quot; , &quot;Lebanese&quot; , &quot;LepchaPeople&quot; , &quot;Lezgin&quot; , &quot;Lithuanian&quot; , &quot;Livonian&quot; , &quot;Lorrainer&quot; , &quot;Lu&quot; , &quot;Lumbee&quot; , &quot;Lur&quot; , &quot;Luxembourger&quot; , &quot;Macedonian&quot; , &quot;Madan&quot; , &quot;Madinka&quot; , &quot;MagarPeople&quot; , &quot;Malay&quot; , &quot;Malayalis&quot; , &quot;Maltese&quot; , &quot;MaltoPeople&quot; , &quot;Manchu&quot; , &quot;ManipuriOrMeithei&quot; , &quot;Manx&quot; , &quot;Marabou&quot; , &quot;Marathi&quot; , &quot;Mari&quot; , &quot;Maronite&quot; , &quot;Maroon&quot; , &quot;Martiniquan&quot; , &quot;Mazandarani&quot; , &quot;MeglenoRomanian&quot; , &quot;Memba&quot; , &quot;Mers&quot; , &quot;MeskhetianTurks&quot; , &quot;Mestizo&quot; , &quot;Metis&quot; , &quot;MexicanAmerican&quot; , &quot;Mi&apos;kmaq&quot; , &quot;Minangkabau&quot; , &quot;Moldovan&quot; , &quot;Mon&quot; , &quot;Mongol&quot; , &quot;Montenegrin&quot; , &quot;MoravianVlach&quot; , &quot;Mordvin&quot; , &quot;Morlach&quot; , &quot;Mughal&quot; , &quot;Muhajir&quot; , &quot;Mulatto&quot; , &quot;Munda&quot; , &quot;Muong&quot; , &quot;Murut&quot; , &quot;NagaPeople&quot; , &quot;Nai&quot; , &quot;Navajo&quot; , &quot;Neapolitan&quot; , &quot;Netherlandic&quot; , &quot;NewarPeople&quot; , &quot;Nicobarese&quot; , &quot;Nishi&quot; , &quot;Nogais&quot; , &quot;NorthernIrish&quot; , &quot;Norwegian&quot; , &quot;Nung&quot; , &quot;Nuristani&quot; , &quot;Nyaw&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Ossetian&quot; , &quot;Pahari&quot; , &quot;Pakistani&quot; , &quot;Palestinian&quot; , &quot;Parsi&quot; , &quot;Pashtun&quot; , &quot;Pear&quot; , &quot;Persian&quot; , &quot;Peruvian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Potawatomi&quot; , &quot;Pueblo&quot; , &quot;PuertoRican&quot; , &quot;Punjabi&quot; , &quot;Qara&quot; , &quot;Qashqai&quot; , &quot;QuebecoisOrQuebecoise&quot; , &quot;Rajasthani&quot; , &quot;Roma&quot; , &quot;Romand&quot; , &quot;Romani&quot; , &quot;Romanian&quot; , &quot;Romansh&quot; , &quot;Russian&quot; , &quot;Rutul&quot; , &quot;Saek&quot; , &quot;Salish&quot; , &quot;Salvadoran&quot; , &quot;Sami&quot; , &quot;Samoyed&quot; , &quot;Sardinian&quot; , &quot;Saurashtra&quot; , &quot;Schleswiger&quot; , &quot;Scottish&quot; , &quot;Seminole&quot; , &quot;Seraiki&quot; , &quot;Serb&quot; , &quot;Shabak&quot; , &quot;Shan&quot; , &quot;Sheedis&quot; , &quot;Shina&quot; , &quot;Shona&quot; , &quot;Shoshone&quot; , &quot;Sicilian&quot; , &quot;Siddi&quot; , &quot;Silesian&quot; , &quot;Sindhi&quot; , &quot;Sinhalese&quot; , &quot;Siouan&quot; , &quot;Slavic&quot; , &quot;Slovak&quot; , &quot;Slovene&quot; , &quot;Somali&quot; , &quot;Sorb&quot; , &quot;Spanish&quot; , &quot;Sudanese&quot; , &quot;Swedish&quot; , &quot;Swiss&quot; , &quot;Syrian&quot; , &quot;Tabasaran&quot; , &quot;Tajik&quot; , &quot;Talysh&quot; , &quot;Tamang&quot; , &quot;Tamil&quot; , &quot;Tat&quot; , &quot;Tatar&quot; , &quot;TeluguPeople&quot; , &quot;Thai&quot; , &quot;Thakali&quot; , &quot;Thami&quot; , &quot;Tharu&quot; , &quot;Tho&quot; , &quot;Tibetan&quot; , &quot;Tlingit&quot; , &quot;Tobogan&quot; , &quot;TodaPeople&quot; , &quot;Trinidadian&quot; , &quot;Tripuris&quot; , &quot;Trukhmens&quot; , &quot;Tsakhur&quot; , &quot;Tuluvas&quot; , &quot;Tungusic&quot; , &quot;Turkmen&quot; , &quot;Tuvan&quot; , &quot;Tyrolean&quot; , &quot;Udmurt&quot; , &quot;Ukrainian&quot; , &quot;Ute&quot; , &quot;Uyghur&quot; , &quot;Uzbeki&quot; , &quot;Venetian&quot; , &quot;Vep&quot; , &quot;Vietnamese&quot; , &quot;Walloon&quot; , &quot;Welsh&quot; , &quot;WhiteThai&quot; , &quot;Yakut&quot; , &quot;Yamato&quot; , &quot;Yoruba&quot; , &quot;Yukaghir&quot; , &quot;Zambo&quot; , &quot;Zaza&quot; , &quot;Zulu&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithHinduism</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q22.38. Possible values in survey are [cw]
+{&quot;Arya Samaj&quot; , &quot;Brahmo Samaj&quot; , &quot;Lingayatism&quot; , &quot;Matua Mahasangha&quot; , &quot;Nyaya&quot; , &quot;Purva mimamsa&quot; , &quot;Ramakrishna Mission&quot; , &quot;Samkhya&quot; , &quot;Satsang of Thakur Anukulchandra&quot; , &quot;Satya Dharma&quot; , &quot;Shaivism&quot; , &quot;Shaktism&quot; , &quot;Shrauta&quot; , &quot;Smartism&quot; , &quot;Swaminarayan&quot; , &quot;Tantrism&quot; , &quot;Vaisheshika&quot; , &quot;Vaishnavism&quot; , &quot;Vedanta (Uttara Mimamsa)&quot; , &quot;Yoga&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithIslam</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q20.35. Possible values in survey are [cw]
+{&quot;Ahl-e Hadith or Salafi&quot; , &quot;Ahl-e Haqq or Yarsan&quot; , &quot;Ahl-e Quran&quot; , &quot;Ahmadiyya&quot; , &quot;Al-Fatiha Foundation&quot; , &quot;Alawites&quot; , &quot;Alevi / Bektashi&quot; , &quot;Ash&apos;ari&quot; , &quot;Azraqi&quot; , &quot;Bektashi&quot; , &quot;Chishti&quot; , &quot;Druze&quot; , &quot;Five Percenters&quot; , &quot;Gohar Shahi&quot; , &quot;Hanafi&quot; , &quot;Hanbali&quot; , &quot;Haruriyya&quot; , &quot;Ibadi&quot; , &quot;Ismailism&quot; , &quot;Ittifaq al-Muslimin&quot; , &quot;Jadid&quot; , &quot;Jafari&quot; , &quot;Jamaat al-Muslimeen&quot; , &quot;Kalam&quot; , &quot;Kharijite&quot; , &quot;Mahdavia&quot; , &quot;Maliki&quot; , &quot;Maturidi&quot; , &quot;Mevlevi&quot; , &quot;Moorish Science Temple of America&quot; , &quot;Mu&apos;tazili&quot; , &quot;Mujaddediyah&quot; , &quot;Murji&apos;ah&quot; , &quot;Naqshbandi&quot; , &quot;Nation of Islam&quot; , &quot;Nimatullahi&quot; , &quot;Nuwaubianism&quot; , &quot;Quadiriyyah&quot; , &quot;Qur&apos;an Alone&quot; , &quot;Shafi&apos;i&quot; , &quot;Shia&quot; , &quot;Sufi Order International&quot; , &quot;Sufism&quot; , &quot;Sufism Reoriented&quot; , &quot;Sufri&quot; , &quot;Suhrawardiyya&quot; , &quot;Sunni&quot; , &quot;Tariqah&quot; , &quot;Tijani&quot; , &quot;Tolu-e-Islam&quot; , &quot;Twelvers&quot; , &quot;Universal Sufism&quot; , &quot;Wahabi&quot; , &quot;Zaidiyyah&quot; , &quot;Zikri&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithJudaism</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q21.26. Possible values in survey are [cw]
+{&quot;Alternative Judaism&quot; , &quot;Conservadox Judaism&quot; , &quot;Conservative Judaism&quot; , &quot;Falasha or Beta Israel&quot; , &quot;Haredi Judaism&quot; , &quot;Hasidic Judaism&quot; , &quot;Jewish Renewal&quot; , &quot;Karaite Judaism&quot; , &quot;Liberal Judaism&quot; , &quot;Mandaeism&quot; , &quot;Masorti&quot; , &quot;Modern Orthodox Judaism&quot; , &quot;Orthodox Judaism&quot; , &quot;Progressive Judaism&quot; , &quot;Rastafarianism&quot; , &quot;Reconstructionist Judaism&quot; , &quot;Reform Judaism&quot; , &quot;Sabians&quot; , &quot;Samaritanism&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithLiterature</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q2.2. Possible values in survey are [cw]
+{&quot;Drama&quot; , &quot;Poetry&quot; , &quot;Prose&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithNonFiction</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithOtherReligion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q25.40. Possible values in survey are [cw]
+{&quot; Batuque&quot; , &quot;Abenaki&quot; , &quot;Adonism&quot; , &quot;Agnosticism&quot; , &quot;Ahishinaabe&quot; , &quot;Akamba&quot; , &quot;Akan&quot; , &quot;Anthroposophy&quot; , &quot;Ashanti&quot; , &quot;Atheism&quot; , &quot;Ayyavazhi&quot; , &quot;Aztec&quot; , &quot;Bahá&apos;iFaith&quot; , &quot;BalticNeopaganism&quot; , &quot;Bambuti(Pygmy)&quot; , &quot;BhakiMovement&quot; , &quot;Blackfoot&quot; , &quot;Bushongo&quot; , &quot;Bábism&quot; , &quot;Candomblé&quot; , &quot;Caodaism&quot; , &quot;CelticNeopaganism&quot; , &quot;CeremonialMagic&quot; , &quot;ChaosMagic&quot; , &quot;Cherokee&quot; , &quot;Chickasaw&quot; , &quot;Chondogyo&quot; , &quot;ChristianMysticism&quot; , &quot;ChurchOfAllWorlds&quot; , &quot;ChurchOfAphrodite&quot; , &quot;Confucianism&quot; , &quot;ConsciousSpirituality&quot; , &quot;Creek&quot; , &quot;Crow&quot; , &quot;Dahomey&quot; , &quot;Demonolatry&quot; , &quot;Digambara&quot; , &quot;Din-i-Ilahi&quot; , &quot;Dinka&quot; , &quot;Efik&quot; , &quot;EsotericChristianity&quot; , &quot;Feraferia&quot; , &quot;FinnishNeopaganism&quot; , &quot;GermanicNeopaganism&quot; , &quot;GhostDance&quot; , &quot;Guarani&quot; , &quot;Haida&quot; , &quot;Haitian&quot; , &quot;HellenicNeopagansim&quot; , &quot;Hermeticism&quot; , &quot;Ho-Chunk(Winnebago)&quot; , &quot;HoaHao&quot; , &quot;Hoodoo(Rootwork)&quot; , &quot;Hopi&quot; , &quot;Igbo&quot; , &quot;Inca&quot; , &quot;IndianShakerChurch&quot; , &quot;Inuit&quot; , &quot;Iroquois&quot; , &quot;Isoko&quot; , &quot;Jainism&quot; , &quot;KabirPanth&quot; , &quot;Kahje&quot; , &quot;KeetoowahNighthawkSociety&quot; , &quot;Kemetism&quot; , &quot;Khoisan&quot; , &quot;Kuksu&quot; , &quot;KulamFilipinoWitchcraft&quot; , &quot;Kumina&quot; , &quot;Kwakiuti&quot; , &quot;Lakota&quot; , &quot;LeniLenape&quot; , &quot;LonghouseReligion&quot; , &quot;Lotuko&quot; , &quot;Lozi&quot; , &quot;Luciferiansim&quot; , &quot;Lugbara&quot; , &quot;Macumba&quot; , &quot;MamiWata&quot; , &quot;Mandaenism&quot; , &quot;Manichaeism&quot; , &quot;Mapuche&quot; , &quot;Martinism&quot; , &quot;Masai&quot; , &quot;Maya&quot; , &quot;Mazdakism&quot; , &quot;MeherBaba[11]&quot; , &quot;Meivazhi&quot; , &quot;Midewiwin&quot; , &quot;Mithraism&quot; , &quot;Miwok&quot; , &quot;Mohism&quot; , &quot;NativeAmericanChurch&quot; , &quot;Navajo&quot; , &quot;NeoDruidism&quot; , &quot;NeoShamanism&quot; , &quot;NeoVölkishMovements&quot; , &quot;NewOrleansVoodoo&quot; , &quot;Nootka&quot; , &quot;Obeah&quot; , &quot;Ohlone&quot; , &quot;Olmec&quot; , &quot;Oomoto&quot; , &quot;Other&quot; , &quot;Oyotunji&quot; , &quot;Pawnee&quot; , &quot;Pomo&quot; , &quot;Quimbanda&quot; , &quot;RavidassiaReligion&quot; , &quot;RomanNeopaganism&quot; , &quot;Rosicrucian&quot; , &quot;Sakyapa&quot; , &quot;Salish&quot; , &quot;SantMat&quot; , &quot;Santeria(Lukumi)&quot; , &quot;Satanism&quot; , &quot;Seicho-No-Ie&quot; , &quot;SeiorNorseSorcery&quot; , &quot;Selk&apos;namReligion&quot; , &quot;SemiticNeopaganism&quot; , &quot;Seneca&quot; , &quot;Sethians&quot; , &quot;Setianism&quot; , &quot;Shinto&quot; , &quot;Shvetambara&quot; , &quot;SlavicNeopaganism&quot; , &quot;SoutheasternCeremonialComplex&quot; , &quot;SunDance&quot; , &quot;Taaraism&quot; , &quot;Taoism&quot; , &quot;Technopagainsim&quot; , &quot;Tenrikyo&quot; , &quot;Thelema&quot; , &quot;Theosophy&quot; , &quot;Tsimshian&quot; , &quot;Tumbuka&quot; , &quot;Umbanda[10]&quot; , &quot;UnitarianUniversalist&quot; , &quot;Urarina&quot; , &quot;Ute&quot; , &quot;Vodou&quot; , &quot;Wicca&quot; , &quot;Witchcraft&quot; , &quot;Wyandot&quot; , &quot;Yazdânism&quot; , &quot;Yoruba&quot; , &quot;Zoroastrianism&quot; , &quot;Zulu&quot; , &quot;Zuni&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithRegion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q37.59. Possible values in survey are [cw]
+{&quot;Asia&quot; , &quot;AustraliaAndOceania&quot; , &quot;Caribbean&quot; , &quot;CentralAmerica&quot; , &quot;CentralEurope&quot; , &quot;EastAsia&quot; , &quot;EastIndes&quot; , &quot;EasternEurope&quot; , &quot;Europe&quot; , &quot;GreaterArabia&quot; , &quot;Mediterranean&quot; , &quot;Melanesia&quot; , &quot;Micronesia&quot; , &quot;MiddleEast&quot; , &quot;NearEastOrLevant&quot; , &quot;NorthAfrica(Maghreb)&quot; , &quot;NorthAmerica&quot; , &quot;NorthAmericaAtlanticCoast&quot; , &quot;NorthAmericaGulfCoast&quot; , &quot;NorthAmericaNortheast&quot; , &quot;NorthAmericaPacificCoast&quot; , &quot;NorthAmericaPrairiesOrPlains&quot; , &quot;NorthAmericaSouthwest&quot; , &quot;NorthAmericaTheSouth&quot; , &quot;NorthernEurope&quot; , &quot;Polynesia&quot; , &quot;SouthAfrica&quot; , &quot;SouthAmerica&quot; , &quot;SouthAmericaAndean&quot; , &quot;SouthAmericaAtlanticCoast&quot; , &quot;SouthAmericaCentral/HighCountry&quot; , &quot;SouthAmericaEquatorial&quot; , &quot;SouthAmericaPacificCoast&quot; , &quot;SouthAmericaPatagonian&quot; , &quot;SouthAsia&quot; , &quot;SouthPacific&quot; , &quot;SoutheastAsia&quot; , &quot;Sub-SaharanAfrica&quot; , &quot;Sub-SaharanAfricaAtlanticCoast&quot; , &quot;Sub-SaharanAfricaCentralOrPlains&quot; , &quot;Sub-SaharanAfricaIndianOceanCoast&quot; , &quot;Sub-SaharanAfricaSahel&quot; , &quot;West Asia&quot; , &quot;WestIndes&quot; , &quot;WesternEurope&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithReligion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q25.40. Possible values in survey are [cw]
+{&quot;Abenaki&quot; , &quot;Adonism&quot; , &quot;Agnosticism&quot; , &quot;Akamba&quot; , &quot;Akan&quot; , &quot;Anishinaabe&quot; , &quot;Anthroposophy&quot; , &quot;Ashanti&quot; , &quot;Atheism&quot; , &quot;Ayyavazhi&quot; , &quot;Aztec&quot; , &quot;Bahá&apos;í Faith&quot; , &quot;Baltic Neopaganism&quot; , &quot;Bambuti (Pygmy)&quot; , &quot;Batuque&quot; , &quot;Bhakti Movement&quot; , &quot;Blackfoot&quot; , &quot;Bushongo&quot; , &quot;Bábism&quot; , &quot;Candomblé&quot; , &quot;Caodaism&quot; , &quot;Celtic Neopaganism&quot; , &quot;Ceremonial magic&quot; , &quot;Chaos magic&quot; , &quot;Cherokee&quot; , &quot;Chickasaw&quot; , &quot;Choctaw&quot; , &quot;Chondogyo&quot; , &quot;Christian mysticism&quot; , &quot;Church of All Worlds&quot; , &quot;Church of Aphrodite&quot; , &quot;Confucianism&quot; , &quot;Conscious Spirituality&quot; , &quot;Creek&quot; , &quot;Crow&quot; , &quot;Dahomey&quot; , &quot;Demonolatry&quot; , &quot;Digambara&quot; , &quot;Din-i-Ilahi&quot; , &quot;Dinka&quot; , &quot;Efik&quot; , &quot;Esoteric Christianity&quot; , &quot;Fereferoa&quot; , &quot;Finnish Neopaganism&quot; , &quot;Germanic Neopaganism&quot; , &quot;Ghost Dance&quot; , &quot;Guarani&quot; , &quot;Haida&quot; , &quot;Haitian&quot; , &quot;Hellenic Neopaganism&quot; , &quot;Hermeticism&quot; , &quot;Ho-Chunk (aka: Winnebago)&quot; , &quot;Hoa Hao&quot; , &quot;Hoodoo (Rootwork)&quot; , &quot;Hopi&quot; , &quot;Igbo&quot; , &quot;Inca&quot; , &quot;Indian Shaker Church&quot; , &quot;Inuit&quot; , &quot;Iroquois&quot; , &quot;Isoko&quot; , &quot;Jainism&quot; , &quot;Kabir Panth&quot; , &quot;Kahje&quot; , &quot;Keetoowah Nighthawk Society&quot; , &quot;Kemetism&quot; , &quot;Khoisan&quot; , &quot;Kuksu&quot; , &quot;Kulam – Filipino witchcraft&quot; , &quot;Kumina&quot; , &quot;Kwakiutl&quot; , &quot;Lakota&quot; , &quot;Leni Lenape&quot; , &quot;Longhouse religion&quot; , &quot;Lotuko&quot; , &quot;Lozi&quot; , &quot;Luciferianism&quot; , &quot;Lugbara&quot; , &quot;Macumba&quot; , &quot;Mami Wata&quot; , &quot;Mandaeanism&quot; , &quot;Mandaeism&quot; , &quot;Manichaeism&quot; , &quot;Mapuche&quot; , &quot;Martinism&quot; , &quot;Masai&quot; , &quot;Maya&quot; , &quot;Mazdakism&quot; , &quot;Meher Baba[11]&quot; , &quot;Meivazhi&quot; , &quot;Midewiwin&quot; , &quot;Mithraism&quot; , &quot;Miwok&quot; , &quot;Mohism&quot; , &quot;Native American Church&quot; , &quot;Navajo&quot; , &quot;Neo-Druidism&quot; , &quot;Neo-völkisch movements&quot; , &quot;Neoshamanism&quot; , &quot;New Orleans Voodoo&quot; , &quot;Nootka&quot; , &quot;Obeah&quot; , &quot;Ohlone&quot; , &quot;Olmec&quot; , &quot;Oomoto&quot; , &quot;Oyotunji&quot; , &quot;Pawnee&quot; , &quot;Pomo&quot; , &quot;Quimbanda&quot; , &quot;Ravidassia Religion&quot; , &quot;Roman Neopaganism&quot; , &quot;Rosicrucian&quot; , &quot;Sakyapa&quot; , &quot;Salish&quot; , &quot;Sant Mat&quot; , &quot;Santería (Lukumi)&quot; , &quot;Satanism&quot; , &quot;Seicho-No-Ie&quot; , &quot;Seiðr – Norse sorcery&quot; , &quot;Selk&apos;nam religion&quot; , &quot;Semitic Neopaganism&quot; , &quot;Seneca&quot; , &quot;Sethians&quot; , &quot;Setianism&quot; , &quot;Shinto&quot; , &quot;Shvetambara&quot; , &quot;Slavic Neopaganism&quot; , &quot;Southeastern Ceremonial Complex&quot; , &quot;Sun Dance&quot; , &quot;Taaraism&quot; , &quot;Taoism&quot; , &quot;Technopaganism&quot; , &quot;Tenrikyo&quot; , &quot;Thelema&quot; , &quot;Theosophy&quot; , &quot;Tsimshian&quot; , &quot;Tumbuka&quot; , &quot;Umbanda[10]&quot; , &quot;Unitarian Universalist&quot; , &quot;Urarina&quot; , &quot;Ute&quot; , &quot;Vodou&quot; , &quot;Wicca&quot; , &quot;Witchcraft&quot; , &quot;Wyandot&quot; , &quot;Yazdânism&quot; , &quot;Yoruba&quot; , &quot;Zoroastrianism&quot; , &quot;Zulu&quot; , &quot;Zuni&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithSikhism</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q24.39. Possible values in survey are [cw]
+{&quot;Amritdhari original and real Sikhs&quot; , &quot;Khalsa&quot; , &quot;Namdhari or Kuka Sikhs&quot; , &quot;Ravidasi&quot; , &quot;Sahajdhari Sikh&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#associatedWithVenue</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This Data Property is to capture associations with venues that are not terms in the REM.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#commencesIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Question 47 asked participants to &quot;Indicate the year of origin/birth of your term.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#correspondedWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 17 which asked participants to &quot;list other individuals with whom your figure corresponded in some significant way.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#createdBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_maker</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#creatorOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_made</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#familyName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_familyName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#flourishesIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The time periods were defined in the survey as follows: {&quot;1800–1810&quot; , &quot;1811–1820&quot; , &quot;1821–1830&quot; , &quot;1831–1840&quot; , &quot;1841–1850&quot; , &quot;1851–1860&quot; , &quot;1861–1870&quot; , &quot;1871–1880&quot; , &quot;1881–1885&quot; , &quot;1886–1890&quot; , &quot;1891–1895&quot; , &quot;1896–1900&quot; , &quot;1901–1905&quot; , &quot;1906–1910&quot; , &quot;1911–1915&quot; , &quot;1916–1920&quot; , &quot;1921–1925&quot; , &quot;1926–1930&quot; , &quot;1931–1935&quot; , &quot;1936–1940&quot; , &quot;1941–1945&quot; , &quot;1946–1950&quot; , &quot;1951–1955&quot; , &quot;1956–1960&quot; , &quot;1961–1965&quot; , &quot;1966–1970&quot; , &quot;1971–1975&quot; , &quot;1976–1980&quot; , &quot;1981–1985&quot; , &quot;1986–1990&quot; , &quot;1991–1995&quot; , &quot;1996–2001&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#flourishesIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 49 in the survey which asked: &quot;Indicate all the time blocks during which your term flourished as an element of modernism.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#forgedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property is associated with question 25: &quot;How long after its initial appearance was your artifact forged, pirated, faked, or improperly attributed?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#forgedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Values in the survey included: {&quot;More than twenty years after&quot; , &quot;Same year&quot; , &quot;Within fifteen years&quot; , &quot;Within five to ten year&quot; , &quot;Within ten to fifteen years&quot; , &quot;Within twenty years&quot; , &quot;Within two to five years&quot; , &quot;Within two years&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#foundedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 9 in the survey: &quot;Who founded and/or led your group or movement, if it had a founder(s) or leader(s) (multiple answers are acceptable)?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#givenName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_givenName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hadIntimateRelationshipWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This refers to intimate realtionships of various kinds, incl. emotional and sexual</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAlias</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 41: &quot;List any aliases, alternative titles, nicknames, or other monikers by which your term was known. Do not include translations from original titles or names of works.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAlternativeTitle</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Added to link with Dublin Core (DCMI Metadata Terms) [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAlternativeTitle</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/alternative</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasBirthdate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Ours should have mm/dd/yyyy. FOAF has just mm/dd.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasBirthdate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_birthday</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasEthnicity</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey allows for {&quot;Abazins&quot; , &quot;Abkhaz&quot; , &quot;Acadian&quot; , &quot;Acehnese&quot; , &quot;Adyghe&quot; , &quot;African&quot; , &quot;AfricanDescendedPlusOther&quot; , &quot;Afrikaans&quot; , &quot;Ahom&quot; , &quot;Ajam&quot; , &quot;Akan&quot; , &quot;Albanian&quot; , &quot;Algonquian&quot; , &quot;Alsatian&quot; , &quot;Amerindian&quot; , &quot;Amhara&quot; , &quot;Amish&quot; , &quot;Andalusian&quot; , &quot;Anglo-Indian&quot; , &quot;Anglo-Irish&quot; , &quot;Apache&quot; , &quot;Arab&quot; , &quot;Aragonese&quot; , &quot;Arara&quot; , &quot;Arawak&quot; , &quot;Armenian&quot; , &quot;Aromanian&quot; , &quot;AsianDescendedPlusOther&quot; , &quot;Assamese&quot; , &quot;AssyrianOrChaldeanorSyriac&quot; , &quot;Asturian&quot; , &quot;Athabaskan&quot; , &quot;Austrian&quot; , &quot;Avar&quot; , &quot;Azerbaijani&quot; , &quot;Azeris&quot; , &quot;Bahnar&quot; , &quot;Bahranis&quot; , &quot;Balinese&quot; , &quot;Balkars&quot; , &quot;Baloch&quot; , &quot;Banjar&quot; , &quot;Barbadan&quot; , &quot;Basque&quot; , &quot;Batak&quot; , &quot;Batsbi&quot; , &quot;Beary&quot; , &quot;Bedouin&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhil&quot; , &quot;Bihari&quot; , &quot;Blackfoot&quot; , &quot;Bolivian&quot; , &quot;Bonda&quot; , &quot;Bosniak&quot; , &quot;BrahuiPeople&quot; , &quot;Breton&quot; , &quot;Bugis&quot; , &quot;Bulgarian&quot; , &quot;Burgher&quot; , &quot;Buryat&quot; , &quot;Castillan&quot; , &quot;Catalan&quot; , &quot;Celtic&quot; , &quot;Chakma&quot; , &quot;Cham&quot; , &quot;Chechen&quot; , &quot;Chepang&quot; , &quot;Cherke&quot; , &quot;Cherkess&quot; , &quot;Cherokee&quot; , &quot;Cheyenne&quot; , &quot;Chickasaw&quot; , &quot;Chinese&quot; , &quot;Chippewa&quot; , &quot;Chitrali&quot; , &quot;Choctaw&quot; , &quot;Chut&quot; , &quot;Comanche&quot; , &quot;Copt&quot; , &quot;Cornish&quot; , &quot;Corsican&quot; , &quot;Cossak&quot; , &quot;Cree&quot; , &quot;Creek&quot; , &quot;Creole&quot; , &quot;Croat&quot; , &quot;Crow&quot; , &quot;Cuban&quot; , &quot;Czech&quot; , &quot;DacoRomantian&quot; , &quot;Danis&quot; , &quot;Dargin&quot; , &quot;Dayak&quot; , &quot;Delaware&quot; , &quot;Dene&quot; , &quot;Dhivehi&quot; , &quot;Dolgan&quot; , &quot;DongriaKondha&quot; , &quot;Dravidian&quot; , &quot;Druze&quot; , &quot;Egyptian&quot; , &quot;English&quot; , &quot;Estonian&quot; , &quot;Eurasian&quot; , &quot;Evenk&quot; , &quot;Filipino&quot; , &quot;Finnish&quot; , &quot;Flemish&quot; , &quot;French&quot; , &quot;Frisian&quot; , &quot;Friulian&quot; , &quot;Fula&quot; , &quot;Gaelic&quot; , &quot;Galician&quot; , &quot;Garifuna&quot; , &quot;Georgian&quot; , &quot;German&quot; , &quot;Gibraltaran&quot; , &quot;Gilaki&quot; , &quot;Gondi&quot; , &quot;Gotlander&quot; , &quot;Greek&quot; , &quot;Guatemalan&quot; , &quot;Gujarati&quot; , &quot;Gurung&quot; , &quot;Haida&quot; , &quot;Han&quot; , &quot;Haole&quot; , &quot;Hausa&quot; , &quot;Hawaiian&quot; , &quot;Hazara&quot; , &quot;Hindkis&quot; , &quot;Hindkowan&quot; , &quot;Hispanic&quot; , &quot;Honduran&quot; , &quot;Hulu&quot; , &quot;Hungarian&quot; , &quot;Icelandic&quot; , &quot;Igbo&quot; , &quot;Ijaw&quot; , &quot;IndoAmerican&quot; , &quot;IndoDescendedPlusOther&quot; , &quot;Inguish&quot; , &quot;Iraqi&quot; , &quot;Irish&quot; , &quot;IrishAmerican&quot; , &quot;Iroquois&quot; , &quot;Israeli&quot; , &quot;IstroRomanian&quot; , &quot;Italian&quot; , &quot;ItalianAmerican&quot; , &quot;Izhorian&quot; , &quot;Jamaican&quot; , &quot;Japanese&quot; , &quot;Jarai&quot; , &quot;Javanese&quot; , &quot;Jewish&quot; , &quot;Julaha&quot; , &quot;Kabard&quot; , &quot;Kabardin&quot; , &quot;Kadai&quot; , &quot;Kadazan&quot; , &quot;Kalmyk&quot; , &quot;KamSui&quot; , &quot;Kannadigas&quot; , &quot;Karachays&quot; , &quot;KarbiOrMikir&quot; , &quot;Kashmiri&quot; , &quot;Kashub&quot; , &quot;Katuic&quot; , &quot;Kazakh&quot; , &quot;Khasi&quot; , &quot;Khmer&quot; , &quot;Khmu&quot; , &quot;Khonds&quot; , &quot;Khowa&quot; , &quot;Kiowa&quot; , &quot;KiratPeople&quot; , &quot;Kodava&quot; , &quot;Komi&quot; , &quot;Kongo&quot; , &quot;Kongsat&quot; , &quot;Konkani&quot; , &quot;Korean&quot; , &quot;Kumyks&quot; , &quot;Kurds&quot; , &quot;KurukhOraon&quot; , &quot;Kyrgy&quot; , &quot;Ladin&quot; , &quot;Lak&quot; , &quot;Lao&quot; , &quot;LatinoOrLatina&quot; , &quot;Latvian&quot; , &quot;Laz&quot; , &quot;Lebanese&quot; , &quot;LepchaPeople&quot; , &quot;Lezgin&quot; , &quot;Lithuanian&quot; , &quot;Livonian&quot; , &quot;Lorrainer&quot; , &quot;Lu&quot; , &quot;Lumbee&quot; , &quot;Lur&quot; , &quot;Luxembourger&quot; , &quot;Macedonian&quot; , &quot;Madan&quot; , &quot;Madinka&quot; , &quot;MagarPeople&quot; , &quot;Malay&quot; , &quot;Malayalis&quot; , &quot;Maltese&quot; , &quot;MaltoPeople&quot; , &quot;Manchu&quot; , &quot;ManipuriOrMeithei&quot; , &quot;Manx&quot; , &quot;Marabou&quot; , &quot;Marathi&quot; , &quot;Mari&quot; , &quot;Maronite&quot; , &quot;Maroon&quot; , &quot;Martiniquan&quot; , &quot;Mazandarani&quot; , &quot;MeglenoRomanian&quot; , &quot;Memba&quot; , &quot;Mers&quot; , &quot;MeskhetianTurks&quot; , &quot;Mestizo&quot; , &quot;Metis&quot; , &quot;MexicanAmerican&quot; , &quot;Mi&apos;kmaq&quot; , &quot;Minangkabau&quot; , &quot;Moldovan&quot; , &quot;Mon&quot; , &quot;Mongol&quot; , &quot;Montenegrin&quot; , &quot;MoravianVlach&quot; , &quot;Mordvin&quot; , &quot;Morlach&quot; , &quot;Mughal&quot; , &quot;Muhajir&quot; , &quot;Mulatto&quot; , &quot;Munda&quot; , &quot;Muong&quot; , &quot;Murut&quot; , &quot;NagaPeople&quot; , &quot;Nai&quot; , &quot;Navajo&quot; , &quot;Neapolitan&quot; , &quot;Netherlandic&quot; , &quot;NewarPeople&quot; , &quot;Nicobarese&quot; , &quot;Nishi&quot; , &quot;Nogais&quot; , &quot;NorthernIrish&quot; , &quot;Norwegian&quot; , &quot;Nung&quot; , &quot;Nuristani&quot; , &quot;Nyaw&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Ossetian&quot; , &quot;Pahari&quot; , &quot;Pakistani&quot; , &quot;Palestinian&quot; , &quot;Parsi&quot; , &quot;Pashtun&quot; , &quot;Pear&quot; , &quot;Persian&quot; , &quot;Peruvian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Potawatomi&quot; , &quot;Pueblo&quot; , &quot;PuertoRican&quot; , &quot;Punjabi&quot; , &quot;Qara&quot; , &quot;Qashqai&quot; , &quot;QuebecoisOrQuebecoise&quot; , &quot;Rajasthani&quot; , &quot;Roma&quot; , &quot;Romand&quot; , &quot;Romani&quot; , &quot;Romanian&quot; , &quot;Romansh&quot; , &quot;Russian&quot; , &quot;Rutul&quot; , &quot;Saek&quot; , &quot;Salish&quot; , &quot;Salvadoran&quot; , &quot;Sami&quot; , &quot;Samoyed&quot; , &quot;Sardinian&quot; , &quot;Saurashtra&quot; , &quot;Schleswiger&quot; , &quot;Scottish&quot; , &quot;Seminole&quot; , &quot;Seraiki&quot; , &quot;Serb&quot; , &quot;Shabak&quot; , &quot;Shan&quot; , &quot;Sheedis&quot; , &quot;Shina&quot; , &quot;Shona&quot; , &quot;Shoshone&quot; , &quot;Sicilian&quot; , &quot;Siddi&quot; , &quot;Silesian&quot; , &quot;Sindhi&quot; , &quot;Sinhalese&quot; , &quot;Siouan&quot; , &quot;Slavic&quot; , &quot;Slovak&quot; , &quot;Slovene&quot; , &quot;Somali&quot; , &quot;Sorb&quot; , &quot;Spanish&quot; , &quot;Sudanese&quot; , &quot;Swedish&quot; , &quot;Swiss&quot; , &quot;Syrian&quot; , &quot;Tabasaran&quot; , &quot;Tajik&quot; , &quot;Talysh&quot; , &quot;Tamang&quot; , &quot;Tamil&quot; , &quot;Tat&quot; , &quot;Tatar&quot; , &quot;TeluguPeople&quot; , &quot;Thai&quot; , &quot;Thakali&quot; , &quot;Thami&quot; , &quot;Tharu&quot; , &quot;Tho&quot; , &quot;Tibetan&quot; , &quot;Tlingit&quot; , &quot;Tobogan&quot; , &quot;TodaPeople&quot; , &quot;Trinidadian&quot; , &quot;Tripuris&quot; , &quot;Trukhmens&quot; , &quot;Tsakhur&quot; , &quot;Tuluvas&quot; , &quot;Tungusic&quot; , &quot;Turkmen&quot; , &quot;Tuvan&quot; , &quot;Tyrolean&quot; , &quot;Udmurt&quot; , &quot;Ukrainian&quot; , &quot;Ute&quot; , &quot;Uyghur&quot; , &quot;Uzbeki&quot; , &quot;Venetian&quot; , &quot;Vep&quot; , &quot;Vietnamese&quot; , &quot;Walloon&quot; , &quot;Welsh&quot; , &quot;WhiteThai&quot; , &quot;Yakut&quot; , &quot;Yamato&quot; , &quot;Yoruba&quot; , &quot;Yukaghir&quot; , &quot;Zambo&quot; , &quot;Zaza&quot; , &quot;Zulu&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasForm</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This term corresponds with survey question 23: &quot;If your term is an artifact, whether material or ephemeral, indicate its nature (select all that apply).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasGender</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property corresponds with question 14 on the survey: &quot;Indicate your figure&apos;s gender (select all that apply).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasGender</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Values in the survey included {&quot;androgynous&quot; , &quot;man&quot; , &quot;none&quot; , &quot;other&quot; , &quot;trans&quot; , &quot;unknown&quot; , &quot;woman&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasGender</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_gender</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Refers to survey Q31; includes speaking in, circulating in, or working in, referring to a person or an artifact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey allows for: {&quot;Afrikaans&quot; , &quot;Akan&quot; , &quot;Amharic&quot; , &quot;Assamese&quot; , &quot;Azerbaijani&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhojpuri&quot; , &quot;Bulgarian&quot; , &quot;Burmese&quot; , &quot;Cebuano&quot; , &quot;Chhattisgarh&quot; , &quot;Chitagonian&quot; , &quot;Czech&quot; , &quot;Dekhni&quot; , &quot;Dutch&quot; , &quot;EgyptianArabic&quot; , &quot;English&quot; , &quot;French&quot; , &quot;Fula&quot; , &quot;Fulfulde&quot; , &quot;GanChinese&quot; , &quot;German&quot; , &quot;Greek&quot; , &quot;Gugarati&quot; , &quot;GulfArabic&quot; , &quot;HaUsa&quot; , &quot;HaitianCreole&quot; , &quot;HakkaChinese&quot; , &quot;Haryanvi&quot; , &quot;Hebrew&quot; , &quot;Hiligaynon&quot; , &quot;Hindi&quot; , &quot;Hungarian&quot; , &quot;Igbo&quot; , &quot;Ilokano&quot; , &quot;Italian&quot; , &quot;Japanese&quot; , &quot;Javanese&quot; , &quot;JinYuChinese&quot; , &quot;Kannada&quot; , &quot;Kazakh&quot; , &quot;Khme&quot; , &quot;Korean&quot; , &quot;Kurdish&quot; , &quot;LevantineArabic&quot; , &quot;Madurese&quot; , &quot;Magadhi&quot; , &quot;MaghrebiArabic&quot; , &quot;Malagasy&quot; , &quot;MalayOrIndonesian&quot; , &quot;Malayalam&quot; , &quot;MandarinChinese&quot; , &quot;Marathi&quot; , &quot;Marwari&quot; , &quot;MesopotamianArabic&quot; , &quot;MinBeiChinese&quot; , &quot;MinNanChinese&quot; , &quot;NajdiArabic&quot; , &quot;Nepali&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Panjabi&quot; , &quot;Pashto&quot; , &quot;Persian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Quechua&quot; , &quot;Romanian&quot; , &quot;Russian&quot; , &quot;Saraiki&quot; , &quot;Sa’ideArabic&quot; , &quot;Serbo-croatian&quot; , &quot;Shinhala&quot; , &quot;Shona&quot; , &quot;Sindhi&quot; , &quot;Somali&quot; , &quot;Spanish&quot; , &quot;SudaneseArabic&quot; , &quot;Sundanese&quot; , &quot;Swedish&quot; , &quot;Tagalog&quot; , &quot;Tamil&quot; , &quot;Tatar&quot; , &quot;Telugu&quot; , &quot;Thai&quot; , &quot;Turkish&quot; , &quot;Urdu&quot; , &quot;Uyghur&quot; , &quot;Uzbek&quot; , &quot;Vietnamese&quot; , &quot;WuChinese&quot; , &quot;XiangChinese&quot; , &quot;Yiddish&quot; , &quot;Yoruba&quot; , &quot;YueChinese&quot; , &quot;ZhuangChinese&quot; , &quot;Zulu&quot; , &quot;kinyarwanda&quot; , &quot;Ukrainian&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasMember</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property reflects question 10 in the survey: &quot;Indicate the figures most commonly associated with your group or movement, or who were members of it.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasMember</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasNature</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects question 21 on survey: &quot;What was the primary nature of your event?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasNature</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey proposes the following values: {&quot;Aesthetic&quot; , &quot;Athletic&quot; , &quot;Broadcast/mass media&quot; , &quot;Ethical&quot; , &quot;Hoax&quot; , &quot;Other&quot; , &quot;Performance/installation&quot; , &quot;Political&quot; , &quot;Protest/strike&quot; , &quot;Provocation&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasScope</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects question 8 on survey: &quot;Was your group or movement international or parochial?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasScope</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey has options &quot;International,&quot; &quot;Other,&quot; and &quot;Parochial.&quot; If &quot;Other&quot; the survey asks participants to specify.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSex</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Options on the survey include: {&quot;asexual&quot; , &quot;female&quot; , &quot;hermaphrodite&quot; , &quot;male&quot; , &quot;other&quot; , &quot;transsexual&quot; , &quot;unknown&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSex</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects question 15 on survey: &quot;Indicate your figure&apos;s sex (select all that apply).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSexuality</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects question 16 on survey: &quot;Indicate your figure&apos;s sexuality (select all that apply).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSexuality</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey includes options: {&quot;asexual&quot; , &quot;bisexual&quot; , &quot;heterosexual&quot; , &quot;homosexualOrInvert&quot; , &quot;none&quot; , &quot;other&quot; , &quot;unknown&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTitle</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Refers to a title broadly conceived as per question 1: &quot;Please indicate the title of the entry you are providing information about (e.g., Picasso, or Moviemento, or Kabuki).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property emerged from question 30 which asked, &quot;Is your term an &quot;Idea,&quot; &quot;Method,&quot; &quot;Style,&quot; &quot;Technique,&quot; &quot;None of the above,&quot; or &quot;All of the above.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVariant</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Alternative or precolonial place names, e.g., Beijing/Peking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasVariant</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In question 61, participants were asked, &quot;List all cities with which your term is prominently associated. Please use standard English spelling where there is variation. Where a city&apos;s name has changed over time, please list the variants in historical order (e.g., Peking/Beijing or Bombay/Mumbai).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#includesParatext</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Options for participants to choose included: {&quot;audio&quot; , &quot;drawing&quot; , &quot;image&quot; , &quot;video&quot; , &quot;other&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#includesParatext</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Question 46 in the survey asked, &quot;Indicate whether you have included paratextual material with your entry (select all that apply).&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#includesParatext</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This is unique in that it&apos;s metadata. Ok as is?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#locatedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This captures the idea of people living in a city as well as objects being located in a certain place. [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#memberOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property reflects question 10 in the survey: &quot;Indicate the figures most commonly associated with your group or movement, or who were members of it.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#memberOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#mescaline</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Mescaline is a typed-in answer for Aldous Huxley&apos;s metadata for Q43. The question asks for a method, style, or technique, but since mescaline isn&apos;t categorized, I&apos;ve put it as a member of Method.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#metWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Question 18 asks participants to &quot;List other figures with whom your figure met regularly and/or significantly.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#originatedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The property is associated with question 50, which asked participants: &quot;In what country was your term originated/born?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#originatedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/created</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#originatedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/issued ?? Refers to formal creation date, e.g., pub date. [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#originatedInCountry</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q57</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#seeAlso</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property is to reflect question 42: &quot;List other terms to which you would direct someone interested in learning about your term.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#terminatesIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Question 48 asked participants to &quot;Indicate the year of termination/death of your term.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#translated</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects question 13 in survey: &quot;If your term is an artifact, has it been translated?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#translated</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey asks participants to check of one of the following ranges: {&quot;More than twenty years after&quot; , &quot;Same year&quot; , &quot;Within fifteen years&quot; , &quot;Within five to ten year&quot; , &quot;Within ten to fifteen years&quot; , &quot;Within twenty years&quot; , &quot;Within two to five years&quot; , &quot;Within two years&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#translatedFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Possible values in survey are [cw]
+{&quot;Afrikaans&quot; , &quot;Akan&quot; , &quot;Amharic&quot; , &quot;Assamese&quot; , &quot;Azerbaijani&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhojpuri&quot; , &quot;Bulgarian&quot; , &quot;Burmese&quot; , &quot;Cebuano&quot; , &quot;Chhattisgarh&quot; , &quot;Chitagonian&quot; , &quot;Czech&quot; , &quot;Dekhni&quot; , &quot;Dutch&quot; , &quot;EgyptianArabic&quot; , &quot;English&quot; , &quot;French&quot; , &quot;Fula&quot; , &quot;Fulfulde&quot; , &quot;GanChinese&quot; , &quot;German&quot; , &quot;Greek&quot; , &quot;Gugarati&quot; , &quot;GulfArabic&quot; , &quot;HaUsa&quot; , &quot;HaitianCreole&quot; , &quot;HakkaChinese&quot; , &quot;Haryanvi&quot; , &quot;Hebrew&quot; , &quot;Hiligaynon&quot; , &quot;Hindi&quot; , &quot;Hungarian&quot; , &quot;Igbo&quot; , &quot;Ilokano&quot; , &quot;Italian&quot; , &quot;Japanese&quot; , &quot;Javanese&quot; , &quot;JinYuChinese&quot; , &quot;Kannada&quot; , &quot;Kazakh&quot; , &quot;Khme&quot; , &quot;Korean&quot; , &quot;Kurdish&quot; , &quot;LevantineArabic&quot; , &quot;Madurese&quot; , &quot;Magadhi&quot; , &quot;MaghrebiArabic&quot; , &quot;Malagasy&quot; , &quot;MalayOrIndonesian&quot; , &quot;Malayalam&quot; , &quot;MandarinChinese&quot; , &quot;Marathi&quot; , &quot;Marwari&quot; , &quot;MesopotamianArabic&quot; , &quot;MinBeiChinese&quot; , &quot;MinNanChinese&quot; , &quot;NajdiArabic&quot; , &quot;Nepali&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Panjabi&quot; , &quot;Pashto&quot; , &quot;Persian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Quechua&quot; , &quot;Romanian&quot; , &quot;Russian&quot; , &quot;Saraiki&quot; , &quot;Sa’ideArabic&quot; , &quot;Serbo-croatian&quot; , &quot;Shinhala&quot; , &quot;Shona&quot; , &quot;Sindhi&quot; , &quot;Somali&quot; , &quot;Spanish&quot; , &quot;SudaneseArabic&quot; , &quot;Sundanese&quot; , &quot;Swedish&quot; , &quot;Tagalog&quot; , &quot;Tamil&quot; , &quot;Tatar&quot; , &quot;Telugu&quot; , &quot;Thai&quot; , &quot;Turkish&quot; , &quot;Urdu&quot; , &quot;Uyghur&quot; , &quot;Uzbek&quot; , &quot;Vietnamese&quot; , &quot;WuChinese&quot; , &quot;XiangChinese&quot; , &quot;Yiddish&quot; , &quot;Yoruba&quot; , &quot;YueChinese&quot; , &quot;ZhuangChinese&quot; , &quot;Zulu&quot; , &quot;kinyarwanda&quot; , &quot;krainian&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#translatedInto</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Possible values in survey are: [cw]
+{&quot;Afrikaans&quot; , &quot;Akan&quot; , &quot;Amharic&quot; , &quot;Assamese&quot; , &quot;Azerbaijani&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhojpuri&quot; , &quot;Bulgarian&quot; , &quot;Burmese&quot; , &quot;Cebuano&quot; , &quot;Chhattisgarh&quot; , &quot;Chitagonian&quot; , &quot;Czech&quot; , &quot;Dekhni&quot; , &quot;Dutch&quot; , &quot;EgyptianArabic&quot; , &quot;English&quot; , &quot;French&quot; , &quot;Fula&quot; , &quot;Fulfulde&quot; , &quot;GanChinese&quot; , &quot;German&quot; , &quot;Greek&quot; , &quot;Gugarati&quot; , &quot;GulfArabic&quot; , &quot;HaUsa&quot; , &quot;HaitianCreole&quot; , &quot;HakkaChinese&quot; , &quot;Haryanvi&quot; , &quot;Hebrew&quot; , &quot;Hiligaynon&quot; , &quot;Hindi&quot; , &quot;Hungarian&quot; , &quot;Igbo&quot; , &quot;Ilokano&quot; , &quot;Italian&quot; , &quot;Japanese&quot; , &quot;Javanese&quot; , &quot;JinYuChinese&quot; , &quot;Kannada&quot; , &quot;Kazakh&quot; , &quot;Khme&quot; , &quot;Korean&quot; , &quot;Kurdish&quot; , &quot;LevantineArabic&quot; , &quot;Madurese&quot; , &quot;Magadhi&quot; , &quot;MaghrebiArabic&quot; , &quot;Malagasy&quot; , &quot;MalayOrIndonesian&quot; , &quot;Malayalam&quot; , &quot;MandarinChinese&quot; , &quot;Marathi&quot; , &quot;Marwari&quot; , &quot;MesopotamianArabic&quot; , &quot;MinBeiChinese&quot; , &quot;MinNanChinese&quot; , &quot;NajdiArabic&quot; , &quot;Nepali&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Panjabi&quot; , &quot;Pashto&quot; , &quot;Persian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Quechua&quot; , &quot;Romanian&quot; , &quot;Russian&quot; , &quot;Saraiki&quot; , &quot;Sa’ideArabic&quot; , &quot;Serbo-croatian&quot; , &quot;Shinhala&quot; , &quot;Shona&quot; , &quot;Sindhi&quot; , &quot;Somali&quot; , &quot;Spanish&quot; , &quot;SudaneseArabic&quot; , &quot;Sundanese&quot; , &quot;Swedish&quot; , &quot;Tagalog&quot; , &quot;Tamil&quot; , &quot;Tatar&quot; , &quot;Telugu&quot; , &quot;Thai&quot; , &quot;Turkish&quot; , &quot;Ukrainian&quot; , &quot;Urdu&quot; , &quot;Uyghur&quot; , &quot;Uzbek&quot; , &quot;Vietnamese&quot; , &quot;WuChinese&quot; , &quot;XiangChinese&quot; , &quot;Yiddish&quot; , &quot;Yoruba&quot; , &quot;YueChinese&quot; , &quot;ZhuangChinese&quot; , &quot;Zulu&quot; , &quot;kinyarwanda&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects Q31 in survey: &quot;Which language(s) did your term speak, circulate in, or work in?&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q31</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey lists the following languages: {&quot;Afrikaans&quot; , &quot;Akan&quot; , &quot;Amharic&quot; , &quot;Assamese&quot; , &quot;Azerbaijani&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhojpuri&quot; , &quot;Bulgarian&quot; , &quot;Burmese&quot; , &quot;Cebuano&quot; , &quot;Chhattisgarh&quot; , &quot;Chitagonian&quot; , &quot;Czech&quot; , &quot;Dekhni&quot; , &quot;Dutch&quot; , &quot;EgyptianArabic&quot; , &quot;English&quot; , &quot;French&quot; , &quot;Fula&quot; , &quot;Fulfulde&quot; , &quot;GanChinese&quot; , &quot;German&quot; , &quot;Greek&quot; , &quot;Gugarati&quot; , &quot;GulfArabic&quot; , &quot;HaUsa&quot; , &quot;HaitianCreole&quot; , &quot;HakkaChinese&quot; , &quot;Haryanvi&quot; , &quot;Hebrew&quot; , &quot;Hiligaynon&quot; , &quot;Hindi&quot; , &quot;Hungarian&quot; , &quot;Igbo&quot; , &quot;Ilokano&quot; , &quot;Italian&quot; , &quot;Japanese&quot; , &quot;Javanese&quot; , &quot;JinYuChinese&quot; , &quot;Kannada&quot; , &quot;Kazakh&quot; , &quot;Khme&quot; , &quot;Korean&quot; , &quot;Kurdish&quot; , &quot;LevantineArabic&quot; , &quot;Madurese&quot; , &quot;Magadhi&quot; , &quot;MaghrebiArabic&quot; , &quot;Malagasy&quot; , &quot;MalayOrIndonesian&quot; , &quot;Malayalam&quot; , &quot;MandarinChinese&quot; , &quot;Marathi&quot; , &quot;Marwari&quot; , &quot;MesopotamianArabic&quot; , &quot;MinBeiChinese&quot; , &quot;MinNanChinese&quot; , &quot;NajdiArabic&quot; , &quot;Nepali&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Panjabi&quot; , &quot;Pashto&quot; , &quot;Persian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Quechua&quot; , &quot;Romanian&quot; , &quot;Russian&quot; , &quot;Saraiki&quot; , &quot;Sa’ideArabic&quot; , &quot;Serbo-croatian&quot; , &quot;Shinhala&quot; , &quot;Shona&quot; , &quot;Sindhi&quot; , &quot;Somali&quot; , &quot;Spanish&quot; , &quot;SudaneseArabic&quot; , &quot;Sundanese&quot; , &quot;Swedish&quot; , &quot;Tagalog&quot; , &quot;Tamil&quot; , &quot;Tatar&quot; , &quot;Telugu&quot; , &quot;Thai&quot; , &quot;Turkish&quot; , &quot;Urdu&quot; , &quot;Uyghur&quot; , &quot;Uzbek&quot; , &quot;Vietnamese&quot; , &quot;WuChinese&quot; , &quot;XiangChinese&quot; , &quot;Yiddish&quot; , &quot;Yoruba&quot; , &quot;YueChinese&quot; , &quot;ZhuangChinese&quot; , &quot;Zulu&quot; , &quot;kinyarwanda&quot; , &quot;Ukrainian&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesPrimaryLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects Q32 on survey: &quot;Indicate the language in which your term was created, primarily circulated, or used.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesPrimaryLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q32</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesPrimaryLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The survey lists the following languages: {&quot;Afrikaans&quot; , &quot;Akan&quot; , &quot;Amharic&quot; , &quot;Assamese&quot; , &quot;Azerbaijani&quot; , &quot;Belarusian&quot; , &quot;Bengali&quot; , &quot;Berber&quot; , &quot;Bhojpuri&quot; , &quot;Bulgarian&quot; , &quot;Burmese&quot; , &quot;Cebuano&quot; , &quot;Chhattisgarh&quot; , &quot;Chitagonian&quot; , &quot;Czech&quot; , &quot;Dekhni&quot; , &quot;Dutch&quot; , &quot;EgyptianArabic&quot; , &quot;English&quot; , &quot;French&quot; , &quot;Fula&quot; , &quot;Fulfulde&quot; , &quot;GanChinese&quot; , &quot;German&quot; , &quot;Greek&quot; , &quot;Gugarati&quot; , &quot;GulfArabic&quot; , &quot;HaUsa&quot; , &quot;HaitianCreole&quot; , &quot;HakkaChinese&quot; , &quot;Haryanvi&quot; , &quot;Hebrew&quot; , &quot;Hiligaynon&quot; , &quot;Hindi&quot; , &quot;Hungarian&quot; , &quot;Igbo&quot; , &quot;Ilokano&quot; , &quot;Italian&quot; , &quot;Japanese&quot; , &quot;Javanese&quot; , &quot;JinYuChinese&quot; , &quot;Kannada&quot; , &quot;Kazakh&quot; , &quot;Khme&quot; , &quot;Korean&quot; , &quot;Kurdish&quot; , &quot;LevantineArabic&quot; , &quot;Madurese&quot; , &quot;Magadhi&quot; , &quot;MaghrebiArabic&quot; , &quot;Malagasy&quot; , &quot;MalayOrIndonesian&quot; , &quot;Malayalam&quot; , &quot;MandarinChinese&quot; , &quot;Marathi&quot; , &quot;Marwari&quot; , &quot;MesopotamianArabic&quot; , &quot;MinBeiChinese&quot; , &quot;MinNanChinese&quot; , &quot;NajdiArabic&quot; , &quot;Nepali&quot; , &quot;Oriya&quot; , &quot;Oromo&quot; , &quot;Panjabi&quot; , &quot;Pashto&quot; , &quot;Persian&quot; , &quot;Polish&quot; , &quot;Portuguese&quot; , &quot;Quechua&quot; , &quot;Romanian&quot; , &quot;Russian&quot; , &quot;Saraiki&quot; , &quot;Sa’ideArabic&quot; , &quot;Serbo-croatian&quot; , &quot;Shinhala&quot; , &quot;Shona&quot; , &quot;Sindhi&quot; , &quot;Somali&quot; , &quot;Spanish&quot; , &quot;SudaneseArabic&quot; , &quot;Sundanese&quot; , &quot;Swedish&quot; , &quot;Tagalog&quot; , &quot;Tamil&quot; , &quot;Tatar&quot; , &quot;Telugu&quot; , &quot;Thai&quot; , &quot;Turkish&quot; , &quot;Urdu&quot; , &quot;Uyghur&quot; , &quot;Uzbek&quot; , &quot;Vietnamese&quot; , &quot;WuChinese&quot; , &quot;XiangChinese&quot; , &quot;Yiddish&quot; , &quot;Yoruba&quot; , &quot;YueChinese&quot; , &quot;ZhuangChinese&quot; , &quot;Zulu&quot; , &quot;kinyarwanda&quot; , &quot;Ukrainian&quot;}</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#usesPrimaryLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/language ?? [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Publisher</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/publisher ?? [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Writer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Synonym = author</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/publishedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Refers to a production that is published by a certain publisher, not a person whose work is published by a certain publisher. [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/publishedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This property was not included in the survey but was added in to reflect the importance of publishing in the production of culture.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">sameAs http://purl.org/dc/terms/creator    [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Agent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">May alter in next version to reflect difference between physical individual and the roles they play in cultural production.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://xmlns.com/foaf/spec/#term_person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/influenced</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">We made the influence transitive because it seemed more interesting, but readers need to be skeptical. Is the influence really there? This assumes that any influence on one agent is thus influential on another. [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/influencedByDifferentKind</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q33.54 and 35.56 [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/influencedBySameKind</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q32.53 and 34.55 [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/influencedDifferentKind</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q33.54 and 35.56 [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/influencedSameKind</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Survey Q32.53 and 34.55 [cw]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Actor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This is an agent that appeared in some kind of performance, including stage, screen, or radio, etc. Not to be confused with 'Agent.'</Literal>
+    </AnnotationAssertion>
+     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Advertisement</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An advertisement can manifest through radio, print, performance, and other media. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Anthropology</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">"Anthropology" refers to printed nonfiction works interested in the field of anthropology. </Literal>
+    </AnnotationAssertion>
+     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Aphorism</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A subclass of nonfiction literature.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

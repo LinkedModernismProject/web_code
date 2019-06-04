@@ -1,0 +1,184 @@
+This is Python version 3.0 final
+================================
+
+For notes specific to this release, see RELNOTES in this directory.
+Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008
+Python Software Foundation.
+All rights reserved.
+
+Python 3 (a.k.a. "Python 3000" or "Py3k", and released as Python 3.0) is a new
+version of the language, which is incompatible with the 2.x line of releases.
+The language is mostly the same, but many details, especially how built-in
+objects like dictionaries and strings work, have changed considerably, and a
+lot of deprecated features have finally been removed.
+
+
+Documentation
+-------------
+
+Documentation for Python 3.0 is online, updated twice a day:
+
+    http://docs.python.org/dev/3.0/
+
+All documentation is also available online at the Python web site
+(http://docs.python.org/, see below).  It is available online for occasional
+reference, and it can be downloaded in many formats for faster local access.
+The documentation is downloadable in HTML, PostScript, PDF, LaTeX (through
+2.5), and reStructuredText (2.6, 3.0, and going forward) formats; the LaTeX
+and reStructuredText versions are primarily for documentation authors,
+translators, and people with special formatting requirements.
+
+This is a work in progress; please help improve it!
+
+The design documents for Python 3 are also online.  While the reference
+documentation is being updated, the PEPs are often the best source of
+information about new features.  Start by reading PEP 3000:
+
+    http://python.org/dev/peps/pep-3000/
+
+
+What's New
+----------
+
+For an overview of what's new in Python 3.0, see Guido van Rossum's blog at
+artima.com:
+
+    http://www.artima.com/weblogs/index.jsp?blogger=guido
+
+We try to eventually have a comprehensive overview of the changes in the
+"What's New in Python 3.0" document, found at
+
+    http://docs.python.org/dev/3.0/whatsnew/3.0
+
+Please help improve it!
+
+For a more detailed change log, read Misc/NEWS, though this file, too, is
+incomplete, and also doesn't list anything merged in from the 2.6 release.
+
+If you want to install multiple versions of Python see the section below
+entitled "Installing multiple versions".
+
+
+Proposals for enhancement
+-------------------------
+
+If you have a proposal to change Python, you may want to send an email to the
+comp.lang.python or python-ideas mailing lists for initial feedback.  A Python
+Enhancement Proposal (PEP) may be submitted if your idea gains ground.  All
+current PEPs, as well as guidelines for submitting a new PEP, are listed at
+http://www.python.org/dev/peps/.
+
+
+Converting From Python 2.x to 3.0
+---------------------------------
+
+Python 2.6 contains features to help locating and updating code that needs to
+be changed when migrating to Python 3.
+
+A source-to-source translation tool, "2to3", can take care of the
+mundane task of converting large amounts of source code.  It is not a
+complete solution but is complemented by the deprecation warnings in
+2.6.  This tool is currently available via the Subversion sandbox:
+
+    http://svn.python.org/view/sandbox/trunk/2to3/
+
+
+Installing multiple versions
+----------------------------
+
+On Unix and Mac systems if you intend to install multiple versions of Python
+using the same installation prefix (--prefix argument to the configure script)
+you must take care that your primary python executable is not overwritten by
+the installation of a different version.  All files and directories installed
+using "make altinstall" contain the major and minor version and can thus live
+side-by-side.  "make install" also creates ${prefix}/bin/python which refers
+to ${prefix}/bin/pythonX.Y.  If you intend to install multiple versions using
+the same prefix you must decide which version (if any) is your "primary"
+version.  Install that version using "make install".  Install all other
+versions using "make altinstall".
+
+For example, if you want to install Python 2.5, 2.6 and 3.0 with 2.6 being the
+primary version, you would execute "make install" in your 2.6 build directory
+and "make altinstall" in the others.
+
+
+Issue Tracker and Mailing List
+------------------------------
+
+We're soliciting bug reports about all aspects of the language.  Fixes are
+also welcome, preferable in unified diff format.  Please use the issue
+tracker:
+
+    http://bugs.python.org/
+
+If you're not sure whether you're dealing with a bug or a feature, use the
+mailing list:
+
+    python-3000@python.org
+
+To subscribe to the list, use the Mailman form:
+
+    http://mail.python.org/mailman/listinfo/python-3000/
+
+
+Build Instructions
+------------------
+
+On Unix, Linux, BSD, OSX, and Cygwin:
+
+    ./configure
+    make
+    make test
+    sudo make install    # or "make altinstall"
+
+You can pass many options to the configure script; run "./configure
+--help" to find out more.  On OSX and Cygwin, the executable is called
+python.exe; elsewhere it's just python.
+
+On Mac OS X, if you have configured Python with --enable-framework,
+you should use "make frameworkinstall" to do the installation.  Note
+that this installs the Python executable in a place that is not
+normally on your PATH, you may want to set up a symlink in
+/usr/local/bin.
+
+On Windows, see PCbuild/readme.txt.
+
+If you wish, you can create a subdirectory and invoke configure from
+there.  For example:
+
+    mkdir debug
+    cd debug
+    ../configure --with-pydebug
+    make
+    make test
+
+(This will fail if you *also* built at the top-level directory.  You
+should do a "make clean" at the toplevel first.)
+
+
+Copyright and License Information
+---------------------------------
+
+Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008
+Python Software Foundation.
+All rights reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All rights reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All rights reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum.
+All rights reserved.
+
+See the file "LICENSE" for information on the history of this
+software, terms & conditions for usage, and a DISCLAIMER OF ALL
+WARRANTIES.
+
+This Python distribution contains *no* GNU General Public License
+(GPL) code, so it may be used in proprietary projects.  There are
+interfaces to some GNU code but these are entirely optional.
+
+All trademarks referenced herein are property of their respective
+holders.
